@@ -2,21 +2,20 @@ using Infrastructure.Services.CoroutineRunners;
 using Infrastructure.Services.StateMachines;
 using Infrastructure.Services.StateMachines.GameLoopStateMachines.States;
 using Infrastructure.Services.StateMachines.GameStateMachines.States;
-using Infrastructure.Services.StateMachines.StateFactories;
-using Zenject;
+using Infrastructure.Services.ZenjectFactory;
 
 namespace Games
 {
   public class Game
   {
     private readonly IStateMachine<IGameState> _gameStateMachine;
-    private readonly IStateFactory _stateFactory;
+    private readonly IZenjectFactory _stateFactory;
 
     public Game
     (
       IStateMachine<IGameState> gameStateMachine,
       IStateMachine<IGameLoopState> gameLoppGameLoopStateMachine,
-      IStateFactory stateFactory,
+      IZenjectFactory stateFactory,
       ICoroutineRunner coroutineRunner
     )
     {

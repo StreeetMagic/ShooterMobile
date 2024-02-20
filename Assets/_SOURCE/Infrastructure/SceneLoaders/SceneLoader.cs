@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Games;
 using Infrastructure.Services.CoroutineRunners;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,12 +9,10 @@ namespace Infrastructure.SceneLoaders
 {
   public class SceneLoader
   {
-    private readonly string _initialSceneName;
     private readonly ICoroutineRunner _coroutineRunner;
 
-    public SceneLoader(string initialSceneName, ICoroutineRunner coroutineRunner)
+    public SceneLoader( ICoroutineRunner coroutineRunner)
     {
-      _initialSceneName = initialSceneName;
       _coroutineRunner = coroutineRunner;
     }
 
@@ -27,7 +26,7 @@ namespace Infrastructure.SceneLoaders
 
     public void Load(Action<string> onLoaded = null)
     {
-      _coroutineRunner.StartCoroutine(LoadScene(_initialSceneName, onLoaded));
+      _coroutineRunner.StartCoroutine(LoadScene(Constants.Scenes.Initial, onLoaded));
     }
 
     private IEnumerator LoadScene(string nextScene, Action<string> onLoaded)

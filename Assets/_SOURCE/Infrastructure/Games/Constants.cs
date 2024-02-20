@@ -27,6 +27,7 @@ namespace Games
       public class Prefabs
       {
         public const string CoroutineRunner = nameof(CoroutineRunner);
+        public static string LoadingCurtain = nameof(LoadingCurtain);
         public const string Field = nameof(Field);
         public const string Cell = nameof(Cell);
         public const string Block = nameof(Block);

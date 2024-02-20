@@ -1,7 +1,6 @@
 ﻿using Games;
 using Infrastructure.Services.CoroutineRunners;
 using Infrastructure.Services.StateMachines.GameLoopStateMachines.States;
-using Infrastructure.Services.StateMachines.StateFactories;
 using Infrastructure.Services.StaticDataServices;
 using Infrastructure.Services.ZenjectFactory;
 using UnityEngine.SceneManagement;
@@ -14,18 +13,16 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
     private readonly IStateMachine<IGameLoopState> _gameLoopStateMachine;
     private readonly IStateMachine<IGameState> _gameStateMachine;
     private readonly IZenjectFactory _godFactory;
-    private readonly IStateFactory _stateFactory;
     private readonly IStaticDataService _staticDataService;
 
     public BootstrapState(IStateMachine<IGameState> gameStateMachine, IStateMachine<IGameLoopState> gameLoopStateMachine,
-      ICoroutineRunner coroutineRunner, IStaticDataService staticDataService, IZenjectFactory godFactory,
-      IStateFactory stateFactory)
+      ICoroutineRunner coroutineRunner, IStaticDataService staticDataService, IZenjectFactory godFactory
+)
     {
       _gameStateMachine = gameStateMachine;
       _coroutineRunner = coroutineRunner;
       _staticDataService = staticDataService;
       _godFactory = godFactory;
-      _stateFactory = stateFactory;
       _gameLoopStateMachine = gameLoopStateMachine;
     }
 
@@ -48,11 +45,11 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
 
     private void RegisterGameLoopStates()
     {
-      _gameLoopStateMachine.Register(_stateFactory.Create<PlaceWallsState>());
-      _gameLoopStateMachine.Register(_stateFactory.Create<ChooseTowerState>());
-      _gameLoopStateMachine.Register(_stateFactory.Create<EnemyMoveState>());
-      _gameLoopStateMachine.Register(_stateFactory.Create<WinState>());
-      _gameLoopStateMachine.Register(_stateFactory.Create<LoseState>());
+      _gameLoopStateMachine.Register(_godFactory.Create<PlaceWallsState>());
+      _gameLoopStateMachine.Register(_godFactory.Create<ChooseTowerState>());
+      _gameLoopStateMachine.Register(_godFactory.Create<EnemyMoveState>());
+      _gameLoopStateMachine.Register(_godFactory.Create<WinState>());
+      _gameLoopStateMachine.Register(_godFactory.Create<LoseState>());
     }
 
     private void EnterNextState() =>

@@ -1,8 +1,7 @@
-using Games;
+using CodeBase.Logic;
 using Infrastructure.SceneLoaders;
 using Infrastructure.Services.CoroutineRunners;
 using Infrastructure.Services.StateMachines.States;
-using Zenject;
 
 namespace Infrastructure.Services.StateMachines.GameStateMachines.States
 {
@@ -10,26 +9,31 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
   {
     private readonly IStateMachine<IGameState> _gameStateMachine;
     private readonly SceneLoader _sceneLoader;
+    private LoadingCurtain _loadingCurtain;
 
-    public LoadLevelState(IStateMachine<IGameState> gameStateMachine, [Inject(Id = Constants.Ids.InitialSceneName)] string initialSceneName,
-      ICoroutineRunner coroutineRunner)
+    public LoadLevelState(IStateMachine<IGameState> gameStateMachine,
+      ICoroutineRunner coroutineRunner, LoadingCurtain loadingCurtain)
     {
       _gameStateMachine = gameStateMachine;
-      _sceneLoader = new SceneLoader(initialSceneName, coroutineRunner);
+      _loadingCurtain = loadingCurtain;
+      _sceneLoader = new SceneLoader(coroutineRunner);
     }
 
     public void Enter()
     {
+      _loadingCurtain.Show();
       _sceneLoader.Load(OnSceneLoaded);
-    }
-
-    public void Exit()
-    {
     }
 
     public void Enter(string sceneName)
     {
+      _loadingCurtain.Show();
       _sceneLoader.Load(sceneName, OnSceneLoaded);
+    }
+
+    public void Exit()
+    {
+      _loadingCurtain.Hide();
     }
 
     private void OnSceneLoaded(string name)

@@ -1,3 +1,4 @@
+using CodeBase.Logic;
 using Games;
 using Infrastructure.Services.AssetProviders;
 using Infrastructure.Services.CoroutineRunners;
@@ -6,10 +7,8 @@ using Infrastructure.Services.Inputs;
 using Infrastructure.Services.StateMachines;
 using Infrastructure.Services.StateMachines.GameLoopStateMachines.States;
 using Infrastructure.Services.StateMachines.GameStateMachines.States;
-using Infrastructure.Services.StateMachines.StateFactories;
 using Infrastructure.Services.StaticDataServices;
 using Infrastructure.Services.ZenjectFactory;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Infrastructure.DIC
@@ -18,11 +17,8 @@ namespace Infrastructure.DIC
   {
     public override void InstallBindings()
     {
-      BindInitialSceneName();
       BindCoroutineRunner();
       BindZenjectFactory();
-
-      BindStateFactory();
 
       BindGameStateMachine();
       BindGameLoopStateMachine();
@@ -31,6 +27,11 @@ namespace Infrastructure.DIC
       BindAssetProvider();
       BindCurrentDataService();
       BindStaticDataService();
+
+      Container
+        .Bind<LoadingCurtain>()
+        .FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain)
+        .AsSingle();
     }
 
     private void BindZenjectFactory() =>
@@ -64,18 +65,6 @@ namespace Infrastructure.DIC
       Container
         .Bind<IAssetProvider>()
         .To<AssetProvider>()
-        .AsSingle();
-
-    private void BindInitialSceneName() =>
-      Container
-        .Bind<string>()
-        .WithId(Constants.Ids.InitialSceneName)
-        .FromInstance(SceneManager.GetActiveScene().name);
-
-    private void BindStateFactory() =>
-      Container
-        .Bind<IStateFactory>()
-        .To<StateFactory>()
         .AsSingle();
 
     private void BindInput() =>
