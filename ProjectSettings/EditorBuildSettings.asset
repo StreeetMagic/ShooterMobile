@@ -4,5 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_SOURCE/Scenes/GameLoop.unity
+    guid: 9ac78c6b83facc649ab15e311e511438
+  - enabled: 1
+    path: Assets/_SOURCE/Scenes/Initial.unity
+    guid: c850ee8c3b14cc8459e7e186857cf567
+  m_configObjects:
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 770fe78410dc6e14783db6e1e7ef9265, type: 2}
