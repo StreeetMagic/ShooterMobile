@@ -12,12 +12,8 @@ namespace Infrastructure.Services.StateMachines.StateFactories
       _instantiator = instantiator;
     }
 
-    #region IStateFactory Members
-
     public TState Create<TState>() where TState : IExitableState =>
       _instantiator.Instantiate<TState>();
-
-    #endregion
   }
 
   public interface IStateFactory : IService

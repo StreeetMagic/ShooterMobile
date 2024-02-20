@@ -1,12 +1,12 @@
-using Infrastructure.DIC;
+using Infrastructure.Services.ZenjectFactory;
 
 namespace Infrastructure.Services.StaticDataServices
 {
   public class StaticDataService : IStaticDataService
   {
-    private readonly IGodFactory _godFactory;
+    private readonly IZenjectFactory _godFactory;
 
-    public StaticDataService(IGodFactory godFactory)
+    public StaticDataService(IZenjectFactory godFactory)
     {
       _godFactory = godFactory;
     }

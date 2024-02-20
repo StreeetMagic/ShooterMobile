@@ -12,13 +12,13 @@ namespace Games
     private readonly IStateMachine<IGameState> _gameStateMachine;
     private readonly IStateFactory _stateFactory;
 
-    public Game(
+    public Game
+    (
       IStateMachine<IGameState> gameStateMachine,
       IStateMachine<IGameLoopState> gameLoppGameLoopStateMachine,
-      [Inject(Id = Constants.Ids.InitialSceneName)]
-      string initialSceneName,
       IStateFactory stateFactory,
-      ICoroutineRunner coroutineRunner)
+      ICoroutineRunner coroutineRunner
+    )
     {
       _gameStateMachine = gameStateMachine;
       _stateFactory = stateFactory;

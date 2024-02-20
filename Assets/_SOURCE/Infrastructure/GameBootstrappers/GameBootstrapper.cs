@@ -1,5 +1,5 @@
 ﻿using Games;
-using Infrastructure.DIC;
+using Infrastructure.Services.ZenjectFactory;
 using UnityEngine;
 using Zenject;
 
@@ -7,17 +7,17 @@ namespace Infrastructure.GameBootstrappers
 {
   public class GameBootstrapper : MonoBehaviour
   {
-    private IGodFactory _godFactory;
+    private IZenjectFactory _zenjectFactory;
 
     [Inject]
-    public void Construct(IGodFactory godFactory)
+    public void Construct(IZenjectFactory zenjectFactory)
     {
-      _godFactory = godFactory;
+      _zenjectFactory = zenjectFactory;
     }
 
     private void Awake()
     {
-      var game = _godFactory.Create<Game>();
+      var game = _zenjectFactory.Create<Game>();
       game.Start();
     }
   }

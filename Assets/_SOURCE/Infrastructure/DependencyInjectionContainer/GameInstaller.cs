@@ -23,7 +23,6 @@ namespace Infrastructure.DIC
       BindZenjectFactory();
 
       BindStateFactory();
-      BindInfrastructureFactory();
 
       BindGameStateMachine();
       BindGameLoopStateMachine();
@@ -40,8 +39,6 @@ namespace Infrastructure.DIC
         .To<ZenjectFactory>()
         .AsSingle();
 
-
-
     private void BindCoroutineRunner()
     {
       Container
@@ -50,7 +47,7 @@ namespace Infrastructure.DIC
         .FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.CoroutineRunner)
         .AsSingle();
     }
-    
+
     private void BindStaticDataService() =>
       Container
         .Bind<IStaticDataService>()
@@ -67,12 +64,6 @@ namespace Infrastructure.DIC
       Container
         .Bind<IAssetProvider>()
         .To<AssetProvider>()
-        .AsSingle();
-
-    private void BindInfrastructureFactory() =>
-      Container
-        .Bind<IGodFactory>()
-        .To<GodFactory>()
         .AsSingle();
 
     private void BindInitialSceneName() =>

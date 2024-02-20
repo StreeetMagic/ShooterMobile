@@ -1,9 +1,9 @@
 ﻿using Games;
-using Infrastructure.DIC;
 using Infrastructure.Services.CoroutineRunners;
 using Infrastructure.Services.StateMachines.GameLoopStateMachines.States;
 using Infrastructure.Services.StateMachines.StateFactories;
 using Infrastructure.Services.StaticDataServices;
+using Infrastructure.Services.ZenjectFactory;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.StateMachines.GameStateMachines.States
@@ -13,12 +13,12 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
     private readonly ICoroutineRunner _coroutineRunner;
     private readonly IStateMachine<IGameLoopState> _gameLoopStateMachine;
     private readonly IStateMachine<IGameState> _gameStateMachine;
-    private readonly IGodFactory _godFactory;
+    private readonly IZenjectFactory _godFactory;
     private readonly IStateFactory _stateFactory;
     private readonly IStaticDataService _staticDataService;
 
     public BootstrapState(IStateMachine<IGameState> gameStateMachine, IStateMachine<IGameLoopState> gameLoopStateMachine,
-      ICoroutineRunner coroutineRunner, IStaticDataService staticDataService, IGodFactory godFactory,
+      ICoroutineRunner coroutineRunner, IStaticDataService staticDataService, IZenjectFactory godFactory,
       IStateFactory stateFactory)
     {
       _gameStateMachine = gameStateMachine;
@@ -56,8 +56,13 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
     }
 
     private void EnterNextState() =>
-      _gameStateMachine.Enter<LoadLevelState, string>(SceneManager.GetActiveScene().name == Constants.Scenes.Initial
+      _gameStateMachine.Enter<LoadLevelState, string>(SceneName());
+
+    private static string SceneName() =>
+      SceneManager
+        .GetActiveScene()
+        .name == Constants.Scenes.Initial
         ? Constants.Scenes.GameLoop
-        : SceneManager.GetActiveScene().name);
+        : SceneManager.GetActiveScene().name;
   }
 }

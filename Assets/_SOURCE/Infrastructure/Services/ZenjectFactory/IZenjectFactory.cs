@@ -4,6 +4,8 @@ namespace Infrastructure.Services.ZenjectFactory
 {
   public interface IZenjectFactory : IService
   {
+    T Create<T>();
+    
     GameObject Instantiate(GameObject gameObject);
     GameObject Instantiate(GameObject gameObject, Transform parent);
 
