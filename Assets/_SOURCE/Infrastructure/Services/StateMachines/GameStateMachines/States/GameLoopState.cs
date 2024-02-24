@@ -2,6 +2,7 @@ using Infrastructure.Services.CurrentDatas;
 using Infrastructure.Services.StateMachines.GameLoopStateMachines.States;
 using Infrastructure.Services.StaticDataServices;
 using Infrastructure.Services.ZenjectFactory;
+using UnityEngine;
 
 namespace Infrastructure.Services.StateMachines.GameStateMachines.States
 {
@@ -23,6 +24,7 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
 
     public void Enter()
     {
+      Debug.Log("Зашли в Enter of GameLoopState");
     }
 
     public void Exit()

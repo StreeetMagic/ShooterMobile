@@ -21,18 +21,20 @@ namespace Infrastructure.DIC
       BindZenjectFactory();
 
       BindGameStateMachine();
-      BindGameLoopStateMachine();
 
       BindInput();
       BindAssetProvider();
       BindCurrentDataService();
       BindStaticDataService();
 
+      BindLoadingCurtain();
+    }
+
+    private void BindLoadingCurtain() =>
       Container
         .Bind<LoadingCurtain>()
         .FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain)
         .AsSingle();
-    }
 
     private void BindZenjectFactory() =>
       Container
@@ -40,14 +42,12 @@ namespace Infrastructure.DIC
         .To<ZenjectFactory>()
         .AsSingle();
 
-    private void BindCoroutineRunner()
-    {
+    private void BindCoroutineRunner() =>
       Container
         .Bind<ICoroutineRunner>()
         .To<CoroutineRunner>()
         .FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.CoroutineRunner)
         .AsSingle();
-    }
 
     private void BindStaticDataService() =>
       Container
@@ -77,12 +77,6 @@ namespace Infrastructure.DIC
       Container
         .Bind<IStateMachine<IGameState>>()
         .To<StateMachine<IGameState>>()
-        .AsSingle();
-
-    private void BindGameLoopStateMachine() =>
-      Container
-        .Bind<IStateMachine<IGameLoopState>>()
-        .To<StateMachine<IGameLoopState>>()
         .AsSingle();
   }
 }
