@@ -28,7 +28,14 @@ namespace Infrastructure.DIC
       BindStaticDataService();
 
       BindLoadingCurtain();
+      BindGameLoopStateMachine();
     }
+
+    private void BindGameLoopStateMachine() =>
+      Container
+        .Bind<IStateMachine<IGameLoopState>>()
+        .To<StateMachine<IGameLoopState>>()
+        .AsSingle();
 
     private void BindLoadingCurtain() =>
       Container

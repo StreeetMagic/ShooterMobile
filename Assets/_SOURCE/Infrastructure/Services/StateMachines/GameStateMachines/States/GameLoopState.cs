@@ -13,8 +13,11 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
     private readonly IStaticDataService _staticDataService;
     private readonly IZenjectFactory _zenjectFactory;
 
+    private PlayerFactory _playerFactory;
+
     public GameLoopState(IStateMachine<IGameLoopState> gameLoopStateMachine,
-      ICurrentDataService currentDataService, IZenjectFactory zenjectFactory, IStaticDataService staticDataService)
+      ICurrentDataService currentDataService, IZenjectFactory zenjectFactory,
+      IStaticDataService staticDataService)
     {
       _gameLoopStateMachine = gameLoopStateMachine;
       _currentDataService = currentDataService;
@@ -25,6 +28,8 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
     public void Enter()
     {
       Debug.Log("Зашли в Enter of GameLoopState");
+
+      _playerFactory.Create();
     }
 
     public void Exit()

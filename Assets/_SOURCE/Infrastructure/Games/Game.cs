@@ -14,9 +14,7 @@ namespace Games
     public Game
     (
       IStateMachine<IGameState> gameStateMachine,
-      IStateMachine<IGameLoopState> gameLoppGameLoopStateMachine,
-      IZenjectFactory stateFactory,
-      ICoroutineRunner coroutineRunner
+      IZenjectFactory stateFactory
     )
     {
       _gameStateMachine = gameStateMachine;

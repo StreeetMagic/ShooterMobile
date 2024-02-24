@@ -8,19 +8,12 @@ namespace Infrastructure.DIC.GameLoopSceneContext
   {
     public override void InstallBindings()
     {
-      BindGameLoopStateMachine();
       BindPlayerFactory();
     }
 
     private void BindPlayerFactory() =>
       Container
         .Bind<PlayerFactory>()
-        .AsSingle();
-
-    private void BindGameLoopStateMachine() =>
-      Container
-        .Bind<IStateMachine<IGameLoopState>>()
-        .To<StateMachine<IGameLoopState>>()
         .AsSingle();
   }
 }
