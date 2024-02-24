@@ -7,17 +7,17 @@ namespace Infrastructure.GameBootstrappers
 {
   public class GameBootstrapper : MonoBehaviour
   {
-    private IZenjectFactory _zenjectFactory;
+    private IInstantiator _instantiator;
 
     [Inject]
-    public void Construct(IZenjectFactory zenjectFactory)
+    public void Construct(IInstantiator zenjectFactory)
     {
-      _zenjectFactory = zenjectFactory;
+      _instantiator = zenjectFactory;
     }
 
     private void Awake()
     {
-      var game = _zenjectFactory.Create<Game>();
+      var game = _instantiator.Instantiate<Game>();
       game.Start();
     }
   }

@@ -5,7 +5,6 @@ using Infrastructure.Services.CoroutineRunners;
 using Infrastructure.Services.CurrentDatas;
 using Infrastructure.Services.Inputs;
 using Infrastructure.Services.StateMachines;
-using Infrastructure.Services.StateMachines.GameLoopStateMachines.States;
 using Infrastructure.Services.StateMachines.GameStateMachines.States;
 using Infrastructure.Services.StaticDataServices;
 using Infrastructure.Services.ZenjectFactory;
@@ -28,14 +27,7 @@ namespace Infrastructure.DIC
       BindStaticDataService();
 
       BindLoadingCurtain();
-      BindGameLoopStateMachine();
     }
-
-    private void BindGameLoopStateMachine() =>
-      Container
-        .Bind<IStateMachine<IGameLoopState>>()
-        .To<StateMachine<IGameLoopState>>()
-        .AsSingle();
 
     private void BindLoadingCurtain() =>
       Container

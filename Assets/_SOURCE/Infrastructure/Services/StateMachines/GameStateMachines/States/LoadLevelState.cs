@@ -2,6 +2,7 @@ using CodeBase.Logic;
 using Infrastructure.SceneLoaders;
 using Infrastructure.Services.CoroutineRunners;
 using Infrastructure.Services.StateMachines.States;
+using UnityEngine;
 
 namespace Infrastructure.Services.StateMachines.GameStateMachines.States
 {
@@ -38,6 +39,7 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
 
     private void OnSceneLoaded(string name)
     {
+      Debug.Log("Вот тут будем заходить в стейт");
       _gameStateMachine.Enter<GameLoopState>();
     }
   }

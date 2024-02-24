@@ -11,13 +11,12 @@ public class PlayerFactory
   {
     _factory = factory;
     _assetProvider = assetProvider;
-
-    if (_factory != null)
-      Debug.Log(" Factory is not null");
   }
 
-  public void Create()
+  public void Create(Transform parent)
   {
-    _factory.Instantiate(_assetProvider.Get<Player>());
+    var prefab = _assetProvider.Get<Player>();
+    Player player = _factory.Instantiate(prefab, parent);
+    player.transform.SetParent(null);
   }
 }
