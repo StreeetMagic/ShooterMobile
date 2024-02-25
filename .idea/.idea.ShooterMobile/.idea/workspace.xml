@@ -5,37 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657cf1a7-e38e-4ccc-9f7b-0d35f7bf7a04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Cameras/CameraFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Cameras/CameraFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Maps/MapFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Maps/MapFactory.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Players/PlayerFactories/PlayerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Players/PlayerFactories/PlayerFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Players/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Players/Resources/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Players/Resources/Player.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DependencyInjection/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DependencyInjection/GameInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DependencyInjection/GameLoopSceneContext/GameLoopSceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DependencyInjection/GameLoopSceneContext/GameLoopSceneInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/GameLoop/GameLoopGameBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/GameLoop/GameLoopGameBootstrapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Games/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Games/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Games/GameConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Games/GameConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/CurrentDatas.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/CurrentDatas/CurrentDataService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/CurrentDatas/CurrentDataService.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/Inputs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/Inputs/IInputService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/Inputs/IInputService.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/Inputs/InputSystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/Inputs/InputSystem/Controls.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/Inputs/InputSystem/Controls.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/Inputs/InputSystem/Controls.inputactions" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/Inputs/InputSystem/Controls.inputactions.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StateMachines/GameLoopStateMachines.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StateMachines/GameStateMachines/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StateMachines/GameStateMachines/States/BootstrapState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StaticDataServices/IStaticData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StaticDataServices/IStaticData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StaticDataServices/IStaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StaticDataServices/IStaticDataService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StaticDataServices/StaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StaticDataServices/StaticDataService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +21,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Players/PlayerConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Players/PlayerFactories/PlayerFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/GameLoop/GameLoopGameBootstrapper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/MobileJoysticks/JumpButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Editor/Editors/Cinemachine3rdPersonFollowEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/Behaviours/Cinemachine3rdPersonAim.cs" root0="FORCE_HIGHLIGHTING" />
@@ -141,7 +111,7 @@
       <workItem from="1708422735044" duration="1698000" />
       <workItem from="1708425985438" duration="325000" />
       <workItem from="1708782645320" duration="4713000" />
-      <workItem from="1708844966399" duration="10402000" />
+      <workItem from="1708844966399" duration="11293000" />
     </task>
     <servers />
   </component>
