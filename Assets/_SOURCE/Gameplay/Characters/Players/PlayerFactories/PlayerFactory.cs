@@ -18,7 +18,7 @@ public class PlayerFactory
 
   public void Create(Transform parent)
   {
-    var prefab = _assetProvider.Get<Player>(Constants.AssetsPath.Prefabs.PlayerVlad);
+    var prefab = _assetProvider.Get<Player>(nameof(Player));
     Player = _factory.Instantiate(prefab, parent);
     Player.transform.SetParent(null);
   }
