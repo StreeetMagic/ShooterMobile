@@ -1,3 +1,5 @@
+using _SOURCE.Cameras;
+using _SOURCE.Maps;
 using Infrastructure.Services.StateMachines;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -16,13 +18,19 @@ namespace Infrastructure.DIC.GameLoopSceneContext
         .FromInstance(_gameLoopGameBootstrapper)
         .AsSingle();
 
-      BindPlayerFactory();
-    }
-
-    private void BindPlayerFactory() =>
       Container
         .Bind<PlayerFactory>()
         .AsSingle()
         .NonLazy();
+
+      Container
+        .Bind<MapFactory>()
+        .AsSingle();
+      
+      Container
+        .Bind<CameraFactory>()
+        .AsSingle()
+        .NonLazy();
+    }
   }
 }

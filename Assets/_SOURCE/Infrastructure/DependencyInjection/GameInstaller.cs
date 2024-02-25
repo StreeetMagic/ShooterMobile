@@ -56,8 +56,8 @@ namespace Infrastructure.DIC
 
     private void BindCurrentDataService() =>
       Container
-        .Bind<ICurrentDataService>()
-        .To<CurrentDataService>()
+        .Bind<IPersistentProgressService>()
+        .To<PersistentProgressService>()
         .AsSingle();
 
     private void BindAssetProvider() =>

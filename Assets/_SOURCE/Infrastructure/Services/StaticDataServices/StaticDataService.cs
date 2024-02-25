@@ -1,18 +1,13 @@
+using Games;
+using Infrastructure.Services.AssetProviders;
 using Infrastructure.Services.ZenjectFactory;
+using UnityEngine;
 
 namespace Infrastructure.Services.StaticDataServices
 {
   public class StaticDataService : IStaticDataService
   {
-    private readonly IZenjectFactory _godFactory;
-
-    public StaticDataService(IZenjectFactory godFactory)
-    {
-      _godFactory = godFactory;
-    }
-
-    public void RegisterConfigs()
-    {
-    }
+    public PlayerConfig ForPlayer() =>
+      Resources.Load<PlayerConfig>(nameof(PlayerConfig));
   }
 }

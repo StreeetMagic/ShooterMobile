@@ -26,17 +26,11 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
 
     public void Enter()
     {
-      RegisterConfigs();
       EnterNextState();
     }
 
     public void Exit()
     {
-    }
-
-    private void RegisterConfigs()
-    {
-      _staticDataService.RegisterConfigs();
     }
 
     private void EnterNextState() =>
