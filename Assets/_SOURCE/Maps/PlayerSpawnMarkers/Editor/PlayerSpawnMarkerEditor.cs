@@ -4,18 +4,18 @@ using UnityEngine;
 
 namespace _SOURCE.Editor
 {
-  [CustomEditor(typeof(PlayerSpawnPoint))]
-  public class PlayerSpawnPointEditor : UnityEditor.Editor
+  [CustomEditor(typeof(PlayerSpawnMarker))]
+  public class PlayerSpawnMarkerEditor : UnityEditor.Editor
   {
     [DrawGizmo(GizmoType.Active | GizmoType.Pickable | GizmoType.NonSelected)]
-    public static void RenderCustomGizmo(PlayerSpawnPoint point, GizmoType gizmo)
+    public static void RenderCustomGizmo(PlayerSpawnMarker point, GizmoType gizmo)
     {
       CircleGizmo(point.transform, .4f, Color.green);
 
       ShowInfo(point);
     }
 
-    private static void ShowInfo(PlayerSpawnPoint point)
+    private static void ShowInfo(PlayerSpawnMarker point)
     {
       GUIStyle style = GUIStyle();
 

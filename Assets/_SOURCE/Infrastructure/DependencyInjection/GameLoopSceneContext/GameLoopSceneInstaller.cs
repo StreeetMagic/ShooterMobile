@@ -1,6 +1,7 @@
 using _SOURCE.Cameras;
 using _SOURCE.Maps;
 using Infrastructure.Services.StateMachines;
+using Players;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -26,11 +27,15 @@ namespace Infrastructure.DIC.GameLoopSceneContext
       Container
         .Bind<MapFactory>()
         .AsSingle();
-      
+
       Container
         .Bind<CameraFactory>()
         .AsSingle()
         .NonLazy();
+
+      Container
+        .BindInterfacesAndSelfTo<PlayerInputHandler>()
+        .AsSingle();
     }
   }
 }

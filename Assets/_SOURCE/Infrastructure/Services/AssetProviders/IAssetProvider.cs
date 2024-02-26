@@ -1,3 +1,4 @@
+using _SOURCE.Gameplay.Characters.Enemies;
 using UnityEngine;
 
 namespace Infrastructure.Services.AssetProviders
@@ -6,6 +7,6 @@ namespace Infrastructure.Services.AssetProviders
   {
     T Get<T>() where T : MonoBehaviour;
     T Get<T>(string path) where T : MonoBehaviour;
-    Material GetMaterial(string path);
+    Enemy ForEnemy(EnemyId enemyId);
   }
 }

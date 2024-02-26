@@ -1,4 +1,5 @@
 using System;
+using _SOURCE.Gameplay.Characters.Enemies;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -35,7 +36,19 @@ namespace Infrastructure.Services.AssetProviders
       return load;
     }
 
-    public Material GetMaterial(string path) =>
-      Resources.Load<Material>(path);
+    public Enemy ForEnemy(EnemyId enemyId)
+    {
+      switch (enemyId)
+      {
+        case EnemyId.Unknown:
+          throw new NotImplementedException("Unknown enemy id");
+
+        case EnemyId.OrdinaryPerson:
+          return Get<Enemy>(nameof(EnemyId.OrdinaryPerson));
+
+        default:
+          throw new ArgumentOutOfRangeException(nameof(enemyId), enemyId, null);
+      }
+    }
   }
 }

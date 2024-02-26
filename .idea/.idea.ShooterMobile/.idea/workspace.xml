@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657cf1a7-e38e-4ccc-9f7b-0d35f7bf7a04" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/EnemyId.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/EnemyId.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Configs/Resources/PlayerConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Configs/Resources/PlayerConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerFactories/PlayerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerFactories/PlayerFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Editor/PlayerSpawnPointEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Editor/PlayerSpawnPointEditor.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerMover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/ZenjectFactory/ZenjectFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/ZenjectFactory/ZenjectFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/AssetProviders/AssetProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/AssetProviders/AssetProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/AssetProviders/IAssetProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/AssetProviders/IAssetProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Maps/Map.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/PlayerSpawnPoints.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/PlayerSpawnPoints/PlayerSpawnPoint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/PlayerSpawnPoints/PlayerSpawnPoint.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/PlayerSpawnPoints/PlayerSpawnPoint.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/PlayerSpawnPoints/PlayerSpawnPoint.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources/MapVlad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources/MapVlad.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,10 +34,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Cameras/TopDownCamera.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Players/PlayerConfig.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Players/PlayerFactories/PlayerFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/GameLoop/GameLoopGameBootstrapper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/MobileJoysticks/JumpButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Maps/EnemySpawnPoints/EnemySpawnPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Editor/Editors/Cinemachine3rdPersonFollowEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/Behaviours/Cinemachine3rdPersonAim.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,7 +58,7 @@
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "VLAD/Gravity-move-controller",
+    "git-widget-placeholder": "VLAD/default",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
