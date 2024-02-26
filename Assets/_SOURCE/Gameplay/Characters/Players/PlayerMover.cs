@@ -10,17 +10,17 @@ namespace Players
   public class PlayerMover : MonoBehaviour
   {
     private IInputService _inputService;
-
+    private IStaticDataService _staticDataService;
     private CharacterController _characterController;
-    private float _rotationSpeed;
-    private float _speed;
+
+    private float RotationSpeed => _staticDataService.ForPlayer().RotationSpeed;
+    private float Speed => _staticDataService.ForPlayer().MoveSpeed;
 
     [Inject]
     public void Construct(IInputService inputService, IStaticDataService staticData)
     {
       _inputService = inputService;
-      _speed = staticData.ForPlayer().MoveSpeed;
-      _rotationSpeed = staticData.ForPlayer().RotationSpeed;
+      _staticDataService = staticData;
       _characterController = GetComponent<CharacterController>();
     }
 
@@ -48,7 +48,7 @@ namespace Players
 
     private void Move(Vector3 directionXYZ)
     {
-      Vector3 velocity = directionXYZ * _speed;
+      Vector3 velocity = directionXYZ * Speed;
       _characterController.Move(velocity * Time.deltaTime);
     }
 
@@ -61,7 +61,7 @@ namespace Players
 
       Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-      transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
+      transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * RotationSpeed);
     }
   }
 }

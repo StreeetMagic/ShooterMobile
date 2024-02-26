@@ -7,7 +7,9 @@ namespace Infrastructure.Services.StaticDataServices
 {
   public class StaticDataService : IStaticDataService
   {
+    private PlayerConfig _playerConfig;
+
     public PlayerConfig ForPlayer() =>
-      Resources.Load<PlayerConfig>(nameof(PlayerConfig));
+      _playerConfig ??= Resources.Load<PlayerConfig>(nameof(PlayerConfig));
   }
 }
