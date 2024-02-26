@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657cf1a7-e38e-4ccc-9f7b-0d35f7bf7a04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/EnemyId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/EnemyId.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Editor/PlayerSpawnPointEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Editor/PlayerSpawnPointEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerMover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/AssetProviders/AssetProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/AssetProviders/AssetProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/AssetProviders/IAssetProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/AssetProviders/IAssetProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Maps/Map.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/PlayerSpawnPoints.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/PlayerSpawnPoints/PlayerSpawnPoint.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/PlayerSpawnPoints/PlayerSpawnPoint.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/PlayerSpawnPoints/PlayerSpawnPoint.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/PlayerSpawnPoints/PlayerSpawnPoint.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Configs/Resources/PlayerConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Configs/Resources/PlayerConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Movers/PlayerMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Movers/PlayerMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Resources/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Resources/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources/MapVlad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources/MapVlad.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +45,7 @@
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "VLAD/default",
+    "git-widget-placeholder": "DEV-0.01",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

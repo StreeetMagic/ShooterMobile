@@ -11,6 +11,7 @@ namespace Players
     private IStaticDataService _staticDataService;
     private CharacterController _characterController;
     private Vector3 _cachedVelocity;
+    private Vector3 _gravitySpeed;
 
     private float RotationSpeed => _staticDataService.ForPlayer().RotationSpeed;
     private float MoveSpeed => _staticDataService.ForPlayer().MoveSpeed;
@@ -22,21 +23,28 @@ namespace Players
       _staticDataService = staticData;
       _characterController = GetComponent<CharacterController>();
     }
-    
+
     public void Move(Vector3 directionXYZ)
     {
       Vector3 playerSpeed = directionXYZ * (MoveSpeed * Time.deltaTime);
-      Vector3 gravity = Physics.gravity * (GravityScale * Time.deltaTime);
 
       if (_characterController.isGrounded)
       {
         _cachedVelocity = playerSpeed;
         _characterController.Move(playerSpeed + Vector3.down);
+
+        _gravitySpeed = Vector3.zero;
       }
       else
       {
-        _characterController.Move(gravity + _cachedVelocity);
+        ApplyGravity();
+        _characterController.Move(_cachedVelocity + _gravitySpeed);
       }
+    }
+
+    private void ApplyGravity()
+    {
+      _gravitySpeed += Physics.gravity * GravityScale * Time.deltaTime;
     }
 
     public void RotateTowardsDirection(Vector3 direction)
