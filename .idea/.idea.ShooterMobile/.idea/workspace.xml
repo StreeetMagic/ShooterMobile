@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657cf1a7-e38e-4ccc-9f7b-0d35f7bf7a04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Editor/PlayerSpawnPointEditor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Editor/PlayerSpawnPointEditor.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Configs/Resources/PlayerConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Configs/Resources/PlayerConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerFactories/PlayerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerFactories/PlayerFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Maps/Map.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/MapFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Maps/MapFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletBlueOBJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletBlueOBJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletExplosionBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletExplosionBlue.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/ZenjectFactory/ZenjectFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/ZenjectFactory/ZenjectFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources/MapVlad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources/MapVlad.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +50,7 @@
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "VLAD/default",
+    "git-widget-placeholder": "VLAD/Gravity-move-controller",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -99,10 +96,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="17348">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="7880">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="17348" />
+      <option name="pid" value="7880" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -123,6 +120,7 @@
       <workItem from="1708782645320" duration="4713000" />
       <workItem from="1708844966399" duration="11293000" />
       <workItem from="1708877822892" duration="4285000" />
+      <workItem from="1708931599525" duration="3440000" />
     </task>
     <servers />
   </component>
@@ -138,17 +136,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerFactories/PlayerFactory.cs</url>
-          <line>25</line>
-          <properties documentPath="C:\UnityProjects\_StoneProphet\ShooterMobile\Assets\_SOURCE\Gameplay\Characters\Players\PlayerFactories\PlayerFactory.cs" initialLine="25" containingFunctionPresentation="Method 'Create'">
+          <url>file://$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/GameLoop/GameLoopGameBootstrapper.cs</url>
+          <line>24</line>
+          <properties documentPath="C:\UnityProjects\_StoneProphet\ShooterMobile\Assets\_SOURCE\Infrastructure\GameLoop\GameLoopGameBootstrapper.cs" initialLine="24" containingFunctionPresentation="Method 'Start'">
             <startOffsets>
-              <option value="703" />
+              <option value="594" />
             </startOffsets>
             <endOffsets>
-              <option value="783" />
+              <option value="627" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

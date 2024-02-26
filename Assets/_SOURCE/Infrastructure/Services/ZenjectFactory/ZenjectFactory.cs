@@ -67,7 +67,8 @@ namespace Infrastructure.Services.ZenjectFactory
 
     public TMono Instantiate<TMono>(TMono behaviour, Vector3 position, Transform parent = null) where TMono : MonoBehaviour =>
       _instantiator
-        .InstantiatePrefab(behaviour, position, Quaternion.identity, parent).GetComponent<TMono>();
+        .InstantiatePrefab(behaviour, position, Quaternion.identity, parent)
+        .GetComponent<TMono>();
 
     public TMono Instantiate<TMono>(TMono behaviour, Vector3 position, Quaternion quaternion, Transform parent = null) where TMono : MonoBehaviour =>
       _instantiator

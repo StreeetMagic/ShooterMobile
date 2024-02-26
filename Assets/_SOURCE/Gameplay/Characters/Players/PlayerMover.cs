@@ -12,9 +12,11 @@ namespace Players
     private IInputService _inputService;
     private IStaticDataService _staticDataService;
     private CharacterController _characterController;
+    private Vector3 _cachedVelocity;
 
     private float RotationSpeed => _staticDataService.ForPlayer().RotationSpeed;
-    private float Speed => _staticDataService.ForPlayer().MoveSpeed;
+    private float MoveSpeed => _staticDataService.ForPlayer().MoveSpeed;
+    private float GravityScale => _staticDataService.ForPlayer().GravityScale;
 
     [Inject]
     public void Construct(IInputService inputService, IStaticDataService staticData)
@@ -48,8 +50,18 @@ namespace Players
 
     private void Move(Vector3 directionXYZ)
     {
-      Vector3 velocity = directionXYZ * Speed;
-      _characterController.Move(velocity * Time.deltaTime);
+      Vector3 playerSpeed = directionXYZ * (MoveSpeed * Time.deltaTime);
+      Vector3 gravity = Physics.gravity * (GravityScale * Time.deltaTime);
+
+      if (_characterController.isGrounded)
+      {
+        _cachedVelocity = playerSpeed;
+        _characterController.Move(playerSpeed + Vector3.down);
+      }
+      else
+      {
+        _characterController.Move(gravity + _cachedVelocity);
+      }
     }
 
     private void RotateTowardsDirection(Vector3 direction)

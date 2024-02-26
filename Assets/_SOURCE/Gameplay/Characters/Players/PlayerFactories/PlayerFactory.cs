@@ -22,8 +22,7 @@ public class PlayerFactory
   public void Create(Transform parent)
   {
     var prefab = _assetProvider.Get<Player>(nameof(Player));
-    Player = _factory.Instantiate(prefab, parent);
+    Player = _factory.Instantiate(prefab, _mapFactory.Map.PlayerSpawnPoint.transform.position, parent);
     Player.transform.SetParent(null);
-    Player.transform.position = _mapFactory.Map.PlayerSpawnPoint.transform.position;
   }
 }
