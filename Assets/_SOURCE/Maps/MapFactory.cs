@@ -15,12 +15,14 @@ namespace _SOURCE.Maps
       _zenjectFactory = factory;
       _assetProvider = assetProvider;
     }
+    
+    public Map Map { get; private set; }
 
     public void Create(Transform parent)
     {
-      Map map = _zenjectFactory.Instantiate(Behaviour(), parent);
+      Map = _zenjectFactory.Instantiate(Behaviour(), parent);
 
-      MoveToRootParent(map);
+      MoveToRootParent(Map);
     }
 
     private void MoveToRootParent(Map map) =>

@@ -10,25 +10,18 @@ namespace Players
   public class PlayerMover : MonoBehaviour
   {
     private IInputService _inputService;
-    private IStaticDataService _staticData;
 
     private CharacterController _characterController;
     private float _rotationSpeed;
     private float _speed;
 
     [Inject]
-    public void Construct(IInputService inputService, IStaticDataService progress)
+    public void Construct(IInputService inputService, IStaticDataService staticData)
     {
       _inputService = inputService;
-      _staticData = progress;
-    }
-
-    private void Awake()
-    {
+      _speed = staticData.ForPlayer().MoveSpeed;
+      _rotationSpeed = staticData.ForPlayer().RotationSpeed;
       _characterController = GetComponent<CharacterController>();
-
-      _speed = _staticData.ForPlayer().MoveSpeed;
-      _rotationSpeed = _staticData.ForPlayer().RotationSpeed;
     }
 
     private void FixedUpdate()
