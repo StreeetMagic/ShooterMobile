@@ -1,3 +1,4 @@
+using System;
 using _SOURCE.Maps;
 using Games;
 using Infrastructure.Services.AssetProviders;
@@ -17,6 +18,8 @@ public class PlayerFactory
     _mapFactory = mapFactory;
   }
 
+  public event Action<Player> Created;
+
   public Player Player { get; private set; }
 
   public void Create(Transform parent)
@@ -24,5 +27,6 @@ public class PlayerFactory
     var prefab = _assetProvider.Get<Player>(nameof(Player));
     Player = _factory.Instantiate(prefab, _mapFactory.Map.PlayerSpawnPoint.transform.position, parent);
     Player.transform.SetParent(null);
+    Created?.Invoke(Player);
   }
 }

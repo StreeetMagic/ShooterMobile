@@ -8,9 +8,8 @@ public class Player : MonoBehaviour
 {
   private PlayerInputHandler _inputHandler;
 
-  public Player(IInstantiator instantiator)
+  public Player(PlayerInputHandler inputHandler)
   {
-    _inputHandler = instantiator.Instantiate<PlayerInputHandler>();
-    _inputHandler.Init(GetComponent<PlayerMover>());
+    _inputHandler = inputHandler;
   }
 }
