@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657cf1a7-e38e-4ccc-9f7b-0d35f7bf7a04" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/EnemyConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/EnemyConfig.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Spawners/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Spawners/EnemySpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Spawners/SpawnerFactories/EnemySpawnerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Spawners/SpawnerFactories/EnemySpawnerFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/EnemySpawnMarkers/Editor/EnemySpawnMarkerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Maps/EnemySpawnMarkers/Editor/EnemySpawnMarkerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Maps/EnemySpawnMarkers/EnemySpawnMarker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Maps/EnemySpawnMarkers/EnemySpawnMarker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StateMachines/GameStateMachines/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StateMachines/GameStateMachines/States/BootstrapState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StaticDataServices/IStaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StaticDataServices/IStaticDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StaticDataServices/StaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/StaticDataServices/StaticDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/EnemyBasePrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/EnemyBasePrefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Resources/OrdinaryPerson.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Resources/OrdinaryPerson.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources/MapVlad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources/MapVlad.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.progrids/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.progrids/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +30,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Cameras/TopDownCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Movers/EnemyMover.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/GameLoop/GameLoopGameBootstrapper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Maps/EnemySpawnPoints/EnemySpawnPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Editor/Editors/Cinemachine3rdPersonFollowEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/Behaviours/Cinemachine3rdPersonAim.cs" root0="FORCE_HIGHLIGHTING" />
@@ -93,10 +100,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="20576">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="20576" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -118,7 +125,7 @@
       <workItem from="1708844966399" duration="11293000" />
       <workItem from="1708877822892" duration="4285000" />
       <workItem from="1708931599525" duration="3440000" />
-      <workItem from="1709024415952" duration="3093000" />
+      <workItem from="1709024415952" duration="15209000" />
     </task>
     <servers />
   </component>

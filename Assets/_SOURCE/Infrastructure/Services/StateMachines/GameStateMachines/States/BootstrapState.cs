@@ -26,6 +26,7 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
 
     public void Enter()
     {
+      _staticDataService.LoadConfigs();
       EnterNextState();
     }
 

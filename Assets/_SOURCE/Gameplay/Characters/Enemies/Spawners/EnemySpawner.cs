@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using _SOURCE.Gameplay.Characters.Enemies;
@@ -5,6 +6,7 @@ using Infrastructure.Services.AssetProviders;
 using Infrastructure.Services.ZenjectFactory;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -34,11 +36,18 @@ public class EnemySpawner : MonoBehaviour
 
   public void Spawn(int count)
   {
+    if (_routePoints.Count < 0)
+      throw new Exception("Count should be more than 0");
+
+    if (_spawnPoints.Count == 0)
+      return;
+
     for (int i = 0; i < count; i++)
     {
       int j = Random.Range(0, _spawnPoints.Count - 1);
+      Enemy enemy = _zenjectFactory.Instantiate(_prefab, _spawnPoints[j].transform.position, Quaternion.identity, transform);
 
-      _zenjectFactory.Instantiate(_prefab, _spawnPoints[j].transform.position, Quaternion.identity, transform);
+      enemy.Init(_routePoints);
     }
   }
 }
