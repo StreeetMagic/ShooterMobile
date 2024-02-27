@@ -1,4 +1,5 @@
 using _SOURCE.Cameras;
+using _SOURCE.Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using _SOURCE.Maps;
 using Infrastructure.Services.StateMachines;
 using Players;
@@ -35,6 +36,10 @@ namespace Infrastructure.DIC.GameLoopSceneContext
 
       Container
         .BindInterfacesAndSelfTo<PlayerInputHandler>()
+        .AsSingle();
+
+      Container
+        .Bind<EnemySpawnerFactory>()
         .AsSingle();
     }
   }

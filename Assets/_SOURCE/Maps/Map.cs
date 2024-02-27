@@ -7,6 +7,8 @@ using UnityEngine;
 public class Map : MonoBehaviour
 {
   [field: SerializeField] public PlayerSpawnMarker PlayerSpawnPoint { get; private set; }
+  [field: SerializeField] public Transform EnemySpawnersContainer { get; private set; }
+  
   [SerializeField] private List<EnemySpawnMarker> _enemySpawnPoints;
 
   public List<EnemySpawnMarker> EnemySpawnPoints => _enemySpawnPoints.ToList();
@@ -19,5 +21,11 @@ public class Map : MonoBehaviour
     _enemySpawnPoints =
       GetComponentsInChildren<EnemySpawnMarker>()
         .ToList();
+
+    EnemySpawnersContainer =
+      GetComponentInChildren<EnemySpawnMarker>()
+        .transform
+        .parent
+        .transform;
   }
 }

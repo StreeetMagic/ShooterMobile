@@ -1,4 +1,5 @@
-﻿using Games;
+﻿using System;
+using Games;
 using Infrastructure.Services.AssetProviders;
 using Infrastructure.Services.ZenjectFactory;
 using UnityEngine;
@@ -15,13 +16,16 @@ namespace _SOURCE.Maps
       _zenjectFactory = factory;
       _assetProvider = assetProvider;
     }
-    
+
+    public event Action<Map> Created;
+
     public Map Map { get; private set; }
 
     public void Create(Transform parent)
     {
       Map = _zenjectFactory.Instantiate(Behaviour(), parent);
 
+      Created?.Invoke(Map);
       MoveToRootParent(Map);
     }
 

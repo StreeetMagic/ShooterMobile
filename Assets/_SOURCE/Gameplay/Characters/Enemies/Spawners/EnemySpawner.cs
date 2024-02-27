@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using System.Linq;
 using _SOURCE.Gameplay.Characters.Enemies;
@@ -19,7 +18,6 @@ public class EnemySpawner : MonoBehaviour
   public void Construct(IAssetProvider assetProvider)
   {
     _assetProvider = assetProvider;
-    _prefab = _assetProvider.ForEnemy(EnemyId);
 
     _spawnPoints = GetComponentsInChildren<SpawnPoint>().ToList();
     _routePoints = GetComponentsInChildren<RoutePoint>().ToList();
@@ -28,5 +26,6 @@ public class EnemySpawner : MonoBehaviour
   public void Init(EnemyId enemyId)
   {
     EnemyId = enemyId;
+    _prefab = _assetProvider.ForEnemy(EnemyId);
   }
 }
