@@ -21,7 +21,7 @@ namespace _SOURCE.Gameplay.Characters.Enemies.Spawners.SpawnerFactories
       _mapFactory = mapFactory;
       _zenjectFactory = zenjectFactory;
       _prefab = _assetProvider.Get<EnemySpawner>();
-      
+
       _mapFactory.Created += OnMapCreated;
     }
 
@@ -35,9 +35,10 @@ namespace _SOURCE.Gameplay.Characters.Enemies.Spawners.SpawnerFactories
       {
         EnemySpawner enemySpawner = _zenjectFactory.Instantiate(_prefab);
         enemySpawner.transform.SetParent(container);
-        
-        enemySpawner.transform.localPosition = marker.transform.localPosition; 
+
+        enemySpawner.transform.localPosition = marker.transform.localPosition;
         enemySpawner.Init(marker.EnemyId);
+        enemySpawner.Spawn(marker.Count);
       }
     }
 
