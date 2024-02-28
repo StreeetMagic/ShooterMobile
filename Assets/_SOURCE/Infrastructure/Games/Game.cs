@@ -1,9 +1,8 @@
-using Infrastructure.Services.CoroutineRunners;
 using Infrastructure.Services.StateMachines;
 using Infrastructure.Services.StateMachines.GameStateMachines.States;
 using Infrastructure.Services.ZenjectFactory;
 
-namespace Games
+namespace Infrastructure.Games
 {
   public class Game
   {

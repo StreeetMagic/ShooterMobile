@@ -1,4 +1,4 @@
-﻿using Games;
+﻿using Infrastructure.Games;
 using Infrastructure.Services.CoroutineRunners;
 using Infrastructure.Services.StaticDataServices;
 using Infrastructure.Services.ZenjectFactory;
@@ -26,6 +26,7 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
 
     public void Enter()
     {
+      _staticDataService.LoadConfigs();
       EnterNextState();
     }
 

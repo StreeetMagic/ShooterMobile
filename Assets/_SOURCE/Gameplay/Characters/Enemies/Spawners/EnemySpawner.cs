@@ -1,32 +1,57 @@
-
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using _SOURCE.Gameplay.Characters.Enemies;
+using Gameplay.Characters.Enemies.Spawners.RoutePoints;
+using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Infrastructure.Services.AssetProviders;
+using Infrastructure.Services.ZenjectFactory;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
-public class EnemySpawner : MonoBehaviour
+namespace Gameplay.Characters.Enemies.Spawners
 {
-  private IAssetProvider _assetProvider;
-  private Enemy _prefab;
-  private List<SpawnPoint> _spawnPoints;
-  private List<RoutePoint> _routePoints;
-
-  public EnemyId EnemyId { get; private set; }
-
-  [Inject]
-  public void Construct(IAssetProvider assetProvider)
+  public class EnemySpawner : MonoBehaviour
   {
-    _assetProvider = assetProvider;
-    _prefab = _assetProvider.ForEnemy(EnemyId);
+    private IAssetProvider _assetProvider;
+    private Enemy _prefab;
+    private List<SpawnPoint> _spawnPoints;
+    private List<RoutePoint> _routePoints;
+    private IZenjectFactory _zenjectFactory;
 
-    _spawnPoints = GetComponentsInChildren<SpawnPoint>().ToList();
-    _routePoints = GetComponentsInChildren<RoutePoint>().ToList();
-  }
+    public EnemyId EnemyId { get; private set; }
 
-  public void Init(EnemyId enemyId)
-  {
-    EnemyId = enemyId;
+    [Inject]
+    public void Construct(IAssetProvider assetProvider, IZenjectFactory zenjectFactory)
+    {
+      _assetProvider = assetProvider;
+      _zenjectFactory = zenjectFactory;
+
+      _spawnPoints = GetComponentsInChildren<SpawnPoint>().ToList();
+      _routePoints = GetComponentsInChildren<RoutePoint>().ToList();
+    }
+
+    public void Init(EnemyId enemyId)
+    {
+      EnemyId = enemyId;
+      _prefab = _assetProvider.ForEnemy(EnemyId);
+    }
+
+    public void Spawn(int count)
+    {
+      if (_routePoints.Count < 0)
+        throw new Exception("Count should be more than 0");
+
+      if (_spawnPoints.Count == 0)
+        return;
+
+      for (int i = 0; i < count; i++)
+      {
+        int j = Random.Range(0, _spawnPoints.Count - 1);
+        Enemy enemy = _zenjectFactory.Instantiate(_prefab, _spawnPoints[j].transform.position, Quaternion.identity, transform);
+
+        enemy.Init(_routePoints);
+      }
+    }
   }
 }

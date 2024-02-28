@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
- 
-namespace PixelArsenal
+
+namespace Projectile
 {
     public class PixelArsenalLightFade : MonoBehaviour
     {

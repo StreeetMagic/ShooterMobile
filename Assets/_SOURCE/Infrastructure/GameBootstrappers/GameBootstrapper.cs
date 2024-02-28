@@ -1,4 +1,4 @@
-﻿using Games;
+﻿using Infrastructure.Games;
 using Infrastructure.Services.ZenjectFactory;
 using UnityEngine;
 using Zenject;

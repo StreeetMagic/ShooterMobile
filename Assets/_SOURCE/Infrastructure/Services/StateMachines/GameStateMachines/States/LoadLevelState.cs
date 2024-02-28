@@ -1,4 +1,3 @@
-using CodeBase.Logic;
 using Infrastructure.SceneLoaders;
 using Infrastructure.Services.CoroutineRunners;
 using Infrastructure.Services.StateMachines.States;
@@ -10,10 +9,10 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
   {
     private readonly IStateMachine<IGameState> _gameStateMachine;
     private readonly SceneLoader _sceneLoader;
-    private LoadingCurtain _loadingCurtain;
+    private LoadingCurtain.LoadingCurtain _loadingCurtain;
 
     public LoadLevelState(IStateMachine<IGameState> gameStateMachine,
-      ICoroutineRunner coroutineRunner, LoadingCurtain loadingCurtain)
+      ICoroutineRunner coroutineRunner, LoadingCurtain.LoadingCurtain loadingCurtain)
     {
       _gameStateMachine = gameStateMachine;
       _loadingCurtain = loadingCurtain;

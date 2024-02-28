@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8672840068729397561}
   - component: {fileID: 5921878585868052409}
   - component: {fileID: 5880703022210432286}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2271594991052282516}
   - component: {fileID: 7108181162478725540}
-  m_Layer: 0
+  - component: {fileID: -9117853805708812217}
+  - component: {fileID: -7812973496695978666}
+  m_Layer: 3
   m_Name: EnemyBasePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,3 +154,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983cdf67cd1087d47902018340219753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Id>k__BackingField: 0
+--- !u!114 &-9117853805708812217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342982923862884670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76e7b39df5b45149b9fd812499c8c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!143 &-7812973496695978666
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342982923862884670}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}

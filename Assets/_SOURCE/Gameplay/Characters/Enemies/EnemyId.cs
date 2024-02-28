@@ -1,4 +1,4 @@
-﻿namespace _SOURCE.Gameplay.Characters.Enemies
+﻿namespace Gameplay.Characters.Enemies
 {
   public enum EnemyId
   {

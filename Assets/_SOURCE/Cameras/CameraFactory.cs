@@ -1,9 +1,11 @@
 ﻿using Cinemachine;
+using Gameplay.Characters.Players;
+using Gameplay.Characters.Players.PlayerFactories;
 using Infrastructure.Services.AssetProviders;
 using Infrastructure.Services.ZenjectFactory;
 using UnityEngine;
 
-namespace _SOURCE.Cameras
+namespace Cameras
 {
   public class CameraFactory
   {

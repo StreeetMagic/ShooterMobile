@@ -1,15 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using Players;
+using Gameplay.Characters.Players.Movers;
 using UnityEngine;
-using Zenject;
 
-public class Player : MonoBehaviour
+namespace Gameplay.Characters.Players
 {
-  private PlayerInputHandler _inputHandler;
-
-  public Player(PlayerInputHandler inputHandler)
+  public class Player : MonoBehaviour
   {
-    _inputHandler = inputHandler;
+    
   }
 }

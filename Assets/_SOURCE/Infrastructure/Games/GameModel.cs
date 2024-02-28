@@ -1,4 +1,4 @@
-﻿namespace Games
+﻿namespace Infrastructure.Games
 {
   public class GameModel
   {
