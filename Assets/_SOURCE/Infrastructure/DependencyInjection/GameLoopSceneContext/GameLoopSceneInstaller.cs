@@ -1,5 +1,6 @@
 using Cameras;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
+using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.Movers;
 using Gameplay.Characters.Players.PlayerFactories;
 using Infrastructure.GameLoop;
@@ -35,12 +36,17 @@ namespace Infrastructure.DependencyInjection.GameLoopSceneContext
         .NonLazy();
 
       Container
+        .Bind<EnemySpawnerFactory>()
+        .AsSingle();
+
+      Container
         .BindInterfacesAndSelfTo<PlayerInputHandler>()
         .AsSingle();
 
       Container
-        .Bind<EnemySpawnerFactory>()
-        .AsSingle();
+        .BindInterfacesAndSelfTo<TargetHolder>()
+        .AsSingle()
+        .NonLazy();
     }
   }
 }

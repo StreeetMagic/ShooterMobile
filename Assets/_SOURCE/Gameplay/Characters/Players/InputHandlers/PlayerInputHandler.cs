@@ -15,6 +15,8 @@ namespace Gameplay.Characters.Players.Movers
 
     public PlayerInputHandler(IInputService inputService, PlayerFactory playerFactory)
     {
+      Debug.Log("Я кекнул");
+      
       _inputService = inputService;
 
       _playerFactory = playerFactory;
