@@ -18,7 +18,8 @@ namespace Games
       {
         public const string CoroutineRunner = nameof(CoroutineRunner);
         public const string LoadingCurtain = nameof(LoadingCurtain);
-        public const string MapVlad = nameof(MapVlad);
+        //public const string MapVlad = nameof(MapVlad);
+        public const string Map = nameof(Map);
         public const string PlayerVlad = nameof(PlayerVlad);
       }
     }

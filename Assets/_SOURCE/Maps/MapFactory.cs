@@ -29,6 +29,6 @@ namespace _SOURCE.Maps
       map.transform.SetParent(null);
 
     private Map Behaviour() =>
-      _assetProvider.Get<Map>(Constants.AssetsPath.Prefabs.MapVlad);
+      _assetProvider.Get<Map>(Constants.AssetsPath.Prefabs.Map);
   }
 }
