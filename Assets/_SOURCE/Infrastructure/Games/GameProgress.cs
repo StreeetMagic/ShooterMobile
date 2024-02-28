@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Games
+namespace Infrastructure.Games
 {
   [Serializable]
   public class GameProgress

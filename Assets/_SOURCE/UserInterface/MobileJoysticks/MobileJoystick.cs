@@ -1,4 +1,4 @@
-using Infrastructure.Services.Inputs;
+using Inputs;
 using UnityEngine;
 using UnityEngine.UI;
 

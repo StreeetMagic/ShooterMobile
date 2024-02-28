@@ -1,4 +1,4 @@
-namespace Infrastructure.Services.CurrentDatas
+namespace Infrastructure.Services.PersistentProgress
 {
   public class PersistentProgressService : IPersistentProgressService
   {

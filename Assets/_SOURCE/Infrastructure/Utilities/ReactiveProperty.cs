@@ -30,8 +30,6 @@ namespace Infrastructure.Utilities
       Value = value;
     }
 
-    #region IReactiveProperty<T> Members
-
     public event Action<T> ValueChanged;
 
     public T Value
@@ -46,8 +44,6 @@ namespace Infrastructure.Utilities
         ValueChanged?.Invoke(_value);
       }
     }
-
-    #endregion
 
     public override string ToString() =>
       Value.ToString();

@@ -1,5 +1,5 @@
 ﻿
-namespace Infrastructure.Services.CurrentDatas
+namespace Infrastructure.Services.PersistentProgress
 {
   public interface IPersistentProgressService : IService
   {

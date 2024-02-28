@@ -1,12 +1,14 @@
-using _SOURCE.Cameras;
-using _SOURCE.Maps;
-using Infrastructure.Services.StateMachines;
-using Players;
+using Cameras;
+using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
+using Gameplay.Characters.Players;
+using Gameplay.Characters.Players.Movers;
+using Gameplay.Characters.Players.PlayerFactories;
+using Infrastructure.GameLoop;
+using Maps;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
-namespace Infrastructure.DIC.GameLoopSceneContext
+namespace Infrastructure.DependencyInjection.GameLoopSceneContext
 {
   public class GameLoopSceneInstaller : MonoInstaller
   {
@@ -34,8 +36,17 @@ namespace Infrastructure.DIC.GameLoopSceneContext
         .NonLazy();
 
       Container
+        .Bind<EnemySpawnerFactory>()
+        .AsSingle();
+
+      Container
         .BindInterfacesAndSelfTo<PlayerInputHandler>()
         .AsSingle();
+
+      Container
+        .BindInterfacesAndSelfTo<TargetHolder>()
+        .AsSingle()
+        .NonLazy();
     }
   }
 }

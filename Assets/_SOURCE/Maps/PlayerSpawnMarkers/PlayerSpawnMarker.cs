@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class PlayerSpawnMarker : MonoBehaviour
+namespace Maps.PlayerSpawnMarkers
 {
+  public class PlayerSpawnMarker : MonoBehaviour
+  {
+  }
 }

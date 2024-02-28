@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TopDownCamera : MonoBehaviour
+namespace Cameras
 {
+  public class TopDownCamera : MonoBehaviour
+  {
 
+  }
 }

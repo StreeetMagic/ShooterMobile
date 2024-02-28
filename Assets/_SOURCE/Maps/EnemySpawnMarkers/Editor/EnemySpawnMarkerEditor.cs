@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace _SOURCE.Maps.EnemySpawnPoints.Editor
+namespace Maps.EnemySpawnMarkers.Editor
 {
   [CustomEditor(typeof(EnemySpawnMarker))]
   public class EnemySpawnMarkerEditor : UnityEditor.Editor
@@ -11,7 +11,12 @@ namespace _SOURCE.Maps.EnemySpawnPoints.Editor
     {
       CircleGizmo(marker.transform, .4f, Color.red);
 
-      ShowInfo(marker, marker.EnemyId.ToString());
+      var text = 
+        "Enemy spawner \n" +
+        marker.EnemyId + " type \n" + 
+        marker.Count + " enemies count";
+      
+      ShowInfo(marker, text);
     }
 
     private static void ShowInfo(EnemySpawnMarker marker, string text)
