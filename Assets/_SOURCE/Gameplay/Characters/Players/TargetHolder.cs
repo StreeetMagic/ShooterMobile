@@ -24,7 +24,7 @@ namespace Gameplay.Characters.Players
     private void OnPlayerCreated(Player player)
     {
       _factory.Created -= OnPlayerCreated;
-      _targetLocator = player.GetComponentInChildren<TargetLocator>();
+      _targetLocator = player.GetComponentInChildren<TargetLocator>(); 
 
       Subscribe();
     }
