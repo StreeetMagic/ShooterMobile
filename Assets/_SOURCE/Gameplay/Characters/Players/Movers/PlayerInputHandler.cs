@@ -1,8 +1,9 @@
-﻿using Infrastructure.Services.Inputs;
+﻿using Gameplay.Characters.Players.PlayerFactories;
+using Inputs;
 using UnityEngine;
 using Zenject;
 
-namespace Players
+namespace Gameplay.Characters.Players.Movers
 {
   public class PlayerInputHandler : ITickable
   {
@@ -10,6 +11,7 @@ namespace Players
     private readonly PlayerFactory _playerFactory;
 
     private PlayerMover _mover;
+    private PlayerRotator _rotator;
 
     public PlayerInputHandler(IInputService inputService, PlayerFactory playerFactory)
     {
@@ -17,20 +19,6 @@ namespace Players
 
       _playerFactory = playerFactory;
       playerFactory.Created += OnPlayerCreated;
-    }
-
-    private void OnPlayerCreated(Player player)
-    {
-      _mover = player.GetComponent<PlayerMover>();
-
-      _playerFactory.Created -= OnPlayerCreated;
-    }
-
-    private Vector3 GetDirection()
-    {
-      Vector2 directionXY = _inputService.MoveDirection;
-
-      return new Vector3(directionXY.x, 0, directionXY.y);
     }
 
     public void Tick()
@@ -41,7 +29,21 @@ namespace Players
       Vector3 direction = GetDirection();
 
       _mover.Move(direction);
-      _mover.RotateTowardsDirection(direction);
+      _rotator.RotateTowardsDirection(direction);
+    }
+
+    private void OnPlayerCreated(Player player)
+    {
+      _mover = player.GetComponent<PlayerMover>();
+      _rotator = player.GetComponent<PlayerRotator>();
+      _playerFactory.Created -= OnPlayerCreated;
+    }
+
+    private Vector3 GetDirection()
+    {
+      Vector2 directionXY = _inputService.MoveDirection;
+
+      return new Vector3(directionXY.x, 0, directionXY.y);
     }
   }
 }

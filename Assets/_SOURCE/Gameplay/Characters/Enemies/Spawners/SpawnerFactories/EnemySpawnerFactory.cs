@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using _SOURCE.Maps;
 using Infrastructure.Services.AssetProviders;
 using Infrastructure.Services.ZenjectFactory;
+using Maps;
+using Maps.EnemySpawnMarkers;
 using UnityEngine;
 
-namespace _SOURCE.Gameplay.Characters.Enemies.Spawners.SpawnerFactories
+namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
 {
   public class EnemySpawnerFactory
   {

@@ -1,10 +1,10 @@
 ﻿using System;
-using Games;
+using Infrastructure.Games;
 using Infrastructure.Services.AssetProviders;
 using Infrastructure.Services.ZenjectFactory;
 using UnityEngine;
 
-namespace _SOURCE.Maps
+namespace Maps
 {
   public class MapFactory
   {

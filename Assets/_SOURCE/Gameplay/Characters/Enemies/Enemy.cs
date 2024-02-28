@@ -1,27 +1,30 @@
-using System;
 using System.Collections.Generic;
-using _SOURCE.Gameplay.Characters.Enemies;
+using Gameplay.Characters.Enemies.Movers;
+using Gameplay.Characters.Enemies.Spawners.RoutePoints;
 using Infrastructure.Services.StaticDataServices;
 using UnityEngine;
 using Zenject;
 
-public class Enemy : MonoBehaviour
+namespace Gameplay.Characters.Enemies
 {
-  private IStaticDataService _staticDataService;
-
-  [field: SerializeField] public EnemyId Id { get; private set; }
-
-  [Inject]
-  public void Construct(IStaticDataService staticDataService)
+  public class Enemy : MonoBehaviour
   {
-    _staticDataService = staticDataService;
-  }
+    private IStaticDataService _staticDataService;
 
-  public void Init(List<RoutePoint> routePoints)
-  {
-    EnemyConfig enemyConfig = _staticDataService.ForEnemy(Id);
+    [field: SerializeField] public EnemyId Id { get; private set; }
 
-    GetComponentInChildren<EnemyMover>()
-      .Init(enemyConfig, routePoints);
+    [Inject]
+    public void Construct(IStaticDataService staticDataService)
+    {
+      _staticDataService = staticDataService;
+    }
+
+    public void Init(List<RoutePoint> routePoints)
+    {
+      EnemyConfig enemyConfig = _staticDataService.ForEnemy(Id);
+
+      GetComponentInChildren<EnemyMover>()
+        .Init(enemyConfig, routePoints);
+    }
   }
 }

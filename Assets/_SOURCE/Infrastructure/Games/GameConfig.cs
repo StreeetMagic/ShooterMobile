@@ -1,6 +1,4 @@
-using Infrastructure.Services.StaticDataServices;
-
-namespace Games
+namespace Infrastructure.Games
 {
   public class GameConfig
   {

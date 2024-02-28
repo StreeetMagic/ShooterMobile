@@ -1,4 +1,4 @@
-﻿using Games;
+﻿using Infrastructure.Games;
 using Infrastructure.Services.CoroutineRunners;
 using Infrastructure.Services.StaticDataServices;
 using Infrastructure.Services.ZenjectFactory;

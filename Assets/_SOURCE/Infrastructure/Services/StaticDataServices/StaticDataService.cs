@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using _SOURCE.Gameplay.Characters.Enemies;
+using Gameplay.Characters.Enemies;
+using Gameplay.Characters.Players;
 using UnityEngine;
 
 namespace Infrastructure.Services.StaticDataServices

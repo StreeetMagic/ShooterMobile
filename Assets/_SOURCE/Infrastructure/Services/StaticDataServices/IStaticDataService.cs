@@ -1,5 +1,5 @@
-﻿using _SOURCE.Gameplay.Characters.Enemies;
-using Games;
+﻿using Gameplay.Characters.Enemies;
+using Gameplay.Characters.Players;
 
 namespace Infrastructure.Services.StaticDataServices
 {

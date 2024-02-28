@@ -1,26 +1,25 @@
-using Infrastructure.Services.CurrentDatas;
 using Infrastructure.Services.StaticDataServices;
 using UnityEngine;
 using Zenject;
 
-namespace Players
+namespace Gameplay.Characters.Players.Movers
 {
   [RequireComponent(typeof(CharacterController))]
   public class PlayerMover : MonoBehaviour
   {
-    private IStaticDataService _staticDataService;
     private CharacterController _characterController;
+    private PlayerConfig _playerConfig;
+    
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
 
-    private float RotationSpeed => _staticDataService.ForPlayer().RotationSpeed;
-    private float MoveSpeed => _staticDataService.ForPlayer().MoveSpeed;
-    private float GravityScale => _staticDataService.ForPlayer().GravityScale;
+    private float MoveSpeed => _playerConfig.MoveSpeed;
+    private float GravityScale => _playerConfig.GravityScale;
 
     [Inject]
     private void Construct(IStaticDataService staticData)
     {
-      _staticDataService = staticData;
+      _playerConfig = staticData.ForPlayer();
       _characterController = GetComponent<CharacterController>();
     }
 
@@ -45,18 +44,6 @@ namespace Players
     private void ApplyGravity()
     {
       _gravitySpeed += Physics.gravity * GravityScale * Time.deltaTime;
-    }
-
-    public void RotateTowardsDirection(Vector3 direction)
-    {
-      const float MinLength = 0.01f;
-
-      if (direction.sqrMagnitude < MinLength)
-        return;
-
-      Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-      transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * RotationSpeed);
     }
   }
 }

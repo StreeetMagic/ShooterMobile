@@ -1,4 +1,4 @@
-using _SOURCE.Gameplay.Characters.Enemies;
+using Gameplay.Characters.Enemies;
 using UnityEngine;
 
 namespace Infrastructure.Services.AssetProviders

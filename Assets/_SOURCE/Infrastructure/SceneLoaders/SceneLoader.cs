@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using Games;
+using Infrastructure.Games;
 using Infrastructure.Services.CoroutineRunners;
 using UnityEngine;
 using UnityEngine.SceneManagement;

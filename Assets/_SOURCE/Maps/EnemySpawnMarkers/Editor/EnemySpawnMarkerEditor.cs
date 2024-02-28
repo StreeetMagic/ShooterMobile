@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace _SOURCE.Maps.EnemySpawnPoints.Editor
+namespace Maps.EnemySpawnMarkers.Editor
 {
   [CustomEditor(typeof(EnemySpawnMarker))]
   public class EnemySpawnMarkerEditor : UnityEditor.Editor

@@ -1,16 +1,15 @@
-using CodeBase.Logic;
-using Games;
+using Infrastructure.Games;
 using Infrastructure.Services.AssetProviders;
 using Infrastructure.Services.CoroutineRunners;
-using Infrastructure.Services.CurrentDatas;
-using Infrastructure.Services.Inputs;
+using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.StateMachines;
 using Infrastructure.Services.StateMachines.GameStateMachines.States;
 using Infrastructure.Services.StaticDataServices;
 using Infrastructure.Services.ZenjectFactory;
+using Inputs;
 using Zenject;
 
-namespace Infrastructure.DIC
+namespace Infrastructure.DependencyInjection
 {
   public class GameInstaller : MonoInstaller
   {
@@ -31,7 +30,7 @@ namespace Infrastructure.DIC
 
     private void BindLoadingCurtain() =>
       Container
-        .Bind<LoadingCurtain>()
+        .Bind<LoadingCurtain.LoadingCurtain>()
         .FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain)
         .AsSingle();
 
