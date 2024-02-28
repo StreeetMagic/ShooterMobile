@@ -1,3 +1,4 @@
+using Gameplay.Characters.Players.Animators;
 using Infrastructure.Services.StaticDataServices;
 using UnityEngine;
 using Zenject;
@@ -7,6 +8,8 @@ namespace Gameplay.Characters.Players.Movers
   [RequireComponent(typeof(CharacterController))]
   public class PlayerMover : MonoBehaviour
   {
+    [SerializeField] private PlayerAnimator _playerAnimator;
+    
     private CharacterController _characterController;
     private PlayerConfig _playerConfig;
     
@@ -27,6 +30,15 @@ namespace Gameplay.Characters.Players.Movers
     {
       Vector3 playerSpeed = directionXYZ * (MoveSpeed * Time.deltaTime);
 
+      if (directionXYZ.magnitude > 0.01)
+      {
+        _playerAnimator.PlayRunAnimation();
+      }
+      else
+      {
+        _playerAnimator.Stop();
+      }
+      
       if (_characterController.isGrounded)
       {
         _cachedVelocity = playerSpeed;
