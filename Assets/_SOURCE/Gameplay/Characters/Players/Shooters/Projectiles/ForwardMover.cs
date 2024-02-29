@@ -14,7 +14,7 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
 
     private void Update()
     {
-      _rigidbody.velocity = transform.forward * 50f;
+      _rigidbody.velocity = transform.forward * 20f;
     }
   }
 }

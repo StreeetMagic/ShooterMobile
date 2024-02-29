@@ -1,9 +1,14 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Projectiles
 {
   public class PixelArsenalProjectileScript : MonoBehaviour
   {
+    public float ScaleImpact = 0.2f;
+    public float ScaleBullet = 0.2f;
+    public float ScaleMuzzle = 0.2f;
+
     [Tooltip("Effect spawned when projectile hits a collider")]
     public GameObject impactParticle;
 
@@ -21,6 +26,10 @@ namespace Projectiles
 
     private void Start()
     {
+      impactParticle.transform.localScale = new Vector3(ScaleImpact, ScaleImpact, ScaleImpact);
+      projectileParticle.transform.localScale = new Vector3(ScaleBullet, ScaleBullet, ScaleBullet);
+      muzzleParticle.transform.localScale = new Vector3(ScaleMuzzle, ScaleMuzzle, ScaleMuzzle);
+
       projectileParticle = Instantiate(projectileParticle, transform.position, transform.rotation);
       projectileParticle.transform.parent = transform;
 
@@ -29,6 +38,9 @@ namespace Projectiles
         muzzleParticle = Instantiate(muzzleParticle, transform.position, transform.rotation);
         Destroy(muzzleParticle, 1.5f);
       }
+
+      // Игнорируем коллизии с объектами на слое "Player"
+      Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player"));
     }
 
     private void FixedUpdate()
@@ -62,7 +74,7 @@ namespace Projectiles
       {
         transform.position = hit.point + hit.normal * collideOffset;
 
-        GameObject impactP = Instantiate(impactParticle, transform.position, Quaternion.FromToRotation(Vector3.up, hit.normal)); 
+        GameObject impactP = Instantiate(impactParticle, transform.position, Quaternion.FromToRotation(Vector3.up, hit.normal));
 
         ParticleSystem[] trails = GetComponentsInChildren<ParticleSystem>();
 

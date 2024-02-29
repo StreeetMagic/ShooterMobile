@@ -18,7 +18,7 @@ namespace Gameplay.Characters.Players.Shooters
     private IAssetProvider _assetProvider;
 
     private Projectile Projectile => _assetProvider.Get<Projectile>();
-    private Transform Transfrom => _playerFactory.Player.transform;
+    private Transform Transfrom => _playerFactory.Player.ShootingPoint;
 
     public Shooter(TargetHolder targetHolder, GameLoopGameBootstrapper coroutineRunner, IAssetProvider assetProvider, PlayerFactory playerFactory)
     {
@@ -49,7 +49,9 @@ namespace Gameplay.Characters.Players.Shooters
       {
         var rotation = _targetHolder.DirectionToTarget;
 
-        Object.Instantiate(Projectile, Transfrom.position, Quaternion.LookRotation(rotation));
+        Vector3 transfromPosition = new Vector3(Transfrom.position.x, 1, Transfrom.position.z);
+
+        Object.Instantiate(Projectile, transfromPosition, Quaternion.LookRotation(rotation));
 
         yield return new WaitForSeconds(.1f);
       }
