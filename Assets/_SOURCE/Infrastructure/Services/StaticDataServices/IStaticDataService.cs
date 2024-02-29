@@ -1,4 +1,5 @@
-﻿using Gameplay.Characters.Enemies;
+﻿using Configs;
+using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Players;
 
 namespace Infrastructure.Services.StaticDataServices

@@ -5,76 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657cf1a7-e38e-4ccc-9f7b-0d35f7bf7a04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/3dModels.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Rotators/PlayerRotatorController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Rotators/PlayerRotatorController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Shooters/Projectiles/ForwardMover.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Shooters/Projectiles/ForwardMover.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Shooters/Shooter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Shooters/Shooter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/TargetHolders.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Pixel Arsenal/Demo/Scripts/PixelArsenalButtonScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Pixel Arsenal/Demo/Scripts/PixelArsenalButtonScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Pixel Arsenal/Upgrades/Pixel Arsenal LWRP 2019.2.3f1 Materials.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Pixel Arsenal/Upgrades/Pixel Arsenal Legacy Materials.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Pixel Arsenal/Upgrades/Pixel Arsenal Standard Materials.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/InputHandlers/PlayerInputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/InputHandlers/PlayerInputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Player3dModel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/3dModels/Player3dModel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Player3dModel.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/3dModels/Player3dModel.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Resources/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Resources/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/TargetHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/TargetHolders/TargetHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/TargetHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/TargetHolders/TargetHolder.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DependencyInjection/GameLoopSceneContext/GameLoopSceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DependencyInjection/GameLoopSceneContext/GameLoopSceneInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/CoroutineRunners/CoroutineRunner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/CoroutineRunners/CoroutineRunner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/CoroutineRunners/ICoroutineRunner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/CoroutineRunners/ICoroutineRunner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Utilities/CoroutineDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Utilities/CoroutineDecorator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/Bullet.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/Bullet.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/Bullet.wav.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/Bullet.wav.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/FatBulletBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletBlue.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/FatBulletBlue.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletBlueOBJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/FatBulletBlueOBJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletBlueOBJ.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/FatBulletBlueOBJ.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletExplosionBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/FatBulletExplosionBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/FatBulletExplosionBlue.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/FatBulletExplosionBlue.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/GunShot02.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/GunShot02.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/GunShot02.wav.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/GunShot02.wav.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/MuzzleFlashRoundBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/MuzzleFlashRoundBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/MuzzleFlashRoundBlue.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/MuzzleFlashRoundBlue.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/PixelArsenalLightFade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/PixelArsenalLightFade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/PixelArsenalLightFade.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/PixelArsenalLightFade.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/PixelArsenalProjectileScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/PixelArsenalProjectileScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/PixelArsenalProjectileScript.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/PixelArsenalProjectileScript.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/atlas_big_blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/atlas_big_blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/atlas_big_blue.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/atlas_big_blue.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/atlas_big_blue.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/atlas_big_blue.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/atlas_big_blue.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/atlas_big_blue.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/atlas_misc_blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/atlas_misc_blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/atlas_misc_blue.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/atlas_misc_blue.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/atlas_misc_blue.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/atlas_misc_blue.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/atlas_misc_blue.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/atlas_misc_blue.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/fire_pixel_blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/fire_pixel_blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/fire_pixel_blue.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/fire_pixel_blue.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/fire_pixel_blue.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/fire_pixel_blue.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/fire_pixel_blue.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/fire_pixel_blue.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/fire_pixel_modular.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/fire_pixel_modular.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/fire_pixel_modular.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/fire_pixel_modular.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/fire_pixel_modular_AB.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/fire_pixel_modular_AB.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/fire_pixel_modular_AB.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/fire_pixel_modular_AB.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/glow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/glow.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/glow.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/glow.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/glow.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/glow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Projectile/glow.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Projectiles/glow.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/EnemyBasePrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/EnemyBasePrefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Healths/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Healths/Health.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Resources/OrdinaryPerson.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Resources/OrdinaryPerson.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/TargetTriggers/TargetTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/TargetTriggers/TargetTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/TargetTriggers/TargetTrigger.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/TargetTriggers/TargetTrigger.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/OrdinaryPerson.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/OrdinaryPerson/OrdinaryPerson.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/OrdinaryPerson/OrdinaryPerson.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/OrdinaryPerson/PersonAnimator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/OrdinaryPerson/PersonAnimator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerConfig.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerFactories.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerFactories/PlayerFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/PlayerFactories/PlayerFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Shooters/Projectiles/Resources/Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Shooters/Projectiles/Resources/Projectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/TT_Soldiers.FBX" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/TT_Soldiers.FBX.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/EnemyBasePrefab.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/EnemyBasePrefab.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Healths.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Healths/Health.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Healths/Health.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Healths/Health.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Healths/Health.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Resources/OrdinaryPerson.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/Resources/OrdinaryPerson.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/TargetTriggers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/TargetTriggers/TargetTrigger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/TargetTriggers/TargetTrigger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/TargetTriggers/TargetTrigger.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Enemies/TargetTriggers/TargetTrigger.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources/MapVlad.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Vlad/Maps/Resources/MapVlad.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +75,7 @@
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "VLAD/default",
+    "git-widget-placeholder": "DEV-0.01",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

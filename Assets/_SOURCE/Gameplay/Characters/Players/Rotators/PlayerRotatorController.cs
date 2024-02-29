@@ -1,7 +1,8 @@
-﻿using Gameplay.Characters.Players.PlayerFactories;
+﻿using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players.TargetHolders;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players.Movers
+namespace Gameplay.Characters.Players.Rotators
 {
   public class PlayerRotatorController
   {

@@ -1,24 +1,28 @@
 using System;
+using Gameplay.Characters.Enemies.TargetTriggers;
 using UnityEngine;
 
-public class TargetLocator : MonoBehaviour
+namespace Gameplay.Characters.Players.TargetLocator
 {
-  public event Action<TargetTrigger> TargetLocated;
-  public event Action<TargetTrigger> TargetLost;
-
-  private void OnTriggerEnter(Collider other)
+  public class TargetLocator : MonoBehaviour
   {
-    if (other.TryGetComponent(out TargetTrigger targetTrigger))
+    public event Action<TargetTrigger> TargetLocated;
+    public event Action<TargetTrigger> TargetLost;
+
+    private void OnTriggerEnter(Collider other)
     {
-      TargetLocated?.Invoke(targetTrigger);
+      if (other.TryGetComponent(out TargetTrigger targetTrigger))
+      {
+        TargetLocated?.Invoke(targetTrigger);
+      }
     }
-  }
 
-  private void OnTriggerExit(Collider other)
-  {
-    if (other.TryGetComponent(out TargetTrigger targetTrigger))
+    private void OnTriggerExit(Collider other)
     {
-      TargetLost?.Invoke(targetTrigger);
+      if (other.TryGetComponent(out TargetTrigger targetTrigger))
+      {
+        TargetLost?.Invoke(targetTrigger);
+      }
     }
   }
 }

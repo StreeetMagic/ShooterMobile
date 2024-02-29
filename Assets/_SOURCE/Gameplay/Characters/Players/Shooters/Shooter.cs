@@ -1,6 +1,7 @@
 ﻿using System.Collections;
-using Gameplay.Characters.Players.PlayerFactories;
+using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.Shooters.Projectiles;
+using Gameplay.Characters.Players.TargetHolders;
 using Infrastructure.GameLoop;
 using Infrastructure.Services.AssetProviders;
 using Infrastructure.Utilities;

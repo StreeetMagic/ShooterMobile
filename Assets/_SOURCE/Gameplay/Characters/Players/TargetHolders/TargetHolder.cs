@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using Gameplay.Characters.Players.PlayerFactories;
+using Gameplay.Characters.Enemies.TargetTriggers;
+using Gameplay.Characters.Players.Factories;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Characters.Players
+namespace Gameplay.Characters.Players.TargetHolders
 {
   public class TargetHolder : ITickable
   {
     private PlayerFactory _factory;
-    private TargetLocator _targetLocator;
+    private TargetLocator.TargetLocator _targetLocator;
 
     private List<TargetTrigger> _targets = new();
     private TargetTrigger _currentTarget;
@@ -31,7 +32,7 @@ namespace Gameplay.Characters.Players
     private void OnPlayerCreated(Player player)
     {
       _factory.Created -= OnPlayerCreated;
-      _targetLocator = player.GetComponentInChildren<TargetLocator>();
+      _targetLocator = player.GetComponentInChildren<TargetLocator.TargetLocator>();
       _transform = player.transform;
 
       Subscribe();

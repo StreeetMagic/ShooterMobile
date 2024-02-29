@@ -1,6 +1,6 @@
 using Cameras;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
-using Gameplay.Characters.Players.PlayerFactories;
+using Gameplay.Characters.Players.Factories;
 using Maps;
 using UnityEngine;
 using Zenject;

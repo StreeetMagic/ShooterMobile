@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Configs;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Players;
 using UnityEngine;

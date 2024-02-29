@@ -1,9 +1,12 @@
-﻿using Gameplay.Characters.Players.PlayerFactories;
+﻿using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players.Movers;
+using Gameplay.Characters.Players.Rotators;
+using Gameplay.Characters.Players.TargetHolders;
 using Inputs;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.Movers
+namespace Gameplay.Characters.Players.InputHandlers
 {
   public class PlayerInputHandler : ITickable
   {

@@ -1,3 +1,4 @@
+using Configs;
 using Gameplay.Characters.Players.Animators;
 using Infrastructure.Services.StaticDataServices;
 using UnityEngine;

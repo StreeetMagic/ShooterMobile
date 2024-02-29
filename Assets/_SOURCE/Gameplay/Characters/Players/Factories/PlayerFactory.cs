@@ -4,7 +4,7 @@ using Infrastructure.Services.ZenjectFactory;
 using Maps;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players.PlayerFactories
+namespace Gameplay.Characters.Players.Factories
 {
   public class PlayerFactory
   {

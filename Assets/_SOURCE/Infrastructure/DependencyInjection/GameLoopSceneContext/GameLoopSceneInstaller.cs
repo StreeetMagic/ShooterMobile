@@ -1,9 +1,12 @@
 using Cameras;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players;
+using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players.InputHandlers;
 using Gameplay.Characters.Players.Movers;
-using Gameplay.Characters.Players.PlayerFactories;
+using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.Shooters;
+using Gameplay.Characters.Players.TargetHolders;
 using Infrastructure.GameLoop;
 using Infrastructure.Services.CoroutineRunners;
 using Maps;
