@@ -43,8 +43,11 @@ namespace Infrastructure.Services.AssetProviders
         case EnemyId.Unknown:
           throw new NotImplementedException("Unknown enemy id");
 
-        case EnemyId.OrdinaryPerson:
-          return Get<Enemy>(nameof(EnemyId.OrdinaryPerson));
+        case EnemyId.WhiteShirt:
+          return Get<Enemy>(nameof(EnemyId.WhiteShirt));
+        
+        case EnemyId.Builderman:
+          return Get<Enemy>(nameof(EnemyId.Builderman));
 
         default:
           throw new ArgumentOutOfRangeException(nameof(enemyId), enemyId, null);

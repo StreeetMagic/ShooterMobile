@@ -3,6 +3,7 @@
   public enum EnemyId
   {
     Unknown = 0,
-    OrdinaryPerson = 1
+    WhiteShirt = 1,
+    Builderman = 2
   }
 }
