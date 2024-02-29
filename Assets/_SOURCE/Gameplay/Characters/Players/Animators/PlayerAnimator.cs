@@ -4,16 +4,20 @@ namespace Gameplay.Characters.Players.Animators
 {
     public class PlayerAnimator : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        private static readonly int IsRun = Animator.StringToHash(Run);
+
+        private const string Run = "isRun";
+
+        [SerializeField] private Animator _animator;
+
+        public void PlayRunAnimation()
         {
-        
+            _animator.SetBool(IsRun, true);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Stop()
         {
-        
+            _animator.SetBool(IsRun, false);
         }
     }
 }
