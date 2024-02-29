@@ -21,10 +21,15 @@ namespace Gameplay.Characters.Enemies
 
     public void Init(List<RoutePoint> routePoints)
     {
-      EnemyConfig enemyConfig = _staticDataService.ForEnemy(Id);
+      EnemyConfig enemyConfig =
+        _staticDataService
+          .ForEnemy(Id);
 
       GetComponentInChildren<EnemyMover>()
         .Init(enemyConfig, routePoints);
+
+      GetComponentInChildren<Health>()
+        .Init(enemyConfig);
     }
   }
 }

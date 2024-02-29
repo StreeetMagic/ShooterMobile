@@ -38,7 +38,6 @@ namespace Infrastructure.Services.StateMachines.GameStateMachines.States
 
     private void OnSceneLoaded(string name)
     {
-      Debug.Log("Вот тут будем заходить в стейт");
       _gameStateMachine.Enter<GameLoopState>();
     }
   }
