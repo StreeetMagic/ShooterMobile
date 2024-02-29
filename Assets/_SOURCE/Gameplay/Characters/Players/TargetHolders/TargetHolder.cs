@@ -1,19 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using Gameplay.Characters.Players.PlayerFactories;
+using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Players
 {
-  public class TargetHolder
+  public class TargetHolder : ITickable
   {
     private PlayerFactory _factory;
     private TargetLocator _targetLocator;
 
     private List<TargetTrigger> _targets = new();
     private TargetTrigger _currentTarget;
+    private Transform _transform;
 
     public event Action<TargetTrigger> CurrentTargetUpdated;
+
+    public Vector3 DirectionToTarget => _currentTarget.transform.position - _transform.position;
 
     public TargetHolder(PlayerFactory factory)
     {
@@ -21,10 +26,13 @@ namespace Gameplay.Characters.Players
       _factory.Created += OnPlayerCreated;
     }
 
+    public bool HasTarget => _currentTarget != null;
+
     private void OnPlayerCreated(Player player)
     {
       _factory.Created -= OnPlayerCreated;
-      _targetLocator = player.GetComponentInChildren<TargetLocator>(); 
+      _targetLocator = player.GetComponentInChildren<TargetLocator>();
+      _transform = player.transform;
 
       Subscribe();
     }
@@ -77,6 +85,12 @@ namespace Gameplay.Characters.Players
     {
       _targetLocator.TargetLocated += OnTargetLocated;
       _targetLocator.TargetLost += OnTargetLost;
+    }
+
+    public void Tick()
+    {
+      if (_currentTarget == null && _targets.Count > 0)
+        UpdateCurrentTarget(ValidateRandomTarget());
     }
   }
 }

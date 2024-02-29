@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5138085262824814231}
   - component: {fileID: 7859778311746978955}
-  - component: {fileID: -8215018122920709541}
   - component: {fileID: -1549132215726544593}
+  - component: {fileID: 4679670141440192379}
   m_Layer: 3
   m_Name: TargetTrigger
   m_TagString: Untagged
@@ -57,7 +57,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &-8215018122920709541
+--- !u!114 &-1549132215726544593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216875472340336332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0794b9e9a210184ca90037eb03a242a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+--- !u!54 &4679670141440192379
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,15 +97,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-1549132215726544593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216875472340336332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0794b9e9a210184ca90037eb03a242a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

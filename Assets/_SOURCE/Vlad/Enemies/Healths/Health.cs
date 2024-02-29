@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-  [SerializeField] private TargetTrigger _targetTrigger;
-
+  [SerializeField] private Enemy _enemy;
+  
   private EnemyConfig _enemyConfig;
   private float _currentHealth;
 
   public event Action<float> HealthChanged;
+  public event Action Dead;
 
   private float InitialHealth => _enemyConfig.InitialHealth;
 
@@ -30,7 +31,8 @@ public class Health : MonoBehaviour
 
     if (_currentHealth <= 0)
     {
-      Debug.Log("Death");
+      Dead?.Invoke(); 
+      Destroy(_enemy.gameObject);
     }
   }
 

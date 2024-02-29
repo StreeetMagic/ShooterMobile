@@ -9,14 +9,17 @@ namespace Gameplay.Characters.Players.Movers
   {
     private readonly IInputService _inputService;
     private readonly PlayerFactory _playerFactory;
+    private readonly TargetHolder _targetHolder;
 
     private PlayerMover _mover;
-    private PlayerRotator _rotator;
+    private PlayerRotatorController _rotatorController;
 
-    public PlayerInputHandler(IInputService inputService, PlayerFactory playerFactory)
+    public PlayerInputHandler(IInputService inputService, PlayerFactory playerFactory, TargetHolder targetHolder, PlayerRotatorController rotatorController)
     {
       _inputService = inputService;
+      _rotatorController = rotatorController;
 
+      _targetHolder = targetHolder;
       _playerFactory = playerFactory;
       playerFactory.Created += OnPlayerCreated;
     }
@@ -26,16 +29,16 @@ namespace Gameplay.Characters.Players.Movers
       if (_inputService.CanMove == false)
         return;
 
-      Vector3 direction = GetDirection();
+      Vector3 moveDirection = GetDirection();
 
-      _mover.Move(direction);
-      _rotator.RotateTowardsDirection(direction);
+      _mover.Move(moveDirection);
+
+      _rotatorController.RotateTowardsDirection(moveDirection);
     }
 
     private void OnPlayerCreated(Player player)
     {
       _mover = player.GetComponent<PlayerMover>();
-      _rotator = player.GetComponent<PlayerRotator>();
       _playerFactory.Created -= OnPlayerCreated;
     }
 

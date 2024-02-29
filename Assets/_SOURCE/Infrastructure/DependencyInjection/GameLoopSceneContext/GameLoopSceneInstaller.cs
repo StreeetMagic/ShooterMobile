@@ -3,7 +3,9 @@ using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.Movers;
 using Gameplay.Characters.Players.PlayerFactories;
+using Gameplay.Characters.Players.Shooters;
 using Infrastructure.GameLoop;
+using Infrastructure.Services.CoroutineRunners;
 using Maps;
 using UnityEngine;
 using Zenject;
@@ -47,6 +49,14 @@ namespace Infrastructure.DependencyInjection.GameLoopSceneContext
         .BindInterfacesAndSelfTo<TargetHolder>()
         .AsSingle()
         .NonLazy();
+
+      Container
+        .BindInterfacesAndSelfTo<PlayerRotatorController>()
+        .AsSingle();
+
+      Container
+        .BindInterfacesAndSelfTo<Shooter>()
+        .AsSingle();
     }
   }
 }

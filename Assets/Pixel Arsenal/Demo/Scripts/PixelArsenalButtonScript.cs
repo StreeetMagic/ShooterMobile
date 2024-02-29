@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using Projectile;
+using Projectiles;
 
 namespace PixelArsenal
 {

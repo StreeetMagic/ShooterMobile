@@ -646,6 +646,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1684277554}
     m_Modifications:
+    - target: {fileID: 247277491397883688, guid: 1efcd1c7a6993144994fd2227f40ca14,
+        type: 3}
+      propertyPath: _gameLoopGameBootstrapper
+      value: 
+      objectReference: {fileID: 1407144925}
     - target: {fileID: 6501730753577843298, guid: 1efcd1c7a6993144994fd2227f40ca14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -724,6 +729,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 999042202}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1407144925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2926558539640087035, guid: d03166b34a92c2848b1b1f6f9bdd5cf9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1891145798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6755553640a9b449795efdc7437532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1684277553
 GameObject:
   m_ObjectHideFlags: 0

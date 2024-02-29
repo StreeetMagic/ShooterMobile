@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections;
+using Infrastructure.Services.CoroutineRunners;
 using UnityEngine;
 
 namespace Infrastructure.Utilities
 {
   public class CoroutineDecorator
   {
-    private readonly Func<Action, IEnumerator> _coroutineFunc;
+    private readonly Func<IEnumerator> _coroutineFunc;
     private readonly MonoBehaviour _runner;
     private Coroutine _coroutine;
 
-    public CoroutineDecorator(MonoBehaviour runner, Func<Action, IEnumerator> coroutineFunc)
+    public CoroutineDecorator(MonoBehaviour runner, Func<IEnumerator> coroutineFunc)
     {
       _runner = runner;
       _coroutineFunc = coroutineFunc;
@@ -23,7 +24,7 @@ namespace Infrastructure.Utilities
       if (IsRunning && _coroutine != null)
         _runner.StopCoroutine(_coroutine);
 
-      _coroutine = _runner.StartCoroutine(_coroutineFunc(onComplete));
+      _coroutine = _runner.StartCoroutine(_coroutineFunc());
       IsRunning = true;
     }
 
