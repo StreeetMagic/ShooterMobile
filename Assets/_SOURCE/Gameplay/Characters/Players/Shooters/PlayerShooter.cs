@@ -15,25 +15,24 @@ namespace Gameplay.Characters.Players.Shooters
     private readonly CoroutineDecorator _coroutine;
     private readonly IAssetProvider _assetProvider;
     private readonly PlayerProvider _playerProvider;
-    
-    private PlayerTargetHolder _playerTargetHolder;
 
-    private Projectile Projectile => _assetProvider.Get<Projectile>();
-    private Transform Transfrom => _playerProvider.Player.ShootingPoint;
-
-    public PlayerShooter( GameLoopGameBootstrapper coroutineRunner,
-      IAssetProvider assetProvider, PlayerProvider playerProvider)
+    public PlayerShooter(IAssetProvider assetProvider, PlayerProvider playerProvider)
     {
-
       _assetProvider = assetProvider;
       _playerProvider = playerProvider;
+
+      MonoBehaviour coroutineRunner = Object.FindObjectOfType<GameLoopGameBootstrapper>();
 
       _coroutine = new CoroutineDecorator(coroutineRunner, Shooting);
     }
 
+    private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
+    private Projectile Projectile => _assetProvider.Get<Projectile>();
+    private Transform Transfrom => _playerProvider.Player.ShootingPoint;
+
     public void Tick()
     {
-      if (_playerTargetHolder.HasTarget == false)
+      if (PlayerTargetHolder.HasTarget == false)
       {
         if (_coroutine.IsRunning)
           _coroutine.Stop();
@@ -49,7 +48,7 @@ namespace Gameplay.Characters.Players.Shooters
     {
       while (true)
       {
-        var rotation = _playerTargetHolder.DirectionToTarget;
+        var rotation = PlayerTargetHolder.DirectionToTarget;
 
         Vector3 transfromPosition = new Vector3(Transfrom.position.x, 1, Transfrom.position.z);
 

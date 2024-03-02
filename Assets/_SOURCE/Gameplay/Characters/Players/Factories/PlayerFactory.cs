@@ -1,6 +1,7 @@
 using Gameplay.Characters.Players.InputHandlers;
 using Gameplay.Characters.Players.Movers;
 using Gameplay.Characters.Players.Rotators;
+using Gameplay.Characters.Players.Shooters;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
 using Infrastructure.Services.AssetProviders;
@@ -37,9 +38,12 @@ namespace Gameplay.Characters.Players.Factories
       _playerProvider.PlayerRotator = player.GetComponent<PlayerRotator>();
       _playerProvider.PlayerTargetLocator = player.GetComponentInChildren<PlayerTargetLocator>();
 
-      // _factory.Create<PlayerTargetHolder>();
-      // _playerProvider.PlayerInputHandler = _factory.Create<PlayerInputHandler>();
-      // _playerProvider.PlayerRotatorController = _factory.Create<PlayerRotatorController>();
+      _playerProvider.PlayerInputHandler = _factory.Create<PlayerInputHandler>();
+      _playerProvider.PlayerRotatorController = _factory.Create<PlayerRotatorController>();
+      _playerProvider.PlayerShooter = _factory.Create<PlayerShooter>();
+
+      _playerProvider.PlayerTargetHolder = _factory.Create<PlayerTargetHolder>();
+      _playerProvider.PlayerTargetHolder.Start();
     }
   }
 }

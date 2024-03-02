@@ -9,10 +9,10 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Players.TargetHolders
 {
-  public class PlayerTargetHolder 
+  public class PlayerTargetHolder : ITickable
   {
     private readonly PlayerProvider _playerProvider;
-      
+
     private TargetTrigger _currentTarget;
     private List<TargetTrigger> _targets = new();
 
@@ -29,9 +29,15 @@ namespace Gameplay.Characters.Players.TargetHolders
     private PlayerTargetLocator _playerTargetLocator => _playerProvider.PlayerTargetLocator;
     private Transform _transform => _playerProvider.Player.transform;
 
-    private void OnPlayerCreated(Player player)
+    public void Start()
     {
       Subscribe();
+    }
+
+    public void Tick()
+    {
+      if (_currentTarget == null && _targets.Count > 0)
+        UpdateCurrentTarget(ValidateRandomTarget());
     }
 
     private void AddTarget(TargetTrigger target)
@@ -82,12 +88,6 @@ namespace Gameplay.Characters.Players.TargetHolders
     {
       _playerTargetLocator.TargetLocated += OnPlayerTargetLocated;
       _playerTargetLocator.TargetLost += OnPlayerTargetLost;
-    }
-
-    public void Tick()
-    {
-      if (_currentTarget == null && _targets.Count > 0)
-        UpdateCurrentTarget(ValidateRandomTarget());
     }
   }
 }

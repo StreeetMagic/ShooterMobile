@@ -15,7 +15,7 @@ namespace Infrastructure.GameLoop
     private EnemySpawnerFactory _enemySpawnerFactory;
 
     [Inject]
-    public void Construct(PlayerFactory playerFactory, MapFactory mapFactory, CameraFactory cameraFactory, 
+    public void Construct(PlayerFactory playerFactory, MapFactory mapFactory, CameraFactory cameraFactory,
       EnemySpawnerFactory enemySpawnerFactory)
     {
       _playerFactory = playerFactory;
@@ -26,6 +26,8 @@ namespace Infrastructure.GameLoop
 
     void Start()
     {
+      Debug.Log("Начинаем игру");
+      
       _mapFactory.Create(transform);
       _playerFactory.Create(transform);
       _cameraFactory.Create(transform);

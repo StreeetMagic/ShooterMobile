@@ -1,3 +1,6 @@
+using Cameras;
+using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
+using Gameplay.Characters.Players.Factories;
 using Infrastructure.Games;
 using Infrastructure.Services.AssetProviders;
 using Infrastructure.Services.CoroutineRunners;
@@ -7,6 +10,8 @@ using Infrastructure.Services.StateMachines.GameStateMachines.States;
 using Infrastructure.Services.StaticDataServices;
 using Infrastructure.Services.ZenjectFactory;
 using Inputs;
+using Maps;
+using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.DependencyInjection
@@ -26,6 +31,30 @@ namespace Infrastructure.DependencyInjection
       BindStaticDataService();
 
       BindLoadingCurtain();
+
+      Container
+        .BindInterfacesAndSelfTo<PlayerProvider>()
+        .AsSingle();
+
+      Container
+        .Bind<PlayerFactory>()
+        .AsSingle()
+        .NonLazy();
+
+      Container
+        .Bind<MapFactory>()
+        .AsSingle()
+        .NonLazy();
+
+      Container
+        .Bind<CameraFactory>()
+        .AsSingle()
+        .NonLazy();
+
+      Container
+        .Bind<EnemySpawnerFactory>()
+        .AsSingle()
+        .NonLazy();
     }
 
     private void BindLoadingCurtain() =>
