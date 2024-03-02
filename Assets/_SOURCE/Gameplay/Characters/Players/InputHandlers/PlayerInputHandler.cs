@@ -25,8 +25,6 @@ namespace Gameplay.Characters.Players.InputHandlers
 
     public void Tick()
     {
-      Debug.Log("Я тикаю ");
-      
       if (_inputService.CanMove == false)
         return;
 

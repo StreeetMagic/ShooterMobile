@@ -20,6 +20,8 @@ namespace Infrastructure.DependencyInjection
   {
     public override void InstallBindings()
     {
+      Debug.Log(" Начинаем инжектить зависимости");
+
       BindCoroutineRunner();
       BindZenjectFactory();
 
