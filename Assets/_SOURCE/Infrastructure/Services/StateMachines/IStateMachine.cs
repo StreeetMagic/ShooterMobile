@@ -2,7 +2,7 @@ using Infrastructure.Services.StateMachines.States;
 
 namespace Infrastructure.Services.StateMachines
 {
-  public interface IStateMachine<TMainState> : IService where TMainState : class, IState
+  public interface IStateMachine<TMainState> where TMainState : class, IState
   {
     IExitableState ActiveState { get; }
 

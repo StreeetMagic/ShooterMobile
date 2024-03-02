@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Infrastructure.Services.AssetProviders
 {
-  public interface IAssetProvider : IService
+  public interface IAssetProvider
   {
     T Get<T>() where T : MonoBehaviour;
     T Get<T>(string path) where T : MonoBehaviour;

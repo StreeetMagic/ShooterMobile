@@ -20,8 +20,6 @@ namespace Infrastructure.DependencyInjection
   {
     public override void InstallBindings()
     {
-      Debug.Log(" Начинаем инжектить зависимости");
-
       BindCoroutineRunner();
       BindZenjectFactory();
 
@@ -33,30 +31,52 @@ namespace Infrastructure.DependencyInjection
       BindStaticDataService();
 
       BindLoadingCurtain();
+      
+      BindPlayerProvider();
+      BindPlayerFactory();
 
-      Container
-        .BindInterfacesAndSelfTo<PlayerProvider>()
-        .AsSingle();
+      BindMapFactory();
+      BindCameraFactory();
+      BindEnemySpawnerFactory();
+    }
 
-      Container
-        .Bind<PlayerFactory>()
-        .AsSingle()
-        .NonLazy();
-
-      Container
-        .Bind<MapFactory>()
-        .AsSingle()
-        .NonLazy();
-
-      Container
-        .Bind<CameraFactory>()
-        .AsSingle()
-        .NonLazy();
-
+    private void BindEnemySpawnerFactory()
+    {
       Container
         .Bind<EnemySpawnerFactory>()
         .AsSingle()
         .NonLazy();
+    }
+
+    private void BindCameraFactory()
+    {
+      Container
+        .Bind<CameraFactory>()
+        .AsSingle()
+        .NonLazy();
+    }
+
+    private void BindMapFactory()
+    {
+      Container
+        .Bind<MapFactory>()
+        .AsSingle()
+        .NonLazy();
+    }
+
+    private void BindPlayerFactory()
+    {
+      Container
+        .Bind<PlayerFactory>()
+        .AsSingle()
+        .NonLazy();
+    }
+
+    private void BindPlayerProvider()
+    {
+      Container
+        .BindInterfacesAndSelfTo<PlayerProvider>()
+        .AsSingle();
     }
 
     private void BindLoadingCurtain() =>

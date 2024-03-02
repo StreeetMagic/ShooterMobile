@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Infrastructure.Services.Pools
 {
-  public interface IPoolRepositoryService : IService
+  public interface IPoolRepositoryService
   {
     public T Get<T>() where T : MonoBehaviour, IPoolable<T>;
     public void Release<T>(T obj) where T : MonoBehaviour, IPoolable<T>;

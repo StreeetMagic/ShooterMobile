@@ -1,10 +1,9 @@
-﻿using Infrastructure.Services;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Inputs
 {
-  public interface IInputService : IService
+  public interface IInputService
   {
     Vector2 MoveDirection { get; }
     bool CanMove { get; }

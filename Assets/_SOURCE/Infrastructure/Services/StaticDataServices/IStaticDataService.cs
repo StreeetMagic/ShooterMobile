@@ -4,7 +4,7 @@ using Gameplay.Characters.Players;
 
 namespace Infrastructure.Services.StaticDataServices
 {
-  public interface IStaticDataService : IService
+  public interface IStaticDataService
   {
     PlayerConfig ForPlayer();
     EnemyConfig ForEnemy(EnemyId enemyId);
