@@ -6,31 +6,22 @@ namespace Gameplay.Characters.Players.Rotators
 {
   public class PlayerRotatorController
   {
-    private TargetHolder _targetHolder;
-    private PlayerRotator _playerRotator;
-    private PlayerFactory _playerFactory;
+    private readonly PlayerProvider _playerProvider;
 
-    public PlayerRotatorController(PlayerFactory playerFactory, TargetHolder targetHolder)
+    public PlayerRotatorController(PlayerProvider playerProvider)
     {
-      _playerFactory = playerFactory;
-      _targetHolder = targetHolder;
-
-      _playerFactory.Created += OnCreated;
+      _playerProvider = playerProvider;
     }
 
-    private void OnCreated(Player player)
-    {
-      _playerRotator = player.GetComponentInChildren<PlayerRotator>();
-
-      _playerFactory.Created -= OnCreated;
-    }
+    private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
+    private PlayerRotator PlayerRotator => _playerProvider.PlayerRotator;
 
     public void RotateTowardsDirection(Vector3 direction)
     {
-      if (_targetHolder.HasTarget)
-        direction = _targetHolder.DirectionToTarget;
+      if (PlayerTargetHolder.HasTarget)
+        direction = PlayerTargetHolder.DirectionToTarget;
 
-      _playerRotator.RotateTowardsDirection(direction);
+      PlayerRotator.RotateTowardsDirection(direction);
     }
   }
 }

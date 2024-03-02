@@ -8,24 +8,20 @@ using Zenject;
 
 namespace Gameplay.Characters.Players.InputHandlers
 {
-  public class PlayerInputHandler : ITickable
+  public class PlayerInputHandler 
   {
     private readonly IInputService _inputService;
-    private readonly PlayerFactory _playerFactory;
-    private readonly TargetHolder _targetHolder;
+    private readonly PlayerProvider _playerProvider;
 
-    private PlayerMover _mover;
-    private PlayerRotatorController _rotatorController;
-
-    public PlayerInputHandler(IInputService inputService, PlayerFactory playerFactory, TargetHolder targetHolder, PlayerRotatorController rotatorController)
+    public PlayerInputHandler(IInputService inputService,
+      PlayerProvider playerProvider)
     {
       _inputService = inputService;
-      _rotatorController = rotatorController;
-
-      _targetHolder = targetHolder;
-      _playerFactory = playerFactory;
-      playerFactory.Created += OnPlayerCreated;
+      _playerProvider = playerProvider;
     }
+
+    private PlayerRotatorController RotatorController => _playerProvider.PlayerRotatorController;
+    private PlayerMover Mover => _playerProvider.PlayerMover;
 
     public void Tick()
     {
@@ -34,15 +30,9 @@ namespace Gameplay.Characters.Players.InputHandlers
 
       Vector3 moveDirection = GetDirection();
 
-      _mover.Move(moveDirection);
+      Mover.Move(moveDirection);
 
-      _rotatorController.RotateTowardsDirection(moveDirection);
-    }
-
-    private void OnPlayerCreated(Player player)
-    {
-      _mover = player.GetComponent<PlayerMover>();
-      _playerFactory.Created -= OnPlayerCreated;
+      RotatorController.RotateTowardsDirection(moveDirection);
     }
 
     private Vector3 GetDirection()

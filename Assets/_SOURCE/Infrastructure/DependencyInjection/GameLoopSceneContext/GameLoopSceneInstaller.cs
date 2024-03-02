@@ -1,14 +1,7 @@
 using Cameras;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
-using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.Factories;
-using Gameplay.Characters.Players.InputHandlers;
-using Gameplay.Characters.Players.Movers;
-using Gameplay.Characters.Players.Rotators;
-using Gameplay.Characters.Players.Shooters;
-using Gameplay.Characters.Players.TargetHolders;
 using Infrastructure.GameLoop;
-using Infrastructure.Services.CoroutineRunners;
 using Maps;
 using UnityEngine;
 using Zenject;
@@ -21,19 +14,20 @@ namespace Infrastructure.DependencyInjection.GameLoopSceneContext
 
     public override void InstallBindings()
     {
+      NewMethod();
+
       Container
         .Bind<GameLoopGameBootstrapper>()
         .FromInstance(_gameLoopGameBootstrapper)
-        .AsSingle();
-
-      Container
-        .Bind<PlayerFactory>()
         .AsSingle()
         .NonLazy();
 
+      NewMethod1();
+
       Container
         .Bind<MapFactory>()
-        .AsSingle();
+        .AsSingle()
+        .NonLazy();
 
       Container
         .Bind<CameraFactory>()
@@ -42,24 +36,27 @@ namespace Infrastructure.DependencyInjection.GameLoopSceneContext
 
       Container
         .Bind<EnemySpawnerFactory>()
-        .AsSingle();
+        .AsSingle()
+        .NonLazy();
+    }
 
+    private void NewMethod1()
+    {
       Container
-        .BindInterfacesAndSelfTo<PlayerInputHandler>()
-        .AsSingle();
-
-      Container
-        .BindInterfacesAndSelfTo<TargetHolder>()
+        .Bind<PlayerFactory>()
         .AsSingle()
         .NonLazy();
 
+      Debug.Log(" Биндим фабрику ");
+    }
+
+    private void NewMethod()
+    {
       Container
-        .BindInterfacesAndSelfTo<PlayerRotatorController>()
+        .Bind<PlayerProvider>()
         .AsSingle();
 
-      Container
-        .BindInterfacesAndSelfTo<Shooter>()
-        .AsSingle();
+      Debug.Log(" Биндим провайдер");
     }
   }
 }

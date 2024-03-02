@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Projectiles
+namespace Gameplay.Characters.Players.Shooters.Projectiles.Bullet
 {
   public class PixelArsenalProjectileScript : MonoBehaviour
   {

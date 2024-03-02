@@ -11,9 +11,9 @@ namespace Cameras
   {
     private readonly IAssetProvider _assetProvider;
     private readonly IZenjectFactory _factory;
-    private readonly PlayerFactory _playerFactory;
+    private readonly PlayerProvider _playerFactory;
 
-    public CameraFactory(IZenjectFactory factory, IAssetProvider assetProvider, PlayerFactory playerFactory)
+    public CameraFactory(IZenjectFactory factory, IAssetProvider assetProvider, PlayerProvider playerFactory)
     {
       _factory = factory;
       _assetProvider = assetProvider;
