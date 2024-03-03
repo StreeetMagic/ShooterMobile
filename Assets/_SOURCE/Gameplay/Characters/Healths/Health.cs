@@ -8,17 +8,17 @@ namespace Gameplay.Characters.Enemies.Healths
     [SerializeField] private Enemy _enemy;
   
     private EnemyConfig _enemyConfig;
-    private float _currentHealth;
 
     public event Action<float> HealthChanged;
     public event Action Dead;
 
-    private float InitialHealth => _enemyConfig.InitialHealth;
+    public float Current { get; private set; }
+    public float Initial => _enemyConfig.InitialHealth;
 
     public void Init(EnemyConfig enemyConfig)
     {
       _enemyConfig = enemyConfig;
-      SetCurrentHealth(InitialHealth);
+      SetCurrentHealth(Initial);
     }
 
     public void TakeDamage(float damage)
@@ -28,9 +28,9 @@ namespace Gameplay.Characters.Enemies.Healths
         throw new ArgumentOutOfRangeException(nameof(damage));
       }
 
-      SetCurrentHealth(_currentHealth - damage);
+      SetCurrentHealth(Current - damage);
 
-      if (_currentHealth <= 0)
+      if (Current <= 0)
       {
         Dead?.Invoke(); 
         Destroy(_enemy.gameObject);
@@ -39,8 +39,8 @@ namespace Gameplay.Characters.Enemies.Healths
 
     private void SetCurrentHealth(float health)
     {
-      _currentHealth = health;
-      HealthChanged?.Invoke(_currentHealth);
+      Current = health;
+      HealthChanged?.Invoke(Current);
     }
   }
 }

@@ -11,7 +11,6 @@ using Infrastructure.Services.StaticDataServices;
 using Infrastructure.Services.ZenjectFactory;
 using Inputs;
 using Maps;
-using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.DependencyInjection
@@ -20,109 +19,99 @@ namespace Infrastructure.DependencyInjection
   {
     public override void InstallBindings()
     {
-      BindCoroutineRunner();
-      BindZenjectFactory();
+      CoroutineRunner();
+      ZenjectFactory();
 
-      BindGameStateMachine();
+      GameStateMachine();
 
-      BindInput();
-      BindAssetProvider();
-      BindCurrentDataService();
-      BindStaticDataService();
+      Input();
+      AssetProvider();
+      CurrentDataService();
+      StaticDataService();
 
-      BindLoadingCurtain();
+      LoadingCurtain();
       
-      BindPlayerProvider();
-      BindPlayerFactory();
+      PlayerProvider();
+      PlayerFactory();
 
-      BindMapFactory();
-      BindCameraFactory();
-      BindEnemySpawnerFactory();
+      MapFactory();
+      CameraFactory();
+      EnemySpawnerFactory();
     }
 
-    private void BindEnemySpawnerFactory()
-    {
+    private void EnemySpawnerFactory() =>
       Container
         .Bind<EnemySpawnerFactory>()
         .AsSingle()
         .NonLazy();
-    }
 
-    private void BindCameraFactory()
-    {
+    private void CameraFactory() =>
       Container
         .Bind<CameraFactory>()
         .AsSingle()
         .NonLazy();
-    }
 
-    private void BindMapFactory()
-    {
+    private void MapFactory() =>
       Container
         .Bind<MapFactory>()
         .AsSingle()
         .NonLazy();
-    }
 
-    private void BindPlayerFactory()
-    {
+    private void PlayerFactory() =>
       Container
         .Bind<PlayerFactory>()
         .AsSingle()
         .NonLazy();
-    }
 
-    private void BindPlayerProvider()
-    {
+    private void PlayerProvider() =>
       Container
         .BindInterfacesAndSelfTo<PlayerProvider>()
         .AsSingle();
-    }
 
-    private void BindLoadingCurtain() =>
+    private void LoadingCurtain() =>
       Container
         .Bind<LoadingCurtain.LoadingCurtain>()
         .FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain)
         .AsSingle();
 
-    private void BindZenjectFactory() =>
+    private void ZenjectFactory() =>
       Container
         .Bind<IZenjectFactory>()
         .To<ZenjectFactory>()
         .AsSingle();
 
-    private void BindCoroutineRunner() =>
+    private void CoroutineRunner() =>
       Container
         .Bind<ICoroutineRunner>()
         .To<CoroutineRunner>()
         .FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.CoroutineRunner)
         .AsSingle();
 
-    private void BindStaticDataService() =>
+    private void StaticDataService() =>
       Container
         .Bind<IStaticDataService>()
         .To<StaticDataService>()
         .AsSingle();
 
-    private void BindCurrentDataService() =>
+    private void CurrentDataService() =>
       Container
         .Bind<IPersistentProgressService>()
         .To<PersistentProgressService>()
         .AsSingle();
 
-    private void BindAssetProvider() =>
+    private void AssetProvider() =>
       Container
         .Bind<IAssetProvider>()
         .To<AssetProvider>()
         .AsSingle();
 
-    private void BindInput() =>
+    private void Input() =>
       Container
         .Bind<IInputService>()
         .To<InputService>()
         .AsSingle();
 
-    private void BindGameStateMachine() =>
+    private void GameStateMachine() =>
       Container
         .Bind<IStateMachine<IGameState>>()
         .To<StateMachine<IGameState>>()
