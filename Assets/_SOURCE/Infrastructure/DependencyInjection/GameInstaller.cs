@@ -20,22 +20,29 @@ namespace Infrastructure.DependencyInjection
     public override void InstallBindings()
     {
       CoroutineRunner();
+
       ZenjectFactory();
 
       GameStateMachine();
 
       Input();
+
       AssetProvider();
+
       CurrentDataService();
+
       StaticDataService();
 
       LoadingCurtain();
-      
+
       PlayerProvider();
+
       PlayerFactory();
 
       MapFactory();
+
       CameraFactory();
+
       EnemySpawnerFactory();
     }
 
@@ -95,8 +102,7 @@ namespace Infrastructure.DependencyInjection
 
     private void CurrentDataService() =>
       Container
-        .Bind<IPersistentProgressService>()
-        .To<PersistentProgressService>()
+        .Bind<PersistentProgressService>()
         .AsSingle();
 
     private void AssetProvider() =>

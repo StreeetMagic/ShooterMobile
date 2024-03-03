@@ -5,19 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657cf1a7-e38e-4ccc-9f7b-0d35f7bf7a04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Healths/Editor/HealthEditor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Healths/Editor/HealthEditor.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Configs/PlayerConfig.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Configs/PlayerConfig.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/EnemyConfig.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/EnemyConfig.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Healths.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Healths.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Healths/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Healths/Health.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Healths/Health.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Healths/Health.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Healths/Health.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Healths/Health.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Healths/Health.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Healths/Health.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DependencyInjection/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DependencyInjection/GameInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgress.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgress/CurrentDataService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgress/CurrentDataService.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgress/PersistentProgressService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgress/PersistentProgressService.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Utilities/ReactiveProperty.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Utilities/ReactiveProperty.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +28,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Movers/EnemyMover.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Shooters/Projectiles/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/GameLoop/GameLoopGameBootstrapper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgresses/CurrentDataService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Editor/Editors/Cinemachine3rdPersonFollowEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/Behaviours/Cinemachine3rdPersonAim.cs" root0="FORCE_HIGHLIGHTING" />
@@ -63,7 +59,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "settings.editor.selected.configurable": "CodeInspectionSettingsId",
     "settings.editor.splitter.proportion": "0.26064292",
     "vue.rearranger.settings.migration": "true"
   },
@@ -131,7 +127,7 @@
       <workItem from="1709113041106" duration="2789000" />
       <workItem from="1709119104963" duration="1348000" />
       <workItem from="1709394596227" duration="5977000" />
-      <workItem from="1709456957586" duration="971000" />
+      <workItem from="1709456957586" duration="3507000" />
     </task>
     <servers />
   </component>

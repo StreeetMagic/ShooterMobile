@@ -2,31 +2,17 @@
 
 namespace Infrastructure.Utilities
 {
-  public interface IReactiveProperty<T>
+  public class ReactiveProperty<T>
   {
-    public T Value { get; }
-    public event Action<T> ValueChanged;
-  }
-
-  public class ReactiveProperty<T> : IReactiveProperty<T>
-  {
-    private readonly Func<T, T> _valueSetter;
     private T _value;
+
+    public ReactiveProperty()
+    {
+      Value = default(T);
+    }
 
     public ReactiveProperty(T value)
     {
-      Value = value;
-    }
-
-    public ReactiveProperty(Func<T, T> valueSetter)
-    {
-      _valueSetter = valueSetter;
-      Value = default;
-    }
-
-    public ReactiveProperty(T value, Func<T, T> valueSetter)
-    {
-      _valueSetter = valueSetter;
       Value = value;
     }
 
@@ -37,15 +23,9 @@ namespace Infrastructure.Utilities
       get => _value;
       set
       {
-        _value = _valueSetter == null
-          ? value
-          : _valueSetter(value);
-
+        _value = value;
         ValueChanged?.Invoke(_value);
       }
     }
-
-    public override string ToString() =>
-      Value.ToString();
   }
 }
