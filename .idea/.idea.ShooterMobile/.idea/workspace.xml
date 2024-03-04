@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657cf1a7-e38e-4ccc-9f7b-0d35f7bf7a04" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/RewardServices.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/RewardServices/RewardService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/RewardServices/RewardService.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Configs/Resources/Enemies/EnemyConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Configs/Resources/Enemies/EnemyConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Configs/Resources/Enemies/WhiteShirt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Configs/Resources/Enemies/WhiteShirt.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Healths/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Healths/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Factories/PlayerProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Factories/PlayerProvider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DependencyInjection/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DependencyInjection/GameInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgress.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgress/CurrentDataService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgress/CurrentDataService.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgress/PersistentProgressService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Services/PersistentProgress/PersistentProgressService.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Utilities/ReactiveProperty.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/Utilities/ReactiveProperty.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,31 +48,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "VLAD/default",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CodeInspectionSettingsId",
-    "settings.editor.splitter.proportion": "0.26064292",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;VLAD/default&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CodeInspectionSettingsId&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.26064292&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Vlad\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Vlad\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\Vlad\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Vlad\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Vlad\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Vlad\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Apps\Unity Hub\Editors\2022.3.20f1\Editor\Unity.exe" />
@@ -128,6 +130,8 @@
       <workItem from="1709119104963" duration="1348000" />
       <workItem from="1709394596227" duration="5977000" />
       <workItem from="1709456957586" duration="3507000" />
+      <workItem from="1709462986878" duration="4280000" />
+      <workItem from="1709559631392" duration="7861000" />
     </task>
     <servers />
   </component>

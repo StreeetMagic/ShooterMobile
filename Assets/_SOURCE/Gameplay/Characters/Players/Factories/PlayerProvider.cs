@@ -12,13 +12,6 @@ namespace Gameplay.Characters.Players.Factories
 {
   public class PlayerProvider : ITickable
   {
-    private IZenjectFactory _factory;
-
-    public PlayerProvider(IZenjectFactory factory)
-    {
-      _factory = factory;
-    }
-
     public Player Player { get; set; }
 
     public PlayerMover PlayerMover { get; set; }

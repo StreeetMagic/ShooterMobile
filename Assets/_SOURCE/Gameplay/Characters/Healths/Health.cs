@@ -1,19 +1,28 @@
 using System;
+using Gameplay.RewardServices;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Characters.Enemies.Healths
 {
   public class Health : MonoBehaviour
   {
     [SerializeField] private Enemy _enemy;
-  
+
     private EnemyConfig _enemyConfig;
+    private RewardService _rewardService;
 
     public event Action<float> HealthChanged;
     public event Action Dead;
 
     public float Current { get; private set; }
     public float Initial => _enemyConfig.InitialHealth;
+
+    [Inject]
+    public void Construct(RewardService rewardService)
+    {
+      _rewardService = rewardService;
+    }
 
     public void Init(EnemyConfig enemyConfig)
     {
@@ -32,7 +41,8 @@ namespace Gameplay.Characters.Enemies.Healths
 
       if (Current <= 0)
       {
-        Dead?.Invoke(); 
+        Dead?.Invoke();
+        _rewardService.OnEnemyDied(_enemy.Id);
         Destroy(_enemy.gameObject);
       }
     }

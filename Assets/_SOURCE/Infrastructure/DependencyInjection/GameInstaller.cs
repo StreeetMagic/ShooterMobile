@@ -1,6 +1,7 @@
 using Cameras;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players.Factories;
+using Gameplay.RewardServices;
 using Infrastructure.Games;
 using Infrastructure.Services.AssetProviders;
 using Infrastructure.Services.CoroutineRunners;
@@ -44,7 +45,15 @@ namespace Infrastructure.DependencyInjection
       CameraFactory();
 
       EnemySpawnerFactory();
+
+      RewardService();
     }
+
+    private void RewardService() =>
+      Container
+        .Bind<RewardService>()
+        .AsSingle()
+        .NonLazy();
 
     private void EnemySpawnerFactory() =>
       Container

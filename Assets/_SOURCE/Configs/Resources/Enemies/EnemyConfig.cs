@@ -9,5 +9,6 @@ namespace Gameplay.Characters.Enemies
     [field: SerializeField] public float MoveSpeed { get; private set; }
     [field: SerializeField] public float WaitTimeAfterMove { get; private set; }
     [field: SerializeField] public int InitialHealth { get; private set; }
+    [field: SerializeField] public int MoneyReward { get; private set; } 
   }
 }
