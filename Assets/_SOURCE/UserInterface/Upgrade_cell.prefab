@@ -243,7 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8440647929666010387}
   m_Layer: 5
-  m_Name: cell
+  m_Name: Upgrade_cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 1013969098845924703}
   - component: {fileID: 942797279275792497}
   m_Layer: 5
-  m_Name: Image
+  m_Name: cash_icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b227706102845ea418319eff06bacbec, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
