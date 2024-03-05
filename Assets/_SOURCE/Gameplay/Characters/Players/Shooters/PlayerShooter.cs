@@ -21,7 +21,7 @@ namespace Gameplay.Characters.Players.Shooters
       _assetProvider = assetProvider;
       _playerProvider = playerProvider;
 
-      MonoBehaviour coroutineRunner = Object.FindObjectOfType<GameLoopGameBootstrapper>();
+      MonoBehaviour coroutineRunner = Object.FindObjectOfType<GameLoopBootstrapper>();
 
       _coroutine = new CoroutineDecorator(coroutineRunner, Shooting);
     }

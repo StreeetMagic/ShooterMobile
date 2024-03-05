@@ -9,7 +9,7 @@ using Zenject;
 
 namespace Gameplay.GameLoop
 {
-  public class GameLoopGameBootstrapper : MonoBehaviour
+  public class GameLoopBootstrapper : MonoBehaviour
   {
     private PlayerFactory _playerFactory;
     private MapFactory _mapFactory;
@@ -44,7 +44,7 @@ namespace Gameplay.GameLoop
       _cameraFactory.Create(transform);
       _enemySpawnerFactory.Create();
       _headsUpDisplayFactory.Create(transform);
-      _baseTriggerFactory.Create(transform);
+
     }
   }
 }

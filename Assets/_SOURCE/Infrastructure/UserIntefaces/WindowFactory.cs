@@ -1,4 +1,5 @@
 ﻿using Infrastructure.ZenjectFactories;
+using UnityEngine;
 using Vlad.HeadsUpDisplays;
 using Vlad.HeadsUpDisplays.UpgrageWindows;
 
@@ -23,7 +24,8 @@ namespace CodeBase.UI.Services.Windows
           break;
 
         case WindowId.UpgradeShop:
-          _factory.Instantiate<UpgradeShopWindow>(_headsUpDisplayProvider.HeadsUpDisplayVlad.transform);
+          Transform transform = _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
+          _factory.Instantiate<UpgradeShopWindow>(transform);
           break;
       }
     }

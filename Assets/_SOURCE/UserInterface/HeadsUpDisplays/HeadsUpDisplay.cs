@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Vlad.HeadsUpDisplays
 {
-  public class HeadsUpDisplayVlad : MonoBehaviour
+  public class HeadsUpDisplay : MonoBehaviour
   {
     [SerializeField] private TextMeshProUGUI _moneyInBankText;
     [SerializeField] private TextMeshProUGUI _moneyInBackpackText;
@@ -22,6 +22,7 @@ namespace Vlad.HeadsUpDisplays
 
     private void Start()
     {
+      
       SetMoneyInBank();
       SetMoneyInBackPack();
       SetEggsInBank();

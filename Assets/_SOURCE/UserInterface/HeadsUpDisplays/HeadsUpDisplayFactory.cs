@@ -21,10 +21,10 @@ namespace Vlad.HeadsUpDisplays
 
     public void Create(Transform parent)
     {
-      HeadsUpDisplayVlad prefab = _assetProvider.Get<HeadsUpDisplayVlad>();
-      HeadsUpDisplayVlad display = _factory.Instantiate(prefab, parent);
+      HeadsUpDisplay prefab = _assetProvider.Get<HeadsUpDisplay>();
+      HeadsUpDisplay display = _factory.Instantiate(prefab, parent);
 
-      _provider.HeadsUpDisplayVlad = display;
+      _provider.HeadsUpDisplay = display;
 
       display.transform.parent = null;
     }
