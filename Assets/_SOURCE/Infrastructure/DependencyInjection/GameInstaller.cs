@@ -12,6 +12,7 @@ using Infrastructure.Services.StaticDataServices;
 using Infrastructure.Services.ZenjectFactory;
 using Inputs;
 using Maps;
+using Vlad.HeadsUpDisplays;
 using Zenject;
 
 namespace Infrastructure.DependencyInjection
@@ -47,7 +48,14 @@ namespace Infrastructure.DependencyInjection
       EnemySpawnerFactory();
 
       RewardService();
+
+      HeadsUpDisplayFactory();
     }
+
+    private void HeadsUpDisplayFactory() =>
+      Container
+        .Bind<HeadsUpDisplayFactory>()
+        .AsSingle();
 
     private void RewardService() =>
       Container
