@@ -1,4 +1,5 @@
 using Cameras;
+using CodeBase.UI.Services.Windows;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.RewardServices;
@@ -54,7 +55,14 @@ namespace Infrastructure.DependencyInjection
       HeadsUpDisplayFactory();
 
       BaseTriggerFactory();
+      
+      WindowFactory();
     }
+    
+    private void WindowFactory() =>
+      Container
+        .Bind<WindowFactory>()
+        .AsSingle();
 
     private void BaseTriggerFactory() =>
       Container
