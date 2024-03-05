@@ -55,10 +55,17 @@ namespace Infrastructure.DependencyInjection
       HeadsUpDisplayFactory();
 
       BaseTriggerFactory();
-      
+
       WindowFactory();
+
+      HeadsUpDisplayProvider();
     }
-    
+
+    private void HeadsUpDisplayProvider() =>
+      Container
+        .Bind<HeadsUpDisplayProvider>()
+        .AsSingle();
+
     private void WindowFactory() =>
       Container
         .Bind<WindowFactory>()

@@ -1,4 +1,5 @@
 ﻿using Infrastructure.ZenjectFactories;
+using Vlad.HeadsUpDisplays;
 using Vlad.HeadsUpDisplays.UpgrageWindows;
 
 namespace CodeBase.UI.Services.Windows
@@ -6,13 +7,15 @@ namespace CodeBase.UI.Services.Windows
   public class WindowFactory
   {
     private readonly IZenjectFactory _factory;
+    private readonly HeadsUpDisplayProvider _headsUpDisplayProvider;
 
-    public WindowFactory(IZenjectFactory factory)
+    public WindowFactory(IZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider)
     {
       _factory = factory;
+      _headsUpDisplayProvider = headsUpDisplayProvider;
     }
 
-    public void Open(WindowId windowId)
+    public void Create(WindowId windowId)
     {
       switch (windowId)
       {
@@ -20,15 +23,9 @@ namespace CodeBase.UI.Services.Windows
           break;
 
         case WindowId.UpgradeShop:
-          _factory.Instantiate<UpgradeShopWindow>();
+          _factory.Instantiate<UpgradeShopWindow>(_headsUpDisplayProvider.HeadsUpDisplayVlad.transform);
           break;
       }
     }
-  }
-
-  public enum WindowId
-  {
-    Unknown = 0,
-    UpgradeShop = 1
   }
 }

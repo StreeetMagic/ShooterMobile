@@ -25,7 +25,7 @@ namespace Vlad.HeadsUpDisplays.UpgrageWindows
 
     private void OnClick()
     {
-      _windowFactory.Open(WindowId.UpgradeShop);
+      _windowFactory.Create(WindowId.UpgradeShop);
     }
   }
 }
