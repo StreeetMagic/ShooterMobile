@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using PUNBALL.Resources.SoundConfigs.ConfigSctipts;
-using PUNBALL.ServiceLocators.Services.AudioServices.Enums;
+using Configs.Resources.SoundConfigs;
 using UnityEngine;
 
-namespace PUNBALL.ServiceLocators.Services.AudioServices
+namespace Infrastructure.AudioServices
 {
   public class SoundEffectPlayer
   {

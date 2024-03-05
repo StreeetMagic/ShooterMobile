@@ -1,5 +1,5 @@
-﻿using Infrastructure.Services.AssetProviders;
-using Infrastructure.Services.ZenjectFactory;
+﻿using Infrastructure.AssetProviders;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
 
 namespace Vlad.HeadsUpDisplays
@@ -15,14 +15,12 @@ namespace Vlad.HeadsUpDisplays
       _assetProvider = assetProvider;
     }
 
-    public HeadsUpDisplayVlad Create(Transform parent)
+    public void Create(Transform parent)
     {
       HeadsUpDisplayVlad prefab = _assetProvider.Get<HeadsUpDisplayVlad>();
       HeadsUpDisplayVlad display = _factory.Instantiate(prefab, parent);
       
       display.transform.parent = null;
-
-      return display;
     }
   }
 }

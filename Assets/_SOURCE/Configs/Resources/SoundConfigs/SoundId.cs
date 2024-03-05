@@ -1,4 +1,4 @@
-﻿namespace PUNBALL.ServiceLocators.Services.AudioServices.Enums
+﻿namespace Configs.Resources.SoundConfigs
 {
     public enum SoundId
     {

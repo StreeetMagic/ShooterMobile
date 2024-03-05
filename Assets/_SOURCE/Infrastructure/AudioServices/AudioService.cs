@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using PUNBALL.ServiceLocators.Services.AudioServices.Enums;
+using Configs.Resources.SoundConfigs;
 using UnityEngine;
 
-namespace PUNBALL.ServiceLocators.Services.AudioServices
+namespace Infrastructure.AudioServices
 {
   public class AudioService : MonoBehaviour
   {

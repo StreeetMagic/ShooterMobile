@@ -1,5 +1,4 @@
-﻿using Gameplay.Characters.Enemies.Healths;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace Gameplay.Characters.Healths.Editor

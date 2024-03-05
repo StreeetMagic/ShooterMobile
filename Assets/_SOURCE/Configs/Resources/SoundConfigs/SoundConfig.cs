@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using PUNBALL.ServiceLocators.Services.AudioServices.Enums;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace PUNBALL.Resources.SoundConfigs.ConfigSctipts
+namespace Configs.Resources.SoundConfigs
 {
     [CreateAssetMenu(fileName = "SoundConfig", menuName = "Configs/SoundConfig", order = 3)]
     public class SoundConfig : ScriptableObject

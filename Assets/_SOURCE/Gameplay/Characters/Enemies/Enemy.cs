@@ -1,8 +1,9 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Healths;
+using Configs.Resources.Enemies;
 using Gameplay.Characters.Enemies.Movers;
 using Gameplay.Characters.Enemies.Spawners.RoutePoints;
-using Infrastructure.Services.StaticDataServices;
+using Gameplay.Characters.Healths;
+using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using Gameplay.Characters.Players.Shooters.Projectiles.Bullet;
+using Gameplay.Characters.Players.Shooters.Projectiles.Bullet.Imported;
 
 namespace PixelArsenal
 {

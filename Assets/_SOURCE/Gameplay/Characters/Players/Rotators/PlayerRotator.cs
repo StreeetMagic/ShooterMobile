@@ -1,5 +1,6 @@
 ﻿using Configs;
-using Infrastructure.Services.StaticDataServices;
+using Configs.Resources;
+using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 

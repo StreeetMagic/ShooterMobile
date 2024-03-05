@@ -1,6 +1,7 @@
 using Configs;
+using Configs.Resources;
 using Gameplay.Characters.Players.Animators;
-using Infrastructure.Services.StaticDataServices;
+using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 

@@ -1,8 +1,8 @@
 ﻿using Cinemachine;
 using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.Factories;
-using Infrastructure.Services.AssetProviders;
-using Infrastructure.Services.ZenjectFactory;
+using Infrastructure.AssetProviders;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
 
 namespace Cameras

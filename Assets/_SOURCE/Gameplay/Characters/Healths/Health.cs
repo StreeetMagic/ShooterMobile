@@ -1,9 +1,11 @@
 using System;
+using Configs.Resources.Enemies;
+using Gameplay.Characters.Enemies;
 using Gameplay.RewardServices;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.Healths
+namespace Gameplay.Characters.Healths
 {
   public class Health : MonoBehaviour
   {

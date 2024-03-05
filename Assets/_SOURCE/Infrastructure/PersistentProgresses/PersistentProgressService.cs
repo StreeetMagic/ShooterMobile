@@ -1,6 +1,6 @@
 using Infrastructure.Utilities;
 
-namespace Infrastructure.Services.PersistentProgress
+namespace Infrastructure.PersistentProgresses
 {
   public class PersistentProgressService
   {

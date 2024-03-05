@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Configs.Resources.Enemies;
 using Gameplay.Characters.Enemies.Spawners.RoutePoints;
 using UnityEngine;
 

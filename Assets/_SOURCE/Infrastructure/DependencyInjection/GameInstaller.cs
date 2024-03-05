@@ -2,16 +2,18 @@ using Cameras;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.RewardServices;
+using Infrastructure.AssetProviders;
+using Infrastructure.CoroutineRunners;
 using Infrastructure.Games;
-using Infrastructure.Services.AssetProviders;
-using Infrastructure.Services.CoroutineRunners;
-using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.StateMachines;
-using Infrastructure.Services.StateMachines.GameStateMachines.States;
-using Infrastructure.Services.StaticDataServices;
-using Infrastructure.Services.ZenjectFactory;
+using Infrastructure.LoadingCurtains;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.StateMachines;
+using Infrastructure.StateMachines.GameStateMachines.States;
+using Infrastructure.StaticDataServices;
+using Infrastructure.ZenjectFactories;
 using Inputs;
 using Maps;
+using Vlad.BaseTriggers;
 using Vlad.HeadsUpDisplays;
 using Zenject;
 
@@ -50,7 +52,14 @@ namespace Infrastructure.DependencyInjection
       RewardService();
 
       HeadsUpDisplayFactory();
+
+      BaseTriggerFactory();
     }
+
+    private void BaseTriggerFactory() =>
+      Container
+        .Bind<BaseTriggerFactory>()
+        .AsSingle();
 
     private void HeadsUpDisplayFactory() =>
       Container
@@ -94,7 +103,7 @@ namespace Infrastructure.DependencyInjection
 
     private void LoadingCurtain() =>
       Container
-        .Bind<LoadingCurtain.LoadingCurtain>()
+        .Bind<LoadingCurtain>()
         .FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain)
         .AsSingle();
 

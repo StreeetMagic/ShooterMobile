@@ -1,5 +1,5 @@
 ﻿using Infrastructure.GameBootstrappers;
-using Infrastructure.Services.ZenjectFactory;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Zenject;
 

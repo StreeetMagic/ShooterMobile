@@ -1,7 +1,7 @@
 ﻿using System;
+using Infrastructure.AssetProviders;
 using Infrastructure.Games;
-using Infrastructure.Services.AssetProviders;
-using Infrastructure.Services.ZenjectFactory;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
 
 namespace Maps

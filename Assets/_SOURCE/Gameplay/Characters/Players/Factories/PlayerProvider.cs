@@ -4,7 +4,6 @@ using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.Shooters;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
-using Infrastructure.Services.ZenjectFactory;
 using UnityEngine;
 using Zenject;
 

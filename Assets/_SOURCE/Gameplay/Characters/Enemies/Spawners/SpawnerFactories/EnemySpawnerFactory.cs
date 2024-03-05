@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Infrastructure.Services.AssetProviders;
-using Infrastructure.Services.ZenjectFactory;
+using Infrastructure.AssetProviders;
+using Infrastructure.ZenjectFactories;
 using Maps;
 using Maps.EnemySpawnMarkers;
 using UnityEngine;

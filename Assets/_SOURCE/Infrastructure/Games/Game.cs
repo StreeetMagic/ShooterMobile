@@ -1,6 +1,6 @@
-using Infrastructure.Services.StateMachines;
-using Infrastructure.Services.StateMachines.GameStateMachines.States;
-using Infrastructure.Services.ZenjectFactory;
+using Infrastructure.StateMachines;
+using Infrastructure.StateMachines.GameStateMachines.States;
+using Infrastructure.ZenjectFactories;
 
 namespace Infrastructure.Games
 {

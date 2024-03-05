@@ -1,4 +1,4 @@
-using Gameplay.Characters.Enemies.Healths;
+using Gameplay.Characters.Healths;
 using Gameplay.Characters.Players.Shooters.Projectiles;
 using UnityEngine;
 

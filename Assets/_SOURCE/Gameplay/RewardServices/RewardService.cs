@@ -1,6 +1,6 @@
 ﻿using Gameplay.Characters.Enemies;
-using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.StaticDataServices;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.StaticDataServices;
 
 namespace Gameplay.RewardServices
 {

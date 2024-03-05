@@ -4,8 +4,8 @@ using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.Shooters;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
-using Infrastructure.Services.AssetProviders;
-using Infrastructure.Services.ZenjectFactory;
+using Infrastructure.AssetProviders;
+using Infrastructure.ZenjectFactories;
 using Maps;
 using UnityEngine;
 
