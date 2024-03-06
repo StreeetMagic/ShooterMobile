@@ -44,7 +44,6 @@ namespace Gameplay.GameLoop
       _cameraFactory.Create(transform);
       _enemySpawnerFactory.Create();
       _headsUpDisplayFactory.Create(transform);
-
     }
   }
 }

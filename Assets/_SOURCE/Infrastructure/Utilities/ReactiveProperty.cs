@@ -2,6 +2,7 @@
 
 namespace Infrastructure.Utilities
 {
+  [Serializable]
   public class ReactiveProperty<T>
   {
     private T _value;

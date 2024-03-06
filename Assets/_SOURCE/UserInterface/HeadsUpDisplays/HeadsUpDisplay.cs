@@ -1,3 +1,4 @@
+using Infrastructure.DataRepositories;
 using Infrastructure.PersistentProgresses;
 using TMPro;
 using UnityEngine;
@@ -12,12 +13,12 @@ namespace Vlad.HeadsUpDisplays
     [SerializeField] private TextMeshProUGUI _eggsInBankText;
     [SerializeField] private TextMeshProUGUI _eggsInBackpackText;
 
-    private PersistentProgressService _persistentProgressService;
+    private DataRepository _dataRepository;
 
     [Inject]
-    public void Construct(PersistentProgressService persistentProgressService)
+    public void Construct(DataRepository dataRepository)
     {
-      _persistentProgressService = persistentProgressService;
+      _dataRepository = dataRepository;
     }
 
     private void Start()
@@ -27,33 +28,33 @@ namespace Vlad.HeadsUpDisplays
       SetEggsInBank();
       SetEggsInBackpack();
 
-      _persistentProgressService.MoneyInBank.ValueChanged += OnMoneyInBankValueChanged;
-      _persistentProgressService.MoneyInBackpack.ValueChanged += OnMoneyInBackPackValueChanged;
+      _dataRepository.MoneyInBank.ValueChanged += OnMoneyInBankValueChanged;
+      _dataRepository.MoneyInBackpack.ValueChanged += OnMoneyInBackPackValueChanged;
 
-      _persistentProgressService.EggsInBank.ValueChanged += OnEggsInBankValueChanged;
-      _persistentProgressService.EggsInBackpack.ValueChanged += OnEggsInBackpackValueChanged;
+      _dataRepository.EggsInBank.ValueChanged += OnEggsInBankValueChanged;
+      _dataRepository.EggsInBackpack.ValueChanged += OnEggsInBackpackValueChanged;
     }
 
     private void OnDestroy()
     {
-      _persistentProgressService.MoneyInBank.ValueChanged -= OnMoneyInBankValueChanged;
-      _persistentProgressService.MoneyInBackpack.ValueChanged -= OnMoneyInBackPackValueChanged;
+      _dataRepository.MoneyInBank.ValueChanged -= OnMoneyInBankValueChanged;
+      _dataRepository.MoneyInBackpack.ValueChanged -= OnMoneyInBackPackValueChanged;
 
-      _persistentProgressService.EggsInBank.ValueChanged -= OnEggsInBankValueChanged;
-      _persistentProgressService.EggsInBackpack.ValueChanged -= OnEggsInBackpackValueChanged;
+      _dataRepository.EggsInBank.ValueChanged -= OnEggsInBankValueChanged;
+      _dataRepository.EggsInBackpack.ValueChanged -= OnEggsInBackpackValueChanged;
     }
 
     private void SetMoneyInBackPack() =>
-      _moneyInBackpackText.text = "Money in backpack: " + _persistentProgressService.MoneyInBackpack.Value;
+      _moneyInBackpackText.text = "Money in backpack: " + _dataRepository.MoneyInBackpack.Value;
 
     private void SetMoneyInBank() =>
-      _moneyInBankText.text = "Money in bank: " + _persistentProgressService.MoneyInBank.Value;
+      _moneyInBankText.text = "Money in bank: " + _dataRepository.MoneyInBank.Value;
 
     private void SetEggsInBank() =>
-      _eggsInBankText.text = "Eggs in bank: " + _persistentProgressService.EggsInBank.Value;
+      _eggsInBankText.text = "Eggs in bank: " + _dataRepository.EggsInBank.Value;
 
     private void SetEggsInBackpack() =>
-      _eggsInBackpackText.text = "Eggs in backpack: " + _persistentProgressService.EggsInBackpack.Value;
+      _eggsInBackpackText.text = "Eggs in backpack: " + _dataRepository.EggsInBackpack.Value;
 
     private void OnMoneyInBankValueChanged(int obj) =>
       SetMoneyInBank();

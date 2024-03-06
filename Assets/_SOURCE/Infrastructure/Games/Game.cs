@@ -7,16 +7,16 @@ namespace Infrastructure.Games
   public class Game
   {
     private readonly IStateMachine<IGameState> _gameStateMachine;
-    private readonly IZenjectFactory _stateFactory;
+    private readonly IZenjectFactory _factory;
 
     public Game
     (
       IStateMachine<IGameState> gameStateMachine,
-      IZenjectFactory stateFactory
+      IZenjectFactory factory
     )
     {
       _gameStateMachine = gameStateMachine;
-      _stateFactory = stateFactory;
+      _factory = factory;
     }
 
     public void Start()
@@ -28,10 +28,10 @@ namespace Infrastructure.Games
 
     private void RegisterGameStateMachineStates()
     {
-      _gameStateMachine.Register(_stateFactory.Create<BootstrapState>());
-      _gameStateMachine.Register(_stateFactory.Create<LoadLevelState>());
-      _gameStateMachine.Register(_stateFactory.Create<GameLoopState>());
-      _gameStateMachine.Register(_stateFactory.Create<PrototypeState>());
+      _gameStateMachine.Register(_factory.Create<BootstrapState>());
+      _gameStateMachine.Register(_factory.Create<LoadLevelState>());
+      _gameStateMachine.Register(_factory.Create<GameLoopState>());
+      _gameStateMachine.Register(_factory.Create<PrototypeState>());
     }
   }
 }

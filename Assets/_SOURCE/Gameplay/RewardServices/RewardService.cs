@@ -1,22 +1,22 @@
 ﻿using Gameplay.Characters.Enemies;
-using Infrastructure.PersistentProgresses;
+using Infrastructure.DataRepositories;
 using Infrastructure.StaticDataServices;
 
 namespace Gameplay.RewardServices
 {
   public class RewardService
   {
-    private readonly PersistentProgressService _progressService;
     private readonly IStaticDataService _staticDataService;
+    private readonly DataRepository _dataRepository;
 
-    public RewardService(PersistentProgressService progressService, IStaticDataService staticDataService)
+    public RewardService(IStaticDataService staticDataService, DataRepository dataRepository)
     {
-      _progressService = progressService;
       _staticDataService = staticDataService;
+      _dataRepository = dataRepository;
     }
 
     public void OnEnemyDied(EnemyId enemyId) =>
-      _progressService.MoneyInBackpack.Value +=
+      _dataRepository.MoneyInBackpack.Value +=
         _staticDataService
           .ForEnemy(enemyId)
           .MoneyReward;

@@ -5,6 +5,7 @@ using Gameplay.Characters.Players.Factories;
 using Gameplay.RewardServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.CoroutineRunners;
+using Infrastructure.DataRepositories;
 using Infrastructure.Games;
 using Infrastructure.LoadingCurtains;
 using Infrastructure.PersistentProgresses;
@@ -59,7 +60,14 @@ namespace Infrastructure.DependencyInjection
       WindowFactory();
 
       HeadsUpDisplayProvider();
+
+      DataRepository();
     }
+
+    private void DataRepository() =>
+      Container
+        .Bind<DataRepository>()
+        .AsSingle();
 
     private void HeadsUpDisplayProvider() =>
       Container
