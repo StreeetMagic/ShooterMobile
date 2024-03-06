@@ -22,7 +22,6 @@ namespace Vlad.HeadsUpDisplays
 
     private void Start()
     {
-      
       SetMoneyInBank();
       SetMoneyInBackPack();
       SetEggsInBank();
