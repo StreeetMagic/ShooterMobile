@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Infrastructure.PersistentProgresses;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Infrastructure.SaveLoadServices
 {
   public class SaveLoadService
   {
-    private const string Key = "Progress";
+    private const string ProgressKey = nameof(ProgressKey);
 
     private readonly PersistentProgressService _progressService;
 
@@ -20,37 +21,32 @@ namespace Infrastructure.SaveLoadServices
     public void SaveProgress()
     {
       UpdateProgressWriters();
-      
       WritePlayerPrefs();
     }
 
     public void LoadProgress()
     {
       ReadPlayerPrefs();
-
       UpdateProgressReaders();
     }
 
-    private void UpdateProgressReaders()
-    {
-      foreach (var progressReader in ProgressReaders)
-        progressReader.ReadProgress(_progressService.Progress);
-    }
+    private void UpdateProgressReaders() =>
+      ProgressReaders
+        .ForEach(progressReader => progressReader.ReadProgress(_progressService.Progress));
 
-    private void UpdateProgressWriters()
-    {
-      foreach (IProgressReader progressReader in ProgressReaders)
-        if (progressReader is IProgressWriter writer)
-          writer.WriteProgress(_progressService.Progress);
-    }
+    private void UpdateProgressWriters() =>
+      ProgressReaders
+        .OfType<IProgressWriter>()
+        .ToList()
+        .ForEach(progressWriter => progressWriter.WriteProgress(_progressService.Progress));
 
     private void WritePlayerPrefs() =>
-      PlayerPrefs.SetString(Key, JsonUtility.ToJson(_progressService.Progress));
+      PlayerPrefs.SetString(ProgressKey, JsonUtility.ToJson(_progressService.Progress));
 
     private void ReadPlayerPrefs()
     {
-      if (PlayerPrefs.HasKey(Key))
-        _progressService.LoadProgress(PlayerPrefs.GetString(Key));
+      if (PlayerPrefs.HasKey(ProgressKey))
+        _progressService.LoadProgress(PlayerPrefs.GetString(ProgressKey));
       else
         _progressService.SetDefault();
     }
