@@ -9,6 +9,7 @@ using Infrastructure.DataRepositories;
 using Infrastructure.Games;
 using Infrastructure.LoadingCurtains;
 using Infrastructure.PersistentProgresses;
+using Infrastructure.SaveLoadServices;
 using Infrastructure.StateMachines;
 using Infrastructure.StateMachines.GameStateMachines.States;
 using Infrastructure.StaticDataServices;
@@ -62,7 +63,14 @@ namespace Infrastructure.DependencyInjection
       HeadsUpDisplayProvider();
 
       DataRepository();
+      
+      SaveLoadService();
     }
+    
+    private void SaveLoadService() =>
+      Container
+        .Bind<SaveLoadService>()
+        .AsSingle();
 
     private void DataRepository() =>
       Container

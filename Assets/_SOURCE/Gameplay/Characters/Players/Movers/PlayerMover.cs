@@ -1,6 +1,7 @@
-using Configs;
 using Configs.Resources;
 using Gameplay.Characters.Players.Animators;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
@@ -8,13 +9,13 @@ using Zenject;
 namespace Gameplay.Characters.Players.Movers
 {
   [RequireComponent(typeof(CharacterController))]
-  public class PlayerMover : MonoBehaviour
+  public class PlayerMover : MonoBehaviour, IProgressWriter
   {
     [SerializeField] private PlayerAnimator _playerAnimator;
-    
+
     private CharacterController _characterController;
     private PlayerConfig _playerConfig;
-    
+
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
 
@@ -40,7 +41,7 @@ namespace Gameplay.Characters.Players.Movers
       {
         _playerAnimator.Stop();
       }
-      
+
       if (_characterController.isGrounded)
       {
         _cachedVelocity = playerSpeed;
@@ -58,6 +59,16 @@ namespace Gameplay.Characters.Players.Movers
     private void ApplyGravity()
     {
       _gravitySpeed += Physics.gravity * GravityScale * Time.deltaTime;
+    }
+
+    public void ReadProgress(Progress progress)
+    {
+      transform.position = progress.PlayerPosition;
+    }
+
+    public void WriteProgress(Progress progress)
+    {
+      progress.PlayerPosition = transform.position; 
     }
   }
 }

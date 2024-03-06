@@ -45,16 +45,16 @@ namespace Vlad.HeadsUpDisplays
     }
 
     private void SetMoneyInBackPack() =>
-      _moneyInBackpackText.text = "Money in backpack: " + _dataRepository.MoneyInBackpack.Value;
+      _moneyInBackpackText.text = "" + _dataRepository.MoneyInBackpack.Value;
 
     private void SetMoneyInBank() =>
-      _moneyInBankText.text = "Money in bank: " + _dataRepository.MoneyInBank.Value;
+      _moneyInBankText.text = "" + _dataRepository.MoneyInBank.Value;
 
     private void SetEggsInBank() =>
-      _eggsInBankText.text = "Eggs in bank: " + _dataRepository.EggsInBank.Value;
+      _eggsInBankText.text = "" + _dataRepository.EggsInBank.Value;
 
     private void SetEggsInBackpack() =>
-      _eggsInBackpackText.text = "Eggs in backpack: " + _dataRepository.EggsInBackpack.Value;
+      _eggsInBackpackText.text = " " + _dataRepository.EggsInBackpack.Value;
 
     private void OnMoneyInBankValueChanged(int obj) =>
       SetMoneyInBank();

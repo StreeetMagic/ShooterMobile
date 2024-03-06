@@ -5,6 +5,8 @@ using Gameplay.Characters.Players.Shooters;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
 using Infrastructure.AssetProviders;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.SaveLoadServices;
 using Infrastructure.ZenjectFactories;
 using Maps;
 using UnityEngine;
@@ -17,20 +19,26 @@ namespace Gameplay.Characters.Players.Factories
     private readonly IZenjectFactory _factory;
     private readonly MapFactory _mapFactory;
     private readonly PlayerProvider _playerProvider;
+    private readonly PersistentProgressService _progressService;
+    private readonly SaveLoadService _saveLoadService;
 
     public PlayerFactory(IZenjectFactory factory, IAssetProvider assetProvider,
-      MapFactory mapFactory, PlayerProvider playerProvider)
+      MapFactory mapFactory, PlayerProvider playerProvider, PersistentProgressService progressService, SaveLoadService saveLoadService)
     {
       _factory = factory;
       _assetProvider = assetProvider;
       _mapFactory = mapFactory;
       _playerProvider = playerProvider;
+      _progressService = progressService;
+      _saveLoadService = saveLoadService;
     }
 
     public void Create(Transform parent)
     {
       var prefab = _assetProvider.Get<Player>(nameof(Player));
-      Player player = _factory.Instantiate(prefab, _mapFactory.Map.PlayerSpawnPoint.transform.position, parent);
+
+      Player player = _factory.Instantiate(prefab, SpawnPosition(), parent);
+
       player.transform.SetParent(null);
       _playerProvider.Player = player;
 
@@ -44,6 +52,16 @@ namespace Gameplay.Characters.Players.Factories
 
       _playerProvider.PlayerTargetHolder = _factory.Create<PlayerTargetHolder>();
       _playerProvider.PlayerTargetHolder.Start();
+
+      foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
+        _saveLoadService.ProgressReaders.Add(progressReader);
+    }
+
+    private Vector3 SpawnPosition()
+    {
+      return _progressService.Progress.PlayerPosition == Vector3.zero
+        ? _mapFactory.Map.PlayerSpawnPoint.transform.position
+        : _progressService.Progress.PlayerPosition;
     }
   }
 }

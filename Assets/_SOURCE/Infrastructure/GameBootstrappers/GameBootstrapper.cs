@@ -17,6 +17,7 @@ namespace Infrastructure.GameBootstrappers
     private void Awake()
     {
       var game = _instantiator.Instantiate<Game>();
+      
       game.Start();
     }
   }
