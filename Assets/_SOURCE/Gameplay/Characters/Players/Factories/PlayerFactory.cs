@@ -1,3 +1,4 @@
+using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.InputHandlers;
 using Gameplay.Characters.Players.Movers;
 using Gameplay.Characters.Players.Rotators;
@@ -53,8 +54,14 @@ namespace Gameplay.Characters.Players.Factories
       _playerProvider.PlayerTargetHolder = _factory.Create<PlayerTargetHolder>();
       _playerProvider.PlayerTargetHolder.Start();
 
+      _playerProvider.PlayerAnimator = player.GetComponentInChildren<PlayerAnimator>();
+
+      _playerProvider.PlayerAnimatorEventHandler = player.GetComponentInChildren<PlayerAnimatorEventHandler>();
+
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
         _saveLoadService.ProgressReaders.Add(progressReader);
+
+      _playerProvider.PlayerShooter.Subscribe();
     }
 
     private Vector3 SpawnPosition()
