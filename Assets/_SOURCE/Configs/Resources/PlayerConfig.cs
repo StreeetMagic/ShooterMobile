@@ -16,5 +16,9 @@ namespace Configs.Resources
     [Tooltip("Урон одной пули")]
     [field: SerializeField]
     public int BulletDamage { get; private set; } = 10;
+    
+    [Tooltip("Скорость полета пули")]
+    [field: SerializeField]
+    public int BulletSpeed { get; private set; } = 10;
   }
 }

@@ -1,11 +1,22 @@
-﻿using UnityEngine;
+﻿using Infrastructure.StaticDataServices;
+using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Characters.Players.Shooters.Projectiles
 {
   [RequireComponent(typeof(Rigidbody))]
   public class ForwardMover : MonoBehaviour
   {
+    private IStaticDataService _staticDataService;
     private Rigidbody _rigidbody;
+
+    private float BulletSpeed => _staticDataService.ForPlayer().BulletSpeed;
+
+    [Inject]
+    public void Construct(IStaticDataService staticDataService)
+    {
+      _staticDataService = staticDataService;
+    }
 
     private void Awake()
     {
@@ -14,7 +25,7 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
 
     private void Update()
     {
-      _rigidbody.velocity = transform.forward * 20f;
+      _rigidbody.velocity = transform.forward * BulletSpeed;
     }
   }
 }

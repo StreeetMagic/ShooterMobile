@@ -6,6 +6,7 @@ using Gameplay.GameLoop;
 using Infrastructure.AssetProviders;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Zenject;
 
@@ -17,12 +18,16 @@ namespace Gameplay.Characters.Players.Shooters
     private readonly IAssetProvider _assetProvider;
     private readonly PlayerProvider _playerProvider;
     private readonly IStaticDataService _staticDataService;
+    private readonly IZenjectFactory _zenjectFactory;
 
-    public PlayerShooter(IAssetProvider assetProvider, PlayerProvider playerProvider, IStaticDataService staticDataService)
+    public PlayerShooter(IAssetProvider assetProvider,
+      PlayerProvider playerProvider, IStaticDataService staticDataService,
+      IZenjectFactory zenjectFactory)
     {
       _assetProvider = assetProvider;
       _playerProvider = playerProvider;
       _staticDataService = staticDataService;
+      _zenjectFactory = zenjectFactory;
 
       MonoBehaviour coroutineRunner = Object.FindObjectOfType<GameLoopBootstrapper>();
 
@@ -51,11 +56,13 @@ namespace Gameplay.Characters.Players.Shooters
     {
       while (true)
       {
-        var rotation = PlayerTargetHolder.DirectionToTarget;
+        Vector3 rotation = PlayerTargetHolder.DirectionToTarget;
 
-        Vector3 transfromPosition = new Vector3(Transfrom.position.x, 1, Transfrom.position.z);
+        Vector3 position = Transfrom.position;
 
-        Object.Instantiate(Projectile, transfromPosition, Quaternion.LookRotation(rotation));
+        Vector3 transfromPosition = new(position.x, 1, position.z);
+
+        _zenjectFactory.Instantiate(Projectile, transfromPosition, Quaternion.LookRotation(rotation));
 
         int fireRate =
           _staticDataService
