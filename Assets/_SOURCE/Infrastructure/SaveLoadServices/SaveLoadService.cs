@@ -51,14 +51,4 @@ namespace Infrastructure.SaveLoadServices
         _progressService.SetDefault();
     }
   }
-
-  public interface IProgressReader
-  {
-    void ReadProgress(Progress progress);
-  }
-
-  public interface IProgressWriter : IProgressReader
-  {
-    void WriteProgress(Progress progress);
-  }
 }

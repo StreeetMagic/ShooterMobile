@@ -21,7 +21,8 @@ namespace Infrastructure.PersistentProgresses
         EggsInBank = 40,
         EggsInBackpack = 50,
 
-        PlayerPosition = Vector3.zero
+        PlayerPosition = Vector3.zero,
+        Expierience = 12
       };
   }
 
@@ -34,6 +35,7 @@ namespace Infrastructure.PersistentProgresses
     public int EggsInBank;
     public int EggsInBackpack;
 
+    public int Expierience;
     public Vector3 PlayerPosition;
   }
 }

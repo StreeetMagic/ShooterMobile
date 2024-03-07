@@ -12,6 +12,8 @@ namespace Infrastructure.DataRepositories
     public ReactiveProperty<int> EggsInBank { get; } = new();
     public ReactiveProperty<int> EggsInBackpack { get; } = new();
     
+    public ReactiveProperty<int> Expierience { get; } = new();
+    
     public void ReadProgress(Progress progress)
     {
       MoneyInBank.Value = progress.MoneyInBank;
@@ -19,6 +21,8 @@ namespace Infrastructure.DataRepositories
       
       EggsInBank.Value = progress.EggsInBank;
       EggsInBackpack.Value = progress.EggsInBackpack;
+      
+      Expierience.Value = progress.Expierience;
     }
 
     public void WriteProgress(Progress progress)
@@ -28,6 +32,8 @@ namespace Infrastructure.DataRepositories
       
       progress.EggsInBank = EggsInBank.Value;
       progress.EggsInBackpack = EggsInBackpack.Value;
+      
+      progress.Expierience = Expierience.Value;
     }
   }
 }

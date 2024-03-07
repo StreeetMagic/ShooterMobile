@@ -1,5 +1,4 @@
 using Infrastructure.DataRepositories;
-using Infrastructure.PersistentProgresses;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -8,10 +7,7 @@ namespace Vlad.HeadsUpDisplays
 {
   public class HeadsUpDisplay : MonoBehaviour
   {
-    [SerializeField] private TextMeshProUGUI _moneyInBankText;
     [SerializeField] private TextMeshProUGUI _moneyInBackpackText;
-    [SerializeField] private TextMeshProUGUI _eggsInBankText;
-    [SerializeField] private TextMeshProUGUI _eggsInBackpackText;
 
     private DataRepository _dataRepository;
 
@@ -23,49 +19,20 @@ namespace Vlad.HeadsUpDisplays
 
     private void Start()
     {
-      SetMoneyInBank();
       SetMoneyInBackPack();
-      SetEggsInBank();
-      SetEggsInBackpack();
 
-      _dataRepository.MoneyInBank.ValueChanged += OnMoneyInBankValueChanged;
       _dataRepository.MoneyInBackpack.ValueChanged += OnMoneyInBackPackValueChanged;
-
-      _dataRepository.EggsInBank.ValueChanged += OnEggsInBankValueChanged;
-      _dataRepository.EggsInBackpack.ValueChanged += OnEggsInBackpackValueChanged;
     }
 
     private void OnDestroy()
     {
-      _dataRepository.MoneyInBank.ValueChanged -= OnMoneyInBankValueChanged;
       _dataRepository.MoneyInBackpack.ValueChanged -= OnMoneyInBackPackValueChanged;
-
-      _dataRepository.EggsInBank.ValueChanged -= OnEggsInBankValueChanged;
-      _dataRepository.EggsInBackpack.ValueChanged -= OnEggsInBackpackValueChanged;
     }
 
     private void SetMoneyInBackPack() =>
       _moneyInBackpackText.text = "" + _dataRepository.MoneyInBackpack.Value;
 
-    private void SetMoneyInBank() =>
-      _moneyInBankText.text = "" + _dataRepository.MoneyInBank.Value;
-
-    private void SetEggsInBank() =>
-      _eggsInBankText.text = "" + _dataRepository.EggsInBank.Value;
-
-    private void SetEggsInBackpack() =>
-      _eggsInBackpackText.text = " " + _dataRepository.EggsInBackpack.Value;
-
-    private void OnMoneyInBankValueChanged(int obj) =>
-      SetMoneyInBank();
-
     private void OnMoneyInBackPackValueChanged(int obj) =>
       SetMoneyInBackPack();
-
-    private void OnEggsInBankValueChanged(int obj) =>
-      SetEggsInBank();
-
-    private void OnEggsInBackpackValueChanged(int obj) =>
-      SetEggsInBackpack();
   }
 }

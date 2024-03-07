@@ -5,18 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657cf1a7-e38e-4ccc-9f7b-0d35f7bf7a04" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/SaveLoadServices/IProgressReader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/SaveLoadServices/IProgressReader.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/SaveLoadServices/IProgressWriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/SaveLoadServices/IProgressWriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/EggInBankPanels/EggInBankPanel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/EggInBankPanels/EggInBankPanel.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/MoneyInBankPanels/MoneyInBankPanel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/MoneyInBankPanels/MoneyInBankPanel.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShooterMobile/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Resources/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Resources/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/Bar_Cargo.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/Bar_Cargo.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/Bar_Health.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/Bar_Health.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/Bar_Level_Progress.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/Bar_Level_Progress.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/Panel_Crystal_Balance.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/Panel_Crystal_Balance.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/Panel_Egg_Balance.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/Panel_Egg_Balance.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DataRepositories/DataRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/DataRepositories/DataRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/PersistentProgresses/PersistentProgressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/PersistentProgresses/PersistentProgressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/SaveLoadServices/SaveLoadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/SaveLoadServices/SaveLoadService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/Scenes/GameLoop.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/HeadsUpDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/HeadsUpDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/CrystalInBankPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/CrystalInBankPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/EggInBankPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/EggInBankPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/ExpirienceBar.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/ExpirienceBar.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/HealthBar.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/HealthBar.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/MoneyInBackpackBar.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/MoneyInBackpackBar.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/MoneyInBankPanel.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/MoneyInBankPanel.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/UpgradeShopButton.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/_components/UpgradeShopButton.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +49,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Enemies/Movers/EnemyMover.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/Characters/Players/Shooters/Projectiles/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Gameplay/GameLoop/GameLoopBootstrapper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/SaveLoadServices/IProgressWriter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/Infrastructure/UserIntefaces/WindowFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_SOURCE/UserInterface/HeadsUpDisplays/HeadsUpDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Editor/Editors/Cinemachine3rdPersonFollowEditor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -52,31 +69,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;VLAD/default&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CodeInspectionSettingsId&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.26064292&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "DEV",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CodeInspectionSettingsId",
+    "settings.editor.splitter.proportion": "0.26064292",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Vlad\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Vlad\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Vlad\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Vlad\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Vlad\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Vlad\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Apps\Unity Hub\Editors\2022.3.20f1\Editor\Unity.exe" />
