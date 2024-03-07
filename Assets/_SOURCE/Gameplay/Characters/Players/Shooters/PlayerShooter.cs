@@ -4,6 +4,7 @@ using Gameplay.Characters.Players.Shooters.Projectiles;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.GameLoop;
 using Infrastructure.AssetProviders;
+using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
 using UnityEngine;
 using Zenject;
@@ -15,11 +16,13 @@ namespace Gameplay.Characters.Players.Shooters
     private readonly CoroutineDecorator _coroutine;
     private readonly IAssetProvider _assetProvider;
     private readonly PlayerProvider _playerProvider;
+    private readonly IStaticDataService _staticDataService;
 
-    public PlayerShooter(IAssetProvider assetProvider, PlayerProvider playerProvider)
+    public PlayerShooter(IAssetProvider assetProvider, PlayerProvider playerProvider, IStaticDataService staticDataService)
     {
       _assetProvider = assetProvider;
       _playerProvider = playerProvider;
+      _staticDataService = staticDataService;
 
       MonoBehaviour coroutineRunner = Object.FindObjectOfType<GameLoopBootstrapper>();
 
@@ -54,7 +57,14 @@ namespace Gameplay.Characters.Players.Shooters
 
         Object.Instantiate(Projectile, transfromPosition, Quaternion.LookRotation(rotation));
 
-        yield return new WaitForSeconds(.1f);
+        int fireRate =
+          _staticDataService
+            .ForPlayer()
+            .FireRate;
+
+        float coolDown = 1f / fireRate;
+
+        yield return new WaitForSeconds(coolDown);
       }
     }
   }
