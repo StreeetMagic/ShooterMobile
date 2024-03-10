@@ -1,10 +1,10 @@
-﻿using CodeBase.UI.Services.Windows;
-using Infrastructure.SaveLoadServices;
+﻿using Infrastructure.SaveLoadServices;
+using Infrastructure.UserIntefaces;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Vlad.HeadsUpDisplays.UpgrageWindows
+namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
 {
   public class UpgradeShopWindowButton : MonoBehaviour
   {

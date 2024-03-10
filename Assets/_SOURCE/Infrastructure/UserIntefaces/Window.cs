@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace CodeBase.UI.Windows
+namespace Infrastructure.UserIntefaces
 {
   public abstract class Window : MonoBehaviour
   {

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Configs.Resources.Upgrades;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
@@ -8,7 +9,7 @@ namespace Gameplay.Upgrades
 {
   public class UpgradeService : IProgressWriter
   {
-    public Dictionary<UpgradeId, Upgrade> Upgrades;
+    public Dictionary<UpgradeId, Upgrade> Upgrades { get; set; }
 
     private readonly PersistentProgressService _progressService;
     private readonly IStaticDataService _staticDataService;
@@ -34,6 +35,8 @@ namespace Gameplay.Upgrades
       }
 
       Upgrades = new Dictionary<UpgradeId, Upgrade>();
+      
+      Debug.Log("Кекв");
 
       for (int i = 0; i < upgrades.Count; i++)
       {

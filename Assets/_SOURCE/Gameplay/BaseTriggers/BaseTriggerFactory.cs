@@ -2,7 +2,7 @@ using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
 
-namespace Vlad.BaseTriggers
+namespace Gameplay.BaseTriggers
 {
   public class BaseTriggerFactory
   {

@@ -2,7 +2,7 @@
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
 
-namespace Vlad.HeadsUpDisplays
+namespace UserInterface.HeadsUpDisplays
 {
   public class HeadsUpDisplayFactory
   {

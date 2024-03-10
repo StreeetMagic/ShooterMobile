@@ -1,4 +1,4 @@
-﻿namespace CodeBase.UI.Services.Windows
+﻿namespace Infrastructure.UserIntefaces
 {
   public enum WindowId
   {

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Vlad.HeadsUpDisplays._components.MoneyInBankPanels
+namespace UserInterface.HeadsUpDisplays._components.MoneyInBankPanels
 {
   public class MoneyInBankPanel : MonoBehaviour
   {

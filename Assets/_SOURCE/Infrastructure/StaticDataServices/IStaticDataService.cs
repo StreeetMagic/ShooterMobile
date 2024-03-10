@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Configs.Resources;
 using Configs.Resources.Enemies;
+using Configs.Resources.Upgrades;
 using Gameplay.Characters.Enemies;
 
 namespace Infrastructure.StaticDataServices
@@ -11,5 +12,6 @@ namespace Infrastructure.StaticDataServices
     EnemyConfig ForEnemy(EnemyId enemyId);
     void LoadConfigs();
     Dictionary<UpgradeId, UpgradeConfig> ForUpgrades();
+    UpgradeConfig ForConfig(UpgradeId id);
   }
 }

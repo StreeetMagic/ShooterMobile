@@ -1,9 +1,12 @@
 using System;
 
-[Serializable]
-public class UpgradeValues
+namespace Configs.Resources.Upgrades
 {
-  public int Number;
-  public int Value;
-  public int Cost;
+  [Serializable]
+  public class UpgradeValues
+  {
+    public int Number;
+    public int Value;
+    public int Cost;
+  }
 }

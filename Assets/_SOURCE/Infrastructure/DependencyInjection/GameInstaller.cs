@@ -1,5 +1,5 @@
 using Cameras;
-using CodeBase.UI.Services.Windows;
+using Gameplay.BaseTriggers;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.RewardServices;
@@ -14,11 +14,12 @@ using Infrastructure.SaveLoadServices;
 using Infrastructure.StateMachines;
 using Infrastructure.StateMachines.GameStateMachines.States;
 using Infrastructure.StaticDataServices;
+using Infrastructure.UserIntefaces;
 using Infrastructure.ZenjectFactories;
 using Inputs;
 using Maps;
-using Vlad.BaseTriggers;
-using Vlad.HeadsUpDisplays;
+using UserInterface.HeadsUpDisplays;
+using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 using Zenject;
 
 namespace Infrastructure.DependencyInjection
@@ -68,7 +69,14 @@ namespace Infrastructure.DependencyInjection
       SaveLoadService();
       
       UpgradeService();
+      
+      UpgradeCellFactory();
     }
+    
+    private void UpgradeCellFactory() =>
+      Container
+        .Bind<UpgradeCellFactory>()
+        .AsSingle();
     
     private void UpgradeService() =>
       Container

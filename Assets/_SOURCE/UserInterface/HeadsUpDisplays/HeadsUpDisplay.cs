@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Vlad.HeadsUpDisplays
+namespace UserInterface.HeadsUpDisplays
 {
   public class HeadsUpDisplay : MonoBehaviour
   {

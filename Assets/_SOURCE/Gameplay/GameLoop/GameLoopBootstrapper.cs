@@ -1,11 +1,11 @@
 using Cameras;
+using Gameplay.BaseTriggers;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Upgrades;
 using Maps;
 using UnityEngine;
-using Vlad.BaseTriggers;
-using Vlad.HeadsUpDisplays;
+using UserInterface.HeadsUpDisplays;
 using Zenject;
 
 namespace Gameplay.GameLoop

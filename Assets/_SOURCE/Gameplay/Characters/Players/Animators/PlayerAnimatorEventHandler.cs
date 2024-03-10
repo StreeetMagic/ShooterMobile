@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
 
-public class PlayerAnimatorEventHandler : MonoBehaviour
+namespace Gameplay.Characters.Players.Animators
 {
-  public event Action Shot;
-
-  public void Shoot()
+  public class PlayerAnimatorEventHandler : MonoBehaviour
   {
-    Shot?.Invoke();
+    public event Action Shot;
+
+    public void Shoot()
+    {
+      Shot?.Invoke();
+    }
   }
 }

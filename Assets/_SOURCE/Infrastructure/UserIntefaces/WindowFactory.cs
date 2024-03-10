@@ -1,9 +1,9 @@
 ﻿using Infrastructure.ZenjectFactories;
 using UnityEngine;
-using Vlad.HeadsUpDisplays;
-using Vlad.HeadsUpDisplays.UpgrageWindows;
+using UserInterface.HeadsUpDisplays;
+using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 
-namespace CodeBase.UI.Services.Windows
+namespace Infrastructure.UserIntefaces
 {
   public class WindowFactory
   {

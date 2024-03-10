@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Configs.Resources.Upgrades;
 using Infrastructure.StaticDataServices;
 using UnityEngine;
 
@@ -34,6 +35,8 @@ namespace Infrastructure.PersistentProgresses
         PlayerPosition = Vector3.zero,
         Expierience = 12,
       };
+
+      Progress.Upgrades = new List<UpgradeProgress>();
 
       Dictionary<UpgradeId, UpgradeConfig> upgrades = _staticDataService
         .ForUpgrades();

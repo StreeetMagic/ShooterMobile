@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Gameplay.Characters.Players.Shooters.Projectiles.Bullet;
 using Gameplay.Characters.Players.Shooters.Projectiles.Bullet.Imported;
+using Gameplay.Characters.Players.Shooters.Projectiles.Bullet.Imported.YellowBullet;
 
 namespace PixelArsenal
 {

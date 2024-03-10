@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Configs.Resources;
 using Configs.Resources.Enemies;
+using Configs.Resources.Upgrades;
 using Gameplay.Characters.Enemies;
 using UnityEngine;
 
@@ -23,6 +24,9 @@ namespace Infrastructure.StaticDataServices
 
     public Dictionary<UpgradeId, UpgradeConfig> ForUpgrades() =>
       _upgradeConfigs;
+
+    public UpgradeConfig ForConfig(UpgradeId id) =>
+      _upgradeConfigs[id]; 
 
     public void LoadConfigs()
     {

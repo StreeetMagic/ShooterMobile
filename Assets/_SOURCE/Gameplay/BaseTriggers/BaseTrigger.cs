@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Vlad.BaseTriggers
+namespace Gameplay.BaseTriggers
 {
   public class BaseTrigger : MonoBehaviour
   {

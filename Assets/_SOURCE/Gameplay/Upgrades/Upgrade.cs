@@ -1,3 +1,4 @@
+using Configs.Resources.Upgrades;
 using Infrastructure.Utilities;
 
 namespace Gameplay.Upgrades

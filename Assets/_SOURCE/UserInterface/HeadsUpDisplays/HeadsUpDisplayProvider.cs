@@ -1,4 +1,4 @@
-namespace Vlad.HeadsUpDisplays
+namespace UserInterface.HeadsUpDisplays
 {
   public class HeadsUpDisplayProvider
   {
