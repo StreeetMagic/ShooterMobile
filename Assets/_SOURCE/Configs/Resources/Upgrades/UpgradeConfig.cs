@@ -12,41 +12,26 @@ namespace Configs.Resources.Upgrades
   public class UpgradeConfig : ScriptableObject
   {
     private const int Space = 10;
-  
-    // [PropertySpace(SpaceBefore = Space, SpaceAfter = Space)]
-    // [PropertyOrder(1)]
-    // [ShowInInspector, PropertyTooltip("Порядковый номер для показа в списке в магазине")]
-    [field: SerializeField]
-    public int SortingOrder { get; private set; }
 
-    [PropertySpace(SpaceBefore = Space, SpaceAfter = Space)]
-    [PropertyOrder(2)]
-    [ShowInInspector, PropertyTooltip("Тип апгрейда")]
-    public UpgradeId Id { get; private set; }
+    [SerializeField] [Tooltip("Сортировка апгрейдов")]
+    public int SortingOrder;
 
-    [PropertySpace(SpaceBefore = Space, SpaceAfter = Space)]
-    [PropertyOrder(3)]
-    [ShowInInspector, PropertyTooltip("Название апгрейда")]
-    public string Title { get; private set; }
+    [Space] [SerializeField] [Tooltip("Идентификатор апгрейда")]
+    public UpgradeId Id;
 
-    [PropertySpace(SpaceBefore = Space, SpaceAfter = Space)]
-    [PropertyOrder(5)]
-    [ShowInInspector, PropertyTooltip("Описание апгрейда")]
-    public string Description { get; private set; }
+    [Space] [SerializeField] [Tooltip("Название апгрейда")]
+    public string Title;
 
-    [PropertySpace(SpaceBefore = Space, SpaceAfter = Space)]
-    [PropertyOrder(6)]
-    [ShowInInspector, PropertyTooltip("Начальное значение апгрейда")]
-    public int InitialValue { get; private set; }
+    [Space] [SerializeField] [Tooltip("Описание апгрейда")]
+    public string Description;
 
-    [PropertyOrder(7)]
-    [ShowInInspector, PropertyTooltip("Тип валюты для апгрейда")]
-    public CurrencyId CurrencyId { get; private set; }
+    [Space] [SerializeField] [Tooltip("Инициализируемое значение")]
+    public int InitialValue;
 
-    [PropertySpace(SpaceBefore = Space, SpaceAfter = Space)]
-    [PropertyOrder(8)] 
-    [SerializeField] 
-    [Tooltip(" Набор апгрейдов")]
+    [Space] [SerializeField] [Tooltip("Значения апгрейда")]
+    public CurrencyId CurrencyId;
+
+    [Space] [SerializeField] [Tooltip("Значения апгрейда")]
     private List<UpgradeValues> _values;
     public List<UpgradeValues> Values => _values.ToList();
   }
