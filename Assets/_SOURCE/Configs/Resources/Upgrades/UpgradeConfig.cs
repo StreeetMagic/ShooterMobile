@@ -13,9 +13,10 @@ namespace Configs.Resources.Upgrades
   {
     private const int Space = 10;
   
-    [PropertySpace(SpaceBefore = Space, SpaceAfter = Space)]
-    [PropertyOrder(1)]
-    [ShowInInspector, PropertyTooltip("Порядковый номер для показа в списке в магазине")]
+    // [PropertySpace(SpaceBefore = Space, SpaceAfter = Space)]
+    // [PropertyOrder(1)]
+    // [ShowInInspector, PropertyTooltip("Порядковый номер для показа в списке в магазине")]
+    [field: SerializeField]
     public int SortingOrder { get; private set; }
 
     [PropertySpace(SpaceBefore = Space, SpaceAfter = Space)]
