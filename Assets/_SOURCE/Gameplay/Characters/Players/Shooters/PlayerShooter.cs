@@ -43,7 +43,7 @@ namespace Gameplay.Characters.Players.Shooters
 
     public void Subscribe()
     {
-      PlayerAnimatorEventHandler.Shot += Shoot;
+      //PlayerAnimatorEventHandler.Shot += Shoot;
     }
 
     public void Tick()
@@ -64,9 +64,9 @@ namespace Gameplay.Characters.Players.Shooters
     {
       while (true)
       {
-        //Shoot();
+        Shoot();
 
-        PlayerAnimator.Shoot();
+        //PlayerAnimator.Shoot();
 
         int fireRate =
           _staticDataService
