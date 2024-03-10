@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49de1085b16c7c14fa1204eb6fe507c2, type: 3}
   m_Name: 1_DamageConfig
   m_EditorClassIdentifier: 
-  <SortingOrder>k__BackingField: 1
+  <SortingOrder>k__BackingField: 13
   <Id>k__BackingField: 1
   <Title>k__BackingField: Bullet Damage
   <Description>k__BackingField: Increase your bullet damage
@@ -20,7 +20,11 @@ MonoBehaviour:
   values:
   - Number: 1
     Value: 5
+    Cost: 0
   - Number: 2
     Value: 6
+    Cost: 0
   - Number: 3
     Value: 7
+    Cost: 0
+  <CurrencyId>k__BackingField: 0

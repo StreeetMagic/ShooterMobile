@@ -3,6 +3,7 @@ using CodeBase.UI.Services.Windows;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.RewardServices;
+using Gameplay.Upgrades;
 using Infrastructure.AssetProviders;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.DataRepositories;
@@ -65,7 +66,14 @@ namespace Infrastructure.DependencyInjection
       DataRepository();
       
       SaveLoadService();
+      
+      UpgradeService();
     }
+    
+    private void UpgradeService() =>
+      Container
+        .Bind<UpgradeService>()
+        .AsSingle();
     
     private void SaveLoadService() =>
       Container

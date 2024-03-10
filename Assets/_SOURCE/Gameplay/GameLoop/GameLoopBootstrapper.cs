@@ -1,6 +1,7 @@
 using Cameras;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players.Factories;
+using Gameplay.Upgrades;
 using Maps;
 using UnityEngine;
 using Vlad.BaseTriggers;
@@ -17,6 +18,7 @@ namespace Gameplay.GameLoop
     private EnemySpawnerFactory _enemySpawnerFactory;
     private HeadsUpDisplayFactory _headsUpDisplayFactory;
     private BaseTriggerFactory _baseTriggerFactory;
+    private UpgradeService _upgradeService;
 
     [Inject]
     public void Construct
@@ -26,7 +28,8 @@ namespace Gameplay.GameLoop
       CameraFactory cameraFactory,
       EnemySpawnerFactory enemySpawnerFactory,
       HeadsUpDisplayFactory headsUpDisplayFactory,
-      BaseTriggerFactory baseTriggerFactory
+      BaseTriggerFactory baseTriggerFactory,
+      UpgradeService upgradeService
     )
     {
       _playerFactory = playerFactory;
@@ -35,6 +38,7 @@ namespace Gameplay.GameLoop
       _enemySpawnerFactory = enemySpawnerFactory;
       _headsUpDisplayFactory = headsUpDisplayFactory;
       _baseTriggerFactory = baseTriggerFactory;
+      _upgradeService = upgradeService;
     }
 
     void Start()
@@ -44,6 +48,7 @@ namespace Gameplay.GameLoop
       _cameraFactory.Create(transform);
       _enemySpawnerFactory.Create();
       _headsUpDisplayFactory.Create(transform);
+      _upgradeService.Work();
     }
   }
 }
