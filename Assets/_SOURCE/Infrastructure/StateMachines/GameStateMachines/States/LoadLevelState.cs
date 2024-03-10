@@ -1,3 +1,4 @@
+using Gameplay.Upgrades;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.DataRepositories;
 using Infrastructure.LoadingCurtains;
@@ -14,14 +15,17 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     private readonly LoadingCurtain _loadingCurtain;
     private readonly SaveLoadService _saveLoadService;
     private readonly DataRepository _dataRepository;
+    private readonly UpgradeService _upgradeService;
 
     public LoadLevelState(IStateMachine<IGameState> gameStateMachine,
-      ICoroutineRunner coroutineRunner, LoadingCurtain loadingCurtain, SaveLoadService saveLoadService, DataRepository dataRepository)
+      ICoroutineRunner coroutineRunner, LoadingCurtain loadingCurtain, SaveLoadService saveLoadService, 
+      DataRepository dataRepository, UpgradeService upgradeService)
     {
       _gameStateMachine = gameStateMachine;
       _loadingCurtain = loadingCurtain;
       _saveLoadService = saveLoadService;
       _dataRepository = dataRepository;
+      _upgradeService = upgradeService;
       _sceneLoader = new SceneLoader(coroutineRunner);
     }
 
@@ -44,11 +48,17 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
     private void CommonActions()
     {
-      _saveLoadService.ProgressReaders.Add(_dataRepository);
+      AddProgressReaders();
       _loadingCurtain.Show();
       _saveLoadService.LoadProgress();
     }
-    
+
+    private void AddProgressReaders()
+    {
+      _saveLoadService.ProgressReaders.Add(_dataRepository);
+      _saveLoadService.ProgressReaders.Add(_upgradeService);
+    }
+
     private void OnSceneLoaded(string name)
     {
       _gameStateMachine.Enter<GameLoopState>();

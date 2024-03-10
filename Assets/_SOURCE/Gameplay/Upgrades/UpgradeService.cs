@@ -13,14 +13,13 @@ namespace Gameplay.Upgrades
 
     private readonly PersistentProgressService _progressService;
     private readonly IStaticDataService _staticDataService;
+    private readonly SaveLoadService _saveLoadService;
 
-    public UpgradeService(IStaticDataService staticDataService)
+    public UpgradeService(IStaticDataService staticDataService, PersistentProgressService progressService, SaveLoadService saveLoadService)
     {
       _staticDataService = staticDataService;
-    }
-
-    public void Work()
-    {
+      _progressService = progressService;
+      _saveLoadService = saveLoadService;
     }
 
     public void ReadProgress(Progress progress)
@@ -29,34 +28,40 @@ namespace Gameplay.Upgrades
 
       List<UpgradeId> keys = new List<UpgradeId>(upgrades.Keys);
 
-      foreach (UpgradeId upgradeId in keys)
+      foreach (UpgradeId upgradeId in upgrades.Keys)
       {
         keys.Add(upgradeId);
       }
 
       Upgrades = new Dictionary<UpgradeId, Upgrade>();
-      
-      Debug.Log("Кекв");
 
       for (int i = 0; i < upgrades.Count; i++)
       {
-        Upgrade upgrade = new(upgrades[keys[i]]);
+        Upgrade upgrade = new(upgrades[keys[i]])
+        {
+          Level =
+          {
+            Value = progress.Upgrades[i].Level
+          }
+        };
 
         Upgrades.Add(keys[i], upgrade);
       }
+
+      Debug.Log(Upgrades.Count);
     }
 
     public void WriteProgress(Progress progress)
     {
-      progress.Upgrades.Clear();
-
-      foreach (KeyValuePair<UpgradeId, Upgrade> upgrade in Upgrades)
-      {
-        progress.Upgrades.Add(new UpgradeProgress
-        {
-          Level = upgrade.Value.Level.Value
-        });
-      }
+      // progress.Upgrades.Clear();
+      //
+      // foreach (KeyValuePair<UpgradeId, Upgrade> upgrade in Upgrades)
+      // {
+      //   progress.Upgrades.Add(new UpgradeProgress
+      //   {
+      //     Level = upgrade.Value.Level.Value
+      //   });
+      // }
     }
   }
 }

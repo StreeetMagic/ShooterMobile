@@ -25,11 +25,16 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
       UpgradeCell cell = _factory.Instantiate<UpgradeCell>(parent);
 
       UpgradeConfig upgradeConfig = _staticDataService.ForConfig(id);
-      
+
       int level = _upgradeService.Upgrades[id].Level.Value;
-      
+
       cell.Description.text = upgradeConfig.Description;
-      cell.Cost.text = upgradeConfig.Values[level].Value.ToString();
+
+      int index = level - 1;
+      
+      Debug.Log("Пытаюсь получить индекс " + index);
+      
+      cell.Cost.text = upgradeConfig.Values[index].Value.ToString();
     }
   }
 }
