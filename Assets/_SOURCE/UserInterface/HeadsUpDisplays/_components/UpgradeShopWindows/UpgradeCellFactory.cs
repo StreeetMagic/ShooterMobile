@@ -22,19 +22,8 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
 
     public void Create(UpgradeId id, Transform parent)
     {
-      UpgradeCell cell = _factory.Instantiate<UpgradeCell>(parent);
-
-      UpgradeConfig upgradeConfig = _staticDataService.ForConfig(id);
-
-      int level = _upgradeService.Upgrades[id].Level.Value;
-
-      cell.Description.text = upgradeConfig.Description;
-
-      int index = level - 1;
-      
-      Debug.Log("Пытаюсь получить индекс " + index);
-      
-      cell.Cost.text = upgradeConfig.Values[index].Value.ToString();
+      var cell = _factory.Instantiate<UpgradeCell>(parent);
+      cell.UpgradeConfig = _staticDataService.ForUpgradeConfig(id);
     }
   }
 }

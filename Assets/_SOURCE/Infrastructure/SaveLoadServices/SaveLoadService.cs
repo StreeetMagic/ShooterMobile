@@ -8,7 +8,6 @@ namespace Infrastructure.SaveLoadServices
   public class SaveLoadService
   {
     private const string ProgressKey = nameof(ProgressKey);
-
     private readonly PersistentProgressService _progressService;
 
     public SaveLoadService(PersistentProgressService progressService)

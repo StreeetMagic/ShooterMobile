@@ -11,8 +11,6 @@ namespace Configs.Resources.Upgrades
   [CreateAssetMenu(fileName = "UpgradeConfig", menuName = "Configs/UpgradeConfig")]
   public class UpgradeConfig : ScriptableObject
   {
-    private const int Space = 10;
-
     [SerializeField] [Tooltip("Сортировка апгрейдов")]
     public int SortingOrder;
 

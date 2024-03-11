@@ -282,10 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc52cff7b2601e948b6f90962c85ea93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: {fileID: 628419131639675681}
-  Description: {fileID: 3191812608046735460}
-  Cost: {fileID: 5910814747952085877}
-  Level: {fileID: 1859874930673421933}
+  UpgradeConfig: {fileID: 0}
 --- !u!1 &1758918499225114329
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +294,7 @@ GameObject:
   - component: {fileID: 5531263499165190584}
   - component: {fileID: 7321957389305940167}
   - component: {fileID: 1859874930673421933}
+  - component: {fileID: 9056703439171946433}
   m_Layer: 5
   m_Name: LevelText
   m_TagString: Untagged
@@ -420,6 +418,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9056703439171946433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758918499225114329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7248a654ecf8b40408902d33b14d0c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradeCell: {fileID: 1393882222499984516}
+  LevelTextUI: {fileID: 1859874930673421933}
 --- !u!1 &2464101146294146238
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,8 +443,9 @@ GameObject:
   - component: {fileID: 2051033643338033367}
   - component: {fileID: 7385729457672786586}
   - component: {fileID: 5910814747952085877}
+  - component: {fileID: 4790771899454475234}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,6 +567,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4790771899454475234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2464101146294146238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284252d275e4dff488d5fffd067b5766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradeCell: {fileID: 1393882222499984516}
+  CostTextUI: {fileID: 5910814747952085877}
 --- !u!1 &3422237245585264174
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5462422293453265753}
   - component: {fileID: 4474000008040700274}
+  - component: {fileID: 607377852814274424}
   - component: {fileID: 3191812608046735460}
   m_Layer: 5
   m_Name: DecriptionText
@@ -636,6 +664,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3453691349129021844}
   m_CullTransparentMesh: 1
+--- !u!114 &607377852814274424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3453691349129021844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810fe568b389447b99e609ae749f8c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradeCell: {fileID: 1393882222499984516}
+  DescriptionTextUI: {fileID: 3191812608046735460}
 --- !u!114 &3191812608046735460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,6 +778,7 @@ GameObject:
   - component: {fileID: 1631549493134066675}
   - component: {fileID: 2397122288039609701}
   - component: {fileID: 628419131639675681}
+  - component: {fileID: 3590956243117908366}
   m_Layer: 5
   m_Name: TitleText
   m_TagString: Untagged
@@ -859,6 +902,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3590956243117908366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992666729206773454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ae7ff37ca745a987ba0e06aee21bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradeCell: {fileID: 1393882222499984516}
+  Title: {fileID: 628419131639675681}
 --- !u!1 &6685639859411607323
 GameObject:
   m_ObjectHideFlags: 0

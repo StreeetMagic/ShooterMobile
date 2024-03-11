@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Configs.Resources.Upgrades;
 using Infrastructure.StaticDataServices;
 using Infrastructure.UserIntefaces;

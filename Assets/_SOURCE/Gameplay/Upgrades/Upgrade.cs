@@ -7,11 +7,13 @@ namespace Gameplay.Upgrades
   {
     private UpgradeConfig _config;
 
-    public Upgrade(UpgradeConfig config)
+    public Upgrade(UpgradeConfig config, int level)
     {
       _config = config;
+
+      Level = new ReactiveProperty<int>(level);
     }
 
-    public ReactiveProperty<int> Level { get; } = new();
+    public ReactiveProperty<int> Level { get; }
   }
 }

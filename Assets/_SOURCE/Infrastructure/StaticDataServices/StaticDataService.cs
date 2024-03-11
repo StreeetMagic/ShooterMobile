@@ -25,7 +25,7 @@ namespace Infrastructure.StaticDataServices
     public Dictionary<UpgradeId, UpgradeConfig> ForUpgrades() =>
       _upgradeConfigs;
 
-    public UpgradeConfig ForConfig(UpgradeId id) =>
+    public UpgradeConfig ForUpgradeConfig(UpgradeId id) =>
       _upgradeConfigs[id]; 
 
     public void LoadConfigs()

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays._components.EggInBankPanels
+namespace UserInterface.HeadsUpDisplays.EggInBankPanels
 {
   public class EggInBankPanel : MonoBehaviour
   {

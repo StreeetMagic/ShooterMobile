@@ -12,6 +12,6 @@ namespace Infrastructure.StaticDataServices
     EnemyConfig ForEnemy(EnemyId enemyId);
     void LoadConfigs();
     Dictionary<UpgradeId, UpgradeConfig> ForUpgrades();
-    UpgradeConfig ForConfig(UpgradeId id);
+    UpgradeConfig ForUpgradeConfig(UpgradeId id);
   }
 }
