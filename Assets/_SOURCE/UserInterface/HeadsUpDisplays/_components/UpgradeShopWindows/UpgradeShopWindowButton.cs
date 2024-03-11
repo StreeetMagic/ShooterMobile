@@ -1,4 +1,4 @@
-﻿using Infrastructure.SaveLoadServices;
+﻿using System.Collections.Generic;
 using Infrastructure.UserIntefaces;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,14 +10,15 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
   {
     [SerializeField] private Button _button;
 
+    private List<GameObject> _otherStuff = new List<GameObject>();
+
     private WindowFactory _windowFactory;
-    private SaveLoadService _saveLoadService;
+    private HeadsUpDisplayProvider _headsUpDisplayProvider;
 
     [Inject]
-    public void Construct(WindowFactory windowFactory, SaveLoadService saveLoadService)
+    public void Construct(WindowFactory windowFactory)
     {
       _windowFactory = windowFactory;
-      _saveLoadService = saveLoadService;
     }
 
     private void Awake()
@@ -28,7 +29,6 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
     private void OnClick()
     {
       _windowFactory.Create(WindowId.UpgradeShop);
-      _saveLoadService.SaveProgress();
     }
   }
 }

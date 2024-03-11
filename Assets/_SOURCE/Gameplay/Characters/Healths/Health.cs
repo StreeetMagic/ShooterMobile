@@ -45,7 +45,7 @@ namespace Gameplay.Characters.Healths
       {
         Dead?.Invoke();
         _rewardService.OnEnemyDied(_enemy.Id);
-        Destroy(_enemy.gameObject);
+        Debug.Log("Я умер 1337");
       }
     }
 

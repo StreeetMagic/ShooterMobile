@@ -1,6 +1,7 @@
 ﻿using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
+using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 
 namespace UserInterface.HeadsUpDisplays
 {
@@ -25,6 +26,9 @@ namespace UserInterface.HeadsUpDisplays
       HeadsUpDisplay display = _factory.Instantiate(prefab, parent);
 
       _provider.HeadsUpDisplay = display;
+
+      _provider.UpgradeShopButton = display.GetComponentInChildren<UpgradeShopWindowButton>();
+      _provider.Borders = display.GetComponentInChildren<Borders>();
 
       display.transform.parent = null;
     }

@@ -1,6 +1,5 @@
 using Configs.Resources.Upgrades;
 using Gameplay.Upgrades;
-using Infrastructure.PersistentProgresses;
 using Infrastructure.StaticDataServices;
 using TMPro;
 using UnityEngine;

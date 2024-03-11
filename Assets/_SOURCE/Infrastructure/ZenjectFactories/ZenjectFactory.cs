@@ -38,7 +38,7 @@ namespace Infrastructure.ZenjectFactories
         .InstantiatePrefab(_assetProvider.Get<TMono>(), parent)
         .GetComponent<TMono>();
 
-      monoBehaviour.transform.parent = parent;
+      monoBehaviour.transform.SetParent(parent);
 
       return monoBehaviour;
     }

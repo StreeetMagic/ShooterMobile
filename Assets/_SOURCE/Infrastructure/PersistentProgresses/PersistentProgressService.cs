@@ -25,14 +25,14 @@ namespace Infrastructure.PersistentProgresses
     {
       Progress = new Progress
       {
-        MoneyInBank = 20,
-        MoneyInBackpack = 30,
+        MoneyInBank = 1000,
+        MoneyInBackpack = 0,
 
         EggsInBank = 40,
-        EggsInBackpack = 50,
+        EggsInBackpack = 0,
 
         PlayerPosition = Vector3.zero,
-        Expierience = 12,
+        Expierience = 0,
         Upgrades = new List<UpgradeProgress>()
       };
 

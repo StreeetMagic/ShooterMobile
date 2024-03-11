@@ -24,10 +24,10 @@ namespace Gameplay.Characters.Players.TargetHolders
     public event Action<TargetTrigger> CurrentTargetUpdated;
 
     public bool HasTarget => _currentTarget != null;
-    public Vector3 DirectionToTarget => _currentTarget.transform.position - _transform.position;
+    public Vector3 DirectionToTarget => _currentTarget.transform.position - Transform.position;
 
-    private PlayerTargetLocator _playerTargetLocator => _playerProvider.PlayerTargetLocator;
-    private Transform _transform => _playerProvider.Player.transform;
+    private PlayerTargetLocator PlayerTargetLocator => _playerProvider.PlayerTargetLocator;
+    private Transform Transform => _playerProvider.Player.transform;
 
     public void Start()
     {
@@ -36,6 +36,12 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     public void Tick()
     {
+      if (_currentTarget!=null &&_currentTarget.Health.Current <= 0)
+      {
+        RemoveTarget(_currentTarget);
+        _currentTarget = null;
+      }
+
       if (_currentTarget == null && _targets.Count > 0)
         UpdateCurrentTarget(ValidateRandomTarget());
     }
@@ -78,16 +84,16 @@ namespace Gameplay.Characters.Players.TargetHolders
       AddTarget(target);
     }
 
-    private void OnPlayerTargetLost(TargetTrigger obj)
+    private void OnPlayerTargetLost(TargetTrigger target)
     {
-      if (_targets.Contains(obj))
-        RemoveTarget(obj);
+      if (_targets.Contains(target))
+        RemoveTarget(target);
     }
 
     private void Subscribe()
     {
-      _playerTargetLocator.TargetLocated += OnPlayerTargetLocated;
-      _playerTargetLocator.TargetLost += OnPlayerTargetLost;
+      PlayerTargetLocator.TargetLocated += OnPlayerTargetLocated;
+      PlayerTargetLocator.TargetLost += OnPlayerTargetLost;
     }
   }
 }

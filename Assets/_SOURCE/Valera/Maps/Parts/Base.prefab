@@ -463,7 +463,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 127
 --- !u!1 &7930249409285804204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,6 +1460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6df76bd7af63843b98c9c9221904d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _baseTrigger: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!1001 &1533965284987082299
 PrefabInstance:
   m_ObjectHideFlags: 0
