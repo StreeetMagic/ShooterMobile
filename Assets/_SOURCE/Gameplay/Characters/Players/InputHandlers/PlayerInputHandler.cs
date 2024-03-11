@@ -23,9 +23,23 @@ namespace Gameplay.Characters.Players.InputHandlers
     private PlayerRotatorController RotatorController => _playerProvider.PlayerRotatorController;
     private PlayerMover Mover => _playerProvider.PlayerMover;
 
+    public bool CanMove { get; private set; } = true;
+
+    public void EnableMove()
+    {
+      CanMove = true;
+      Debug.Log("можно двигаться");
+    }
+
+    public void DisableMove()
+    {
+      CanMove = false;
+      Debug.Log("нельзя двигаться");
+    }
+    
     public void Tick()
     {
-      if (_inputService.CanMove == false)
+      if (CanMove == false)
         return;
 
       Vector3 moveDirection = GetDirection();

@@ -6,9 +6,7 @@ namespace Inputs
   public interface IInputService
   {
     Vector2 MoveDirection { get; }
-    bool CanMove { get; }
-    void EnableMove();
-    void DisableMove();
+    Vector2 MoveDirectionFloatingJoystick { get; set; }
   }
 
   public class InputService : IInputService
@@ -21,22 +19,13 @@ namespace Inputs
       _controls = new Controls();
       _move = _controls.Player.Move;
       _move.Enable();
-      CanMove = true;
     }
 
-    public Vector2 MoveDirection => _move.ReadValue<Vector2>();
-    public bool CanMove { get; private set; }
+    public Vector2 MoveDirection =>
+      MoveDirectionFloatingJoystick != Vector2.zero
+        ? MoveDirectionFloatingJoystick
+        : _move.ReadValue<Vector2>();
 
-    public void EnableMove()
-    {
-      CanMove = true;
-      Debug.Log("можно двигаться");
-    }
-
-    public void DisableMove()
-    {
-      CanMove = false;
-      Debug.Log("нельзя двигаться");
-    }
+    public Vector2 MoveDirectionFloatingJoystick { get; set; }
   }
 }
