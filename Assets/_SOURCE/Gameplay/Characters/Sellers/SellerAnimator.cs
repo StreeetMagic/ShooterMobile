@@ -1,20 +1,23 @@
 using Gameplay.BaseTriggers;
 using UnityEngine;
 
-public class SellerAnimator : MonoBehaviour
+namespace Gameplay.Characters.Sellers
 {
-    [SerializeField] private BaseTrigger _baseTrigger;
-    [SerializeField] private Animator _animator;
-
-    private string _isTalkAnimation = "IsTalk";
-
-    public void PlayTalkAnimation()
+    public class SellerAnimator : MonoBehaviour
     {
-        _animator.SetBool(_isTalkAnimation, true);
-    }
+        [SerializeField] private BaseTrigger _baseTrigger;
+        [SerializeField] private Animator _animator;
 
-    public void StopTalkAnimation()
-    {
-        _animator.SetBool(_isTalkAnimation, false);
+        private string _isTalkAnimation = "IsTalk";
+
+        public void PlayTalkAnimation()
+        {
+            _animator.SetBool(_isTalkAnimation, true);
+        }
+
+        public void StopTalkAnimation()
+        {
+            _animator.SetBool(_isTalkAnimation, false);
+        }
     }
 }

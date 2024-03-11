@@ -2,7 +2,7 @@ using Inputs;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UserInterface.MobileJoysticks
+namespace UserInterface.HeadsUpDisplays.MobileJoysticks.FixedJoysticks
 {
     public class MobileJoystick : MonoBehaviour
     {
