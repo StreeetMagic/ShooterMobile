@@ -35,10 +35,19 @@ namespace Gameplay.Upgrades
       Changed?.Invoke();
     }
 
-    public Upgrade ForUpgrade(UpgradeId upgradeId) =>
-      _upgrades.TryGetValue(upgradeId, out Upgrade upgrade) 
-        ? upgrade 
-        : null;
+    public Upgrade GetUpgrade(UpgradeId upgradeId) =>
+      _upgrades.GetValueOrDefault(upgradeId);
+
+    public int GetNextUpgradeCost(UpgradeId upgradeId)
+    {
+      Upgrade upgrade = GetUpgrade(upgradeId);
+
+      return
+        _staticDataService
+          .ForUpgradeConfig(upgradeId)
+          .Values[upgrade.Level.Value + 1]
+          .Cost;
+    }
 
     public void ReadProgress(Progress progress)
     {

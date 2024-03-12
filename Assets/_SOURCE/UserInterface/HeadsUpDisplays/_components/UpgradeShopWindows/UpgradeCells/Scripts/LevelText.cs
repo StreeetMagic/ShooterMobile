@@ -12,13 +12,11 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
     public UpgradeCell UpgradeCell;
     public TextMeshProUGUI LevelTextUI;
 
-    private PersistentProgressService _progressService;
     private UpgradeService _upgradeService;
 
     [Inject]
     public void Construct(PersistentProgressService progressService, UpgradeService upgradeService)
     {
-      _progressService = progressService;
       _upgradeService = upgradeService;
     }
 
@@ -37,12 +35,15 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
 
     private void UpdateText()
     {
-      int currentLevel = _progressService.Progress.FindUpgrade(Config.Id).Level;
+      int currentLevel = _upgradeService.GetUpgrade(Config.Id).Level.Value;
       int nextLevel = currentLevel + 1;
 
       int maxLevel = Config.Values[^1].Level;
 
       LevelTextUI.text = $"LEVEL {nextLevel}/{maxLevel}";
+
+      if (currentLevel == maxLevel)
+        LevelTextUI.text = "MAX";
     }
   }
 }

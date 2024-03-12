@@ -23,9 +23,6 @@ namespace Configs.Resources.Upgrades
     [Space] [SerializeField] [Tooltip("Описание апгрейда")]
     public string Description;
 
-    [Space] [SerializeField] [Tooltip("Инициализируемое значение")]
-    public int InitialValue;
-
     [Space] [SerializeField] [Tooltip("Значения апгрейда")]
     public CurrencyId CurrencyId;
 

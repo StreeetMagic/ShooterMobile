@@ -10,7 +10,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Players.Factories
 {
-  public class PlayerProvider : ITickable
+  public class PlayerProvider
   {
     public Player Player { get; set; }
 
@@ -24,17 +24,5 @@ namespace Gameplay.Characters.Players.Factories
     public PlayerShooter PlayerShooter { get; set; }
     public PlayerAnimator PlayerAnimator { get; set; }
     public PlayerAnimatorEventHandler PlayerAnimatorEventHandler { get; set; }
-
-    public void Tick()
-    {
-      var playerInputHandler = PlayerInputHandler as ITickable;
-      playerInputHandler.Tick();
-      
-      var playerTargetHolder = PlayerTargetHolder as ITickable;
-      playerTargetHolder.Tick();
-      
-      var playerShooter = PlayerShooter as ITickable;
-      playerShooter.Tick();
-    }
   }
 }

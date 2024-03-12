@@ -23,17 +23,32 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
     }
 
     private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
+    private UpgradeId Id => Config.Id;
+    private Upgrade Upgrade => _upgradeService.GetUpgrade(Id);
 
     private void Start()
     {
       UpdateText();
+
+      _upgradeService.Changed += UpdateText;
+    }
+
+    private void OnDestroy()
+    {
+      _upgradeService.Changed -= UpdateText;
     }
 
     private void UpdateText()
     {
+      if (Upgrade.IsMaxLevel)
+      {
+        DescriptionTextUI.text = $"{Config.Description} MAX";
+        return;
+      }
+
       int currentLevel =
         _upgradeService
-          .ForUpgrade(Config.Id)
+          .GetUpgrade(Config.Id)
           .Level
           .Value;
 
@@ -43,7 +58,11 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
           .Values[currentLevel]
           .Value;
 
-      int nextValue = currentValue + 1;
+      int nextValue =
+        _staticDataService
+          .ForUpgradeConfig(Config.Id)
+          .Values[currentLevel + 1]
+          .Value;
 
       string description = Config.Description;
 

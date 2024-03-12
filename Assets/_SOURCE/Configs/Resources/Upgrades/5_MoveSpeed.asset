@@ -16,18 +16,17 @@ MonoBehaviour:
   Id: 5
   Title: Bag capacity
   Description: Increase bag capacity
-  InitialValue: 13
   CurrencyId: 0
   _values:
+  - Level: 0
+    Value: 5
+    Cost: 0
   - Level: 1
-    Value: 7
-    Cost: 8
+    Value: 10
+    Cost: 100
   - Level: 2
-    Value: 80
-    Cost: 218
+    Value: 20
+    Cost: 200
   - Level: 3
-    Value: 206
-    Cost: 604
-  - Level: 4
-    Value: 726
-    Cost: 1112
+    Value: 30
+    Cost: 300

@@ -12,12 +12,16 @@ namespace Gameplay.Characters.Players.InputHandlers
   {
     private readonly IInputService _inputService;
     private readonly PlayerProvider _playerProvider;
+    private readonly TickableManager _tickableManager;
 
     public PlayerInputHandler(IInputService inputService,
-      PlayerProvider playerProvider)
+      PlayerProvider playerProvider, TickableManager tickableManager)
     {
       _inputService = inputService;
       _playerProvider = playerProvider;
+      _tickableManager = tickableManager;
+      
+      _tickableManager.Add(this);
     }
 
     private PlayerRotatorController RotatorController => _playerProvider.PlayerRotatorController;
@@ -36,7 +40,7 @@ namespace Gameplay.Characters.Players.InputHandlers
       CanMove = false;
       Debug.Log("нельзя двигаться");
     }
-    
+
     public void Tick()
     {
       if (CanMove == false)

@@ -1,5 +1,6 @@
 using Configs.Resources.Upgrades;
 using Infrastructure.Utilities;
+using UnityEngine;
 
 namespace Gameplay.Upgrades
 {
@@ -15,5 +16,8 @@ namespace Gameplay.Upgrades
     }
 
     public ReactiveProperty<int> Level { get; }
+
+    public bool IsMaxLevel => Level.Value == _config.Values[^1].Level;
+    public bool IsPenult => Level.Value == _config.Values[^2].Level;
   }
 }

@@ -49,7 +49,9 @@ namespace Gameplay.Characters.Players.Factories
 
       _playerProvider.PlayerInputHandler = _factory.Create<PlayerInputHandler>();
       _playerProvider.PlayerRotatorController = _factory.Create<PlayerRotatorController>();
+      
       _playerProvider.PlayerShooter = _factory.Create<PlayerShooter>();
+      _playerProvider.PlayerShooter.Initialize();
 
       _playerProvider.PlayerTargetHolder = _factory.Create<PlayerTargetHolder>();
       _playerProvider.PlayerTargetHolder.Start();

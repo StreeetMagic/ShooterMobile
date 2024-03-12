@@ -1,6 +1,7 @@
 ﻿using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
+using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 
 namespace UserInterface.HeadsUpDisplays
@@ -29,6 +30,7 @@ namespace UserInterface.HeadsUpDisplays
 
       _provider.UpgradeShopButton = display.GetComponentInChildren<UpgradeShopWindowButton>();
       _provider.Borders = display.GetComponentInChildren<Borders>();
+      _provider.FloatingJoystick = display.GetComponentInChildren<FloatingJoystick>();
 
       display.transform.parent = null;
     }

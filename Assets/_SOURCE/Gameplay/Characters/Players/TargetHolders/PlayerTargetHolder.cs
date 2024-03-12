@@ -12,13 +12,15 @@ namespace Gameplay.Characters.Players.TargetHolders
   public class PlayerTargetHolder : ITickable
   {
     private readonly PlayerProvider _playerProvider;
+    private readonly TickableManager _tickableManager;
+    private readonly List<TargetTrigger> _targets = new();
 
     private TargetTrigger _currentTarget;
-    private List<TargetTrigger> _targets = new();
 
-    public PlayerTargetHolder(PlayerProvider playerProvider)
+    public PlayerTargetHolder(PlayerProvider playerProvider, TickableManager tickableManager)
     {
       _playerProvider = playerProvider;
+      _tickableManager = tickableManager;
     }
 
     public event Action<TargetTrigger> CurrentTargetUpdated;
@@ -31,12 +33,13 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     public void Start()
     {
+      _tickableManager.Add(this);
       Subscribe();
     }
 
     public void Tick()
     {
-      if (_currentTarget!=null &&_currentTarget.Health.Current <= 0)
+      if (_currentTarget != null && _currentTarget.Health.Current <= 0)
       {
         RemoveTarget(_currentTarget);
         _currentTarget = null;

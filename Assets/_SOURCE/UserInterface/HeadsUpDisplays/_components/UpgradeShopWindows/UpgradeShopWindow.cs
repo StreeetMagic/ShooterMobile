@@ -41,7 +41,6 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
     private void CollectOtherStuff()
     {
       _otherStuff.Add(_headsUpDisplayProvider.UpgradeShopButton.gameObject);
-      _otherStuff.Add(_headsUpDisplayProvider.Borders.gameObject);
       _otherStuff.Add(_headsUpDisplayProvider.FloatingJoystick.gameObject);
     }
 
