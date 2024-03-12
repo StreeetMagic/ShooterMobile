@@ -19,7 +19,7 @@ namespace Infrastructure.PersistentProgresses
 
     public List<UpgradeProgress> Upgrades;
     
-    public UpgradeProgress FindUpgrade(UpgradeId id) =>
+    public UpgradeProgress FindUpgradeProgress(UpgradeId id) =>
       Upgrades.Find(x => x.Id == id);
   }
 }

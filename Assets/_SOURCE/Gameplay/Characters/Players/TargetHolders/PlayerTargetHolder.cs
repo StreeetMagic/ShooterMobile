@@ -83,6 +83,9 @@ namespace Gameplay.Characters.Players.TargetHolders
     {
       if (_targets.Contains(target))
         return;
+      
+      if (target.Health.IsDead)
+        return;
 
       AddTarget(target);
     }

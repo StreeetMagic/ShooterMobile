@@ -19,6 +19,7 @@ namespace Gameplay.Characters.Healths
 
     public float Current { get; private set; }
     public float Initial => _enemyConfig.InitialHealth;
+    public bool IsDead => Current <= 0;
 
     [Inject]
     public void Construct(RewardService rewardService)

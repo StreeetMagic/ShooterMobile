@@ -6,7 +6,7 @@ namespace Gameplay.Upgrades
 {
   public class Upgrade
   {
-    private UpgradeConfig _config;
+    private readonly UpgradeConfig _config;
 
     public Upgrade(UpgradeConfig config, int level)
     {

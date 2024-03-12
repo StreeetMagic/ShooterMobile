@@ -12,10 +12,6 @@ namespace Configs.Resources
     [Tooltip("Скорострельность. Выстрелов в секунду")]
     [field: SerializeField]
     public int FireRate { get; private set; } = 10;
-
-    [Tooltip("Урон одной пули")]
-    [field: SerializeField]
-    public int BulletDamage { get; private set; } = 10;
     
     [Tooltip("Скорость полета пули")]
     [field: SerializeField]

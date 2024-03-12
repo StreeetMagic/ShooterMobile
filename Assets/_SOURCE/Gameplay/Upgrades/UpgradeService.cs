@@ -11,19 +11,13 @@ namespace Gameplay.Upgrades
 {
   public class UpgradeService : IProgressWriter
   {
-    private readonly PersistentProgressService _progressService;
     private readonly IStaticDataService _staticDataService;
-    private readonly SaveLoadService _saveLoadService;
 
     private Dictionary<UpgradeId, Upgrade> _upgrades;
 
-    public UpgradeService(IStaticDataService staticDataService,
-      PersistentProgressService progressService,
-      SaveLoadService saveLoadService)
+    public UpgradeService(IStaticDataService staticDataService)
     {
       _staticDataService = staticDataService;
-      _progressService = progressService;
-      _saveLoadService = saveLoadService;
     }
 
     public event Action Changed;
@@ -61,7 +55,7 @@ namespace Gameplay.Upgrades
 
     public void WriteProgress(Progress progress)
     {
-      progress.Upgrades = 
+      progress.Upgrades =
         _upgrades
           .Select(keyValuePair => new UpgradeProgress(keyValuePair.Key, keyValuePair.Value.Level.Value))
           .ToList();

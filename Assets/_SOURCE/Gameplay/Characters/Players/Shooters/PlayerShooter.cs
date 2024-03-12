@@ -77,6 +77,9 @@ namespace Gameplay.Characters.Players.Shooters
     {
       while (true)
       {
+        if (PlayerTargetHolder.HasTarget == false)
+          yield break;
+
         Shoot();
 
         //PlayerAnimator.Shoot();
