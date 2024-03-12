@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Infrastructure.SaveLoadServices;
 using Infrastructure.UserIntefaces;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,11 +15,14 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
 
     private WindowFactory _windowFactory;
     private HeadsUpDisplayProvider _headsUpDisplayProvider;
+    private SaveLoadService _saveLoadService;
 
     [Inject]
-    public void Construct(WindowFactory windowFactory)
+    public void Construct(WindowFactory windowFactory, HeadsUpDisplayProvider headsUpDisplayProvider, SaveLoadService saveLoadService)
     {
       _windowFactory = windowFactory;
+      _headsUpDisplayProvider = headsUpDisplayProvider;
+      _saveLoadService = saveLoadService;
     }
 
     private void Awake()
@@ -29,6 +33,7 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
     private void OnClick()
     {
       _windowFactory.Create(WindowId.UpgradeShop);
+      _saveLoadService.SaveProgress();
     }
   }
 }
