@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using Maps;
@@ -11,7 +13,8 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
   {
     private readonly IAssetProvider _assetProvider;
     private readonly IZenjectFactory _zenjectFactory;
-    private readonly EnemySpawner _prefab;
+    private readonly EnemySpawner _spawnerPrefab;
+    private readonly SpawnPoint _spawnPointPrefab;
 
     private Map _map;
     private readonly MapFactory _mapFactory;
@@ -21,7 +24,8 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
       _assetProvider = assetProvider;
       _mapFactory = mapFactory;
       _zenjectFactory = zenjectFactory;
-      _prefab = _assetProvider.Get<EnemySpawner>();
+      _spawnerPrefab = _assetProvider.Get<EnemySpawner>();
+      _spawnPointPrefab = _assetProvider.Get<SpawnPoint>();
 
       _mapFactory.Created += OnMapCreated;
     }
@@ -30,17 +34,40 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
     {
       Transform container = _map.EnemySpawnersContainer;
 
-      List<EnemySpawnMarker> spawnPointMarkers = _map.EnemySpawnPoints;
+      List<EnemySpawnMarker> spawnPointMarkers = _map.EnemySpawnMarkers;
 
       foreach (EnemySpawnMarker marker in spawnPointMarkers)
       {
-        EnemySpawner enemySpawner = _zenjectFactory.Instantiate(_prefab);
+        EnemySpawner enemySpawner = _zenjectFactory.Instantiate(_spawnerPrefab);
         enemySpawner.transform.SetParent(container);
-
         enemySpawner.transform.localPosition = marker.transform.localPosition;
-        enemySpawner.Init(marker.EnemyId);
+
+        List<SpawnPoint> spawnPoints = CreateSpawnPoints();
+        enemySpawner.Init(marker.EnemyId, spawnPoints);
+
+        // enemySpawner.Init(marker.EnemyId);
         enemySpawner.Spawn(marker.Count);
       }
+    }
+
+    private List<SpawnPoint> CreateSpawnPoints()
+    {
+      List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
+
+      foreach (EnemySpawnMarker marker in _map.EnemySpawnMarkers)
+      {
+        List<EnemySpawnPointMarker> markers = marker.GetComponentsInChildren<EnemySpawnPointMarker>().ToList();
+
+        foreach (EnemySpawnPointMarker enemySpawnPointMarker in markers)
+        {
+          SpawnPoint spawnPoint = _zenjectFactory.Instantiate<SpawnPoint>();
+          spawnPoint.transform.SetParent(enemySpawnPointMarker.transform);
+          spawnPoint.transform.localPosition = Vector3.zero;
+          spawnPoints.Add(spawnPoint);
+        }
+      }
+
+      return spawnPoints;
     }
 
     private void OnMapCreated(Map obj)

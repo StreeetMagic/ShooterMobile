@@ -9,19 +9,16 @@ namespace Maps
 {
   public class Map : MonoBehaviour
   {
-    [field: SerializeField] public PlayerSpawnMarker PlayerSpawnPoint { get; private set; }
-    [field: SerializeField] public Transform EnemySpawnersContainer { get; private set; }
-  
-    [SerializeField] private List<EnemySpawnMarker> _enemySpawnPoints;
-
-    public List<EnemySpawnMarker> EnemySpawnPoints => _enemySpawnPoints.ToList();
+    public PlayerSpawnMarker PlayerSpawnPoint;
+    public Transform EnemySpawnersContainer;
+    public List<EnemySpawnMarker> EnemySpawnMarkers;
 
     [Button]
     private void Resolve()
     {
       PlayerSpawnPoint = GetComponentInChildren<PlayerSpawnMarker>();
 
-      _enemySpawnPoints =
+      EnemySpawnMarkers =
         GetComponentsInChildren<EnemySpawnMarker>()
           .ToList();
 

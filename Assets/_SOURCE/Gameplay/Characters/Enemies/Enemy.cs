@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Configs.Resources.Enemies;
 using Gameplay.Characters.Enemies.Movers;
-using Gameplay.Characters.Enemies.Spawners.RoutePoints;
+using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Characters.Healths;
 using Infrastructure.StaticDataServices;
 using UnityEngine;
@@ -21,7 +21,7 @@ namespace Gameplay.Characters.Enemies
       _staticDataService = staticDataService;
     }
 
-    public void Init(List<RoutePoint> routePoints)
+    public void Init(List<SpawnPoint> routePoints)
     {
       EnemyConfig enemyConfig =
         _staticDataService

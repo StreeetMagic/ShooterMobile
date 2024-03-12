@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Configs.Resources.Enemies;
-using Gameplay.Characters.Enemies.Spawners.RoutePoints;
+using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies.Movers
@@ -11,7 +11,7 @@ namespace Gameplay.Characters.Enemies.Movers
   {
     private EnemyConfig _enemyConfig;
     private CharacterController _characterController;
-    private List<RoutePoint> _routePoints;
+    private List<SpawnPoint> _routePoints;
   
     private int _currentRouteIndex;
     private Vector3 _targetPosition;
@@ -19,14 +19,14 @@ namespace Gameplay.Characters.Enemies.Movers
 
     private float MoveSpeed => _enemyConfig.MoveSpeed;
 
-    public void Init(EnemyConfig enemyConfig, List<RoutePoint> routePoints)
+    public void Init(EnemyConfig enemyConfig, List<SpawnPoint> routePoints)
     {
       _enemyConfig = enemyConfig;
       _characterController = GetComponent<CharacterController>();
       _routePoints = ShuffleRoutePoints(routePoints);
     }
 
-    private List<RoutePoint> ShuffleRoutePoints(List<RoutePoint> points)
+    private List<SpawnPoint> ShuffleRoutePoints(List<SpawnPoint> points)
     {
       for (int i = 0; i < points.Count; i++)
       {
