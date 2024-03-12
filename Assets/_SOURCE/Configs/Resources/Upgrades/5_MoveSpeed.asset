@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortingOrder: 2
   Id: 5
-  Title: Bag capacity
-  Description: Increase bag capacity
+  Title: Move Speed
+  Description: Increase move speed
   CurrencyId: 0
   _values:
   - Level: 0
-    Value: 5
+    Value: 10
     Cost: 0
   - Level: 1
-    Value: 10
-    Cost: 100
-  - Level: 2
-    Value: 20
+    Value: 12
     Cost: 200
-  - Level: 3
-    Value: 30
+  - Level: 2
+    Value: 14
     Cost: 300
+  - Level: 3
+    Value: 16
+    Cost: 400

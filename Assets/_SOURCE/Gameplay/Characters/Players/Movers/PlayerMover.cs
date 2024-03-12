@@ -1,5 +1,7 @@
 using Configs.Resources;
 using Gameplay.Characters.Players.Animators;
+using Gameplay.Upgrades;
+using Infrastructure.DataRepositories;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
@@ -15,19 +17,21 @@ namespace Gameplay.Characters.Players.Movers
 
     private CharacterController _characterController;
     private PlayerConfig _playerConfig;
+    private DataRepository _dataRepository;
 
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
 
-    private float MoveSpeed => _playerConfig.MoveSpeed;
-    private float GravityScale => _playerConfig.GravityScale;
-
     [Inject]
-    private void Construct(IStaticDataService staticData)
+    private void Construct(IStaticDataService staticData, DataRepository dataRepository)
     {
       _playerConfig = staticData.ForPlayer();
+      _dataRepository = dataRepository;
       _characterController = GetComponent<CharacterController>();
     }
+
+    private float MoveSpeed => _dataRepository.MoveSpeed;
+    private float GravityScale => _playerConfig.GravityScale;
 
     public void Move(Vector3 directionXYZ)
     {
@@ -68,7 +72,7 @@ namespace Gameplay.Characters.Players.Movers
 
     public void WriteProgress(Progress progress)
     {
-      progress.PlayerPosition = transform.position; 
+      progress.PlayerPosition = transform.position;
     }
   }
 }

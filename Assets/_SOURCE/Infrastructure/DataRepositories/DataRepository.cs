@@ -29,10 +29,22 @@ namespace Infrastructure.DataRepositories
     public float BulletDamage =>
       _staticDataService
         .ForUpgradeConfig(UpgradeId.Damage)
-        .Values[LevelValue]
+        .Values[DamageUpgradeLevel]
+        .Value;
+    
+    public float MoveSpeed =>
+      _staticDataService
+        .ForUpgradeConfig(UpgradeId.MoveSpeed)
+        .Values[SpeedUpgradeLevel]
         .Value;
 
-    private int LevelValue => 
+    private int SpeedUpgradeLevel =>
+      _upgradeService
+        .GetUpgrade(UpgradeId.MoveSpeed)
+        .Level
+        .Value;
+
+    private int DamageUpgradeLevel => 
       _upgradeService
         .GetUpgrade(UpgradeId.Damage)
         .Level
