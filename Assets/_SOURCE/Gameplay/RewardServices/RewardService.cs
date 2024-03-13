@@ -7,16 +7,16 @@ namespace Gameplay.RewardServices
   public class RewardService
   {
     private readonly IStaticDataService _staticDataService;
-    private readonly DataRepository _dataRepository;
+    private readonly MoneyInBankStorage _moneyInBankStorage;
 
-    public RewardService(IStaticDataService staticDataService, DataRepository dataRepository)
+    public RewardService(IStaticDataService staticDataService, MoneyInBankStorage moneyInBankStorage)
     {
       _staticDataService = staticDataService;
-      _dataRepository = dataRepository;
+      _moneyInBankStorage = moneyInBankStorage;
     }
 
     public void OnEnemyDied(EnemyId enemyId) =>
-      _dataRepository.MoneyInBackpack.Value +=
+      _moneyInBankStorage.MoneyInBank.Value +=
         _staticDataService
           .ForEnemy(enemyId)
           .MoneyReward;

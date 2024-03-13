@@ -12,13 +12,13 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
     public Health Health;
 
     private IStaticDataService _staticDataService;
-    private DataRepository _dataRepository;
+    private MoneyInBankStorage _moneyInBankStorage;
 
     [Inject]
-    public void Construct(IStaticDataService staticDataService, DataRepository dataRepository)
+    public void Construct(IStaticDataService staticDataService, MoneyInBankStorage moneyInBankStorage)
     {
       _staticDataService = staticDataService;
-      _dataRepository = dataRepository;
+      _moneyInBankStorage = moneyInBankStorage;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,7 +26,7 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
       if (other.TryGetComponent(out Projectile projectile) == false)
         return;
 
-      Health.TakeDamage(_dataRepository.BulletDamage);
+      Health.TakeDamage(_moneyInBankStorage.BulletDamage);
 
       Destroy(projectile.gameObject);
     }

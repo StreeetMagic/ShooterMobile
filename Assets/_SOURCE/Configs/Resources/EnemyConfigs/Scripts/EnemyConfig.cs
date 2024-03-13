@@ -1,7 +1,7 @@
 ﻿using Gameplay.Characters.Enemies;
 using UnityEngine;
 
-namespace Configs.Resources.Enemies
+namespace Configs.Resources.EnemyConfigs.Scripts
 {
   [CreateAssetMenu(fileName = nameof(EnemyConfig), menuName = "Configs/EnemyConfig")]
   public class EnemyConfig : ScriptableObject

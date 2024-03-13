@@ -430,7 +430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e554387cd7e8394eaa52aa3a253d2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moneyInBackpackText: {fileID: 685020004364243220}
 --- !u!1 &3777882547266317395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,25 +1262,13 @@ PrefabInstance:
     - target: {fileID: 2708673485345503614, guid: 98b689d49e88f8d4690c14fa5d5f278d,
         type: 3}
       propertyPath: m_Name
-      value: Panel_Money_Balance
+      value: MoneyInBankPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98b689d49e88f8d4690c14fa5d5f278d, type: 3}
---- !u!114 &685020004364243220 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3222499930586628655, guid: 98b689d49e88f8d4690c14fa5d5f278d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2682228437564560187}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &3725115379390451612 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1624519904471620775, guid: 98b689d49e88f8d4690c14fa5d5f278d,
@@ -1401,11 +1388,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7809924703411992461, guid: 5a42d69d9627cc84fa4bdcf67a0d57cf,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1438,7 +1420,7 @@ PrefabInstance:
     - target: {fileID: 2897237758918402645, guid: 88d41cf312c36e14985ea3290f8e59ab,
         type: 3}
       propertyPath: m_Name
-      value: Bar_Level_Progress
+      value: ExpirienceBar
       objectReference: {fileID: 0}
     - target: {fileID: 3330678024160355461, guid: 88d41cf312c36e14985ea3290f8e59ab,
         type: 3}
@@ -1538,11 +1520,6 @@ PrefabInstance:
     - target: {fileID: 3330678024160355461, guid: 88d41cf312c36e14985ea3290f8e59ab,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086227879305715364, guid: 88d41cf312c36e14985ea3290f8e59ab,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1740,21 +1717,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1840,7 +1802,7 @@ PrefabInstance:
     - target: {fileID: 547830409267699153, guid: ac4543945101c354ab6ed17bf9622a99,
         type: 3}
       propertyPath: m_Name
-      value: Panel_Egg_Balance
+      value: EggInBankPanel
       objectReference: {fileID: 0}
     - target: {fileID: 3109647488189722026, guid: ac4543945101c354ab6ed17bf9622a99,
         type: 3}
@@ -2071,11 +2033,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9165713862816605452, guid: 5444373b61766374f8200458c14a9338,
-        type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 7839421380539221478}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2087,18 +2044,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8142827775821573915}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7839421380539221478 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2146557368822131453, guid: 5444373b61766374f8200458c14a9338,
-    type: 3}
-  m_PrefabInstance: {fileID: 8142827775821573915}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8348457269819343796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2210,7 +2155,7 @@ PrefabInstance:
     - target: {fileID: 6179187987454762806, guid: c3cc6658ae005eb49b832091b318dcf9,
         type: 3}
       propertyPath: m_Name
-      value: Panel_Crystal_Balance
+      value: CrystalInBankPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

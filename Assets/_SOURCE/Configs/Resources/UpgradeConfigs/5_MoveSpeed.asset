@@ -17,16 +17,22 @@ MonoBehaviour:
   Title: Move Speed
   Description: Increase move speed
   CurrencyId: 0
-  _values:
+  Values:
   - Level: 0
     Value: 10
-    Cost: 0
+    Cost: 100
   - Level: 1
-    Value: 12
+    Value: 20
     Cost: 200
   - Level: 2
-    Value: 14
+    Value: 30
     Cost: 300
   - Level: 3
-    Value: 16
+    Value: 40
     Cost: 400
+  - Level: 4
+    Value: 50
+    Cost: 500
+  - Level: 5
+    Value: 60
+    Cost: 600

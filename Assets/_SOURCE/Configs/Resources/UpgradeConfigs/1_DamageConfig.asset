@@ -17,25 +17,22 @@ MonoBehaviour:
   Title: Damage
   Description: Increase damage
   CurrencyId: 0
-  _values:
+  Values:
   - Level: 0
-    Value: 5
-    Cost: 0
-  - Level: 1
     Value: 10
     Cost: 100
-  - Level: 2
+  - Level: 1
     Value: 20
     Cost: 200
-  - Level: 3
+  - Level: 2
     Value: 30
     Cost: 300
-  - Level: 4
+  - Level: 3
     Value: 40
     Cost: 400
-  - Level: 5
+  - Level: 4
     Value: 50
     Cost: 500
-  - Level: 6
+  - Level: 5
     Value: 60
     Cost: 600

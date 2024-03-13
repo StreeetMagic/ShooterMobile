@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Configs.Resources.Upgrades;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Infrastructure.StaticDataServices;
 using UnityEngine;
 

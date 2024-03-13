@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Configs.Resources.Enemies;
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Movers;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Characters.Healths;

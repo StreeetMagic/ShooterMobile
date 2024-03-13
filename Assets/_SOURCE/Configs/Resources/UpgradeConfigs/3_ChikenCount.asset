@@ -10,23 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49de1085b16c7c14fa1204eb6fe507c2, type: 3}
-  m_Name: 6_FireRange
+  m_Name: 3_ChikenCount
   m_EditorClassIdentifier: 
   SortingOrder: 2
-  Id: 6
-  Title: Bag capacity
-  Description: Increase bag capacity
+  Id: 3
+  Title: Chiken Count
+  Description: Increase ChikenCount
   CurrencyId: 0
-  _values:
+  Values:
   - Level: 0
-    Value: 5
-    Cost: 0
-  - Level: 1
     Value: 10
     Cost: 100
-  - Level: 2
+  - Level: 1
     Value: 20
     Cost: 200
-  - Level: 3
+  - Level: 2
     Value: 30
     Cost: 300
+  - Level: 3
+    Value: 40
+    Cost: 400
+  - Level: 4
+    Value: 50
+    Cost: 500
+  - Level: 5
+    Value: 60
+    Cost: 600

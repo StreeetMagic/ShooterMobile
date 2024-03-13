@@ -29,68 +29,67 @@ namespace Infrastructure.DependencyInjection
     public override void InstallBindings()
     {
       CoroutineRunner();
-
       ZenjectFactory();
-
       GameStateMachine();
-
       Input();
-
       AssetProvider();
-
       CurrentDataService();
-
       StaticDataService();
-
       LoadingCurtain();
-
       PlayerProvider();
-
       PlayerFactory();
-
       MapFactory();
-
       CameraFactory();
-
       EnemySpawnerFactory();
-
       RewardService();
-
       HeadsUpDisplayFactory();
-
       BaseTriggerFactory();
-
       WindowFactory();
-
       HeadsUpDisplayProvider();
 
-      DataRepository();
-      
       SaveLoadService();
-      
       UpgradeService();
-      
       UpgradeCellFactory();
+      MapProvider();
+
+       EggsInBankStorage();
+       MoneyInBankStorage();
+       ExpierienceStorage();
     }
-    
+
+    private void EggsInBankStorage() =>
+      Container
+        .Bind<EggsInBankStorage>()
+        .AsSingle();
+
+    private void MoneyInBankStorage() =>
+      Container
+        .Bind<MoneyInBankStorage>()
+        .AsSingle();
+
+    private void ExpierienceStorage() =>
+      Container
+        .Bind<ExpierienceStorage>()
+        .AsSingle();
+
+    private void MapProvider() =>
+      Container
+        .Bind<MapProvider>()
+        .AsSingle();
+
     private void UpgradeCellFactory() =>
       Container
         .Bind<UpgradeCellFactory>()
         .AsSingle();
-    
+
     private void UpgradeService() =>
       Container
         .Bind<UpgradeService>()
         .AsSingle();
-    
+
     private void SaveLoadService() =>
       Container
         .Bind<SaveLoadService>()
-        .AsSingle();
-
-    private void DataRepository() =>
-      Container
-        .Bind<DataRepository>()
         .AsSingle();
 
     private void HeadsUpDisplayProvider() =>

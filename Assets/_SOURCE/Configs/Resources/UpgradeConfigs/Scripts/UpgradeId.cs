@@ -1,4 +1,4 @@
-namespace Configs.Resources.Upgrades
+namespace Configs.Resources.UpgradeConfigs.Scripts
 {
   public enum UpgradeId 
   { 

@@ -1,5 +1,6 @@
 ﻿using Configs;
 using Configs.Resources;
+using Configs.Resources.PlayerConfigs.Scripts;
 using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;

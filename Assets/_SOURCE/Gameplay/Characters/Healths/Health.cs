@@ -1,5 +1,5 @@
 using System;
-using Configs.Resources.Enemies;
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies;
 using Gameplay.RewardServices;
 using UnityEngine;
@@ -19,7 +19,7 @@ namespace Gameplay.Characters.Healths
 
     public float Current { get; private set; }
     public float Initial => _enemyConfig.InitialHealth;
-    public bool IsDead => Current <= 0;
+    public bool IsDead { get; private set; }
 
     [Inject]
     public void Construct(RewardService rewardService)
@@ -44,10 +44,22 @@ namespace Gameplay.Characters.Healths
 
       if (Current <= 0)
       {
-        Dead?.Invoke();
-        _rewardService.OnEnemyDied(_enemy.Id);
-        Debug.Log("Я умер 1337");
+        Die();
       }
+    }
+
+    private void Die()
+    {
+      if (IsDead)
+        return;
+
+      Dead?.Invoke();
+      _rewardService.OnEnemyDied(_enemy.Id);
+      Debug.Log("Я умер 1337");
+
+      IsDead = true;
+
+      Destroy(_enemy.gameObject);
     }
 
     private void SetCurrentHealth(float health)

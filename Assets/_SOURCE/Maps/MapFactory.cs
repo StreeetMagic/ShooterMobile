@@ -10,23 +10,20 @@ namespace Maps
   {
     private readonly IZenjectFactory _zenjectFactory;
     private readonly IAssetProvider _assetProvider;
+    private readonly MapProvider _mapProvider;
 
-    public MapFactory(IZenjectFactory factory, IAssetProvider assetProvider)
+    public MapFactory(IZenjectFactory factory, IAssetProvider assetProvider, MapProvider mapProvider)
     {
       _zenjectFactory = factory;
       _assetProvider = assetProvider;
+      _mapProvider = mapProvider;
     }
-
-    public event Action<Map> Created;
-
-    public Map Map { get; private set; }
 
     public void Create(Transform parent)
     {
-      Map = _zenjectFactory.Instantiate(Behaviour(), parent);
+      _mapProvider.Map = _zenjectFactory.Instantiate(Behaviour(), parent);
 
-      Created?.Invoke(Map);
-      MoveToRootParent(Map);
+      MoveToRootParent(_mapProvider.Map);
     }
 
     private void MoveToRootParent(Map map) =>

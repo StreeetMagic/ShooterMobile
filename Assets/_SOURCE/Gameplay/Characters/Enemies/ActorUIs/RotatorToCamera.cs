@@ -1,21 +1,24 @@
 using UnityEngine;
 
-public class RotatorToCamera : MonoBehaviour
+namespace Gameplay.Characters.Enemies.ActorUIs
 {
-  private Camera _camera;
-
-  private void Awake()
+  public class RotatorToCamera : MonoBehaviour
   {
-    _camera = Camera.main; 
-  }
+    private Camera _camera;
 
-  public void LateUpdate()
-  {
-    LookTowardCamera();
-  }
+    private void Awake()
+    {
+      _camera = Camera.main; 
+    }
 
-  private void LookTowardCamera()
-  {
+    public void LateUpdate()
+    {
+      LookTowardCamera();
+    }
+
+    private void LookTowardCamera()
+    {
      
+    }
   }
 }

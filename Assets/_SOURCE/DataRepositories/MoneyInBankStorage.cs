@@ -1,30 +1,25 @@
-﻿using Configs.Resources.Upgrades;
+﻿using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Upgrades;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
+using UnityEngine;
 
 namespace Infrastructure.DataRepositories
 {
-  public class DataRepository : IProgressWriter
+  public class MoneyInBankStorage : IProgressWriter
   {
     private readonly UpgradeService _upgradeService;
     private readonly IStaticDataService _staticDataService;
 
-    public DataRepository(UpgradeService upgradeService, IStaticDataService staticDataService)
+    public MoneyInBankStorage(UpgradeService upgradeService, IStaticDataService staticDataService)
     {
       _upgradeService = upgradeService;
       _staticDataService = staticDataService;
     }
 
     public ReactiveProperty<int> MoneyInBank { get; } = new();
-    public ReactiveProperty<int> MoneyInBackpack { get; } = new();
-
-    public ReactiveProperty<int> EggsInBank { get; } = new();
-    public ReactiveProperty<int> EggsInBackpack { get; } = new();
-
-    public ReactiveProperty<int> Expierience { get; } = new();
 
     public float BulletDamage =>
       _staticDataService
@@ -53,23 +48,11 @@ namespace Infrastructure.DataRepositories
     public void ReadProgress(Progress progress)
     {
       MoneyInBank.Value = progress.MoneyInBank;
-      MoneyInBackpack.Value = progress.MoneyInBackpack;
-
-      EggsInBank.Value = progress.EggsInBank;
-      EggsInBackpack.Value = progress.EggsInBackpack;
-
-      Expierience.Value = progress.Expierience;
     }
 
     public void WriteProgress(Progress progress)
     {
       progress.MoneyInBank = MoneyInBank.Value;
-      progress.MoneyInBackpack = MoneyInBackpack.Value;
-
-      progress.EggsInBank = EggsInBank.Value;
-      progress.EggsInBackpack = EggsInBackpack.Value;
-
-      progress.Expierience = Expierience.Value;
     }
   }
 }

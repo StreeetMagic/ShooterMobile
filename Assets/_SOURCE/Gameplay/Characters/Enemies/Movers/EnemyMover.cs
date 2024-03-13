@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Configs.Resources.Enemies;
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using UnityEngine;
 

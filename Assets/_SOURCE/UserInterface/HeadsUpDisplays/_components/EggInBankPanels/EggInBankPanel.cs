@@ -9,28 +9,28 @@ namespace UserInterface.HeadsUpDisplays.EggInBankPanels
   {
     [SerializeField] private TextMeshProUGUI _eggsInBankText;
 
-    private DataRepository _dataRepository;
+    private EggsInBankStorage _moneyInBankStorage;
 
     [Inject]
-    public void Construct(DataRepository dataRepository)
+    public void Construct(EggsInBankStorage moneyInBankStorage)
     {
-      _dataRepository = dataRepository;
+      _moneyInBankStorage = moneyInBankStorage;
     }
 
     private void Start()
     {
       SetEggsInBank();
 
-      _dataRepository.EggsInBank.ValueChanged += OnEggsInBankValueChanged;
+      _moneyInBankStorage.EggsInBank.ValueChanged += OnEggsInBankValueChanged;
     }
 
     private void OnDestroy()
     {
-      _dataRepository.EggsInBank.ValueChanged -= OnEggsInBankValueChanged;
+      _moneyInBankStorage.EggsInBank.ValueChanged -= OnEggsInBankValueChanged;
     }
 
     private void SetEggsInBank() =>
-      _eggsInBankText.text = "" + _dataRepository.EggsInBank.Value;
+      _eggsInBankText.text = "" + _moneyInBankStorage.EggsInBank.Value;
 
     private void OnEggsInBankValueChanged(int obj) =>
       SetEggsInBank();

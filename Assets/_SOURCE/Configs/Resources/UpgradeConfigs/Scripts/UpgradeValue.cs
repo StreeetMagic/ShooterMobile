@@ -1,9 +1,9 @@
 using System;
 
-namespace Configs.Resources.Upgrades
+namespace Configs.Resources.UpgradeConfigs.Scripts
 {
   [Serializable]
-  public class UpgradeValues
+  public class UpgradeValue
   {
     public int Level;
     public int Value;
