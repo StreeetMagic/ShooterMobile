@@ -27,11 +27,14 @@ namespace Gameplay.Characters.Enemies
         _staticDataService
           .ForEnemy(Id);
 
-      GetComponentInChildren<EnemyMover>()
-        .Init(enemyConfig, routePoints);
+      var animator =
+        GetComponentInChildren<EnemyAnimator>();
 
-      GetComponentInChildren<Health>()
-        .Init(enemyConfig);
+      var health = GetComponentInChildren<Health>();
+      health.Init(enemyConfig, animator);
+
+      GetComponentInChildren<EnemyMover>()
+        .Init(enemyConfig, routePoints, health);
     }
   }
 }

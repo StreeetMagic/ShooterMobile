@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.Currencies;
 using UnityEngine;
 
 namespace Infrastructure.DataRepositories
@@ -6,7 +7,8 @@ namespace Infrastructure.DataRepositories
   [CreateAssetMenu(fileName = "LootConfig", menuName = "Configs/LootConfig")]
   public class LootConfig : ScriptableObject
   {
-    public LootId LootId;
+    public CurrencyId Id;
+    public Sprite Icon;
 
     public List<LootValue> Values;
   }

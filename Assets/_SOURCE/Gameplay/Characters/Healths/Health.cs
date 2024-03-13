@@ -13,6 +13,7 @@ namespace Gameplay.Characters.Healths
 
     private EnemyConfig _enemyConfig;
     private RewardService _rewardService;
+    private EnemyAnimator _enemyAnimator;
 
     public event Action<float> HealthChanged;
     public event Action Dead;
@@ -27,10 +28,12 @@ namespace Gameplay.Characters.Healths
       _rewardService = rewardService;
     }
 
-    public void Init(EnemyConfig enemyConfig)
+    public void Init(EnemyConfig enemyConfig, EnemyAnimator animator)
     {
       _enemyConfig = enemyConfig;
       SetCurrentHealth(Initial);
+
+      _enemyAnimator = animator;
     }
 
     public void TakeDamage(float damage)
@@ -55,11 +58,11 @@ namespace Gameplay.Characters.Healths
 
       Dead?.Invoke();
       _rewardService.OnEnemyDied(_enemy.Id);
-      Debug.Log("Я умер 1337");
+      _enemyAnimator.PlayDeathAnimation();
 
       IsDead = true;
 
-      Destroy(_enemy.gameObject);
+     // Destroy(_enemy.gameObject);
     }
 
     private void SetCurrentHealth(float health)

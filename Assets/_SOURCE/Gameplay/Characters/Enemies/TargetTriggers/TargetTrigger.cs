@@ -2,8 +2,6 @@ using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Healths;
 using Gameplay.Characters.Players.Shooters.Projectiles;
 using Gameplay.Upgrades;
-using Infrastructure.DataRepositories;
-using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 
@@ -12,7 +10,8 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
   public class TargetTrigger : MonoBehaviour
   {
     public Health Health;
-
+    public Collider Collider;
+   
     private UpgradeService _upgradeService;
 
     [Inject]
@@ -20,11 +19,19 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
     {
       _upgradeService = upgradeService;
     }
+    
+    public bool IsTargeted { get; set; }
 
     private void OnTriggerEnter(Collider other)
     {
       if (other.TryGetComponent(out Projectile projectile) == false)
         return;
+
+      if (Health.IsDead)
+      {
+        Collider.enabled = false;
+        return;
+      }
 
       Health.TakeDamage(_upgradeService.GetCurrentUpgradeValue(UpgradeId.Damage));
 

@@ -23,11 +23,4 @@ namespace Infrastructure.DataRepositories
     public int Volume;
     public int Value;
   }
-
-  public enum LootId
-  {
-    Unknown,
-    Money,
-    Egg
-  }
 }
