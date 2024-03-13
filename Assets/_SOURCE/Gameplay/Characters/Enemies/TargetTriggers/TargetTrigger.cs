@@ -1,5 +1,7 @@
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Healths;
 using Gameplay.Characters.Players.Shooters.Projectiles;
+using Gameplay.Upgrades;
 using Infrastructure.DataRepositories;
 using Infrastructure.StaticDataServices;
 using UnityEngine;
@@ -11,14 +13,12 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
   {
     public Health Health;
 
-    private IStaticDataService _staticDataService;
-    private MoneyInBankStorage _moneyInBankStorage;
+    private UpgradeService _upgradeService;
 
     [Inject]
-    public void Construct(IStaticDataService staticDataService, MoneyInBankStorage moneyInBankStorage)
+    private void Construct(UpgradeService upgradeService)
     {
-      _staticDataService = staticDataService;
-      _moneyInBankStorage = moneyInBankStorage;
+      _upgradeService = upgradeService;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,7 +26,7 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
       if (other.TryGetComponent(out Projectile projectile) == false)
         return;
 
-      Health.TakeDamage(_moneyInBankStorage.BulletDamage);
+      Health.TakeDamage(_upgradeService.GetCurrentUpgradeValue(UpgradeId.Damage));
 
       Destroy(projectile.gameObject);
     }

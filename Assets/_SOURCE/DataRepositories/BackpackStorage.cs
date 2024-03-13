@@ -11,14 +11,17 @@ namespace Infrastructure.DataRepositories
   [Serializable]
   public class BackpackSlot
   {
-    public LootId LootId;
     public int Level;
-    
+
     private LootConfig _lootConfig;
   }
 
-  internal class LootConfig
+  [Serializable]
+  public class LootValue
   {
+    public int Level;
+    public int Volume;
+    public int Value;
   }
 
   public enum LootId

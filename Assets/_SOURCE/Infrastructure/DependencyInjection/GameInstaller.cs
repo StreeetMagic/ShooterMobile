@@ -46,15 +46,13 @@ namespace Infrastructure.DependencyInjection
       BaseTriggerFactory();
       WindowFactory();
       HeadsUpDisplayProvider();
-
       SaveLoadService();
       UpgradeService();
       UpgradeCellFactory();
       MapProvider();
-
-       EggsInBankStorage();
-       MoneyInBankStorage();
-       ExpierienceStorage();
+      EggsInBankStorage();
+      MoneyInBankStorage();
+      ExpierienceStorage();
     }
 
     private void EggsInBankStorage() =>

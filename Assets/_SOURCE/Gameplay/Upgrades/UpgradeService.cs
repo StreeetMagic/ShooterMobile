@@ -33,6 +33,12 @@ namespace Gameplay.Upgrades
 
     public Upgrade GetUpgrade(UpgradeId upgradeId) =>
       _upgrades.GetValueOrDefault(upgradeId);
+    
+    public int GetCurrentUpgradeValue(UpgradeId upgradeId) =>
+      _staticDataService
+        .ForUpgradeConfig(upgradeId)
+        .Values[GetUpgrade(upgradeId).Level.Value]
+        .Value;
 
     public int GetNextUpgradeCost(UpgradeId upgradeId) =>
       _staticDataService
