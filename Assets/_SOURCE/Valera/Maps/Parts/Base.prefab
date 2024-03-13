@@ -322,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4725618282747597287}
-  - component: {fileID: 6402740811769213916}
+  - component: {fileID: 5701907604134698671}
   m_Layer: 0
   m_Name: InteractUI
   m_TagString: Untagged
@@ -346,22 +346,27 @@ Transform:
   - {fileID: 1578832226365753977}
   m_Father: {fileID: 2412414427344954504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &6402740811769213916
-Animation:
+--- !u!95 &5701907604134698671
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6880107482639037594}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 0830a61d6fc56f04887bcc252e814594, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 0830a61d6fc56f04887bcc252e814594, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 558b163b39a40d749accfbc5a23a4513, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7656970526336022069
 GameObject:
   m_ObjectHideFlags: 0
