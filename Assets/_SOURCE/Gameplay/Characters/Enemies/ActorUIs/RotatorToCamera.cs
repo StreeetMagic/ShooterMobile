@@ -18,7 +18,7 @@ namespace Gameplay.Characters.Enemies.ActorUIs
 
     private void LookTowardCamera()
     {
-     
+      transform.rotation = Camera.main.transform.rotation;
     }
   }
 }
