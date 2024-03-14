@@ -2,6 +2,7 @@ using System;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies;
 using Gameplay.RewardServices;
+using Infrastructure.Utilities;
 using UnityEngine;
 using Zenject;
 
@@ -9,24 +10,15 @@ namespace Gameplay.Characters.Healths
 {
   public class Health : MonoBehaviour
   {
-    [SerializeField] private Enemy _enemy;
-
     private EnemyConfig _enemyConfig;
-    private RewardService _rewardService;
     private EnemyAnimator _enemyAnimator;
 
-    public event Action<float> HealthChanged;
-    public event Action Dead;
+    public event Action Died;
 
-    public float Current { get; private set; }
-    public float Initial => _enemyConfig.InitialHealth;
+    public ReactiveProperty<int> Current { get; } = new();
+
+    public int Initial => _enemyConfig.InitialHealth;
     public bool IsDead { get; private set; }
-
-    [Inject]
-    public void Construct(RewardService rewardService)
-    {
-      _rewardService = rewardService;
-    }
 
     public void Init(EnemyConfig enemyConfig, EnemyAnimator animator)
     {
@@ -36,16 +28,16 @@ namespace Gameplay.Characters.Healths
       _enemyAnimator = animator;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
       if (damage <= 0)
       {
         throw new ArgumentOutOfRangeException(nameof(damage));
       }
 
-      SetCurrentHealth(Current - damage);
+      SetCurrentHealth(Current.Value - damage);
 
-      if (Current <= 0)
+      if (Current.Value <= 0)
       {
         Die();
       }
@@ -56,19 +48,17 @@ namespace Gameplay.Characters.Healths
       if (IsDead)
         return;
 
-      Dead?.Invoke();
-      _rewardService.OnEnemyDied(_enemy.Id);
+      Died?.Invoke();
       _enemyAnimator.PlayDeathAnimation();
 
       IsDead = true;
 
-     // Destroy(_enemy.gameObject);
+      // Destroy(_enemy.gameObject);
     }
 
-    private void SetCurrentHealth(float health)
+    private void SetCurrentHealth(int health)
     {
-      Current = health;
-      HealthChanged?.Invoke(Current);
+      Current.Value = health;
     }
   }
 }

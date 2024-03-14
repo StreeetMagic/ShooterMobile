@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4028849580647468112}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,12 +114,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model
       objectReference: {fileID: 0}
-    - target: {fileID: 1489190915834545943, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000,
-        type: 0}
     - target: {fileID: 9062243674088626575, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -212,11 +206,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TargetLocator
       objectReference: {fileID: 0}
-    - target: {fileID: 3254226829363784401, guid: 84ab6cd7001c4de43b22c98d9476c27a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6854337512319442403, guid: 84ab6cd7001c4de43b22c98d9476c27a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -270,11 +259,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3254226829363784401, guid: 84ab6cd7001c4de43b22c98d9476c27a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7880191533598052109}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84ab6cd7001c4de43b22c98d9476c27a, type: 3}
 --- !u!4 &954711522106736196 stripped
 Transform:
@@ -282,30 +267,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5917922002278785959}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &9154121202410555766 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3254226829363784401, guid: 84ab6cd7001c4de43b22c98d9476c27a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5917922002278785959}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &7880191533598052109
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9154121202410555766}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 8
-  m_Center: {x: 0, y: 0, z: 0}

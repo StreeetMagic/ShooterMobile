@@ -1,5 +1,6 @@
 using Cameras;
 using Gameplay.BaseTriggers;
+using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.RewardServices;
@@ -53,7 +54,37 @@ namespace Infrastructure.DependencyInjection
       EggsInBankStorage();
       MoneyInBankStorage();
       ExpierienceStorage();
+      EnemyFactory();
+      RandomService();
+      ProjectileFactory();
+      ProjectileStorage();
+      VisualEffectFactory();
     }
+    
+    private void VisualEffectFactory() =>
+      Container
+        .Bind<VisualEffectFactory>()
+        .AsSingle();
+    
+    private void ProjectileStorage() =>
+      Container
+        .Bind<ProjectileStorage>()
+        .AsSingle();
+    
+    private void ProjectileFactory() =>
+      Container
+        .Bind<ProjectileFactory>()
+        .AsSingle();
+    
+    private void RandomService() =>
+      Container
+        .Bind<RandomService>()
+        .AsSingle();
+    
+    private void EnemyFactory() =>
+      Container
+        .Bind<EnemyFactory>()
+        .AsSingle();
 
     private void EggsInBankStorage() =>
       Container

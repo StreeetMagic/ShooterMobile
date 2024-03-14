@@ -5,9 +5,10 @@ namespace Infrastructure.ZenjectFactories
   public interface IZenjectFactory
   {
     T Create<T>();
-    
-    GameObject Instantiate(GameObject gameObject);
-    GameObject Instantiate(GameObject gameObject, Transform parent);
+
+    GameObject InstantiateObject(GameObject gameObject);
+    GameObject InstantiateObject(GameObject gameObject, Transform parent);
+    GameObject InstantiateObject(GameObject gameObject, Vector3 position, Quaternion quaternion, Transform parent);
 
     TMono Instantiate<TMono>() where TMono : MonoBehaviour;
     TMono Instantiate<TMono>(Transform parent) where TMono : MonoBehaviour;

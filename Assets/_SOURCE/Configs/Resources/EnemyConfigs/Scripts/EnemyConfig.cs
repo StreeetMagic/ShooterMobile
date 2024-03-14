@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Gameplay.Characters.Enemies;
-using Infrastructure.DataRepositories;
 using UnityEngine;
 
 namespace Configs.Resources.EnemyConfigs.Scripts
@@ -15,6 +14,6 @@ namespace Configs.Resources.EnemyConfigs.Scripts
     public int InitialHealth;
     public int MoneyReward;
 
-    
+    public List<LootDrop> LootDrops;
   }
 }

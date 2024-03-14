@@ -43,6 +43,9 @@ namespace Gameplay.Characters.Enemies.Movers
 
     public void Update()
     {
+      if (_health.IsDead)
+        _characterController.enabled = false;
+      
       if (_isMoving || _routePoints == null || _routePoints.Count <= 0 || _health.IsDead)
         return;
 

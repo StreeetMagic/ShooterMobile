@@ -9,16 +9,16 @@ public class SliderValueUpdater : MonoBehaviour
 
   private void OnEnable()
   {
-    Health.HealthChanged += OnHealthChanged;
-  }
-  
-  private void OnDisable()
-  {
-    Health.HealthChanged -= OnHealthChanged;
+    Health.Current.ValueChanged += OnHealthChanged;
   }
 
-  private void OnHealthChanged(float health)
+  private void OnDisable()
   {
-    Slider.value = health / Health.Initial;
+    Health.Current.ValueChanged -= OnHealthChanged;
+  }
+
+  private void OnHealthChanged(int health)
+  {
+    Slider.value = (float)health / Health.Initial;
   }
 }
