@@ -29,199 +29,38 @@ namespace Infrastructure.DependencyInjection
   {
     public override void InstallBindings()
     {
-      CoroutineRunner();
-      ZenjectFactory();
-      GameStateMachine();
-      Input();
-      AssetProvider();
-      CurrentDataService();
-      StaticDataService();
-      LoadingCurtain();
-      PlayerProvider();
-      PlayerFactory();
-      MapFactory();
-      CameraFactory();
-      EnemySpawnerFactory();
-      RewardService();
-      HeadsUpDisplayFactory();
-      BaseTriggerFactory();
-      WindowFactory();
-      HeadsUpDisplayProvider();
-      SaveLoadService();
-      UpgradeService();
-      UpgradeCellFactory();
-      MapProvider();
-      EggsInBankStorage();
-      MoneyInBankStorage();
-      ExpierienceStorage();
-      EnemyFactory();
-      RandomService();
-      ProjectileFactory();
-      ProjectileStorage();
-      VisualEffectFactory();
+      Container.Bind<LoadingCurtain>().FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
+      
+      Container.Bind<ICoroutineRunner>().To<CoroutineRunner>().FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.CoroutineRunner).AsSingle();
+      Container.Bind<IStateMachine<IGameState>>().To<StateMachine<IGameState>>().AsSingle();
+      Container.Bind<IZenjectFactory>().To<ZenjectFactory>().AsSingle();
+      Container.Bind<IInputService>().To<InputService>().AsSingle();
+      Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
+      Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
+     
+      Container.Bind<PlayerProvider>().AsSingle();
+      Container.Bind<PersistentProgressService>().AsSingle();
+      Container.Bind<PlayerFactory>().AsSingle().NonLazy();
+      Container.Bind<MapFactory>().AsSingle().NonLazy();
+      Container.Bind<CameraFactory>().AsSingle().NonLazy();
+      Container.Bind<EnemySpawnerFactory>().AsSingle().NonLazy();
+      Container.Bind<RewardService>().AsSingle().NonLazy();
+      Container.Bind<HeadsUpDisplayFactory>().AsSingle();
+      Container.Bind<BaseTriggerFactory>().AsSingle();
+      Container.Bind<WindowFactory>().AsSingle();
+      Container.Bind<HeadsUpDisplayProvider>().AsSingle();
+      Container.Bind<SaveLoadService>().AsSingle(); 
+      Container.Bind<UpgradeService>().AsSingle();
+      Container.Bind<UpgradeCellFactory>().AsSingle(); 
+      Container.Bind<MapProvider>().AsSingle();
+      Container.Bind<EggsInBankStorage>().AsSingle();
+      Container.Bind<MoneyInBankStorage>().AsSingle();
+      Container.Bind<ExpierienceStorage>().AsSingle();
+      Container.Bind<EnemyFactory>().AsSingle();
+      Container.Bind<RandomService>().AsSingle();
+      Container.Bind<ProjectileFactory>().AsSingle(); 
+      Container.Bind<ProjectileStorage>().AsSingle();
+      Container.Bind<VisualEffectFactory>().AsSingle();
     }
-    
-    private void VisualEffectFactory() =>
-      Container
-        .Bind<VisualEffectFactory>()
-        .AsSingle();
-    
-    private void ProjectileStorage() =>
-      Container
-        .Bind<ProjectileStorage>()
-        .AsSingle();
-    
-    private void ProjectileFactory() =>
-      Container
-        .Bind<ProjectileFactory>()
-        .AsSingle();
-    
-    private void RandomService() =>
-      Container
-        .Bind<RandomService>()
-        .AsSingle();
-    
-    private void EnemyFactory() =>
-      Container
-        .Bind<EnemyFactory>()
-        .AsSingle();
-
-    private void EggsInBankStorage() =>
-      Container
-        .Bind<EggsInBankStorage>()
-        .AsSingle();
-
-    private void MoneyInBankStorage() =>
-      Container
-        .Bind<MoneyInBankStorage>()
-        .AsSingle();
-
-    private void ExpierienceStorage() =>
-      Container
-        .Bind<ExpierienceStorage>()
-        .AsSingle();
-
-    private void MapProvider() =>
-      Container
-        .Bind<MapProvider>()
-        .AsSingle();
-
-    private void UpgradeCellFactory() =>
-      Container
-        .Bind<UpgradeCellFactory>()
-        .AsSingle();
-
-    private void UpgradeService() =>
-      Container
-        .Bind<UpgradeService>()
-        .AsSingle();
-
-    private void SaveLoadService() =>
-      Container
-        .Bind<SaveLoadService>()
-        .AsSingle();
-
-    private void HeadsUpDisplayProvider() =>
-      Container
-        .Bind<HeadsUpDisplayProvider>()
-        .AsSingle();
-
-    private void WindowFactory() =>
-      Container
-        .Bind<WindowFactory>()
-        .AsSingle();
-
-    private void BaseTriggerFactory() =>
-      Container
-        .Bind<BaseTriggerFactory>()
-        .AsSingle();
-
-    private void HeadsUpDisplayFactory() =>
-      Container
-        .Bind<HeadsUpDisplayFactory>()
-        .AsSingle();
-
-    private void RewardService() =>
-      Container
-        .Bind<RewardService>()
-        .AsSingle()
-        .NonLazy();
-
-    private void EnemySpawnerFactory() =>
-      Container
-        .Bind<EnemySpawnerFactory>()
-        .AsSingle()
-        .NonLazy();
-
-    private void CameraFactory() =>
-      Container
-        .Bind<CameraFactory>()
-        .AsSingle()
-        .NonLazy();
-
-    private void MapFactory() =>
-      Container
-        .Bind<MapFactory>()
-        .AsSingle()
-        .NonLazy();
-
-    private void PlayerFactory() =>
-      Container
-        .Bind<PlayerFactory>()
-        .AsSingle()
-        .NonLazy();
-
-    private void PlayerProvider() =>
-      Container
-        .BindInterfacesAndSelfTo<PlayerProvider>()
-        .AsSingle();
-
-    private void LoadingCurtain() =>
-      Container
-        .Bind<LoadingCurtain>()
-        .FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain)
-        .AsSingle();
-
-    private void ZenjectFactory() =>
-      Container
-        .Bind<IZenjectFactory>()
-        .To<ZenjectFactory>()
-        .AsSingle();
-
-    private void CoroutineRunner() =>
-      Container
-        .Bind<ICoroutineRunner>()
-        .To<CoroutineRunner>()
-        .FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.CoroutineRunner)
-        .AsSingle();
-
-    private void StaticDataService() =>
-      Container
-        .Bind<IStaticDataService>()
-        .To<StaticDataService>()
-        .AsSingle();
-
-    private void CurrentDataService() =>
-      Container
-        .Bind<PersistentProgressService>()
-        .AsSingle();
-
-    private void AssetProvider() =>
-      Container
-        .Bind<IAssetProvider>()
-        .To<AssetProvider>()
-        .AsSingle();
-
-    private void Input() =>
-      Container
-        .Bind<IInputService>()
-        .To<InputService>()
-        .AsSingle();
-
-    private void GameStateMachine() =>
-      Container
-        .Bind<IStateMachine<IGameState>>()
-        .To<StateMachine<IGameState>>()
-        .AsSingle();
   }
 }
