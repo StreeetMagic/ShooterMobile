@@ -39,7 +39,7 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     public void Tick()
     {
-      if (_currentTarget != null && _currentTarget.Health.Current <= 0)
+      if (_currentTarget != null && _currentTarget.Health.Current.Value <= 0)
       {
         RemoveTarget(_currentTarget);
         _currentTarget = null;

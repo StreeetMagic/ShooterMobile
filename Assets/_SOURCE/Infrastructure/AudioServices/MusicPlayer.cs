@@ -1,4 +1,5 @@
 ﻿using Configs.Resources.SoundConfigs;
+using Configs.Resources.SoundConfigs.Scripts;
 using UnityEngine;
 
 namespace Infrastructure.AudioServices

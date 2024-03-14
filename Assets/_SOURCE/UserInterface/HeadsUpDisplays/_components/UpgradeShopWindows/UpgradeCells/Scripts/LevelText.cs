@@ -1,4 +1,4 @@
-using Configs.Resources.Upgrades;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Upgrades;
 using Infrastructure.PersistentProgresses;
 using TMPro;

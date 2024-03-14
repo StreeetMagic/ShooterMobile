@@ -13,25 +13,21 @@ namespace Gameplay.Characters.Enemies.Spawners
   public class EnemySpawner : MonoBehaviour
   {
     public Transform SpawnPointsContainer;
-    
-    private IAssetProvider _assetProvider;
-    private Enemy _prefab;
+
     private List<SpawnPoint> _spawnPoints;
-    private IZenjectFactory _zenjectFactory;
+    private EnemyFactory _enemyFactory;
 
     public EnemyId EnemyId { get; private set; }
 
     [Inject]
-    public void Construct(IAssetProvider assetProvider, IZenjectFactory zenjectFactory)
+    public void Construct(EnemyFactory enemyFactory)
     {
-      _assetProvider = assetProvider;
-      _zenjectFactory = zenjectFactory;
+      _enemyFactory = enemyFactory;
     }
 
     public void Init(EnemyId enemyId, List<SpawnPoint> spawnPoints)
     {
       EnemyId = enemyId;
-      _prefab = _assetProvider.ForEnemy(EnemyId);
       _spawnPoints = spawnPoints;
     }
 
@@ -42,10 +38,8 @@ namespace Gameplay.Characters.Enemies.Spawners
 
       for (int i = 0; i < count; i++)
       {
-        int j = Random.Range(0, _spawnPoints.Count - 1);
-        Enemy enemy = _zenjectFactory.Instantiate(_prefab, _spawnPoints[j].transform.position, Quaternion.identity, transform);
-
-        enemy.Init(_spawnPoints);
+        int randomSpawnPointNumber = Random.Range(0, _spawnPoints.Count - 1);
+        _enemyFactory.Create(EnemyId, transform, _spawnPoints[randomSpawnPointNumber].transform.position, _spawnPoints);
       }
     }
   }

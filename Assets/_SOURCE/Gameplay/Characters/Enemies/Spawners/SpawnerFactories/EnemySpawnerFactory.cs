@@ -14,27 +14,24 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
     private readonly IAssetProvider _assetProvider;
     private readonly IZenjectFactory _zenjectFactory;
     private readonly EnemySpawner _spawnerPrefab;
-    private readonly SpawnPoint _spawnPointPrefab;
+    private readonly MapProvider _mapProvider;
 
-    private Map _map;
-    private readonly MapFactory _mapFactory;
-
-    public EnemySpawnerFactory(IAssetProvider assetProvider, MapFactory mapFactory, IZenjectFactory zenjectFactory)
+    public EnemySpawnerFactory(IAssetProvider assetProvider, IZenjectFactory zenjectFactory, MapProvider mapProvider)
     {
       _assetProvider = assetProvider;
-      _mapFactory = mapFactory;
       _zenjectFactory = zenjectFactory;
+      _mapProvider = mapProvider;
       _spawnerPrefab = _assetProvider.Get<EnemySpawner>();
-      _spawnPointPrefab = _assetProvider.Get<SpawnPoint>();
-
-      _mapFactory.Created += OnMapCreated;
+      _assetProvider.Get<SpawnPoint>();
     }
+
+    private Map Map => _mapProvider.Map;
 
     public void Create()
     {
-      Transform container = _map.EnemySpawnersContainer;
+      Transform container = Map.EnemySpawnersContainer;
 
-      List<EnemySpawnMarker> spawnPointMarkers = _map.EnemySpawnMarkers;
+      List<EnemySpawnMarker> spawnPointMarkers = Map.EnemySpawnMarkers;
 
       foreach (EnemySpawnMarker marker in spawnPointMarkers)
       {
@@ -54,7 +51,7 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
     {
       List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
-      foreach (EnemySpawnMarker marker in _map.EnemySpawnMarkers)
+      foreach (EnemySpawnMarker marker in Map.EnemySpawnMarkers)
       {
         List<EnemySpawnPointMarker> markers = marker.GetComponentsInChildren<EnemySpawnPointMarker>().ToList();
 
@@ -68,12 +65,6 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
       }
 
       return spawnPoints;
-    }
-
-    private void OnMapCreated(Map obj)
-    {
-      _map = obj;
-      _mapFactory.Created -= OnMapCreated;
     }
   }
 }

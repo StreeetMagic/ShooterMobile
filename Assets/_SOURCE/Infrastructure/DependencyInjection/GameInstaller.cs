@@ -1,5 +1,6 @@
 using Cameras;
 using Gameplay.BaseTriggers;
+using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.RewardServices;
@@ -29,68 +30,95 @@ namespace Infrastructure.DependencyInjection
     public override void InstallBindings()
     {
       CoroutineRunner();
-
       ZenjectFactory();
-
       GameStateMachine();
-
       Input();
-
       AssetProvider();
-
       CurrentDataService();
-
       StaticDataService();
-
       LoadingCurtain();
-
       PlayerProvider();
-
       PlayerFactory();
-
       MapFactory();
-
       CameraFactory();
-
       EnemySpawnerFactory();
-
       RewardService();
-
       HeadsUpDisplayFactory();
-
       BaseTriggerFactory();
-
       WindowFactory();
-
       HeadsUpDisplayProvider();
-
-      DataRepository();
-      
       SaveLoadService();
-      
       UpgradeService();
-      
       UpgradeCellFactory();
+      MapProvider();
+      EggsInBankStorage();
+      MoneyInBankStorage();
+      ExpierienceStorage();
+      EnemyFactory();
+      RandomService();
+      ProjectileFactory();
+      ProjectileStorage();
+      VisualEffectFactory();
     }
     
+    private void VisualEffectFactory() =>
+      Container
+        .Bind<VisualEffectFactory>()
+        .AsSingle();
+    
+    private void ProjectileStorage() =>
+      Container
+        .Bind<ProjectileStorage>()
+        .AsSingle();
+    
+    private void ProjectileFactory() =>
+      Container
+        .Bind<ProjectileFactory>()
+        .AsSingle();
+    
+    private void RandomService() =>
+      Container
+        .Bind<RandomService>()
+        .AsSingle();
+    
+    private void EnemyFactory() =>
+      Container
+        .Bind<EnemyFactory>()
+        .AsSingle();
+
+    private void EggsInBankStorage() =>
+      Container
+        .Bind<EggsInBankStorage>()
+        .AsSingle();
+
+    private void MoneyInBankStorage() =>
+      Container
+        .Bind<MoneyInBankStorage>()
+        .AsSingle();
+
+    private void ExpierienceStorage() =>
+      Container
+        .Bind<ExpierienceStorage>()
+        .AsSingle();
+
+    private void MapProvider() =>
+      Container
+        .Bind<MapProvider>()
+        .AsSingle();
+
     private void UpgradeCellFactory() =>
       Container
         .Bind<UpgradeCellFactory>()
         .AsSingle();
-    
+
     private void UpgradeService() =>
       Container
         .Bind<UpgradeService>()
         .AsSingle();
-    
+
     private void SaveLoadService() =>
       Container
         .Bind<SaveLoadService>()
-        .AsSingle();
-
-    private void DataRepository() =>
-      Container
-        .Bind<DataRepository>()
         .AsSingle();
 
     private void HeadsUpDisplayProvider() =>

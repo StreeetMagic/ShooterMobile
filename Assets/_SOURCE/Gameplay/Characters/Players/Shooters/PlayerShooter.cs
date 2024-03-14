@@ -16,27 +16,24 @@ namespace Gameplay.Characters.Players.Shooters
 {
   public class PlayerShooter : ITickable, IInitializable
   {
-    private readonly IAssetProvider _assetProvider;
     private readonly PlayerProvider _playerProvider;
     private readonly IStaticDataService _staticDataService;
-    private readonly IZenjectFactory _zenjectFactory;
+    private readonly ProjectileFactory _projectileFactory;
     private readonly TickableManager _tickableManager;
 
     private CoroutineDecorator _coroutine;
 
-    public PlayerShooter(IAssetProvider assetProvider,
+    public PlayerShooter(
       PlayerProvider playerProvider, IStaticDataService staticDataService,
-      IZenjectFactory zenjectFactory, TickableManager tickableManager)
+      ProjectileFactory zenjectFactory, TickableManager tickableManager)
     {
-      _assetProvider = assetProvider;
       _playerProvider = playerProvider;
       _staticDataService = staticDataService;
-      _zenjectFactory = zenjectFactory;
+      _projectileFactory = zenjectFactory;
       _tickableManager = tickableManager;
     }
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
-    private Projectile Projectile => _assetProvider.Get<Projectile>();
     private Transform Transform => _playerProvider.Player.ShootingPoint;
     private PlayerAnimator PlayerAnimator => _playerProvider.PlayerAnimator;
     private PlayerAnimatorEventHandler PlayerAnimatorEventHandler => _playerProvider.PlayerAnimatorEventHandler;
@@ -101,7 +98,7 @@ namespace Gameplay.Characters.Players.Shooters
       Vector3 position = Transform.position;
       Vector3 transfromPosition = new(position.x, 1, position.z);
 
-      _zenjectFactory.Instantiate(Projectile, transfromPosition, Quaternion.LookRotation(rotation));
+      _projectileFactory.Create(Transform, transfromPosition, rotation);
     }
   }
 }

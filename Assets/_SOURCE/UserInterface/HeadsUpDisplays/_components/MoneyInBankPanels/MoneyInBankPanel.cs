@@ -9,28 +9,28 @@ namespace UserInterface.HeadsUpDisplays.MoneyInBankPanels
   {
     [SerializeField] private TextMeshProUGUI _moneyInBankText;
 
-    private DataRepository _dataRepository;
+    private MoneyInBankStorage _moneyInBankStorage;
 
     [Inject]
-    public void Construct(DataRepository dataRepository)
+    public void Construct(MoneyInBankStorage moneyInBankStorage)
     {
-      _dataRepository = dataRepository;
+      _moneyInBankStorage = moneyInBankStorage;
     }
 
     private void Start()
     {
       SetMoneyInBank();
 
-      _dataRepository.MoneyInBank.ValueChanged += OnMoneyInBankValueChanged;
+      _moneyInBankStorage.MoneyInBank.ValueChanged += OnMoneyInBankValueChanged;
     }
 
     private void OnDestroy()
     {
-      _dataRepository.MoneyInBank.ValueChanged -= OnMoneyInBankValueChanged;
+      _moneyInBankStorage.MoneyInBank.ValueChanged -= OnMoneyInBankValueChanged;
     }
 
     private void SetMoneyInBank() =>
-      _moneyInBankText.text = "" + _dataRepository.MoneyInBank.Value;
+      _moneyInBankText.text = "" + _moneyInBankStorage.MoneyInBank.Value;
 
     private void OnMoneyInBankValueChanged(int obj) =>
       SetMoneyInBank();

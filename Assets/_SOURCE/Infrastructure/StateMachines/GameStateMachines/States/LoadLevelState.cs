@@ -14,17 +14,17 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     private readonly SceneLoader _sceneLoader;
     private readonly LoadingCurtain _loadingCurtain;
     private readonly SaveLoadService _saveLoadService;
-    private readonly DataRepository _dataRepository;
+    private readonly MoneyInBankStorage _moneyInBankStorage;
     private readonly UpgradeService _upgradeService;
 
     public LoadLevelState(IStateMachine<IGameState> gameStateMachine,
       ICoroutineRunner coroutineRunner, LoadingCurtain loadingCurtain, SaveLoadService saveLoadService, 
-      DataRepository dataRepository, UpgradeService upgradeService)
+      MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService)
     {
       _gameStateMachine = gameStateMachine;
       _loadingCurtain = loadingCurtain;
       _saveLoadService = saveLoadService;
-      _dataRepository = dataRepository;
+      _moneyInBankStorage = moneyInBankStorage;
       _upgradeService = upgradeService;
       _sceneLoader = new SceneLoader(coroutineRunner);
     }
@@ -55,7 +55,7 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
     private void AddProgressReaders()
     {
-      _saveLoadService.ProgressReaders.Add(_dataRepository);
+      _saveLoadService.ProgressReaders.Add(_moneyInBankStorage);
       _saveLoadService.ProgressReaders.Add(_upgradeService);
     }
 

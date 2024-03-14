@@ -4,19 +4,20 @@ using Maps.EnemySpawnMarkers;
 using Maps.PlayerSpawnMarkers;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Maps
 {
   public class Map : MonoBehaviour
   {
-    public PlayerSpawnMarker PlayerSpawnPoint;
+    public PlayerSpawnMarker PlayerSpawnMarker;
     public Transform EnemySpawnersContainer;
     public List<EnemySpawnMarker> EnemySpawnMarkers;
 
     [Button]
     private void Resolve()
     {
-      PlayerSpawnPoint = GetComponentInChildren<PlayerSpawnMarker>();
+      PlayerSpawnMarker = GetComponentInChildren<PlayerSpawnMarker>();
 
       EnemySpawnMarkers =
         GetComponentsInChildren<EnemySpawnMarker>()

@@ -1,4 +1,4 @@
-using Configs.Resources.Upgrades;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using TMPro;
 using UnityEngine;
 

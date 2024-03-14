@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Configs.Resources.Upgrades;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
@@ -33,6 +33,12 @@ namespace Gameplay.Upgrades
 
     public Upgrade GetUpgrade(UpgradeId upgradeId) =>
       _upgrades.GetValueOrDefault(upgradeId);
+    
+    public int GetCurrentUpgradeValue(UpgradeId upgradeId) =>
+      _staticDataService
+        .ForUpgradeConfig(upgradeId)
+        .Values[GetUpgrade(upgradeId).Level.Value]
+        .Value;
 
     public int GetNextUpgradeCost(UpgradeId upgradeId) =>
       _staticDataService

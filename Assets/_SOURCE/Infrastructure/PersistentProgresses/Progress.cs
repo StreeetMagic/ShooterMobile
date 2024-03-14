@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Configs.Resources.Upgrades;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using UnityEngine;
 
 namespace Infrastructure.PersistentProgresses

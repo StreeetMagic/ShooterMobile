@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Configs.Resources;
-using Configs.Resources.Enemies;
-using Configs.Resources.Upgrades;
+using Configs.Resources.EnemyConfigs.Scripts;
+using Configs.Resources.PlayerConfigs.Scripts;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Enemies;
 
 namespace Infrastructure.StaticDataServices

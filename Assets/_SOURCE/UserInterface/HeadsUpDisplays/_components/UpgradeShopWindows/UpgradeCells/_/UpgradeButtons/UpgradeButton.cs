@@ -1,4 +1,4 @@
-using Configs.Resources.Upgrades;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Upgrades;
 using Infrastructure.DataRepositories;
 using UnityEngine;
@@ -13,13 +13,13 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells._.Upgrad
     public UpgradeCell UpgradeCell;
 
     private UpgradeService _upgradeService;
-    private DataRepository _dataRepository;
+    private MoneyInBankStorage _moneyInBankStorage;
 
     [Inject]
-    public void Construct(UpgradeService upgradeService, DataRepository dataRepository)
+    public void Construct(UpgradeService upgradeService, MoneyInBankStorage moneyInBankStorage)
     {
       _upgradeService = upgradeService;
-      _dataRepository = dataRepository;
+      _moneyInBankStorage = moneyInBankStorage;
     }
 
     private UpgradeId Id => UpgradeCell.UpgradeConfig.Id;
@@ -37,10 +37,10 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells._.Upgrad
       if (IsMaxLevel())
         return;
 
-      if (_dataRepository.MoneyInBank.Value < _upgradeService.GetNextUpgradeCost(Id))
+      if (_moneyInBankStorage.MoneyInBank.Value < _upgradeService.GetNextUpgradeCost(Id))
         return;
 
-      _dataRepository.MoneyInBank.Value -= _upgradeService.GetNextUpgradeCost(Id);
+      _moneyInBankStorage.MoneyInBank.Value -= _upgradeService.GetNextUpgradeCost(Id);
       _upgradeService.BuyUpgrade(Id);
     }
 

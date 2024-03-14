@@ -18,20 +18,20 @@ namespace Gameplay.Characters.Players.Factories
   {
     private readonly IAssetProvider _assetProvider;
     private readonly IZenjectFactory _factory;
-    private readonly MapFactory _mapFactory;
     private readonly PlayerProvider _playerProvider;
     private readonly PersistentProgressService _progressService;
     private readonly SaveLoadService _saveLoadService;
+    private readonly MapProvider _mapProvider;
 
     public PlayerFactory(IZenjectFactory factory, IAssetProvider assetProvider,
-      MapFactory mapFactory, PlayerProvider playerProvider, PersistentProgressService progressService, SaveLoadService saveLoadService)
+      PlayerProvider playerProvider, PersistentProgressService progressService, SaveLoadService saveLoadService, MapProvider mapProvider)
     {
       _factory = factory;
       _assetProvider = assetProvider;
-      _mapFactory = mapFactory;
       _playerProvider = playerProvider;
       _progressService = progressService;
       _saveLoadService = saveLoadService;
+      _mapProvider = mapProvider;
     }
 
     public void Create(Transform parent)
@@ -49,7 +49,7 @@ namespace Gameplay.Characters.Players.Factories
 
       _playerProvider.PlayerInputHandler = _factory.Create<PlayerInputHandler>();
       _playerProvider.PlayerRotatorController = _factory.Create<PlayerRotatorController>();
-      
+
       _playerProvider.PlayerShooter = _factory.Create<PlayerShooter>();
       _playerProvider.PlayerShooter.Initialize();
 
@@ -69,7 +69,7 @@ namespace Gameplay.Characters.Players.Factories
     private Vector3 SpawnPosition()
     {
       return _progressService.Progress.PlayerPosition == Vector3.zero
-        ? _mapFactory.Map.PlayerSpawnPoint.transform.position
+        ? _mapProvider.Map.PlayerSpawnMarker.transform.position
         : _progressService.Progress.PlayerPosition;
     }
   }

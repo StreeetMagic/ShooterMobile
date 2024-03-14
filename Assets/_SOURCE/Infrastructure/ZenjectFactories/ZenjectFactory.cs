@@ -19,13 +19,17 @@ namespace Infrastructure.ZenjectFactories
       _instantiator
         .Instantiate<T>();
 
-    public GameObject Instantiate(GameObject gameObject) =>
+    public GameObject InstantiateObject(GameObject gameObject) =>
       _instantiator
         .InstantiatePrefab(gameObject);
 
-    public GameObject Instantiate(GameObject gameObject, Transform parent) =>
+    public GameObject InstantiateObject(GameObject gameObject, Transform parent) =>
       _instantiator
         .InstantiatePrefab(gameObject, parent);
+
+    public GameObject InstantiateObject(GameObject gameObject, Vector3 position, Quaternion quaternion, Transform parent) =>
+      _instantiator
+        .InstantiatePrefab(gameObject, position, quaternion, parent);
 
     public TMono Instantiate<TMono>() where TMono : MonoBehaviour =>
       _instantiator
