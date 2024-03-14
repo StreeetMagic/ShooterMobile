@@ -208,12 +208,12 @@ PrefabInstance:
     - target: {fileID: 1126472592469435837, guid: c068a45de9918eb43bbcd4f81af2269b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1126472592469435837, guid: c068a45de9918eb43bbcd4f81af2269b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 1126472592469435837, guid: c068a45de9918eb43bbcd4f81af2269b,
         type: 3}
@@ -268,7 +268,7 @@ PrefabInstance:
     - target: {fileID: 1719956202868123851, guid: c068a45de9918eb43bbcd4f81af2269b,
         type: 3}
       propertyPath: m_BlockingMask.m_Bits
-      value: 4294967295
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 2820659521676474377, guid: c068a45de9918eb43bbcd4f81af2269b,
         type: 3}
@@ -322,13 +322,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8820616115924673696, guid: c068a45de9918eb43bbcd4f81af2269b,
         type: 3}
-      propertyPath: _anchorPosition.x
-      value: 0.8
+      propertyPath: Offset
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8820616115924673696, guid: c068a45de9918eb43bbcd4f81af2269b,
         type: 3}
-      propertyPath: _anchorPosition.y
-      value: 0.4
+      propertyPath: Parent
+      value: 
+      objectReference: {fileID: 2271594991052282516}
+    - target: {fileID: 8820616115924673696, guid: c068a45de9918eb43bbcd4f81af2269b,
+        type: 3}
+      propertyPath: HeightOffset
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
