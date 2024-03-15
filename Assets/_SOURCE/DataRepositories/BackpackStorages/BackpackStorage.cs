@@ -3,7 +3,6 @@ using System.Linq;
 using Gameplay.Currencies;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
-using UnityEngine;
 
 namespace Infrastructure.DataRepositories
 {
@@ -18,12 +17,16 @@ namespace Infrastructure.DataRepositories
 
     public ReactiveList<LootDrop> LootDrops { get; } = new();
 
+    public int Volume =>
+      LootDrops
+        .Value
+        .Select(lootDrop => _staticDataService.GetLootConfig(lootDrop.Id).Loots[lootDrop.Level - 1].Volume)
+        .Sum();
+
     public void AddLoot(List<LootDrop> enemyConfigLootDrops)
     {
       foreach (LootDrop lootDrop in enemyConfigLootDrops)
-        LootDrops.Value.Add(lootDrop);
-
-      Debug.Log(Info());
+        LootDrops.Add(lootDrop);
     }
 
     private string Info()
@@ -39,9 +42,12 @@ namespace Infrastructure.DataRepositories
           loot[lootDrop.Id] += value;
       }
 
-      return
-        loot
-          .Aggregate(string.Empty, (current, kvp) => current + $"Currency: {kvp.Key}, Value: {kvp.Value}\n");
+      string result = string.Empty;
+
+      foreach (KeyValuePair<CurrencyId, int> i in loot)
+        result += $"Currency: {i.Key}, Value: {i.Value}\n";
+
+      return result;
     }
   }
 }
