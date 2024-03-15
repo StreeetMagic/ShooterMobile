@@ -17,8 +17,6 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
 
     private void OnCollisionEnter(Collision other)
     {
-      Debug.Log(other.gameObject.name);
-
       _visualEffectFactory.Create(VIsualEffectId.BulletImpact, transform.position, transform);
       Destroy(gameObject);
     }

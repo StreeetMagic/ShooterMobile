@@ -3,6 +3,7 @@ using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Movers;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Characters.Healths;
+using Gameplay.RewardServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.StaticDataServices;
 using Infrastructure.ZenjectFactories;
@@ -16,27 +17,31 @@ namespace Gameplay.Characters.Enemies.Spawners
     private readonly IZenjectFactory _zenjectFactory;
     private readonly RandomService _randomService;
     private readonly IStaticDataService _staticDataService;
+    private readonly RewardService _rewardService;
 
     public EnemyFactory(IAssetProvider assetProvider, IZenjectFactory zenjectFactory,
-      RandomService randomService, IStaticDataService staticDataService)
+      RandomService randomService, IStaticDataService staticDataService, RewardService rewardService)
     {
       _assetProvider = assetProvider;
       _zenjectFactory = zenjectFactory;
       _randomService = randomService;
       _staticDataService = staticDataService;
+      _rewardService = rewardService;
     }
 
     public void Create(EnemyId id, Transform parent, Vector3 position, List<SpawnPoint> spawnPoints)
     {
       Enemy prefab = _assetProvider.ForEnemy(id);
       Enemy enemy = _zenjectFactory.Instantiate(prefab, position, Quaternion.identity, parent);
-      
+
       EnemyConfig enemyConfig = _staticDataService.ForEnemy(id);
 
       var animator = enemy.GetComponentInChildren<EnemyAnimator>();
 
       var health = enemy.GetComponentInChildren<Health>();
       health.Init(enemyConfig, animator);
+
+      _rewardService.AddEnemy(health);
 
       enemy.GetComponentInChildren<EnemyMover>().Init(enemyConfig, spawnPoints, health);
     }

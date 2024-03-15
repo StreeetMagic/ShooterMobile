@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Gameplay.Characters.Enemies.ActorUIs
 {
@@ -28,12 +27,9 @@ namespace Gameplay.Characters.Enemies.ActorUIs
 
     private void MoveCloserToCamera()
     {
-      if (_camera == null || Parent == null)
-        return;
-
       Vector3 directionToCamera = _camera.transform.position - Parent.position;
       transform.position = Parent.position + directionToCamera.normalized * Offset;
-      transform.position += Vector3.up * HeightOffset; // Добавлено смещение по высоте
+      transform.position += Vector3.up * HeightOffset;
     }
 
     private void LookTowardCamera()

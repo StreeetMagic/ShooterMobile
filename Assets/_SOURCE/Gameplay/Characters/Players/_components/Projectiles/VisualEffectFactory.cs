@@ -22,8 +22,6 @@ public class VisualEffectFactory
       case VIsualEffectId.Unknown:
         throw new ArgumentOutOfRangeException(nameof(visualEffectId), visualEffectId, null);
 
-        break;
-
       case VIsualEffectId.MuzzleFlash:
         GameObject muzzleFlashEffect = _assetProvider.Get("MuzzleFlashRoundYellow");
         GameObject muzzleFlash = _zenjectFactory.InstantiateObject(muzzleFlashEffect, position, Quaternion.identity, parent);

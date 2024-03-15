@@ -2,6 +2,7 @@ using Cameras;
 using Gameplay.BaseTriggers;
 using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
+using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.RewardServices;
 using Gameplay.Upgrades;
@@ -30,14 +31,14 @@ namespace Infrastructure.DependencyInjection
     public override void InstallBindings()
     {
       Container.Bind<LoadingCurtain>().FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
-      
+
       Container.Bind<ICoroutineRunner>().To<CoroutineRunner>().FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.CoroutineRunner).AsSingle();
       Container.Bind<IStateMachine<IGameState>>().To<StateMachine<IGameState>>().AsSingle();
       Container.Bind<IZenjectFactory>().To<ZenjectFactory>().AsSingle();
       Container.Bind<IInputService>().To<InputService>().AsSingle();
       Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
       Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
-     
+
       Container.Bind<PlayerProvider>().AsSingle();
       Container.Bind<PersistentProgressService>().AsSingle();
       Container.Bind<PlayerFactory>().AsSingle().NonLazy();
@@ -49,18 +50,20 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<BaseTriggerFactory>().AsSingle();
       Container.Bind<WindowFactory>().AsSingle();
       Container.Bind<HeadsUpDisplayProvider>().AsSingle();
-      Container.Bind<SaveLoadService>().AsSingle(); 
+      Container.Bind<SaveLoadService>().AsSingle();
       Container.Bind<UpgradeService>().AsSingle();
-      Container.Bind<UpgradeCellFactory>().AsSingle(); 
+      Container.Bind<UpgradeCellFactory>().AsSingle();
       Container.Bind<MapProvider>().AsSingle();
       Container.Bind<EggsInBankStorage>().AsSingle();
       Container.Bind<MoneyInBankStorage>().AsSingle();
       Container.Bind<ExpierienceStorage>().AsSingle();
       Container.Bind<EnemyFactory>().AsSingle();
       Container.Bind<RandomService>().AsSingle();
-      Container.Bind<ProjectileFactory>().AsSingle(); 
+      Container.Bind<ProjectileFactory>().AsSingle();
       Container.Bind<ProjectileStorage>().AsSingle();
       Container.Bind<VisualEffectFactory>().AsSingle();
+      Container.Bind<BackpackStorage>().AsSingle();
+      Container.Bind<PlayerStatsProvider>().AsSingle();
     }
   }
 }

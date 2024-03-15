@@ -1,5 +1,6 @@
 using System;
 using Gameplay.Currencies;
+using Infrastructure.DataRepositories;
 
 [Serializable]
 public class LootDrop

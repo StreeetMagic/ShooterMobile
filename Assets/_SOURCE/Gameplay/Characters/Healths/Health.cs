@@ -13,7 +13,7 @@ namespace Gameplay.Characters.Healths
     private EnemyConfig _enemyConfig;
     private EnemyAnimator _enemyAnimator;
 
-    public event Action Died;
+    public event Action<EnemyConfig, Health> Died;
 
     public ReactiveProperty<int> Current { get; } = new();
 
@@ -47,11 +47,12 @@ namespace Gameplay.Characters.Healths
     {
       if (IsDead)
         return;
-
-      Died?.Invoke();
+      
       _enemyAnimator.PlayDeathAnimation();
 
       IsDead = true;
+      
+      Died?.Invoke(_enemyConfig, this);
 
       // Destroy(_enemy.gameObject);
     }

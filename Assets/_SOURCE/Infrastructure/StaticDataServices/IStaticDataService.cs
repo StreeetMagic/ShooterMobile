@@ -4,6 +4,8 @@ using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.PlayerConfigs.Scripts;
 using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Enemies;
+using Gameplay.Currencies;
+using Infrastructure.DataRepositories;
 
 namespace Infrastructure.StaticDataServices
 {
@@ -14,5 +16,6 @@ namespace Infrastructure.StaticDataServices
     void LoadConfigs();
     Dictionary<UpgradeId, UpgradeConfig> ForUpgrades();
     UpgradeConfig ForUpgradeConfig(UpgradeId id);
+    LootConfig GetLootConfig(CurrencyId lootDropId);
   }
 }

@@ -10,6 +10,6 @@ namespace Infrastructure.DataRepositories
     public CurrencyId Id;
     public Sprite Icon;
 
-    public List<Loot> Values;
+    public List<Loot> Loots;
   }
 }
