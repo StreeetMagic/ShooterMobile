@@ -19,6 +19,8 @@ namespace Configs.Resources.UpgradeConfigs.Scripts
 
     [Space] [Tooltip("Значения апгрейда")] public CurrencyId CurrencyId;
 
+    [Space] [Tooltip("Иконка")] public Sprite Icon;
+    
     [Space] [Tooltip("Значения апгрейда")] public List<UpgradeValue> Values;
 
     [Button]

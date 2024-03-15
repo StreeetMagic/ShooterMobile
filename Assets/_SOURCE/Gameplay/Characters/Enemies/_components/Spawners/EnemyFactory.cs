@@ -43,7 +43,8 @@ namespace Gameplay.Characters.Enemies.Spawners
 
       _rewardService.AddEnemy(health);
 
-      enemy.GetComponentInChildren<EnemyMover>().Init(enemyConfig, spawnPoints, health);
+      enemy.GetComponentInChildren<EnemyMover>().Init(enemyConfig);
+      enemy.GetComponentInChildren<EnemyMoverController>().Init(enemyConfig, spawnPoints, health);
     }
   }
 }
