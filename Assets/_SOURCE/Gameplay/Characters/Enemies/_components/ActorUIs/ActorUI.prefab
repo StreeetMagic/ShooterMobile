@@ -906,6 +906,7 @@ GameObject:
   - component: {fileID: 4002083824841176428}
   - component: {fileID: 8185493997613875048}
   - component: {fileID: 2820659521676474377}
+  - component: {fileID: 2327891261133404063}
   m_Layer: 5
   m_Name: heath_bar
   m_TagString: Untagged
@@ -1000,6 +1001,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slider: {fileID: 8185493997613875048}
   Health: {fileID: 0}
+--- !u!114 &2327891261133404063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7816601970533112411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563488fbb24d1444398c2f79b4151e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Components:
+  - {fileID: 661544288968620714}
+  - {fileID: 5532990169899819152}
+  - {fileID: 6607782906072329322}
 --- !u!1 &9087215230298230237
 GameObject:
   m_ObjectHideFlags: 0

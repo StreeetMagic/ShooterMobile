@@ -1,4 +1,5 @@
 using System;
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
 
@@ -8,13 +9,15 @@ namespace Gameplay.Characters.Enemies
   {
     private Health _health;
     private HealthStatusController _healthStatusController;
+    private EnemyConfig _enemyConfig;
 
     private float _heal;
 
-    public void Init(Health health, HealthStatusController healthStatusController)
+    public void Init(Health health, HealthStatusController healthStatusController, EnemyConfig enemyConfig)
     {
       _health = health;
       _healthStatusController = healthStatusController;
+      _enemyConfig = enemyConfig;
     }
 
     private void Update()
@@ -24,11 +27,13 @@ namespace Gameplay.Characters.Enemies
 
       if (_healthStatusController.IsHit)
         return;
-      
+
       if (_health.IsFull)
         return;
 
-      _heal += 0.1f;
+      float healAmount = (float)_enemyConfig.InitialHealth / 100;
+
+      _heal += healAmount;
 
       if (_heal >= 1)
       {
