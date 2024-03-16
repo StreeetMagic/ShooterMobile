@@ -1,5 +1,5 @@
 using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Characters.Healths;
+using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Players.Shooters.Projectiles;
 using Gameplay.Upgrades;
 using UnityEngine;

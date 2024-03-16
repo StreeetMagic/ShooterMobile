@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Healths;
 using UnityEngine;
 
 public class EnemyAnimator : MonoBehaviour

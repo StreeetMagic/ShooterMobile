@@ -1,12 +1,9 @@
 using System;
 using Configs.Resources.EnemyConfigs.Scripts;
-using Gameplay.Characters.Enemies;
-using Gameplay.RewardServices;
 using Infrastructure.Utilities;
 using UnityEngine;
-using Zenject;
 
-namespace Gameplay.Characters.Healths
+namespace Gameplay.Characters.Enemies.Healths
 {
   public class Health : MonoBehaviour
   {
@@ -14,10 +11,12 @@ namespace Gameplay.Characters.Healths
     private EnemyAnimator _enemyAnimator;
 
     public event Action<EnemyConfig, Health> Died;
+    public event Action<int> Damaged;
 
     public ReactiveProperty<int> Current { get; } = new();
 
     public int Initial => _enemyConfig.InitialHealth;
+    public bool IsFull => Current.Value == Initial;
     public bool IsDead { get; private set; }
 
     public void Init(EnemyConfig enemyConfig, EnemyAnimator animator)
@@ -35,6 +34,8 @@ namespace Gameplay.Characters.Healths
         throw new ArgumentOutOfRangeException(nameof(damage));
       }
 
+      Debug.Log("Получил пизды " + damage);
+
       SetCurrentHealth(Current.Value - damage);
 
       if (Current.Value <= 0)
@@ -47,11 +48,11 @@ namespace Gameplay.Characters.Healths
     {
       if (IsDead)
         return;
-      
+
       _enemyAnimator.PlayDeathAnimation();
 
       IsDead = true;
-      
+
       Died?.Invoke(_enemyConfig, this);
 
       // Destroy(_enemy.gameObject);
@@ -60,6 +61,10 @@ namespace Gameplay.Characters.Healths
     private void SetCurrentHealth(int health)
     {
       Current.Value = health;
+
+      Debug.Log("Новое значение здоровья " + Current.Value);
+
+      Damaged?.Invoke(health);
     }
   }
 }

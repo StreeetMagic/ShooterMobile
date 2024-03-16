@@ -18,7 +18,6 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
     private void OnCollisionEnter(Collision other)
     {
       _visualEffectFactory.Create(VIsualEffectId.BulletImpact, transform.position, transform);
-      Destroy(gameObject);
     }
 
     public string Guid { get; set; }

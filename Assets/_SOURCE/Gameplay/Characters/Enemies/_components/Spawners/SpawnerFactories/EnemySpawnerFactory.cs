@@ -39,7 +39,7 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
         enemySpawner.transform.SetParent(container);
         enemySpawner.transform.localPosition = marker.transform.localPosition;
 
-        List<SpawnPoint> spawnPoints = CreateSpawnPoints();
+        List<SpawnPoint> spawnPoints = CreateSpawnPoints(marker);
         enemySpawner.Init(marker.EnemyId, spawnPoints);
 
         // enemySpawner.Init(marker.EnemyId);
@@ -47,21 +47,18 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
       }
     }
 
-    private List<SpawnPoint> CreateSpawnPoints()
+    private List<SpawnPoint> CreateSpawnPoints(EnemySpawnMarker marker)
     {
       List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
-      foreach (EnemySpawnMarker marker in Map.EnemySpawnMarkers)
-      {
-        List<EnemySpawnPointMarker> markers = marker.GetComponentsInChildren<EnemySpawnPointMarker>().ToList();
+      List<EnemySpawnPointMarker> markers = marker.GetComponentsInChildren<EnemySpawnPointMarker>().ToList();
 
-        foreach (EnemySpawnPointMarker enemySpawnPointMarker in markers)
-        {
-          SpawnPoint spawnPoint = _zenjectFactory.Instantiate<SpawnPoint>();
-          spawnPoint.transform.SetParent(enemySpawnPointMarker.transform);
-          spawnPoint.transform.localPosition = Vector3.zero;
-          spawnPoints.Add(spawnPoint);
-        }
+      foreach (EnemySpawnPointMarker enemySpawnPointMarker in markers)
+      {
+        SpawnPoint spawnPoint = _zenjectFactory.Instantiate<SpawnPoint>();
+        spawnPoint.transform.SetParent(enemySpawnPointMarker.transform);
+        spawnPoint.transform.localPosition = Vector3.zero;
+        spawnPoints.Add(spawnPoint);
       }
 
       return spawnPoints;

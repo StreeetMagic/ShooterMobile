@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies;
-using Gameplay.Characters.Healths;
+using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Currencies;
 using Infrastructure.DataRepositories;
 using Infrastructure.StaticDataServices;

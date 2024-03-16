@@ -1,4 +1,4 @@
-using Gameplay.Characters.Healths;
+using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
 using UnityEngine.UI;
 

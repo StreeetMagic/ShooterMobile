@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
+using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
-using Gameplay.Characters.Healths;
+using Infrastructure.Utilities;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies.Movers
@@ -10,68 +11,64 @@ namespace Gameplay.Characters.Enemies.Movers
   [RequireComponent(typeof(EnemyMover))]
   public class EnemyMoverController : MonoBehaviour
   {
-    private List<SpawnPoint> _routePoints;
     private EnemyMover _enemyMover;
-    private int _currentRouteIndex;
-    private Vector3 _targetPosition;
+    private RoutePointsManager _routePointsManager = new RoutePointsManager();
     private bool _isMoving;
     private Health _health;
     private EnemyConfig _enemyConfig;
+    private CoroutineDecorator _coroutine;
+    private HealthStatusController _healthStatusController;
 
-    public void Init(EnemyConfig enemyConfig, List<SpawnPoint> routePoints, Health health)
+    public void Init(EnemyConfig enemyConfig, Health health, List<SpawnPoint> routePoints, HealthStatusController healthStatusController)
     {
+      _coroutine = new CoroutineDecorator(this, MoveToTargetPosition);
       _enemyConfig = enemyConfig;
       _enemyMover = GetComponent<EnemyMover>();
-      _routePoints = ShuffleRoutePoints(routePoints);
       _health = health;
+      _healthStatusController = healthStatusController;
+      _routePointsManager.Init(routePoints, transform);
     }
 
-    private List<SpawnPoint> ShuffleRoutePoints(List<SpawnPoint> points)
+    private float MoveSpeed => _enemyConfig.MoveSpeed;
+    private float RunSpeed => _enemyConfig.RunSpeed;
+
+    public void FixedUpdate()
     {
-      for (int i = 0; i < points.Count; i++)
+      _routePointsManager.FixedTick();
+
+      if (_health.IsDead)
       {
-        int randIndex = Random.Range(i, points.Count);
-        (points[randIndex], points[i]) = (points[i], points[randIndex]);
+        _enemyMover.enabled = false;
+        return;
       }
 
-      return points;
-    }
-
-    public void Update()
-    {
-      if (_health.IsDead)
-        _enemyMover.enabled = false;
-
-      if (_isMoving || _routePoints == null || _routePoints.Count <= 0 || _health.IsDead)
+      if (_isMoving || _health.IsDead)
         return;
 
-      _targetPosition = _routePoints[Random.Range(0, _routePoints.Count)].transform.position;
-      StartCoroutine(MoveToTargetPosition());
+      _coroutine.Start();
     }
+
+    private float GetCurrentSpeed() =>
+      _healthStatusController.IsHit
+        ? RunSpeed
+        : MoveSpeed;
 
     private IEnumerator MoveToTargetPosition()
     {
       _isMoving = true;
 
-      while (Vector3.Distance(transform.position, _targetPosition) > 0.1f && _health.IsDead == false)
+      while (_health.IsDead == false)
       {
-        Vector3 moveDirection = (_targetPosition - transform.position).normalized;
-        _enemyMover.Move(moveDirection, Time.deltaTime);
+        Vector3 moveDirection = (_routePointsManager.TargetPosition - transform.position).normalized;
 
-        RotateToTargetPosition(moveDirection);
+        _enemyMover.Move(moveDirection, Time.fixedDeltaTime, GetCurrentSpeed());
 
         yield return null;
       }
 
       yield return new WaitForSeconds(_enemyConfig.WaitTimeAfterMove);
 
-      _currentRouteIndex = (_currentRouteIndex + 1) % _routePoints.Count;
       _isMoving = false;
-    }
-
-    private void RotateToTargetPosition(Vector3 moveDirection)
-    {
-      transform.rotation = Quaternion.LookRotation(moveDirection);
     }
   }
 }

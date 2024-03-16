@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 1_WhiteShirt
   m_EditorClassIdentifier: 
   Id: 1
-  MoveSpeed: 10
-  RunSpeed: 20
+  MoveSpeed: 1
+  RunSpeed: 3
   WaitTimeAfterMove: 1
-  InitialHealth: 100
+  InitialHealth: 200
   MoneyReward: 2
+  HasteTime: 0
   LootDrops:
   - Id: 1
     Level: 2

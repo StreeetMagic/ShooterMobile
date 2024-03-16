@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
+using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Movers;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
-using Gameplay.Characters.Healths;
 using Gameplay.RewardServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.StaticDataServices;
@@ -43,8 +43,12 @@ namespace Gameplay.Characters.Enemies.Spawners
 
       _rewardService.AddEnemy(health);
 
+      var statusController = enemy.GetComponentInChildren<HealthStatusController>();
+      statusController.Init(health, enemyConfig);
+
       enemy.GetComponentInChildren<EnemyMover>().Init(enemyConfig);
-      enemy.GetComponentInChildren<EnemyMoverController>().Init(enemyConfig, spawnPoints, health);
+      enemy.GetComponentInChildren<EnemyMoverController>().Init(enemyConfig, health, spawnPoints, statusController);
+      enemy.GetComponentInChildren<Healer>().Init(health, statusController);
     }
   }
 }
