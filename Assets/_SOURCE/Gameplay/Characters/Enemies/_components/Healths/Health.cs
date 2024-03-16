@@ -34,8 +34,6 @@ namespace Gameplay.Characters.Enemies.Healths
         throw new ArgumentOutOfRangeException(nameof(damage));
       }
 
-      Debug.Log("Получил пизды " + damage);
-
       SetCurrentHealth(Current.Value - damage);
 
       if (Current.Value <= 0)
@@ -61,8 +59,6 @@ namespace Gameplay.Characters.Enemies.Healths
     private void SetCurrentHealth(int health)
     {
       Current.Value = health;
-
-      Debug.Log("Новое значение здоровья " + Current.Value);
 
       Damaged?.Invoke(health);
     }

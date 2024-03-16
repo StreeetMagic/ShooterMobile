@@ -21,18 +21,10 @@ public class HealthBarSwitcher : MonoBehaviour
   private void OnHealthChanged(int _)
   {
     if (_health.IsFull)
-    {
-      foreach (var component in Components)
-      {
+      foreach (GameObject component in Components)
         component.SetActive(false);
-      }
-    }
     else
-    {
-      foreach (var component in Components)
-      {
+      foreach (GameObject component in Components)
         component.SetActive(true);
-      }
-    }
   }
 }
