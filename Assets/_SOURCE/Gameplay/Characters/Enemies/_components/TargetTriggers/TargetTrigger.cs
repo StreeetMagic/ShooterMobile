@@ -1,3 +1,5 @@
+using System;
+using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Players.Shooters.Projectiles;
@@ -11,31 +13,32 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
   {
     public Health Health;
     public Collider Collider;
-   
+
     private UpgradeService _upgradeService;
+
+    public bool IsTargeted { get; set; }
 
     [Inject]
     private void Construct(UpgradeService upgradeService)
     {
       _upgradeService = upgradeService;
+
+      Health.Died += OnDied;
     }
-    
-    public bool IsTargeted { get; set; }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnDied(EnemyConfig arg1, Health arg2)
     {
-      if (other.TryGetComponent(out Projectile projectile) == false)
-        return;
+      Collider.enabled = false;
+    }
 
-      if (Health.IsDead)
-      {
-        Collider.enabled = false;
-        return;
-      }
+    public void TakeDamage(int damage)
+    {
+      Health.TakeDamage(damage);
+    }
 
-      Health.TakeDamage(_upgradeService.GetCurrentUpgradeValue(UpgradeId.Damage));
-
-      Destroy(projectile.gameObject);
+    private void FixedUpdate()
+    {
+       transform.localPosition = Vector3.zero;
     }
   }
 }

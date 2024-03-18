@@ -38,7 +38,7 @@ namespace Gameplay.Characters.Enemies.Movers
 
       if (_health.IsDead)
       {
-        _enemyMover.enabled = false;
+        _enemyMover.Disable();
         return;
       }
 

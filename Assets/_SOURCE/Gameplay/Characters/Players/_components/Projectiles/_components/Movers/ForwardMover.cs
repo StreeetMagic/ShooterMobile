@@ -10,22 +10,19 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
     private IStaticDataService _staticDataService;
     private Rigidbody _rigidbody;
 
-    private float BulletSpeed => _staticDataService.ForPlayer().BulletSpeed;
-
     [Inject]
     public void Construct(IStaticDataService staticDataService)
     {
       _staticDataService = staticDataService;
-    }
-
-    private void Awake()
-    {
       _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private float BulletSpeed => _staticDataService.ForPlayer().BulletSpeed;
+
+    private void FixedUpdate()
     {
-      _rigidbody.velocity = transform.forward * BulletSpeed;
+      Vector3 newPosition = transform.position + transform.forward * (BulletSpeed * Time.deltaTime);
+      _rigidbody.MovePosition(newPosition);
     }
   }
 }

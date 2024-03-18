@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.Factories;
-using Gameplay.Characters.Players.Shooters.Projectiles;
 using Gameplay.Characters.Players.TargetHolders;
-using Infrastructure.AssetProviders;
+using Infrastructure.DataRepositories;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
-using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
@@ -20,17 +17,19 @@ namespace Gameplay.Characters.Players.Shooters
     private readonly IStaticDataService _staticDataService;
     private readonly ProjectileFactory _projectileFactory;
     private readonly TickableManager _tickableManager;
+    private readonly BackpackStorage _backpackStorage;
 
     private CoroutineDecorator _coroutine;
 
     public PlayerShooter(
       PlayerProvider playerProvider, IStaticDataService staticDataService,
-      ProjectileFactory zenjectFactory, TickableManager tickableManager)
+      ProjectileFactory zenjectFactory, TickableManager tickableManager, BackpackStorage backpackStorage)
     {
       _playerProvider = playerProvider;
       _staticDataService = staticDataService;
       _projectileFactory = zenjectFactory;
       _tickableManager = tickableManager;
+      _backpackStorage = backpackStorage;
     }
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
@@ -47,7 +46,7 @@ namespace Gameplay.Characters.Players.Shooters
 
     public void Tick()
     {
-      if (PlayerTargetHolder.HasTarget)
+      if (PlayerTargetHolder.HasTarget && _backpackStorage.IsFull == false)
         StartShootingCoroutine();
       else
         StopShootingCoroutine();
@@ -74,8 +73,11 @@ namespace Gameplay.Characters.Players.Shooters
     {
       while (true)
       {
-        if (PlayerTargetHolder.HasTarget == false)
-          yield break;
+        if (PlayerTargetHolder.HasTarget == false || _backpackStorage.IsFull)
+        {
+          StopShootingCoroutine();
+          yield break; // Добавляем выход из корутины при выполнении условия
+        }
 
         Shoot();
 

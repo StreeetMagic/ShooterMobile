@@ -18,6 +18,12 @@ namespace Gameplay.Characters.Enemies.Movers
       RotateToTargetPosition(moveDirection);
     }
 
+    public void Disable()
+    {
+      enabled = false;
+      _characterController.enabled = false;
+    }
+
     private void RotateToTargetPosition(Vector3 moveDirection)
     {
       transform.rotation = Quaternion.LookRotation(moveDirection);

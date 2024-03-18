@@ -1,5 +1,6 @@
 ﻿using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.TargetHolders;
+using Infrastructure.DataRepositories;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players.Rotators
@@ -7,10 +8,12 @@ namespace Gameplay.Characters.Players.Rotators
   public class PlayerRotatorController
   {
     private readonly PlayerProvider _playerProvider;
+    private readonly BackpackStorage _backpackStorage;
 
-    public PlayerRotatorController(PlayerProvider playerProvider)
+    public PlayerRotatorController(PlayerProvider playerProvider, BackpackStorage backpackStorage)
     {
       _playerProvider = playerProvider;
+      _backpackStorage = backpackStorage;
     }
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
@@ -18,10 +21,13 @@ namespace Gameplay.Characters.Players.Rotators
 
     public void RotateTowardsDirection(Vector3 direction)
     {
-      if (PlayerTargetHolder.HasTarget)
+      if (RotateToTargetConditions())
         direction = PlayerTargetHolder.DirectionToTarget;
 
       PlayerRotator.RotateTowardsDirection(direction);
     }
+
+    private bool RotateToTargetConditions() =>
+      PlayerTargetHolder.HasTarget && _backpackStorage.IsFull == false;
   }
 }

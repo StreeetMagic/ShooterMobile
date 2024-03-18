@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Currencies;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
@@ -8,13 +9,16 @@ namespace Infrastructure.DataRepositories
 {
   public class BackpackStorage
   {
-    private IStaticDataService _staticDataService;
+    private readonly IStaticDataService _staticDataService;
+    private readonly PlayerStatsProvider _playerStatsProvider;
 
-    public BackpackStorage(IStaticDataService staticDataService)
+    public BackpackStorage(IStaticDataService staticDataService, PlayerStatsProvider playerStatsProvider)
     {
       _staticDataService = staticDataService;
+      _playerStatsProvider = playerStatsProvider;
     }
 
+    public bool IsFull => LootDrops.Value.Count >= _playerStatsProvider.BackpackCapacity.Value;
     public ReactiveList<LootDrop> LootDrops { get; } = new();
 
     public int Volume =>

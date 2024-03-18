@@ -13,7 +13,7 @@ namespace Configs.Resources.EnemyConfigs.Scripts
     public float WaitTimeAfterMove;
     public int InitialHealth;
     public int MoneyReward;
-    
+
     [Tooltip("Время бега после ранения")]
     public float HasteTime;
 
