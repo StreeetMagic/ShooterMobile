@@ -18,9 +18,12 @@ namespace Gameplay.Characters.Enemies.Movers
     private EnemyConfig _enemyConfig;
     private CoroutineDecorator _coroutine;
     private HealthStatusController _healthStatusController;
+    private EnemyAnimator _enemyAnimator;
 
-    public void Init(EnemyConfig enemyConfig, Health health, List<SpawnPoint> routePoints, HealthStatusController healthStatusController)
+    public void Init(EnemyConfig enemyConfig, Health health, List<SpawnPoint> routePoints,
+      HealthStatusController healthStatusController, EnemyAnimator enemyAnimator)
     {
+      _enemyAnimator = enemyAnimator;
       _coroutine = new CoroutineDecorator(this, MoveToTargetPosition);
       _enemyConfig = enemyConfig;
       _enemyMover = GetComponent<EnemyMover>();
@@ -42,10 +45,20 @@ namespace Gameplay.Characters.Enemies.Movers
         return;
       }
 
-      if (_isMoving || _health.IsDead)
+      SetAnimation();
+
+      if (_isMoving)
         return;
 
       _coroutine.Start();
+    }
+
+    private void SetAnimation()
+    {
+      if (_healthStatusController.IsHit)
+        _enemyAnimator.PlayRunAnimation();
+      else
+        _enemyAnimator.PlayWalkAnimation();
     }
 
     private float GetCurrentSpeed() =>

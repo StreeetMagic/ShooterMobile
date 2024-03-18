@@ -7,6 +7,8 @@ public class EnemyAnimator : MonoBehaviour
   public const string Death2 = nameof(Death2);
   public const string Death3 = nameof(Death3);
   public const string Death4 = nameof(Death4);
+  public const string IsRun = nameof(IsRun);
+  public const string IsWalk = nameof(IsWalk);
 
   private List<string> _deaths = new()
   {
@@ -22,9 +24,16 @@ public class EnemyAnimator : MonoBehaviour
   {
     Animator.SetTrigger(_deaths[Random.Range(0, _deaths.Count)]);
   }
-  
+
   public void PlayRunAnimation()
   {
-    Animator.SetFloat( "Speed", 1.0f );
+    Animator.SetBool(IsWalk, false);
+    Animator.SetBool(IsRun, true);
+  }
+
+  public void PlayWalkAnimation()
+  {
+    Animator.SetBool(IsRun, false);
+    Animator.SetBool(IsWalk, true);
   }
 }

@@ -47,7 +47,7 @@ namespace Gameplay.Characters.Enemies.Spawners
       statusController.Init(health, enemyConfig);
 
       enemy.GetComponentInChildren<EnemyMover>().Init(enemyConfig);
-      enemy.GetComponentInChildren<EnemyMoverController>().Init(enemyConfig, health, spawnPoints, statusController);
+      enemy.GetComponentInChildren<EnemyMoverController>().Init(enemyConfig, health, spawnPoints, statusController, animator);
       enemy.GetComponentInChildren<Healer>().Init(health, statusController, enemyConfig);
       enemy.GetComponentInChildren<HealthBarSwitcher>().Init(health);
     }
