@@ -18,7 +18,7 @@ namespace Infrastructure.DataRepositories
       _playerStatsProvider = playerStatsProvider;
     }
 
-    public bool IsFull => LootDrops.Value.Count >= _playerStatsProvider.BackpackCapacity.Value;
+    public bool IsFull => Volume >= _playerStatsProvider.BackpackCapacity.Value;
     public ReactiveList<LootDrop> LootDrops { get; } = new();
 
     public int Volume =>

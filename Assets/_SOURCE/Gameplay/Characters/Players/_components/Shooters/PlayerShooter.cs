@@ -73,12 +73,6 @@ namespace Gameplay.Characters.Players.Shooters
     {
       while (true)
       {
-        if (PlayerTargetHolder.HasTarget == false || _backpackStorage.IsFull)
-        {
-          StopShootingCoroutine();
-          yield break; // Добавляем выход из корутины при выполнении условия
-        }
-
         Shoot();
 
         //PlayerAnimator.Shoot();
