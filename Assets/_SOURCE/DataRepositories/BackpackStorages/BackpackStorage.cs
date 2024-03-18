@@ -33,25 +33,22 @@ namespace Infrastructure.DataRepositories
         LootDrops.Add(lootDrop);
     }
 
-    private string Info()
+    public Dictionary<LootDrop, int> Info()
     {
-      Dictionary<CurrencyId, int> loot = new Dictionary<CurrencyId, int>();
+      Dictionary<LootDrop, int> loot = new Dictionary<LootDrop, int>();
 
       foreach (LootDrop lootDrop in LootDrops.Value)
       {
         LootConfig lootConfig = _staticDataService.GetLootConfig(lootDrop.Id);
         int value = lootConfig.Loots[lootDrop.Level - 1].Value;
 
-        if (loot.TryAdd(lootDrop.Id, value) == false)
-          loot[lootDrop.Id] += value;
+        if (!loot.ContainsKey(lootDrop))
+          loot.Add(lootDrop, value);
+
+        loot[lootDrop] += value;
       }
-
-      string result = string.Empty;
-
-      foreach (KeyValuePair<CurrencyId, int> i in loot)
-        result += $"Currency: {i.Key}, Value: {i.Value}\n";
-
-      return result;
+      
+      return loot;
     }
   }
 }

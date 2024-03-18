@@ -27,10 +27,10 @@ namespace UserInterface.HeadsUpDisplays
       HeadsUpDisplay display = _factory.Instantiate(prefab, parent);
 
       _provider.HeadsUpDisplay = display;
-
       _provider.UpgradeShopButton = display.GetComponentInChildren<UpgradeShopWindowButton>();
       _provider.Borders = display.GetComponentInChildren<Borders>();
       _provider.FloatingJoystick = display.GetComponentInChildren<FloatingJoystick>();
+      _provider.LootSlotsUpdater = display.GetComponentInChildren<LootSlotsUpdater>();
 
       display.transform.parent = null;
     }

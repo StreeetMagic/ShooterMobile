@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Infrastructure.DataRepositories;
@@ -8,6 +9,7 @@ using Zenject;
 public class BackpackBarFiller : MonoBehaviour
 {
   public Slider Slider;
+  public float SliderUpdateSpeed;
 
   private PlayerStatsProvider _playerStatsProvider;
   private BackpackStorage _backpackStorage;
@@ -19,33 +21,15 @@ public class BackpackBarFiller : MonoBehaviour
     _backpackStorage = backpackStorage;
   }
 
-  private void OnEnable()
+  private void Update()
   {
-    FillBar();
-    _playerStatsProvider.BackpackCapacity.ValueChanged += OnBackpackCapacityChanged;
-    _backpackStorage.LootDrops.Changed += OnLootDropsChanged;
+    UpdateSlider();
   }
 
-  private void OnDisable()
-  {
-    _playerStatsProvider.BackpackCapacity.ValueChanged -= OnBackpackCapacityChanged;
-    _backpackStorage.LootDrops.Changed -= OnLootDropsChanged;
-  }
-
-  private void OnLootDropsChanged(List<LootDrop> obj)
-  {
-    FillBar();
-  }
-
-  private void OnBackpackCapacityChanged(int obj)
-  {
-    FillBar();
-  }
-
-  private void FillBar()
+  private void UpdateSlider()
   {
     float max = _playerStatsProvider.BackpackCapacity.Value;
     float current = _backpackStorage.Volume;
-    Slider.value = current / max;
+    Slider.value = Mathf.MoveTowards(Slider.value, current / max, Time.deltaTime * SliderUpdateSpeed);
   }
 }

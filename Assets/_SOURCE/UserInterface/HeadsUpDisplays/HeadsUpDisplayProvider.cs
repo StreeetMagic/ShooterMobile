@@ -10,5 +10,6 @@ namespace UserInterface.HeadsUpDisplays
     public UpgradeShopWindowButton UpgradeShopButton { get; set; }
     public Borders Borders { get; set; }
     public FloatingJoystick FloatingJoystick { get; set; }
+    public LootSlotsUpdater LootSlotsUpdater { get; set; }
   }
 }
