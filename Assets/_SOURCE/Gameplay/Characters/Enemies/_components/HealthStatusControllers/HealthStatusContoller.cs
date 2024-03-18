@@ -23,7 +23,7 @@ namespace Gameplay.Characters.Enemies
     }
 
     public bool IsHit { get; private set; }
-    private float HasteTime => _enemyConfig.HasteTime;
+    private float RunTime => _enemyConfig.RunTime;
 
     private void OnDamaged(int damage)
     {
@@ -34,7 +34,7 @@ namespace Gameplay.Characters.Enemies
 
     private IEnumerator TakeHit()
     {
-      yield return new WaitForSeconds(1f);
+      yield return new WaitForSeconds(RunTime);
 
       IsHit = false;
     }

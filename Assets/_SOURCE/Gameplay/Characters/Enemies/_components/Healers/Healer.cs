@@ -19,7 +19,9 @@ namespace Gameplay.Characters.Enemies
       _healthStatusController = healthStatusController;
       _enemyConfig = enemyConfig;
     }
-
+    
+    public float HealMultiplier => _enemyConfig.HealMultiplier;
+    
     private void Update()
     {
       if (_health.IsDead)
@@ -31,9 +33,9 @@ namespace Gameplay.Characters.Enemies
       if (_health.IsFull)
         return;
 
-      float healAmount = (float)_enemyConfig.InitialHealth / 100;
+      float healAmount = (float)_enemyConfig.InitialHealth;
 
-      _heal += healAmount;
+      _heal += healAmount * Time.deltaTime * HealMultiplier;
 
       if (_heal >= 1)
       {
