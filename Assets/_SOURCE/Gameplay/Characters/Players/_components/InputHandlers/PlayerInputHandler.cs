@@ -28,6 +28,7 @@ namespace Gameplay.Characters.Players.InputHandlers
     private PlayerMover Mover => _playerProvider.PlayerMover;
 
     public bool CanMove { get; private set; } = true;
+    public bool IsMoving { get; private set; }
 
     public void EnableMove()
     {
@@ -47,6 +48,8 @@ namespace Gameplay.Characters.Players.InputHandlers
         return;
 
       Vector3 moveDirection = GetDirection();
+
+      IsMoving = moveDirection != Vector3.zero;
 
       Mover.Move(moveDirection);
 

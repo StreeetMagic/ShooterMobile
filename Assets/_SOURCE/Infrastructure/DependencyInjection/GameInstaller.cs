@@ -65,6 +65,7 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<BackpackStorage>().AsSingle();
       Container.Bind<PlayerStatsProvider>().AsSingle();
       Container.Bind<LootSlotFactory>().AsSingle();
+      Container.Bind<CameraProvider>().AsSingle();
     }
   }
 }

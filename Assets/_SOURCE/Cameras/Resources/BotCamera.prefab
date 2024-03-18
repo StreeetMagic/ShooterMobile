@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 1268896385462088959}
   - component: {fileID: 4448643448023392366}
   m_Layer: 0
-  m_Name: TopDownCamera
+  m_Name: BotCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,3 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028472675b60695449ab53a2f2f86026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VirtualCamera: {fileID: 1268896385462088959}
