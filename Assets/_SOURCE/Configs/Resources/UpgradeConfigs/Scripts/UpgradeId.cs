@@ -10,6 +10,5 @@ namespace Configs.Resources.UpgradeConfigs.Scripts
     MoveSpeed = 5,
     FireRange = 6,
     Health = 7,
-    AttackRadius = 8
   }
 }

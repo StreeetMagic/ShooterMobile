@@ -33,7 +33,7 @@ public class AttackRadiusListener : MonoBehaviour
 
   private void OnUpgradeChanged()
   {
-    float radius = _upgradeService.GetCurrentUpgradeValue(UpgradeId.AttackRadius);
+    float radius = _upgradeService.GetCurrentUpgradeValue(UpgradeId.FireRange);
 
 
     _rectTransform.localScale = new Vector3(radius, radius, radius);

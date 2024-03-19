@@ -24,6 +24,8 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
     {
       var cell = _factory.Instantiate<UpgradeCell>(parent);
       cell.UpgradeConfig = _staticDataService.ForUpgradeConfig(id);
+
+      cell.GetComponentInChildren<Icon>().SetIcon(cell.UpgradeConfig.Icon);
     }
   }
 }

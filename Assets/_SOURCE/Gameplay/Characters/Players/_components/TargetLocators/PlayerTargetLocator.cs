@@ -24,7 +24,7 @@ namespace Gameplay.Characters.Players.TargetLocators
     public event Action<TargetTrigger> TargetLocated;
     public event Action<TargetTrigger> TargetLost;
 
-    private float Radius => _upgradeService.GetCurrentUpgradeValue(UpgradeId.AttackRadius);
+    private float Radius => _upgradeService.GetCurrentUpgradeValue(UpgradeId.FireRange);
 
     private void OnEnable()
     {
