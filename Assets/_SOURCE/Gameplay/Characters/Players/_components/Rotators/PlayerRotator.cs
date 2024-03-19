@@ -25,9 +25,11 @@ namespace Gameplay.Characters.Players.Rotators
 
       if (direction.sqrMagnitude < MinLength)
         return;
+      
+      if (direction == Vector3.zero)
+        return;
 
       Quaternion targetRotation = Quaternion.LookRotation(direction);
-
       transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * RotationSpeed);
     }
   }

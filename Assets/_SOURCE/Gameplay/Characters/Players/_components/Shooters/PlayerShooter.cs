@@ -71,7 +71,7 @@ namespace Gameplay.Characters.Players.Shooters
 
     private IEnumerator Shooting()
     {
-      while (true)
+      while (PlayerTargetHolder.HasTarget && _backpackStorage.IsFull == false)
       {
         Shoot();
 

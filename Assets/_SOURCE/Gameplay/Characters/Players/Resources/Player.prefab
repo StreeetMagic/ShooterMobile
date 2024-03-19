@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2092775727361884633}
   - component: {fileID: 3997487855962207346}
   - component: {fileID: 5016337633031468252}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 926636842430673927}
   - component: {fileID: 5625258432329721426}
   - component: {fileID: 7557748210439908451}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,6 +468,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health
       objectReference: {fileID: 0}
+    - target: {fileID: 5712336225578279496, guid: baf46908602fe024a9a90598fb5e92e3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -582,6 +587,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TargetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216875472340336332, guid: ff9e879b3b2c1024e83bf24cb25b8cb5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216875472340336332, guid: ff9e879b3b2c1024e83bf24cb25b8cb5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5138085262824814231, guid: ff9e879b3b2c1024e83bf24cb25b8cb5,
         type: 3}

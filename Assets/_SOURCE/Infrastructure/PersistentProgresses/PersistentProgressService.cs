@@ -25,10 +25,10 @@ namespace Infrastructure.PersistentProgresses
     {
       Progress = new Progress
       {
-        MoneyInBank = 1000,
+        MoneyInBank = 0,
         MoneyInBackpack = 0,
 
-        EggsInBank = 40,
+        EggsInBank = 0,
         EggsInBackpack = 0,
 
         PlayerPosition = Vector3.zero,

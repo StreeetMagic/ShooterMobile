@@ -32,20 +32,25 @@ namespace Infrastructure.DataRepositories
       foreach (LootDrop lootDrop in enemyConfigLootDrops)
         LootDrops.Add(lootDrop);
     }
-
-    public Dictionary<LootDrop, int> Info()
+    
+    public void Clean()
     {
-      Dictionary<LootDrop, int> loot = new Dictionary<LootDrop, int>();
+      LootDrops.Clear();
+    }
+
+    public Dictionary<CurrencyId, int> ReadLoot()
+    {
+      Dictionary<CurrencyId, int> loot = new();
 
       foreach (LootDrop lootDrop in LootDrops.Value)
       {
         LootConfig lootConfig = _staticDataService.GetLootConfig(lootDrop.Id);
         int value = lootConfig.Loots[lootDrop.Level - 1].Value;
 
-        if (!loot.ContainsKey(lootDrop))
-          loot.Add(lootDrop, value);
-
-        loot[lootDrop] += value;
+        if (loot.ContainsKey(lootDrop.Id))
+          loot[lootDrop.Id] += value;
+        else
+          loot.Add(lootDrop.Id, value);
       }
       
       return loot;

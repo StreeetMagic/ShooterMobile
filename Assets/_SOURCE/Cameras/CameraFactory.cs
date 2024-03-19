@@ -9,6 +9,9 @@ namespace Cameras
 {
   public class CameraFactory
   {
+    private const string BotCamera = nameof(BotCamera);
+    private const string TopCamera = nameof(TopCamera);
+
     private readonly IAssetProvider _assetProvider;
     private readonly IZenjectFactory _factory;
     private readonly PlayerProvider _playerFactory;
@@ -26,36 +29,28 @@ namespace Cameras
     {
       Player player = _playerFactory.Player;
 
-      CreateBotCamera(parent, player);
-      CreateTopCamera(parent, player);
+      CreateCamera(parent, player, BotCamera, 11);
+      CreateCamera(parent, player, TopCamera, 10);
     }
 
-    private void CreateBotCamera(Transform parent, Player player)
+    private void CreateCamera(Transform parent, Player player, string cameraType, int priority)
     {
-      var prefab = _assetProvider.Get<TopDownCamera>("BotCamera");
+      var prefab = _assetProvider.Get<TopDownCamera>(cameraType);
       TopDownCamera camera = _factory.Instantiate(prefab, parent);
-      _cameraProvider.BotCamera = camera;
+
+      if (cameraType == BotCamera)
+        _cameraProvider.BotCamera = camera;
+      else if (cameraType == TopCamera)
+        _cameraProvider.TopCamera = camera;
+
       camera.transform.SetParent(null);
 
       var cmCam = camera.GetComponent<CinemachineVirtualCamera>();
-      cmCam.Priority = 11;
+      cmCam.Priority = priority;
 
-      cmCam.Follow = player.transform;
-      cmCam.LookAt = player.transform;
-    }
-
-    private void CreateTopCamera(Transform parent, Player player)
-    {
-      var prefab = _assetProvider.Get<TopDownCamera>("TopCamera");
-      TopDownCamera camera = _factory.Instantiate(prefab, parent);
-      _cameraProvider.TopCamera = camera;
-      camera.transform.SetParent(null);
-
-      var cmCam = camera.GetComponent<CinemachineVirtualCamera>();
-      cmCam.Priority = 10;
-
-      cmCam.Follow = player.transform;
-      cmCam.LookAt = player.transform;
+      Transform transform = player.transform;
+      cmCam.Follow = transform;
+      cmCam.LookAt = transform;
     }
   }
 }

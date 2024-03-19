@@ -42,9 +42,9 @@ public class LootSlotsUpdater : MonoBehaviour
 
     LootSlots.Clear();
 
-    var info = _backpackStorage.Info();
+    var info = _backpackStorage.ReadLoot();
 
-    foreach (KeyValuePair<LootDrop, int> loot in info)
+    foreach (var loot in info)
       _lootSlotFactory.Create(loot.Key, Prefab, transform, loot.Value);
   }
 }

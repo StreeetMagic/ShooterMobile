@@ -6,6 +6,8 @@ namespace Gameplay.Characters.Players.TargetLocators
 {
   public class PlayerTargetLocator : MonoBehaviour
   {
+    private const string Player = nameof(Player);
+
     public event Action<TargetTrigger> TargetLocated;
     public event Action<TargetTrigger> TargetLost;
 
@@ -13,6 +15,9 @@ namespace Gameplay.Characters.Players.TargetLocators
     {
       if (other.TryGetComponent(out TargetTrigger targetTrigger))
       {
+        if (targetTrigger.CompareTag(Player))
+          return;
+
         TargetLocated?.Invoke(targetTrigger);
       }
     }
@@ -21,6 +26,9 @@ namespace Gameplay.Characters.Players.TargetLocators
     {
       if (other.TryGetComponent(out TargetTrigger targetTrigger))
       {
+        if (targetTrigger.CompareTag(Player))
+          return;
+
         TargetLost?.Invoke(targetTrigger);
       }
     }

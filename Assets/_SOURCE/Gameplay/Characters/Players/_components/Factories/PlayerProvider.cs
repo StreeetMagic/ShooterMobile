@@ -5,8 +5,6 @@ using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.Shooters;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
-using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Characters.Players.Factories
 {
