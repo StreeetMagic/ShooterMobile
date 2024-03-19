@@ -2,6 +2,7 @@
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.TargetHolders;
+using Infrastructure.CoroutineRunners;
 using Infrastructure.DataRepositories;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
@@ -18,18 +19,20 @@ namespace Gameplay.Characters.Players.Shooters
     private readonly ProjectileFactory _projectileFactory;
     private readonly TickableManager _tickableManager;
     private readonly BackpackStorage _backpackStorage;
+    private readonly ICoroutineRunner _coroutineRunner;
 
     private CoroutineDecorator _coroutine;
 
     public PlayerShooter(
       PlayerProvider playerProvider, IStaticDataService staticDataService,
-      ProjectileFactory zenjectFactory, TickableManager tickableManager, BackpackStorage backpackStorage)
+      ProjectileFactory zenjectFactory, TickableManager tickableManager, BackpackStorage backpackStorage, ICoroutineRunner coroutineRunner)
     {
       _playerProvider = playerProvider;
       _staticDataService = staticDataService;
       _projectileFactory = zenjectFactory;
       _tickableManager = tickableManager;
       _backpackStorage = backpackStorage;
+      _coroutineRunner = coroutineRunner;
     }
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
@@ -40,8 +43,8 @@ namespace Gameplay.Characters.Players.Shooters
     public void Initialize()
     {
       _tickableManager.Add(this);
-      MonoBehaviour coroutineRunner = Object.FindObjectOfType<SceneContext>();
-      _coroutine = new CoroutineDecorator(coroutineRunner, Shooting);
+      
+      _coroutine = new CoroutineDecorator(_coroutineRunner, Shooting);
     }
 
     public void Tick()

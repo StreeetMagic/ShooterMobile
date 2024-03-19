@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
+using Infrastructure.CoroutineRunners;
 using Infrastructure.Utilities;
 using UnityEngine;
 
@@ -19,12 +20,14 @@ namespace Gameplay.Characters.Enemies.Movers
     private CoroutineDecorator _coroutine;
     private HealthStatusController _healthStatusController;
     private EnemyAnimator _enemyAnimator;
+    private ICoroutineRunner _coroutineRunner;
 
     public void Init(EnemyConfig enemyConfig, Health health, List<SpawnPoint> routePoints,
-      HealthStatusController healthStatusController, EnemyAnimator enemyAnimator)
+      HealthStatusController healthStatusController, EnemyAnimator enemyAnimator, ICoroutineRunner coroutineRunner)
     {
+      _coroutineRunner = coroutineRunner;
       _enemyAnimator = enemyAnimator;
-      _coroutine = new CoroutineDecorator(this, MoveToTargetPosition);
+      _coroutine = new CoroutineDecorator(_coroutineRunner, MoveToTargetPosition);
       _enemyConfig = enemyConfig;
       _enemyMover = GetComponent<EnemyMover>();
       _health = health;

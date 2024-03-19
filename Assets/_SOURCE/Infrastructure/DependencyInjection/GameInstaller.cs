@@ -4,6 +4,7 @@ using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Characters.Players.Factories;
+using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using Gameplay.Upgrades;
 using Infrastructure.AssetProviders;
@@ -66,6 +67,7 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<PlayerStatsProvider>().AsSingle();
       Container.Bind<LootSlotFactory>().AsSingle();
       Container.Bind<CameraProvider>().AsSingle();
+      Container.Bind<CorpseRemover>().AsSingle();
     }
   }
 }

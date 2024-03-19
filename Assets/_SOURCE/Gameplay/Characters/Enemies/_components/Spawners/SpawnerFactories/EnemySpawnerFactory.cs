@@ -40,7 +40,7 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
         enemySpawner.transform.localPosition = marker.transform.localPosition;
 
         List<SpawnPoint> spawnPoints = CreateSpawnPoints(marker);
-        enemySpawner.Init(marker.EnemyId, spawnPoints);
+        enemySpawner.Init(marker.EnemyId, spawnPoints, marker.RespawnTime);
 
         // enemySpawner.Init(marker.EnemyId);
         enemySpawner.Spawn(marker.Count);

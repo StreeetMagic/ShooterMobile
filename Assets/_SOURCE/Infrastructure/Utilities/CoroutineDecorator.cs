@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Infrastructure.CoroutineRunners;
 using UnityEngine;
 
 namespace Infrastructure.Utilities
@@ -7,10 +8,10 @@ namespace Infrastructure.Utilities
   public class CoroutineDecorator
   {
     private readonly Func<IEnumerator> _coroutineFunc;
-    private readonly MonoBehaviour _runner;
+    private readonly ICoroutineRunner _runner;
     private Coroutine _coroutine;
 
-    public CoroutineDecorator(MonoBehaviour runner, Func<IEnumerator> coroutineFunc)
+    public CoroutineDecorator(ICoroutineRunner runner, Func<IEnumerator> coroutineFunc)
     {
       _runner = runner;
       _coroutineFunc = coroutineFunc;

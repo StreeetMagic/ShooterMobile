@@ -11,9 +11,10 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
   public class Projectile : MonoBehaviour
   {
     public CollisionPointRayCaster CollisionPointRayCaster;
-    
+
     private VisualEffectFactory _visualEffectFactory;
     private PlayerStatsProvider _playerStatsProvider;
+    private int _count;
 
     [Inject]
     private void Construct(VisualEffectFactory visualEffectFactory, PlayerStatsProvider playerStatsProvider)
@@ -38,7 +39,13 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
     private void DamageTargetTrigger(Collider other)
     {
       if (other.gameObject.TryGetComponent(out TargetTrigger targetTrigger))
-        targetTrigger.TakeDamage(_playerStatsProvider.Damage);
+      {
+        if (_count == 0)
+        {
+          _count++;
+          targetTrigger.TakeDamage(_playerStatsProvider.Damage);
+        }
+      }
     }
   }
 }

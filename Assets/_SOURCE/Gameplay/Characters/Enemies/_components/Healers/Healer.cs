@@ -19,8 +19,8 @@ namespace Gameplay.Characters.Enemies
       _healthStatusController = healthStatusController;
       _enemyConfig = enemyConfig;
     }
-    
-    public float HealMultiplier => _enemyConfig.HealMultiplier;
+
+    private float HealMultiplier => _enemyConfig.HealMultiplier;
     
     private void Update()
     {
