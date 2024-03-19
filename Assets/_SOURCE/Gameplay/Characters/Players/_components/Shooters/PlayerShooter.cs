@@ -39,6 +39,7 @@ namespace Gameplay.Characters.Players.Shooters
     private Transform Transform => _playerProvider.Player.ShootingPoint;
     private PlayerAnimator PlayerAnimator => _playerProvider.PlayerAnimator;
     private PlayerAnimatorEventHandler PlayerAnimatorEventHandler => _playerProvider.PlayerAnimatorEventHandler;
+    private Transform ShootingPoint => _playerProvider.Player.ShootingPoint;
 
     public void Initialize()
     {
@@ -93,11 +94,10 @@ namespace Gameplay.Characters.Players.Shooters
 
     private void Shoot()
     {
-      Vector3 rotation = PlayerTargetHolder.DirectionToTarget;
-      Vector3 position = Transform.position;
-      Vector3 transfromPosition = new(position.x, 1, position.z);
+      Vector3 directionToTarget = PlayerTargetHolder.DirectionToTarget;
 
-      _projectileFactory.Create(Transform, transfromPosition, rotation);
+
+      _projectileFactory.Create(Transform, directionToTarget);
     }
   }
 }

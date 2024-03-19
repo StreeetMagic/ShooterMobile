@@ -23,15 +23,15 @@ public class ProjectileFactory
     _visualEffectFactory = visualEffectFactory;
   }
 
-  public void Create(Transform parent, Vector3 position, Vector3 rotation)
+  public void Create(Transform parent, Vector3 rotation)
   {
     string guid = _randomService.GetRandomUniqueId();
     Projectile prefab = _assetProvider.Get<Projectile>();
-    Projectile projectile = _zenjectFactory.Instantiate(prefab, position, Quaternion.LookRotation(rotation), parent);
+    Projectile projectile = _zenjectFactory.Instantiate(prefab, parent.position, Quaternion.LookRotation(rotation), parent);
     projectile.transform.SetParent(null);
     projectile.Guid = guid;
     _projectileStorage.Add(guid, projectile);
 
-    _visualEffectFactory.Create(VIsualEffectId.MuzzleFlash, position, parent);
+    _visualEffectFactory.Create(VIsualEffectId.MuzzleFlash, parent.position, parent);
   }
 }

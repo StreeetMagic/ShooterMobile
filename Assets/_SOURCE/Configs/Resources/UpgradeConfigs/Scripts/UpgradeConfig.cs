@@ -37,7 +37,7 @@ namespace Configs.Resources.UpgradeConfigs.Scripts
         {
           Level = level++,
           Value = value += 10,
-          Cost = cost += 100
+          Cost = cost += 8
         });
       }
     }

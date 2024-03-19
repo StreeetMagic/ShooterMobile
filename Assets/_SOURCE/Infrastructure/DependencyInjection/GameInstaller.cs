@@ -68,6 +68,7 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<LootSlotFactory>().AsSingle();
       Container.Bind<CameraProvider>().AsSingle();
       Container.Bind<CorpseRemover>().AsSingle();
+      Container.Bind<EnemyLootSlotFactory>().AsSingle();
     }
   }
 }

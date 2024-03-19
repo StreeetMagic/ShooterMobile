@@ -22,10 +22,11 @@ namespace Gameplay.Characters.Enemies.Spawners
     private readonly RewardService _rewardService;
     private readonly CorpseRemover _corpseRemover;
     private readonly ICoroutineRunner _coroutineRunner;
+    private readonly EnemyLootSlotFactory _enemyLootSlotFactory;
 
     public EnemyFactory(IAssetProvider assetProvider, IZenjectFactory zenjectFactory,
       RandomService randomService, IStaticDataService staticDataService, RewardService rewardService,
-      CorpseRemover corpseRemover, ICoroutineRunner coroutineRunner)
+      CorpseRemover corpseRemover, ICoroutineRunner coroutineRunner, EnemyLootSlotFactory enemyLootSlotFactory)
     {
       _assetProvider = assetProvider;
       _zenjectFactory = zenjectFactory;
@@ -34,6 +35,7 @@ namespace Gameplay.Characters.Enemies.Spawners
       _rewardService = rewardService;
       _corpseRemover = corpseRemover;
       _coroutineRunner = coroutineRunner;
+      _enemyLootSlotFactory = enemyLootSlotFactory;
     }
 
     public Enemy Create(EnemyId id, Transform parent, Vector3 position, List<SpawnPoint> spawnPoints)
@@ -57,7 +59,10 @@ namespace Gameplay.Characters.Enemies.Spawners
       enemy.GetComponentInChildren<EnemyMoverController>().Init(enemyConfig, health, spawnPoints, statusController, animator, _coroutineRunner);
       enemy.GetComponentInChildren<Healer>().Init(health, statusController, enemyConfig);
       enemy.GetComponentInChildren<HealthBarSwitcher>().Init(health);
-      
+
+      var enemyLootSlotsContainer = enemy.GetComponentInChildren<EnemyLootSlotsContainer>().transform;
+      _enemyLootSlotFactory.Create(enemyLootSlotsContainer, id);
+
       return enemy;
     }
   }

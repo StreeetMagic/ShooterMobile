@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: -6526923361910134216}
   - component: {fileID: -13020810088034499}
   - component: {fileID: 2847183051534798538}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Projectile
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 127060, guid: d8d2bba08a564c44ab235c598de369d6, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 145458, guid: d8d2bba08a564c44ab235c598de369d6, type: 3}
       propertyPath: m_Name
@@ -164,11 +164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 145458, guid: d8d2bba08a564c44ab235c598de369d6, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 177012, guid: d8d2bba08a564c44ab235c598de369d6, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 406502, guid: d8d2bba08a564c44ab235c598de369d6, type: 3}
       propertyPath: m_LocalScale.x

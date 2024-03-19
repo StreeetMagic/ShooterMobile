@@ -27,6 +27,7 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     public bool HasTarget => _currentTarget != null;
     public Vector3 DirectionToTarget => _currentTarget.transform.position - Transform.position;
+    public Vector3 LookDirectionToTarget => new Vector3(_currentTarget.transform.position.x, Transform.position.y, _currentTarget.transform.position.z) - Transform.position;
 
     private PlayerTargetLocator PlayerTargetLocator => _playerProvider.PlayerTargetLocator;
     private Transform Transform => _playerProvider.Player.transform;
@@ -83,7 +84,7 @@ namespace Gameplay.Characters.Players.TargetHolders
     {
       if (_targets.Contains(target))
         return;
-      
+
       if (target.Health.IsDead)
         return;
 

@@ -22,7 +22,7 @@ namespace Gameplay.Characters.Players.Rotators
     public void RotateTowardsDirection(Vector3 direction)
     {
       if (RotateToTargetConditions())
-        direction = PlayerTargetHolder.DirectionToTarget;
+        direction = PlayerTargetHolder.LookDirectionToTarget;
 
       PlayerRotator.RotateTowardsDirection(direction);
     }
