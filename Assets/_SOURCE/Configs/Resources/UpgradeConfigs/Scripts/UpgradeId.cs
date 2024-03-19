@@ -9,6 +9,7 @@ namespace Configs.Resources.UpgradeConfigs.Scripts
     GroupAttack = 4,
     MoveSpeed = 5,
     FireRange = 6,
-    Health = 7
+    Health = 7,
+    AttackRadius = 8
   }
 }

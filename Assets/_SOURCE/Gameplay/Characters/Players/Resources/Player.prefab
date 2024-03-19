@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2092775727361884633}
   - component: {fileID: 3997487855962207346}
   - component: {fileID: 5016337633031468252}
+  - component: {fileID: 8006588267570139440}
   m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
@@ -27,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 2319638563908143769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.02, y: 2.02, z: 2.02}
+  m_LocalScale: {x: 3.25, y: 3.25, z: 3.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1960235723228296174}
@@ -75,6 +76,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8006588267570139440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2319638563908143769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fff8c0b102b8d4ba8efe2a1316bdcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4908555434324186413
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5893318341531998031}
   m_Layer: 6
-  m_Name: ActorUI
+  m_Name: ActorUserInterface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -504,6 +517,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1874641531791036930}
     m_Modifications:
+    - target: {fileID: 144793966451620211, guid: 84ab6cd7001c4de43b22c98d9476c27a,
+        type: 3}
+      propertyPath: SphereCollider
+      value: 
+      objectReference: {fileID: 4554960374120734893}
     - target: {fileID: 3254226829363784401, guid: 84ab6cd7001c4de43b22c98d9476c27a,
         type: 3}
       propertyPath: m_Name
@@ -559,6 +577,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7860706488778081034, guid: 84ab6cd7001c4de43b22c98d9476c27a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -567,6 +590,12 @@ PrefabInstance:
 --- !u!4 &954711522106736196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6854337512319442403, guid: 84ab6cd7001c4de43b22c98d9476c27a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5917922002278785959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &4554960374120734893 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 7860706488778081034, guid: 84ab6cd7001c4de43b22c98d9476c27a,
     type: 3}
   m_PrefabInstance: {fileID: 5917922002278785959}
   m_PrefabAsset: {fileID: 0}
