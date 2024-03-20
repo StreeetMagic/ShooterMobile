@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
@@ -5,10 +6,11 @@ using Gameplay.Characters.Enemies.Healths;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.Utilities;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Gameplay.CorpseRemovers
 {
-  public class CorpseRemover
+  public class CorpseRemover : IDisposable
   {
     public List<Health> Enemies { get; } = new();
 
@@ -23,6 +25,11 @@ namespace Gameplay.CorpseRemovers
     {
       Enemies.Add(health);
       health.Died += OnDied;
+    }
+
+    public void Dispose()
+    {
+      
     }
 
     private void OnDied(EnemyConfig config, Health health)

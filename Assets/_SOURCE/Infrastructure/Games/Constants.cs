@@ -6,6 +6,7 @@ namespace Infrastructure.Games
     {
       public const string Initial = nameof(Initial);
       public const string GameLoop = nameof(GameLoop);
+      public const string Empty = nameof(Empty);
     }
 
     public class AssetsPath

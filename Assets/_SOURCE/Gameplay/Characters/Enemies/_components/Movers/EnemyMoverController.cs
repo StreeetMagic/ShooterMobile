@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
@@ -54,6 +55,12 @@ namespace Gameplay.Characters.Enemies.Movers
         return;
 
       _coroutine.Start();
+    }
+
+    private void OnDestroy()
+    {
+      _routePointsManager.Dispose();
+      _coroutine.Stop();
     }
 
     private void SetAnimation()

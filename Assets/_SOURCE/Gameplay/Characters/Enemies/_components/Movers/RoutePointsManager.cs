@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Enemies.Movers
 {
@@ -17,7 +19,10 @@ namespace Gameplay.Characters.Enemies.Movers
       _transform = trans;
     }
 
-    public Vector3 TargetPosition => _routePoints[_currentRouteIndex].transform.position;
+    public Vector3 TargetPosition =>
+      _routePoints == null
+        ? Vector3.zero
+        : _routePoints[_currentRouteIndex].transform.position;
 
     public void FixedTick()
     {
@@ -27,7 +32,7 @@ namespace Gameplay.Characters.Enemies.Movers
 
     private void SetRandomRoute()
     {
-      _currentRouteIndex = Random.Range(0, _routePoints.Count); 
+      _currentRouteIndex = Random.Range(0, _routePoints.Count);
     }
 
     private List<SpawnPoint> ShuffleRoutePoints(List<SpawnPoint> points)
@@ -39,6 +44,11 @@ namespace Gameplay.Characters.Enemies.Movers
       }
 
       return points;
+    }
+
+    public void Dispose()
+    {
+      _routePoints = null;
     }
   }
 }

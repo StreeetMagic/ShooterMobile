@@ -3,6 +3,7 @@ using Configs.Resources.VisualEffectConfigs;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class VisualEffectFactory
 {
@@ -26,13 +27,18 @@ public class VisualEffectFactory
         GameObject muzzleFlashEffect = _assetProvider.Get("MuzzleFlashRoundYellow");
         GameObject muzzleFlash = _zenjectFactory.InstantiateObject(muzzleFlashEffect, position, Quaternion.identity, parent);
         muzzleFlash.transform.SetParent(null);
+        float duration = muzzleFlashEffect.GetComponent<ParticleSystem>().main.duration;
+        Object.Destroy(muzzleFlash, duration);
         break;
 
       case VIsualEffectId.BulletImpact:
         GameObject bulletImpact = _assetProvider.Get("FatBulletExplosionYellow");
         GameObject impact = _zenjectFactory.InstantiateObject(bulletImpact, position, Quaternion.identity, parent);
         impact.transform.SetParent(null);
+        float impactDuration = bulletImpact.GetComponent<ParticleSystem>().main.duration;
+        Object.Destroy(impact, impactDuration);
         break;
     }
   }
+
 }

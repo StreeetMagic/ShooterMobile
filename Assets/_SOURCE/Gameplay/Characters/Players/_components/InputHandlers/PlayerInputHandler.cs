@@ -51,6 +51,9 @@ namespace Gameplay.Characters.Players.InputHandlers
 
       IsMoving = moveDirection != Vector3.zero;
 
+      if (Mover == null)
+        return;
+      
       Mover.Move(moveDirection);
 
       RotatorController.RotateTowardsDirection(moveDirection);

@@ -27,6 +27,11 @@ namespace Infrastructure.UserIntefaces
           Transform transform = _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
           _factory.Instantiate<UpgradeShopWindow>(transform);
           break;
+        
+        case WindowId.Debug:
+          Transform debugTransform = _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
+          _factory.Instantiate<DebugWindow>(debugTransform);
+          break;
       }
     }
   }

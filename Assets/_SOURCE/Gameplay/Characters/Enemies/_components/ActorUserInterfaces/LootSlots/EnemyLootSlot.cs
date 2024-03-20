@@ -11,7 +11,5 @@ public class EnemyLootSlot : MonoBehaviour
   {
     Image.sprite = sprite;
     Text.text = itemValue.ToString();
-
-    Debug.Log("Переписывай давай");
   }
 }
