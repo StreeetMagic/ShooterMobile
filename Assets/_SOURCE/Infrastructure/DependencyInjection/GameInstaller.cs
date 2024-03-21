@@ -39,36 +39,24 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<IInputService>().To<InputService>().AsSingle();
       Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
       Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
-
-      Container.Bind<PlayerProvider>().AsSingle();
-      Container.Bind<PersistentProgressService>().AsSingle();
-      Container.Bind<PlayerFactory>().AsSingle().NonLazy();
-      Container.Bind<MapFactory>().AsSingle().NonLazy();
-      Container.Bind<CameraFactory>().AsSingle().NonLazy();
-      Container.Bind<EnemySpawnerFactory>().AsSingle().NonLazy();
-      Container.Bind<RewardService>().AsSingle().NonLazy();
-      Container.Bind<HeadsUpDisplayFactory>().AsSingle();
-      Container.Bind<BaseTriggerFactory>().AsSingle();
-      Container.Bind<WindowFactory>().AsSingle();
-      Container.Bind<HeadsUpDisplayProvider>().AsSingle();
       Container.Bind<SaveLoadService>().AsSingle();
       Container.Bind<UpgradeService>().AsSingle();
-      Container.Bind<UpgradeCellFactory>().AsSingle();
-      Container.Bind<MapProvider>().AsSingle();
+      Container.Bind<PersistentProgressService>().AsSingle();
+
+
       Container.Bind<EggsInBankStorage>().AsSingle();
       Container.Bind<MoneyInBankStorage>().AsSingle();
       Container.Bind<ExpierienceStorage>().AsSingle();
-      Container.Bind<EnemyFactory>().AsSingle();
-      Container.Bind<RandomService>().AsSingle();
-      Container.Bind<ProjectileFactory>().AsSingle();
-      Container.Bind<ProjectileStorage>().AsSingle();
-      Container.Bind<VisualEffectFactory>().AsSingle();
-      Container.Bind<BackpackStorage>().AsSingle();
+
+      Container.Bind<HeadsUpDisplayProvider>().AsSingle();
+      Container.Bind<PlayerProvider>().AsSingle();
+      Container.Bind<MapProvider>().AsSingle();
       Container.Bind<PlayerStatsProvider>().AsSingle();
-      Container.Bind<LootSlotFactory>().AsSingle();
       Container.Bind<CameraProvider>().AsSingle();
-      Container.BindInterfacesAndSelfTo<CorpseRemover>().AsSingle();
-      Container.Bind<EnemyLootSlotFactory>().AsSingle();
+
+      Container.Bind<VisualEffectFactory>().AsSingle();
+      Container.Bind<WindowFactory>().AsSingle();
+      Container.Bind<RandomService>().AsSingle();
     }
   }
 }

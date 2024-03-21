@@ -5,6 +5,8 @@ using Infrastructure.LoadingCurtains;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.SceneLoaders;
 using Infrastructure.StateMachines.States;
+using Infrastructure.ZenjectFactories;
+using UnityEngine;
 
 namespace Infrastructure.StateMachines.GameStateMachines.States
 {
@@ -16,16 +18,18 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     private readonly SaveLoadService _saveLoadService;
     private readonly MoneyInBankStorage _moneyInBankStorage;
     private readonly UpgradeService _upgradeService;
+    private readonly IZenjectFactory _factory;
 
     public LoadLevelState(IStateMachine<IGameState> gameStateMachine,
-      ICoroutineRunner coroutineRunner, LoadingCurtain loadingCurtain, SaveLoadService saveLoadService, 
-      MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService)
+      ICoroutineRunner coroutineRunner, LoadingCurtain loadingCurtain, SaveLoadService saveLoadService,
+      MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService, IZenjectFactory factory)
     {
       _gameStateMachine = gameStateMachine;
       _loadingCurtain = loadingCurtain;
       _saveLoadService = saveLoadService;
       _moneyInBankStorage = moneyInBankStorage;
       _upgradeService = upgradeService;
+      _factory = factory;
       _sceneLoader = new SceneLoader(coroutineRunner);
     }
 
@@ -61,7 +65,10 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
     private void OnSceneLoaded(string name)
     {
-      _gameStateMachine.Enter<GameLoopState>();
+      Debug.Log("Мы сейчас находимся на сцене " + name);
+      
+       _gameStateMachine.Register(_factory.Create<GameLoopState>());
+      // _gameStateMachine.Enter<GameLoopState>();
     }
   }
 }

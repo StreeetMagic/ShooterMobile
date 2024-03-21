@@ -30,8 +30,6 @@ namespace Infrastructure.Games
     {
       _gameStateMachine.Register(_factory.Create<BootstrapState>());
       _gameStateMachine.Register(_factory.Create<LoadLevelState>());
-      _gameStateMachine.Register(_factory.Create<GameLoopState>());
-      _gameStateMachine.Register(_factory.Create<PrototypeState>());
     }
   }
 }
