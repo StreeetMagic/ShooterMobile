@@ -1,10 +1,11 @@
 using Infrastructure.AssetProviders;
+using Maps;
 using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.ZenjectFactories
 {
-  public class ZenjectFactory : IZenjectFactory
+  public class ZenjectFactory
   {
     private readonly IAssetProvider _assetProvider;
     private readonly IInstantiator _instantiator;
@@ -13,6 +14,8 @@ namespace Infrastructure.ZenjectFactories
     {
       _instantiator = instantiator;
       _assetProvider = assetProvider;
+
+      Debug.Log("Фабрика создалась");
     }
 
     public T Create<T>() =>
@@ -31,10 +34,12 @@ namespace Infrastructure.ZenjectFactories
       _instantiator
         .InstantiatePrefab(gameObject, position, quaternion, parent);
 
-    public TMono Instantiate<TMono>() where TMono : MonoBehaviour =>
-      _instantiator
+    public TMono Instantiate<TMono>() where TMono : MonoBehaviour
+    {
+      return _instantiator
         .InstantiatePrefab(_assetProvider.Get<TMono>())
         .GetComponent<TMono>();
+    }
 
     public TMono Instantiate<TMono>(Transform parent) where TMono : MonoBehaviour
     {
@@ -77,5 +82,6 @@ namespace Infrastructure.ZenjectFactories
       _instantiator
         .InstantiatePrefab(behaviour, position, quaternion, parent)
         .GetComponent<TMono>();
+    
   }
 }

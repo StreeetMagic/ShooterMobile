@@ -7,10 +7,10 @@ namespace Infrastructure.UserIntefaces
 {
   public class WindowFactory
   {
-    private readonly IZenjectFactory _factory;
+    private readonly ZenjectFactory _factory;
     private readonly HeadsUpDisplayProvider _headsUpDisplayProvider;
 
-    public WindowFactory(IZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider)
+    public WindowFactory(ZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;

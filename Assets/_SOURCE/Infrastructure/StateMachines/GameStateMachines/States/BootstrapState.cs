@@ -11,11 +11,11 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     private readonly ICoroutineRunner _coroutineRunner;
 
     private readonly IStateMachine<IGameState> _gameStateMachine;
-    private readonly IZenjectFactory _godFactory;
+    private readonly ZenjectFactory _godFactory;
     private readonly IStaticDataService _staticDataService;
 
     public BootstrapState(IStateMachine<IGameState> gameStateMachine,
-      ICoroutineRunner coroutineRunner, IStaticDataService staticDataService, IZenjectFactory godFactory
+      ICoroutineRunner coroutineRunner, IStaticDataService staticDataService, ZenjectFactory godFactory
     )
     {
       _gameStateMachine = gameStateMachine;

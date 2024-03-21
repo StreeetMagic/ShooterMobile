@@ -8,9 +8,9 @@ using Object = UnityEngine.Object;
 public class VisualEffectFactory
 {
   private readonly IAssetProvider _assetProvider;
-  private readonly IZenjectFactory _zenjectFactory;
+  private readonly ZenjectFactory _zenjectFactory;
 
-  public VisualEffectFactory(IAssetProvider assetProvider, IZenjectFactory zenjectFactory)
+  public VisualEffectFactory(IAssetProvider assetProvider, ZenjectFactory zenjectFactory)
   {
     _assetProvider = assetProvider;
     _zenjectFactory = zenjectFactory;

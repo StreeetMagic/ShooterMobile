@@ -4,6 +4,7 @@ using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Currencies;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
+using UnityEngine;
 
 namespace Infrastructure.DataRepositories
 {
@@ -14,6 +15,8 @@ namespace Infrastructure.DataRepositories
 
     public BackpackStorage(IStaticDataService staticDataService, PlayerStatsProvider playerStatsProvider)
     {
+      Debug.Log(" BackpackStorage created");
+      
       _staticDataService = staticDataService;
       _playerStatsProvider = playerStatsProvider;
     }

@@ -17,13 +17,13 @@ namespace Gameplay.Characters.Players.Factories
   public class PlayerFactory
   {
     private readonly IAssetProvider _assetProvider;
-    private readonly IZenjectFactory _factory;
+    private readonly ZenjectFactory _factory;
     private readonly PlayerProvider _playerProvider;
     private readonly PersistentProgressService _progressService;
     private readonly SaveLoadService _saveLoadService;
     private readonly MapProvider _mapProvider;
 
-    public PlayerFactory(IZenjectFactory factory, IAssetProvider assetProvider,
+    public PlayerFactory(ZenjectFactory factory, IAssetProvider assetProvider,
       PlayerProvider playerProvider, PersistentProgressService progressService, SaveLoadService saveLoadService, MapProvider mapProvider)
     {
       _factory = factory;
@@ -32,6 +32,8 @@ namespace Gameplay.Characters.Players.Factories
       _progressService = progressService;
       _saveLoadService = saveLoadService;
       _mapProvider = mapProvider;
+      
+      Debug.Log("Да я создался сука");
     }
 
     public void Create(Transform parent)

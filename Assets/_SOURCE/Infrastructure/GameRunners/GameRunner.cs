@@ -13,10 +13,10 @@ namespace Infrastructure.GameRunners
   {
     [SerializeField] private GameBootstrapper _bootstrapperPrefab;
 
-    private IZenjectFactory _factory;
+    private ZenjectFactory _factory;
 
     [Inject]
-    public void Construct(IZenjectFactory factory)
+    public void Construct(ZenjectFactory factory)
     {
       _factory = factory;
     }

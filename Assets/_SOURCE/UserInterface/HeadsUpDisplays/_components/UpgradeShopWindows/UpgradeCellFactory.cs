@@ -10,10 +10,10 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
   public class UpgradeCellFactory
   {
     private readonly IStaticDataService _staticDataService;
-    private readonly IZenjectFactory _factory;
+    private readonly ZenjectFactory _factory;
     private readonly UpgradeService _upgradeService;
 
-    public UpgradeCellFactory(IStaticDataService staticDataService, IZenjectFactory shopWindowFactory, UpgradeService upgradeService)
+    public UpgradeCellFactory(IStaticDataService staticDataService, ZenjectFactory shopWindowFactory, UpgradeService upgradeService)
     {
       _staticDataService = staticDataService;
       _factory = shopWindowFactory;

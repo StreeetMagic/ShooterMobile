@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Infrastructure.ZenjectFactories
 {
-  public interface IZenjectFactory
+  public interface IZenjectFactory2
   {
     T Create<T>();
 

@@ -31,18 +31,18 @@ namespace Infrastructure.DependencyInjection
   {
     public override void InstallBindings()
     {
+      Container.Bind<ZenjectFactory>().AsSingle();
       Container.Bind<LoadingCurtain>().FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
 
       Container.Bind<ICoroutineRunner>().To<CoroutineRunner>().FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.CoroutineRunner).AsSingle();
       Container.Bind<IStateMachine<IGameState>>().To<StateMachine<IGameState>>().AsSingle();
-      Container.Bind<IZenjectFactory>().To<ZenjectFactory>().AsSingle();
+
       Container.Bind<IInputService>().To<InputService>().AsSingle();
       Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
       Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
       Container.Bind<SaveLoadService>().AsSingle();
       Container.Bind<UpgradeService>().AsSingle();
       Container.Bind<PersistentProgressService>().AsSingle();
-
 
       Container.Bind<EggsInBankStorage>().AsSingle();
       Container.Bind<MoneyInBankStorage>().AsSingle();
@@ -57,6 +57,16 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<VisualEffectFactory>().AsSingle();
       Container.Bind<WindowFactory>().AsSingle();
       Container.Bind<RandomService>().AsSingle();
+
+      Container.BindInterfacesAndSelfTo<CorpseRemover>().AsSingle();
+
+      Container.Bind<ProjectileFactory>().AsSingle();
+
+      Container.Bind<ProjectileStorage>().AsSingle();
+      Container.Bind<BackpackStorage>().AsSingle().NonLazy();
+      Container.Bind<LootSlotFactory>().AsSingle();
+      Container.Bind<EnemyLootSlotFactory>().AsSingle();
+      Container.Bind<RewardService>().AsSingle();
     }
   }
 }

@@ -9,12 +9,12 @@ using Zenject;
 
 public class LootSlotFactory
 {
-  private IZenjectFactory _factory;
+  private ZenjectFactory _factory;
   private HeadsUpDisplayProvider _headsUpDisplayProvider;
   private IStaticDataService _staticDataService;
   
   [Inject]
-  public void Construct(IZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService)
+  public void Construct(ZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService)
   {
     _factory = factory;
     _headsUpDisplayProvider = headsUpDisplayProvider;

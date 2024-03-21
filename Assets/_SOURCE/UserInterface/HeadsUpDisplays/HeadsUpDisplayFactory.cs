@@ -8,11 +8,11 @@ namespace UserInterface.HeadsUpDisplays
 {
   public class HeadsUpDisplayFactory
   {
-    private readonly IZenjectFactory _factory;
+    private readonly ZenjectFactory _factory;
     private readonly IAssetProvider _assetProvider;
     private readonly HeadsUpDisplayProvider _provider;
 
-    public HeadsUpDisplayFactory(IZenjectFactory factory,
+    public HeadsUpDisplayFactory(ZenjectFactory factory,
       IAssetProvider assetProvider,
       HeadsUpDisplayProvider provider)
     {

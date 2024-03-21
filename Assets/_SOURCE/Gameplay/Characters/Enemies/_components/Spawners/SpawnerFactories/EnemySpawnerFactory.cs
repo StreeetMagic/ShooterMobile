@@ -6,21 +6,24 @@ using Infrastructure.ZenjectFactories;
 using Maps;
 using Maps.EnemySpawnMarkers;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
 {
   public class EnemySpawnerFactory
   {
     private readonly IAssetProvider _assetProvider;
-    private readonly IZenjectFactory _zenjectFactory;
+    private readonly ZenjectFactory _zenjectFactory;
     private readonly EnemySpawner _spawnerPrefab;
     private readonly MapProvider _mapProvider;
+    private readonly IInstantiator _instantiator;
 
-    public EnemySpawnerFactory(IAssetProvider assetProvider, IZenjectFactory zenjectFactory, MapProvider mapProvider)
+    public EnemySpawnerFactory(IAssetProvider assetProvider, ZenjectFactory zenjectFactory, MapProvider mapProvider, IInstantiator instantiator)
     {
       _assetProvider = assetProvider;
       _zenjectFactory = zenjectFactory;
       _mapProvider = mapProvider;
+      _instantiator = instantiator;
       _spawnerPrefab = _assetProvider.Get<EnemySpawner>();
       _assetProvider.Get<SpawnPoint>();
     }
@@ -35,7 +38,9 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
 
       foreach (EnemySpawnMarker marker in spawnPointMarkers)
       {
-        EnemySpawner enemySpawner = _zenjectFactory.Instantiate(_spawnerPrefab);
+        //EnemySpawner enemySpawner = _zenjectFactory.Instantiate(_spawnerPrefab);
+        EnemySpawner enemySpawner = _instantiator.InstantiatePrefab(_spawnerPrefab, container).GetComponent<EnemySpawner>();
+
         enemySpawner.transform.SetParent(container);
         enemySpawner.transform.localPosition = marker.transform.localPosition;
 

@@ -31,23 +31,17 @@ public class GameLoopInstaller : MonoInstaller
 {
   public override void InstallBindings()
   {
-    Debug.Log("Регаем зависимости находясь на сцене " + SceneManager.GetActiveScene().name);
-    Debug.Log("Этот скрипт висит на геймобжекте " + gameObject.name);
+
     
-    Container.BindInterfacesAndSelfTo<CorpseRemover>().AsSingle();
-    Container.Bind<PlayerFactory>().AsSingle();
     Container.Bind<MapFactory>().AsSingle();
+    Container.Bind<PlayerFactory>().AsSingle().NonLazy();
     Container.Bind<CameraFactory>().AsSingle();
     Container.Bind<EnemySpawnerFactory>().AsSingle();
     Container.Bind<HeadsUpDisplayFactory>().AsSingle();
     Container.Bind<BaseTriggerFactory>().AsSingle();
     Container.Bind<UpgradeCellFactory>().AsSingle();
+
     Container.Bind<EnemyFactory>().AsSingle();
-    Container.Bind<ProjectileFactory>().AsSingle();
-    Container.Bind<ProjectileStorage>().AsSingle();
-    Container.Bind<BackpackStorage>().AsSingle();
-    Container.Bind<LootSlotFactory>().AsSingle();
-    Container.Bind<EnemyLootSlotFactory>().AsSingle();
-    Container.Bind<RewardService>().AsSingle();
+
   }
 }

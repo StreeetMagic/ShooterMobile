@@ -18,11 +18,11 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     private readonly SaveLoadService _saveLoadService;
     private readonly MoneyInBankStorage _moneyInBankStorage;
     private readonly UpgradeService _upgradeService;
-    private readonly IZenjectFactory _factory;
+    private readonly ZenjectFactory _factory;
 
     public LoadLevelState(IStateMachine<IGameState> gameStateMachine,
       ICoroutineRunner coroutineRunner, LoadingCurtain loadingCurtain, SaveLoadService saveLoadService,
-      MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService, IZenjectFactory factory)
+      MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService, ZenjectFactory factory)
     {
       _gameStateMachine = gameStateMachine;
       _loadingCurtain = loadingCurtain;
@@ -65,10 +65,6 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
     private void OnSceneLoaded(string name)
     {
-      Debug.Log("Мы сейчас находимся на сцене " + name);
-      
-       _gameStateMachine.Register(_factory.Create<GameLoopState>());
-      // _gameStateMachine.Enter<GameLoopState>();
     }
   }
 }

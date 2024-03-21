@@ -12,9 +12,9 @@ namespace Infrastructure.Pools
     private readonly Transform _parent;
     private readonly Queue<T> _pooledObjects = new();
     private readonly List<T> _wanderingObjects = new();
-    private readonly IZenjectFactory _zenjectFactory;
+    private readonly ZenjectFactory _zenjectFactory;
 
-    public ExpandablePool(IZenjectFactory zenjectFactory, Transform parent, string assetPath, int size)
+    public ExpandablePool(ZenjectFactory zenjectFactory, Transform parent, string assetPath, int size)
     {
       _zenjectFactory = zenjectFactory;
       _parent = parent;

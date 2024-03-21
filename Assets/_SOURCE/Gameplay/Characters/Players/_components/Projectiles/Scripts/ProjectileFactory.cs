@@ -8,12 +8,12 @@ using UnityEngine;
 public class ProjectileFactory
 {
   private readonly IAssetProvider _assetProvider;
-  private readonly IZenjectFactory _zenjectFactory;
+  private readonly ZenjectFactory _zenjectFactory;
   private readonly RandomService _randomService;
   private readonly ProjectileStorage _projectileStorage;
   private readonly VisualEffectFactory _visualEffectFactory;
 
-  public ProjectileFactory(IAssetProvider assetProvider, IZenjectFactory zenjectFactory,
+  public ProjectileFactory(IAssetProvider assetProvider, ZenjectFactory zenjectFactory,
     RandomService randomService, ProjectileStorage projectileStorage, VisualEffectFactory visualEffectFactory)
   {
     _assetProvider = assetProvider;

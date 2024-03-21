@@ -7,12 +7,12 @@ namespace Infrastructure.Games
   public class Game
   {
     private readonly IStateMachine<IGameState> _gameStateMachine;
-    private readonly IZenjectFactory _factory;
+    private readonly ZenjectFactory _factory;
 
     public Game
     (
       IStateMachine<IGameState> gameStateMachine,
-      IZenjectFactory factory
+      ZenjectFactory factory
     )
     {
       _gameStateMachine = gameStateMachine;

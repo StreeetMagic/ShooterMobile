@@ -31,10 +31,10 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
     public void Enter()
     {
-      _sceneTransform = GameObject.FindObjectOfType<SceneContext>().transform;
+      _sceneTransform = GameObject.FindObjectOfType<GameLoopInstaller>().transform;
 
       _mapFactory.Create(_sceneTransform);
-      _playerFactory.Create(_sceneTransform);
+       _playerFactory.Create(_sceneTransform);
       _cameraFactory.Create(_sceneTransform);
       _enemySpawnerFactory.Create();
       _headsUpDisplayFactory.Create(_sceneTransform);

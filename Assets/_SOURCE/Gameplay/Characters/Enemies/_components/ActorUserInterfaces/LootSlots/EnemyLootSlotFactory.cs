@@ -11,10 +11,10 @@ using UnityEngine;
 public class EnemyLootSlotFactory
 {
   private IAssetProvider _assetProvider;
-  private IZenjectFactory _factory;
+  private ZenjectFactory _factory;
   private IStaticDataService _staticDataService;
 
-  public EnemyLootSlotFactory(IAssetProvider assetProvider, IZenjectFactory factory,
+  public EnemyLootSlotFactory(IAssetProvider assetProvider, ZenjectFactory factory,
     IStaticDataService staticDataService)
   {
     _assetProvider = assetProvider;

@@ -31,13 +31,6 @@ namespace Infrastructure.SceneLoaders
 
     private IEnumerator LoadScene(string nextScene, Action<string> onLoaded)
     {
-      // if (SceneManager.GetActiveScene().name == nextScene)
-      // {
-      //     onLoaded?.Invoke(nextScene);
-      //     SceneLoaded?.Invoke(nextScene);
-      //     yield break;
-      // }
-
       AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextScene);
       asyncOperation.allowSceneActivation = true;
 

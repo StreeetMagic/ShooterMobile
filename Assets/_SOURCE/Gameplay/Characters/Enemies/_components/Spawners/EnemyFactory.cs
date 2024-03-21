@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Enemies.Spawners
   public class EnemyFactory
   {
     private readonly IAssetProvider _assetProvider;
-    private readonly IZenjectFactory _zenjectFactory;
+    private readonly ZenjectFactory _zenjectFactory;
     private readonly RandomService _randomService;
     private readonly IStaticDataService _staticDataService;
     private readonly RewardService _rewardService;
@@ -24,7 +24,7 @@ namespace Gameplay.Characters.Enemies.Spawners
     private readonly ICoroutineRunner _coroutineRunner;
     private readonly EnemyLootSlotFactory _enemyLootSlotFactory;
 
-    public EnemyFactory(IAssetProvider assetProvider, IZenjectFactory zenjectFactory,
+    public EnemyFactory(IAssetProvider assetProvider, ZenjectFactory zenjectFactory,
       RandomService randomService, IStaticDataService staticDataService, RewardService rewardService,
       CorpseRemover corpseRemover, ICoroutineRunner coroutineRunner, EnemyLootSlotFactory enemyLootSlotFactory)
     {
