@@ -60,7 +60,9 @@ namespace Gameplay.Characters.Enemies.Movers
     private void OnDestroy()
     {
       _routePointsManager.Dispose();
-      _coroutine.Stop();
+
+      if (_coroutine != null)
+        _coroutine.Stop();
     }
 
     private void SetAnimation()

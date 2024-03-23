@@ -11,10 +11,10 @@ using UnityEngine;
 public class EnemyLootSlotFactory
 {
   private IAssetProvider _assetProvider;
-  private ZenjectFactory _factory;
+  private GameLoopZenjectFactory _factory;
   private IStaticDataService _staticDataService;
 
-  public EnemyLootSlotFactory(IAssetProvider assetProvider, ZenjectFactory factory,
+  public EnemyLootSlotFactory(IAssetProvider assetProvider, GameLoopZenjectFactory factory,
     IStaticDataService staticDataService)
   {
     _assetProvider = assetProvider;
@@ -39,7 +39,7 @@ public class EnemyLootSlotFactory
 
     foreach (var item in lootData)
     {
-      var slot = _factory.Instantiate<EnemyLootSlot>(prefab, parent);
+      var slot = _factory.InstantiateMono<EnemyLootSlot>(prefab, parent);
       Sprite sprite = _staticDataService.GetLootConfig(item.Key).Icon;
 
       slot.Init(sprite, item.Value);

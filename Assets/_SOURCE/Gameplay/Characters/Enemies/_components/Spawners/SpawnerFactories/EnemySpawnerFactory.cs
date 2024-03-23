@@ -13,12 +13,13 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
   public class EnemySpawnerFactory
   {
     private readonly IAssetProvider _assetProvider;
-    private readonly ZenjectFactory _zenjectFactory;
+    private readonly GameLoopZenjectFactory _zenjectFactory;
     private readonly EnemySpawner _spawnerPrefab;
     private readonly MapProvider _mapProvider;
     private readonly IInstantiator _instantiator;
 
-    public EnemySpawnerFactory(IAssetProvider assetProvider, ZenjectFactory zenjectFactory, MapProvider mapProvider, IInstantiator instantiator)
+    public EnemySpawnerFactory(IAssetProvider assetProvider, 
+      GameLoopZenjectFactory zenjectFactory, MapProvider mapProvider, IInstantiator instantiator)
     {
       _assetProvider = assetProvider;
       _zenjectFactory = zenjectFactory;
@@ -60,7 +61,7 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
 
       foreach (EnemySpawnPointMarker enemySpawnPointMarker in markers)
       {
-        SpawnPoint spawnPoint = _zenjectFactory.Instantiate<SpawnPoint>();
+        SpawnPoint spawnPoint = _zenjectFactory.InstantiateMono<SpawnPoint>();
         spawnPoint.transform.SetParent(enemySpawnPointMarker.transform);
         spawnPoint.transform.localPosition = Vector3.zero;
         spawnPoints.Add(spawnPoint);

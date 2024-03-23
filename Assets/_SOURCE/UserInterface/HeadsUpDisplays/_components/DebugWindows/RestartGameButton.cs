@@ -1,6 +1,9 @@
+using System;
+using Gameplay.Characters.Enemies.Spawners.DebugServices;
 using Infrastructure.Games;
 using Infrastructure.StateMachines;
 using Infrastructure.StateMachines.GameStateMachines.States;
+using Inputs;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -9,12 +12,12 @@ public class RestartGameButton : MonoBehaviour
 {
   public Button Button;
 
-  private IStateMachine<IGameState> _gameStateMachine;
+  private DebugService _debugService;
 
   [Inject]
-  private void Construct(IStateMachine<IGameState> gameStateMachine)
+  private void Construct( DebugService debugService)
   {
-    _gameStateMachine = gameStateMachine;
+    _debugService = debugService;
   }
 
   private void Start()
@@ -24,6 +27,6 @@ public class RestartGameButton : MonoBehaviour
 
   private void RestartGame()
   {
-    _gameStateMachine.Enter<LoadLevelState, string>(Constants.Scenes.GameLoop);
+    _debugService.Restart();
   }
 }

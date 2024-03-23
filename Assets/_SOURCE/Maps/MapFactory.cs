@@ -9,23 +9,20 @@ namespace Maps
 {
   public class MapFactory
   {
-    private readonly ZenjectFactory _zenjectFactory;
+    private readonly GameLoopZenjectFactory _zenjectFactory;
     private readonly IAssetProvider _assetProvider;
     private readonly MapProvider _mapProvider;
-    private readonly IInstantiator _instantiator;
 
-    public MapFactory(ZenjectFactory factory, IAssetProvider assetProvider, MapProvider mapProvider, IInstantiator instantiator)
+    public MapFactory(GameLoopZenjectFactory factory, IAssetProvider assetProvider, MapProvider mapProvider)
     {
       _zenjectFactory = factory;
       _assetProvider = assetProvider;
       _mapProvider = mapProvider;
-      _instantiator = instantiator;
     }
 
     public void Create(Transform parent)
     {
-      _mapProvider.Map = _zenjectFactory.Instantiate<Map>();
-      // _mapProvider.Map = _instantiator.InstantiatePrefab(Behaviour(), parent).GetComponent<Map>();
+      _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>();
 
       MoveToRootParent(_mapProvider.Map);
     }

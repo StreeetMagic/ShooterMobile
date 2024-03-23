@@ -49,5 +49,10 @@ namespace Infrastructure.SaveLoadServices
       else
         _progressService.SetDefault();
     }
+
+    public void DeleteSaves()
+    {
+      PlayerPrefs.DeleteKey(ProgressKey);
+    }
   }
 }

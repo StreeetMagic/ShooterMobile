@@ -39,7 +39,6 @@ namespace Infrastructure.SceneLoaders
         yield return null;
       }
 
-      Debug.Log("Мы загрузили сцену " + nextScene);
       onLoaded?.Invoke(nextScene);
       SceneLoaded?.Invoke(nextScene);
     }

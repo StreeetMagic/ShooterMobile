@@ -1,36 +1,28 @@
-using Gameplay.Upgrades;
-using Infrastructure.CoroutineRunners;
-using Infrastructure.DataRepositories;
+using Infrastructure.Games;
 using Infrastructure.LoadingCurtains;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.SceneLoaders;
 using Infrastructure.StateMachines.States;
-using Infrastructure.ZenjectFactories;
 using UnityEngine;
 
 namespace Infrastructure.StateMachines.GameStateMachines.States
 {
-  public class LoadLevelState : IGameState, IPayloadedState<string>
+  public class LoadLevelState : IGameState, IPayloadedState<string>, IPayloadedState<string, string>
   {
     private readonly IStateMachine<IGameState> _gameStateMachine;
     private readonly SceneLoader _sceneLoader;
     private readonly LoadingCurtain _loadingCurtain;
     private readonly SaveLoadService _saveLoadService;
-    private readonly MoneyInBankStorage _moneyInBankStorage;
-    private readonly UpgradeService _upgradeService;
-    private readonly ZenjectFactory _factory;
 
     public LoadLevelState(IStateMachine<IGameState> gameStateMachine,
-      ICoroutineRunner coroutineRunner, LoadingCurtain loadingCurtain, SaveLoadService saveLoadService,
-      MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService, ZenjectFactory factory)
+      LoadingCurtain loadingCurtain, SaveLoadService saveLoadService,
+      SceneLoader sceneLoader)
     {
       _gameStateMachine = gameStateMachine;
       _loadingCurtain = loadingCurtain;
       _saveLoadService = saveLoadService;
-      _moneyInBankStorage = moneyInBankStorage;
-      _upgradeService = upgradeService;
-      _factory = factory;
-      _sceneLoader = new SceneLoader(coroutineRunner);
+
+      _sceneLoader = sceneLoader;
     }
 
     public void Enter()
@@ -45,6 +37,17 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
       _sceneLoader.Load(sceneName, OnSceneLoaded);
     }
 
+    public void Enter(string emptyScene, string nextScene)
+    {
+      CommonActions();
+      _sceneLoader.Load(emptyScene, LoadGameLoopScene);
+    }
+
+    private void LoadGameLoopScene(string nextScene)
+    {
+      _sceneLoader.Load(Constants.Scenes.GameLoop, OnSceneLoaded);
+    }
+
     public void Exit()
     {
       _loadingCurtain.Hide();
@@ -52,19 +55,24 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
     private void CommonActions()
     {
-      AddProgressReaders();
       _loadingCurtain.Show();
       _saveLoadService.LoadProgress();
     }
 
-    private void AddProgressReaders()
-    {
-      _saveLoadService.ProgressReaders.Add(_moneyInBankStorage);
-      _saveLoadService.ProgressReaders.Add(_upgradeService);
-    }
-
     private void OnSceneLoaded(string name)
     {
+      switch (name)
+      {
+        case Constants.Scenes.Initial:
+          _gameStateMachine.Enter<BootstrapState>();
+          break;
+
+        case Constants.Scenes.GameLoop:
+          break;
+
+        case Constants.Scenes.Empty:
+          break;
+      }
     }
   }
 }

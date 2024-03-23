@@ -8,9 +8,9 @@ using Object = UnityEngine.Object;
 public class VisualEffectFactory
 {
   private readonly IAssetProvider _assetProvider;
-  private readonly ZenjectFactory _zenjectFactory;
+  private readonly GameLoopZenjectFactory _zenjectFactory;
 
-  public VisualEffectFactory(IAssetProvider assetProvider, ZenjectFactory zenjectFactory)
+  public VisualEffectFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory)
   {
     _assetProvider = assetProvider;
     _zenjectFactory = zenjectFactory;
@@ -25,7 +25,7 @@ public class VisualEffectFactory
 
       case VIsualEffectId.MuzzleFlash:
         GameObject muzzleFlashEffect = _assetProvider.Get("MuzzleFlashRoundYellow");
-        GameObject muzzleFlash = _zenjectFactory.InstantiateObject(muzzleFlashEffect, position, Quaternion.identity, parent);
+        GameObject muzzleFlash = _zenjectFactory.InstantiateGameObject(muzzleFlashEffect, position, Quaternion.identity, parent);
         muzzleFlash.transform.SetParent(null);
         float duration = muzzleFlashEffect.GetComponent<ParticleSystem>().main.duration;
         Object.Destroy(muzzleFlash, duration);
@@ -33,7 +33,7 @@ public class VisualEffectFactory
 
       case VIsualEffectId.BulletImpact:
         GameObject bulletImpact = _assetProvider.Get("FatBulletExplosionYellow");
-        GameObject impact = _zenjectFactory.InstantiateObject(bulletImpact, position, Quaternion.identity, parent);
+        GameObject impact = _zenjectFactory.InstantiateGameObject(bulletImpact, position, Quaternion.identity, parent);
         impact.transform.SetParent(null);
         float impactDuration = bulletImpact.GetComponent<ParticleSystem>().main.duration;
         Object.Destroy(impact, impactDuration);

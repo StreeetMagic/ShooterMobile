@@ -6,10 +6,10 @@ namespace Gameplay.BaseTriggers
 {
   public class BaseTriggerFactory
   {
-    private readonly ZenjectFactory _factory;
+    private readonly GameLoopZenjectFactory _factory;
     private readonly IAssetProvider _assetProvider;
 
-    public BaseTriggerFactory(ZenjectFactory factory, IAssetProvider assetProvider)
+    public BaseTriggerFactory(GameLoopZenjectFactory factory, IAssetProvider assetProvider)
     {
       _factory = factory;
       _assetProvider = assetProvider;
@@ -18,7 +18,7 @@ namespace Gameplay.BaseTriggers
     public void Create(Transform parent)
     {
       BaseTrigger prefab = _assetProvider.Get<BaseTrigger>();
-      BaseTrigger trigger = _factory.Instantiate(prefab, parent);
+      BaseTrigger trigger = _factory.InstantiateMono(prefab, parent);
 
       trigger.transform.parent = null;
     }

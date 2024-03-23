@@ -64,7 +64,7 @@ namespace Infrastructure.Pools
 
     private void ExpandPool()
     {
-      var poolable = _zenjectFactory.Instantiate<T>();
+      var poolable = _zenjectFactory.InstantiateMono<T>();
 
       if (poolable == null)
       {

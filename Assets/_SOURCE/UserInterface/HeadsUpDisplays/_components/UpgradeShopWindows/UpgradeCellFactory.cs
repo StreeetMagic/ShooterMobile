@@ -10,10 +10,11 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
   public class UpgradeCellFactory
   {
     private readonly IStaticDataService _staticDataService;
-    private readonly ZenjectFactory _factory;
+    private readonly GameLoopZenjectFactory _factory;
     private readonly UpgradeService _upgradeService;
 
-    public UpgradeCellFactory(IStaticDataService staticDataService, ZenjectFactory shopWindowFactory, UpgradeService upgradeService)
+    public UpgradeCellFactory(IStaticDataService staticDataService, 
+      GameLoopZenjectFactory shopWindowFactory, UpgradeService upgradeService)
     {
       _staticDataService = staticDataService;
       _factory = shopWindowFactory;
@@ -22,7 +23,7 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
 
     public void Create(UpgradeId id, Transform parent)
     {
-      var cell = _factory.Instantiate<UpgradeCell>(parent);
+      var cell = _factory.InstantiateMono<UpgradeCell>(parent);
       cell.UpgradeConfig = _staticDataService.ForUpgradeConfig(id);
 
       cell.GetComponentInChildren<Icon>().SetIcon(cell.UpgradeConfig.Icon);

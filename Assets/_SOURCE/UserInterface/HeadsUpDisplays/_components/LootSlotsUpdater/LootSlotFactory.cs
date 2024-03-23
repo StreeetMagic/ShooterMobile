@@ -9,12 +9,12 @@ using Zenject;
 
 public class LootSlotFactory
 {
-  private ZenjectFactory _factory;
+  private GameLoopZenjectFactory _factory;
   private HeadsUpDisplayProvider _headsUpDisplayProvider;
   private IStaticDataService _staticDataService;
   
   [Inject]
-  public void Construct(ZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService)
+  public void Construct(GameLoopZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService)
   {
     _factory = factory;
     _headsUpDisplayProvider = headsUpDisplayProvider;
@@ -26,7 +26,7 @@ public class LootSlotFactory
   
   public void Create(CurrencyId id, LootSlot prefab, Transform parent, int lootValue)
   {
-    var slot = _factory.Instantiate(prefab, parent);
+    var slot = _factory.InstantiateMono(prefab, parent);
     LootSlotsUpdater.LootSlots.Add(slot);
     
     Sprite icon = _staticDataService.GetLootConfig(id).Icon;

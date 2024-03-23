@@ -127,6 +127,54 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Debug",
+            "id": "8ae775b8-97a3-4a2d-a4f0-fd903b9ff798",
+            "actions": [
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "b2766d3a-5922-47c8-a2c0-b97952facdc2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DeleteSaves",
+                    "type": "Button",
+                    "id": "00b62ae1-9209-41cf-ac89-e753e94f4ca5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "391c8b28-cbf7-4d45-b370-e03035b9217e",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "489ca99e-a006-403a-8a4c-113a859e418a",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeleteSaves",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

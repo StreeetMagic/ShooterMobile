@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Enemies.Spawners
   public class EnemyFactory
   {
     private readonly IAssetProvider _assetProvider;
-    private readonly ZenjectFactory _zenjectFactory;
+    private readonly GameLoopZenjectFactory _zenjectFactory;
     private readonly RandomService _randomService;
     private readonly IStaticDataService _staticDataService;
     private readonly RewardService _rewardService;
@@ -24,7 +24,7 @@ namespace Gameplay.Characters.Enemies.Spawners
     private readonly ICoroutineRunner _coroutineRunner;
     private readonly EnemyLootSlotFactory _enemyLootSlotFactory;
 
-    public EnemyFactory(IAssetProvider assetProvider, ZenjectFactory zenjectFactory,
+    public EnemyFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory,
       RandomService randomService, IStaticDataService staticDataService, RewardService rewardService,
       CorpseRemover corpseRemover, ICoroutineRunner coroutineRunner, EnemyLootSlotFactory enemyLootSlotFactory)
     {
@@ -41,7 +41,7 @@ namespace Gameplay.Characters.Enemies.Spawners
     public Enemy Create(EnemyId id, Transform parent, Vector3 position, List<SpawnPoint> spawnPoints)
     {
       Enemy prefab = _assetProvider.ForEnemy(id);
-      Enemy enemy = _zenjectFactory.Instantiate(prefab, position, Quaternion.identity, parent);
+      Enemy enemy = _zenjectFactory.InstantiateMono(prefab, position, Quaternion.identity, parent);
       EnemyConfig enemyConfig = _staticDataService.ForEnemy(id);
 
       var animator = enemy.GetComponentInChildren<EnemyAnimator>();

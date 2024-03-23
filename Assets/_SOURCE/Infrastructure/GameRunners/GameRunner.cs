@@ -5,18 +5,14 @@ using Zenject;
 
 namespace Infrastructure.GameRunners
 {
-  /// <summary>
-  ///   <para>Should be placed on scenes manually</para>
-  ///   <para>1 GameRunner on each scene</para>
-  /// </summary>
   public class GameRunner : MonoBehaviour
   {
     [SerializeField] private GameBootstrapper _bootstrapperPrefab;
 
-    private ZenjectFactory _factory;
+    private ProjectZenjectFactory _factory;
 
     [Inject]
-    public void Construct(ZenjectFactory factory)
+    public void Construct(ProjectZenjectFactory factory)
     {
       _factory = factory;
     }
@@ -29,7 +25,7 @@ namespace Infrastructure.GameRunners
     private void CreateBootstrapper()
     {
       if (FindObjectOfType<GameBootstrapper>() == null)
-        _factory.Instantiate(_bootstrapperPrefab);
+        _factory.InstantiateMono(_bootstrapperPrefab);
 
       Destroy(gameObject);
     }

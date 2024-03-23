@@ -7,14 +7,16 @@ namespace Infrastructure.UserIntefaces
 {
   public class WindowFactory
   {
-    private readonly ZenjectFactory _factory;
+    private readonly GameLoopZenjectFactory _factory;
     private readonly HeadsUpDisplayProvider _headsUpDisplayProvider;
 
-    public WindowFactory(ZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider)
+    public WindowFactory(GameLoopZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;
     }
+
+    private Transform HudTransform => _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
 
     public void Create(WindowId windowId)
     {
@@ -24,13 +26,16 @@ namespace Infrastructure.UserIntefaces
           break;
 
         case WindowId.UpgradeShop:
-          Transform transform = _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
-          _factory.Instantiate<UpgradeShopWindow>(transform);
+
+          _factory.InstantiateMono<UpgradeShopWindow>(HudTransform);
           break;
         
         case WindowId.Debug:
-          Transform debugTransform = _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
-          _factory.Instantiate<DebugWindow>(debugTransform);
+          _factory.InstantiateMono<DebugWindow>(HudTransform);
+          break;
+        
+        case WindowId.Settings:
+          _factory.InstantiateMono<SettingsWindow>(HudTransform);
           break;
       }
     }

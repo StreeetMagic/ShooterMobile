@@ -8,12 +8,12 @@ using UnityEngine;
 public class ProjectileFactory
 {
   private readonly IAssetProvider _assetProvider;
-  private readonly ZenjectFactory _zenjectFactory;
+  private readonly GameLoopZenjectFactory _zenjectFactory;
   private readonly RandomService _randomService;
   private readonly ProjectileStorage _projectileStorage;
   private readonly VisualEffectFactory _visualEffectFactory;
 
-  public ProjectileFactory(IAssetProvider assetProvider, ZenjectFactory zenjectFactory,
+  public ProjectileFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory,
     RandomService randomService, ProjectileStorage projectileStorage, VisualEffectFactory visualEffectFactory)
   {
     _assetProvider = assetProvider;
@@ -27,7 +27,7 @@ public class ProjectileFactory
   {
     string guid = _randomService.GetRandomUniqueId();
     Projectile prefab = _assetProvider.Get<Projectile>();
-    Projectile projectile = _zenjectFactory.Instantiate(prefab, parent.position, Quaternion.LookRotation(rotation), parent);
+    Projectile projectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation), parent);
     projectile.transform.SetParent(null);
     projectile.Guid = guid;
     _projectileStorage.Add(guid, projectile);

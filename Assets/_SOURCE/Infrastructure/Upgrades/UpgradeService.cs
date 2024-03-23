@@ -6,6 +6,7 @@ using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Gameplay.Upgrades
 {
@@ -31,9 +32,11 @@ namespace Gameplay.Upgrades
       Changed?.Invoke();
     }
 
-    public Upgrade GetUpgrade(UpgradeId upgradeId) =>
-      _upgrades.GetValueOrDefault(upgradeId);
-    
+    public Upgrade GetUpgrade(UpgradeId upgradeId)
+    {
+      return _upgrades.GetValueOrDefault(upgradeId);
+    }
+
     public int GetCurrentUpgradeValue(UpgradeId upgradeId) =>
       _staticDataService
         .ForUpgradeConfig(upgradeId)

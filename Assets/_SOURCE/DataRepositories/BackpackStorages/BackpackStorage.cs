@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Currencies;
+using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
 using UnityEngine;
@@ -12,13 +13,13 @@ namespace Infrastructure.DataRepositories
   {
     private readonly IStaticDataService _staticDataService;
     private readonly PlayerStatsProvider _playerStatsProvider;
+    private SaveLoadService _saveLoadService;
 
-    public BackpackStorage(IStaticDataService staticDataService, PlayerStatsProvider playerStatsProvider)
+    public BackpackStorage(IStaticDataService staticDataService, PlayerStatsProvider playerStatsProvider, SaveLoadService saveLoadService)
     {
-      Debug.Log(" BackpackStorage created");
-      
       _staticDataService = staticDataService;
       _playerStatsProvider = playerStatsProvider;
+      _saveLoadService = saveLoadService;
     }
 
     public bool IsFull => Volume >= _playerStatsProvider.BackpackCapacity.Value;
@@ -35,10 +36,12 @@ namespace Infrastructure.DataRepositories
       foreach (LootDrop lootDrop in enemyConfigLootDrops)
         LootDrops.Add(lootDrop);
     }
-    
+
     public void Clean()
     {
       LootDrops.Clear();
+
+      _saveLoadService.SaveProgress();
     }
 
     public Dictionary<CurrencyId, int> ReadLoot()
@@ -55,7 +58,7 @@ namespace Infrastructure.DataRepositories
         else
           loot.Add(lootDrop.Id, value);
       }
-      
+
       return loot;
     }
   }

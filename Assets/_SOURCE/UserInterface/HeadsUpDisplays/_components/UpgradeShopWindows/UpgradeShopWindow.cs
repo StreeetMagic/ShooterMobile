@@ -18,7 +18,8 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
     private HeadsUpDisplayProvider _headsUpDisplayProvider;
 
     [Inject]
-    public void Construct(IStaticDataService staticDataService, UpgradeCellFactory shopWindowFactory,
+    public void Construct(IStaticDataService staticDataService, 
+      UpgradeCellFactory shopWindowFactory,
       HeadsUpDisplayProvider headsUpDisplayProvider)
     {
       _staticDataService = staticDataService;

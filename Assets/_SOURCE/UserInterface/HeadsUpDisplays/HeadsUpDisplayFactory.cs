@@ -8,11 +8,11 @@ namespace UserInterface.HeadsUpDisplays
 {
   public class HeadsUpDisplayFactory
   {
-    private readonly ZenjectFactory _factory;
+    private readonly GameLoopZenjectFactory _factory;
     private readonly IAssetProvider _assetProvider;
     private readonly HeadsUpDisplayProvider _provider;
 
-    public HeadsUpDisplayFactory(ZenjectFactory factory,
+    public HeadsUpDisplayFactory(GameLoopZenjectFactory factory,
       IAssetProvider assetProvider,
       HeadsUpDisplayProvider provider)
     {
@@ -24,7 +24,7 @@ namespace UserInterface.HeadsUpDisplays
     public void Create(Transform parent)
     {
       HeadsUpDisplay prefab = _assetProvider.Get<HeadsUpDisplay>();
-      HeadsUpDisplay display = _factory.Instantiate(prefab, parent);
+      HeadsUpDisplay display = _factory.InstantiateMono(prefab, parent);
 
       _provider.HeadsUpDisplay = display;
       _provider.UpgradeShopButton = display.GetComponentInChildren<UpgradeShopWindowButton>();
