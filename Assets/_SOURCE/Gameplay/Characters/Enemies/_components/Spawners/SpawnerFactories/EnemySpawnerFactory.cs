@@ -12,6 +12,8 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
 {
   public class EnemySpawnerFactory
   {
+    public List<EnemySpawner> Spawners { get; } = new List<EnemySpawner>();
+    
     private readonly IAssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _zenjectFactory;
     private readonly EnemySpawner _spawnerPrefab;
@@ -50,6 +52,10 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
 
         // enemySpawner.Init(marker.EnemyId);
         enemySpawner.Spawn(marker.Count);
+        
+        Spawners.Add(enemySpawner);
+        
+        Debug.Log("Добавили спаунер в список");
       }
     }
 

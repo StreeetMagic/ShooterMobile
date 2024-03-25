@@ -469,9 +469,14 @@ namespace AssetKits.ParticleImage
         public Transform attractorTarget
         {
             get => _attractorTarget;
-            set => _attractorTarget = value;
+            set
+            {
+                Debug.Log("Мне назначили геймобжект с именем " + value.name);
+                
+                _attractorTarget = value;
+            }
         }
-        
+
         [SerializeField]
         private ParticleSystem.MinMaxCurve _toTarget = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(new []{new Keyframe(0f,0f), new Keyframe(1f,1f)}));
         public ParticleSystem.MinMaxCurve attractorLerp

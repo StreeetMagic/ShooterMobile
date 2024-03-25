@@ -1,14 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
-using Infrastructure.AssetProviders;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.Utilities;
-using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -34,6 +31,8 @@ namespace Gameplay.Characters.Enemies.Spawners
       _enemyFactory = enemyFactory;
       _coroutineRunner = coroutineRunner;
     }
+    
+    public event Action<Health> EnemyDied;
 
     public void Init(EnemyId enemyId, List<SpawnPoint> spawnPoints, int respawnTime)
     {
@@ -84,6 +83,8 @@ namespace Gameplay.Characters.Enemies.Spawners
       coroutineDecorator.Start();
 
       _respawners.Add(coroutineDecorator);
+      
+      EnemyDied?.Invoke(health); 
     }
 
     private IEnumerator WaitAndSpawn()

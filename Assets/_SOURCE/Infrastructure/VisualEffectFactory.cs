@@ -1,4 +1,5 @@
 using System;
+using AssetKits.ParticleImage;
 using Configs.Resources.VisualEffectConfigs;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
@@ -16,7 +17,7 @@ public class VisualEffectFactory
     _zenjectFactory = zenjectFactory;
   }
 
-  public void Create(VIsualEffectId visualEffectId, Vector3 position, Transform parent)
+  public void Create(VIsualEffectId visualEffectId, Vector3 position, Transform parent, Transform target = null)
   {
     switch (visualEffectId)
     {
@@ -38,7 +39,21 @@ public class VisualEffectFactory
         float impactDuration = bulletImpact.GetComponent<ParticleSystem>().main.duration;
         Object.Destroy(impact, impactDuration);
         break;
+
+      case VIsualEffectId.MoneyCollection1:
+        GameObject moneyCollection = _assetProvider.Get("MoneyCollection1");
+        GameObject money = _zenjectFactory.InstantiateGameObject(moneyCollection, position, Quaternion.identity, parent);
+        
+        money.transform.SetParent(parent);
+
+        var particleImage = moneyCollection.GetComponent<ParticleImage>();
+
+        particleImage.main.attractorTarget = target;
+        float moneyDuration = particleImage.main.lifetime.constantMax;
+        particleImage.main.Play();
+
+        Object.Destroy(money, moneyDuration);
+        break;
     }
   }
-
 }
