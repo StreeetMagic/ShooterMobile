@@ -61,8 +61,7 @@ namespace Gameplay.Characters.Enemies.Movers
     {
       _routePointsManager.Dispose();
 
-      if (_coroutine != null)
-        _coroutine.Stop();
+      _coroutine?.Stop();
     }
 
     private void SetAnimation()

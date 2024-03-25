@@ -24,7 +24,7 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
     public void Create(UpgradeId id, Transform parent)
     {
       var cell = _factory.InstantiateMono<UpgradeCell>(parent);
-      cell.UpgradeConfig = _staticDataService.ForUpgradeConfig(id);
+      cell.UpgradeConfig = _staticDataService.GetUpgradeConfig(id);
 
       cell.GetComponentInChildren<Icon>().SetIcon(cell.UpgradeConfig.Icon);
     }

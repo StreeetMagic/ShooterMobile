@@ -25,7 +25,7 @@ public class EnemyLootSlotFactory
   public void Create(Transform parent, EnemyId id)
   {
     var prefab = _assetProvider.Get<EnemyLootSlot>();
-    EnemyConfig enemyConfig = _staticDataService.ForEnemy(id);
+    EnemyConfig enemyConfig = _staticDataService.GetEnemyConfig(id);
 
     Dictionary<CurrencyId, int> lootData = new();
 

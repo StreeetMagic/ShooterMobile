@@ -42,7 +42,7 @@ namespace Gameplay.Characters.Enemies.Spawners
     {
       Enemy prefab = _assetProvider.ForEnemy(id);
       Enemy enemy = _zenjectFactory.InstantiateMono(prefab, position, Quaternion.identity, parent);
-      EnemyConfig enemyConfig = _staticDataService.ForEnemy(id);
+      EnemyConfig enemyConfig = _staticDataService.GetEnemyConfig(id);
 
       var animator = enemy.GetComponentInChildren<EnemyAnimator>();
 

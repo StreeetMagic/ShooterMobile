@@ -16,7 +16,7 @@ namespace Infrastructure.ZenjectFactories
       _assetProvider = assetProvider;
     }
 
-    public T InstantianteNative<T>() =>
+    public T InstantiateNative<T>() =>
       _instantiator
         .Instantiate<T>();
 

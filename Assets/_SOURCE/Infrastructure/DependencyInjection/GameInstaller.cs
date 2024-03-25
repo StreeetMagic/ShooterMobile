@@ -8,6 +8,7 @@ using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using Gameplay.Upgrades;
 using Infrastructure.AssetProviders;
+using Infrastructure.AudioServices;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.DataRepositories;
 using Infrastructure.Games;
@@ -22,6 +23,7 @@ using Infrastructure.UserIntefaces;
 using Infrastructure.ZenjectFactories;
 using Inputs;
 using Maps;
+using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 using Zenject;
@@ -52,6 +54,7 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<RandomService>().AsSingle();
 
       Container.Bind<SceneLoader>().AsSingle();
+      Container.BindInterfacesAndSelfTo<AudioService>().AsSingle();
     }
   }
 }

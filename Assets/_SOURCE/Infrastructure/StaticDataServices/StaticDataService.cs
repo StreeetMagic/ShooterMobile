@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.PlayerConfigs.Scripts;
+using Configs.Resources.SoundConfigs;
+using Configs.Resources.SoundConfigs.Scripts;
 using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Enemies;
 using Gameplay.Currencies;
@@ -17,6 +19,7 @@ namespace Infrastructure.StaticDataServices
     private const string UpgradeConfigPath = "UpgradeConfigs";
     private const string SoundConfigPath = "SoundConfigs";
     private const string LootConfigPath = "LootConfigs";
+    private const string MusicConfigPath = "MusicConfigs";
 
     private PlayerConfig _playerConfig;
     private bool _enemyLoaded;
@@ -24,27 +27,37 @@ namespace Infrastructure.StaticDataServices
     private Dictionary<EnemyId, EnemyConfig> _enemyConfigs;
     private Dictionary<UpgradeId, UpgradeConfig> _upgradeConfigs;
     private Dictionary<CurrencyId, LootConfig> _lootConfigs;
+    private Dictionary<MusicId, MusicConfig> _musicConfigs;
+    private Dictionary<SoundId, SoundConfig> _soundConfigs;
 
-    public PlayerConfig ForPlayer() =>
+    public PlayerConfig GetPlayerConfig() =>
       _playerConfig ??= Resources.Load<PlayerConfig>(PlayerConfigPath);
 
-    public EnemyConfig ForEnemy(EnemyId enemyId) =>
+    public EnemyConfig GetEnemyConfig(EnemyId enemyId) =>
       _enemyConfigs[enemyId];
 
-    public Dictionary<UpgradeId, UpgradeConfig> ForUpgrades() =>
+    public Dictionary<UpgradeId, UpgradeConfig> GetUpgradeConfigs() =>
       _upgradeConfigs;
 
-    public UpgradeConfig ForUpgradeConfig(UpgradeId id) =>
+    public UpgradeConfig GetUpgradeConfig(UpgradeId id) =>
       _upgradeConfigs[id];
 
     public LootConfig GetLootConfig(CurrencyId lootDropId) =>
-      _lootConfigs[lootDropId]; 
+      _lootConfigs[lootDropId];
+
+    public MusicConfig GetMusicConfig(MusicId musicId) =>
+      _musicConfigs[musicId];
+
+    public SoundConfig GetSoundConfig(SoundId soundId) =>
+      _soundConfigs[soundId];
 
     public void LoadConfigs()
     {
       LoadEnemyConfigs();
       LoadUpgradeConfigs();
       LoadLootConfigs();
+      LoadMusicConfigs();
+      LoadSoundConfigs();
     }
 
     private void LoadUpgradeConfigs() =>
@@ -56,10 +69,20 @@ namespace Infrastructure.StaticDataServices
       _enemyConfigs = Resources
         .LoadAll<EnemyConfig>(EnemyConfigPath)
         .ToDictionary(x => x.Id, x => x);
-    
+
     private void LoadLootConfigs() =>
       _lootConfigs = Resources
         .LoadAll<LootConfig>(LootConfigPath)
+        .ToDictionary(x => x.Id, x => x);
+
+    private void LoadMusicConfigs() =>
+      _musicConfigs = Resources
+        .LoadAll<MusicConfig>(MusicConfigPath)
+        .ToDictionary(x => x.Id, x => x);
+
+    private void LoadSoundConfigs() =>
+      _soundConfigs = Resources
+        .LoadAll<SoundConfig>(SoundConfigPath)
         .ToDictionary(x => x.Id, x => x);
   }
 }

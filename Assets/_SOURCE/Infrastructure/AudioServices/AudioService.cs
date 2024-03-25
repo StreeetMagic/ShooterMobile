@@ -1,79 +1,95 @@
-using System.Collections.Generic;
+using System.Linq;
 using Configs.Resources.SoundConfigs;
 using Configs.Resources.SoundConfigs.Scripts;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.StaticDataServices;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
+using Zenject;
 
 namespace Infrastructure.AudioServices
 {
-  public class AudioService : MonoBehaviour
+  public class AudioService : IInitializable, IProgressWriter
   {
-    [SerializeField] private AudioSource _musicSource;
-    [SerializeField] private List<AudioSource> _playerSources;
+    private readonly ProjectZenjectFactory _factory;
+    private readonly IStaticDataService _staticDataService;
 
+    private AudioSourceContainer _container;
     private MusicPlayer _musicPlayer;
-    private SoundEffectPlayer _soundEffectPlayer;
+    private SoundPlayer _soundPlayer;
 
-    private float _volume;
-
-    public bool IsWorking { get; private set; } = true;
-
-    private void Awake()
+    public AudioService(ProjectZenjectFactory factory, IStaticDataService staticDataService)
     {
-      _volume = _musicSource.volume;
-      _musicPlayer = new MusicPlayer(_musicSource);
-      _soundEffectPlayer = new SoundEffectPlayer(_playerSources);
-
-      SetMusic(SoundId.GameLoopMusic);
-      _musicPlayer.Continue();
+      _factory = factory;
+      _staticDataService = staticDataService;
     }
 
-    public void PlaySoundFx(SoundId clip, Vector3 at = default)
+    public bool IsWorking { get; private set; } = true;
+    public bool IsMusicMuted { get; private set; }
+
+    public void Initialize()
+    {
+      _container = _factory.InstantiateMono<AudioSourceContainer>();
+      _container.transform.SetParent(null);
+
+      _musicPlayer = _factory.InstantiateNative<MusicPlayer>();
+      _soundPlayer = new SoundPlayer(_container.SoundSources);
+    }
+
+    public void PlayMusic(MusicId id)
+    {
+      MusicConfig config = _staticDataService.GetMusicConfig(id);
+      AudioSource audioSource = _container.MusicSources[0];
+
+      _musicPlayer.Play(config, audioSource);
+    }
+
+    public void PlaySound(SoundId id, Vector3 at = default)
     {
       if (IsWorking == false)
         return;
 
-      _soundEffectPlayer.Play(clip, at);
-    }
+      SoundConfig config = _staticDataService.GetSoundConfig(id);
 
-    public void EnableSound()
-    {
-      Debug.Log("EnableSound");
+      AudioSource source = _container.SoundSources.FirstOrDefault(source => source.isPlaying == false);
 
-      _musicPlayer.Continue();
-      IsWorking = true;
-    }
+      if (source == null)
+        return;
 
-    public void DisableSound()
-    {
-      Debug.Log("DisableSound");
-
-      _musicPlayer.Stop();
-      IsWorking = false;
+      _soundPlayer.Play(config, source, at);
     }
 
     public void UnMuteMusic()
     {
-      if (_musicSource == null)
-        return;
+      _container.MusicSources[0].mute = false;
 
-      Debug.Log("UnMuteMusic");
-
-      _musicSource.volume = _volume;
+      IsMusicMuted = false;
     }
 
     public void MuteMusic()
     {
-      if (_musicSource == null)
-        return;
+      _container.MusicSources[0].mute = true;
 
-      Debug.Log("MuteMusic");
-
-      _musicSource.volume = 0;
+      IsMusicMuted = true;
     }
 
-    private void SetMusic(SoundId clip)
+    public void ReadProgress(Progress progress)
     {
-      _volume = _musicPlayer.SetMusic(clip);
+      bool mute = progress.MusicMute;
+
+      Debug.Log("В прогрессе было " + mute);
+
+      if (mute)
+        MuteMusic();
+      else
+        UnMuteMusic();
+    }
+
+    public void WriteProgress(Progress progress)
+    {
+      progress.MusicMute = IsMusicMuted;
+      Debug.Log("Записал в сохранения что " + progress.MusicMute);
     }
   }
 }

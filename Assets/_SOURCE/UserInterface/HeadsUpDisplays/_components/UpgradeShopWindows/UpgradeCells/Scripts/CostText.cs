@@ -56,14 +56,14 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
       if (Upgrade.IsMaxLevel)
       {
         return _staticDataService
-          .ForUpgradeConfig(Config.Id)
+          .GetUpgradeConfig(Config.Id)
           .Values[nextLevel - 1]
           .Cost;
       }
       else
       {
         return _staticDataService
-          .ForUpgradeConfig(Config.Id)
+          .GetUpgradeConfig(Config.Id)
           .Values[nextLevel]
           .Cost;
       }

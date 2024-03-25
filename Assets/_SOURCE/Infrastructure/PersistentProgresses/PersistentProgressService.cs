@@ -33,11 +33,13 @@ namespace Infrastructure.PersistentProgresses
 
         PlayerPosition = Vector3.zero,
         Expierience = 0,
-        Upgrades = new List<UpgradeProgress>()
+        Upgrades = new List<UpgradeProgress>(),
+
+        MusicMute = false
       };
 
       Dictionary<UpgradeId, UpgradeConfig> upgrades = _staticDataService
-        .ForUpgrades();
+        .GetUpgradeConfigs();
 
       foreach (KeyValuePair<UpgradeId, UpgradeConfig> upgrade in upgrades)
         Progress.Upgrades.Add(new UpgradeProgress(upgrade.Key, 0));

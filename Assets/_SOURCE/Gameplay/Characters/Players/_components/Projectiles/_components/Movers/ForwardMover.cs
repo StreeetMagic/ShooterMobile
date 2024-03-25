@@ -17,7 +17,7 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
       _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private float BulletSpeed => _staticDataService.ForPlayer().BulletSpeed;
+    private float BulletSpeed => _staticDataService.GetPlayerConfig().BulletSpeed;
 
     private void FixedUpdate()
     {

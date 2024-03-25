@@ -32,6 +32,9 @@ namespace Infrastructure.Utilities
     {
       if (_coroutine == null)
         return;
+      
+      if (_runner == null)
+        return;
 
       _runner.StopCoroutine(_coroutine);
       IsRunning = false;

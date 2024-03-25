@@ -39,19 +39,19 @@ namespace Gameplay.Upgrades
 
     public int GetCurrentUpgradeValue(UpgradeId upgradeId) =>
       _staticDataService
-        .ForUpgradeConfig(upgradeId)
+        .GetUpgradeConfig(upgradeId)
         .Values[GetUpgrade(upgradeId).Level.Value]
         .Value;
 
     public int GetNextUpgradeCost(UpgradeId upgradeId) =>
       _staticDataService
-        .ForUpgradeConfig(upgradeId)
+        .GetUpgradeConfig(upgradeId)
         .Values[GetUpgrade(upgradeId).Level.Value + 1]
         .Cost;
 
     public void ReadProgress(Progress progress)
     {
-      Dictionary<UpgradeId, UpgradeConfig> upgrades = _staticDataService.ForUpgrades();
+      Dictionary<UpgradeId, UpgradeConfig> upgrades = _staticDataService.GetUpgradeConfigs();
       _upgrades = new Dictionary<UpgradeId, Upgrade>();
 
       foreach (UpgradeId upgradeId in upgrades.Keys)

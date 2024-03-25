@@ -48,13 +48,13 @@ namespace Gameplay.Characters.Players.Factories
       _playerProvider.PlayerRotator = player.GetComponent<PlayerRotator>();
       _playerProvider.PlayerTargetLocator = player.GetComponentInChildren<PlayerTargetLocator>();
 
-      _playerProvider.PlayerInputHandler = _factory.InstantianteNative<PlayerInputHandler>();
-      _playerProvider.PlayerRotatorController = _factory.InstantianteNative<PlayerRotatorController>();
+      _playerProvider.PlayerInputHandler = _factory.InstantiateNative<PlayerInputHandler>();
+      _playerProvider.PlayerRotatorController = _factory.InstantiateNative<PlayerRotatorController>();
 
-      _playerProvider.PlayerShooter = _factory.InstantianteNative<PlayerShooter>();
+      _playerProvider.PlayerShooter = _factory.InstantiateNative<PlayerShooter>();
       _playerProvider.PlayerShooter.Initialize();
 
-      _playerProvider.PlayerTargetHolder = _factory.InstantianteNative<PlayerTargetHolder>();
+      _playerProvider.PlayerTargetHolder = _factory.InstantiateNative<PlayerTargetHolder>();
       _playerProvider.PlayerTargetHolder.Start();
 
       _playerProvider.PlayerAnimator = player.GetComponentInChildren<PlayerAnimator>();

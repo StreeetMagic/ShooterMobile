@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Players.Rotators
     [Inject]
     private void Construct(IStaticDataService staticData)
     {
-      _playerConfig = staticData.ForPlayer();
+      _playerConfig = staticData.GetPlayerConfig();
     }
 
     public void RotateTowardsDirection(Vector3 direction)

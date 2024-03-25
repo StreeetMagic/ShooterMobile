@@ -21,8 +21,8 @@ namespace Infrastructure.GameBootstrappers
 
     private void Awake()
     {
-      _gameStateMachine.Register(_instantiator.InstantianteNative<BootstrapState>());
-      _gameStateMachine.Register(_instantiator.InstantianteNative<LoadLevelState>());
+      _gameStateMachine.Register(_instantiator.InstantiateNative<BootstrapState>());
+      _gameStateMachine.Register(_instantiator.InstantiateNative<LoadLevelState>());
 
       _gameStateMachine.Enter<BootstrapState>();
     }

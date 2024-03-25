@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using Configs.Resources.SoundConfigs;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.TargetHolders;
+using Infrastructure.AudioServices;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.DataRepositories;
 using Infrastructure.StaticDataServices;
@@ -20,12 +22,14 @@ namespace Gameplay.Characters.Players.Shooters
     private readonly TickableManager _tickableManager;
     private readonly BackpackStorage _backpackStorage;
     private readonly ICoroutineRunner _coroutineRunner;
+    private readonly AudioService _audioService;
 
     private CoroutineDecorator _coroutine;
 
     public PlayerShooter(
       PlayerProvider playerProvider, IStaticDataService staticDataService,
-      ProjectileFactory zenjectFactory, TickableManager tickableManager, BackpackStorage backpackStorage, ICoroutineRunner coroutineRunner)
+      ProjectileFactory zenjectFactory, TickableManager tickableManager, BackpackStorage backpackStorage, ICoroutineRunner coroutineRunner,
+      AudioService audioService)
     {
       _playerProvider = playerProvider;
       _staticDataService = staticDataService;
@@ -33,6 +37,7 @@ namespace Gameplay.Characters.Players.Shooters
       _tickableManager = tickableManager;
       _backpackStorage = backpackStorage;
       _coroutineRunner = coroutineRunner;
+      _audioService = audioService;
     }
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
@@ -44,7 +49,7 @@ namespace Gameplay.Characters.Players.Shooters
     public void Initialize()
     {
       _tickableManager.Add(this);
-      
+
       _coroutine = new CoroutineDecorator(_coroutineRunner, Shooting);
     }
 
@@ -83,7 +88,7 @@ namespace Gameplay.Characters.Players.Shooters
 
         int fireRate =
           _staticDataService
-            .ForPlayer()
+            .GetPlayerConfig()
             .FireRate;
 
         float coolDown = 1f / fireRate;
@@ -95,9 +100,8 @@ namespace Gameplay.Characters.Players.Shooters
     private void Shoot()
     {
       Vector3 directionToTarget = PlayerTargetHolder.DirectionToTarget;
-
-
       _projectileFactory.Create(Transform, directionToTarget);
+      _audioService.PlaySound(SoundId.Shoot);
     }
   }
 }

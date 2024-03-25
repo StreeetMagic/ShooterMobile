@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace Configs.Resources.SoundConfigs.Scripts
+namespace Configs.Resources.SoundConfigs
 {
-    [CreateAssetMenu(fileName = "SoundConfig", menuName = "Configs/SoundConfig", order = 3)]
-    public class SoundConfig : ScriptableObject
-    {
-        [field: SerializeField] public SoundId Name { get; private set; }
-        [field: SerializeField] public AudioClip AudioClip { get; private set; }
-        [field: SerializeField] public float Volume { get; private set; }
-    }
+  [CreateAssetMenu(fileName = "SoundConfig", menuName = "Configs/SoundConfig")]
+  public class SoundConfig : ScriptableObject
+  {
+    public SoundId Id;
+    public AudioClip AudioClip;
+
+    [Range(0f, 1f)] public float Volume;
+  }
 }

@@ -54,13 +54,13 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
 
       int currentValue =
         _staticDataService
-          .ForUpgradeConfig(Config.Id)
+          .GetUpgradeConfig(Config.Id)
           .Values[currentLevel]
           .Value;
 
       int nextValue =
         _staticDataService
-          .ForUpgradeConfig(Config.Id)
+          .GetUpgradeConfig(Config.Id)
           .Values[currentLevel + 1]
           .Value;
 

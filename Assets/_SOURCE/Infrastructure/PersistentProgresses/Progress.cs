@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Configs.Resources.UpgradeConfigs.Scripts;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Infrastructure.PersistentProgresses
 {
@@ -21,5 +22,7 @@ namespace Infrastructure.PersistentProgresses
     
     public UpgradeProgress FindUpgradeProgress(UpgradeId id) =>
       Upgrades.Find(x => x.Id == id);
+
+    public bool MusicMute;
   }
 }

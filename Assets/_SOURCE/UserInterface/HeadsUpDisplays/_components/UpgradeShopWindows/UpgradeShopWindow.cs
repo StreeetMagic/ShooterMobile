@@ -55,9 +55,9 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
 
     private void CreateUpgradeCells()
     {
-      int upgradesCount = _staticDataService.ForUpgrades().Count;
+      int upgradesCount = _staticDataService.GetUpgradeConfigs().Count;
 
-      List<UpgradeId> keys = new List<UpgradeId>(_staticDataService.ForUpgrades().Keys);
+      List<UpgradeId> keys = new List<UpgradeId>(_staticDataService.GetUpgradeConfigs().Keys);
 
       for (int i = 0; i < upgradesCount; i++)
         _upgradeCellFactory.Create(keys[i], _container);

@@ -28,7 +28,7 @@ namespace Gameplay.Characters.Players.Movers
     [Inject]
     private void Construct(IStaticDataService staticData, MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService)
     {
-      _playerConfig = staticData.ForPlayer();
+      _playerConfig = staticData.GetPlayerConfig();
       _moneyInBankStorage = moneyInBankStorage;
       _characterController = GetComponent<CharacterController>();
       _upgradeService = upgradeService;
