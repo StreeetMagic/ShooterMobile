@@ -78,8 +78,6 @@ namespace Infrastructure.AudioServices
     {
       bool mute = progress.MusicMute;
 
-      Debug.Log("В прогрессе было " + mute);
-
       if (mute)
         MuteMusic();
       else
@@ -89,7 +87,6 @@ namespace Infrastructure.AudioServices
     public void WriteProgress(Progress progress)
     {
       progress.MusicMute = IsMusicMuted;
-      Debug.Log("Записал в сохранения что " + progress.MusicMute);
     }
   }
 }

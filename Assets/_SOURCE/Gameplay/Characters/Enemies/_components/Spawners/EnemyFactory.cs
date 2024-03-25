@@ -52,7 +52,7 @@ namespace Gameplay.Characters.Enemies.Spawners
 
       _rewardService.AddEnemy(health);
 
-      var statusController = enemy.GetComponentInChildren<HealthStatusController>();
+      HealthStatusController statusController = enemy.GetComponentInChildren<HealthStatusController>();
       statusController.Init(health, enemyConfig, _coroutineRunner);
 
       enemy.GetComponentInChildren<EnemyMover>().Init(enemyConfig);
@@ -60,10 +60,16 @@ namespace Gameplay.Characters.Enemies.Spawners
       enemy.GetComponentInChildren<Healer>().Init(health, statusController, enemyConfig);
       enemy.GetComponentInChildren<HealthBarSwitcher>().Init(health);
 
-      var enemyLootSlotsContainer = enemy.GetComponentInChildren<EnemyLootSlotsContainer>().transform;
+      Transform enemyLootSlotsContainer = enemy.GetComponentInChildren<EnemyLootSlotsContainer>().transform;
       _enemyLootSlotFactory.Create(enemyLootSlotsContainer, id);
 
       return enemy;
+    }
+
+    public void Destroy(Enemy enemy)
+    {
+      var moverController = enemy.GetComponentInChildren<EnemyMoverController>();
+      moverController.Dispose();
     }
   }
 }

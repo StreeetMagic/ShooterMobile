@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Gameplay.BaseTriggers;
 using Maps.EnemySpawnMarkers;
 using Maps.PlayerSpawnMarkers;
 using Sirenix.OdinInspector;
@@ -13,6 +14,7 @@ namespace Maps
     public PlayerSpawnMarker PlayerSpawnMarker;
     public Transform EnemySpawnersContainer;
     public List<EnemySpawnMarker> EnemySpawnMarkers;
+    public BaseTrigger BaseTrigger;
 
     [Button]
     private void Resolve()
@@ -28,6 +30,8 @@ namespace Maps
           .transform
           .parent
           .transform;
+      
+      BaseTrigger = GetComponentInChildren<BaseTrigger>();
     }
   }
 }

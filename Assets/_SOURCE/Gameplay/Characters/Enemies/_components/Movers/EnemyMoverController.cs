@@ -61,7 +61,7 @@ namespace Gameplay.Characters.Enemies.Movers
     {
       _routePointsManager.Dispose();
 
-      _coroutine?.Stop();
+       _coroutine?.Stop();
     }
 
     private void SetAnimation()
@@ -93,6 +93,11 @@ namespace Gameplay.Characters.Enemies.Movers
       yield return new WaitForSeconds(_enemyConfig.WaitTimeAfterMove);
 
       _isMoving = false;
+    }
+
+    public void Dispose()
+    {
+      _coroutine.Stop();
     }
   }
 }

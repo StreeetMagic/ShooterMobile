@@ -23,6 +23,8 @@ namespace Gameplay.Characters.Enemies.Spawners
     private EnemyFactory _enemyFactory;
     private ICoroutineRunner _coroutineRunner;
     private int _respawnTime;
+    private List<Enemy> _enemies = new List<Enemy>();
+    private List<CoroutineDecorator> _respawners = new List<CoroutineDecorator>();
 
     public EnemyId EnemyId { get; private set; }
 
@@ -40,6 +42,22 @@ namespace Gameplay.Characters.Enemies.Spawners
       _respawnTime = respawnTime;
     }
 
+    private void OnDestroy()
+    {
+      foreach (CoroutineDecorator respawner in _respawners)
+      {
+        respawner.Stop();
+      }
+      
+      foreach (Enemy enemy in _enemies)
+      {
+        if (enemy == null)
+          continue;
+        
+        _enemyFactory.Destroy(enemy);
+      }
+    }
+
     public void Spawn(int count)
     {
       if (_spawnPoints.Count == 0)
@@ -55,14 +73,17 @@ namespace Gameplay.Characters.Enemies.Spawners
     {
       int randomSpawnPointNumber = Random.Range(0, _spawnPoints.Count - 1);
       var enemy = _enemyFactory.Create(EnemyId, transform, _spawnPoints[randomSpawnPointNumber].transform.position, _spawnPoints);
-
+      _enemies.Add(enemy);
       enemy.GetComponentInChildren<Health>().Died += OnEnemyDied;
     }
 
     private void OnEnemyDied(EnemyConfig config, Health health)
     {
-      new CoroutineDecorator(_coroutineRunner, WaitAndSpawn)
-        .Start();
+      var coroutineDecorator = new CoroutineDecorator(_coroutineRunner, WaitAndSpawn);
+
+      coroutineDecorator.Start();
+
+      _respawners.Add(coroutineDecorator);
     }
 
     private IEnumerator WaitAndSpawn()

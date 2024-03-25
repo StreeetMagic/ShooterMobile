@@ -28,8 +28,6 @@ public class MusicToggle : MonoBehaviour
 
   private void OnValueChanged(bool toggle)
   {
-    Debug.Log("Тогнули " + toggle);
-    
     if (toggle)
       _audioService.UnMuteMusic();
     else

@@ -15,6 +15,7 @@ namespace Gameplay.CorpseRemovers
     public List<Health> Enemies { get; } = new();
 
     private readonly ICoroutineRunner _coroutineRunner;
+    private readonly List<CoroutineDecorator> _coroutines = new();
 
     public CorpseRemover(ICoroutineRunner coroutineRunner)
     {
@@ -29,15 +30,20 @@ namespace Gameplay.CorpseRemovers
 
     public void Dispose()
     {
-      
+      foreach (CoroutineDecorator coroutineDecorator in _coroutines)
+      {
+        coroutineDecorator.Stop();
+      }
     }
 
     private void OnDied(EnemyConfig config, Health health)
     {
       health.Died -= OnDied;
 
-      new CoroutineDecorator(_coroutineRunner, () => RemoveCorpse(health))
-        .Start();
+      var coroutineDecorator = new CoroutineDecorator(_coroutineRunner, () => RemoveCorpse(health));
+      coroutineDecorator.Start();
+
+      _coroutines.Add(coroutineDecorator);
     }
 
     private IEnumerator RemoveCorpse(Health health)
@@ -45,6 +51,8 @@ namespace Gameplay.CorpseRemovers
       yield return new WaitForSeconds(2f);
 
       Object.Destroy(health.transform.parent.gameObject);
+      
+      
     }
   }
 }
