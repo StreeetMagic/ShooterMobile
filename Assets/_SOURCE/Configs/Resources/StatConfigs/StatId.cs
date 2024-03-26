@@ -1,6 +1,6 @@
 namespace Configs.Resources.UpgradeConfigs.Scripts
 {
-  public enum UpgradeId 
+  public enum StatId 
   { 
     Unknown = 0,
     Damage = 1,

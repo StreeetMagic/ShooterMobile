@@ -1,4 +1,5 @@
 using Configs.Resources.UpgradeConfigs.Scripts;
+using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Upgrades;
 using Infrastructure.StaticDataServices;
 using TMPro;
@@ -14,16 +15,18 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
 
     private UpgradeService _upgradeService;
     private IStaticDataService _staticDataService;
+    private PlayerStatsProvider _playerStatsProvider;
 
     [Inject]
-    public void Construct(UpgradeService upgradeService, IStaticDataService staticDataService)
+    public void Construct(UpgradeService upgradeService, IStaticDataService staticDataService, PlayerStatsProvider playerStatsProvider)
     {
       _upgradeService = upgradeService;
       _staticDataService = staticDataService;
+      _playerStatsProvider = playerStatsProvider;
     }
 
     private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
-    private UpgradeId Id => Config.Id;
+    private StatId Id => Config.Id;
     private Upgrade Upgrade => _upgradeService.GetUpgrade(Id);
 
     private void Start()
@@ -53,9 +56,8 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
           .Value;
 
       int currentValue =
-        _staticDataService
-          .GetUpgradeConfig(Config.Id)
-          .Values[currentLevel]
+        _playerStatsProvider
+          .GetStat(Id)
           .Value;
 
       int nextValue =
@@ -66,7 +68,7 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
 
       string description = Config.Description;
 
-      DescriptionTextUI.text = $"{description} from {currentValue} to {nextValue}";
+      DescriptionTextUI.text = $"{description} from {currentValue} to {currentValue + nextValue}";
     }
   }
 }

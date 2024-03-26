@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Configs.Resources.UpgradeConfigs.Scripts;
+using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Upgrades;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,33 +10,38 @@ using Zenject;
 
 public class AttackRadiusListener : MonoBehaviour
 {
-  private UpgradeService _upgradeService;
+  private PlayerStatsProvider _playerStatsProvider;
   private RectTransform _rectTransform;
 
   [Inject]
-  public void Construct(UpgradeService upgradeService)
+  public void Construct(PlayerStatsProvider playerStatsProvider)
+
   {
-    _upgradeService = upgradeService;
+    _playerStatsProvider = playerStatsProvider;
+    _rectTransform = GetComponent<RectTransform>();
   }
 
   private void OnEnable()
   {
-    _rectTransform = GetComponent<RectTransform>();
-
-    _upgradeService.Changed += OnUpgradeChanged;
+    int fireRangeValue = _playerStatsProvider.FireRange.Value;
+    Debug.Log(fireRangeValue);
     
-    OnUpgradeChanged();
+    OnUpgradeChanged(fireRangeValue);
+    _playerStatsProvider.FireRange.ValueChanged += OnUpgradeChanged;
   }
 
   private void OnDisable()
   {
-    _upgradeService.Changed -= OnUpgradeChanged;
+    _playerStatsProvider.FireRange.ValueChanged -= OnUpgradeChanged;
   }
 
-  private void OnUpgradeChanged()
+  private void Update()
   {
-    float radius = _upgradeService.GetCurrentUpgradeValue(UpgradeId.FireRange);
+  }
 
+  private void OnUpgradeChanged(int value)
+  {
+    var radius = value * 2;
 
     _rectTransform.localScale = new Vector3(radius, radius, radius);
   }

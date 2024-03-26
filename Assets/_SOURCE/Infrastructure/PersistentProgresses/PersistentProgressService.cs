@@ -25,7 +25,7 @@ namespace Infrastructure.PersistentProgresses
     {
       Progress = new Progress
       {
-        MoneyInBank = 0,
+        MoneyInBank = 500,
         MoneyInBackpack = 0,
 
         EggsInBank = 0,
@@ -38,10 +38,10 @@ namespace Infrastructure.PersistentProgresses
         MusicMute = false
       };
 
-      Dictionary<UpgradeId, UpgradeConfig> upgrades = _staticDataService
+      Dictionary<StatId, UpgradeConfig> upgrades = _staticDataService
         .GetUpgradeConfigs();
 
-      foreach (KeyValuePair<UpgradeId, UpgradeConfig> upgrade in upgrades)
+      foreach (KeyValuePair<StatId, UpgradeConfig> upgrade in upgrades)
         Progress.Upgrades.Add(new UpgradeProgress(upgrade.Key, 0));
     }
   }

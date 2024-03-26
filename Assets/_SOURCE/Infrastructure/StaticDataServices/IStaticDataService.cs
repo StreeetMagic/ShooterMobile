@@ -16,8 +16,8 @@ namespace Infrastructure.StaticDataServices
     PlayerConfig GetPlayerConfig();
     EnemyConfig GetEnemyConfig(EnemyId enemyId);
     void LoadConfigs();
-    Dictionary<UpgradeId, UpgradeConfig> GetUpgradeConfigs();
-    UpgradeConfig GetUpgradeConfig(UpgradeId id);
+    Dictionary<StatId, UpgradeConfig> GetUpgradeConfigs();
+    UpgradeConfig GetUpgradeConfig(StatId id);
     LootConfig GetLootConfig(CurrencyId lootDropId);
     MusicConfig GetMusicConfig(MusicId musicId);
     SoundConfig GetSoundConfig(SoundId soundId);

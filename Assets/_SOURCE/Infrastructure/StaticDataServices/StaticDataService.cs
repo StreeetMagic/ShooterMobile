@@ -25,7 +25,7 @@ namespace Infrastructure.StaticDataServices
     private bool _enemyLoaded;
 
     private Dictionary<EnemyId, EnemyConfig> _enemyConfigs;
-    private Dictionary<UpgradeId, UpgradeConfig> _upgradeConfigs;
+    private Dictionary<StatId, UpgradeConfig> _upgradeConfigs;
     private Dictionary<CurrencyId, LootConfig> _lootConfigs;
     private Dictionary<MusicId, MusicConfig> _musicConfigs;
     private Dictionary<SoundId, SoundConfig> _soundConfigs;
@@ -36,10 +36,10 @@ namespace Infrastructure.StaticDataServices
     public EnemyConfig GetEnemyConfig(EnemyId enemyId) =>
       _enemyConfigs[enemyId];
 
-    public Dictionary<UpgradeId, UpgradeConfig> GetUpgradeConfigs() =>
+    public Dictionary<StatId, UpgradeConfig> GetUpgradeConfigs() =>
       _upgradeConfigs;
 
-    public UpgradeConfig GetUpgradeConfig(UpgradeId id) =>
+    public UpgradeConfig GetUpgradeConfig(StatId id) =>
       _upgradeConfigs[id];
 
     public LootConfig GetLootConfig(CurrencyId lootDropId) =>

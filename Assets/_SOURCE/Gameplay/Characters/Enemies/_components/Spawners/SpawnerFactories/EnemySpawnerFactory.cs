@@ -54,8 +54,6 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
         enemySpawner.Spawn(marker.Count);
         
         Spawners.Add(enemySpawner);
-        
-        Debug.Log("Добавили спаунер в список");
       }
     }
 

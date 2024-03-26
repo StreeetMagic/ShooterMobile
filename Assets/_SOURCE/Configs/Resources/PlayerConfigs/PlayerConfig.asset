@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d328781ca4554764db490f7e246b0f6e, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  <RotationSpeed>k__BackingField: 10
-  <GravityScale>k__BackingField: 0.1
-  <FireRate>k__BackingField: 6
-  <BulletSpeed>k__BackingField: 35
+  RotationSpeed: 10
+  GravityScale: 0.1
+  FireRate: 8
+  BulletSpeed: 50
+  InitialDamage: 10
+  InitialBackpackCapacity: 10
+  InitialChickenCount: 1
+  InitialGroupAttack: 1
+  InitialMoveSpeed: 10
+  InitialFireRange: 5
+  InitialHealth: 100

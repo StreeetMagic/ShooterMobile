@@ -20,7 +20,7 @@ namespace Infrastructure.PersistentProgresses
 
     public List<UpgradeProgress> Upgrades;
     
-    public UpgradeProgress FindUpgradeProgress(UpgradeId id) =>
+    public UpgradeProgress FindUpgradeProgress(StatId id) =>
       Upgrades.Find(x => x.Id == id);
 
     public bool MusicMute;

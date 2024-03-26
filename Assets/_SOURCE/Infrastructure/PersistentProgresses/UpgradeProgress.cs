@@ -6,10 +6,10 @@ namespace Infrastructure.PersistentProgresses
   [Serializable]
   public class UpgradeProgress
   {
-    public UpgradeId Id;
+    public StatId Id;
     public int Level;
 
-    public UpgradeProgress(UpgradeId id, int level)
+    public UpgradeProgress(StatId id, int level)
     {
       Id = id;
       Level = level;

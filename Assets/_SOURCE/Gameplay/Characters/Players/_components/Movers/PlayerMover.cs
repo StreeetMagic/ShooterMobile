@@ -1,6 +1,7 @@
 using Configs.Resources;
 using Configs.Resources.PlayerConfigs.Scripts;
 using Configs.Resources.UpgradeConfigs.Scripts;
+using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Upgrades;
 using Infrastructure.DataRepositories;
@@ -21,20 +22,22 @@ namespace Gameplay.Characters.Players.Movers
     private PlayerConfig _playerConfig;
     private MoneyInBankStorage _moneyInBankStorage;
     private UpgradeService _upgradeService;
+    private PlayerStatsProvider _playerStatsProvider;
 
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
 
     [Inject]
-    private void Construct(IStaticDataService staticData, MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService)
+    private void Construct(IStaticDataService staticData, MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService, PlayerStatsProvider playerStatsProvider)
     {
       _playerConfig = staticData.GetPlayerConfig();
       _moneyInBankStorage = moneyInBankStorage;
       _characterController = GetComponent<CharacterController>();
       _upgradeService = upgradeService;
+      _playerStatsProvider = playerStatsProvider;
     }
 
-    private float MoveSpeed => _upgradeService.GetCurrentUpgradeValue(UpgradeId.MoveSpeed);
+    private float MoveSpeed => _playerStatsProvider.MoveSpeed.Value;
     private float GravityScale => _playerConfig.GravityScale;
 
     public void Move(Vector3 directionXYZ)

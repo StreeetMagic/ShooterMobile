@@ -11,7 +11,7 @@ namespace Configs.Resources.UpgradeConfigs.Scripts
     [Tooltip("Сортировка апгрейдов")] public int SortingOrder;
 
     [Space] [Tooltip("Идентификатор апгрейда")]
-    public UpgradeId Id;
+    public StatId Id;
 
     [Space] [Tooltip("Название апгрейда")] public string Title;
 

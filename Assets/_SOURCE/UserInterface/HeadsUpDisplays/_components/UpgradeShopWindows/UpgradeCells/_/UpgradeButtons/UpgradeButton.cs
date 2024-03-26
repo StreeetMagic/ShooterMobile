@@ -22,7 +22,7 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells._.Upgrad
       _moneyInBankStorage = moneyInBankStorage;
     }
 
-    private UpgradeId Id => UpgradeCell.UpgradeConfig.Id;
+    private StatId Id => UpgradeCell.UpgradeConfig.Id;
 
     private void Start()
     {

@@ -14,7 +14,7 @@ namespace Gameplay.Upgrades
   {
     private readonly IStaticDataService _staticDataService;
 
-    private Dictionary<UpgradeId, Upgrade> _upgrades;
+    private Dictionary<StatId, Upgrade> _upgrades;
 
     public UpgradeService(IStaticDataService staticDataService)
     {
@@ -23,38 +23,38 @@ namespace Gameplay.Upgrades
 
     public event Action Changed;
 
-    public void BuyUpgrade(UpgradeId upgradeId)
+    public void BuyUpgrade(StatId statId)
     {
-      if (_upgrades.TryGetValue(upgradeId, out Upgrade upgrade) == false)
+      if (_upgrades.TryGetValue(statId, out Upgrade upgrade) == false)
         return;
 
       upgrade.Level.Value++;
       Changed?.Invoke();
     }
 
-    public Upgrade GetUpgrade(UpgradeId upgradeId)
+    public Upgrade GetUpgrade(StatId statId)
     {
-      return _upgrades.GetValueOrDefault(upgradeId);
+      return _upgrades.GetValueOrDefault(statId);
     }
 
-    public int GetCurrentUpgradeValue(UpgradeId upgradeId) =>
+    public int GetCurrentUpgradeValue(StatId statId) =>
       _staticDataService
-        .GetUpgradeConfig(upgradeId)
-        .Values[GetUpgrade(upgradeId).Level.Value]
+        .GetUpgradeConfig(statId)
+        .Values[GetUpgrade(statId).Level.Value]
         .Value;
 
-    public int GetNextUpgradeCost(UpgradeId upgradeId) =>
+    public int GetNextUpgradeCost(StatId statId) =>
       _staticDataService
-        .GetUpgradeConfig(upgradeId)
-        .Values[GetUpgrade(upgradeId).Level.Value + 1]
+        .GetUpgradeConfig(statId)
+        .Values[GetUpgrade(statId).Level.Value + 1]
         .Cost;
 
     public void ReadProgress(Progress progress)
     {
-      Dictionary<UpgradeId, UpgradeConfig> upgrades = _staticDataService.GetUpgradeConfigs();
-      _upgrades = new Dictionary<UpgradeId, Upgrade>();
+      Dictionary<StatId, UpgradeConfig> upgrades = _staticDataService.GetUpgradeConfigs();
+      _upgrades = new Dictionary<StatId, Upgrade>();
 
-      foreach (UpgradeId upgradeId in upgrades.Keys)
+      foreach (StatId upgradeId in upgrades.Keys)
       {
         UpgradeConfig config = upgrades[upgradeId];
         int level = progress.Upgrades.FirstOrDefault(u => u.Id == upgradeId).Level;

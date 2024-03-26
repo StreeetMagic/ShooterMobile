@@ -5,15 +5,20 @@ namespace Configs.Resources.PlayerConfigs.Scripts
   [CreateAssetMenu(fileName = nameof(PlayerConfig), menuName = "Configs/PlayerConfig")]
   public class PlayerConfig : ScriptableObject
   {
-    [field: SerializeField] public float RotationSpeed { get; private set; }
-    [field: SerializeField] public float GravityScale { get; private set; }
+    public float RotationSpeed;
+    public float GravityScale;
 
     [Tooltip("Скорострельность. Выстрелов в секунду")]
-    [field: SerializeField]
-    public int FireRate { get; private set; } = 10;
-    
-    [Tooltip("Скорость полета пули")]
-    [field: SerializeField]
-    public int BulletSpeed { get; private set; } = 10;
+    public int FireRate = 10;
+
+    [Tooltip("Скорость полета пули")] public int BulletSpeed = 10;
+
+    public int InitialDamage;
+    public int InitialBackpackCapacity;
+    public int InitialChickenCount;
+    public int InitialGroupAttack;
+    public int InitialMoveSpeed;
+    public int InitialFireRange;
+    public int InitialHealth;
   }
 }
