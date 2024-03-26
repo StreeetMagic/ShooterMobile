@@ -37,7 +37,7 @@ namespace Gameplay.Characters.Players.Movers
       _playerStatsProvider = playerStatsProvider;
     }
 
-    private float MoveSpeed => _playerStatsProvider.MoveSpeed.Value;
+    private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;
     private float GravityScale => _playerConfig.GravityScale;
 
     public void Move(Vector3 directionXYZ)

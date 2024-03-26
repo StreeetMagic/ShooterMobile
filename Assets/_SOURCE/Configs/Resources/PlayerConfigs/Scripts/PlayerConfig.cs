@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using UnityEngine;
 
 namespace Configs.Resources.PlayerConfigs.Scripts
@@ -13,12 +16,13 @@ namespace Configs.Resources.PlayerConfigs.Scripts
 
     [Tooltip("Скорость полета пули")] public int BulletSpeed = 10;
 
-    public int InitialDamage;
-    public int InitialBackpackCapacity;
-    public int InitialChickenCount;
-    public int InitialGroupAttack;
-    public int InitialMoveSpeed;
-    public int InitialFireRange;
-    public int InitialHealth;
+    public List<StatValuePair> Stats;
+
+    [Serializable]
+    public class StatValuePair
+    {
+      public StatId StatId;
+      public int Value;
+    }
   }
 }

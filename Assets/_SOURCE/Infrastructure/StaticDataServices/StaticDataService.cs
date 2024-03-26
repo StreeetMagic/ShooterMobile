@@ -29,6 +29,7 @@ namespace Infrastructure.StaticDataServices
     private Dictionary<CurrencyId, LootConfig> _lootConfigs;
     private Dictionary<MusicId, MusicConfig> _musicConfigs;
     private Dictionary<SoundId, SoundConfig> _soundConfigs;
+    private Dictionary<StatId, int> _stats;
 
     public PlayerConfig GetPlayerConfig() =>
       _playerConfig ??= Resources.Load<PlayerConfig>(PlayerConfigPath);
@@ -51,6 +52,9 @@ namespace Infrastructure.StaticDataServices
     public SoundConfig GetSoundConfig(SoundId soundId) =>
       _soundConfigs[soundId];
 
+    public int GetInitialStat(StatId id) =>
+      _stats[id];
+
     public void LoadConfigs()
     {
       LoadEnemyConfigs();
@@ -58,6 +62,17 @@ namespace Infrastructure.StaticDataServices
       LoadLootConfigs();
       LoadMusicConfigs();
       LoadSoundConfigs();
+      LoadInitialStats();
+    }
+
+    private void LoadInitialStats()
+    {
+      List<PlayerConfig.StatValuePair> stats = Resources.Load<PlayerConfig>(PlayerConfigPath).Stats;
+
+      _stats = new Dictionary<StatId, int>();
+
+      foreach (PlayerConfig.StatValuePair stat in stats)
+        _stats.Add(stat.StatId, stat.Value);
     }
 
     private void LoadUpgradeConfigs() =>

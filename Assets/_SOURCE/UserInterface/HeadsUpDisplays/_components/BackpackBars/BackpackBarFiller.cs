@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Infrastructure.DataRepositories;
 using UnityEngine;
@@ -28,7 +29,7 @@ public class BackpackBarFiller : MonoBehaviour
 
   private void UpdateSlider()
   {
-    float max = _playerStatsProvider.BackpackCapacity.Value;
+    float max = _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
     float current = _backpackStorage.Volume;
     Slider.value = Mathf.MoveTowards(Slider.value, current / max, Time.deltaTime * SliderUpdateSpeed);
   }

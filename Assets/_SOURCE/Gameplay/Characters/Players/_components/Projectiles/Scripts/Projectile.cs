@@ -1,4 +1,5 @@
 using System;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Configs.Resources.VisualEffectConfigs;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
@@ -43,7 +44,7 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
         if (_count == 0)
         {
           _count++;
-          targetTrigger.TakeDamage(_playerStatsProvider.Damage.Value);
+          targetTrigger.TakeDamage(_playerStatsProvider.GetStat(StatId.Damage).Value);
         }
       }
     }

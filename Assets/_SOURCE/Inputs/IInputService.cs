@@ -10,6 +10,7 @@ namespace Inputs
     Vector2 MoveDirectionFloatingJoystick { get; set; }
     event Action Restart;
     event Action DeleteSaves;
+    event Action OpenQuestWindow;
   }
 
   public class InputService : IInputService
@@ -19,6 +20,7 @@ namespace Inputs
     private InputAction _move;
     private InputAction _restart;
     private InputAction _deleteSaves;
+    private InputAction _openQuestWindow;
 
     public InputService()
     {
@@ -34,10 +36,15 @@ namespace Inputs
       _deleteSaves = _controls.Debug.DeleteSaves;
       _deleteSaves.Enable();
       _deleteSaves.performed += _ => DeleteSaves?.Invoke();
+
+      _openQuestWindow = _controls.Debug.OpenQuestWindow;
+      _openQuestWindow.Enable();
+      _openQuestWindow.performed += _ => OpenQuestWindow?.Invoke();
     }
 
     public event Action Restart;
     public event Action DeleteSaves;
+    public event Action OpenQuestWindow;
 
     public Vector2 MoveDirection =>
       MoveDirectionFloatingJoystick != Vector2.zero

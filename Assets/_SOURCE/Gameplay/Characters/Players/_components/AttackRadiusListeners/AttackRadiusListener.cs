@@ -23,20 +23,15 @@ public class AttackRadiusListener : MonoBehaviour
 
   private void OnEnable()
   {
-    int fireRangeValue = _playerStatsProvider.FireRange.Value;
-    Debug.Log(fireRangeValue);
-    
+    int fireRangeValue = _playerStatsProvider.GetStat(StatId.FireRange).Value;
+
     OnUpgradeChanged(fireRangeValue);
-    _playerStatsProvider.FireRange.ValueChanged += OnUpgradeChanged;
+    _playerStatsProvider.GetStat(StatId.FireRange).ValueChanged += OnUpgradeChanged;
   }
 
   private void OnDisable()
   {
-    _playerStatsProvider.FireRange.ValueChanged -= OnUpgradeChanged;
-  }
-
-  private void Update()
-  {
+    _playerStatsProvider.GetStat(StatId.FireRange).ValueChanged -= OnUpgradeChanged;
   }
 
   private void OnUpgradeChanged(int value)

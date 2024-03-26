@@ -1,5 +1,6 @@
 using Cameras;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
+using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Upgrades;
 using Infrastructure.AudioServices;
@@ -23,13 +24,14 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     private readonly UpgradeService _upgradeService;
     private readonly SaveLoadService _saveLoadService;
     private readonly AudioService _audioService;
+    private readonly PlayerStatsProvider _playerStatsProvider;
 
     private Transform _sceneTransform;
 
     public GameLoopState(PlayerFactory playerFactory, MapFactory mapFactory,
       CameraFactory cameraFactory, EnemySpawnerFactory enemySpawnerFactory,
       HeadsUpDisplayFactory headsUpDisplayFactory, MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService,
-      SaveLoadService saveLoadService, AudioService audioService)
+      SaveLoadService saveLoadService, AudioService audioService, PlayerStatsProvider playerStatsProvider)
     {
       _playerFactory = playerFactory;
       _mapFactory = mapFactory;
@@ -40,6 +42,7 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
       _upgradeService = upgradeService;
       _saveLoadService = saveLoadService;
       _audioService = audioService;
+      _playerStatsProvider = playerStatsProvider;
     }
 
     public void Enter()
@@ -51,6 +54,8 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
       _sceneTransform = GameObject.FindObjectOfType<GameLoopInstaller>().transform;
 
+      _playerStatsProvider.Start();
+      
       _mapFactory.Create(_sceneTransform);
       _playerFactory.Create(_sceneTransform);
       _cameraFactory.Create(_sceneTransform);

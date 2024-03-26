@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Currencies;
 using Infrastructure.SaveLoadServices;
@@ -22,7 +23,7 @@ namespace Infrastructure.DataRepositories
       _saveLoadService = saveLoadService;
     }
 
-    public bool IsFull => Volume >= _playerStatsProvider.BackpackCapacity.Value;
+    public bool IsFull => Volume >= _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
     public ReactiveList<LootDrop> LootDrops { get; } = new();
 
     public int Volume =>

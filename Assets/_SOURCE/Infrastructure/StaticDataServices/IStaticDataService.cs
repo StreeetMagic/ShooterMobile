@@ -21,5 +21,6 @@ namespace Infrastructure.StaticDataServices
     LootConfig GetLootConfig(CurrencyId lootDropId);
     MusicConfig GetMusicConfig(MusicId musicId);
     SoundConfig GetSoundConfig(SoundId soundId);
+    int GetInitialStat(StatId id);
   }
 }

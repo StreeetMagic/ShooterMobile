@@ -171,6 +171,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenQuestWindow"",
+                    ""type"": ""Button"",
+                    ""id"": ""91eab9f2-5c82-4e94-8b4d-dcf2d6531c6e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -195,6 +204,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""DeleteSaves"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a54b014e-8005-480b-8b29-a2d81f143919"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenQuestWindow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -208,6 +228,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_Restart = m_Debug.FindAction("Restart", throwIfNotFound: true);
         m_Debug_DeleteSaves = m_Debug.FindAction("DeleteSaves", throwIfNotFound: true);
+        m_Debug_OpenQuestWindow = m_Debug.FindAction("OpenQuestWindow", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -317,12 +338,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IDebugActions> m_DebugActionsCallbackInterfaces = new List<IDebugActions>();
     private readonly InputAction m_Debug_Restart;
     private readonly InputAction m_Debug_DeleteSaves;
+    private readonly InputAction m_Debug_OpenQuestWindow;
     public struct DebugActions
     {
         private @Controls m_Wrapper;
         public DebugActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Restart => m_Wrapper.m_Debug_Restart;
         public InputAction @DeleteSaves => m_Wrapper.m_Debug_DeleteSaves;
+        public InputAction @OpenQuestWindow => m_Wrapper.m_Debug_OpenQuestWindow;
         public InputActionMap Get() { return m_Wrapper.m_Debug; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -338,6 +361,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @DeleteSaves.started += instance.OnDeleteSaves;
             @DeleteSaves.performed += instance.OnDeleteSaves;
             @DeleteSaves.canceled += instance.OnDeleteSaves;
+            @OpenQuestWindow.started += instance.OnOpenQuestWindow;
+            @OpenQuestWindow.performed += instance.OnOpenQuestWindow;
+            @OpenQuestWindow.canceled += instance.OnOpenQuestWindow;
         }
 
         private void UnregisterCallbacks(IDebugActions instance)
@@ -348,6 +374,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @DeleteSaves.started -= instance.OnDeleteSaves;
             @DeleteSaves.performed -= instance.OnDeleteSaves;
             @DeleteSaves.canceled -= instance.OnDeleteSaves;
+            @OpenQuestWindow.started -= instance.OnOpenQuestWindow;
+            @OpenQuestWindow.performed -= instance.OnOpenQuestWindow;
+            @OpenQuestWindow.canceled -= instance.OnOpenQuestWindow;
         }
 
         public void RemoveCallbacks(IDebugActions instance)
@@ -373,5 +402,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     {
         void OnRestart(InputAction.CallbackContext context);
         void OnDeleteSaves(InputAction.CallbackContext context);
+        void OnOpenQuestWindow(InputAction.CallbackContext context);
     }
 }

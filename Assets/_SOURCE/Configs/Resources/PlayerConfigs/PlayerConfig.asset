@@ -16,10 +16,18 @@ MonoBehaviour:
   GravityScale: 0.1
   FireRate: 8
   BulletSpeed: 50
-  InitialDamage: 10
-  InitialBackpackCapacity: 10
-  InitialChickenCount: 1
-  InitialGroupAttack: 1
-  InitialMoveSpeed: 10
-  InitialFireRange: 5
-  InitialHealth: 100
+  Stats:
+  - StatId: 1
+    Value: 10
+  - StatId: 2
+    Value: 10
+  - StatId: 3
+    Value: 1
+  - StatId: 4
+    Value: 1
+  - StatId: 5
+    Value: 10
+  - StatId: 6
+    Value: 7
+  - StatId: 7
+    Value: 100

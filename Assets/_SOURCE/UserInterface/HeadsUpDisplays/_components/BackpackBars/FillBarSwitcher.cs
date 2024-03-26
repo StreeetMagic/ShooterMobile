@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Infrastructure.DataRepositories;
 using UnityEngine;
@@ -7,41 +8,41 @@ using Zenject;
 
 public class FillBarSwitcher : MonoBehaviour
 {
-    public GameObject NotFullBar;
-    public GameObject FullBar;
-    
-    private PlayerStatsProvider _playerStatsProvider;
-    private BackpackStorage _backpackStorage;
+  public GameObject NotFullBar;
+  public GameObject FullBar;
 
-    [Inject]
-    private void Construct(PlayerStatsProvider playerStatsProvider, BackpackStorage backpackStorage)
-    {
-        _playerStatsProvider = playerStatsProvider;
-        _backpackStorage = backpackStorage;
-    }
+  private PlayerStatsProvider _playerStatsProvider;
+  private BackpackStorage _backpackStorage;
 
-    private void OnEnable()
-    {
-        Setup();
-        
-        _playerStatsProvider.BackpackCapacity.ValueChanged += OnBackpackCapacityChanged;
-        _backpackStorage.LootDrops.Changed += OnLootDropsChanged;
-    }
+  [Inject]
+  private void Construct(PlayerStatsProvider playerStatsProvider, BackpackStorage backpackStorage)
+  {
+    _playerStatsProvider = playerStatsProvider;
+    _backpackStorage = backpackStorage;
+  }
 
-    private void OnLootDropsChanged(List<LootDrop> obj)
-    {
-        Setup(); 
-    }
+  private void OnEnable()
+  {
+    Setup();
 
-    private void OnBackpackCapacityChanged(int obj)
-    {
-        Setup(); 
-    }
+    _playerStatsProvider.GetStat(StatId.BackpackCapacity).ValueChanged += OnBackpackCapacityChanged;
+    _backpackStorage.LootDrops.Changed += OnLootDropsChanged;
+  }
 
-    private void Setup()
-    {
-        bool isFull = _backpackStorage.Volume >= _playerStatsProvider.BackpackCapacity.Value;
-        FullBar.SetActive(isFull);
-        NotFullBar.SetActive(!isFull);
-    }
+  private void OnLootDropsChanged(List<LootDrop> obj)
+  {
+    Setup();
+  }
+
+  private void OnBackpackCapacityChanged(int obj)
+  {
+    Setup();
+  }
+
+  private void Setup()
+  {
+    bool isFull = _backpackStorage.Volume >= _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
+    FullBar.SetActive(isFull);
+    NotFullBar.SetActive(!isFull);
+  }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Infrastructure.DataRepositories;
 using TMPro;
@@ -22,13 +23,13 @@ public class BackpackValueTextUpdater : MonoBehaviour
   private void OnEnable()
   {
     DisplayText();
-    _playerStatsProvider.BackpackCapacity.ValueChanged += OnBackpackCapacityChanged;
+    _playerStatsProvider.GetStat(StatId.BackpackCapacity).ValueChanged += OnBackpackCapacityChanged;
     _backpackStorage.LootDrops.Changed += OnLootDropsChanged;
   }
 
   private void OnDisable()
   {
-    _playerStatsProvider.BackpackCapacity.ValueChanged -= OnBackpackCapacityChanged;
+    _playerStatsProvider.GetStat(StatId.BackpackCapacity).ValueChanged -= OnBackpackCapacityChanged;
     _backpackStorage.LootDrops.Changed -= OnLootDropsChanged;
   }
 
@@ -44,7 +45,7 @@ public class BackpackValueTextUpdater : MonoBehaviour
 
   private void DisplayText()
   {
-    int max = _playerStatsProvider.BackpackCapacity.Value;
+    int max = _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
     int current = _backpackStorage.Volume;
     Text.text = $"{current}/{max}";
   }

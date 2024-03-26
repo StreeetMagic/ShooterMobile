@@ -27,7 +27,7 @@ namespace Gameplay.Characters.Players.TargetLocators
     public event Action<TargetTrigger> TargetLocated;
     public event Action<TargetTrigger> TargetLost;
 
-    private float Radius => _playerStatsProvider.FireRange.Value;
+    private float Radius => _playerStatsProvider.GetStat(StatId.FireRange).Value;
 
     private void Start()
     {

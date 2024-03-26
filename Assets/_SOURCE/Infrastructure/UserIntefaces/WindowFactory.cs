@@ -1,6 +1,7 @@
 ﻿using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
+using UserInterface.HeadsUpDisplays.QuestWindows;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 
 namespace Infrastructure.UserIntefaces
@@ -26,7 +27,6 @@ namespace Infrastructure.UserIntefaces
           break;
 
         case WindowId.UpgradeShop:
-
           _factory.InstantiateMono<UpgradeShopWindow>(HudTransform);
           break;
         
@@ -36,6 +36,10 @@ namespace Infrastructure.UserIntefaces
         
         case WindowId.Settings:
           _factory.InstantiateMono<SettingsWindow>(HudTransform);
+          break;
+        
+        case WindowId.Quest:
+          _factory.InstantiateMono<QuestWindow>(HudTransform);
           break;
       }
     }
