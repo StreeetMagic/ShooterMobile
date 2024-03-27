@@ -30,13 +30,7 @@ namespace Gameplay.CorpseRemovers
 
     public void Dispose()
     {
-      foreach (CoroutineDecorator coroutineDecorator in _coroutines)
-      {
-        if (coroutineDecorator == null)
-          continue;
-
-        coroutineDecorator.Stop();
-      }
+      _coroutines.Clear();
     }
 
     private void OnDied(EnemyConfig config, Health health)
