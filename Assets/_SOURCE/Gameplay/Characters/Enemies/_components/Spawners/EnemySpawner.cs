@@ -31,7 +31,7 @@ namespace Gameplay.Characters.Enemies.Spawners
       _enemyFactory = enemyFactory;
       _coroutineRunner = coroutineRunner;
     }
-    
+
     public event Action<Health> EnemyDied;
 
     public void Init(EnemyId enemyId, List<SpawnPoint> spawnPoints, int respawnTime)
@@ -43,16 +43,13 @@ namespace Gameplay.Characters.Enemies.Spawners
 
     private void OnDestroy()
     {
-      foreach (CoroutineDecorator respawner in _respawners)
-      {
-        respawner.Stop();
-      }
-      
+      _respawners.Clear();
+
       foreach (Enemy enemy in _enemies)
       {
         if (enemy == null)
           continue;
-        
+
         _enemyFactory.Destroy(enemy);
       }
     }
@@ -83,8 +80,8 @@ namespace Gameplay.Characters.Enemies.Spawners
       coroutineDecorator.Start();
 
       _respawners.Add(coroutineDecorator);
-      
-      EnemyDied?.Invoke(health); 
+
+      EnemyDied?.Invoke(health);
     }
 
     private IEnumerator WaitAndSpawn()

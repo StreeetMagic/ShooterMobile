@@ -69,7 +69,7 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
       _saveLoadService.ProgressReaders.Remove(_upgradeService);
       _saveLoadService.ProgressReaders.Remove(_audioService);
 
-      // _mapFactory.Destroy();
+      _mapFactory.Destroy();
       _playerFactory.Destroy();
       // _cameraFactory.Destroy();
       // _enemySpawnerFactory.Destroy();

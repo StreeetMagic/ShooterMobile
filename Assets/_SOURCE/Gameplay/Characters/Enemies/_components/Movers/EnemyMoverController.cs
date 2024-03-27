@@ -61,7 +61,7 @@ namespace Gameplay.Characters.Enemies.Movers
     {
       _routePointsManager.Dispose();
 
-       _coroutine?.Stop();
+      _coroutine = null;
     }
 
     private void SetAnimation()
@@ -97,7 +97,7 @@ namespace Gameplay.Characters.Enemies.Movers
 
     public void Dispose()
     {
-      _coroutine.Stop();
+      _coroutine = null;
     }
   }
 }

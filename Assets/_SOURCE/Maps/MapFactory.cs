@@ -4,6 +4,7 @@ using Infrastructure.Games;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Zenject;
+using Object = UnityEngine.Object;
 
 namespace Maps
 {
@@ -30,7 +31,13 @@ namespace Maps
     private void MoveToRootParent(Map map) =>
       map.transform.SetParent(null);
 
-    private Map Behaviour() =>
-      _assetProvider.Get<Map>(Constants.AssetsPath.Prefabs.Map);
+    public void Destroy()
+    {
+      if (_mapProvider.Map == null)
+        return;
+
+      Object.Destroy(_mapProvider.Map.gameObject);
+      _mapProvider.Map = null;
+    }
   }
 }

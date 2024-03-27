@@ -15,7 +15,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Players.Factories
 {
-  public class PlayerFactory 
+  public class PlayerFactory
   {
     private readonly IAssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _factory;
@@ -66,13 +66,15 @@ namespace Gameplay.Characters.Players.Factories
 
       _playerProvider.PlayerShooter.Subscribe();
     }
-    
+
     public void Destroy()
     {
-      Player player  = _playerProvider.Player;
-      
+      Player player = _playerProvider.Player;
+
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
         _saveLoadService.ProgressReaders.Remove(progressReader);
+
+      Object.Destroy(player.gameObject);
     }
 
     private Vector3 SpawnPosition()
@@ -81,6 +83,5 @@ namespace Gameplay.Characters.Players.Factories
         ? _mapProvider.Map.PlayerSpawnMarker.transform.position
         : _progressService.Progress.PlayerPosition;
     }
-
   }
 }

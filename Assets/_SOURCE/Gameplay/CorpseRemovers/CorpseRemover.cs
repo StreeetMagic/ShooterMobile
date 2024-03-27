@@ -32,6 +32,9 @@ namespace Gameplay.CorpseRemovers
     {
       foreach (CoroutineDecorator coroutineDecorator in _coroutines)
       {
+        if (coroutineDecorator == null)
+          continue;
+
         coroutineDecorator.Stop();
       }
     }
@@ -51,8 +54,6 @@ namespace Gameplay.CorpseRemovers
       yield return new WaitForSeconds(2f);
 
       Object.Destroy(health.transform.parent.gameObject);
-      
-      
     }
   }
 }

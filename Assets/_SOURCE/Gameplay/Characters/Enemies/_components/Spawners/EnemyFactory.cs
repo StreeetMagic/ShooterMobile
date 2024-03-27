@@ -69,6 +69,10 @@ namespace Gameplay.Characters.Enemies.Spawners
     public void Destroy(Enemy enemy)
     {
       var moverController = enemy.GetComponentInChildren<EnemyMoverController>();
+
+      if (moverController == null)
+        return;
+
       moverController.Dispose();
     }
   }

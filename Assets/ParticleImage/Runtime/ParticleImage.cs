@@ -471,8 +471,6 @@ namespace AssetKits.ParticleImage
             get => _attractorTarget;
             set
             {
-                Debug.Log("Мне назначили геймобжект с именем " + value.name);
-                
                 _attractorTarget = value;
             }
         }
