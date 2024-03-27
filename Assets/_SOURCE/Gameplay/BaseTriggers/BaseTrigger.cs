@@ -25,7 +25,7 @@ namespace Gameplay.BaseTriggers
 
     private void OnTriggerEnter(Collider other)
     {
-      if (other.TryGetComponent(out TargetTrigger playerTrigger))
+      if (other.TryGetComponent(out PlayerTargetTrigger playerTrigger))
       {
         if (playerTrigger.transform.parent.TryGetComponent(out Player player))
         {

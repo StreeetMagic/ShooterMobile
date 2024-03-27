@@ -2,29 +2,36 @@ using System;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Infrastructure.Utilities;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Characters.Enemies.Healths
 {
-  public class Health : MonoBehaviour
+  public class EnemyHealth : MonoBehaviour
   {
-    private EnemyConfig _enemyConfig;
+    private Enemy _enemy;
     private EnemyAnimator _enemyAnimator;
 
-    public event Action<EnemyConfig, Health> Died;
+    public event Action<EnemyConfig, EnemyHealth> Died;
     public event Action<int> Damaged;
 
     public ReactiveProperty<int> Current { get; } = new();
 
-    public int Initial => _enemyConfig.InitialHealth;
+    public int Initial => Config.InitialHealth;
     public bool IsFull => Current.Value == Initial;
     public bool IsDead { get; private set; }
 
-    public void Init(EnemyConfig enemyConfig, EnemyAnimator animator)
-    {
-      _enemyConfig = enemyConfig;
-      SetCurrentHealth(Initial);
+    private EnemyConfig Config => _enemy.Config;
 
+    [Inject]
+    private void Construct(EnemyAnimator animator, Enemy enemy)
+    {
       _enemyAnimator = animator;
+      _enemy = enemy;
+    }
+
+    private void Start()
+    {
+      SetCurrentHealth(Initial);
     }
 
     public void TakeDamage(int damage)
@@ -51,7 +58,7 @@ namespace Gameplay.Characters.Enemies.Healths
 
       IsDead = true;
 
-      Died?.Invoke(_enemyConfig, this);
+      Died?.Invoke(Config, this);
 
       // Destroy(_enemy.gameObject);
     }

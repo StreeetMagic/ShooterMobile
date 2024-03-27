@@ -24,8 +24,8 @@ namespace Gameplay.Characters.Players.TargetLocators
       _playerStatsProvider = playerStatsProvider;
     }
 
-    public event Action<TargetTrigger> TargetLocated;
-    public event Action<TargetTrigger> TargetLost;
+    public event Action<EnemyTargetTrigger> TargetLocated;
+    public event Action<EnemyTargetTrigger> TargetLost;
 
     private float Radius => _playerStatsProvider.GetStat(StatId.FireRange).Value;
 
@@ -48,7 +48,7 @@ namespace Gameplay.Characters.Players.TargetLocators
 
     private void OnTriggerEnter(Collider other)
     {
-      if (other.TryGetComponent(out TargetTrigger targetTrigger))
+      if (other.TryGetComponent(out EnemyTargetTrigger targetTrigger))
       {
         if (targetTrigger.CompareTag(Player))
           return;
@@ -59,7 +59,7 @@ namespace Gameplay.Characters.Players.TargetLocators
 
     private void OnTriggerExit(Collider other)
     {
-      if (other.TryGetComponent(out TargetTrigger targetTrigger))
+      if (other.TryGetComponent(out EnemyTargetTrigger targetTrigger))
       {
         if (targetTrigger.CompareTag(Player))
           return;

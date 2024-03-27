@@ -4,29 +4,32 @@ using Gameplay.Characters.Enemies.Healths;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.Utilities;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
   public class HealthStatusController : MonoBehaviour
   {
-    private Health _health;
+    private Enemy _enemy;
+    private EnemyHealth _enemyHealth;
     private CoroutineDecorator _coroutine;
-    private EnemyConfig _enemyConfig;
+
     private ICoroutineRunner _coroutineRunner;
 
-    public void Init(Health health, EnemyConfig enemyConfig, ICoroutineRunner coroutineRunner)
+    [Inject]
+    private void Construct(EnemyHealth enemyHealth, ICoroutineRunner coroutineRunner, Enemy enemy)
     {
       _coroutineRunner = coroutineRunner;
-      _health = health;
-      _enemyConfig = enemyConfig;
-
-      _health.Damaged += OnDamaged;
-
+      _enemyHealth = enemyHealth;
+      _enemy = enemy;
+      
+      _enemyHealth.Damaged += OnDamaged;
       _coroutine = new CoroutineDecorator(_coroutineRunner, TakeHit);
     }
 
+    private EnemyConfig Config => _enemy.Config;
     public bool IsHit { get; private set; }
-    private float RunTime => _enemyConfig.RunTime;
+    private float RunTime => Config.RunTime;
 
     private void OnDamaged(int damage)
     {

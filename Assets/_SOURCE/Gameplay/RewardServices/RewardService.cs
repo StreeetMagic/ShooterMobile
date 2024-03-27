@@ -11,7 +11,7 @@ namespace Gameplay.RewardServices
 {
   public class RewardService
   {
-    private readonly List<Health> _healths = new();
+    private readonly List<EnemyHealth> _healths = new();
 
     private readonly IStaticDataService _staticDataService;
     private readonly BackpackStorage _backpackStorage;
@@ -26,16 +26,16 @@ namespace Gameplay.RewardServices
       _backpackStorage = backpackStorage;
     }
 
-    public void AddEnemy(Health health)
+    public void AddEnemy(EnemyHealth enemyHealth)
     {
-      _healths.Add(health);
+      _healths.Add(enemyHealth);
       
-      health.Died += OnEnemyDied;
+      enemyHealth.Died += OnEnemyDied;
     }
 
-    private void OnEnemyDied(EnemyConfig enemyConfig, Health health)
+    private void OnEnemyDied(EnemyConfig enemyConfig, EnemyHealth enemyHealth)
     {
-      _healths.Remove(health);
+      _healths.Remove(enemyHealth);
       
       _backpackStorage.AddLoot(enemyConfig.LootDrops);
     }

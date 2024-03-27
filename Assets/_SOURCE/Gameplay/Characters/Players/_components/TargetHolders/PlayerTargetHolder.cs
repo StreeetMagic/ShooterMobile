@@ -13,9 +13,9 @@ namespace Gameplay.Characters.Players.TargetHolders
   {
     private readonly PlayerProvider _playerProvider;
     private readonly TickableManager _tickableManager;
-    private readonly List<TargetTrigger> _targets = new();
+    private readonly List<EnemyTargetTrigger> _targets = new();
 
-    private TargetTrigger _currentTarget;
+    private EnemyTargetTrigger _currentEnemyTarget;
 
     public PlayerTargetHolder(PlayerProvider playerProvider, TickableManager tickableManager)
     {
@@ -23,11 +23,11 @@ namespace Gameplay.Characters.Players.TargetHolders
       _tickableManager = tickableManager;
     }
 
-    public event Action<TargetTrigger> CurrentTargetUpdated;
+    public event Action<EnemyTargetTrigger> CurrentTargetUpdated;
 
-    public bool HasTarget => _currentTarget != null;
-    public Vector3 DirectionToTarget => _currentTarget.transform.position - Transform.position;
-    public Vector3 LookDirectionToTarget => new Vector3(_currentTarget.transform.position.x, Transform.position.y, _currentTarget.transform.position.z) - Transform.position;
+    public bool HasTarget => _currentEnemyTarget != null;
+    public Vector3 DirectionToTarget => _currentEnemyTarget.transform.position - Transform.position;
+    public Vector3 LookDirectionToTarget => new Vector3(_currentEnemyTarget.transform.position.x, Transform.position.y, _currentEnemyTarget.transform.position.z) - Transform.position;
 
     private PlayerTargetLocator PlayerTargetLocator => _playerProvider.PlayerTargetLocator;
     private Transform Transform => _playerProvider.Player.transform;
@@ -40,61 +40,61 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     public void Tick()
     {
-      if (_currentTarget != null && _currentTarget.Health.Current.Value <= 0)
+      if (_currentEnemyTarget != null && _currentEnemyTarget.EnemyHealth.Current.Value <= 0)
       {
-        RemoveTarget(_currentTarget);
-        _currentTarget = null;
+        RemoveTarget(_currentEnemyTarget);
+        _currentEnemyTarget = null;
       }
 
-      if (_currentTarget == null && _targets.Count > 0)
+      if (_currentEnemyTarget == null && _targets.Count > 0)
         UpdateCurrentTarget(ValidateRandomTarget());
     }
 
-    private void AddTarget(TargetTrigger target)
+    private void AddTarget(EnemyTargetTrigger enemyTarget)
     {
       if (_targets.Count == 0)
-        UpdateCurrentTarget(target);
+        UpdateCurrentTarget(enemyTarget);
 
-      _targets.Add(target);
+      _targets.Add(enemyTarget);
     }
 
-    private void UpdateCurrentTarget(TargetTrigger target)
+    private void UpdateCurrentTarget(EnemyTargetTrigger enemyTarget)
     {
-      _currentTarget = target;
-      CurrentTargetUpdated?.Invoke(_currentTarget);
+      _currentEnemyTarget = enemyTarget;
+      CurrentTargetUpdated?.Invoke(_currentEnemyTarget);
     }
 
-    private void RemoveTarget(TargetTrigger target)
+    private void RemoveTarget(EnemyTargetTrigger enemyTarget)
     {
-      _targets.Remove(target);
+      _targets.Remove(enemyTarget);
 
-      if (target == _currentTarget)
+      if (enemyTarget == _currentEnemyTarget)
         UpdateCurrentTarget(ValidateRandomTarget());
     }
 
-    private TargetTrigger ValidateRandomTarget() =>
+    private EnemyTargetTrigger ValidateRandomTarget() =>
       _targets.Count == 0
         ? null
         : RandomTarget();
 
-    private TargetTrigger RandomTarget() =>
+    private EnemyTargetTrigger RandomTarget() =>
       _targets[Random.Range(0, _targets.Count)];
 
-    private void OnPlayerTargetLocated(TargetTrigger target)
+    private void OnPlayerTargetLocated(EnemyTargetTrigger enemyTarget)
     {
-      if (_targets.Contains(target))
+      if (_targets.Contains(enemyTarget))
         return;
 
-      if (target.Health.IsDead)
+      if (enemyTarget.EnemyHealth.IsDead)
         return;
 
-      AddTarget(target);
+      AddTarget(enemyTarget);
     }
 
-    private void OnPlayerTargetLost(TargetTrigger target)
+    private void OnPlayerTargetLost(EnemyTargetTrigger enemyTarget)
     {
-      if (_targets.Contains(target))
-        RemoveTarget(target);
+      if (_targets.Contains(enemyTarget))
+        RemoveTarget(enemyTarget);
     }
 
     private void Subscribe()

@@ -5,40 +5,42 @@ using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Players.Shooters.Projectiles;
 using Gameplay.Upgrades;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Gameplay.Characters.Enemies.TargetTriggers
 {
-  public class TargetTrigger : MonoBehaviour
+  public class EnemyTargetTrigger : MonoBehaviour
   {
-    public Health Health;
     public Collider Collider;
 
+    public EnemyHealth EnemyHealth;
     private UpgradeService _upgradeService;
 
     public bool IsTargeted { get; set; }
 
     [Inject]
-    private void Construct(UpgradeService upgradeService)
+    private void Construct(UpgradeService upgradeService, EnemyHealth enemyHealth)
     {
+      EnemyHealth = enemyHealth;
       _upgradeService = upgradeService;
 
-      Health.Died += OnDied;
+      EnemyHealth.Died += OnDied;
     }
 
-    private void OnDied(EnemyConfig arg1, Health arg2)
+    private void OnDied(EnemyConfig arg1, EnemyHealth arg2)
     {
       Collider.enabled = false;
     }
 
     public void TakeDamage(int damage)
     {
-      Health.TakeDamage(damage);
+      EnemyHealth.TakeDamage(damage);
     }
 
     private void FixedUpdate()
     {
-       transform.localPosition = Vector3.zero;
+      transform.localPosition = Vector3.zero;
     }
   }
 }

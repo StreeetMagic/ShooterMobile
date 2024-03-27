@@ -35,9 +35,9 @@ public class MoneyCollection : MonoBehaviour
     }
   }
 
-  private void OnEnemyDied(Health health)
+  private void OnEnemyDied(EnemyHealth enemyHealth)
   {
-    var position = _camera.WorldToScreenPoint(health.transform.position);
+    var position = _camera.WorldToScreenPoint(enemyHealth.transform.position);
 
     _visualEffectFactory.Create(VIsualEffectId.MoneyCollection1, position, transform, Target);
   }

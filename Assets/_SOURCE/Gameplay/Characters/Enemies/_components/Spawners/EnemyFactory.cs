@@ -42,23 +42,14 @@ namespace Gameplay.Characters.Enemies.Spawners
     {
       Enemy prefab = _assetProvider.ForEnemy(id);
       Enemy enemy = _zenjectFactory.InstantiateMono(prefab, position, Quaternion.identity, parent);
-      EnemyConfig enemyConfig = _staticDataService.GetEnemyConfig(id);
+      enemy.Config = _staticDataService.GetEnemyConfig(id);
 
-      var animator = enemy.GetComponentInChildren<EnemyAnimator>();
+      var health = enemy.GetComponentInChildren<EnemyHealth>();
 
-      var health = enemy.GetComponentInChildren<Health>();
-      health.Init(enemyConfig, animator);
       _corpseRemover.Add(health);
-
       _rewardService.AddEnemy(health);
 
-      HealthStatusController statusController = enemy.GetComponentInChildren<HealthStatusController>();
-      statusController.Init(health, enemyConfig, _coroutineRunner);
-
-      enemy.GetComponentInChildren<EnemyMover>().Init(enemyConfig);
-      enemy.GetComponentInChildren<EnemyMoverController>().Init(enemyConfig, health, spawnPoints, statusController, animator, _coroutineRunner);
-      enemy.GetComponentInChildren<Healer>().Init(health, statusController, enemyConfig);
-      enemy.GetComponentInChildren<HealthBarSwitcher>().Init(health);
+      enemy.GetComponentInChildren<EnemyMoverController>().Init(spawnPoints);
 
       Transform enemyLootSlotsContainer = enemy.GetComponentInChildren<EnemyLootSlotsContainer>().transform;
       _enemyLootSlotFactory.Create(enemyLootSlotsContainer, id);

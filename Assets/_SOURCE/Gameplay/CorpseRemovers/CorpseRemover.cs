@@ -12,7 +12,7 @@ namespace Gameplay.CorpseRemovers
 {
   public class CorpseRemover : IDisposable
   {
-    public List<Health> Enemies { get; } = new();
+    public List<EnemyHealth> Enemies { get; } = new();
 
     private readonly ICoroutineRunner _coroutineRunner;
     private readonly List<CoroutineDecorator> _coroutines = new();
@@ -22,10 +22,10 @@ namespace Gameplay.CorpseRemovers
       _coroutineRunner = coroutineRunner;
     }
 
-    public void Add(Health health)
+    public void Add(EnemyHealth enemyHealth)
     {
-      Enemies.Add(health);
-      health.Died += OnDied;
+      Enemies.Add(enemyHealth);
+      enemyHealth.Died += OnDied;
     }
 
     public void Dispose()
@@ -33,21 +33,24 @@ namespace Gameplay.CorpseRemovers
       _coroutines.Clear();
     }
 
-    private void OnDied(EnemyConfig config, Health health)
+    private void OnDied(EnemyConfig config, EnemyHealth enemyHealth)
     {
-      health.Died -= OnDied;
+      enemyHealth.Died -= OnDied;
 
-      var coroutineDecorator = new CoroutineDecorator(_coroutineRunner, () => RemoveCorpse(health));
+      var coroutineDecorator = new CoroutineDecorator(_coroutineRunner, () => RemoveCorpse(enemyHealth));
       coroutineDecorator.Start();
 
       _coroutines.Add(coroutineDecorator);
     }
 
-    private IEnumerator RemoveCorpse(Health health)
+    private IEnumerator RemoveCorpse(EnemyHealth enemyHealth)
     {
       yield return new WaitForSeconds(2f);
+      
+      if (enemyHealth == null)
+        yield break;
 
-      Object.Destroy(health.transform.parent.gameObject);
+      Object.Destroy(enemyHealth.transform.parent.gameObject);
     }
   }
 }

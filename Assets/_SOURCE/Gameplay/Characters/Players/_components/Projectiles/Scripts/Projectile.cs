@@ -39,7 +39,7 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
 
     private void DamageTargetTrigger(Collider other)
     {
-      if (other.gameObject.TryGetComponent(out TargetTrigger targetTrigger))
+      if (other.gameObject.TryGetComponent(out EnemyTargetTrigger targetTrigger))
       {
         if (_count == 0)
         {

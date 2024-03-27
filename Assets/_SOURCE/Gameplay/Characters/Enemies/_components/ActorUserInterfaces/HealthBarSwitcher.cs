@@ -2,25 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
+using Zenject;
 
 public class HealthBarSwitcher : MonoBehaviour
 {
   public GameObject[] Components;
 
-  private Health _health;
+  private EnemyHealth _enemyHealth;
 
-  public void Init(Health health)
+  [Inject]
+  private void Construct(EnemyHealth enemyHealth)
   {
-    _health = health;
+    _enemyHealth = enemyHealth;
+  }
 
-    _health.Current.ValueChanged += OnHealthChanged;
-
+  public void Start()
+  {
+    _enemyHealth.Current.ValueChanged += OnHealthChanged;
     OnHealthChanged(0);
+  }
+
+  public void OnDestroy()
+  {
+    _enemyHealth.Current.ValueChanged -= OnHealthChanged;
   }
 
   private void OnHealthChanged(int _)
   {
-    if (_health.IsFull)
+    if (_enemyHealth.IsFull)
       foreach (GameObject component in Components)
         component.SetActive(false);
     else

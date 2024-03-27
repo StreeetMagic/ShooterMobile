@@ -1,5 +1,6 @@
 using Configs.Resources.EnemyConfigs.Scripts;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Characters.Enemies.Movers
 {
@@ -7,9 +8,10 @@ namespace Gameplay.Characters.Enemies.Movers
   {
     private CharacterController _characterController;
 
-    public void Init(EnemyConfig enemyConfig)
+    [Inject]
+    private void Construct(CharacterController characterController)
     {
-      _characterController = GetComponent<CharacterController>();
+      _characterController = characterController;
     }
 
     public void Move(Vector3 moveDirection, float deltaTime, float moveSpeed)

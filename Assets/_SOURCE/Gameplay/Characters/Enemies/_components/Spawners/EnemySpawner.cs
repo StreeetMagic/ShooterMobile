@@ -32,7 +32,7 @@ namespace Gameplay.Characters.Enemies.Spawners
       _coroutineRunner = coroutineRunner;
     }
 
-    public event Action<Health> EnemyDied;
+    public event Action<EnemyHealth> EnemyDied;
 
     public void Init(EnemyId enemyId, List<SpawnPoint> spawnPoints, int respawnTime)
     {
@@ -70,10 +70,10 @@ namespace Gameplay.Characters.Enemies.Spawners
       int randomSpawnPointNumber = Random.Range(0, _spawnPoints.Count - 1);
       var enemy = _enemyFactory.Create(EnemyId, transform, _spawnPoints[randomSpawnPointNumber].transform.position, _spawnPoints);
       _enemies.Add(enemy);
-      enemy.GetComponentInChildren<Health>().Died += OnEnemyDied;
+      enemy.GetComponentInChildren<EnemyHealth>().Died += OnEnemyDied;
     }
 
-    private void OnEnemyDied(EnemyConfig config, Health health)
+    private void OnEnemyDied(EnemyConfig config, EnemyHealth enemyHealth)
     {
       var coroutineDecorator = new CoroutineDecorator(_coroutineRunner, WaitAndSpawn);
 
@@ -81,7 +81,7 @@ namespace Gameplay.Characters.Enemies.Spawners
 
       _respawners.Add(coroutineDecorator);
 
-      EnemyDied?.Invoke(health);
+      EnemyDied?.Invoke(enemyHealth);
     }
 
     private IEnumerator WaitAndSpawn()

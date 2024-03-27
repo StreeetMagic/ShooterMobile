@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gameplay.Characters.Healths.Editor
 {
-  [CustomEditor(typeof(Health))]
+  [CustomEditor(typeof(EnemyHealth))]
   public class HealthEditor : UnityEditor.Editor
   {
     // [DrawGizmo(GizmoType.Active | GizmoType.Pickable | GizmoType.NonSelected)]

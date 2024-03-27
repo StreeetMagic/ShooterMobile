@@ -2,44 +2,47 @@ using System;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
   public class Healer : MonoBehaviour
   {
-    private Health _health;
+    private EnemyHealth _enemyHealth;
     private HealthStatusController _healthStatusController;
-    private EnemyConfig _enemyConfig;
+    private Enemy _enemy;
 
     private float _heal;
 
-    public void Init(Health health, HealthStatusController healthStatusController, EnemyConfig enemyConfig)
+    [Inject]
+    private void Construct(EnemyHealth enemyHealth, HealthStatusController healthStatusController, Enemy enemy)
     {
-      _health = health;
+      _enemyHealth = enemyHealth;
       _healthStatusController = healthStatusController;
-      _enemyConfig = enemyConfig;
+      _enemy = enemy;
     }
 
-    private float HealMultiplier => _enemyConfig.HealMultiplier;
-    
+    private float HealMultiplier => EnemyConfig.HealMultiplier;
+    private EnemyConfig EnemyConfig => _enemy.Config;
+
     private void Update()
     {
-      if (_health.IsDead)
+      if (_enemyHealth.IsDead)
         return;
 
       if (_healthStatusController.IsHit)
         return;
 
-      if (_health.IsFull)
+      if (_enemyHealth.IsFull)
         return;
 
-      float healAmount = (float)_enemyConfig.InitialHealth;
+      float healAmount = (float)EnemyConfig.InitialHealth;
 
       _heal += healAmount * Time.deltaTime * HealMultiplier;
 
       if (_heal >= 1)
       {
-        _health.Current.Value++;
+        _enemyHealth.Current.Value++;
         _heal = 0;
       }
     }
