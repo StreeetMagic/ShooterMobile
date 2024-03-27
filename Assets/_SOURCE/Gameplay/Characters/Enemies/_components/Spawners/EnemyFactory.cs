@@ -6,7 +6,6 @@ using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using Infrastructure.AssetProviders;
-using Infrastructure.CoroutineRunners;
 using Infrastructure.StaticDataServices;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
@@ -17,24 +16,20 @@ namespace Gameplay.Characters.Enemies.Spawners
   {
     private readonly IAssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _zenjectFactory;
-    private readonly RandomService _randomService;
     private readonly IStaticDataService _staticDataService;
     private readonly RewardService _rewardService;
     private readonly CorpseRemover _corpseRemover;
-    private readonly ICoroutineRunner _coroutineRunner;
     private readonly EnemyLootSlotFactory _enemyLootSlotFactory;
 
-    public EnemyFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory,
-      RandomService randomService, IStaticDataService staticDataService, RewardService rewardService,
-      CorpseRemover corpseRemover, ICoroutineRunner coroutineRunner, EnemyLootSlotFactory enemyLootSlotFactory)
+    public EnemyFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory, 
+      IStaticDataService staticDataService, RewardService rewardService,
+      CorpseRemover corpseRemover, EnemyLootSlotFactory enemyLootSlotFactory)
     {
       _assetProvider = assetProvider;
       _zenjectFactory = zenjectFactory;
-      _randomService = randomService;
       _staticDataService = staticDataService;
       _rewardService = rewardService;
       _corpseRemover = corpseRemover;
-      _coroutineRunner = coroutineRunner;
       _enemyLootSlotFactory = enemyLootSlotFactory;
     }
 
@@ -43,13 +38,11 @@ namespace Gameplay.Characters.Enemies.Spawners
       Enemy prefab = _assetProvider.ForEnemy(id);
       Enemy enemy = _zenjectFactory.InstantiateMono(prefab, position, Quaternion.identity, parent);
       enemy.Config = _staticDataService.GetEnemyConfig(id);
+      enemy.SpawnPoints = spawnPoints;
 
       var health = enemy.GetComponentInChildren<EnemyHealth>();
-
       _corpseRemover.Add(health);
       _rewardService.AddEnemy(health);
-
-      enemy.GetComponentInChildren<EnemyMoverController>().Init(spawnPoints);
 
       Transform enemyLootSlotsContainer = enemy.GetComponentInChildren<EnemyLootSlotsContainer>().transform;
       _enemyLootSlotFactory.Create(enemyLootSlotsContainer, id);

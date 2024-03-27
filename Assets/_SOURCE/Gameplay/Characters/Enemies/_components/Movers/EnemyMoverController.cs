@@ -34,15 +34,16 @@ namespace Gameplay.Characters.Enemies.Movers
       _coroutineRunner = coroutineRunner;
       _enemyAnimator = enemyAnimator;
       _enemy = enemy;
-    }
 
-    public void Init(List<SpawnPoint> routePoints)
-    {
       _coroutine = new CoroutineDecorator(_coroutineRunner, MoveToTargetPosition);
-
-      _routePointsManager.Init(routePoints, transform);
     }
 
+    private void Start()
+    {
+      _routePointsManager.Init(RoutePoints, transform);
+    }
+
+    private List<SpawnPoint> RoutePoints => _enemy.SpawnPoints;
     private float MoveSpeed => _enemyConfig.MoveSpeed;
     private float RunSpeed => _enemyConfig.RunSpeed;
     private EnemyConfig _enemyConfig => _enemy.Config;
