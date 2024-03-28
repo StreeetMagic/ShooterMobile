@@ -7,48 +7,46 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Enemies.Movers
 {
-  public class RoutePointsManager : IFixedTickable
+  public class RoutePointsManager
   {
-    private Transform _transform;
-    private List<SpawnPoint> _routePoints;
+    private readonly Transform _transform;
+    private readonly Enemy _enemy;
     private int _currentRouteIndex;
 
-    public void Init(List<SpawnPoint> routePoints, Transform trans)
+    public RoutePointsManager(Transform transform, Enemy enemy)
     {
-      _routePoints = ShuffleRoutePoints(routePoints);
-      _transform = trans;
+      _transform = transform;
+      _enemy = enemy;
     }
 
-    public Vector3 TargetPosition =>
-      _routePoints == null
-        ? Vector3.zero
-        : _routePoints[_currentRouteIndex].transform.position;
+    private List<SpawnPoint> RoutePoints => ShuffleRoutePoints(_enemy.SpawnPoints);
 
-    public void FixedTick()
-    {
-      if (Vector3.Distance(_routePoints[_currentRouteIndex].transform.position, _transform.position) < 0.1f)
-        SetRandomRoute();
-    }
+    public Transform NextRoutePointTransform =>
+      RoutePoints?[_currentRouteIndex].transform;
+    
+    public float DistanceToNextRoutePoint =>
+      Vector3.Distance(RoutePoints[_currentRouteIndex].transform.position, _transform.position);
+    
+    public Vector3 DirectionToNextRoutePoint =>
+      (RoutePoints[_currentRouteIndex].transform.position - _transform.position).normalized;
 
-    private void SetRandomRoute()
+    public void SetRandomRoute()
     {
-      _currentRouteIndex = Random.Range(0, _routePoints.Count);
+      while (Vector3.Distance(RoutePoints[_currentRouteIndex].transform.position, _transform.position) < 0.1f)
+        _currentRouteIndex = Random.Range(0, RoutePoints.Count);
     }
 
     private List<SpawnPoint> ShuffleRoutePoints(List<SpawnPoint> points)
     {
+      var list = new List<SpawnPoint>(points);
+
       for (int i = 0; i < points.Count; i++)
       {
-        int randIndex = Random.Range(i, points.Count);
-        (points[randIndex], points[i]) = (points[i], points[randIndex]);
+        int randIndex = Random.Range(i, list.Count);
+        (list[randIndex], list[i]) = (list[i], list[randIndex]);
       }
 
-      return points;
-    }
-
-    public void Dispose()
-    {
-      _routePoints = null;
+      return list;
     }
   }
 }

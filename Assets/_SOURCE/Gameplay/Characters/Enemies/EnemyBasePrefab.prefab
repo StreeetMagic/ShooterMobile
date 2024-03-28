@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 2271594991052282516}
   - component: {fileID: -7812973496695978666}
   - component: {fileID: 5396269004565815343}
-  - component: {fileID: 7108181162478725540}
   - component: {fileID: 1185853144611762197}
-  - component: {fileID: 8432826628920511347}
+  - component: {fileID: 7108181162478725540}
   m_Layer: 3
   m_Name: EnemyBasePrefab
   m_TagString: Untagged
@@ -83,20 +82,6 @@ MonoBehaviour:
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!114 &7108181162478725540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5342982923862884670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 983cdf67cd1087d47902018340219753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Config: {fileID: 0}
-  SpawnPoints: []
 --- !u!114 &1185853144611762197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +100,7 @@ MonoBehaviour:
   enemyHealth: {fileID: 0}
   HealthStatusController: {fileID: 5553976450083900235}
   EnemyAnimator: {fileID: 0}
---- !u!114 &8432826628920511347
+--- !u!114 &7108181162478725540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,9 +109,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5342982923862884670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7328ea6d52d0476cafd5a833026aa8b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 983cdf67cd1087d47902018340219753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Config: {fileID: 0}
+  SpawnPoints: []
 --- !u!1001 &3957916751689609866
 PrefabInstance:
   m_ObjectHideFlags: 0

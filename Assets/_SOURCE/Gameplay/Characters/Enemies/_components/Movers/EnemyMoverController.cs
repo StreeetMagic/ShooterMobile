@@ -11,36 +11,32 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.Movers
 {
-  public class EnemyMoverController : MonoBehaviour
+  public class EnemyMoverController : IFixedTickable, IDisposable
   {
-    private EnemyMover _enemyMover;
-    private RoutePointsManager _routePointsManager = new RoutePointsManager();
-    private bool _isMoving;
-    private EnemyHealth _enemyHealth;
-    private Enemy _enemy;
-    private CoroutineDecorator _coroutine;
-    private HealthStatusController _healthStatusController;
-    private EnemyAnimator _enemyAnimator;
-    private ICoroutineRunner _coroutineRunner;
-    private bool _isDestroyed;
+    private readonly EnemyMover _enemyMover;
+    private readonly EnemyHealth _enemyHealth;
+    private readonly Enemy _enemy;
+    private readonly HealthStatusController _healthStatusController;
+    private readonly EnemyAnimator _enemyAnimator;
+    private readonly Transform _transform;
 
-    [Inject]
-    private void Construct(EnemyHealth enemyHealth, EnemyMover enemyMover,
-      HealthStatusController healthStatusController, ICoroutineRunner coroutineRunner, EnemyAnimator enemyAnimator, Enemy enemy)
+    private bool _isMoving;
+    private bool _isDestroyed;
+    private CoroutineDecorator _coroutine;
+    private RoutePointsManager _routePointsManager;
+
+    private EnemyMoverController(EnemyHealth enemyHealth, EnemyMover enemyMover,
+      HealthStatusController healthStatusController, ICoroutineRunner coroutineRunner, EnemyAnimator enemyAnimator,
+      Enemy enemy, Transform transform)
     {
       _enemyMover = enemyMover;
       _enemyHealth = enemyHealth;
       _healthStatusController = healthStatusController;
-      _coroutineRunner = coroutineRunner;
       _enemyAnimator = enemyAnimator;
       _enemy = enemy;
+      _transform = transform;
 
-      _coroutine = new CoroutineDecorator(_coroutineRunner, MoveToTargetPosition);
-    }
-
-    private void Start()
-    {
-      _routePointsManager.Init(RoutePoints, transform);
+      _coroutine = new CoroutineDecorator(coroutineRunner, MoveToTargetPosition);
     }
 
     private List<SpawnPoint> RoutePoints => _enemy.SpawnPoints;
@@ -48,9 +44,9 @@ namespace Gameplay.Characters.Enemies.Movers
     private float RunSpeed => _enemyConfig.RunSpeed;
     private EnemyConfig _enemyConfig => _enemy.Config;
 
-    public void FixedUpdate()
+    public void FixedTick()
     {
-      _routePointsManager.FixedTick();
+      // _routePointsManager.FixedTick();
 
       if (_enemyHealth.IsDead || _isDestroyed)
       {
@@ -66,9 +62,8 @@ namespace Gameplay.Characters.Enemies.Movers
       _coroutine.Start();
     }
 
-    private void OnDestroy()
+    public void Dispose()
     {
-      _routePointsManager.Dispose();
       _isDestroyed = true;
       _coroutine = null;
     }
@@ -92,7 +87,7 @@ namespace Gameplay.Characters.Enemies.Movers
 
       while (_enemyHealth.IsDead == false && !_isDestroyed)
       {
-        Vector3 moveDirection = (_routePointsManager.TargetPosition - transform.position).normalized;
+        Vector3 moveDirection = (_routePointsManager.NextRoutePointTransform.position - _transform.position).normalized;
 
         _enemyMover.Move(moveDirection, Time.fixedDeltaTime, GetCurrentSpeed());
 
@@ -105,11 +100,6 @@ namespace Gameplay.Characters.Enemies.Movers
       }
 
       _isMoving = false;
-    }
-
-    public void Dispose()
-    {
-      _coroutine = null;
     }
   }
 }

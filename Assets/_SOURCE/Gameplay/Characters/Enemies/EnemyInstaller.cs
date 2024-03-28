@@ -19,6 +19,9 @@ public class EnemyInstaller : MonoInstaller
   {
     Container.Bind<StateMachine<IEnemyState>>().AsSingle();
     Container.Bind<EnemyMover>().AsSingle();
+    Container.Bind<RoutePointsManager>().AsSingle();
+    Container.BindInterfacesAndSelfTo<EnemyBootstrapper>().AsSingle();
+    // Container.BindInterfacesAndSelfTo<EnemyMoverController>().AsSingle();
 
     Container.BindInstance(Enemy);
     Container.BindInstance(CharacterController);

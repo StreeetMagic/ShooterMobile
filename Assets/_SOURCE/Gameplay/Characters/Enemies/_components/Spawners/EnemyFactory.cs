@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Enemies.Movers;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
@@ -21,7 +19,7 @@ namespace Gameplay.Characters.Enemies.Spawners
     private readonly CorpseRemover _corpseRemover;
     private readonly EnemyLootSlotFactory _enemyLootSlotFactory;
 
-    public EnemyFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory, 
+    public EnemyFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory,
       IStaticDataService staticDataService, RewardService rewardService,
       CorpseRemover corpseRemover, EnemyLootSlotFactory enemyLootSlotFactory)
     {
@@ -37,6 +35,7 @@ namespace Gameplay.Characters.Enemies.Spawners
     {
       Enemy prefab = _assetProvider.ForEnemy(id);
       Enemy enemy = _zenjectFactory.InstantiateMono(prefab, position, Quaternion.identity, parent);
+
       enemy.Config = _staticDataService.GetEnemyConfig(id);
       enemy.SpawnPoints = spawnPoints;
 
@@ -48,16 +47,6 @@ namespace Gameplay.Characters.Enemies.Spawners
       _enemyLootSlotFactory.Create(enemyLootSlotsContainer, id);
 
       return enemy;
-    }
-
-    public void Destroy(Enemy enemy)
-    {
-      var moverController = enemy.GetComponentInChildren<EnemyMoverController>();
-
-      if (moverController == null)
-        return;
-
-      moverController.Dispose();
     }
   }
 }

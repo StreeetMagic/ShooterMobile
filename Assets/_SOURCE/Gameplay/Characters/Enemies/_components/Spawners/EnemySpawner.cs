@@ -44,14 +44,6 @@ namespace Gameplay.Characters.Enemies.Spawners
     private void OnDestroy()
     {
       _respawners.Clear();
-
-      foreach (Enemy enemy in _enemies)
-      {
-        if (enemy == null)
-          continue;
-
-        _enemyFactory.Destroy(enemy);
-      }
     }
 
     public void Spawn(int count)

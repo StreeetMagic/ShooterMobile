@@ -1,9 +1,12 @@
 ﻿using Infrastructure.StateMachines.States;
 using Infrastructure.Utilities;
+using Zenject;
 
 namespace Infrastructure.StateMachines
 {
-  public class StateMachine<TMainState> : IStateMachine<TMainState> where TMainState : class, IState
+  public class StateMachine<TMainState>
+    : IStateMachine<TMainState>, ITickable, IFixedTickable, ILateTickable
+    where TMainState : class, IState
   {
     public IExitableState ActiveState { get; private set; }
 
@@ -35,6 +38,24 @@ namespace Infrastructure.StateMachines
       var state = Get<TState>();
       ActiveState = state;
       return state;
+    }
+
+    public void Tick()
+    {
+      if (ActiveState is ITickable tickable)
+        tickable.Tick();
+    }
+
+    public void FixedTick()
+    {
+      if (ActiveState is IFixedTickable fixedTickable)
+        fixedTickable.FixedTick();
+    }
+
+    public void LateTick()
+    {
+      if (ActiveState is ILateTickable lateTickable)
+        lateTickable.LateTick();
     }
   }
 }

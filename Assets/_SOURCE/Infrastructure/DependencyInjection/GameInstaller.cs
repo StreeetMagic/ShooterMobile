@@ -38,7 +38,7 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<LoadingCurtain>().FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
 
       Container.Bind<ICoroutineRunner>().To<CoroutineRunner>().FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.CoroutineRunner).AsSingle();
-      Container.Bind<IStateMachine<IGameState>>().To<StateMachine<IGameState>>().AsSingle();
+      Container.BindInterfacesAndSelfTo<StateMachine<IGameState>>().AsSingle();
 
       Container.Bind<IInputService>().To<InputService>().AsSingle();
       Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
