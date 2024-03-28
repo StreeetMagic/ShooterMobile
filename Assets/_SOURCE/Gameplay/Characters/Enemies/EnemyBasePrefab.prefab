@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -7812973496695978666}
   - component: {fileID: 5396269004565815343}
   - component: {fileID: 7108181162478725540}
-  - component: {fileID: -9117853805708812217}
   - component: {fileID: 1185853144611762197}
   - component: {fileID: 8432826628920511347}
   m_Layer: 3
@@ -98,18 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 0}
   SpawnPoints: []
---- !u!114 &-9117853805708812217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5342982923862884670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e76e7b39df5b45149b9fd812499c8c7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1185853144611762197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +112,6 @@ MonoBehaviour:
   Enemy: {fileID: 0}
   CharacterController: {fileID: 0}
   Transform: {fileID: 0}
-  EnemyMover: {fileID: -9117853805708812217}
   enemyHealth: {fileID: 0}
   HealthStatusController: {fileID: 5553976450083900235}
   EnemyAnimator: {fileID: 0}
