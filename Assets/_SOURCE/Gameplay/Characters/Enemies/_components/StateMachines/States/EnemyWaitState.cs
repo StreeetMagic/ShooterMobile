@@ -13,7 +13,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private StateMachine<IEnemyState> _stateMachine;
     private RoutePointsManager _routePointsManager;
 
-    public EnemyWaitState(ICoroutineRunner coroutineRunner, StateMachine<IEnemyState> stateMachine, 
+    public EnemyWaitState(ICoroutineRunner coroutineRunner, StateMachine<IEnemyState> stateMachine,
       RoutePointsManager routePointsManager)
     {
       _stateMachine = stateMachine;
@@ -24,8 +24,13 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     public void Enter()
     {
       Debug.Log("EnemyWaitState");
-      
+
       _coroutine.Start();
+    }
+
+    public void Exit()
+    {
+      _coroutine.Stop();
     }
 
     private IEnumerator DoWait()
@@ -34,11 +39,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
       _routePointsManager.SetRandomRoute();
       _stateMachine.Enter<EnemyPatrolState>();
-    }
-
-    public void Exit()
-    {
-      _coroutine.Stop();
     }
   }
 }

@@ -11,33 +11,39 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private readonly StateMachine<IEnemyState> _stateMachine;
     private readonly RoutePointsManager _routePointsManager;
     private readonly EnemyMover _enemyMover;
-    private readonly Transform _transform;
     private readonly Enemy _enemy;
+    private bool _isActive;
 
     public EnemyPatrolState(RoutePointsManager routePointsManager,
       StateMachine<IEnemyState> stateMachine,
-      EnemyMover enemyMover, Transform transform, Enemy enemy)
+      EnemyMover enemyMover, Enemy enemy)
     {
       _routePointsManager = routePointsManager;
       _stateMachine = stateMachine;
       _enemyMover = enemyMover;
-      _transform = transform;
       _enemy = enemy;
     }
-    
+
     private EnemyConfig Config => _enemy.ComponentsProvider.Config;
 
     public void Enter()
     {
+      _isActive = true;
       Debug.Log("EnemyPatrolState");
     }
 
     public void Exit()
     {
+      _isActive = false;
     }
 
     public void FixedTick()
     {
+      Debug.Log("Тикаю");
+      
+      if (!_isActive)
+        return;
+
       Move();
     }
 
@@ -45,13 +51,18 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     {
       Vector3 targetPosition = _routePointsManager.NextRoutePointTransform.position;
 
-      Vector3 direction = (targetPosition - _transform.position).normalized;
-      float distance = Vector3.Distance(_transform.position, targetPosition);
+      Vector3 direction = (targetPosition - _enemy.transform.position).normalized;
+      float distance = Vector3.Distance(_enemy.transform.position, targetPosition);
 
       if (distance > 0.1f)
+      {
         _enemyMover.Move(direction, Time.fixedDeltaTime, Config.MoveSpeed);
+      }
       else
+      {
+        Debug.Log("Переключаю");
         _stateMachine.Enter<EnemyWaitState>();
+      }
     }
   }
 }
