@@ -39,10 +39,10 @@ namespace Gameplay.Characters.Enemies.Movers
       _coroutine = new CoroutineDecorator(coroutineRunner, MoveToTargetPosition);
     }
 
-    private List<SpawnPoint> RoutePoints => _enemy.SpawnPoints;
+    private List<SpawnPoint> RoutePoints => _enemy.ComponentsProvider.SpawnPoints;
     private float MoveSpeed => _enemyConfig.MoveSpeed;
     private float RunSpeed => _enemyConfig.RunSpeed;
-    private EnemyConfig _enemyConfig => _enemy.Config;
+    private EnemyConfig _enemyConfig => _enemy.ComponentsProvider.Config;
 
     public void FixedTick()
     {

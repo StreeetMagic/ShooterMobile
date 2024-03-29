@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ProjectileStorage
 {
-  private Dictionary<string, Projectile> _projectiles = new();
+  private Dictionary<string, PlayerProjectile> _projectiles = new();
 
-  public void Add(string guid, Projectile projectile)
+  public void Add(string guid, PlayerProjectile playerProjectile)
   {
-    _projectiles.Add(guid, projectile);
+    _projectiles.Add(guid, playerProjectile);
   }
 
   public void Remove(string guid)
@@ -22,9 +22,9 @@ public class ProjectileStorage
     _projectiles.Remove(guid);
   }
 
-  public Projectile Get(string guid)
+  public PlayerProjectile Get(string guid)
   {
-    if (_projectiles.TryGetValue(guid, out Projectile projectile))
+    if (_projectiles.TryGetValue(guid, out PlayerProjectile projectile))
       return projectile;
 
     Debug.LogError($"Projectile with guid {guid} not found");

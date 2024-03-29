@@ -62,7 +62,9 @@ namespace Gameplay.Characters.Enemies.Spawners
       int randomSpawnPointNumber = Random.Range(0, _spawnPoints.Count - 1);
       var enemy = _enemyFactory.Create(EnemyId, transform, _spawnPoints[randomSpawnPointNumber].transform.position, _spawnPoints);
       _enemies.Add(enemy);
-      enemy.GetComponentInChildren<EnemyHealth>().Died += OnEnemyDied;
+      
+      Debug.Log("Запрашиваем здоровье");
+      enemy.ComponentsProvider.Health.Died += OnEnemyDied;
     }
 
     private void OnEnemyDied(EnemyConfig config, EnemyHealth enemyHealth)

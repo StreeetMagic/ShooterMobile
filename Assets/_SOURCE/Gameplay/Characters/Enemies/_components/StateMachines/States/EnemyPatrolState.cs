@@ -1,46 +1,57 @@
-using System.Collections;
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Movers;
-using Infrastructure.CoroutineRunners;
 using Infrastructure.StateMachines;
-using Infrastructure.Utilities;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Characters.Enemies.StateMachines.States
 {
-  public class EnemyPatrolState : IEnemyState
+  public class EnemyPatrolState : IEnemyState, IFixedTickable
   {
-    private CoroutineDecorator _coroutine;
-    private StateMachine<IEnemyState> _stateMachine;
+    private readonly StateMachine<IEnemyState> _stateMachine;
     private readonly RoutePointsManager _routePointsManager;
     private readonly EnemyMover _enemyMover;
+    private readonly Transform _transform;
+    private readonly Enemy _enemy;
 
-    public EnemyPatrolState(RoutePointsManager routePointsManager, StateMachine<IEnemyState> stateMachine, EnemyMover enemyMover, ICoroutineRunner coroutineRunner)
+    public EnemyPatrolState(RoutePointsManager routePointsManager,
+      StateMachine<IEnemyState> stateMachine,
+      EnemyMover enemyMover, Transform transform, Enemy enemy)
     {
-      _coroutine = new CoroutineDecorator(coroutineRunner, MoveToNextPoint);
       _routePointsManager = routePointsManager;
       _stateMachine = stateMachine;
       _enemyMover = enemyMover;
+      _transform = transform;
+      _enemy = enemy;
     }
+    
+    private EnemyConfig Config => _enemy.ComponentsProvider.Config;
 
     public void Enter()
     {
-      _routePointsManager.SetRandomRoute();
-      _coroutine.Start();
+      Debug.Log("EnemyPatrolState");
     }
 
     public void Exit()
     {
     }
 
-    private IEnumerator MoveToNextPoint()
+    public void FixedTick()
     {
-      while (_routePointsManager.DistanceToNextRoutePoint > 0.1f)
-      {
-        _enemyMover.Move(_routePointsManager.DirectionToNextRoutePoint, Time.fixedDeltaTime, 10f);
-        yield return null;
-      }
+      Move();
+    }
 
-      _stateMachine.Enter<EnemyWaitState>();
+    private void Move()
+    {
+      Vector3 targetPosition = _routePointsManager.NextRoutePointTransform.position;
+
+      Vector3 direction = (targetPosition - _transform.position).normalized;
+      float distance = Vector3.Distance(_transform.position, targetPosition);
+
+      if (distance > 0.1f)
+        _enemyMover.Move(direction, Time.fixedDeltaTime, Config.MoveSpeed);
+      else
+        _stateMachine.Enter<EnemyWaitState>();
     }
   }
 }

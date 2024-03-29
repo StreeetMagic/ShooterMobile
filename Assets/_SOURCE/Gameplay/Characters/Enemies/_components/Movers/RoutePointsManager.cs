@@ -12,28 +12,29 @@ namespace Gameplay.Characters.Enemies.Movers
     private readonly Transform _transform;
     private readonly Enemy _enemy;
     private int _currentRouteIndex;
+    private List<SpawnPoint> _routePoints;
 
     public RoutePointsManager(Transform transform, Enemy enemy)
     {
       _transform = transform;
       _enemy = enemy;
+
+      SetRandomRoute();
     }
 
-    private List<SpawnPoint> RoutePoints => ShuffleRoutePoints(_enemy.SpawnPoints);
+    private List<SpawnPoint> RoutePoints => _routePoints ??= ShuffleRoutePoints(_enemy.ComponentsProvider.SpawnPoints);
 
     public Transform NextRoutePointTransform =>
-      RoutePoints?[_currentRouteIndex].transform;
-    
-    public float DistanceToNextRoutePoint =>
-      Vector3.Distance(RoutePoints[_currentRouteIndex].transform.position, _transform.position);
-    
-    public Vector3 DirectionToNextRoutePoint =>
-      (RoutePoints[_currentRouteIndex].transform.position - _transform.position).normalized;
+      RoutePoints[_currentRouteIndex].transform;
 
     public void SetRandomRoute()
     {
-      while (Vector3.Distance(RoutePoints[_currentRouteIndex].transform.position, _transform.position) < 0.1f)
+      int currentIndex = _currentRouteIndex;
+
+      do
+      {
         _currentRouteIndex = Random.Range(0, RoutePoints.Count);
+      } while (_currentRouteIndex == currentIndex);
     }
 
     private List<SpawnPoint> ShuffleRoutePoints(List<SpawnPoint> points)

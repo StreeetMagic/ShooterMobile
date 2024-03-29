@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CollisionPointRayCaster : MonoBehaviour
 {
   private Vector3 _previousPosition = Vector3.zero;
   private Vector3 _currentPosition;
-  public Vector3 _hitPosition;
+  public Vector3 HitPosition;
 
   private void FixedUpdate()
   {
@@ -24,7 +25,7 @@ public class CollisionPointRayCaster : MonoBehaviour
 
     if (Physics.Linecast(_previousPosition, _currentPosition, out var hit))
     {
-      _hitPosition = hit.point;
+      HitPosition = hit.point;
     }
   }
 

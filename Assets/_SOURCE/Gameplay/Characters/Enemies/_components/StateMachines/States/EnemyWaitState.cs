@@ -1,4 +1,5 @@
 using System.Collections;
+using Gameplay.Characters.Enemies.Movers;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.StateMachines;
 using Infrastructure.Utilities;
@@ -10,15 +11,20 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
   {
     private CoroutineDecorator _coroutine;
     private StateMachine<IEnemyState> _stateMachine;
+    private RoutePointsManager _routePointsManager;
 
-    public EnemyWaitState(ICoroutineRunner coroutineRunner, StateMachine<IEnemyState> stateMachine)
+    public EnemyWaitState(ICoroutineRunner coroutineRunner, StateMachine<IEnemyState> stateMachine, 
+      RoutePointsManager routePointsManager)
     {
       _stateMachine = stateMachine;
+      _routePointsManager = routePointsManager;
       _coroutine = new CoroutineDecorator(coroutineRunner, DoWait);
     }
 
     public void Enter()
     {
+      Debug.Log("EnemyWaitState");
+      
       _coroutine.Start();
     }
 
@@ -26,11 +32,13 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     {
       yield return new WaitForSeconds(1f);
 
+      _routePointsManager.SetRandomRoute();
       _stateMachine.Enter<EnemyPatrolState>();
     }
 
     public void Exit()
     {
+      _coroutine.Stop();
     }
   }
 }

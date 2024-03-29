@@ -9,7 +9,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Players.Shooters.Projectiles
 {
-  public class Projectile : MonoBehaviour
+  public class PlayerProjectile : MonoBehaviour
   {
     public CollisionPointRayCaster CollisionPointRayCaster;
 
@@ -29,9 +29,6 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
     private void OnTriggerEnter(Collider otherCollider)
     {
       DamageTargetTrigger(otherCollider);
-      PlayerVisualEffect();
-      transform.position = CollisionPointRayCaster._hitPosition;
-      Destroy(gameObject);
     }
 
     private void PlayerVisualEffect() =>
@@ -39,14 +36,22 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
 
     private void DamageTargetTrigger(Collider other)
     {
-      if (other.gameObject.TryGetComponent(out EnemyTargetTrigger targetTrigger))
+      if (other.gameObject.TryGetComponent(out EnemyTargetTrigger enemyTargetTrigger))
       {
         if (_count == 0)
         {
           _count++;
-          targetTrigger.TakeDamage(_playerStatsProvider.GetStat(StatId.Damage).Value);
+          enemyTargetTrigger.TakeDamage(_playerStatsProvider.GetStat(StatId.Damage).Value);
+          Destroy();
         }
       }
+    }
+
+    private void Destroy()
+    {
+      PlayerVisualEffect();
+      transform.position = CollisionPointRayCaster.HitPosition;
+      Destroy(gameObject);
     }
   }
 }

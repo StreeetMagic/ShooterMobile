@@ -1,21 +1,26 @@
-using System;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Zenject;
 
 public class ActorUserInterface : MonoBehaviour
 {
-  [FormerlySerializedAs("Health")] public EnemyHealth enemyHealth;
+  private EnemyHealth _enemyHealth;
+
+  [Inject]
+  public void Construct(EnemyHealth enemyHealth)
+  {
+    _enemyHealth = enemyHealth;
+  }
 
   private void OnEnable()
   {
-    enemyHealth.Died += OnDied;
+    _enemyHealth.Died += OnDied;
   }
 
   private void OnDisable()
   {
-    enemyHealth.Died -= OnDied;
+    _enemyHealth.Died -= OnDied;
   }
 
   private void OnDied(EnemyConfig arg1, EnemyHealth arg2)

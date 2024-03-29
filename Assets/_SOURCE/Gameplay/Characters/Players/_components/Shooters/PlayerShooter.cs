@@ -10,7 +10,6 @@ using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
 using UnityEngine;
 using Zenject;
-using Object = UnityEngine.Object;
 
 namespace Gameplay.Characters.Players.Shooters
 {
@@ -100,7 +99,7 @@ namespace Gameplay.Characters.Players.Shooters
     private void Shoot()
     {
       Vector3 directionToTarget = PlayerTargetHolder.DirectionToTarget;
-      _projectileFactory.Create(Transform, directionToTarget);
+      _projectileFactory.CreatePlayerProjectile(Transform, directionToTarget);
       _audioService.PlaySound(SoundId.Shoot);
     }
   }

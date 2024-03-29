@@ -6,16 +6,15 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class Healer : MonoBehaviour
+  public class Healer
   {
-    private EnemyHealth _enemyHealth;
-    private HealthStatusController _healthStatusController;
-    private Enemy _enemy;
+    private readonly EnemyHealth _enemyHealth;
+    private readonly HealthStatusController _healthStatusController;
+    private readonly Enemy _enemy;
 
     private float _heal;
 
-    [Inject]
-    private void Construct(EnemyHealth enemyHealth, HealthStatusController healthStatusController, Enemy enemy)
+    private Healer(EnemyHealth enemyHealth, HealthStatusController healthStatusController, Enemy enemy)
     {
       _enemyHealth = enemyHealth;
       _healthStatusController = healthStatusController;
@@ -23,7 +22,7 @@ namespace Gameplay.Characters.Enemies
     }
 
     private float HealMultiplier => EnemyConfig.HealMultiplier;
-    private EnemyConfig EnemyConfig => _enemy.Config;
+    private EnemyConfig EnemyConfig => _enemy.ComponentsProvider.Config;
 
     private void Update()
     {

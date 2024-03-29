@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3107656250605191545}
-  - component: {fileID: 7547842009419304748}
-  - component: {fileID: 2508087573406754875}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -33,27 +31,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7547842009419304748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5712336225578279496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7146317d0635a4695f7a8f18102f1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2508087573406754875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5712336225578279496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c47c97f1bb42aaa3b6cecb7e1b9905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
