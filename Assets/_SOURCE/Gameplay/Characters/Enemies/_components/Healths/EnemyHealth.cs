@@ -10,19 +10,19 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.Healths
 {
-  public class EnemyHealth : IInitializable
+  public class EnemyHealth
   {
     private readonly EnemyComponentsProvider _enemy;
     private readonly EnemyAnimator _enemyAnimator;
     private readonly RewardService _rewardService;
     private readonly CorpseRemover _corpseRemover;
+    private bool _isInitialized;
 
     private EnemyHealth(EnemyAnimator animator, EnemyComponentsProvider enemy,
-      Transform transform, CorpseRemover corpseRemover, RewardService rewardService)
+      CorpseRemover corpseRemover, RewardService rewardService)
     {
       _enemyAnimator = animator;
       _enemy = enemy;
-      Transform = transform;
       _corpseRemover = corpseRemover;
       _rewardService = rewardService;
       enemy.Health = this;
@@ -36,7 +36,7 @@ namespace Gameplay.Characters.Enemies.Healths
     public bool IsFull => Current.Value == Initial;
     public bool IsDead { get; private set; }
     private EnemyConfig Config => _enemy.Config;
-    public Transform Transform { get; }
+    public Transform Transform => _enemy.Transform;
 
     public void Initialize()
     {
@@ -48,6 +48,12 @@ namespace Gameplay.Characters.Enemies.Healths
 
     public void TakeDamage(int damage)
     {
+      if (_isInitialized == false)
+      {
+        _isInitialized = true;
+        Initialize();
+      }
+
       if (damage <= 0)
       {
         throw new ArgumentOutOfRangeException(nameof(damage));
@@ -55,7 +61,7 @@ namespace Gameplay.Characters.Enemies.Healths
 
       SetCurrentHealth(Current.Value - damage);
 
-      Damaged?.Invoke(Current.Value); 
+      Damaged?.Invoke(Current.Value);
 
       if (Current.Value <= 0)
       {

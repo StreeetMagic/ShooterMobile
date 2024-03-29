@@ -15,7 +15,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     public void Enter()
     {
-      Debug.Log("EnemyBootstrapState");
       _stateMachine.Enter<EnemyWaitState>();
     }
 

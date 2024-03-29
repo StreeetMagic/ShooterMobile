@@ -19,6 +19,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private readonly CoroutineDecorator _coroutine;
     private readonly EnemyTargetLocator _targetLocator;
     private readonly StateMachine<IEnemyState> _stateMachine;
+    private bool _isShooting;
 
     public EnemyShootState(PlayerProvider playerProvider,
       EnemyShooter enemyShooter, EnemyComponentsProvider enemyComponentsProvider,
@@ -36,14 +37,13 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     public void Enter()
     {
-      Debug.Log("Enter EnemyShootState");
-
       _targetLocator.TargetLost += OnTargetLost;
       StartShootingCoroutine();
     }
 
     public void Exit()
     {
+      StopShootingCoroutine();
     }
 
     private void OnTargetLost(PlayerTargetTrigger obj)
@@ -64,12 +64,15 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private void StartShootingCoroutine()
     {
       if (_coroutine.IsRunning == false)
+      {
+        _isShooting = true;
         _coroutine.Start();
+      }
     }
 
     private IEnumerator Shooting()
     {
-      while (true)
+      while (_isShooting)
       {
         _enemyShooter.Shoot();
 

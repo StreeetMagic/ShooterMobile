@@ -45,8 +45,6 @@ namespace Infrastructure.StateMachines
     {
       if (ActiveState is ITickable tickable)
         tickable.Tick();
-
-      Debug.Log(ActiveState.GetType().Name);
     }
 
     public void FixedTick()

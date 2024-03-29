@@ -20,7 +20,6 @@ namespace Gameplay.Characters.Enemies.Spawners
     private EnemyFactory _enemyFactory;
     private ICoroutineRunner _coroutineRunner;
     private int _respawnTime;
-    private List<Enemy> _enemies = new List<Enemy>();
     private List<CoroutineDecorator> _respawners = new List<CoroutineDecorator>();
 
     public EnemyId EnemyId { get; private set; }
@@ -59,11 +58,14 @@ namespace Gameplay.Characters.Enemies.Spawners
 
     private void Spawn()
     {
+      if (_spawnPoints == null)
+      {
+        throw new InvalidOperationException(nameof(_spawnPoints));
+      }
+
       int randomSpawnPointNumber = Random.Range(0, _spawnPoints.Count - 1);
       var enemy = _enemyFactory.Create(EnemyId, transform, _spawnPoints[randomSpawnPointNumber].transform.position, _spawnPoints);
-      _enemies.Add(enemy);
-      
-      Debug.Log("Запрашиваем здоровье");
+
       enemy.ComponentsProvider.Health.Died += OnEnemyDied;
     }
 
@@ -74,6 +76,8 @@ namespace Gameplay.Characters.Enemies.Spawners
       coroutineDecorator.Start();
 
       _respawners.Add(coroutineDecorator);
+
+      enemyHealth.Died -= OnEnemyDied;
 
       EnemyDied?.Invoke(enemyHealth);
     }

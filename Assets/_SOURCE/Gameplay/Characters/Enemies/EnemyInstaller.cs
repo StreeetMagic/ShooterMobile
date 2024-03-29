@@ -17,19 +17,19 @@ public class EnemyInstaller : MonoInstaller
 
   public override void InstallBindings()
   {
-    Container.BindInterfacesAndSelfTo<StateMachine<IEnemyState>>().AsSingle();
-    Container.Bind<EnemyMover>().AsSingle();
-    Container.Bind<RoutePointsManager>().AsSingle();
-    Container.BindInterfacesAndSelfTo<EnemyBootstrapper>().AsSingle();
-    Container.BindInterfacesAndSelfTo<EnemyHealth>().AsSingle();
+    Container.BindInterfacesAndSelfTo<StateMachine<IEnemyState>>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<RoutePointsManager>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<EnemyBootstrapper>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<EnemyHealth>().AsSingle().NonLazy();
     Container.BindInterfacesAndSelfTo<HealthStatusController>().AsSingle().NonLazy();
-    Container.BindInterfacesAndSelfTo<Healer>().AsSingle();
-    Container.BindInterfacesAndSelfTo<EnemyComponentsProvider>().AsSingle();
-    Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle();
+    Container.BindInterfacesAndSelfTo<Healer>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<EnemyComponentsProvider>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
 
-    Container.Bind<Enemy>().FromInstance(Enemy).AsSingle();
-    Container.BindInstance(CharacterController);
-    Container.BindInstance(EnemyAnimator);
-    Container.BindInstance(TargetLocator);
+    Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();
+    Container.Bind<CharacterController>().FromInstance(CharacterController).AsSingle().NonLazy();
+    Container.Bind<EnemyAnimator>().FromInstance(EnemyAnimator).AsSingle().NonLazy();
+    Container.Bind<EnemyTargetLocator>().FromInstance(TargetLocator).AsSingle().NonLazy(); 
   }
 }

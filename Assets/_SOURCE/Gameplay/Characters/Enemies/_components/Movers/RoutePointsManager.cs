@@ -1,30 +1,43 @@
 using System.Collections.Generic;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Enemies.Movers
 {
   public class RoutePointsManager
   {
-    private readonly Transform _transform;
     private int _currentRouteIndex;
     private List<SpawnPoint> _routePoints;
+    private Enemy _enemy;
+    private bool _isInitialized;
 
-    public RoutePointsManager(Transform transform, Enemy enemy)
+    public RoutePointsManager(Enemy enemy)
     {
-      _transform = transform;
-
-      _routePoints = ShuffleRoutePoints(enemy.ComponentsProvider.SpawnPoints);
-
-      SetRandomRoute();
+      _enemy = enemy;
     }
 
     public Transform NextRoutePointTransform =>
       _routePoints[_currentRouteIndex].transform;
 
+    public void Initialize()
+    {
+      List<SpawnPoint> componentsProviderSpawnPoints = _enemy.ComponentsProvider.SpawnPoints;
+
+      _routePoints = ShuffleRoutePoints(componentsProviderSpawnPoints);
+
+      SetRandomRoute();
+    }
+
     public void SetRandomRoute()
     {
+      if (!_isInitialized)
+      {
+        _isInitialized = true;
+        Initialize();
+      }
+
       int currentIndex = _currentRouteIndex;
 
       do

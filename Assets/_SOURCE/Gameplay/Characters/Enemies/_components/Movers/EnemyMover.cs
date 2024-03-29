@@ -7,12 +7,12 @@ namespace Gameplay.Characters.Enemies.Movers
   public class EnemyMover
   {
     private readonly CharacterController _characterController;
-    private readonly Transform _transform;
+    private readonly Enemy _enemy;
 
-    private EnemyMover(CharacterController characterController, Transform transform)
+    private EnemyMover(CharacterController characterController, Enemy enemy)
     {
       _characterController = characterController;
-      _transform = transform;
+      _enemy = enemy;
     }
 
     public void Move(Vector3 moveDirection, float deltaTime, float moveSpeed)
@@ -28,7 +28,7 @@ namespace Gameplay.Characters.Enemies.Movers
 
     private void RotateToTargetPosition(Vector3 moveDirection)
     {
-      _transform.rotation = Quaternion.LookRotation(moveDirection);
+      _enemy.transform.rotation = Quaternion.LookRotation(moveDirection);
     }
   }
 }

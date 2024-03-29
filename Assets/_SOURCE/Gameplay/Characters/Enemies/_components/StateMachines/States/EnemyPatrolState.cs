@@ -29,7 +29,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     public void Enter()
     {
       _isActive = true;
-      Debug.Log("EnemyPatrolState");
     }
 
     public void Exit()
@@ -49,8 +48,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     private void Move()
     {
-      Debug.Log("Иду1");
-
       Vector3 targetPosition = _routePointsManager.NextRoutePointTransform.position;
 
       Vector3 direction = (targetPosition - _enemy.transform.position).normalized;
@@ -58,12 +55,10 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
       if (distance > 0.1f)
       {
-        Debug.Log("Иду2");
         _enemyMover.Move(direction, Time.fixedDeltaTime, Config.MoveSpeed);
       }
       else
       {
-        Debug.Log("Переключаю");
         _stateMachine.Enter<EnemyWaitState>();
       }
     }

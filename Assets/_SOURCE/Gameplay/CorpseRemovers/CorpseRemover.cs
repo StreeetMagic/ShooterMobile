@@ -46,13 +46,11 @@ namespace Gameplay.CorpseRemovers
     private IEnumerator RemoveCorpse(EnemyHealth enemyHealth)
     {
       yield return new WaitForSeconds(2f);
-      
+
       if (enemyHealth == null)
         yield break;
-      
-      
 
-      Object.Destroy(enemyHealth.Transform.parent.gameObject);
+      Object.Destroy(enemyHealth.Transform.gameObject);
     }
   }
 }

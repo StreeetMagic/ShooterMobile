@@ -1,8 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Enemies.Movers;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -17,6 +18,12 @@ namespace Gameplay.Characters.Enemies
     }
 
     public EnemyComponentsProvider ComponentsProvider { get; set; }
+
+    [Button]
+    private void Kill()
+    {
+      ComponentsProvider.Destroyed?.Invoke();
+    }
   }
 
   public class EnemyComponentsProvider
@@ -24,5 +31,8 @@ namespace Gameplay.Characters.Enemies
     public EnemyConfig Config { get; set; }
     public List<SpawnPoint> SpawnPoints { get; set; }
     public EnemyHealth Health { get; set; }
+    public Transform Transform { get; set; }
+
+    public Action Destroyed;
   }
 }

@@ -16,25 +16,25 @@ namespace Gameplay.Characters.Enemies.EnemyShooters
     private readonly PlayerProvider _playerProvider;
     private readonly ProjectileFactory _projectileFactory;
     private readonly AudioService _audioService;
-    private readonly Transform _transform;
+    private readonly Enemy _enemy;
 
     public EnemyShooter(PlayerProvider playerProvider, IStaticDataService staticDataService,
       ProjectileFactory zenjectFactory, TickableManager tickableManager, BackpackStorage backpackStorage,
       ICoroutineRunner coroutineRunner,
-      AudioService audioService, Transform transform)
+      AudioService audioService, Enemy enemy)
     {
       _playerProvider = playerProvider;
       _projectileFactory = zenjectFactory;
       _audioService = audioService;
-      _transform = transform;
+      _enemy = enemy;
     }
 
     private Transform PlayerTransform => _playerProvider.Player.transform;
 
     public void Shoot()
     {
-      Vector3 directionToTarget = PlayerTransform.position - _transform.position;
-      _projectileFactory.CreateEnemyProjectile(_transform, directionToTarget);
+      Vector3 directionToTarget = PlayerTransform.position - _enemy.transform.position;
+      _projectileFactory.CreateEnemyProjectile(_enemy.transform, directionToTarget);
       _audioService.PlaySound(SoundId.Shoot);
     }
   }

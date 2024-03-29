@@ -54,10 +54,27 @@ namespace Gameplay.Characters.Players.Shooters
 
     public void Tick()
     {
-      if (PlayerTargetHolder.HasTarget && _backpackStorage.IsFull == false)
-        StartShootingCoroutine();
-      else
+      // if (PlayerTargetHolder.HasTarget && _backpackStorage.IsFull == false)
+      //   StartShootingCoroutine();
+      // else
+      //   StopShootingCoroutine();
+      
+      if (_backpackStorage.IsFull)
+      {
+        Debug.Log("Причина 1");
         StopShootingCoroutine();
+        return;
+      }
+
+      if (PlayerTargetHolder.HasTarget)
+      {
+        StartShootingCoroutine();
+      }
+      else
+      {
+        Debug.Log("Причина 2");
+        StopShootingCoroutine();
+      }
     }
 
     public void Subscribe()
@@ -68,13 +85,20 @@ namespace Gameplay.Characters.Players.Shooters
     private void StopShootingCoroutine()
     {
       if (_coroutine.IsRunning)
+      {
+        Debug.Log("StopShootingCoroutine");
         _coroutine.Stop();
+      }
     }
 
     private void StartShootingCoroutine()
     {
       if (_coroutine.IsRunning == false)
+      {
+        Debug.Log("StartShootingCoroutine");
+
         _coroutine.Start();
+      }
     }
 
     private IEnumerator Shooting()
@@ -82,8 +106,6 @@ namespace Gameplay.Characters.Players.Shooters
       while (PlayerTargetHolder.HasTarget && _backpackStorage.IsFull == false)
       {
         Shoot();
-
-        //PlayerAnimator.Shoot();
 
         int fireRate =
           _staticDataService

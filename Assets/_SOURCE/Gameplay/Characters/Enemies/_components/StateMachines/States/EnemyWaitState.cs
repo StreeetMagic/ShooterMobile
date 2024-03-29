@@ -23,8 +23,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     public void Enter()
     {
-      Debug.Log("EnemyWaitState");
-
       _coroutine.Start();
     }
 

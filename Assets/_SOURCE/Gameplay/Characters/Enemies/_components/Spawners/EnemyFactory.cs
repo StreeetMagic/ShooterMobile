@@ -31,6 +31,7 @@ namespace Gameplay.Characters.Enemies.Spawners
 
       enemy.ComponentsProvider.Config = _staticDataService.GetEnemyConfig(id);
       enemy.ComponentsProvider.SpawnPoints = spawnPoints;
+      enemy.ComponentsProvider.Transform = enemy.transform;
 
       Transform enemyLootSlotsContainer = enemy.GetComponentInChildren<EnemyLootSlotsContainer>().transform;
       _enemyLootSlotFactory.Create(enemyLootSlotsContainer, id);

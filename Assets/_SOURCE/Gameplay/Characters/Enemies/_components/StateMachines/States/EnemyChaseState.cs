@@ -12,23 +12,23 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
   public class EnemyChaseState : IEnemyState, IFixedTickable
   {
     private readonly PlayerProvider _playerProvider;
-    private readonly Transform _transform;
     private readonly EnemyComponentsProvider _enemyComponentsProvider;
     private readonly EnemyMover _enemyMover;
     private readonly EnemyTargetLocator _targetLocator;
     private readonly StateMachine<IEnemyState> _stateMachine;
+    private readonly Enemy _enemy;
     private bool _isActive;
 
-    public EnemyChaseState(PlayerProvider playerProvider, Transform transform,
+    public EnemyChaseState(PlayerProvider playerProvider,
       EnemyComponentsProvider enemyComponentsProvider, EnemyMover enemyMover,
-      EnemyTargetLocator targetLocator, StateMachine<IEnemyState> stateMachine)
+      EnemyTargetLocator targetLocator, StateMachine<IEnemyState> stateMachine, Enemy enemy)
     {
       _playerProvider = playerProvider;
-      _transform = transform;
       _enemyComponentsProvider = enemyComponentsProvider;
       _enemyMover = enemyMover;
       _targetLocator = targetLocator;
       _stateMachine = stateMachine;
+      _enemy = enemy;
 
       _targetLocator.TargetLocated += OnTargetLocated;
     }
@@ -38,8 +38,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     public void Enter()
     {
-      Debug.Log("EnemyChaseState");
-
       _isActive = true;
     }
 
@@ -68,7 +66,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     private void Move()
     {
-      Vector3 direction = (PlayerTransform.position - _transform.position).normalized;
+      Vector3 direction = (PlayerTransform.position - _enemy.transform.position).normalized;
       _enemyMover.Move(direction, Time.fixedDeltaTime, Config.MoveSpeed);
     }
   }
