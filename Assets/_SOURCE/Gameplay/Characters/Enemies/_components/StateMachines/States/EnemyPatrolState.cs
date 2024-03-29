@@ -39,16 +39,18 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     public void FixedTick()
     {
-      Debug.Log("Тикаю");
-      
       if (!_isActive)
+      {
         return;
+      }
 
       Move();
     }
 
     private void Move()
     {
+      Debug.Log("Иду1");
+
       Vector3 targetPosition = _routePointsManager.NextRoutePointTransform.position;
 
       Vector3 direction = (targetPosition - _enemy.transform.position).normalized;
@@ -56,6 +58,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
       if (distance > 0.1f)
       {
+        Debug.Log("Иду2");
         _enemyMover.Move(direction, Time.fixedDeltaTime, Config.MoveSpeed);
       }
       else

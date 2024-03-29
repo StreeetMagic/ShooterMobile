@@ -1,5 +1,6 @@
 ﻿using Infrastructure.StateMachines.States;
 using Infrastructure.Utilities;
+using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.StateMachines
@@ -44,6 +45,8 @@ namespace Infrastructure.StateMachines
     {
       if (ActiveState is ITickable tickable)
         tickable.Tick();
+
+      Debug.Log(ActiveState.GetType().Name);
     }
 
     public void FixedTick()

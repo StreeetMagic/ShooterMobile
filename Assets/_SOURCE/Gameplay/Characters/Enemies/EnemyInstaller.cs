@@ -12,7 +12,6 @@ public class EnemyInstaller : MonoInstaller
 {
   public Enemy Enemy;
   public CharacterController CharacterController;
-  public Transform Transform;
   public EnemyAnimator EnemyAnimator;
   public EnemyTargetLocator TargetLocator;
 
@@ -28,9 +27,8 @@ public class EnemyInstaller : MonoInstaller
     Container.BindInterfacesAndSelfTo<EnemyComponentsProvider>().AsSingle();
     Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle();
 
-    Container.BindInstance(Enemy);
+    Container.Bind<Enemy>().FromInstance(Enemy).AsSingle();
     Container.BindInstance(CharacterController);
-    Container.BindInstance(Transform);
     Container.BindInstance(EnemyAnimator);
     Container.BindInstance(TargetLocator);
   }
