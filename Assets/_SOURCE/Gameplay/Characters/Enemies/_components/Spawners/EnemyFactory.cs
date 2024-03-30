@@ -24,8 +24,6 @@ namespace Gameplay.Characters.Enemies.Spawners
       _zenjectFactory = zenjectFactory;
       _staticDataService = staticDataService;
       _enemyLootSlotFactory = enemyLootSlotFactory;
-
-      Debug.Log("Создана фабрика врагов");
     }
 
     public Enemy Create(EnemyId id, Transform parent, Vector3 position, List<SpawnPoint> spawnPoints)

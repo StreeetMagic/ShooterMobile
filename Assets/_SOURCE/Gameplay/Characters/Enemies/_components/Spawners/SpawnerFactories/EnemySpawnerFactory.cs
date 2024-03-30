@@ -13,14 +13,14 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
   public class EnemySpawnerFactory
   {
     public List<EnemySpawner> Spawners { get; } = new List<EnemySpawner>();
-    
+
     private readonly IAssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _zenjectFactory;
     private readonly EnemySpawner _spawnerPrefab;
     private readonly MapProvider _mapProvider;
     private readonly IInstantiator _instantiator;
 
-    public EnemySpawnerFactory(IAssetProvider assetProvider, 
+    public EnemySpawnerFactory(IAssetProvider assetProvider,
       GameLoopZenjectFactory zenjectFactory, MapProvider mapProvider, IInstantiator instantiator)
     {
       _assetProvider = assetProvider;
@@ -41,7 +41,6 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
 
       foreach (EnemySpawnMarker marker in spawnPointMarkers)
       {
-        //EnemySpawner enemySpawner = _zenjectFactory.Instantiate(_spawnerPrefab);
         EnemySpawner enemySpawner = _instantiator.InstantiatePrefab(_spawnerPrefab, container).GetComponent<EnemySpawner>();
 
         enemySpawner.transform.SetParent(container);
@@ -50,9 +49,11 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
         List<SpawnPoint> spawnPoints = CreateSpawnPoints(marker);
         enemySpawner.Init(marker.EnemyId, spawnPoints, marker.RespawnTime);
 
-        // enemySpawner.Init(marker.EnemyId);
+        if (enemySpawner == null)
+          continue;
+
         enemySpawner.Spawn(marker.Count);
-        
+
         Spawners.Add(enemySpawner);
       }
     }
