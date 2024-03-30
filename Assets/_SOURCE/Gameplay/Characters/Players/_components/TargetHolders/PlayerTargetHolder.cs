@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Configs.Resources.EnemyConfigs.Scripts;
+using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.TargetLocators;
@@ -26,15 +28,10 @@ namespace Gameplay.Characters.Players.TargetHolders
     public event Action<EnemyTargetTrigger> CurrentTargetUpdated;
 
     public bool HasTarget { get; private set; }
+
     public Vector3 DirectionToTarget => _currentEnemyTarget.transform.position - Transform.position;
-    
-    public Vector3 LookDirectionToTarget
-    {
-      get
-      {
-        return new Vector3(_currentEnemyTarget.transform.position.x, Transform.position.y, _currentEnemyTarget.transform.position.z) - Transform.position;
-      }
-    }
+
+    public Vector3 LookDirectionToTarget => new Vector3(_currentEnemyTarget.transform.position.x, Transform.position.y, _currentEnemyTarget.transform.position.z) - Transform.position;
 
     private PlayerTargetLocator PlayerTargetLocator => _playerProvider.PlayerTargetLocator;
     private Transform Transform => _playerProvider.Player.transform;
@@ -51,6 +48,12 @@ namespace Gameplay.Characters.Players.TargetHolders
       {
         if (_currentEnemyTarget.EnemyHealth.IsDead)
           RemoveTarget(_currentEnemyTarget);
+
+        if (_currentEnemyTarget == null)
+        {
+          HasTarget = false;
+          UpdateCurrentTarget(ValidateRandomTarget());
+        }
       }
     }
 
@@ -60,6 +63,12 @@ namespace Gameplay.Characters.Players.TargetHolders
         UpdateCurrentTarget(enemyTarget);
 
       _targets.Add(enemyTarget);
+      enemyTarget.TargetDied += OnTargetDied;
+    }
+
+    private void OnTargetDied(EnemyTargetTrigger obj)
+    {
+      RemoveTarget(obj);
     }
 
     private void UpdateCurrentTarget(EnemyTargetTrigger enemyTarget)
@@ -72,6 +81,9 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     private void RemoveTarget(EnemyTargetTrigger enemyTarget)
     {
+      HasTarget = false;
+
+      enemyTarget.TargetDied -= OnTargetDied;
       _targets.Remove(enemyTarget);
 
       if (enemyTarget == _currentEnemyTarget)

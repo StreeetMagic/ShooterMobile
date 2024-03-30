@@ -15,6 +15,8 @@ namespace Gameplay.Characters.Enemies.Spawners
     private readonly IStaticDataService _staticDataService;
     private readonly EnemyLootSlotFactory _enemyLootSlotFactory;
 
+    private int _id = 1;
+
     public EnemyFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory,
       IStaticDataService staticDataService, EnemyLootSlotFactory enemyLootSlotFactory)
     {
@@ -22,6 +24,8 @@ namespace Gameplay.Characters.Enemies.Spawners
       _zenjectFactory = zenjectFactory;
       _staticDataService = staticDataService;
       _enemyLootSlotFactory = enemyLootSlotFactory;
+
+      Debug.Log("Создана фабрика врагов");
     }
 
     public Enemy Create(EnemyId id, Transform parent, Vector3 position, List<SpawnPoint> spawnPoints)
@@ -32,6 +36,9 @@ namespace Gameplay.Characters.Enemies.Spawners
       enemy.ComponentsProvider.Config = _staticDataService.GetEnemyConfig(id);
       enemy.ComponentsProvider.SpawnPoints = spawnPoints;
       enemy.ComponentsProvider.Transform = enemy.transform;
+      enemy.Id = _id;
+
+      _id++;
 
       Transform enemyLootSlotsContainer = enemy.GetComponentInChildren<EnemyLootSlotsContainer>().transform;
       _enemyLootSlotFactory.Create(enemyLootSlotsContainer, id);

@@ -18,6 +18,7 @@ namespace Gameplay.Characters.Enemies
     }
 
     public EnemyComponentsProvider ComponentsProvider { get; set; }
+    public int Id = -1;
 
     [Button]
     private void Kill()

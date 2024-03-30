@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using UnityEngine;
-using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Enemies.Movers
@@ -18,10 +17,21 @@ namespace Gameplay.Characters.Enemies.Movers
       _enemy = enemy;
     }
 
-    public Transform NextRoutePointTransform =>
-      _routePoints[_currentRouteIndex].transform;
+    public Transform NextRoutePointTransform
+    {
+      get
+      {
+        if (_isInitialized)
+          return _routePoints[_currentRouteIndex].transform;
 
-    public void Initialize()
+        Initialize();
+        _isInitialized = true;
+
+        return _routePoints[_currentRouteIndex].transform;
+      }
+    }
+
+    private void Initialize()
     {
       List<SpawnPoint> componentsProviderSpawnPoints = _enemy.ComponentsProvider.SpawnPoints;
 

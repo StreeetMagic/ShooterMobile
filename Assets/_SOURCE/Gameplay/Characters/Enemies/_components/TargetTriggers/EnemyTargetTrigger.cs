@@ -17,6 +17,8 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
     public EnemyHealth EnemyHealth;
     private UpgradeService _upgradeService;
 
+    public event Action<EnemyTargetTrigger> TargetDied;
+
     public bool IsTargeted { get; set; }
 
     [Inject]
@@ -31,6 +33,8 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
     private void OnDied(EnemyConfig arg1, EnemyHealth arg2)
     {
       Collider.enabled = false;
+
+      TargetDied?.Invoke(this);
     }
 
     public void TakeDamage(int damage)

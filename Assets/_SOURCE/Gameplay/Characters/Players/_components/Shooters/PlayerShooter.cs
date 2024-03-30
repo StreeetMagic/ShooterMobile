@@ -84,8 +84,6 @@ namespace Gameplay.Characters.Players.Shooters
     {
       if (_coroutine.IsRunning == false)
       {
-        Debug.Log("StartShootingCoroutine");
-
         _coroutine.Start();
       }
     }
@@ -94,7 +92,6 @@ namespace Gameplay.Characters.Players.Shooters
     {
       if (_coroutine.IsRunning)
       {
-        Debug.Log("StopShootingCoroutine");
         _coroutine.Stop();
       }
     }
