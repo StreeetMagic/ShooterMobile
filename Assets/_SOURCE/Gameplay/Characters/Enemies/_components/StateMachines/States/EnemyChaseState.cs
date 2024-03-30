@@ -1,4 +1,5 @@
 using Configs.Resources.EnemyConfigs.Scripts;
+using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Movers;
 using Gameplay.Characters.Enemies.TargetLocators;
 using Gameplay.Characters.Players;
@@ -17,11 +18,12 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private readonly EnemyTargetLocator _targetLocator;
     private readonly StateMachine<IEnemyState> _stateMachine;
     private readonly Enemy _enemy;
+    private readonly EnemyHealth _enemyHealth;
     private bool _isActive;
 
     public EnemyChaseState(PlayerProvider playerProvider,
       EnemyComponentsProvider enemyComponentsProvider, EnemyMover enemyMover,
-      EnemyTargetLocator targetLocator, StateMachine<IEnemyState> stateMachine, Enemy enemy)
+      EnemyTargetLocator targetLocator, StateMachine<IEnemyState> stateMachine, Enemy enemy, EnemyHealth enemyHealth)
     {
       _playerProvider = playerProvider;
       _enemyComponentsProvider = enemyComponentsProvider;
@@ -29,6 +31,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
       _targetLocator = targetLocator;
       _stateMachine = stateMachine;
       _enemy = enemy;
+      _enemyHealth = enemyHealth;
 
       _targetLocator.TargetLocated += OnTargetLocated;
     }
@@ -49,6 +52,9 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     public void FixedTick()
     {
       if (!_isActive)
+        return;
+
+      if (_enemyHealth.IsDead)
         return;
 
       Move();

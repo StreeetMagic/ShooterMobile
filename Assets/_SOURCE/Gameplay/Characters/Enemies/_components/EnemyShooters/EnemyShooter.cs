@@ -3,11 +3,7 @@ using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.TargetHolders;
 using Infrastructure.AudioServices;
-using Infrastructure.CoroutineRunners;
-using Infrastructure.DataRepositories;
-using Infrastructure.StaticDataServices;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Characters.Enemies.EnemyShooters
 {
@@ -18,9 +14,7 @@ namespace Gameplay.Characters.Enemies.EnemyShooters
     private readonly AudioService _audioService;
     private readonly Enemy _enemy;
 
-    public EnemyShooter(PlayerProvider playerProvider, IStaticDataService staticDataService,
-      ProjectileFactory zenjectFactory, TickableManager tickableManager, BackpackStorage backpackStorage,
-      ICoroutineRunner coroutineRunner,
+    public EnemyShooter(PlayerProvider playerProvider, ProjectileFactory zenjectFactory,
       AudioService audioService, Enemy enemy)
     {
       _playerProvider = playerProvider;

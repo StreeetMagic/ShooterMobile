@@ -1,6 +1,7 @@
 using System.Collections;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.EnemyShooters;
+using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.TargetLocators;
 using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.Factories;
@@ -20,16 +21,19 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private readonly EnemyTargetLocator _targetLocator;
     private readonly StateMachine<IEnemyState> _stateMachine;
     private bool _isShooting;
+    private readonly EnemyHealth _enemyHealth;
 
     public EnemyShootState(PlayerProvider playerProvider,
       EnemyShooter enemyShooter, EnemyComponentsProvider enemyComponentsProvider,
-      ICoroutineRunner coroutineRunner, EnemyTargetLocator targetLocator, StateMachine<IEnemyState> stateMachine)
+      ICoroutineRunner coroutineRunner, EnemyTargetLocator targetLocator, StateMachine<IEnemyState> stateMachine,
+      EnemyHealth enemyHealth)
     {
       _playerProvider = playerProvider;
       _enemyShooter = enemyShooter;
       _enemyComponentsProvider = enemyComponentsProvider;
       _targetLocator = targetLocator;
       _stateMachine = stateMachine;
+      _enemyHealth = enemyHealth;
       _coroutine = new CoroutineDecorator(coroutineRunner, Shooting);
     }
 
@@ -57,7 +61,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     private void StopShootingCoroutine()
     {
-      if (_coroutine.IsRunning)
+      if (_coroutine.IsRunning && _coroutine != null)
         _coroutine.Stop();
     }
 
@@ -72,11 +76,9 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     private IEnumerator Shooting()
     {
-      while (_isShooting)
+      while (_isShooting && _enemyHealth.IsDead == false)
       {
         _enemyShooter.Shoot();
-
-        //PlayerAnimator.Shoot();
 
         int fireRate = Config.FireRate;
 
@@ -84,6 +86,8 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
         yield return new WaitForSeconds(coolDown);
       }
+
+      _isShooting = false;
     }
   }
 }

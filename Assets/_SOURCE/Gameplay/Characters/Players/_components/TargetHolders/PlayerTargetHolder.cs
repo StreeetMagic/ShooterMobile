@@ -25,9 +25,16 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     public event Action<EnemyTargetTrigger> CurrentTargetUpdated;
 
-    public bool HasTarget => _currentEnemyTarget != null;
+    public bool HasTarget { get; private set; }
     public Vector3 DirectionToTarget => _currentEnemyTarget.transform.position - Transform.position;
-    public Vector3 LookDirectionToTarget => new Vector3(_currentEnemyTarget.transform.position.x, Transform.position.y, _currentEnemyTarget.transform.position.z) - Transform.position;
+    
+    public Vector3 LookDirectionToTarget
+    {
+      get
+      {
+        return new Vector3(_currentEnemyTarget.transform.position.x, Transform.position.y, _currentEnemyTarget.transform.position.z) - Transform.position;
+      }
+    }
 
     private PlayerTargetLocator PlayerTargetLocator => _playerProvider.PlayerTargetLocator;
     private Transform Transform => _playerProvider.Player.transform;
@@ -40,14 +47,11 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     public void Tick()
     {
-      if (_currentEnemyTarget != null && _currentEnemyTarget.EnemyHealth.Current.Value <= 0)
+      if (_currentEnemyTarget != null)
       {
-        RemoveTarget(_currentEnemyTarget);
-        _currentEnemyTarget = null;
+        if (_currentEnemyTarget.EnemyHealth.IsDead)
+          RemoveTarget(_currentEnemyTarget);
       }
-
-      if (_currentEnemyTarget == null && _targets.Count > 0)
-        UpdateCurrentTarget(ValidateRandomTarget());
     }
 
     private void AddTarget(EnemyTargetTrigger enemyTarget)
@@ -61,6 +65,8 @@ namespace Gameplay.Characters.Players.TargetHolders
     private void UpdateCurrentTarget(EnemyTargetTrigger enemyTarget)
     {
       _currentEnemyTarget = enemyTarget;
+
+      HasTarget = true;
       CurrentTargetUpdated?.Invoke(_currentEnemyTarget);
     }
 
@@ -69,7 +75,11 @@ namespace Gameplay.Characters.Players.TargetHolders
       _targets.Remove(enemyTarget);
 
       if (enemyTarget == _currentEnemyTarget)
+      {
         UpdateCurrentTarget(ValidateRandomTarget());
+
+        HasTarget = _currentEnemyTarget != null;
+      }
     }
 
     private EnemyTargetTrigger ValidateRandomTarget() =>

@@ -58,10 +58,9 @@ namespace Gameplay.Characters.Players.Shooters
       //   StartShootingCoroutine();
       // else
       //   StopShootingCoroutine();
-      
+
       if (_backpackStorage.IsFull)
       {
-        Debug.Log("Причина 1");
         StopShootingCoroutine();
         return;
       }
@@ -70,9 +69,8 @@ namespace Gameplay.Characters.Players.Shooters
       {
         StartShootingCoroutine();
       }
-      else
+      else if (PlayerTargetHolder.HasTarget == false)
       {
-        Debug.Log("Причина 2");
         StopShootingCoroutine();
       }
     }
@@ -82,15 +80,6 @@ namespace Gameplay.Characters.Players.Shooters
       //PlayerAnimatorEventHandler.Shot += Shoot;
     }
 
-    private void StopShootingCoroutine()
-    {
-      if (_coroutine.IsRunning)
-      {
-        Debug.Log("StopShootingCoroutine");
-        _coroutine.Stop();
-      }
-    }
-
     private void StartShootingCoroutine()
     {
       if (_coroutine.IsRunning == false)
@@ -98,6 +87,15 @@ namespace Gameplay.Characters.Players.Shooters
         Debug.Log("StartShootingCoroutine");
 
         _coroutine.Start();
+      }
+    }
+
+    private void StopShootingCoroutine()
+    {
+      if (_coroutine.IsRunning)
+      {
+        Debug.Log("StopShootingCoroutine");
+        _coroutine.Stop();
       }
     }
 
