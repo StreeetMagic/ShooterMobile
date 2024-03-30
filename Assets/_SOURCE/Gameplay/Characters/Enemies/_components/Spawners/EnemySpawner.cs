@@ -42,15 +42,18 @@ namespace Gameplay.Characters.Enemies.Spawners
 
     private void OnDestroy()
     {
-      foreach (CoroutineDecorator coroutine in _respawners)
-      {
-        if (coroutine == null)
-          continue;
-
-        coroutine.Stop();
-      }
-
-      _respawners.Clear();
+      // foreach (CoroutineDecorator coroutine in _respawners)
+      // {
+      //   if (coroutine == null)
+      //     continue;
+      //
+      //   if (_coroutineRunner == null)
+      //     continue;
+      //
+      //   coroutine.Stop();
+      // }
+      //
+      // _respawners.Clear();
     }
 
     public void Spawn(int count)
@@ -82,7 +85,7 @@ namespace Gameplay.Characters.Enemies.Spawners
       var coroutineDecorator = new CoroutineDecorator(_coroutineRunner, WaitAndSpawn);
 
       _respawners.Add(coroutineDecorator);
-      
+
       coroutineDecorator.Start();
 
       enemyHealth.Died -= OnEnemyDied;

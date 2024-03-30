@@ -30,12 +30,9 @@ namespace Infrastructure.Utilities
 
     public void Stop()
     {
-      if (!IsRunning)
+      if (!IsRunning || _coroutine == null || _runner == null)
         return;
-      
-      if (_coroutine == null)
-        return;
-      
+
       _runner.StopCoroutine(_coroutine);
       IsRunning = false;
       _coroutine = null;

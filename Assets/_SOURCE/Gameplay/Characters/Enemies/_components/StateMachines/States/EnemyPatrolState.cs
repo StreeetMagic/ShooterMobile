@@ -12,7 +12,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private readonly RoutePointsManager _routePointsManager;
     private readonly EnemyMover _enemyMover;
     private readonly Enemy _enemy;
-    private bool _isActive;
+    private bool _isActive = false;
 
     public EnemyPatrolState(RoutePointsManager routePointsManager,
       StateMachine<IEnemyState> stateMachine,
@@ -38,8 +38,16 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     public void FixedTick()
     {
-      if (!_isActive)
+      Debug.Log(_isActive);
+
+      if (_stateMachine.ActiveState == this)
       {
+        _isActive = true;
+      }
+
+      if (_isActive == false)
+      {
+        // Debug.Log("case 1");
         return;
       }
 
@@ -48,19 +56,34 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     private void Move()
     {
-      Vector3 targetPosition = _routePointsManager.NextRoutePointTransform.position;
-
-      Vector3 direction = (targetPosition - _enemy.transform.position).normalized;
-      float distance = Vector3.Distance(_enemy.transform.position, targetPosition);
-
-      if (distance > 0.1f)
+      if (AwayFrom(TargetPosition()))
       {
-        _enemyMover.Move(direction, Time.fixedDeltaTime, Config.MoveSpeed);
+        //  Debug.Log("case 2");
+        Move(TargetPosition());
       }
       else
       {
-        _stateMachine.Enter<EnemyWaitState>();
+        // Debug.Log("case 3");
+        EnterEnemyWaitState();
       }
     }
+
+    private void EnterEnemyWaitState() =>
+      _stateMachine.Enter<EnemyWaitState>();
+
+    private Vector3 TargetPosition() =>
+      _routePointsManager.NextRoutePointTransform.position;
+
+    private void Move(Vector3 targetPosition) =>
+      _enemyMover.Move(Direction(targetPosition), Time.fixedDeltaTime, Config.MoveSpeed);
+
+    private Vector3 Direction(Vector3 targetPosition) =>
+      (targetPosition - _enemy.transform.position).normalized;
+
+    private bool AwayFrom(Vector3 targetPosition) =>
+      Distance(targetPosition) > 0.1f;
+
+    private float Distance(Vector3 targetPosition) =>
+      Vector3.Distance(_enemy.transform.position, targetPosition);
   }
 }

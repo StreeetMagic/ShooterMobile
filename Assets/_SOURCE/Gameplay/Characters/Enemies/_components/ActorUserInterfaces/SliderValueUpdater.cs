@@ -1,9 +1,7 @@
 using System;
-using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 

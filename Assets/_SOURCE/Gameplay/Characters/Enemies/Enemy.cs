@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
-using Configs.Resources.EnemyConfigs.Scripts;
-using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
+using Gameplay.Characters.Enemies.StateMachines.States;
+using Infrastructure.StateMachines;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
@@ -11,29 +9,27 @@ namespace Gameplay.Characters.Enemies
 {
   public class Enemy : MonoBehaviour
   {
+    private StateMachine<IEnemyState> _stateMachine;
+
     [Inject]
-    public void Construct(EnemyComponentsProvider componentsProvider)
+    public void Construct(EnemyComponentsProvider componentsProvider, StateMachine<IEnemyState> stateMachine)
     {
       ComponentsProvider = componentsProvider;
+      _stateMachine = stateMachine;
     }
 
     public EnemyComponentsProvider ComponentsProvider { get; set; }
-    public int Id = -1;
+    public int Id { get; set; } = -1;
 
     [Button]
     private void Kill()
     {
       ComponentsProvider.Destroyed?.Invoke();
     }
-  }
 
-  public class EnemyComponentsProvider
-  {
-    public EnemyConfig Config { get; set; }
-    public List<SpawnPoint> SpawnPoints { get; set; }
-    public EnemyHealth Health { get; set; }
-    public Transform Transform { get; set; }
-
-    public Action Destroyed;
+    private void Update()
+    {
+     // Debug.Log(_stateMachine.ActiveState.ToString());
+    }
   }
 }

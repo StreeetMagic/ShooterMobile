@@ -10,7 +10,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.Healths
 {
-  public class EnemyHealth
+  public class EnemyHealth : ITickable
   {
     private readonly EnemyComponentsProvider _enemy;
     private readonly EnemyAnimator _enemyAnimator;
@@ -40,6 +40,8 @@ namespace Gameplay.Characters.Enemies.Healths
 
     public void Initialize()
     {
+      _isInitialized = true;
+
       SetCurrentHealth(Initial);
 
       _corpseRemover.Add(this);
@@ -50,7 +52,6 @@ namespace Gameplay.Characters.Enemies.Healths
     {
       if (_isInitialized == false)
       {
-        _isInitialized = true;
         Initialize();
       }
 
@@ -84,6 +85,14 @@ namespace Gameplay.Characters.Enemies.Healths
     private void SetCurrentHealth(int health)
     {
       Current.Value = health;
+    }
+
+    public void Tick()
+    {
+      if (_isInitialized == false)
+      {
+        Initialize();
+      }
     }
   }
 }

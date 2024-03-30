@@ -4,6 +4,7 @@ using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Upgrades;
 using Infrastructure.AudioServices;
+using Infrastructure.CoroutineRunners;
 using Infrastructure.DataRepositories;
 using Infrastructure.SaveLoadServices;
 using Maps;
@@ -19,19 +20,19 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     private readonly CameraFactory _cameraFactory;
     private readonly EnemySpawnerFactory _enemySpawnerFactory;
     private readonly HeadsUpDisplayFactory _headsUpDisplayFactory;
-
     private readonly MoneyInBankStorage _moneyInBankStorage;
     private readonly UpgradeService _upgradeService;
     private readonly SaveLoadService _saveLoadService;
     private readonly AudioService _audioService;
     private readonly PlayerStatsProvider _playerStatsProvider;
+    private readonly ICoroutineRunner _runner;
 
     private Transform _sceneTransform;
 
     public GameLoopState(PlayerFactory playerFactory, MapFactory mapFactory,
       CameraFactory cameraFactory, EnemySpawnerFactory enemySpawnerFactory,
       HeadsUpDisplayFactory headsUpDisplayFactory, MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService,
-      SaveLoadService saveLoadService, AudioService audioService, PlayerStatsProvider playerStatsProvider)
+      SaveLoadService saveLoadService, AudioService audioService, PlayerStatsProvider playerStatsProvider, ICoroutineRunner runner)
     {
       _playerFactory = playerFactory;
       _mapFactory = mapFactory;
@@ -43,6 +44,7 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
       _saveLoadService = saveLoadService;
       _audioService = audioService;
       _playerStatsProvider = playerStatsProvider;
+      _runner = runner;
     }
 
     public void Enter()
@@ -55,7 +57,7 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
       _sceneTransform = GameObject.FindObjectOfType<GameLoopInstaller>().transform;
 
       _playerStatsProvider.Start();
-      
+
       _mapFactory.Create(_sceneTransform);
       _playerFactory.Create(_sceneTransform);
       _cameraFactory.Create(_sceneTransform);
@@ -65,6 +67,7 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
     public void Exit()
     {
+      _runner.StopAllCoroutines();
       _saveLoadService.ProgressReaders.Remove(_moneyInBankStorage);
       _saveLoadService.ProgressReaders.Remove(_upgradeService);
       _saveLoadService.ProgressReaders.Remove(_audioService);

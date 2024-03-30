@@ -8,5 +8,6 @@ namespace Infrastructure.CoroutineRunners
   {
     Coroutine StartCoroutine(IEnumerator coroutine);
     void StopCoroutine(Coroutine coroutine);
+    void StopAllCoroutines();
   }
 }
