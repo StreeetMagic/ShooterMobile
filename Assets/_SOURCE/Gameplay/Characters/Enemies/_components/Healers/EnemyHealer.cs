@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class Healer : MonoBehaviour
+  public class EnemyHealer : MonoBehaviour
   {
     private EnemyHealth _enemyHealth;
     private HealthStatusController _healthStatusController;

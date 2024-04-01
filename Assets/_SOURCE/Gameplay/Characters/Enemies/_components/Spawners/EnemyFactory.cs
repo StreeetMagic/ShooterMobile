@@ -34,6 +34,7 @@ namespace Gameplay.Characters.Enemies.Spawners
       enemy.Config = _staticDataService.GetEnemyConfig(id);
       enemy.SpawnPoints = spawnPoints;
       enemy.Id = _id;
+      enemy.SpawnerTransform = parent;
 
       _id++;
 

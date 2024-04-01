@@ -4,6 +4,7 @@ using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Movers;
 using Gameplay.Characters.Enemies.TargetLocators;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class EnemyInstaller : MonoInstaller
@@ -16,15 +17,17 @@ public class EnemyInstaller : MonoInstaller
   public EnemyMover EnemyMover;
   public RoutePointsManager RoutePointsManager;
   public HealthStatusController HealthStatusController;
-  public Healer Healer;
+  public EnemyHealer enemyHealer;
   public EnemyMoverToSpawnPoint EnemyMoverToSpawnPoint;
   public EnemyWaiter EnemyWaiter;
+  public EnemyMoverToPlayer EnemyMoverToPlayer;
+  public EnemyShootAtPlayer EnemyShooter;
 
   public override void InstallBindings()
   {
     Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
 
-    Container.Bind<Healer>().FromInstance(Healer).AsSingle().NonLazy();
+    Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
     Container.Bind<HealthStatusController>().FromInstance(HealthStatusController).AsSingle().NonLazy();
     Container.Bind<RoutePointsManager>().FromInstance(RoutePointsManager).AsSingle().NonLazy();
     Container.Bind<EnemyMover>().FromInstance(EnemyMover).AsSingle().NonLazy();
@@ -35,5 +38,7 @@ public class EnemyInstaller : MonoInstaller
     Container.Bind<EnemyTargetLocator>().FromInstance(TargetLocator).AsSingle().NonLazy(); 
     Container.Bind<EnemyMoverToSpawnPoint>().FromInstance(EnemyMoverToSpawnPoint).AsSingle().NonLazy();
     Container.Bind<EnemyWaiter>().FromInstance(EnemyWaiter).AsSingle().NonLazy();
+    Container.Bind<EnemyMoverToPlayer>().FromInstance(EnemyMoverToPlayer).AsSingle().NonLazy();
+    Container.Bind<EnemyShootAtPlayer>().FromInstance(EnemyShooter).AsSingle().NonLazy();
   }
 }

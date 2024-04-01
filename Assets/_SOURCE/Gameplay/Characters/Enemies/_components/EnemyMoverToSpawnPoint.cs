@@ -10,16 +10,30 @@ namespace Gameplay.Characters.Enemies
     private EnemyMover _mover;
     private RoutePointsManager _routePointsManager;
     private Enemy _enemy;
+    private EnemyMoverToPlayer _enemyMoverToPlayer;
+    private HealthStatusController _healthStatus;
+    private EnemyShootAtPlayer _enemyShootAtPlayer;
 
     [Inject]
-    public void Construct(EnemyMover mover, RoutePointsManager routePointsManager, Enemy enemy)
+    public void Construct(EnemyMover mover, RoutePointsManager routePointsManager, Enemy enemy,
+      EnemyMoverToPlayer enemyMoverToPlayer, HealthStatusController healthStatus, EnemyShootAtPlayer enemyShootAtPlayer)
     {
       _mover = mover;
       _routePointsManager = routePointsManager;
       _enemy = enemy;
+      _enemyMoverToPlayer = enemyMoverToPlayer;
+      _healthStatus = healthStatus;
+      _enemyShootAtPlayer = enemyShootAtPlayer;
     }
-    
+
     private float MoveSpeed => _enemy.Config.MoveSpeed;
+
+    private void OnEnable()
+    {
+      _enemyMoverToPlayer.enabled = false;
+      _healthStatus.IsHit = false;
+      _enemyShootAtPlayer.enabled = false;
+    }
 
     private void FixedUpdate()
     {

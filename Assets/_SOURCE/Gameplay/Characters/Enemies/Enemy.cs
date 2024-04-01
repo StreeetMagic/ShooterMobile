@@ -13,5 +13,6 @@ namespace Gameplay.Characters.Enemies
     public EnemyConfig Config { get; set; }
     public List<SpawnPoint> SpawnPoints { get; set; }
     public int Id { get; set; }
+    public Transform SpawnerTransform { get; set; }
   }
 }

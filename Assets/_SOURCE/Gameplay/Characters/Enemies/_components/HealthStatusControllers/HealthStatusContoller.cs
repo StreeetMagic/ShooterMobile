@@ -27,8 +27,8 @@ namespace Gameplay.Characters.Enemies
     }
 
     private EnemyConfig Config => _enemy.Config;
-    public bool IsHit { get; private set; }
-    private float RunTime => Config.RunTime;
+    public bool IsHit { get; set; }
+    private float RunTime => 5;
 
     private void OnDamaged(int damage)
     {

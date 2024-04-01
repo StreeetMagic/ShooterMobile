@@ -13,17 +13,19 @@ namespace Gameplay.Characters.Enemies.Healths
     private EnemyAnimator _enemyAnimator;
     private RewardService _rewardService;
     private CorpseRemover _corpseRemover;
-    private bool _isInitialized;
     private Enemy _enemy;
+    private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
+    private EnemyMoverToPlayer _enemyMoverToPlayer;
 
     [Inject]
-    private void Construct(EnemyAnimator animator,
-      CorpseRemover corpseRemover, RewardService rewardService, Enemy enemy)
+    private void Construct(EnemyAnimator animator, CorpseRemover corpseRemover, RewardService rewardService,
+      Enemy enemy, EnemyMoverToSpawnPoint enemyMoverToSpawnPoint, EnemyMoverToPlayer enemyMoverToPlayer)
     {
       _enemyAnimator = animator;
       _corpseRemover = corpseRemover;
       _rewardService = rewardService;
-
+      _enemyMoverToSpawnPoint = enemyMoverToSpawnPoint;
+      _enemyMoverToPlayer = enemyMoverToPlayer;
       _enemy = enemy;
     }
 
@@ -31,15 +33,15 @@ namespace Gameplay.Characters.Enemies.Healths
     public event Action<int> Damaged;
 
     public ReactiveProperty<int> Current { get; } = new();
+
     public int Initial => Config.InitialHealth;
     public bool IsFull => Current.Value == Initial;
     public bool IsDead { get; private set; }
+
     private EnemyConfig Config => _enemy.Config;
 
-    public void Initialize()
+    private void Start()
     {
-      _isInitialized = true;
-
       SetCurrentHealth(Initial);
 
       _corpseRemover.Add(this);
@@ -48,11 +50,6 @@ namespace Gameplay.Characters.Enemies.Healths
 
     public void TakeDamage(int damage)
     {
-      if (_isInitialized == false)
-      {
-        Initialize();
-      }
-
       if (damage <= 0)
       {
         throw new ArgumentOutOfRangeException(nameof(damage));
@@ -73,6 +70,8 @@ namespace Gameplay.Characters.Enemies.Healths
       if (IsDead)
         return;
 
+      _enemyMoverToSpawnPoint.enabled = false;
+      _enemyMoverToPlayer.enabled = false;
       _enemyAnimator.PlayDeathAnimation();
 
       IsDead = true;
@@ -83,14 +82,6 @@ namespace Gameplay.Characters.Enemies.Healths
     private void SetCurrentHealth(int health)
     {
       Current.Value = health;
-    }
-
-    public void Tick()
-    {
-      if (_isInitialized == false)
-      {
-        Initialize();
-      }
     }
   }
 }
