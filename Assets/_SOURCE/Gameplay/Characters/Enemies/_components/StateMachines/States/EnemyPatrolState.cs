@@ -38,19 +38,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     public void FixedTick()
     {
-      Debug.Log(_isActive);
-
-      if (_stateMachine.ActiveState == this)
-      {
-        _isActive = true;
-      }
-
-      if (_isActive == false)
-      {
-        // Debug.Log("case 1");
-        return;
-      }
-
       Move();
     }
 
@@ -58,12 +45,12 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     {
       if (AwayFrom(TargetPosition()))
       {
-        //  Debug.Log("case 2");
+        Debug.Log("case 2");
         Move(TargetPosition());
       }
       else
       {
-        // Debug.Log("case 3");
+        Debug.Log("case 3");
         EnterEnemyWaitState();
       }
     }
