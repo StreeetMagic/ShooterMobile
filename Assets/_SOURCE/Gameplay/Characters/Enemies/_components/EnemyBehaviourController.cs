@@ -1,5 +1,6 @@
 using System;
 using Gameplay.Characters.Enemies.Healths;
+using Gameplay.Characters.Players.Factories;
 using UnityEngine;
 using Zenject;
 
@@ -14,11 +15,13 @@ namespace Gameplay.Characters.Enemies
     private EnemyShootAtPlayer _enemyShootAtPlayer;
     private Enemy _enemy;
     private EnemyReturnToSpawn _returnToSpawn;
+    private PlayerProvider _playerProvider;
 
     [Inject]
     public void Construct(EnemyMoverToSpawnPoint enemyMoverToSpawnPoint,
       EnemyMoverToPlayer enemyMoverToPlayer, HealthStatusController healthStatus,
-      EnemyHealth enemyHealth, EnemyShootAtPlayer enemyShooter, Enemy enemy, EnemyReturnToSpawn enemyReturnToSpawn)
+      EnemyHealth enemyHealth, EnemyShootAtPlayer enemyShooter, Enemy enemy, EnemyReturnToSpawn enemyReturnToSpawn,
+      PlayerProvider playerProvider)
     {
       _enemyMoverToSpawnPoint = enemyMoverToSpawnPoint;
       _enemyMoverToPlayer = enemyMoverToPlayer;
@@ -27,6 +30,7 @@ namespace Gameplay.Characters.Enemies
       _enemyShootAtPlayer = enemyShooter;
       _enemy = enemy;
       _returnToSpawn = enemyReturnToSpawn;
+      _playerProvider = playerProvider;
     }
 
     private void Start()
@@ -48,6 +52,7 @@ namespace Gameplay.Characters.Enemies
       }
 
       var distanceToSpawner = (_enemy.SpawnerTransform.position - transform.position).magnitude;
+      var distanceToPlayer = (_playerProvider.Player.transform.position - transform.position).magnitude;
 
       if (_returnToSpawn.IsReturn)
       {
@@ -58,7 +63,17 @@ namespace Gameplay.Characters.Enemies
       else if (_healthStatus.IsHit && distanceToSpawner < _enemy.Config.PatrolingRadius)
       {
         _enemyMoverToSpawnPoint.enabled = false;
-        _enemyMoverToPlayer.enabled = true;
+
+        if (distanceToPlayer < _enemy.Config.Radius)
+        {
+          _enemyMoverToPlayer.enabled = false;
+          _enemyShootAtPlayer.enabled = true;
+        }
+        else
+        {
+          _enemyMoverToPlayer.enabled = true;
+          _enemyShootAtPlayer.enabled = false;
+        }
       }
       else
       {

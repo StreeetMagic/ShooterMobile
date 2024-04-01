@@ -12,13 +12,15 @@ namespace Gameplay.Characters.Enemies
     private Enemy _enemy;
     private float _time;
     private PlayerProvider _playerProvider;
+    private EnemyMoverToPlayer _enemyMoverToPlayer;
 
     [Inject]
-    public void Construct(EnemyShooter shooter, Enemy enemy, PlayerProvider playerProvider)
+    public void Construct(EnemyShooter shooter, Enemy enemy, PlayerProvider playerProvider, EnemyMoverToPlayer enemyMoverToPlayer)
     {
       _shooter = shooter;
       _enemy = enemy;
       _playerProvider = playerProvider;
+      _enemyMoverToPlayer = enemyMoverToPlayer;
     }
 
     private float Cooldown => 1 / (float)_enemy.Config.FireRate;
@@ -27,6 +29,7 @@ namespace Gameplay.Characters.Enemies
     private void OnEnable()
     {
       _time = 0;
+      _enemyMoverToPlayer.enabled = false;
     }
 
     private void Update()
