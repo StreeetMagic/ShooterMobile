@@ -9,20 +9,18 @@ public class SliderValueUpdater : MonoBehaviour
 {
   public Slider Slider;
   public float SliderUpdateSpeed;
-  
-  private EnemyComponentsProvider _componentsProvider;
+
+  private EnemyHealth _enemyHealth;
   
   [Inject]
-  public void Construct(EnemyComponentsProvider componentsProvider)
+  private void Construct(EnemyHealth enemyHealth)
   {
-    _componentsProvider = componentsProvider;
+    _enemyHealth = enemyHealth;
   }
-  
-  private EnemyHealth EnemyHealth => _componentsProvider.Health;
 
   private void Update()
   {
-    float value = (float)EnemyHealth.Current.Value / EnemyHealth.Initial;
+    float value = (float)_enemyHealth.Current.Value / _enemyHealth.Initial;
 
     if (Math.Abs(Slider.value - value) > 0.01f)
     {

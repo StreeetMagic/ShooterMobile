@@ -50,10 +50,10 @@ namespace Gameplay.CorpseRemovers
       if (enemyHealth == null)
         yield break;
 
-      if (enemyHealth.Transform == null)
+      if (enemyHealth.transform == null)
         yield break;
 
-      Object.Destroy(enemyHealth.Transform.gameObject);
+      Object.Destroy(enemyHealth.transform.gameObject);
     }
   }
 }

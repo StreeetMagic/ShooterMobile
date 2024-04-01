@@ -1,35 +1,17 @@
 using System;
-using Gameplay.Characters.Enemies.StateMachines.States;
-using Infrastructure.StateMachines;
-using Sirenix.OdinInspector;
+using System.Collections.Generic;
+using Configs.Resources.EnemyConfigs.Scripts;
+using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
   public class Enemy : MonoBehaviour
   {
-    private StateMachine<IEnemyState> _stateMachine;
-
-    [Inject]
-    public void Construct(EnemyComponentsProvider componentsProvider, StateMachine<IEnemyState> stateMachine)
-    {
-      ComponentsProvider = componentsProvider;
-      _stateMachine = stateMachine;
-    }
-
-    public EnemyComponentsProvider ComponentsProvider { get; set; }
-    public int Id { get; set; } = -1;
-
-    [Button]
-    private void Kill()
-    {
-      ComponentsProvider.Destroyed?.Invoke();
-    }
-
-    private void Update()
-    {
-     // Debug.Log(_stateMachine.ActiveState.ToString());
-    }
+    public EnemyInstaller Installer;
+    
+    public EnemyConfig Config { get; set; }
+    public List<SpawnPoint> SpawnPoints { get; set; }
+    public int Id { get; set; }
   }
 }

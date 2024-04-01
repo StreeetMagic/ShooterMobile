@@ -31,9 +31,8 @@ namespace Gameplay.Characters.Enemies.Spawners
       Enemy prefab = _assetProvider.ForEnemy(id);
       Enemy enemy = _zenjectFactory.InstantiateMono(prefab, position, Quaternion.identity, parent);
 
-      enemy.ComponentsProvider.Config = _staticDataService.GetEnemyConfig(id);
-      enemy.ComponentsProvider.SpawnPoints = spawnPoints;
-      enemy.ComponentsProvider.Transform = enemy.transform;
+      enemy.Config = _staticDataService.GetEnemyConfig(id);
+      enemy.SpawnPoints = spawnPoints;
       enemy.Id = _id;
 
       _id++;

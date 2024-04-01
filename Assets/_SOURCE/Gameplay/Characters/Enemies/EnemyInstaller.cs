@@ -2,9 +2,7 @@ using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.EnemyShooters;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Movers;
-using Gameplay.Characters.Enemies.StateMachines.States;
 using Gameplay.Characters.Enemies.TargetLocators;
-using Infrastructure.StateMachines;
 using UnityEngine;
 using Zenject;
 
@@ -14,22 +12,28 @@ public class EnemyInstaller : MonoInstaller
   public CharacterController CharacterController;
   public EnemyAnimator EnemyAnimator;
   public EnemyTargetLocator TargetLocator;
+  public EnemyHealth EnemyHealth;
+  public EnemyMover EnemyMover;
+  public RoutePointsManager RoutePointsManager;
+  public HealthStatusController HealthStatusController;
+  public Healer Healer;
+  public EnemyMoverToSpawnPoint EnemyMoverToSpawnPoint;
+  public EnemyWaiter EnemyWaiter;
 
   public override void InstallBindings()
   {
-    Container.BindInterfacesAndSelfTo<StateMachine<IEnemyState>>().AsSingle().NonLazy();
-    Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
-    Container.BindInterfacesAndSelfTo<RoutePointsManager>().AsSingle().NonLazy();
-    Container.BindInterfacesAndSelfTo<EnemyBootstrapper>().AsSingle().NonLazy();
-    Container.BindInterfacesAndSelfTo<EnemyHealth>().AsSingle().NonLazy();
-    Container.BindInterfacesAndSelfTo<HealthStatusController>().AsSingle().NonLazy();
-    Container.BindInterfacesAndSelfTo<Healer>().AsSingle().NonLazy();
-    Container.BindInterfacesAndSelfTo<EnemyComponentsProvider>().AsSingle().NonLazy();
     Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
 
+    Container.Bind<Healer>().FromInstance(Healer).AsSingle().NonLazy();
+    Container.Bind<HealthStatusController>().FromInstance(HealthStatusController).AsSingle().NonLazy();
+    Container.Bind<RoutePointsManager>().FromInstance(RoutePointsManager).AsSingle().NonLazy();
+    Container.Bind<EnemyMover>().FromInstance(EnemyMover).AsSingle().NonLazy();
+    Container.Bind<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
     Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();
     Container.Bind<CharacterController>().FromInstance(CharacterController).AsSingle().NonLazy();
     Container.Bind<EnemyAnimator>().FromInstance(EnemyAnimator).AsSingle().NonLazy();
     Container.Bind<EnemyTargetLocator>().FromInstance(TargetLocator).AsSingle().NonLazy(); 
+    Container.Bind<EnemyMoverToSpawnPoint>().FromInstance(EnemyMoverToSpawnPoint).AsSingle().NonLazy();
+    Container.Bind<EnemyWaiter>().FromInstance(EnemyWaiter).AsSingle().NonLazy();
   }
 }
