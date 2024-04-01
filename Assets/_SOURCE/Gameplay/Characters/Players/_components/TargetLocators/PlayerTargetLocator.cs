@@ -47,7 +47,7 @@ namespace Gameplay.Characters.Players.TargetLocators
 
         list.Add(targetTrigger);
       }
-      
+
       _playerTargetHolder.AddTargets(list);
     }
   }

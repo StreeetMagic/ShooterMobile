@@ -39,7 +39,13 @@ namespace Gameplay.Characters.Enemies
     private void FixedUpdate()
     {
       if (_enemyHealth.IsDead)
+      {
+        _enemyMoverToSpawnPoint.enabled = false;
+        _enemyMoverToPlayer.enabled = false;
+        _enemyShootAtPlayer.enabled = false;
+
         return;
+      }
 
       var distanceToSpawner = (_enemy.SpawnerTransform.position - transform.position).magnitude;
 
