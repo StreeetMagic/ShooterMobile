@@ -54,8 +54,7 @@ namespace Gameplay.Characters.Players.Factories
       _playerProvider.PlayerShooter = _factory.InstantiateNative<PlayerShooter>();
       _playerProvider.PlayerShooter.Initialize();
 
-      _playerProvider.PlayerTargetHolder = _factory.InstantiateNative<PlayerTargetHolder>();
-      _playerProvider.PlayerTargetHolder.Start();
+      _playerProvider.PlayerTargetHolder = player.GetComponent<PlayerTargetHolder>();
 
       _playerProvider.PlayerAnimator = player.GetComponentInChildren<PlayerAnimator>();
 

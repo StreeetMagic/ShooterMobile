@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
+using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Upgrades;
 using UnityEngine;
 using Zenject;
@@ -12,60 +14,41 @@ namespace Gameplay.Characters.Players.TargetLocators
   {
     private const string Player = nameof(Player);
 
-    public SphereCollider SphereCollider;
-
     private PlayerStatsProvider _playerStatsProvider;
-    private UpgradeService _upgradeService;
+    private PlayerTargetHolder _playerTargetHolder;
 
     [Inject]
-    public void Construct(UpgradeService upgradeService, PlayerStatsProvider playerStatsProvider)
+    public void Construct(PlayerStatsProvider playerStatsProvider, PlayerTargetHolder playerTargetHolder)
     {
-      _upgradeService = upgradeService;
       _playerStatsProvider = playerStatsProvider;
+      _playerTargetHolder = playerTargetHolder;
     }
-
-    public event Action<EnemyTargetTrigger> TargetLocated;
-    public event Action<EnemyTargetTrigger> TargetLost;
 
     private float Radius => _playerStatsProvider.GetStat(StatId.FireRange).Value;
 
-    private void Start()
+    private void Update()
     {
-      OnUpgradeChanged();
-
-      _upgradeService.Changed += OnUpgradeChanged;
+      Scan();
     }
 
-    private void OnDestroy()
+    private void Scan()
     {
-      _upgradeService.Changed -= OnUpgradeChanged;
-    }
+      var colliders = Physics.OverlapSphere(transform.position, Radius);
 
-    private void OnUpgradeChanged()
-    {
-      SphereCollider.radius = Radius;
-    }
+      var list = new List<EnemyTargetTrigger>();
 
-    private void OnTriggerEnter(Collider other)
-    {
-      if (other.TryGetComponent(out EnemyTargetTrigger targetTrigger))
+      foreach (var collider in colliders)
       {
-        if (targetTrigger.CompareTag(Player))
-          return;
+        if (!collider.gameObject.TryGetComponent<EnemyTargetTrigger>(out var targetTrigger))
+          continue;
 
-        TargetLocated?.Invoke(targetTrigger);
+        if (targetTrigger.EnemyHealth.IsDead)
+          continue;
+
+        list.Add(targetTrigger);
       }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-      if (other.TryGetComponent(out EnemyTargetTrigger targetTrigger))
-      {
-        if (targetTrigger.CompareTag(Player))
-          return;
-
-        TargetLost?.Invoke(targetTrigger);
-      }
+      
+      _playerTargetHolder.AddTargets(list);
     }
   }
 }

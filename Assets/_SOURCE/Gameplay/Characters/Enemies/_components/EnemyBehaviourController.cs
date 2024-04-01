@@ -13,11 +13,12 @@ namespace Gameplay.Characters.Enemies
     private EnemyHealth _enemyHealth;
     private EnemyShootAtPlayer _enemyShootAtPlayer;
     private Enemy _enemy;
+    private EnemyReturnToSpawn _returnToSpawn;
 
     [Inject]
     public void Construct(EnemyMoverToSpawnPoint enemyMoverToSpawnPoint,
-      EnemyMoverToPlayer enemyMoverToPlayer, HealthStatusController healthStatus, 
-      EnemyHealth enemyHealth, EnemyShootAtPlayer enemyShooter, Enemy enemy)
+      EnemyMoverToPlayer enemyMoverToPlayer, HealthStatusController healthStatus,
+      EnemyHealth enemyHealth, EnemyShootAtPlayer enemyShooter, Enemy enemy, EnemyReturnToSpawn enemyReturnToSpawn)
     {
       _enemyMoverToSpawnPoint = enemyMoverToSpawnPoint;
       _enemyMoverToPlayer = enemyMoverToPlayer;
@@ -25,6 +26,7 @@ namespace Gameplay.Characters.Enemies
       _enemyHealth = enemyHealth;
       _enemyShootAtPlayer = enemyShooter;
       _enemy = enemy;
+      _returnToSpawn = enemyReturnToSpawn;
     }
 
     private void Start()
@@ -34,16 +36,20 @@ namespace Gameplay.Characters.Enemies
       _enemyShootAtPlayer.enabled = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
       if (_enemyHealth.IsDead)
         return;
-      
-      var distanceToSpawner = (_enemy.SpawnerTransform.position - transform.position).magnitude;
-      
-      Debug.Log("distanceToSpawner" + distanceToSpawner);
 
-      if (_healthStatus.IsHit && distanceToSpawner < _enemy.Config.PatrolingRadius)
+      var distanceToSpawner = (_enemy.SpawnerTransform.position - transform.position).magnitude;
+
+      if (_returnToSpawn.IsReturn)
+      {
+        _enemyMoverToSpawnPoint.enabled = true;
+        _enemyMoverToPlayer.enabled = false;
+        _enemyShootAtPlayer.enabled = false;
+      }
+      else if (_healthStatus.IsHit && distanceToSpawner < _enemy.Config.PatrolingRadius)
       {
         _enemyMoverToSpawnPoint.enabled = false;
         _enemyMoverToPlayer.enabled = true;

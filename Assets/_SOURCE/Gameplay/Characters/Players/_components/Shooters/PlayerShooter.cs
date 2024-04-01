@@ -54,11 +54,6 @@ namespace Gameplay.Characters.Players.Shooters
 
     public void Tick()
     {
-      // if (PlayerTargetHolder.HasTarget && _backpackStorage.IsFull == false)
-      //   StartShootingCoroutine();
-      // else
-      //   StopShootingCoroutine();
-
       if (_backpackStorage.IsFull)
       {
         StopShootingCoroutine();

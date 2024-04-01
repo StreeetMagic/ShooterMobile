@@ -13,6 +13,7 @@ namespace Gameplay.Characters.Enemies
     private Enemy _enemy;
 
     private float _heal;
+    private float _timer;
 
     [Inject]
     private void Construct(EnemyHealth enemyHealth, HealthStatusController healthStatusController, Enemy enemy)
@@ -25,13 +26,24 @@ namespace Gameplay.Characters.Enemies
     private float HealMultiplier => EnemyConfig.HealMultiplier;
     private EnemyConfig EnemyConfig => _enemy.Config;
 
+    private void OnEnable()
+    {
+      _heal = 0;
+      _timer = 0;
+    }
+
     private void Update()
     {
       if (_enemyHealth.IsDead)
         return;
 
+      _timer += Time.deltaTime;
+
       if (_healthStatusController.IsHit)
+      {
+        _timer = 0;
         return;
+      }
 
       if (_enemyHealth.IsFull)
         return;
@@ -42,8 +54,11 @@ namespace Gameplay.Characters.Enemies
 
       if (_heal >= 1)
       {
-        _enemyHealth.Current.Value++;
-        _heal = 0;
+        if (_timer >= _enemy.Config.RunTime)
+        {
+          _enemyHealth.Current.Value++;
+          _heal = 0;
+        }
       }
     }
   }

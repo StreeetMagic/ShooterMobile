@@ -26,6 +26,7 @@ public class EnemyInstaller : MonoInstaller
   public override void InstallBindings()
   {
     Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<EnemyReturnToSpawn>().AsSingle().NonLazy();
 
     Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
     Container.Bind<HealthStatusController>().FromInstance(HealthStatusController).AsSingle().NonLazy();

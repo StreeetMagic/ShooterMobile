@@ -13,10 +13,12 @@ namespace Gameplay.Characters.Enemies
     private EnemyMoverToPlayer _enemyMoverToPlayer;
     private HealthStatusController _healthStatus;
     private EnemyShootAtPlayer _enemyShootAtPlayer;
+    private EnemyReturnToSpawn _returnToSpawn;
 
     [Inject]
     public void Construct(EnemyMover mover, RoutePointsManager routePointsManager, Enemy enemy,
-      EnemyMoverToPlayer enemyMoverToPlayer, HealthStatusController healthStatus, EnemyShootAtPlayer enemyShootAtPlayer)
+      EnemyMoverToPlayer enemyMoverToPlayer, HealthStatusController healthStatus, EnemyShootAtPlayer enemyShootAtPlayer,
+      EnemyReturnToSpawn enemyReturnToSpawn)
     {
       _mover = mover;
       _routePointsManager = routePointsManager;
@@ -24,6 +26,7 @@ namespace Gameplay.Characters.Enemies
       _enemyMoverToPlayer = enemyMoverToPlayer;
       _healthStatus = healthStatus;
       _enemyShootAtPlayer = enemyShootAtPlayer;
+      _returnToSpawn = enemyReturnToSpawn;
     }
 
     private float MoveSpeed => _enemy.Config.MoveSpeed;

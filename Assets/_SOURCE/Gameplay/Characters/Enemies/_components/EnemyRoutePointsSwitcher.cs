@@ -8,12 +8,14 @@ namespace Gameplay.Characters.Enemies
   {
     private RoutePointsManager _routePointsManager;
     private EnemyWaiter _enemyWaiter;
+    private EnemyReturnToSpawn _returnToSpawn;
 
     [Inject]
-    public void Construct(RoutePointsManager routePointsManager, EnemyWaiter enemyWaiter)
+    public void Construct(RoutePointsManager routePointsManager, EnemyWaiter enemyWaiter, EnemyReturnToSpawn enemyReturnToSpawn)
     {
       _routePointsManager = routePointsManager;
       _enemyWaiter = enemyWaiter;
+      _returnToSpawn = enemyReturnToSpawn;
     }
 
     private void FixedUpdate()
@@ -24,6 +26,7 @@ namespace Gameplay.Characters.Enemies
       {
         _routePointsManager.SetRandomRoute();
         _enemyWaiter.enabled = true;
+        _returnToSpawn.IsReturn = false;
       }
     }
   }

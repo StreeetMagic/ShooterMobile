@@ -5,124 +5,80 @@ using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.TargetLocators;
+using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Players.TargetHolders
 {
-  public class PlayerTargetHolder : ITickable
+  public class PlayerTargetHolder : MonoBehaviour
   {
-    private readonly PlayerProvider _playerProvider;
-    private readonly TickableManager _tickableManager;
-    private readonly List<EnemyTargetTrigger> _targets = new();
+    private PlayerProvider _playerProvider;
+    private List<EnemyTargetTrigger> _targets;
 
     private EnemyTargetTrigger _currentEnemyTarget;
 
-    public PlayerTargetHolder(PlayerProvider playerProvider, TickableManager tickableManager)
+    [Inject]
+    public void Construct(PlayerProvider playerProvider)
     {
       _playerProvider = playerProvider;
-      _tickableManager = tickableManager;
     }
-
-    public event Action<EnemyTargetTrigger> CurrentTargetUpdated;
 
     public bool HasTarget { get; private set; }
 
     public Vector3 DirectionToTarget => _currentEnemyTarget.transform.position - Transform.position;
-
     public Vector3 LookDirectionToTarget => new Vector3(_currentEnemyTarget.transform.position.x, Transform.position.y, _currentEnemyTarget.transform.position.z) - Transform.position;
 
-    private PlayerTargetLocator PlayerTargetLocator => _playerProvider.PlayerTargetLocator;
     private Transform Transform => _playerProvider.Player.transform;
 
-    public void Start()
+    private void OnEnable()
     {
-      _tickableManager.Add(this);
-      Subscribe();
+      _targets = new List<EnemyTargetTrigger>();
     }
 
-    public void Tick()
-    {
-      if (_currentEnemyTarget != null)
-      {
-        if (_currentEnemyTarget.EnemyHealth.IsDead)
-          RemoveTarget(_currentEnemyTarget);
-
-        if (_currentEnemyTarget == null)
-        {
-          HasTarget = false;
-          UpdateCurrentTarget(ValidateRandomTarget());
-        }
-      }
-    }
-
-    private void AddTarget(EnemyTargetTrigger enemyTarget)
+    private void FixedUpdate()
     {
       if (_targets.Count == 0)
-        UpdateCurrentTarget(enemyTarget);
-
-      _targets.Add(enemyTarget);
-      enemyTarget.TargetDied += OnTargetDied;
-    }
-
-    private void OnTargetDied(EnemyTargetTrigger obj)
-    {
-      RemoveTarget(obj);
-    }
-
-    private void UpdateCurrentTarget(EnemyTargetTrigger enemyTarget)
-    {
-      _currentEnemyTarget = enemyTarget;
-
-      HasTarget = true;
-      CurrentTargetUpdated?.Invoke(_currentEnemyTarget);
-    }
-
-    private void RemoveTarget(EnemyTargetTrigger enemyTarget)
-    {
-      HasTarget = false;
-
-      enemyTarget.TargetDied -= OnTargetDied;
-      _targets.Remove(enemyTarget);
-
-      if (enemyTarget == _currentEnemyTarget)
       {
-        UpdateCurrentTarget(ValidateRandomTarget());
-
-        HasTarget = _currentEnemyTarget != null;
+        HasTarget = false;
+        _currentEnemyTarget = null;
+      }
+      else if (_currentEnemyTarget == null)
+      {
+        _currentEnemyTarget = _targets[Random.Range(0, _targets.Count)];
+        HasTarget = true;
       }
     }
 
-    private EnemyTargetTrigger ValidateRandomTarget() =>
-      _targets.Count == 0
-        ? null
-        : RandomTarget();
-
-    private EnemyTargetTrigger RandomTarget() =>
-      _targets[Random.Range(0, _targets.Count)];
-
-    private void OnPlayerTargetLocated(EnemyTargetTrigger enemyTarget)
+    public void AddTargets(List<EnemyTargetTrigger> targets)
     {
-      if (_targets.Contains(enemyTarget))
+      if (targets == null)
         return;
 
-      if (enemyTarget.EnemyHealth.IsDead)
+      if (targets.Count == 0)
         return;
 
-      AddTarget(enemyTarget);
-    }
+      foreach (var target in targets)
+      {
+        if (_targets.Contains(target))
+          continue;
 
-    private void OnPlayerTargetLost(EnemyTargetTrigger enemyTarget)
-    {
-      if (_targets.Contains(enemyTarget))
-        RemoveTarget(enemyTarget);
-    }
+        _targets.Add(target);
+      }
 
-    private void Subscribe()
-    {
-      PlayerTargetLocator.TargetLocated += OnPlayerTargetLocated;
-      PlayerTargetLocator.TargetLost += OnPlayerTargetLost;
+      var targetsToRemove = new List<EnemyTargetTrigger>(_targets);
+
+      foreach (var target in _targets)
+      {
+        if (!targets.Contains(target))
+          targetsToRemove.Add(target);
+      }
+
+      foreach (var target in targetsToRemove)
+      {
+        _targets.Remove(target);
+      }
     }
   }
 }

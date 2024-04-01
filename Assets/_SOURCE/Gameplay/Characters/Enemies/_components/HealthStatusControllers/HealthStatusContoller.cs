@@ -12,18 +12,17 @@ namespace Gameplay.Characters.Enemies
   {
     private Enemy _enemy;
     private EnemyHealth _enemyHealth;
-    private CoroutineDecorator _coroutine;
+    private EnemyReturnToSpawn _returnToSpawn;
 
     [Inject]
-    private void Construct(EnemyHealth enemyHealth, ICoroutineRunner coroutineRunner,
-      Enemy enemy)
+    private void Construct(EnemyHealth enemyHealth,
+      Enemy enemy, EnemyReturnToSpawn enemyReturnToSpawn)
     {
       _enemyHealth = enemyHealth;
       _enemy = enemy;
+      _returnToSpawn = enemyReturnToSpawn;
 
       _enemyHealth.Damaged += OnDamaged;
-
-      _coroutine = new CoroutineDecorator(coroutineRunner, TakeHit);
     }
 
     private EnemyConfig Config => _enemy.Config;
@@ -32,16 +31,10 @@ namespace Gameplay.Characters.Enemies
 
     private void OnDamaged(int damage)
     {
-      _coroutine.Stop();
+      if (_returnToSpawn.IsReturn)
+        return;
+      
       IsHit = true;
-      _coroutine.Start();
-    }
-
-    private IEnumerator TakeHit()
-    {
-      yield return new WaitForSeconds(RunTime);
-
-      IsHit = false;
     }
   }
 }
