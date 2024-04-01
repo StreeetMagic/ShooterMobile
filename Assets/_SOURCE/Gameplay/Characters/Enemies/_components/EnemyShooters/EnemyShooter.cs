@@ -27,7 +27,9 @@ namespace Gameplay.Characters.Enemies.EnemyShooters
 
     public void Shoot()
     {
-      Vector3 directionToTarget = PlayerTransform.position - _enemy.transform.position;
+      float yPosition = 1;
+      Vector3 directionToTarget = new Vector3(PlayerTransform.position.x, yPosition, PlayerTransform.position.z) - _enemy.transform.position;
+
       _projectileFactory.CreateEnemyProjectile(_enemy.transform, directionToTarget);
       _audioService.PlaySound(SoundId.Shoot);
     }

@@ -41,9 +41,11 @@ public class EnemyProjectile : MonoBehaviour
       {
         _count++;
         player.TakeDamage(1);
-        Destroy();
       }
     }
+
+    Debug.Log(other.name + " " + other.GetType().ToString());
+    Destroy();
   }
 
   private void Destroy()

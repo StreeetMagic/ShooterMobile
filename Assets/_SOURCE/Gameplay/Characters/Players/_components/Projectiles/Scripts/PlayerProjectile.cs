@@ -42,9 +42,10 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
         {
           _count++;
           enemyTargetTrigger.TakeDamage(_playerStatsProvider.GetStat(StatId.Damage).Value);
-          Destroy();
         }
       }
+
+      Destroy();
     }
 
     private void Destroy()
