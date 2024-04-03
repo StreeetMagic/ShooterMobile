@@ -10,26 +10,26 @@ namespace Gameplay.Characters.Enemies
   {
     private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
     private EnemyMoverToPlayer _enemyMoverToPlayer;
-    private HealthStatusController _healthStatus;
+    private HitStatus _hitStatus;
     private EnemyHealth _enemyHealth;
     private EnemyShootAtPlayer _enemyShootAtPlayer;
     private Enemy _enemy;
-    private EnemyReturnToSpawn _returnToSpawn;
+    private ReturnToSpawnStatus _returnToSpawnStatus;
     private PlayerProvider _playerProvider;
 
     [Inject]
     public void Construct(EnemyMoverToSpawnPoint enemyMoverToSpawnPoint,
-      EnemyMoverToPlayer enemyMoverToPlayer, HealthStatusController healthStatus,
-      EnemyHealth enemyHealth, EnemyShootAtPlayer enemyShooter, Enemy enemy, EnemyReturnToSpawn enemyReturnToSpawn,
+      EnemyMoverToPlayer enemyMoverToPlayer, HitStatus hitStatus,
+      EnemyHealth enemyHealth, EnemyShootAtPlayer enemyShooter, Enemy enemy, ReturnToSpawnStatus returnToSpawnStatus,
       PlayerProvider playerProvider)
     {
       _enemyMoverToSpawnPoint = enemyMoverToSpawnPoint;
       _enemyMoverToPlayer = enemyMoverToPlayer;
-      _healthStatus = healthStatus;
+      _hitStatus = hitStatus;
       _enemyHealth = enemyHealth;
       _enemyShootAtPlayer = enemyShooter;
       _enemy = enemy;
-      _returnToSpawn = enemyReturnToSpawn;
+      _returnToSpawnStatus = returnToSpawnStatus;
       _playerProvider = playerProvider;
     }
 
@@ -54,13 +54,13 @@ namespace Gameplay.Characters.Enemies
       var distanceToSpawner = (_enemy.SpawnerTransform.position - transform.position).magnitude;
       var distanceToPlayer = (_playerProvider.Player.transform.position - transform.position).magnitude;
 
-      if (_returnToSpawn.IsReturn)
+      if (_returnToSpawnStatus.IsReturn)
       {
         _enemyMoverToSpawnPoint.enabled = true;
         _enemyMoverToPlayer.enabled = false;
         _enemyShootAtPlayer.enabled = false;
       }
-      else if (_healthStatus.IsHit && distanceToSpawner < _enemy.Config.PatrolingRadius)
+      else if (_hitStatus.IsHit && distanceToSpawner < _enemy.Config.PatrolingRadius)
       {
         _enemyMoverToSpawnPoint.enabled = false;
 

@@ -9,17 +9,17 @@ namespace Gameplay.Characters.Enemies
   public class EnemyHealer : MonoBehaviour
   {
     private EnemyHealth _enemyHealth;
-    private HealthStatusController _healthStatusController;
+    private HitStatus _hitStatus;
     private Enemy _enemy;
 
     private float _heal;
     private float _timer;
 
     [Inject]
-    private void Construct(EnemyHealth enemyHealth, HealthStatusController healthStatusController, Enemy enemy)
+    private void Construct(EnemyHealth enemyHealth, HitStatus hitStatus, Enemy enemy)
     {
       _enemyHealth = enemyHealth;
-      _healthStatusController = healthStatusController;
+      _hitStatus = hitStatus;
       _enemy = enemy;
     }
 
@@ -39,7 +39,7 @@ namespace Gameplay.Characters.Enemies
 
       _timer += Time.deltaTime;
 
-      if (_healthStatusController.IsHit)
+      if (_hitStatus.IsHit)
       {
         _timer = 0;
         return;

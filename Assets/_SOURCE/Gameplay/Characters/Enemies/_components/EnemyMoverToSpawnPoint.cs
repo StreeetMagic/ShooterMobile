@@ -11,22 +11,20 @@ namespace Gameplay.Characters.Enemies
     private RoutePointsManager _routePointsManager;
     private Enemy _enemy;
     private EnemyMoverToPlayer _enemyMoverToPlayer;
-    private HealthStatusController _healthStatus;
+    private HitStatus _hitStatus;
     private EnemyShootAtPlayer _enemyShootAtPlayer;
-    private EnemyReturnToSpawn _returnToSpawn;
 
     [Inject]
     public void Construct(EnemyMover mover, RoutePointsManager routePointsManager, Enemy enemy,
-      EnemyMoverToPlayer enemyMoverToPlayer, HealthStatusController healthStatus, EnemyShootAtPlayer enemyShootAtPlayer,
-      EnemyReturnToSpawn enemyReturnToSpawn)
+      EnemyMoverToPlayer enemyMoverToPlayer, HitStatus hitStatus, EnemyShootAtPlayer enemyShootAtPlayer,
+      ReturnToSpawnStatus returnToSpawnStatus)
     {
       _mover = mover;
       _routePointsManager = routePointsManager;
       _enemy = enemy;
       _enemyMoverToPlayer = enemyMoverToPlayer;
-      _healthStatus = healthStatus;
+      _hitStatus = hitStatus;
       _enemyShootAtPlayer = enemyShootAtPlayer;
-      _returnToSpawn = enemyReturnToSpawn;
     }
 
     private float MoveSpeed => _enemy.Config.MoveSpeed;
@@ -34,7 +32,7 @@ namespace Gameplay.Characters.Enemies
     private void OnEnable()
     {
       _enemyMoverToPlayer.enabled = false;
-      _healthStatus.IsHit = false;
+      _hitStatus.IsHit = false;
       _enemyShootAtPlayer.enabled = false;
     }
 

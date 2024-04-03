@@ -12,18 +12,18 @@ namespace Gameplay.Characters.Enemies
     private EnemyMover _mover;
     private EnemyShootAtPlayer _enemyShootAtPlayer;
     private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
-    private EnemyReturnToSpawn _returnToSpawn;
+    private ReturnToSpawnStatus _returnToSpawnStatus;
 
     [Inject]
     public void Construct(PlayerProvider playerProvider, Enemy enemy, EnemyMover mover,
-      EnemyShootAtPlayer enemyShootAtPlayer, EnemyMoverToSpawnPoint enemyMoverToSpawnPoint, EnemyReturnToSpawn enemyReturnToSpawn)
+      EnemyShootAtPlayer enemyShootAtPlayer, EnemyMoverToSpawnPoint enemyMoverToSpawnPoint, ReturnToSpawnStatus returnToSpawnStatus)
     {
       _playerProvider = playerProvider;
       _enemy = enemy;
       _mover = mover;
       _enemyShootAtPlayer = enemyShootAtPlayer;
       _enemyMoverToSpawnPoint = enemyMoverToSpawnPoint;
-      _returnToSpawn = enemyReturnToSpawn;
+      _returnToSpawnStatus = returnToSpawnStatus;
     }
 
     private Transform PlayerTransform => _playerProvider.Player.transform;
@@ -60,7 +60,7 @@ namespace Gameplay.Characters.Enemies
       {
         enabled = false;
         _enemyMoverToSpawnPoint.enabled = true;
-        _returnToSpawn.IsReturn = true;
+        _returnToSpawnStatus.IsReturn = true;
       }
     }
   }

@@ -14,7 +14,6 @@ public class EnemyInstaller : MonoInstaller
   public EnemyAnimator EnemyAnimator;
   public EnemyHealth EnemyHealth;
   public RoutePointsManager RoutePointsManager;
-  public HealthStatusController HealthStatusController;
   public EnemyHealer enemyHealer;
   public EnemyMoverToSpawnPoint EnemyMoverToSpawnPoint;
   public EnemyWaiter EnemyWaiter;
@@ -24,11 +23,11 @@ public class EnemyInstaller : MonoInstaller
   public override void InstallBindings()
   {
     Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
-    Container.BindInterfacesAndSelfTo<EnemyReturnToSpawn>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<ReturnToSpawnStatus>().AsSingle().NonLazy();
     Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<HitStatus>().AsSingle().NonLazy();
 
     Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
-    Container.Bind<HealthStatusController>().FromInstance(HealthStatusController).AsSingle().NonLazy();
     Container.Bind<RoutePointsManager>().FromInstance(RoutePointsManager).AsSingle().NonLazy();
     Container.Bind<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
     Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();

@@ -16,10 +16,11 @@ namespace Gameplay.Characters.Enemies.Healths
     private Enemy _enemy;
     private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
     private EnemyMoverToPlayer _enemyMoverToPlayer;
+    private HitStatus _hitStatus;
 
     [Inject]
     private void Construct(EnemyAnimator animator, CorpseRemover corpseRemover, RewardService rewardService,
-      Enemy enemy, EnemyMoverToSpawnPoint enemyMoverToSpawnPoint, EnemyMoverToPlayer enemyMoverToPlayer)
+      Enemy enemy, EnemyMoverToSpawnPoint enemyMoverToSpawnPoint, EnemyMoverToPlayer enemyMoverToPlayer, HitStatus hitStatus)
     {
       _enemyAnimator = animator;
       _corpseRemover = corpseRemover;
@@ -27,6 +28,7 @@ namespace Gameplay.Characters.Enemies.Healths
       _enemyMoverToSpawnPoint = enemyMoverToSpawnPoint;
       _enemyMoverToPlayer = enemyMoverToPlayer;
       _enemy = enemy;
+      _hitStatus = hitStatus;
     }
 
     public event Action<EnemyConfig, EnemyHealth> Died;
@@ -56,8 +58,8 @@ namespace Gameplay.Characters.Enemies.Healths
       }
 
       SetCurrentHealth(Current.Value - damage);
-
       Damaged?.Invoke(Current.Value);
+      _hitStatus.IsHit = true;
 
       if (Current.Value <= 0)
       {
