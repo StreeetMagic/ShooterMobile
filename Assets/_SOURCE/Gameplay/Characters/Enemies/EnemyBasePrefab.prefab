@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7108181162478725540}
   - component: {fileID: 6943619904983208316}
   - component: {fileID: 214033764645502324}
-  - component: {fileID: 1550113627890411863}
   - component: {fileID: 6210699480615793660}
   - component: {fileID: 1581082542092309074}
   - component: {fileID: 8660255220194415683}
@@ -106,10 +105,8 @@ MonoBehaviour:
   Enemy: {fileID: 7108181162478725540}
   CharacterController: {fileID: -7812973496695978666}
   EnemyAnimator: {fileID: 0}
-  TargetLocator: {fileID: 0}
   EnemyHealth: {fileID: 6943619904983208316}
   RoutePointsManager: {fileID: 214033764645502324}
-  HealthStatusController: {fileID: 1550113627890411863}
   enemyHealer: {fileID: 6210699480615793660}
   EnemyMoverToSpawnPoint: {fileID: 1581082542092309074}
   EnemyWaiter: {fileID: 6081659697701374508}
@@ -150,18 +147,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4a91e3082304f2c9c69cb68a07737f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1550113627890411863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5342982923862884670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c47c97f1bb42aaa3b6cecb7e1b9905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6210699480615793660

@@ -8,14 +8,13 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class HealthStatusController : MonoBehaviour
+  public class HealthStatusController
   {
-    private Enemy _enemy;
-    private EnemyHealth _enemyHealth;
-    private EnemyReturnToSpawn _returnToSpawn;
+    private readonly Enemy _enemy;
+    private readonly EnemyHealth _enemyHealth;
+    private readonly EnemyReturnToSpawn _returnToSpawn;
 
-    [Inject]
-    private void Construct(EnemyHealth enemyHealth,
+    private HealthStatusController(EnemyHealth enemyHealth,
       Enemy enemy, EnemyReturnToSpawn enemyReturnToSpawn)
     {
       _enemyHealth = enemyHealth;
@@ -33,7 +32,7 @@ namespace Gameplay.Characters.Enemies
     {
       if (_returnToSpawn.IsReturn)
         return;
-      
+
       IsHit = true;
     }
   }
