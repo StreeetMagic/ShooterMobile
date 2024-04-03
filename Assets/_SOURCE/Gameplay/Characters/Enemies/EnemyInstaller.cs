@@ -12,9 +12,7 @@ public class EnemyInstaller : MonoInstaller
   public Enemy Enemy;
   public CharacterController CharacterController;
   public EnemyAnimator EnemyAnimator;
-  public EnemyTargetLocator TargetLocator;
   public EnemyHealth EnemyHealth;
-  public EnemyMover EnemyMover;
   public RoutePointsManager RoutePointsManager;
   public HealthStatusController HealthStatusController;
   public EnemyHealer enemyHealer;
@@ -27,16 +25,15 @@ public class EnemyInstaller : MonoInstaller
   {
     Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
     Container.BindInterfacesAndSelfTo<EnemyReturnToSpawn>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
 
     Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
     Container.Bind<HealthStatusController>().FromInstance(HealthStatusController).AsSingle().NonLazy();
     Container.Bind<RoutePointsManager>().FromInstance(RoutePointsManager).AsSingle().NonLazy();
-    Container.Bind<EnemyMover>().FromInstance(EnemyMover).AsSingle().NonLazy();
     Container.Bind<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
     Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();
     Container.Bind<CharacterController>().FromInstance(CharacterController).AsSingle().NonLazy();
     Container.Bind<EnemyAnimator>().FromInstance(EnemyAnimator).AsSingle().NonLazy();
-    Container.Bind<EnemyTargetLocator>().FromInstance(TargetLocator).AsSingle().NonLazy(); 
     Container.Bind<EnemyMoverToSpawnPoint>().FromInstance(EnemyMoverToSpawnPoint).AsSingle().NonLazy();
     Container.Bind<EnemyWaiter>().FromInstance(EnemyWaiter).AsSingle().NonLazy();
     Container.Bind<EnemyMoverToPlayer>().FromInstance(EnemyMoverToPlayer).AsSingle().NonLazy();

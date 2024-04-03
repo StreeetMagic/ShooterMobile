@@ -3,13 +3,12 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.Movers
 {
-  public class EnemyMover : MonoBehaviour
+  public class EnemyMover
   {
-    private CharacterController _characterController;
-    private Enemy _enemy;
+    private readonly CharacterController _characterController;
+    private readonly Enemy _enemy;
 
-    [Inject]
-    private void Construct(CharacterController characterController, Enemy enemy)
+    private EnemyMover(CharacterController characterController, Enemy enemy)
     {
       _characterController = characterController;
       _enemy = enemy;

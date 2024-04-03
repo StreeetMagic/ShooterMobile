@@ -44,7 +44,6 @@ public class EnemyProjectile : MonoBehaviour
       }
     }
 
-    Debug.Log(other.name + " " + other.GetType().ToString());
     Destroy();
   }
 
