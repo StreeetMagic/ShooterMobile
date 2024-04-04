@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationSpeed: 10
   GravityScale: 0.1
-  FireRate: 5
+  FireRate: 2
   BulletSpeed: 50
   Stats:
   - StatId: 1
-    Value: 20
+    Value: 1
   - StatId: 2
     Value: 10
   - StatId: 3
@@ -28,6 +28,6 @@ MonoBehaviour:
   - StatId: 5
     Value: 8
   - StatId: 6
-    Value: 10
+    Value: 5
   - StatId: 7
     Value: 100

@@ -22,6 +22,7 @@ using Infrastructure.StaticDataServices;
 using Infrastructure.UserIntefaces;
 using Infrastructure.ZenjectFactories;
 using Inputs;
+using Loggers;
 using Maps;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
@@ -55,6 +56,7 @@ namespace Infrastructure.DependencyInjection
 
       Container.Bind<SceneLoader>().AsSingle();
       Container.BindInterfacesAndSelfTo<AudioService>().AsSingle();
+      Container.Bind<DebugLogger>().AsSingle();
     }
   }
 }

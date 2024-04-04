@@ -2,9 +2,7 @@ using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.EnemyShooters;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Movers;
-using Gameplay.Characters.Enemies.TargetLocators;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 public class EnemyInstaller : MonoInstaller

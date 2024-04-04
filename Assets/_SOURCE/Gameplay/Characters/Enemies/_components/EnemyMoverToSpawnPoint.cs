@@ -38,7 +38,7 @@ namespace Gameplay.Characters.Enemies
 
     private void FixedUpdate()
     {
-      var direction = (_routePointsManager.NextRoutePointTransform.position - transform.position).normalized;
+      Vector3 direction = (_routePointsManager.NextRoutePointTransform.position - transform.position).normalized;
 
       _mover.Move(direction, MoveSpeed);
     }
