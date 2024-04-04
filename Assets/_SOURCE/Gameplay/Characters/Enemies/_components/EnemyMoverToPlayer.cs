@@ -27,8 +27,8 @@ namespace Gameplay.Characters.Enemies
       _logger = logger;
     }
 
-    private Transform PlayerTransform => _playerProvider.Player.transform;
     private float RunSpeed => _enemy.Config.RunSpeed;
+    private Transform PlayerTransform => _playerProvider.Player.transform;
     private Transform SpawnerTransform => _enemy.SpawnerTransform;
 
     private void FixedUpdate()
