@@ -47,21 +47,18 @@ namespace Gameplay.Characters.Enemies
     {
       if (_enemyHealth.IsDead)
       {
-        _debugLogger.Log("Case1");
         _enemyMoverToSpawnPoint.enabled = false;
         _enemyMoverToPlayer.enabled = false;
         _enemyShootAtPlayer.enabled = false;
       }
       else if (_returnToSpawnStatus.IsReturn)
       {
-        _debugLogger.Log("Case2");
         _enemyMoverToSpawnPoint.enabled = true;
         _enemyMoverToPlayer.enabled = false;
         _enemyShootAtPlayer.enabled = false;
       }
       else if (_hitStatus.IsHit && EnemyInPatrolingRadius())
       {
-        _debugLogger.Log("Case3");
         _enemyMoverToSpawnPoint.enabled = false;
 
         if (EnemyInShootingRadius())

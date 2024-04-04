@@ -35,7 +35,6 @@ namespace Gameplay.Characters.Enemies
     {
       if (DistanceToSpawnPoint())
       {
-        _logger.Log("ТО ЧТО НАДо");
         _returnToSpawnStatus.IsReturn = true;
       }
 
@@ -71,8 +70,6 @@ namespace Gameplay.Characters.Enemies
     {
       float distance = Vector3.Distance(transform.position, _enemy.SpawnerTransform.position);
       int configPatrolingRadius = _enemy.Config.PatrolingRadius;
-
-      _logger.Log($"{distance} < {configPatrolingRadius}");
 
       return distance >= configPatrolingRadius;
     }

@@ -19,7 +19,6 @@ public class ReturnToSpawnStatus
     get => _isReturn;
     set
     {
-      _logger.Log($"IsReturn: {value}");
       _isReturn = value;
     }
   }
