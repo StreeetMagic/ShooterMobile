@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.PlayerConfigs.Scripts;
+using Configs.Resources.QuestConfigs;
 using Configs.Resources.SoundConfigs;
 using Configs.Resources.SoundConfigs.Scripts;
 using Configs.Resources.UpgradeConfigs.Scripts;
@@ -20,6 +21,7 @@ namespace Infrastructure.StaticDataServices
     private const string SoundConfigPath = "SoundConfigs";
     private const string LootConfigPath = "LootConfigs";
     private const string MusicConfigPath = "MusicConfigs";
+    private const string QuestConfigPath = "QuestConfigs";
 
     private PlayerConfig _playerConfig;
     private bool _enemyLoaded;
@@ -30,6 +32,7 @@ namespace Infrastructure.StaticDataServices
     private Dictionary<MusicId, MusicConfig> _musicConfigs;
     private Dictionary<SoundId, SoundConfig> _soundConfigs;
     private Dictionary<StatId, int> _stats;
+    private Dictionary<QuestId, QuestConfig> _questConfigs;
 
     public PlayerConfig GetPlayerConfig() =>
       _playerConfig ??= Resources.Load<PlayerConfig>(PlayerConfigPath);
@@ -55,6 +58,12 @@ namespace Infrastructure.StaticDataServices
     public int GetInitialStat(StatId id) =>
       _stats[id];
 
+    public QuestConfig GetQuestConfig(QuestId questId) =>
+      _questConfigs[questId];
+
+    public Dictionary<QuestId, QuestConfig> GetQuestConfigs() => 
+      _questConfigs;
+
     public void LoadConfigs()
     {
       LoadEnemyConfigs();
@@ -63,7 +72,13 @@ namespace Infrastructure.StaticDataServices
       LoadMusicConfigs();
       LoadSoundConfigs();
       LoadInitialStats();
+      LoadQuestConfigs();
     }
+
+    private void LoadQuestConfigs() =>
+      _questConfigs = Resources
+        .LoadAll<QuestConfig>(QuestConfigPath)
+        .ToDictionary(x => x.Id, x => x);
 
     private void LoadInitialStats()
     {

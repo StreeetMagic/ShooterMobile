@@ -5,5 +5,6 @@ namespace Gameplay.Currencies
     Unknown,
     Money,
     Eggs,
+    Expirience
   }
 }

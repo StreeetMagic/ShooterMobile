@@ -26,13 +26,15 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     private readonly AudioService _audioService;
     private readonly PlayerStatsProvider _playerStatsProvider;
     private readonly ICoroutineRunner _runner;
+    private readonly QuestStorage _questStorage;
 
     private Transform _sceneTransform;
 
     public GameLoopState(PlayerFactory playerFactory, MapFactory mapFactory,
       CameraFactory cameraFactory, EnemySpawnerFactory enemySpawnerFactory,
       HeadsUpDisplayFactory headsUpDisplayFactory, MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService,
-      SaveLoadService saveLoadService, AudioService audioService, PlayerStatsProvider playerStatsProvider, ICoroutineRunner runner)
+      SaveLoadService saveLoadService, AudioService audioService, PlayerStatsProvider playerStatsProvider, ICoroutineRunner runner
+      , QuestStorage questStorage)
     {
       _playerFactory = playerFactory;
       _mapFactory = mapFactory;
@@ -45,6 +47,7 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
       _audioService = audioService;
       _playerStatsProvider = playerStatsProvider;
       _runner = runner;
+      _questStorage = questStorage;
     }
 
     public void Enter()
@@ -52,6 +55,7 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
       _saveLoadService.ProgressReaders.Add(_moneyInBankStorage);
       _saveLoadService.ProgressReaders.Add(_upgradeService);
       _saveLoadService.ProgressReaders.Add(_audioService);
+      _saveLoadService.ProgressReaders.Add(_questStorage);
       _saveLoadService.LoadProgress();
 
       _sceneTransform = GameObject.FindObjectOfType<GameLoopInstaller>().transform;

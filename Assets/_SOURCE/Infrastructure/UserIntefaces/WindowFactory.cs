@@ -19,7 +19,7 @@ namespace Infrastructure.UserIntefaces
 
     private Transform HudTransform => _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
 
-    public void Create(WindowId windowId)
+    public void Create(WindowId windowId, QuestId questId = QuestId.Unknown)
     {
       switch (windowId)
       {
@@ -40,6 +40,7 @@ namespace Infrastructure.UserIntefaces
         
         case WindowId.Quest:
           _factory.InstantiateMono<QuestWindow>(HudTransform);
+          QuestId kek = questId;
           break;
       }
     }

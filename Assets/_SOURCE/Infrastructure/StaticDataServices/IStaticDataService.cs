@@ -2,6 +2,7 @@
 using Configs.Resources;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.PlayerConfigs.Scripts;
+using Configs.Resources.QuestConfigs;
 using Configs.Resources.SoundConfigs;
 using Configs.Resources.SoundConfigs.Scripts;
 using Configs.Resources.UpgradeConfigs.Scripts;
@@ -22,5 +23,7 @@ namespace Infrastructure.StaticDataServices
     MusicConfig GetMusicConfig(MusicId musicId);
     SoundConfig GetSoundConfig(SoundId soundId);
     int GetInitialStat(StatId id);
+    QuestConfig GetQuestConfig(QuestId questId);
+    Dictionary<QuestId, QuestConfig> GetQuestConfigs();
   }
 }

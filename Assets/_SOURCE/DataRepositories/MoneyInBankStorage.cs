@@ -24,6 +24,5 @@ namespace Infrastructure.DataRepositories
 
     public void WriteProgress(Progress progress) =>
       progress.MoneyInBank = MoneyInBank.Value;
-    
   }
 }

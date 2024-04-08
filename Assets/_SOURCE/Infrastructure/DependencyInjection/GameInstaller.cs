@@ -51,6 +51,7 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<EggsInBankStorage>().AsSingle();
       Container.Bind<MoneyInBankStorage>().AsSingle();
       Container.Bind<ExpierienceStorage>().AsSingle();
+      Container.Bind<QuestStorage>().AsSingle();
 
       Container.Bind<RandomService>().AsSingle();
 
