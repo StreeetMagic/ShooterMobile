@@ -1,4 +1,6 @@
-﻿using Infrastructure.ZenjectFactories;
+﻿using Configs.Resources.QuestConfigs;
+using Infrastructure.StaticDataServices;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.QuestWindows;
@@ -10,11 +12,14 @@ namespace Infrastructure.UserIntefaces
   {
     private readonly GameLoopZenjectFactory _factory;
     private readonly HeadsUpDisplayProvider _headsUpDisplayProvider;
+    private readonly IStaticDataService _staticDataService;
 
-    public WindowFactory(GameLoopZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider)
+    public WindowFactory(GameLoopZenjectFactory factory,
+      HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;
+      _staticDataService = staticDataService;
     }
 
     private Transform HudTransform => _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
@@ -29,18 +34,19 @@ namespace Infrastructure.UserIntefaces
         case WindowId.UpgradeShop:
           _factory.InstantiateMono<UpgradeShopWindow>(HudTransform);
           break;
-        
+
         case WindowId.Debug:
           _factory.InstantiateMono<DebugWindow>(HudTransform);
           break;
-        
+
         case WindowId.Settings:
           _factory.InstantiateMono<SettingsWindow>(HudTransform);
           break;
-        
+
         case WindowId.Quest:
-          _factory.InstantiateMono<QuestWindow>(HudTransform);
-          QuestId kek = questId;
+          var window = _factory.InstantiateMono<QuestWindow>(HudTransform);
+          QuestConfig config = _staticDataService.GetQuestConfig(questId);
+          window.QuestConfig = config;
           break;
       }
     }

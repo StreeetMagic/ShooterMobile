@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Configs.Resources.QuestConfigs;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
@@ -19,17 +20,26 @@ public class QuestStorage : IProgressWriter
   public void ReadProgress(Progress progress)
   {
     Dictionary<QuestId, QuestConfig> configs = _staticDataService.GetQuestConfigs();
-    
+
     _quests = new Dictionary<QuestId, Quest>();
 
     foreach (QuestId questId in configs.Keys)
-    {
-      QuestConfig config = configs[questId];
-    }
+      _quests.Add(questId, new Quest(QuestState(progress, questId), configs[questId]));
+  }
+
+  private static QuestState QuestState(Progress progress, QuestId questId)
+  {
+    return progress
+      .Quests
+      .Find(x => x.Id == questId)
+      .State;
   }
 
   public void WriteProgress(Progress progress)
   {
-    throw new System.NotImplementedException();
+    progress.Quests.Clear();
+
+    foreach (KeyValuePair<QuestId, Quest> quest in _quests)
+      progress.Quests.Add(new QuestProgress(quest.Key, quest.Value.State));
   }
 }

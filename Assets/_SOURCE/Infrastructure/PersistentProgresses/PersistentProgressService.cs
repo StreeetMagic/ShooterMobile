@@ -1,13 +1,15 @@
 using System.Collections.Generic;
+using Configs.Resources.QuestConfigs;
 using Configs.Resources.UpgradeConfigs.Scripts;
 using Infrastructure.StaticDataServices;
+using Quests;
 using UnityEngine;
 
 namespace Infrastructure.PersistentProgresses
 {
   public class PersistentProgressService
   {
-    private IStaticDataService _staticDataService;
+    private readonly IStaticDataService _staticDataService;
 
     public PersistentProgressService(IStaticDataService staticDataService)
     {
@@ -23,26 +25,44 @@ namespace Infrastructure.PersistentProgresses
 
     public void SetDefault()
     {
-      Progress = new Progress
-      {
-        MoneyInBank = 500,
-        MoneyInBackpack = 0,
+      Progress = new Progress();
 
-        EggsInBank = 0,
-        EggsInBackpack = 0,
+      Progress.MoneyInBank = 500;
+      Progress.EggsInBank = 0;
+      Progress.PlayerPosition = Vector3.zero;
+      Progress.Expierience = 0;
+      Progress.MusicMute = false;
 
-        PlayerPosition = Vector3.zero,
-        Expierience = 0,
-        Upgrades = new List<UpgradeProgress>(),
+      Upgrades();
+      Quests();
+    }
 
-        MusicMute = false
-      };
+    private void Upgrades()
+    {
+      Progress.Upgrades = new List<UpgradeProgress>();
 
-      Dictionary<StatId, UpgradeConfig> upgrades = _staticDataService
-        .GetUpgradeConfigs();
+      Dictionary<StatId, UpgradeConfig> upgrades =
+        _staticDataService
+          .GetUpgradeConfigs();
 
       foreach (KeyValuePair<StatId, UpgradeConfig> upgrade in upgrades)
-        Progress.Upgrades.Add(new UpgradeProgress(upgrade.Key, 0));
+        Progress
+          .Upgrades
+          .Add(new UpgradeProgress(upgrade.Key, 0));
+    }
+
+    private void Quests()
+    {
+      Progress.Quests = new List<QuestProgress>();
+      
+      Dictionary<QuestId, QuestConfig> quests =
+        _staticDataService
+          .GetQuestConfigs();
+      
+      foreach (KeyValuePair<QuestId, QuestConfig> quest in quests)
+        Progress
+          .Quests
+          .Add(new QuestProgress(quest.Key, QuestState.UnAccepted));
     }
   }
 }

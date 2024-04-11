@@ -10,19 +10,12 @@ namespace Infrastructure.PersistentProgresses
   public class Progress
   {
     public int MoneyInBank;
-    public int MoneyInBackpack;
-
     public int EggsInBank;
-    public int EggsInBackpack;
-
     public int Expierience;
+    public bool MusicMute;
     public Vector3 PlayerPosition;
 
     public List<UpgradeProgress> Upgrades;
-    
-    public UpgradeProgress FindUpgradeProgress(StatId id) =>
-      Upgrades.Find(x => x.Id == id);
-
-    public bool MusicMute;
+    public List<QuestProgress> Quests;
   }
 }

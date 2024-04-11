@@ -31,14 +31,14 @@ namespace Gameplay.Characters.Enemies.Spawners.DebugServices
     {
       _inputService.Restart += Restart;
       _inputService.DeleteSaves += DeleteSaves;
-      _inputService.OpenQuestWindow += OpenQuestWindow;
+      _inputService.OpenQuestWindow += OpenQuest;
     }
 
     public void Dispose()
     {
       _inputService.Restart -= Restart;
       _inputService.DeleteSaves -= DeleteSaves;
-      _inputService.OpenQuestWindow -= OpenQuestWindow;
+      _inputService.OpenQuestWindow -= OpenQuest;
     }
 
     public void Restart()
@@ -51,9 +51,9 @@ namespace Gameplay.Characters.Enemies.Spawners.DebugServices
       _saveLoadService.DeleteSaves();
     }
 
-    public void OpenQuestWindow()
+    private void OpenQuest()
     {
-      _windowFactory.Create(WindowId.Quest);
+      _windowFactory.Create(WindowId.Quest, QuestId.Quest1); 
     }
   }
 }

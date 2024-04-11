@@ -1,5 +1,5 @@
-using System;
-using Configs.Resources.UpgradeConfigs.Scripts;
+using System.Collections.Generic;
+using Configs.Resources.QuestConfigs.SubQuestConfigs;
 using Gameplay.Currencies;
 using UnityEngine;
 
@@ -12,12 +12,7 @@ namespace Configs.Resources.QuestConfigs
     public string Name;
     public Sprite Icon;
     public QuestReward Reward;
-  }
-
-  [Serializable]
-  public class QuestReward
-  {
-    public StatId StatId;
-    public int Quantity;
+    
+    public List<SubQuestConfig> SubQuests;
   }
 }

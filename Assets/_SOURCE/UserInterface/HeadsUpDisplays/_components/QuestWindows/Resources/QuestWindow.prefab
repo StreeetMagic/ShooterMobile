@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 422263240245107397}
   - component: {fileID: 3904303077803537016}
   - component: {fileID: 8914966680538970806}
+  - component: {fileID: 5406125978374315528}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -135,6 +136,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5406125978374315528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19803544652915799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80147bb4e325b3c45bd07695ef110315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 8914966680538970806}
+  QuestWindow: {fileID: 1802208336370171341}
 --- !u!1 &429370532295412847
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +287,7 @@ GameObject:
   - component: {fileID: 3941981844266422498}
   - component: {fileID: 4769394221897660189}
   - component: {fileID: 1547448459474680673}
+  - component: {fileID: 3480641360475754591}
   m_Layer: 5
   m_Name: description
   m_TagString: Untagged
@@ -396,6 +412,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3480641360475754591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168695404224504590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7f6c59a81bb574ca9295735d4daf58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestWindow: {fileID: 1802208336370171341}
+  Text: {fileID: 1547448459474680673}
 --- !u!1 &1254135934314828301
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +572,7 @@ GameObject:
   - component: {fileID: 6256538962188751936}
   - component: {fileID: 6398027077062068311}
   - component: {fileID: 4363183559706669905}
+  - component: {fileID: 7160275465892302297}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -596,7 +627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 338d446ef59a53d4abbb868ebc1869d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2e0913dd558c864c8d6e054ee95b994, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -606,6 +637,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7160275465892302297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408188912991076436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f07a618a8a71fb4d990659cadc77230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 4363183559706669905}
+  QuestWindow: {fileID: 1802208336370171341}
 --- !u!1 &1662036323671296667
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloseButton: {fileID: 7412830250475242543}
+  QuestConfig: {fileID: 0}
 --- !u!1 &2408934388522702135
 GameObject:
   m_ObjectHideFlags: 0

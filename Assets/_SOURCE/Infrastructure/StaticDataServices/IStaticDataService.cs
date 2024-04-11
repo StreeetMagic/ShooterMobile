@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Configs.Resources;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.PlayerConfigs.Scripts;
 using Configs.Resources.QuestConfigs;
@@ -23,7 +22,7 @@ namespace Infrastructure.StaticDataServices
     MusicConfig GetMusicConfig(MusicId musicId);
     SoundConfig GetSoundConfig(SoundId soundId);
     int GetInitialStat(StatId id);
-    QuestConfig GetQuestConfig(QuestId questId);
     Dictionary<QuestId, QuestConfig> GetQuestConfigs();
+    QuestConfig GetQuestConfig(QuestId questId);
   }
 }
