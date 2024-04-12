@@ -1,6 +1,6 @@
+using System;
 using System.Collections.Generic;
 using Configs.Resources.QuestConfigs.SubQuestConfigs;
-using Gameplay.Currencies;
 using UnityEngine;
 
 namespace Configs.Resources.QuestConfigs
@@ -12,7 +12,15 @@ namespace Configs.Resources.QuestConfigs
     public string Name;
     public Sprite Icon;
     public QuestReward Reward;
-    
-    public List<SubQuestConfig> SubQuests;
+
+    public List<SubQuestSetup> SubQuests;
+  }
+
+  [Serializable]
+  public class SubQuestSetup
+  {
+    public SubQuestConfig Config;
+    public int Quantity;
+    public QuestReward Reward;
   }
 }

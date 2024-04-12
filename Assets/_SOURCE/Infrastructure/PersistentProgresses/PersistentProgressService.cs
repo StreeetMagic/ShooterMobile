@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Configs.Resources.QuestConfigs;
 using Configs.Resources.UpgradeConfigs.Scripts;
+using DataRepositories.Quests;
 using Infrastructure.StaticDataServices;
 using Quests;
 using UnityEngine;
@@ -54,15 +55,25 @@ namespace Infrastructure.PersistentProgresses
     private void Quests()
     {
       Progress.Quests = new List<QuestProgress>();
-      
+
       Dictionary<QuestId, QuestConfig> quests =
         _staticDataService
           .GetQuestConfigs();
-      
+
       foreach (KeyValuePair<QuestId, QuestConfig> quest in quests)
+      {
+        List<SubQuestProgress> subQuests = new List<SubQuestProgress>();
+
+        for (var i = 0; i < quest.Value.SubQuests.Count; i++)
+        {
+          SubQuestProgress progressSubQuest = new SubQuestProgress(quest.Value.SubQuests[i].Config.Type, 0, QuestState.UnAccepted);
+          subQuests.Add(progressSubQuest);
+        }
+
         Progress
           .Quests
-          .Add(new QuestProgress(quest.Key, QuestState.UnAccepted));
+          .Add(new QuestProgress(quest.Key, QuestState.UnAccepted, subQuests));
+      }
     }
   }
 }
