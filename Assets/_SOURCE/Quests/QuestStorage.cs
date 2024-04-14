@@ -18,6 +18,9 @@ public class QuestStorage : IProgressWriter
     _staticDataService = staticDataService;
   }
 
+  public Quest GetQuest(QuestId questId)
+    => _quests[questId];
+
   public void ReadProgress(Progress progress)
   {
     Dictionary<QuestId, QuestConfig> configs = _staticDataService.GetQuestConfigs();

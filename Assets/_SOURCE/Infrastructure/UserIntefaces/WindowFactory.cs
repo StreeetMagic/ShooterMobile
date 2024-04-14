@@ -13,13 +13,16 @@ namespace Infrastructure.UserIntefaces
     private readonly GameLoopZenjectFactory _factory;
     private readonly HeadsUpDisplayProvider _headsUpDisplayProvider;
     private readonly IStaticDataService _staticDataService;
+    private readonly QuestStorage _storage;
 
     public WindowFactory(GameLoopZenjectFactory factory,
-      HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService)
+      HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService,
+      QuestStorage storage)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;
       _staticDataService = staticDataService;
+      _storage = storage;
     }
 
     private Transform HudTransform => _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
@@ -47,6 +50,7 @@ namespace Infrastructure.UserIntefaces
           var window = _factory.InstantiateMono<QuestWindow>(HudTransform);
           QuestConfig config = _staticDataService.GetQuestConfig(questId);
           window.QuestConfig = config;
+          window.Quest = _storage.GetQuest(questId);
           break;
       }
     }
