@@ -49,8 +49,8 @@ public class EnemyProjectile : MonoBehaviour
 
   private void Destroy()
   {
-    PlayerVisualEffect();
     transform.position = CollisionPointRayCaster.HitPosition;
+    PlayerVisualEffect();
     Destroy(gameObject);
   }
 }

@@ -24,6 +24,7 @@ public class EnemyInstaller : MonoInstaller
     Container.BindInterfacesAndSelfTo<ReturnToSpawnStatus>().AsSingle().NonLazy();
     Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
     Container.BindInterfacesAndSelfTo<HitStatus>().AsSingle().NonLazy();
+    Container.BindInterfacesAndSelfTo<EnemyToTargetRotator>().AsSingle().NonLazy();
 
     Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
     Container.Bind<RoutePointsManager>().FromInstance(RoutePointsManager).AsSingle().NonLazy();

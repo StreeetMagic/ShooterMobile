@@ -9,6 +9,7 @@ namespace Gameplay.Characters.Enemies
   public class Enemy : MonoBehaviour
   {
     public EnemyInstaller Installer;
+    public Transform ShootingPoint;
     
     public EnemyConfig Config { get; set; }
     public List<SpawnPoint> SpawnPoints { get; set; }

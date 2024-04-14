@@ -34,7 +34,7 @@ public class ProjectileFactory
     _visualEffectFactory.Create(VIsualEffectId.MuzzleFlash, parent.position, parent);
   }
 
-  public void CreateEnemyProjectile(Transform parent, Vector3 rotation)
+  public void CreateEnemyProjectile(Transform parent, Vector3 position, Vector3 rotation)
   {
     string guid = _randomService.GetRandomUniqueId();
     EnemyProjectile prefab = _assetProvider.Get<EnemyProjectile>();
@@ -42,6 +42,6 @@ public class ProjectileFactory
     playerProjectile.transform.SetParent(null);
     playerProjectile.Guid = guid;
 
-    _visualEffectFactory.Create(VIsualEffectId.MuzzleFlash, parent.position, parent);
+    _visualEffectFactory.Create(VIsualEffectId.MuzzleFlash, position, parent);
   }
 }

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1348740190755888134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 332562170312537749}
+  m_Layer: 0
+  m_Name: ShootingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &332562170312537749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348740190755888134}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.484, y: 0.642, z: 0.252}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7019436002018001724}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3465883675018978164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151,11 +182,6 @@ PrefabInstance:
       objectReference: {fileID: 7019436002018001724}
     - target: {fileID: 1185853144611762197, guid: 5c1227a3ce6afa44893dd92edce52d9d,
         type: 3}
-      propertyPath: enemyHealth
-      value: 
-      objectReference: {fileID: 8759006956519814644}
-    - target: {fileID: 1185853144611762197, guid: 5c1227a3ce6afa44893dd92edce52d9d,
-        type: 3}
       propertyPath: EnemyAnimator
       value: 
       objectReference: {fileID: 4124945685095520008}
@@ -220,16 +246,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000,
         type: 0}
-    - target: {fileID: 3620661909306883133, guid: 5c1227a3ce6afa44893dd92edce52d9d,
-        type: 3}
-      propertyPath: Health
-      value: 
-      objectReference: {fileID: 8759006956519814644}
-    - target: {fileID: 3620661909306883133, guid: 5c1227a3ce6afa44893dd92edce52d9d,
-        type: 3}
-      propertyPath: enemyHealth
-      value: 
-      objectReference: {fileID: 8759006956519814644}
     - target: {fileID: 5342982923862884670, guid: 5c1227a3ce6afa44893dd92edce52d9d,
         type: 3}
       propertyPath: m_Icon
@@ -246,6 +262,11 @@ PrefabInstance:
       propertyPath: m_BlockingMask.m_Bits
       value: 511
       objectReference: {fileID: 0}
+    - target: {fileID: 7108181162478725540, guid: 5c1227a3ce6afa44893dd92edce52d9d,
+        type: 3}
+      propertyPath: ShootingPoint
+      value: 
+      objectReference: {fileID: 332562170312537749}
     - target: {fileID: 8680237518176629663, guid: 5c1227a3ce6afa44893dd92edce52d9d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -268,6 +289,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1495086185637413603}
+    - targetCorrespondingSourceObject: {fileID: 2271594991052282516, guid: 5c1227a3ce6afa44893dd92edce52d9d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 332562170312537749}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c1227a3ce6afa44893dd92edce52d9d, type: 3}
 --- !u!114 &2038174989920743436 stripped
@@ -294,15 +319,3 @@ CharacterController:
     type: 3}
   m_PrefabInstance: {fileID: 9145781981842594216}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8759006956519814644 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 532100040725671004, guid: 5c1227a3ce6afa44893dd92edce52d9d,
-    type: 3}
-  m_PrefabInstance: {fileID: 9145781981842594216}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7146317d0635a4695f7a8f18102f1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -36,43 +36,43 @@ namespace Infrastructure.PersistentProgresses
 
       Upgrades();
       Quests();
-    }
 
-    private void Upgrades()
-    {
-      Progress.Upgrades = new List<UpgradeProgress>();
-
-      Dictionary<StatId, UpgradeConfig> upgrades =
-        _staticDataService
-          .GetUpgradeConfigs();
-
-      foreach (KeyValuePair<StatId, UpgradeConfig> upgrade in upgrades)
-        Progress
-          .Upgrades
-          .Add(new UpgradeProgress(upgrade.Key, 0));
-    }
-
-    private void Quests()
-    {
-      Progress.Quests = new List<QuestProgress>();
-
-      Dictionary<QuestId, QuestConfig> quests =
-        _staticDataService
-          .GetQuestConfigs();
-
-      foreach (KeyValuePair<QuestId, QuestConfig> quest in quests)
+      void Upgrades()
       {
-        List<SubQuestProgress> subQuests = new List<SubQuestProgress>();
+        Progress.Upgrades = new List<UpgradeProgress>();
 
-        for (var i = 0; i < quest.Value.SubQuests.Count; i++)
+        Dictionary<StatId, UpgradeConfig> upgrades =
+          _staticDataService
+            .GetUpgradeConfigs();
+
+        foreach (KeyValuePair<StatId, UpgradeConfig> upgrade in upgrades)
+          Progress
+            .Upgrades
+            .Add(new UpgradeProgress(upgrade.Key, 0));
+      }
+
+      void Quests()
+      {
+        Progress.Quests = new List<QuestProgress>();
+
+        Dictionary<QuestId, QuestConfig> quests =
+          _staticDataService
+            .GetQuestConfigs();
+
+        foreach (KeyValuePair<QuestId, QuestConfig> quest in quests)
         {
-          SubQuestProgress progressSubQuest = new SubQuestProgress(quest.Value.SubQuests[i].Config.Type, 0, QuestState.UnAccepted);
-          subQuests.Add(progressSubQuest);
-        }
+          List<SubQuestProgress> subQuests = new List<SubQuestProgress>();
 
-        Progress
-          .Quests
-          .Add(new QuestProgress(quest.Key, QuestState.UnAccepted, subQuests));
+          for (var i = 0; i < quest.Value.SubQuests.Count; i++)
+          {
+            SubQuestProgress progressSubQuest = new SubQuestProgress(quest.Value.SubQuests[i].Config.Type, 0, QuestState.UnAccepted);
+            subQuests.Add(progressSubQuest);
+          }
+
+          Progress
+            .Quests
+            .Add(new QuestProgress(quest.Key, QuestState.UnAccepted, subQuests));
+        }
       }
     }
   }

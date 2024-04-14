@@ -1,9 +1,7 @@
-using System;
 using Configs.Resources.UpgradeConfigs.Scripts;
 using Configs.Resources.VisualEffectConfigs;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
-using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 
@@ -50,8 +48,8 @@ namespace Gameplay.Characters.Players.Shooters.Projectiles
 
     private void Destroy()
     {
-      PlayerVisualEffect();
       transform.position = CollisionPointRayCaster.HitPosition;
+      PlayerVisualEffect();
       Destroy(gameObject);
     }
   }

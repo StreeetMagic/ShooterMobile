@@ -12,7 +12,7 @@ namespace Configs.Resources.PlayerConfigs.Scripts
     public float GravityScale;
 
     [Tooltip("Скорострельность. Выстрелов в секунду")]
-    public int FireRate = 10;
+    public float FireRate = 10;
 
     [Tooltip("Скорость полета пули")] public int BulletSpeed = 10;
 

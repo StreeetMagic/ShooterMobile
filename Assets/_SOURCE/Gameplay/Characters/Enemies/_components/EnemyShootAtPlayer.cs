@@ -1,4 +1,3 @@
-using System;
 using Gameplay.Characters.Enemies.EnemyShooters;
 using Gameplay.Characters.Players.Factories;
 using UnityEngine;
@@ -13,14 +12,17 @@ namespace Gameplay.Characters.Enemies
     private float _time;
     private PlayerProvider _playerProvider;
     private EnemyMoverToPlayer _enemyMoverToPlayer;
+    private EnemyToTargetRotator _enemyToTargetRotator;
 
     [Inject]
-    public void Construct(EnemyShooter shooter, Enemy enemy, PlayerProvider playerProvider, EnemyMoverToPlayer enemyMoverToPlayer)
+    public void Construct(EnemyShooter shooter, Enemy enemy,
+      PlayerProvider playerProvider, EnemyMoverToPlayer enemyMoverToPlayer, EnemyToTargetRotator enemyToTargetRotator)
     {
       _shooter = shooter;
       _enemy = enemy;
       _playerProvider = playerProvider;
       _enemyMoverToPlayer = enemyMoverToPlayer;
+      _enemyToTargetRotator = enemyToTargetRotator;
     }
 
     private float Cooldown => 1 / (float)_enemy.Config.FireRate;
@@ -34,6 +36,9 @@ namespace Gameplay.Characters.Enemies
 
     private void Update()
     {
+      Vector3 direction = (PlayerTransform.position - transform.position).normalized;
+      _enemyToTargetRotator.RotateToTargetPosition(direction);
+
       _time += Time.deltaTime;
 
       if (_time >= Cooldown)
@@ -42,10 +47,15 @@ namespace Gameplay.Characters.Enemies
 
         if (distance <= _enemy.Config.Radius)
         {
-          _shooter.Shoot();
+          Shoot(direction);
           _time = 0;
         }
       }
+    }
+
+    private void Shoot(Vector3 direction)
+    {
+      _shooter.Shoot(_enemy.ShootingPoint, _enemy.ShootingPoint.position, direction);
     }
   }
 }

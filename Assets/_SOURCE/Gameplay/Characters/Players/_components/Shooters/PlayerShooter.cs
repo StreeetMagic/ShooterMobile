@@ -97,7 +97,7 @@ namespace Gameplay.Characters.Players.Shooters
       {
         Shoot();
 
-        int fireRate =
+        float fireRate =
           _staticDataService
             .GetPlayerConfig()
             .FireRate;
