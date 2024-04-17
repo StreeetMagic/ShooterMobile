@@ -11,40 +11,45 @@ namespace Inputs
     event Action Restart;
     event Action DeleteSaves;
     event Action OpenQuestWindow;
+    event Action AddExpierience;
   }
 
   public class InputService : IInputService
   {
-    private Controls _controls;
-
-    private InputAction _move;
-    private InputAction _restart;
-    private InputAction _deleteSaves;
-    private InputAction _openQuestWindow;
+    private readonly InputAction _move;
+    private readonly InputAction _restart;
+    private readonly InputAction _deleteSaves;
+    private readonly InputAction _openQuestWindow;
+    private readonly InputAction _addExpierience;
 
     public InputService()
     {
-      _controls = new Controls();
+      var controls = new Controls();
 
-      _move = _controls.Player.Move;
+      _move = controls.Player.Move;
       _move.Enable();
 
-      _restart = _controls.Debug.Restart;
+      _restart = controls.Debug.Restart;
       _restart.Enable();
       _restart.performed += _ => Restart?.Invoke();
 
-      _deleteSaves = _controls.Debug.DeleteSaves;
+      _deleteSaves = controls.Debug.DeleteSaves;
       _deleteSaves.Enable();
       _deleteSaves.performed += _ => DeleteSaves?.Invoke();
 
-      _openQuestWindow = _controls.Debug.OpenQuestWindow;
+      _openQuestWindow = controls.Debug.OpenQuestWindow;
       _openQuestWindow.Enable();
       _openQuestWindow.performed += _ => OpenQuestWindow?.Invoke();
+      
+      _addExpierience = controls.Debug.AddExpirience ;
+      _addExpierience.Enable();
+      _addExpierience.performed += _ => AddExpierience?.Invoke();
     }
 
     public event Action Restart;
     public event Action DeleteSaves;
     public event Action OpenQuestWindow;
+    public event Action AddExpierience;
 
     public Vector2 MoveDirection =>
       MoveDirectionFloatingJoystick != Vector2.zero

@@ -12,6 +12,7 @@ namespace Infrastructure.PersistentProgresses
     public int MoneyInBank;
     public int EggsInBank;
     public int Expierience;
+    public int Level;
     public bool MusicMute;
     public Vector3 PlayerPosition;
 

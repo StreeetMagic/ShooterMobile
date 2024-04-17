@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
+using Configs.Resources.ExpirienceConfigs;
 using Configs.Resources.PlayerConfigs.Scripts;
 using Configs.Resources.QuestConfigs;
 using Configs.Resources.SoundConfigs;
@@ -24,5 +25,6 @@ namespace Infrastructure.StaticDataServices
     int GetInitialStat(StatId id);
     Dictionary<QuestId, QuestConfig> GetQuestConfigs();
     QuestConfig GetQuestConfig(QuestId questId);
+    ExpirienceConfig GetExpirienceConfig();
   }
 }

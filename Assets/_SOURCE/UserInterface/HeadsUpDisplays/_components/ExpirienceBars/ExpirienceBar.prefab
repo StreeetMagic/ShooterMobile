@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2007190842316882292}
   - component: {fileID: 5290877619566729375}
   - component: {fileID: 7244987208892894271}
+  - component: {fileID: 5951829253636856588}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -135,6 +136,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5951829253636856588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487529582886957928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8034dbcda590dd94db6bf453de6f30df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 7244987208892894271}
 --- !u!1 &2897237758918402645
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +347,7 @@ GameObject:
   - component: {fileID: 839139650442730789}
   - component: {fileID: 1263820474843264525}
   - component: {fileID: 4335331984862084973}
+  - component: {fileID: 1256873152791899224}
   m_Layer: 5
   m_Name: level_text
   m_TagString: Untagged
@@ -456,6 +471,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1256873152791899224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869228097160962371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cdfb57756763e44b64178e1ec0ad13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 4335331984862084973}
 --- !u!1 &7029066106577900727
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,6 +495,7 @@ GameObject:
   - component: {fileID: 3978337659251697876}
   - component: {fileID: 7196015495245161687}
   - component: {fileID: 1787546520621721811}
+  - component: {fileID: 965186800519179110}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -531,6 +560,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &965186800519179110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7029066106577900727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9889cc99cc96b44bf5b04922afce3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 1787546520621721811}
 --- !u!1 &7858296296038152684
 GameObject:
   m_ObjectHideFlags: 0
