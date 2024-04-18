@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gameplay.Characters.NPC
 {
-    public class StartNpcAnimator : MonoBehaviour
+    public class QuesterAnimator : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
         
