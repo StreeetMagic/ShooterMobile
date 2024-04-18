@@ -25,7 +25,8 @@ namespace Gameplay.Characters.Players.Factories
     private readonly MapProvider _mapProvider;
 
     public PlayerFactory(GameLoopZenjectFactory factory, IAssetProvider assetProvider,
-      PlayerProvider playerProvider, PersistentProgressService progressService, SaveLoadService saveLoadService, MapProvider mapProvider, TickableManager tickableManager)
+      PlayerProvider playerProvider, PersistentProgressService progressService, SaveLoadService saveLoadService,
+      MapProvider mapProvider, TickableManager tickableManager)
     {
       _factory = factory;
       _assetProvider = assetProvider;
@@ -51,9 +52,6 @@ namespace Gameplay.Characters.Players.Factories
       _playerProvider.PlayerInputHandler = _factory.InstantiateNative<PlayerInputHandler>();
       _playerProvider.PlayerRotatorController = _factory.InstantiateNative<PlayerRotatorController>();
 
-      _playerProvider.PlayerShooter = _factory.InstantiateNative<PlayerShooter>();
-      _playerProvider.PlayerShooter.Initialize();
-
       _playerProvider.PlayerTargetHolder = player.GetComponent<PlayerTargetHolder>();
 
       _playerProvider.PlayerAnimator = player.GetComponentInChildren<PlayerAnimator>();
@@ -62,8 +60,6 @@ namespace Gameplay.Characters.Players.Factories
 
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
         _saveLoadService.ProgressReaders.Add(progressReader);
-
-      _playerProvider.PlayerShooter.Subscribe();
     }
 
     public void Destroy()

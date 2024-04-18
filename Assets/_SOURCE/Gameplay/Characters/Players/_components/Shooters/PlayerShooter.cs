@@ -4,7 +4,6 @@ using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.TargetHolders;
 using Infrastructure.AudioServices;
-using Infrastructure.CoroutineRunners;
 using Infrastructure.DataRepositories;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
@@ -13,99 +12,58 @@ using Zenject;
 
 namespace Gameplay.Characters.Players.Shooters
 {
-  public class PlayerShooter : ITickable, IInitializable
+  public class PlayerShooter : MonoBehaviour
   {
-    private readonly PlayerProvider _playerProvider;
-    private readonly IStaticDataService _staticDataService;
-    private readonly ProjectileFactory _projectileFactory;
-    private readonly TickableManager _tickableManager;
-    private readonly BackpackStorage _backpackStorage;
-    private readonly ICoroutineRunner _coroutineRunner;
-    private readonly AudioService _audioService;
+    private PlayerProvider _playerProvider;
+    private IStaticDataService _staticDataService;
+    private ProjectileFactory _projectileFactory;
+    private BackpackStorage _backpackStorage;
+    private AudioService _audioService;
 
-    private CoroutineDecorator _coroutine;
+    private float _timeLeft;
 
-    public PlayerShooter(
+    [Inject]
+    public void Construct(
       PlayerProvider playerProvider, IStaticDataService staticDataService,
-      ProjectileFactory zenjectFactory, TickableManager tickableManager, BackpackStorage backpackStorage, ICoroutineRunner coroutineRunner,
+      ProjectileFactory zenjectFactory, BackpackStorage backpackStorage,
       AudioService audioService)
     {
       _playerProvider = playerProvider;
       _staticDataService = staticDataService;
       _projectileFactory = zenjectFactory;
-      _tickableManager = tickableManager;
       _backpackStorage = backpackStorage;
-      _coroutineRunner = coroutineRunner;
+
       _audioService = audioService;
     }
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
     private Transform Transform => _playerProvider.Player.ShootingPoint;
-    private PlayerAnimator PlayerAnimator => _playerProvider.PlayerAnimator;
-    private PlayerAnimatorEventHandler PlayerAnimatorEventHandler => _playerProvider.PlayerAnimatorEventHandler;
-    private Transform ShootingPoint => _playerProvider.Player.ShootingPoint;
+    private float Cooldown => 1 / _staticDataService.GetPlayerConfig().FireRate;
 
-    public void Initialize()
-    {
-      _tickableManager.Add(this);
-
-      _coroutine = new CoroutineDecorator(_coroutineRunner, Shooting);
-    }
-
-    public void Tick()
+    public void Update()
     {
       if (_backpackStorage.IsFull)
       {
-        StopShootingCoroutine();
         return;
       }
 
       if (PlayerTargetHolder.HasTarget)
       {
-        StartShootingCoroutine();
-      }
-      else if (PlayerTargetHolder.HasTarget == false)
-      {
-        StopShootingCoroutine();
+        Shooting();
       }
     }
 
-    public void Subscribe()
+    private void Shooting()
     {
-      //PlayerAnimatorEventHandler.Shot += Shoot;
-    }
-
-    private void StartShootingCoroutine()
-    {
-      if (_coroutine.IsRunning == false)
+      if (_timeLeft > 0)
       {
-        _coroutine.Start();
+        _timeLeft -= Time.deltaTime;
+        return;
       }
-    }
 
-    private void StopShootingCoroutine()
-    {
-      if (_coroutine.IsRunning)
-      {
-        _coroutine.Stop();
-      }
-    }
+      Shoot();
 
-    private IEnumerator Shooting()
-    {
-      while (PlayerTargetHolder.HasTarget && _backpackStorage.IsFull == false)
-      {
-        Shoot();
-
-        float fireRate =
-          _staticDataService
-            .GetPlayerConfig()
-            .FireRate;
-
-        float coolDown = 1f / fireRate;
-
-        yield return new WaitForSeconds(coolDown);
-      }
+      _timeLeft = Cooldown;
     }
 
     private void Shoot()
