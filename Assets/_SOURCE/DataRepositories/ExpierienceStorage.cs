@@ -18,63 +18,6 @@ namespace Infrastructure.DataRepositories
 
     public ReactiveProperty<int> AllPoints { get; } = new();
 
-    public int CurrentLevel
-    {
-      get
-      {
-        List<ExpirienceSetup> setups = Config.Levels;
-
-        int currentLevel = 1;
-        int expirienceLeft = AllPoints.Value;
-
-        while (expirienceLeft >= setups[currentLevel].Expierience)
-        {
-          expirienceLeft -= setups[currentLevel].Expierience;
-          currentLevel++;
-        }
-
-        return currentLevel;
-      }
-    }
-
-    public int CurrentExpierience
-    {
-      get
-      {
-        List<ExpirienceSetup> setups = Config.Levels;
-
-        int currentLevel = 1;
-        int expirienceLeft = AllPoints.Value;
-
-        while (expirienceLeft >= setups[currentLevel].Expierience)
-        {
-          expirienceLeft -= setups[currentLevel].Expierience;
-          currentLevel++;
-        }
-
-        return expirienceLeft;
-      }
-    }
-    
-    public int ExpierienceToNextLevel
-    {
-      get
-      {
-        List<ExpirienceSetup> setups = Config.Levels;
-
-        int currentLevel = 1;
-        int expirienceLeft = AllPoints.Value;
-
-        while (expirienceLeft >= setups[currentLevel].Expierience)
-        {
-          expirienceLeft -= setups[currentLevel].Expierience;
-          currentLevel++;
-        }
-
-        return setups[currentLevel].Expierience;
-      }
-    }
-
     private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
 
     public void ReadProgress(Progress progress)
@@ -85,6 +28,39 @@ namespace Infrastructure.DataRepositories
     public void WriteProgress(Progress progress)
     {
       progress.Expierience = AllPoints.Value;
+    }
+
+    public int CurrentLevel()
+    {
+      CalculateLevelAndExperience(out int currentLevel, out _);
+      return currentLevel;
+    }
+
+    public int CurrentExpierience()
+    {
+      CalculateLevelAndExperience(out _, out int expirienceLeft);
+      return expirienceLeft;
+    }
+
+    public int ExpierienceToNextLevel()
+    {
+      CalculateLevelAndExperience(out int currentLevel, out int expirienceLeft);
+      List<ExpirienceSetup> setups = Config.Levels;
+      return setups[currentLevel].Expierience;
+    }
+
+    private void CalculateLevelAndExperience(out int currentLevel, out int expirienceLeft)
+    {
+      List<ExpirienceSetup> setups = Config.Levels;
+
+      currentLevel = 1;
+      expirienceLeft = AllPoints.Value;
+
+      while (expirienceLeft >= setups[currentLevel].Expierience)
+      {
+        expirienceLeft -= setups[currentLevel].Expierience;
+        currentLevel++;
+      }
     }
   }
 }

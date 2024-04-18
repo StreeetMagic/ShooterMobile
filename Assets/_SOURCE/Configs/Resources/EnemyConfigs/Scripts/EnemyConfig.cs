@@ -30,5 +30,7 @@ namespace Configs.Resources.EnemyConfigs.Scripts
     public int FireRate;
     
     public int PatrolingRadius;
+
+    public int Expirience;
   }
 }

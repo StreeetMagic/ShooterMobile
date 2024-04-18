@@ -15,5 +15,6 @@ namespace Configs.Resources.ExpirienceConfigs
   {
     public int Level;
     public int Expierience;
+    public Color Color;
   }
 }

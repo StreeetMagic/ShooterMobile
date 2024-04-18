@@ -1,5 +1,7 @@
 using System;
+using Configs.Resources.ExpirienceConfigs;
 using Infrastructure.DataRepositories;
+using Infrastructure.StaticDataServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -9,20 +11,36 @@ public class ExpirienceBar : MonoBehaviour
   public Image Image;
 
   private ExpierienceStorage _expierienceStorage;
+  private IStaticDataService _staticDataService;
 
   [Inject]
-  public void Construct(ExpierienceStorage expierienceStorage)
+  public void Construct(ExpierienceStorage expierienceStorage, IStaticDataService staticDataService)
   {
     _expierienceStorage = expierienceStorage;
+    _staticDataService = staticDataService;
   }
+
+  private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
 
   private void Update()
   {
-    float expierienceStorageExpierienceToNextLevel = (float)_expierienceStorage.CurrentExpierience / _expierienceStorage.ExpierienceToNextLevel;
+    SetColor();
 
-    Image.fillAmount = 
-      Image.fillAmount > expierienceStorageExpierienceToNextLevel 
-        ? expierienceStorageExpierienceToNextLevel 
-        : Mathf.MoveTowards(Image.fillAmount, expierienceStorageExpierienceToNextLevel, Time.deltaTime);
+    float expierienceToNextLevel = (float)_expierienceStorage.CurrentExpierience() / _expierienceStorage.ExpierienceToNextLevel();
+
+    Image.fillAmount =
+      Image.fillAmount > expierienceToNextLevel
+        ? expierienceToNextLevel
+        : Mathf.MoveTowards(Image.fillAmount, expierienceToNextLevel, Time.deltaTime);
+  }
+
+  private void SetColor()
+  {
+    int currentLevel = _expierienceStorage.CurrentLevel();
+    Color newColor = Config.Levels[currentLevel - 1].Color;
+    newColor.a = 255;
+
+    if (Image.color != newColor)
+      Image.color = newColor;
   }
 }
