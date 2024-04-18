@@ -1,3 +1,4 @@
+using System;
 using Gameplay.Characters.Enemies.EnemyShooters;
 using Gameplay.Characters.Players.Factories;
 using UnityEngine;
@@ -30,7 +31,6 @@ namespace Gameplay.Characters.Enemies
 
     private void OnEnable()
     {
-      _time = 0;
       _enemyMoverToPlayer.enabled = false;
     }
 

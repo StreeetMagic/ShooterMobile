@@ -74,7 +74,11 @@ namespace Gameplay.Characters.Players.Movers
 
     public void ReadProgress(Progress progress)
     {
+      _characterController.enabled = false;
+
       transform.position = progress.PlayerPosition;
+
+      _characterController.enabled = true;
     }
 
     public void WriteProgress(Progress progress)

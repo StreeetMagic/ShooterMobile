@@ -12,8 +12,6 @@ namespace Gameplay.Characters.Players.TargetLocators
 {
   public class PlayerTargetLocator : MonoBehaviour
   {
-    private const string Player = nameof(Player);
-
     private PlayerStatsProvider _playerStatsProvider;
     private PlayerTargetHolder _playerTargetHolder;
 
@@ -33,13 +31,13 @@ namespace Gameplay.Characters.Players.TargetLocators
 
     private void Scan()
     {
-      var colliders = Physics.OverlapSphere(transform.position, Radius);
+      Collider[] colliders = Physics.OverlapSphere(transform.position, Radius);
 
       var list = new List<EnemyTargetTrigger>();
 
-      foreach (var collider in colliders)
+      foreach (Collider collider1 in colliders)
       {
-        if (!collider.gameObject.TryGetComponent<EnemyTargetTrigger>(out var targetTrigger))
+        if (collider1.gameObject.TryGetComponent(out EnemyTargetTrigger targetTrigger) == false)
           continue;
 
         if (targetTrigger.EnemyHealth.IsDead)
