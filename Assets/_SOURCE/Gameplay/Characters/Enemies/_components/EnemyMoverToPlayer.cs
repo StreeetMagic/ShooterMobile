@@ -1,3 +1,4 @@
+using System;
 using Gameplay.Characters.Enemies.Movers;
 using Gameplay.Characters.Players.Factories;
 using Loggers;
@@ -13,18 +14,16 @@ namespace Gameplay.Characters.Enemies
     private EnemyMover _mover;
     private EnemyShootAtPlayer _enemyShootAtPlayer;
     private ReturnToSpawnStatus _returnToSpawnStatus;
-    private DebugLogger _logger;
 
     [Inject]
     public void Construct(PlayerProvider playerProvider, Enemy enemy, EnemyMover mover,
-      EnemyShootAtPlayer enemyShootAtPlayer, ReturnToSpawnStatus returnToSpawnStatus, DebugLogger logger)
+      EnemyShootAtPlayer enemyShootAtPlayer, ReturnToSpawnStatus returnToSpawnStatus)
     {
       _playerProvider = playerProvider;
       _enemy = enemy;
       _mover = mover;
       _enemyShootAtPlayer = enemyShootAtPlayer;
       _returnToSpawnStatus = returnToSpawnStatus;
-      _logger = logger;
     }
 
     private float RunSpeed => _enemy.Config.RunSpeed;
@@ -33,10 +32,10 @@ namespace Gameplay.Characters.Enemies
 
     private void FixedUpdate()
     {
-      if (DistanceToSpawnPoint())
-      {
-        _returnToSpawnStatus.IsReturn = true;
-      }
+      // if (DistanceToSpawnPoint())
+      // {
+      //   _returnToSpawnStatus.IsReturn = true;
+      // }
 
       StartShooting();
       Move();

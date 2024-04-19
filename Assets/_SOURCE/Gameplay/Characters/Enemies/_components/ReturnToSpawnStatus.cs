@@ -7,19 +7,10 @@ public class ReturnToSpawnStatus
 {
   private readonly DebugLogger _logger;
 
-  private bool _isReturn;
-
   public ReturnToSpawnStatus(DebugLogger logger)
   {
     _logger = logger;
   }
 
-  public bool IsReturn
-  {
-    get => _isReturn;
-    set
-    {
-      _isReturn = value;
-    }
-  }
+  public bool IsReturn { get; set; }
 }

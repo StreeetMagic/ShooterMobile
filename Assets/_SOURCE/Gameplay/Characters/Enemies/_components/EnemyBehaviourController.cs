@@ -18,12 +18,13 @@ namespace Gameplay.Characters.Enemies
     private ReturnToSpawnStatus _returnToSpawnStatus;
     private PlayerProvider _playerProvider;
     private DebugLogger _debugLogger;
+    private EnemyToSpawnerDisance _enemyToSpawnerDisance;
 
     [Inject]
     public void Construct(EnemyMoverToSpawnPoint enemyMoverToSpawnPoint,
       EnemyMoverToPlayer enemyMoverToPlayer, HitStatus hitStatus,
       EnemyHealth enemyHealth, EnemyShootAtPlayer enemyShooter, Enemy enemy, ReturnToSpawnStatus returnToSpawnStatus,
-      PlayerProvider playerProvider, DebugLogger debugLogger)
+      PlayerProvider playerProvider, DebugLogger debugLogger, EnemyToSpawnerDisance enemyToSpawnerDisance)
     {
       _enemyMoverToSpawnPoint = enemyMoverToSpawnPoint;
       _enemyMoverToPlayer = enemyMoverToPlayer;
@@ -34,6 +35,7 @@ namespace Gameplay.Characters.Enemies
       _returnToSpawnStatus = returnToSpawnStatus;
       _playerProvider = playerProvider;
       _debugLogger = debugLogger;
+      _enemyToSpawnerDisance = enemyToSpawnerDisance;
     }
 
     private void Start()
@@ -47,18 +49,29 @@ namespace Gameplay.Characters.Enemies
     {
       if (_enemyHealth.IsDead)
       {
+        _debugLogger.Log("case 1");
         _enemyMoverToSpawnPoint.enabled = false;
         _enemyMoverToPlayer.enabled = false;
         _enemyShootAtPlayer.enabled = false;
       }
       else if (_returnToSpawnStatus.IsReturn)
       {
+        _debugLogger.Log("case ZAEBIS");
         _enemyMoverToSpawnPoint.enabled = true;
+        _enemyMoverToPlayer.enabled = false;
+        _enemyShootAtPlayer.enabled = false;
+      }
+      else if (EnemyInPatrolingRadius() == false && _enemyToSpawnerDisance.IsAway)
+      {
+        _debugLogger.Log("case 2");
+        _enemyMoverToSpawnPoint.enabled = true;
+        _returnToSpawnStatus.IsReturn = true;
         _enemyMoverToPlayer.enabled = false;
         _enemyShootAtPlayer.enabled = false;
       }
       else if (_hitStatus.IsHit && EnemyInPatrolingRadius())
       {
+        _debugLogger.Log("case 3");
         _enemyMoverToSpawnPoint.enabled = false;
 
         if (EnemyInShootingRadius())

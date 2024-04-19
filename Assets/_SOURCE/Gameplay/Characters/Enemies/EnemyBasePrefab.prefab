@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 2177079610895058652}
   - component: {fileID: 1059117782256098412}
   - component: {fileID: 5648002315709865319}
+  - component: {fileID: 3212565556203649086}
+  - component: {fileID: 7085896218561486164}
   m_Layer: 3
   m_Name: EnemyBasePrefab
   m_TagString: Untagged
@@ -113,6 +115,8 @@ MonoBehaviour:
   EnemyWaiter: {fileID: 6081659697701374508}
   EnemyMoverToPlayer: {fileID: 2177079610895058652}
   EnemyShooter: {fileID: 1059117782256098412}
+  EnemyFromEnemyPusher: {fileID: 3212565556203649086}
+  EnemyToSpawnerDisance: {fileID: 7085896218561486164}
 --- !u!114 &7108181162478725540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +249,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c790d54416b1542459fa00510becdd99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3212565556203649086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342982923862884670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ac74bab42d72443898cf034d84d6ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 1
+  Force: 0.5
+--- !u!114 &7085896218561486164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342982923862884670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3dd10c8d678127469dc3804aeb402da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3957916751689609866

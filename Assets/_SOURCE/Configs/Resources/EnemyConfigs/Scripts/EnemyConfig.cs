@@ -32,5 +32,9 @@ namespace Configs.Resources.EnemyConfigs.Scripts
     public int PatrolingRadius;
 
     public int Expirience;
+
+    public float EnemyDetectionColliderRadius;
+
+    public float ForceFromOtherEnemy;
   }
 }

@@ -17,6 +17,8 @@ public class EnemyInstaller : MonoInstaller
   public EnemyWaiter EnemyWaiter;
   public EnemyMoverToPlayer EnemyMoverToPlayer;
   public EnemyShootAtPlayer EnemyShooter;
+  public EnemyFromEnemyPusher EnemyFromEnemyPusher;
+  public EnemyToSpawnerDisance EnemyToSpawnerDisance;
 
   public override void InstallBindings()
   {
@@ -36,5 +38,7 @@ public class EnemyInstaller : MonoInstaller
     Container.Bind<EnemyWaiter>().FromInstance(EnemyWaiter).AsSingle().NonLazy();
     Container.Bind<EnemyMoverToPlayer>().FromInstance(EnemyMoverToPlayer).AsSingle().NonLazy();
     Container.Bind<EnemyShootAtPlayer>().FromInstance(EnemyShooter).AsSingle().NonLazy();
+    Container.Bind<EnemyFromEnemyPusher>().FromInstance(EnemyFromEnemyPusher).AsSingle().NonLazy();
+    Container.Bind<EnemyToSpawnerDisance>().FromInstance(EnemyToSpawnerDisance).AsSingle().NonLazy();
   }
 }
