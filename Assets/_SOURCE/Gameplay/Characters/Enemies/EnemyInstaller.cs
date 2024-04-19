@@ -2,6 +2,7 @@ using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.EnemyShooters;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Movers;
+using Gameplay.Characters.Enemies.TargetTriggers;
 using UnityEngine;
 using Zenject;
 
@@ -19,6 +20,7 @@ public class EnemyInstaller : MonoInstaller
   public EnemyShootAtPlayer EnemyShooter;
   public EnemyFromEnemyPusher EnemyFromEnemyPusher;
   public EnemyToSpawnerDisance EnemyToSpawnerDisance;
+  public EnemyTargetTrigger EnemyTargetTrigger;
 
   public override void InstallBindings()
   {
@@ -40,5 +42,6 @@ public class EnemyInstaller : MonoInstaller
     Container.Bind<EnemyShootAtPlayer>().FromInstance(EnemyShooter).AsSingle().NonLazy();
     Container.Bind<EnemyFromEnemyPusher>().FromInstance(EnemyFromEnemyPusher).AsSingle().NonLazy();
     Container.Bind<EnemyToSpawnerDisance>().FromInstance(EnemyToSpawnerDisance).AsSingle().NonLazy();
+    Container.Bind<EnemyTargetTrigger>().FromInstance(EnemyTargetTrigger).AsSingle().NonLazy();
   }
 }

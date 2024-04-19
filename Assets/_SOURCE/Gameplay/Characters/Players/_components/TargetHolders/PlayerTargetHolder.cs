@@ -47,35 +47,78 @@ namespace Gameplay.Characters.Players.TargetHolders
       ManageCurrentTarget();
       RemoveFarTargets();
       RemoveDeadTargets();
+
+      if (_currentEnemyTarget != null)
+      {
+        _currentEnemyTarget.IsTargeted = true;
+      }
     }
 
     private void RemoveDeadTargets()
     {
-      _targets.RemoveAll(target => target.EnemyHealth == null || target.EnemyHealth.IsDead);
+      List<EnemyTargetTrigger> deadTargets = new List<EnemyTargetTrigger>();
+
+      foreach (var target in _targets)
+      {
+        if (target.EnemyHealth.IsDead)
+        {
+          deadTargets.Add(target);
+
+          if (_currentEnemyTarget == target)
+            target.IsTargeted = false;
+        }
+      }
+
+      _targets.RemoveAll(target => deadTargets.Contains(target));
     }
 
     private void RemoveFarTargets()
     {
-      _targets.RemoveAll(target => Vector3.Distance(Transform.position, target.transform.position) > FireRange);
+      List<EnemyTargetTrigger> farTargets = new List<EnemyTargetTrigger>();
+
+      foreach (var target in _targets)
+      {
+        if (Vector3.Distance(Transform.position, target.transform.position) > FireRange)
+        {
+          farTargets.Add(target);
+
+          if (_currentEnemyTarget == target)
+            target.IsTargeted = false;
+        }
+      }
+
+      _targets.RemoveAll(target => farTargets.Contains(target));
     }
 
     private void ManageCurrentTarget()
     {
       if (_targets.Count == 0)
       {
+        if (_currentEnemyTarget != null)
+        {
+          _currentEnemyTarget.IsTargeted = false;
+        }
+
         HasTarget = false;
         _currentEnemyTarget = null;
       }
       else if (_currentEnemyTarget == null)
       {
-        _currentEnemyTarget = _targets[Random.Range(0, _targets.Count)];
-        HasTarget = true;
-      } 
-      else if (_currentEnemyTarget.EnemyHealth.IsDead)
-      {
-        _currentEnemyTarget = _targets[Random.Range(0, _targets.Count)];
+        SetRandomCurrentTarget();
         HasTarget = true;
       }
+      else if (_currentEnemyTarget.EnemyHealth.IsDead)
+      {
+        SetRandomCurrentTarget();
+        HasTarget = true;
+      }
+    }
+
+    private void SetRandomCurrentTarget()
+    {
+      EnemyTargetTrigger currentEnemyTarget = _targets[Random.Range(0, _targets.Count)];
+      currentEnemyTarget.IsTargeted = true;
+      _currentEnemyTarget = currentEnemyTarget;
     }
 
     public void AddTargets(List<EnemyTargetTrigger> targets)

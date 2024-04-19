@@ -68,7 +68,6 @@ namespace Gameplay.Characters.Enemies
       }
       else if (_hitStatus.IsHit && EnemyInPatrolingRadius())
       {
-        _debugLogger.Log("case 3");
         _enemyMoverToSpawnPoint.enabled = false;
 
         if (EnemyInShootingRadius())
