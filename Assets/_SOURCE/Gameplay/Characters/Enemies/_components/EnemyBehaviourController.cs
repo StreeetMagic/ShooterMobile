@@ -49,21 +49,18 @@ namespace Gameplay.Characters.Enemies
     {
       if (_enemyHealth.IsDead)
       {
-        _debugLogger.Log("case 1");
         _enemyMoverToSpawnPoint.enabled = false;
         _enemyMoverToPlayer.enabled = false;
         _enemyShootAtPlayer.enabled = false;
       }
       else if (_returnToSpawnStatus.IsReturn)
       {
-        _debugLogger.Log("case ZAEBIS");
         _enemyMoverToSpawnPoint.enabled = true;
         _enemyMoverToPlayer.enabled = false;
         _enemyShootAtPlayer.enabled = false;
       }
       else if (EnemyInPatrolingRadius() == false && _enemyToSpawnerDisance.IsAway)
       {
-        _debugLogger.Log("case 2");
         _enemyMoverToSpawnPoint.enabled = true;
         _returnToSpawnStatus.IsReturn = true;
         _enemyMoverToPlayer.enabled = false;
