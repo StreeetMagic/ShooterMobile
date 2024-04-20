@@ -9,20 +9,20 @@ public class OpenQuestButton : MonoBehaviour
   public Button Button;
   public QuestId QuestId;
 
-  private WindowFactory _windowFactory;
+  private WindowService _windowService;
   private DebugLogger _logger;
 
   [Inject]
-  private void Construct(WindowFactory windowFactory, DebugLogger logger)
+  private void Construct(WindowService windowService, DebugLogger logger)
   {
-    _windowFactory = windowFactory;
+    _windowService = windowService;
     _logger = logger;
     Button.onClick.AddListener(OpenQuest);
   }
 
   private void OpenQuest()
   {
-    _windowFactory.Create(WindowId.Quest, QuestId);
+    _windowService.Create(WindowId.Quest, QuestId);
     _logger.Log("Open quest: " + QuestId);
   }
 }

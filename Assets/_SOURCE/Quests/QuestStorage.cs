@@ -30,7 +30,25 @@ public class QuestStorage : IProgressWriter
     foreach (QuestId questId in configs.Keys)
     {
       List<SubQuest> subQuests = SubQuest(configs[questId], progress);
-      _quests.Add(questId, new Quest(QuestState(progress, questId), configs[questId], subQuests));
+
+      QuestState questState = QuestState(progress, questId);
+      
+      _quests.Add(questId, new Quest(questState, configs[questId], subQuests));
+    }
+  }
+
+  public void WriteProgress(Progress progress)
+  {
+    progress.Quests.Clear();
+
+    foreach (KeyValuePair<QuestId, Quest> quest in _quests)
+    {
+      List<SubQuestProgress> subQuests = new List<SubQuestProgress>();
+
+      foreach (SubQuest subQuest in quest.Value.SubQuests)
+        subQuests.Add(new SubQuestProgress(subQuest.Config.Type, subQuest.CompletedQuantity, subQuest.State));
+
+      progress.Quests.Add(new QuestProgress(quest.Key, quest.Value.State.Value, subQuests));
     }
   }
 
@@ -55,20 +73,5 @@ public class QuestStorage : IProgressWriter
     }
 
     return subQuests;
-  }
-
-  public void WriteProgress(Progress progress)
-  {
-    progress.Quests.Clear();
-
-    foreach (KeyValuePair<QuestId, Quest> quest in _quests)
-    {
-      List<SubQuestProgress> subQuests = new List<SubQuestProgress>();
-
-      foreach (SubQuest subQuest in quest.Value.SubQuests)
-        subQuests.Add(new SubQuestProgress(subQuest.Config.Type, subQuest.CompletedQuantity, subQuest.State));
-
-      progress.Quests.Add(new QuestProgress(quest.Key, quest.Value.State, subQuests));
-    }
   }
 }

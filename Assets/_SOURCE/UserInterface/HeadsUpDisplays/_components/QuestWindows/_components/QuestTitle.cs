@@ -12,6 +12,6 @@ public class QuestTitle : MonoBehaviour
 
     private void Start()
     {
-        Text.text = "Quest: " + QuestWindow.QuestConfig.Name;
+        Text.text = "Quest: " + QuestWindow.Quest.Config.Name;
     }
 }

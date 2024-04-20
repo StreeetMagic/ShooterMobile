@@ -9,12 +9,12 @@ public class DebugButton : MonoBehaviour
 {
   public Button Button;
 
-  private WindowFactory _windowFactory;
+  private WindowService _windowService;
 
   [Inject]
-  public void Construct(WindowFactory windowFactory)
+  public void Construct(WindowService windowService)
   {
-    _windowFactory = windowFactory;
+    _windowService = windowService;
   }
   
   private void Start()
@@ -24,6 +24,6 @@ public class DebugButton : MonoBehaviour
   
   public void OnClick()
   {
-    _windowFactory.Create(WindowId.Debug);
+    _windowService.Create(WindowId.Debug);
   }
 }

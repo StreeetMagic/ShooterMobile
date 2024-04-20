@@ -9,17 +9,17 @@ public class OpenSettingsWindowButton : MonoBehaviour
 {
     public Button Button;
     
-    private WindowFactory _windowFactory;
+    private WindowService _windowService;
     
     [Inject]
-    public void Construct(WindowFactory windowFactory)
+    public void Construct(WindowService windowService)
     {
-        _windowFactory = windowFactory;
+        _windowService = windowService;
         Button.onClick.AddListener(OnButtonClicked);
     }
     
     private void OnButtonClicked()
     {
-        _windowFactory.Create(WindowId.Settings);
+        _windowService.Create(WindowId.Settings);
     }
 }

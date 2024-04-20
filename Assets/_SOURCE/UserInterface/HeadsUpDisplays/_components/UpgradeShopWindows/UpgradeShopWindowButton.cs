@@ -13,14 +13,14 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
 
     private List<GameObject> _otherStuff = new List<GameObject>();
 
-    private WindowFactory _windowFactory;
+    private WindowService _windowService;
     private HeadsUpDisplayProvider _headsUpDisplayProvider;
     private SaveLoadService _saveLoadService;
 
     [Inject]
-    public void Construct(WindowFactory windowFactory, HeadsUpDisplayProvider headsUpDisplayProvider, SaveLoadService saveLoadService)
+    public void Construct(WindowService windowService, HeadsUpDisplayProvider headsUpDisplayProvider, SaveLoadService saveLoadService)
     {
-      _windowFactory = windowFactory;
+      _windowService = windowService;
       _headsUpDisplayProvider = headsUpDisplayProvider;
       _saveLoadService = saveLoadService;
     }
@@ -32,7 +32,7 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
 
     private void OnClick()
     {
-      _windowFactory.Create(WindowId.UpgradeShop);
+      _windowService.Create(WindowId.UpgradeShop);
       _saveLoadService.SaveProgress();
     }
   }

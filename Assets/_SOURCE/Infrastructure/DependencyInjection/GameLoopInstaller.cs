@@ -44,7 +44,7 @@ public class GameLoopInstaller : MonoInstaller
     Container.BindInterfacesAndSelfTo<VisualEffectFactory>().AsSingle();
 
     Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
-    Container.BindInterfacesAndSelfTo<WindowFactory>().AsSingle();
+    Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();
     Container.BindInterfacesAndSelfTo<HeadsUpDisplayProvider>().AsSingle();
     Container.BindInterfacesAndSelfTo<RewardService>().AsSingle();
     Container.BindInterfacesAndSelfTo<PlayerStatsProvider>().AsSingle().NonLazy();

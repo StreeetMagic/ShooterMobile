@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Configs.Resources.QuestConfigs;
 using DataRepositories.Quests;
+using Infrastructure.Utilities;
 
 namespace Quests
 {
@@ -8,12 +9,12 @@ namespace Quests
   {
     public Quest(QuestState state, QuestConfig config, List<SubQuest> subQuests)
     {
-      State = state;
+      State = new ReactiveProperty<QuestState>(state);
       Config = config;
       SubQuests = subQuests;
     }
 
-    public QuestState State { get; set; }
+    public ReactiveProperty<QuestState> State { get; set; }
     public QuestConfig Config { get; set; }
     public List<SubQuest> SubQuests { get; set; }
   }

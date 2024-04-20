@@ -9,6 +9,6 @@ public class QuestIcon : MonoBehaviour
 
   private void Start()
   {
-    Image.sprite = QuestWindow.QuestConfig.Icon;
+    Image.sprite = QuestWindow.Quest.Config.Icon;
   }
 }

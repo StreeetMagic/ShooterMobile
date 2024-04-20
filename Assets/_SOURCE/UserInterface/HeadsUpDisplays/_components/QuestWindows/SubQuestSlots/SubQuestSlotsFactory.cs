@@ -20,7 +20,7 @@ public class SubQuestSlotsFactory : MonoBehaviour
     _assetProvider = assetProvider;
   }
 
-  private QuestConfig QuestConfig => QuestWindow.QuestConfig;
+  private QuestConfig QuestConfig => QuestWindow.Quest.Config;
 
   private void Start()
   {

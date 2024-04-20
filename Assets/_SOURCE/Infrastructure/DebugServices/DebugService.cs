@@ -17,18 +17,18 @@ namespace Gameplay.Characters.Enemies.Spawners.DebugServices
     private readonly IInputService _inputService;
     private readonly IStateMachine<IGameState> _gameStateMachine;
     private readonly SaveLoadService _saveLoadService;
-    private readonly WindowFactory _windowFactory;
+    private readonly WindowService _windowService;
     private readonly ExpierienceStorage _expierienceStorage;
     private readonly DebugLogger _logger;
 
     public DebugService(IInputService inputService,
       IStateMachine<IGameState> gameStateMachine, SaveLoadService saveLoadService,
-      WindowFactory windowFactory, ExpierienceStorage expierienceStorage, DebugLogger logger)
+      WindowService windowService, ExpierienceStorage expierienceStorage, DebugLogger logger)
     {
       _inputService = inputService;
       _gameStateMachine = gameStateMachine;
       _saveLoadService = saveLoadService;
-      _windowFactory = windowFactory;
+      _windowService = windowService;
       _expierienceStorage = expierienceStorage;
       _logger = logger;
     }
@@ -61,7 +61,7 @@ namespace Gameplay.Characters.Enemies.Spawners.DebugServices
 
     private void OpenQuest()
     {
-      _windowFactory.Create(WindowId.Quest, QuestId.Quest1);
+      _windowService.Create(WindowId.Quest, QuestId.Quest1);
     }
 
     private void AddExpierience()

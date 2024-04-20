@@ -6,7 +6,6 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows
 {
   public class QuestWindow : Window
   {
-    public QuestConfig QuestConfig { get; set; }
     public Quest Quest { get; set; }
   }
 }

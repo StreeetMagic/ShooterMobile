@@ -9,6 +9,6 @@ public class QuestRewardText : MonoBehaviour
 
   private void Start()
   {
-    Text.text = "+ " + QuestWindow.QuestConfig.Reward.Quantity + " " + QuestWindow.QuestConfig.Reward.RewardId;
+    Text.text = "+ " + QuestWindow.Quest.Config.Reward.Quantity + " " + QuestWindow.Quest.Config.Reward.RewardId;
   }
 }
