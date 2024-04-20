@@ -3,6 +3,7 @@ using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using Infrastructure.Utilities;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Gameplay.Characters.Players
 {
