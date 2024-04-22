@@ -24,12 +24,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348740190755888134}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.484, y: 0.642, z: 0.252}
+  m_LocalRotation: {x: 0.26247722, y: 0.6189495, z: -0.27760604, w: -0.68625224}
+  m_LocalPosition: {x: -0.112, y: -0.003, z: 0.487}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7019436002018001724}
+  m_Father: {fileID: 8260746155094916714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3465883675018978164
 PrefabInstance:
@@ -96,7 +96,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4809098979189972254, guid: ae294895901bb5448864067a48de4054,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 332562170312537749}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae294895901bb5448864067a48de4054, type: 3}
 --- !u!4 &1495086185637413603 stripped
@@ -117,6 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b606969841a114781d6047285f1031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &8260746155094916714 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4809098979189972254, guid: ae294895901bb5448864067a48de4054,
+    type: 3}
+  m_PrefabInstance: {fileID: 3465883675018978164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9145781981842594216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -289,10 +299,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1495086185637413603}
-    - targetCorrespondingSourceObject: {fileID: 2271594991052282516, guid: 5c1227a3ce6afa44893dd92edce52d9d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 332562170312537749}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c1227a3ce6afa44893dd92edce52d9d, type: 3}
 --- !u!114 &2038174989920743436 stripped

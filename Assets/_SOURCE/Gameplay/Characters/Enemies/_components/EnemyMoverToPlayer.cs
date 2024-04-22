@@ -1,4 +1,5 @@
 using System;
+using Gameplay.Characters.Enemies.Animators;
 using Gameplay.Characters.Enemies.Movers;
 using Gameplay.Characters.Players.Factories;
 using Loggers;

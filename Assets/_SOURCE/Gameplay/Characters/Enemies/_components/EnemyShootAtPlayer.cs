@@ -1,4 +1,5 @@
 using System;
+using Gameplay.Characters.Enemies.Animators;
 using Gameplay.Characters.Enemies.EnemyShooters;
 using Gameplay.Characters.Players.Factories;
 using UnityEngine;
@@ -14,16 +15,19 @@ namespace Gameplay.Characters.Enemies
     private PlayerProvider _playerProvider;
     private EnemyMoverToPlayer _enemyMoverToPlayer;
     private EnemyToTargetRotator _enemyToTargetRotator;
+    private EnemyAnimator _enemyAnimator;
 
     [Inject]
     public void Construct(EnemyShooter shooter, Enemy enemy,
-      PlayerProvider playerProvider, EnemyMoverToPlayer enemyMoverToPlayer, EnemyToTargetRotator enemyToTargetRotator)
+      PlayerProvider playerProvider, EnemyMoverToPlayer enemyMoverToPlayer,
+      EnemyToTargetRotator enemyToTargetRotator, EnemyAnimator enemyAnimator)
     {
       _shooter = shooter;
       _enemy = enemy;
       _playerProvider = playerProvider;
       _enemyMoverToPlayer = enemyMoverToPlayer;
       _enemyToTargetRotator = enemyToTargetRotator;
+      _enemyAnimator = enemyAnimator;
     }
 
     private float Cooldown => 1 / (float)_enemy.Config.FireRate;
@@ -31,6 +35,8 @@ namespace Gameplay.Characters.Enemies
 
     private void OnEnable()
     {
+      _enemyAnimator.StopRunAnimation();
+      _enemyAnimator.StopWalkAnimation();
       _enemyMoverToPlayer.enabled = false;
     }
 
@@ -56,6 +62,7 @@ namespace Gameplay.Characters.Enemies
     private void Shoot(Vector3 direction)
     {
       _shooter.Shoot(_enemy.ShootingPoint, _enemy.ShootingPoint.position, direction);
+      _enemyAnimator.PlayShootAnimation();
     }
   }
 }

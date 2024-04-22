@@ -1,5 +1,6 @@
 using System;
 using Configs.Resources.EnemyConfigs.Scripts;
+using Gameplay.Characters.Enemies.Animators;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using Infrastructure.Utilities;
