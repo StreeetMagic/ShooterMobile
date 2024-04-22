@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2997056137705274756}
   - component: {fileID: 5237446389379945158}
   - component: {fileID: 5603325364171129140}
+  - component: {fileID: 5245483267961758148}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -136,6 +137,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5245483267961758148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661544288968620714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ba1319e115d934982fe4b96a678bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 5603325364171129140}
 --- !u!1 &1233131715580787374
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c2f2e388b30844aca009da2d16d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: {fileID: 0}
 --- !u!1 &7816601970533112411
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +859,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slider: {fileID: 8185493997613875048}
-  Health: {fileID: 0}
   SliderUpdateSpeed: 1
 --- !u!114 &2327891261133404063
 MonoBehaviour:

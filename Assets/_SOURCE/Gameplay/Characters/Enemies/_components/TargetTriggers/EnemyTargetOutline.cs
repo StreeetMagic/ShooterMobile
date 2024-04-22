@@ -20,9 +20,6 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
     {
       bool isTargeted = _enemyTargetTrigger.IsTargeted;
       
-      if (isTargeted)
-        Debug.Log("Крашу");
-      
       Outline.gameObject.SetActive(isTargeted);
     }
   }
