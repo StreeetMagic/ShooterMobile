@@ -2,9 +2,9 @@ namespace Gameplay.Currencies
 {
   public enum CurrencyId
   {
-    Unknown,
-    Money,
-    Eggs,
-    Expirience
+    Unknown = 0,
+    Money = 1,
+    Eggs = 2,
+    Expirience = 3
   }
 }

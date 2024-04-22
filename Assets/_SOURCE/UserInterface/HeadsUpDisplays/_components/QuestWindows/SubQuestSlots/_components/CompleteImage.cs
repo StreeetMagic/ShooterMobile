@@ -9,6 +9,6 @@ public class CompleteImage : MonoBehaviour
 
   private void Update()
   {
-    Image.enabled = SubQuestSlot.SubQuest.State == QuestState.Completed;
+    Image.enabled = SubQuestSlot.SubQuest.State.Value == QuestState.RewardTaken;
   }
 }

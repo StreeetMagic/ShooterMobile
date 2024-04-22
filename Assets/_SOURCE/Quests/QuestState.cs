@@ -2,9 +2,10 @@ namespace Quests
 {
   public enum QuestState
   {
-    Unknown,
-    UnAccepted,
-    Accepted,
-    Completed
+    Unknown = 0,
+    UnActivated = 1,
+    Activated = 2,
+    RewardReady = 3,
+    RewardTaken = 4
   }
 }

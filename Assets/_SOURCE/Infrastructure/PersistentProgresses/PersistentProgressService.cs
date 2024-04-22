@@ -65,13 +65,13 @@ namespace Infrastructure.PersistentProgresses
 
           for (var i = 0; i < quest.Value.SubQuests.Count; i++)
           {
-            SubQuestProgress progressSubQuest = new SubQuestProgress(quest.Value.SubQuests[i].Config.Type, 0, QuestState.UnAccepted);
+            SubQuestProgress progressSubQuest = new SubQuestProgress(quest.Value.SubQuests[i].Config.Type, 0, QuestState.UnActivated);
             subQuests.Add(progressSubQuest);
           }
 
           Progress
             .Quests
-            .Add(new QuestProgress(quest.Key, QuestState.UnAccepted, subQuests));
+            .Add(new QuestProgress(quest.Key, QuestState.UnActivated, subQuests));
         }
       }
     }

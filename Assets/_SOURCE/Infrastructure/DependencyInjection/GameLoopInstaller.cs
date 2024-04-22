@@ -31,7 +31,7 @@ public class GameLoopInstaller : MonoInstaller
 
     Container.BindInterfacesAndSelfTo<EnemyFactory>().AsSingle();
     Container.BindInterfacesAndSelfTo<ProjectileStorage>().AsSingle();
-    Container.BindInterfacesAndSelfTo<BackpackStorage>().AsSingle().NonLazy();
+
     Container.BindInterfacesAndSelfTo<LootSlotFactory>().AsSingle();
     Container.BindInterfacesAndSelfTo<EnemyLootSlotFactory>().AsSingle();
     Container.BindInterfacesAndSelfTo<CorpseRemover>().AsSingle();
@@ -43,12 +43,10 @@ public class GameLoopInstaller : MonoInstaller
     Container.BindInterfacesAndSelfTo<MapProvider>().AsSingle();
     Container.BindInterfacesAndSelfTo<VisualEffectFactory>().AsSingle();
 
-    Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
+
     Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();
     Container.BindInterfacesAndSelfTo<HeadsUpDisplayProvider>().AsSingle();
-    Container.BindInterfacesAndSelfTo<RewardService>().AsSingle();
-    Container.BindInterfacesAndSelfTo<PlayerStatsProvider>().AsSingle().NonLazy();
-    
+
     Container.BindInterfacesAndSelfTo<DebugService>().AsSingle();
   }
 }

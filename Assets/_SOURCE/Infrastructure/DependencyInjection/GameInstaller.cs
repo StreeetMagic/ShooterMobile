@@ -24,6 +24,7 @@ using Infrastructure.ZenjectFactories;
 using Inputs;
 using Loggers;
 using Maps;
+using Quests;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
@@ -52,12 +53,18 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<MoneyInBankStorage>().AsSingle();
       Container.Bind<ExpierienceStorage>().AsSingle().NonLazy();
       Container.Bind<QuestStorage>().AsSingle();
+      Container.Bind<QuestCompleter>().AsSingle();
+      Container.BindInterfacesAndSelfTo<RewardService>().AsSingle();
 
       Container.Bind<RandomService>().AsSingle();
 
       Container.Bind<SceneLoader>().AsSingle();
       Container.BindInterfacesAndSelfTo<AudioService>().AsSingle();
       Container.Bind<DebugLogger>().AsSingle();
+      
+      Container.BindInterfacesAndSelfTo<BackpackStorage>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerStatsProvider>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
     }
   }
 }

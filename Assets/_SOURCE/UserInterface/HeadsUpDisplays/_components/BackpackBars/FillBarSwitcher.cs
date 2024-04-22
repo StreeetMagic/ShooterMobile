@@ -42,6 +42,10 @@ public class FillBarSwitcher : MonoBehaviour
   private void Setup()
   {
     bool isFull = _backpackStorage.Volume >= _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
+
+    if (FullBar == null || NotFullBar == null)
+      return;
+
     FullBar.SetActive(isFull);
     NotFullBar.SetActive(!isFull);
   }

@@ -14,7 +14,9 @@ namespace Gameplay.Characters.Players._components.PlayerStatsServices
   {
     private readonly UpgradeService _upgradeService;
     private readonly IStaticDataService _staticDataService;
-    private readonly Dictionary<StatId, ReactiveProperty<int>> _stats = new();
+
+    private readonly Dictionary<StatId, ReactiveProperty<int>> _upgradeStats = new();
+    private readonly Dictionary<StatId, ReactiveProperty<int>> _questStats = new();
 
     public PlayerStatsProvider(UpgradeService upgradeService, IStaticDataService staticDataService)
     {
@@ -29,9 +31,21 @@ namespace Gameplay.Characters.Players._components.PlayerStatsServices
       _upgradeService.Changed += UpdateValues;
     }
 
+    public void AddQuestReward(StatId statId, int value)
+    {
+      if (_questStats.TryGetValue(statId, out ReactiveProperty<int> stat))
+      {
+        stat.Value += value;
+      }
+      else
+      {
+        _questStats.Add(statId, new ReactiveProperty<int>(value));
+      }
+    }
+
     private void UpdateValues()
     {
-      _stats.Clear();
+      _upgradeStats.Clear();
 
       foreach (StatId statId in Enum.GetValues(typeof(StatId)))
       {
@@ -39,7 +53,7 @@ namespace Gameplay.Characters.Players._components.PlayerStatsServices
           continue;
 
         var key = new ReactiveProperty<int>();
-        _stats.Add(statId, key);
+        _upgradeStats.Add(statId, key);
 
         int currentUpgradeValue = _upgradeService.GetCurrentUpgradeValue(statId);
         key.Value = _staticDataService.GetInitialStat(statId) + currentUpgradeValue;
@@ -48,10 +62,15 @@ namespace Gameplay.Characters.Players._components.PlayerStatsServices
 
     public ReactiveProperty<int> GetStat(StatId id)
     {
-      if (_stats.TryGetValue(id, out ReactiveProperty<int> stat))
-        return stat;
+      int value = 0;
 
-      throw new ArgumentOutOfRangeException(nameof(id), id, null);
+      if (_upgradeStats.TryGetValue(id, out ReactiveProperty<int> upgrade))
+        value += upgrade.Value;
+
+      if (_questStats.TryGetValue(id, out ReactiveProperty<int> questStat))
+        value += questStat.Value;
+
+      return new ReactiveProperty<int>(value);
     }
   }
 }

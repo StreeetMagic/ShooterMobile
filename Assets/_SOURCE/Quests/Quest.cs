@@ -12,10 +12,27 @@ namespace Quests
       State = new ReactiveProperty<QuestState>(state);
       Config = config;
       SubQuests = subQuests;
+
+      foreach (SubQuest subQuest in subQuests)
+      {
+        subQuest.Completed += OnSubQuestCompleted;
+      }
     }
 
-    public ReactiveProperty<QuestState> State { get; set; }
-    public QuestConfig Config { get; set; }
-    public List<SubQuest> SubQuests { get; set; }
+    private void OnSubQuestCompleted(int index)
+    {
+      if (index >= SubQuests.Count - 1)
+      {
+        State.Value = QuestState.RewardReady;
+      }
+      else
+      {
+        SubQuests[index + 1].State.Value = QuestState.Activated;
+      }
+    }
+
+    public ReactiveProperty<QuestState> State { get; }
+    public QuestConfig Config { get; }
+    public List<SubQuest> SubQuests { get; }
   }
 }

@@ -20,12 +20,17 @@ MonoBehaviour:
     Quantity: 22
   SubQuests:
   - Config: {fileID: 11400000, guid: 624f75a934a6ce549ad42240c26c0de7, type: 2}
-    Quantity: 13
+    Quantity: 2
     Reward:
-      RewardId: 1
-      Quantity: 1337
+      RewardId: 2
+      Quantity: 15
   - Config: {fileID: 11400000, guid: 624f75a934a6ce549ad42240c26c0de7, type: 2}
-    Quantity: 14
+    Quantity: 3
     Reward:
-      RewardId: 1
-      Quantity: 1488
+      RewardId: 2
+      Quantity: 100
+  - Config: {fileID: 11400000, guid: 624f75a934a6ce549ad42240c26c0de7, type: 2}
+    Quantity: 4
+    Reward:
+      RewardId: 2
+      Quantity: 300

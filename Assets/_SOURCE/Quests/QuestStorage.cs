@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Configs.Resources.QuestConfigs;
 using DataRepositories.Quests;
+using Gameplay.RewardServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
@@ -9,17 +10,25 @@ using Quests;
 
 public class QuestStorage : IProgressWriter
 {
-  private readonly IStaticDataService _staticDataService;
-
   private Dictionary<QuestId, Quest> _quests;
 
-  public QuestStorage(IStaticDataService staticDataService)
+  private readonly IStaticDataService _staticDataService;
+  private readonly SaveLoadService _saveLoadService;
+  private readonly RewardService _rewardService;
+
+  public QuestStorage(IStaticDataService staticDataService,
+    SaveLoadService saveLoadService, RewardService rewardService)
   {
     _staticDataService = staticDataService;
+    _saveLoadService = saveLoadService;
+    _rewardService = rewardService;
   }
 
   public Quest GetQuest(QuestId questId)
     => _quests[questId];
+
+  public List<Quest> GetAllQuests()
+    => _quests.Values.ToList();
 
   public void ReadProgress(Progress progress)
   {
@@ -32,7 +41,7 @@ public class QuestStorage : IProgressWriter
       List<SubQuest> subQuests = SubQuest(configs[questId], progress);
 
       QuestState questState = QuestState(progress, questId);
-      
+
       _quests.Add(questId, new Quest(questState, configs[questId], subQuests));
     }
   }
@@ -46,7 +55,7 @@ public class QuestStorage : IProgressWriter
       List<SubQuestProgress> subQuests = new List<SubQuestProgress>();
 
       foreach (SubQuest subQuest in quest.Value.SubQuests)
-        subQuests.Add(new SubQuestProgress(subQuest.Config.Type, subQuest.CompletedQuantity, subQuest.State));
+        subQuests.Add(new SubQuestProgress(subQuest.Setup.Config.Type, subQuest.CompletedQuantity.Value, subQuest.State.Value));
 
       progress.Quests.Add(new QuestProgress(quest.Key, quest.Value.State.Value, subQuests));
     }
@@ -60,7 +69,7 @@ public class QuestStorage : IProgressWriter
       .State;
   }
 
-  private static List<SubQuest> SubQuest(QuestConfig config, Progress progress)
+  private List<SubQuest> SubQuest(QuestConfig config, Progress progress)
   {
     List<SubQuest> subQuests = new List<SubQuest>();
 
@@ -69,7 +78,7 @@ public class QuestStorage : IProgressWriter
       SubQuestProgress progressSubQuest = progress.Quests.Find(x => x.Id == config.Id).SubQuests[i];
 
       SubQuestSetup setup = config.SubQuests[i];
-      subQuests.Add(new SubQuest(setup.Config, setup.Quantity, progressSubQuest.State));
+      subQuests.Add(new SubQuest(setup, progressSubQuest.CompletedQuantity, progressSubQuest.State, i, _saveLoadService, _rewardService));
     }
 
     return subQuests;

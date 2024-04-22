@@ -2,6 +2,7 @@ using System;
 using Configs.Resources.QuestConfigs;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
+using Quests;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.QuestWindows;
 using Zenject;
@@ -24,10 +25,34 @@ public class SubQuestSlotsFactory : MonoBehaviour
 
   private void Start()
   {
+    CreateSubQuests();
+    
+    QuestWindow.Quest.State.ValueChanged += QuestStateChanged;
+  }
+
+  private void QuestStateChanged(QuestState state)
+  {
+     switch (state) 
+     {
+       case QuestState.Unknown:
+         throw new ArgumentOutOfRangeException(nameof(QuestWindow.Quest.State));
+       
+       case QuestState.UnActivated:
+         break;
+       
+       case QuestState.Activated:
+         QuestWindow.Quest.SubQuests[0].State.Value = QuestState.Activated;
+         break;
+       
+       case QuestState.RewardReady:
+         break;
+     }
+  }
+
+  private void CreateSubQuests()
+  {
     for (var i = 0; i < QuestConfig.SubQuests.Count; i++)
     {
-      SubQuestSetup subQuest = QuestConfig.SubQuests[i];
-
       SubQuestSlot prefab = _assetProvider.Get<SubQuestSlot>();
 
       SubQuestSlot slot = _factory.InstantiateMono(prefab, transform);

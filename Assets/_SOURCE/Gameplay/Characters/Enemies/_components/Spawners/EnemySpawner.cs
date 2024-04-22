@@ -6,6 +6,7 @@ using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.Utilities;
+using Quests;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -21,14 +22,16 @@ namespace Gameplay.Characters.Enemies.Spawners
     private ICoroutineRunner _coroutineRunner;
     private int _respawnTime;
     private List<CoroutineDecorator> _respawners = new List<CoroutineDecorator>();
+    private QuestCompleter _questCompleter;
 
     public EnemyId EnemyId { get; private set; }
 
     [Inject]
-    public void Construct(EnemyFactory enemyFactory, ICoroutineRunner coroutineRunner)
+    public void Construct(EnemyFactory enemyFactory, ICoroutineRunner coroutineRunner, QuestCompleter questCompleter)
     {
       _enemyFactory = enemyFactory;
       _coroutineRunner = coroutineRunner;
+      _questCompleter = questCompleter;
     }
 
     public event Action<EnemyHealth> EnemyDied;
@@ -38,22 +41,6 @@ namespace Gameplay.Characters.Enemies.Spawners
       EnemyId = enemyId;
       _spawnPoints = spawnPoints;
       _respawnTime = respawnTime;
-    }
-
-    private void OnDestroy()
-    {
-      // foreach (CoroutineDecorator coroutine in _respawners)
-      // {
-      //   if (coroutine == null)
-      //     continue;
-      //
-      //   if (_coroutineRunner == null)
-      //     continue;
-      //
-      //   coroutine.Stop();
-      // }
-      //
-      // _respawners.Clear();
     }
 
     public void Spawn(int count)
@@ -89,6 +76,8 @@ namespace Gameplay.Characters.Enemies.Spawners
       coroutineDecorator.Start();
 
       enemyHealth.Died -= OnEnemyDied;
+
+      _questCompleter.OnEnemyKilled(config.Id);
 
       EnemyDied?.Invoke(enemyHealth);
     }
