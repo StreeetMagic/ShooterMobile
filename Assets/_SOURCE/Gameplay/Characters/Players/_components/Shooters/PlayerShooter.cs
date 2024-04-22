@@ -19,6 +19,7 @@ namespace Gameplay.Characters.Players.Shooters
     private ProjectileFactory _projectileFactory;
     private BackpackStorage _backpackStorage;
     private AudioService _audioService;
+    private PlayerAnimator _playerAnimator;
 
     private float _timeLeft;
 
@@ -26,7 +27,7 @@ namespace Gameplay.Characters.Players.Shooters
     public void Construct(
       PlayerProvider playerProvider, IStaticDataService staticDataService,
       ProjectileFactory zenjectFactory, BackpackStorage backpackStorage,
-      AudioService audioService)
+      AudioService audioService, PlayerAnimator playerAnimator)
     {
       _playerProvider = playerProvider;
       _staticDataService = staticDataService;
@@ -34,6 +35,7 @@ namespace Gameplay.Characters.Players.Shooters
       _backpackStorage = backpackStorage;
 
       _audioService = audioService;
+      _playerAnimator = playerAnimator;
     }
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;

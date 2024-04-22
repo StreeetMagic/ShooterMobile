@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Players;
+using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class PlayerInstaller : MonoInstaller
   public PlayerHealth PlayerHealth;
   public PlayerTargetHolder PlayerTargetHolder;
   public PlayerTargetLocator PlayerTargetLocator;
+  public PlayerAnimator PlayerAnimator;
 
   public override void InstallBindings()
   {
@@ -20,5 +22,6 @@ public class PlayerInstaller : MonoInstaller
 
     Container.Bind<PlayerTargetHolder>().FromInstance(PlayerTargetHolder).AsSingle();
     Container.Bind<PlayerTargetLocator>().FromInstance(PlayerTargetLocator).AsSingle();
+    Container.Bind<PlayerAnimator>().FromInstance(PlayerAnimator).AsSingle();
   }
 }

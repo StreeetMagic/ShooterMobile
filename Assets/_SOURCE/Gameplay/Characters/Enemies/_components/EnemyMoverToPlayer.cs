@@ -13,17 +13,17 @@ namespace Gameplay.Characters.Enemies
     private Enemy _enemy;
     private EnemyMover _mover;
     private EnemyShootAtPlayer _enemyShootAtPlayer;
-    private ReturnToSpawnStatus _returnToSpawnStatus;
+    private EnemyAnimator _enemyAnimator;
 
     [Inject]
     public void Construct(PlayerProvider playerProvider, Enemy enemy, EnemyMover mover,
-      EnemyShootAtPlayer enemyShootAtPlayer, ReturnToSpawnStatus returnToSpawnStatus)
+      EnemyShootAtPlayer enemyShootAtPlayer, EnemyAnimator enemyAnimator)
     {
       _playerProvider = playerProvider;
       _enemy = enemy;
       _mover = mover;
       _enemyShootAtPlayer = enemyShootAtPlayer;
-      _returnToSpawnStatus = returnToSpawnStatus;
+      _enemyAnimator = enemyAnimator;
     }
 
     private float RunSpeed => _enemy.Config.RunSpeed;
@@ -32,11 +32,6 @@ namespace Gameplay.Characters.Enemies
 
     private void FixedUpdate()
     {
-      // if (DistanceToSpawnPoint())
-      // {
-      //   _returnToSpawnStatus.IsReturn = true;
-      // }
-
       StartShooting();
       Move();
     }
@@ -63,14 +58,7 @@ namespace Gameplay.Characters.Enemies
     {
       Vector3 direction = (PlayerTransform.position - transform.position).normalized;
       _mover.Move(direction, RunSpeed);
-    }
-
-    private bool DistanceToSpawnPoint()
-    {
-      float distance = Vector3.Distance(transform.position, _enemy.SpawnerTransform.position);
-      int configPatrolingRadius = _enemy.Config.PatrolingRadius;
-
-      return distance >= configPatrolingRadius;
+      _enemyAnimator.PlayRunAnimation();
     }
   }
 }

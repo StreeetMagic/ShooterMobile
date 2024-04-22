@@ -14,11 +14,12 @@ namespace Gameplay.Characters.Enemies
     private HitStatus _hitStatus;
     private EnemyShootAtPlayer _enemyShootAtPlayer;
     private ReturnToSpawnStatus _returnToSpawnStatus;
+    private EnemyAnimator _enemyAnimator;
 
     [Inject]
     public void Construct(EnemyMover mover, RoutePointsManager routePointsManager, Enemy enemy,
       EnemyMoverToPlayer enemyMoverToPlayer, HitStatus hitStatus, EnemyShootAtPlayer enemyShootAtPlayer,
-      ReturnToSpawnStatus returnToSpawnStatus, ReturnToSpawnStatus returnToSpawnStatus1)
+      ReturnToSpawnStatus returnToSpawnStatus, ReturnToSpawnStatus returnToSpawnStatus1, EnemyAnimator enemyAnimator)
     {
       _mover = mover;
       _routePointsManager = routePointsManager;
@@ -27,6 +28,7 @@ namespace Gameplay.Characters.Enemies
       _hitStatus = hitStatus;
       _enemyShootAtPlayer = enemyShootAtPlayer;
       _returnToSpawnStatus = returnToSpawnStatus;
+      _enemyAnimator = enemyAnimator;
     }
 
     private float MoveSpeed => _enemy.Config.MoveSpeed;
@@ -46,9 +48,18 @@ namespace Gameplay.Characters.Enemies
       _mover.Move(direction, GetMoveSpeed());
     }
 
-    private float GetMoveSpeed() =>
-      _returnToSpawnStatus.IsReturn 
-        ? RunSpeed 
-        : MoveSpeed;
+    private float GetMoveSpeed()
+    {
+      if (_returnToSpawnStatus.IsReturn)
+      {
+        _enemyAnimator.PlayRunAnimation();
+        return RunSpeed;
+      }
+      else
+      {
+        _enemyAnimator.PlayWalkAnimation();
+        return MoveSpeed;
+      }
+    }
   }
 }
