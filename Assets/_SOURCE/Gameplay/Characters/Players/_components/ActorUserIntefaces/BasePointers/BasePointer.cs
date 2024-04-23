@@ -1,21 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using Gameplay.BaseTriggers;
-using Infrastructure.Utilities;
+using Infrastructure.DataRepositories;
 using Maps;
 using UnityEngine;
 using Zenject;
 
-public class RotateToBaseTrigger : MonoBehaviour
+public class BasePointer : MonoBehaviour
 {
-  public Canvas Canvas;
+  public GameObject Pointer;
 
   private MapProvider _mapProvider;
+  private BackpackStorage _backpackStorage;
 
   [Inject]
-  public void Construct(MapProvider mapProvider)
+  public void Construct(MapProvider mapProvider, BackpackStorage backpackStorage)
   {
     _mapProvider = mapProvider;
+    _backpackStorage = backpackStorage;
   }
 
   private BaseTrigger BaseTrigger => _mapProvider.Map.BaseTrigger;
@@ -38,10 +38,16 @@ public class RotateToBaseTrigger : MonoBehaviour
 
   private void Hide()
   {
-    const float MinDistance = 7;
+    if (_backpackStorage.IsFull == false)
+    {
+      Pointer.gameObject.SetActive(false);
+      return;
+    }
+
+    const float MinDistance = 5;
 
     var distance = Vector3.Distance(transform.position, BaseTrigger.transform.position);
 
-    Canvas.enabled = !(distance < MinDistance);
+    Pointer.gameObject.SetActive(!(distance < MinDistance));
   }
 }

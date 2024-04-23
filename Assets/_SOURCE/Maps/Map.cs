@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using DataRepositories.Quests;
 using Gameplay.BaseTriggers;
+using JetBrains.Annotations;
 using Maps.EnemySpawnMarkers;
 using Maps.PlayerSpawnMarkers;
 using Sirenix.OdinInspector;
@@ -15,6 +17,7 @@ namespace Maps
     public Transform EnemySpawnersContainer;
     public List<EnemySpawnMarker> EnemySpawnMarkers;
     public BaseTrigger BaseTrigger;
+    public List<Quester> Questers;
 
     [Button]
     private void Resolve()
@@ -32,6 +35,8 @@ namespace Maps
           .transform;
       
       BaseTrigger = GetComponentInChildren<BaseTrigger>();
+      
+      Questers = GetComponentsInChildren<Quester>().ToList();
     }
   }
 }

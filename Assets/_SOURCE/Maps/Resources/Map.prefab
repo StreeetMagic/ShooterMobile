@@ -8430,6 +8430,8 @@ MonoBehaviour:
   - {fileID: 5706784246977090044}
   - {fileID: 78619836309047363}
   BaseTrigger: {fileID: 5161913181976777917}
+  Questers:
+  - {fileID: 3964781903151392281}
 --- !u!1001 &246095168966484368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62329,13 +62331,25 @@ PrefabInstance:
     - target: {fileID: 2032786385678962604, guid: 50e1baa3870c2b143b82ebcae15f96c1,
         type: 3}
       propertyPath: m_Name
-      value: Start_NPC
+      value: Quester
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e1baa3870c2b143b82ebcae15f96c1, type: 3}
+--- !u!114 &3964781903151392281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6397549018055459839, guid: 50e1baa3870c2b143b82ebcae15f96c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8056118182817310182}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7135ae65310a488aae8cd5a8368823a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7274977415335976776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 808675030932339374, guid: 50e1baa3870c2b143b82ebcae15f96c1,
