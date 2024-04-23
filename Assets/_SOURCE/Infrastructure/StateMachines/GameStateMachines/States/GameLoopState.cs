@@ -15,6 +15,8 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 {
   public class GameLoopState : IGameState
   {
+    private Transform _sceneTransform;
+
     private readonly PlayerFactory _playerFactory;
     private readonly MapFactory _mapFactory;
     private readonly CameraFactory _cameraFactory;
@@ -27,14 +29,13 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     private readonly PlayerStatsProvider _playerStatsProvider;
     private readonly ICoroutineRunner _runner;
     private readonly QuestStorage _questStorage;
-
-    private Transform _sceneTransform;
+    private readonly BackpackStorage _backpackStorage;
 
     public GameLoopState(PlayerFactory playerFactory, MapFactory mapFactory,
       CameraFactory cameraFactory, EnemySpawnerFactory enemySpawnerFactory,
       HeadsUpDisplayFactory headsUpDisplayFactory, MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService,
       SaveLoadService saveLoadService, AudioService audioService, PlayerStatsProvider playerStatsProvider, ICoroutineRunner runner
-      , QuestStorage questStorage)
+      , QuestStorage questStorage, BackpackStorage backpackStorage)
     {
       _playerFactory = playerFactory;
       _mapFactory = mapFactory;
@@ -48,10 +49,12 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
       _playerStatsProvider = playerStatsProvider;
       _runner = runner;
       _questStorage = questStorage;
+      _backpackStorage = backpackStorage;
     }
 
     public void Enter()
     {
+      _backpackStorage.Clean();
       _saveLoadService.ProgressReaders.Add(_moneyInBankStorage);
       _saveLoadService.ProgressReaders.Add(_upgradeService);
       _saveLoadService.ProgressReaders.Add(_audioService);

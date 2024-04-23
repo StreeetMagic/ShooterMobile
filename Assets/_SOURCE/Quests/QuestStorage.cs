@@ -42,7 +42,7 @@ public class QuestStorage : IProgressWriter
 
       QuestState questState = QuestState(progress, questId);
 
-      _quests.Add(questId, new Quest(questState, configs[questId], subQuests));
+      _quests.Add(questId, new Quest(questState, configs[questId], subQuests, _rewardService));
     }
   }
 

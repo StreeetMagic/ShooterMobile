@@ -2206,6 +2206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa17aec4d1955be408cdd4c59314e0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QuestWindow: {fileID: 1802208336370171341}
+  Button: {fileID: 2232851946561752249}
 --- !u!1 &6156185490664310185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,8 +2654,9 @@ GameObject:
   - component: {fileID: 4511475846500167075}
   - component: {fileID: 5464219914069241629}
   - component: {fileID: 5266899949527334317}
+  - component: {fileID: 8811025129448495918}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CurrentSubQuestText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2777,6 +2780,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8811025129448495918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8134070985067538496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5262e7deb30fcb4f88d80de7cfed982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestWindow: {fileID: 1802208336370171341}
+  Text: {fileID: 5266899949527334317}
 --- !u!1 &8512639910412240305
 GameObject:
   m_ObjectHideFlags: 0

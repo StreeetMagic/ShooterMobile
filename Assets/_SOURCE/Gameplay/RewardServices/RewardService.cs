@@ -9,6 +9,7 @@ using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Currencies;
 using Infrastructure.DataRepositories;
 using Infrastructure.StaticDataServices;
+using Quests;
 using UnityEngine;
 
 namespace Gameplay.RewardServices
@@ -66,6 +67,23 @@ namespace Gameplay.RewardServices
           _playerStatsProvider.AddQuestReward(StatId.BackpackCapacity, questReward.Quantity);
           break;
       }
+    }
+
+    public void OnQuestCompleted(QuestReward reward)
+    {
+      switch (reward.RewardId)
+      {
+        case QuestRewardId.Unknown:
+          throw new System.NotImplementedException("Unknown quest reward type");
+        
+        case QuestRewardId.Expirience:
+          _expierienceStorage.AllPoints.Value += reward.Quantity;
+          break;
+        
+        case QuestRewardId.BackpackCapacity:
+          _playerStatsProvider.AddQuestReward(StatId.BackpackCapacity, reward.Quantity);
+          break;
+      } 
     }
   }
 }

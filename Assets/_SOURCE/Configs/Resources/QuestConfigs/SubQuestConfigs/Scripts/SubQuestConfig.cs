@@ -10,5 +10,6 @@ namespace Configs.Resources.QuestConfigs.SubQuestConfigs
   {
     public SubQuestType Type;
     public Sprite Icon;
+    public string Description;
   }
 }

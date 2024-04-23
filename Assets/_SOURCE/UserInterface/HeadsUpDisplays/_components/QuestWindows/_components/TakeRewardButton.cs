@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
+using UserInterface.HeadsUpDisplays.QuestWindows;
 
 public class TakeRewardButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  public QuestWindow QuestWindow;
+  public Button Button;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  private void Start()
+  {
+    Button.onClick.AddListener(() => QuestWindow.Quest.GainReward());
+  }
 }

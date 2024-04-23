@@ -3,6 +3,7 @@ using System.Linq;
 using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Players._components.PlayerStatsServices;
 using Gameplay.Currencies;
+using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
@@ -14,7 +15,7 @@ namespace Infrastructure.DataRepositories
   {
     private readonly IStaticDataService _staticDataService;
     private readonly PlayerStatsProvider _playerStatsProvider;
-    private SaveLoadService _saveLoadService;
+    private readonly SaveLoadService _saveLoadService;
 
     public BackpackStorage(IStaticDataService staticDataService, PlayerStatsProvider playerStatsProvider, SaveLoadService saveLoadService)
     {
