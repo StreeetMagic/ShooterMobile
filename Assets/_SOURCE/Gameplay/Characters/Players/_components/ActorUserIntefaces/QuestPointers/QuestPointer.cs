@@ -31,9 +31,7 @@ public class QuestPointer : MonoBehaviour
 
   private Transform DefineTarget()
   {
-    Transform target = transform;
-
-    throw new NotImplementedException();
+    Transform target = _mapProvider.Map.Questers[0].transform;
 
     return target;
   }
