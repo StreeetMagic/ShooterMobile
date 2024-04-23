@@ -12,9 +12,6 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
 {
   public class EnemySpawnerFactory
   {
-    public List<EnemySpawner> Spawners { get; } = new List<EnemySpawner>();
-
-    private readonly IAssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _zenjectFactory;
     private readonly EnemySpawner _spawnerPrefab;
     private readonly MapProvider _mapProvider;
@@ -23,13 +20,15 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
     public EnemySpawnerFactory(IAssetProvider assetProvider,
       GameLoopZenjectFactory zenjectFactory, MapProvider mapProvider, IInstantiator instantiator)
     {
-      _assetProvider = assetProvider;
+      IAssetProvider assetProvider1 = assetProvider;
       _zenjectFactory = zenjectFactory;
       _mapProvider = mapProvider;
       _instantiator = instantiator;
-      _spawnerPrefab = _assetProvider.Get<EnemySpawner>();
-      _assetProvider.Get<SpawnPoint>();
+      _spawnerPrefab = assetProvider1.Get<EnemySpawner>();
+      assetProvider1.Get<SpawnPoint>();
     }
+
+    public List<EnemySpawner> Spawners { get; } = new List<EnemySpawner>();
 
     private Map Map => _mapProvider.Map;
 
