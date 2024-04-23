@@ -58,6 +58,8 @@ public class SubQuestSlotsFactory : MonoBehaviour
       SubQuestSlot slot = _factory.InstantiateMono(prefab, transform);
 
       slot.SubQuest = QuestWindow.Quest.SubQuests[i];
+      
+      
     }
   }
 }

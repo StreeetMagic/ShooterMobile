@@ -36,6 +36,13 @@ namespace Gameplay.Characters.Enemies.Spawners
 
     public event Action<EnemyHealth> EnemyDied;
 
+    public List<Enemy> Enemies { get; } = new List<Enemy>();
+
+    private void OnDisable()
+    {
+       Enemies.Clear();
+    }
+
     public void Init(EnemyId enemyId, List<SpawnPoint> spawnPoints, int respawnTime)
     {
       EnemyId = enemyId;
@@ -62,7 +69,9 @@ namespace Gameplay.Characters.Enemies.Spawners
       }
 
       int randomSpawnPointNumber = Random.Range(0, _spawnPoints.Count - 1);
-      var enemy = _enemyFactory.Create(EnemyId, transform, _spawnPoints[randomSpawnPointNumber].transform.position, _spawnPoints);
+      Enemy enemy = _enemyFactory.Create(EnemyId, transform, _spawnPoints[randomSpawnPointNumber].transform.position, _spawnPoints);
+
+      Enemies.Add(enemy);
 
       enemy.Installer.EnemyHealth.Died += OnEnemyDied;
     }
@@ -80,6 +89,13 @@ namespace Gameplay.Characters.Enemies.Spawners
       _questCompleter.OnEnemyKilled(config.Id);
 
       EnemyDied?.Invoke(enemyHealth);
+
+      var component = enemyHealth.GetComponent<Enemy>();
+
+      if (component == null)
+        throw new InvalidOperationException(nameof(component));
+
+      Enemies.Remove(component);
     }
 
     private IEnumerator WaitAndSpawn()

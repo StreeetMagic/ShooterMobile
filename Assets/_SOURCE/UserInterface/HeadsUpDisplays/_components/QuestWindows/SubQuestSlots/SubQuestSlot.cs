@@ -42,6 +42,12 @@ public class SubQuestSlot : MonoBehaviour
         RewardTaken.SetActive(false);
         break;
       
+      case QuestState.RewardReady:
+        Unactivated.SetActive(false);
+        Activated.SetActive(true);
+        RewardTaken.SetActive(false);
+        break;
+      
       case QuestState.RewardTaken:
         Unactivated.SetActive(false);
         Activated.SetActive(false);
