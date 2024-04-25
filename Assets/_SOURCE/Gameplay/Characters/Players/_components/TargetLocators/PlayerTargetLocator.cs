@@ -10,14 +10,18 @@ namespace Gameplay.Characters.Players._components.TargetLocators
 {
   public class PlayerTargetLocator : MonoBehaviour
   {
+    private const int MaxTargets = 20;
+
     private PlayerStatsProvider _playerStatsProvider;
     private PlayerTargetHolder _playerTargetHolder;
+    private Collider[] _colliders;
 
     [Inject]
     public void Construct(PlayerStatsProvider playerStatsProvider, PlayerTargetHolder playerTargetHolder)
     {
       _playerStatsProvider = playerStatsProvider;
       _playerTargetHolder = playerTargetHolder;
+      _colliders = new Collider[MaxTargets];
     }
 
     private float Radius => _playerStatsProvider.GetStat(StatId.FireRange).Value;
@@ -29,12 +33,14 @@ namespace Gameplay.Characters.Players._components.TargetLocators
 
     private void Scan()
     {
-      Collider[] colliders = Physics.OverlapSphere(transform.position, Radius);
+      int count = Physics.OverlapSphereNonAlloc(transform.position, Radius, _colliders);
 
       var list = new List<EnemyTargetTrigger>();
 
-      foreach (Collider collider1 in colliders)
+      for (var index = 0; index < count; index++)
       {
+        Collider collider1 = _colliders[index];
+
         if (collider1.gameObject.TryGetComponent(out EnemyTargetTrigger targetTrigger) == false)
           continue;
 

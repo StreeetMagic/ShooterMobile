@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Quests;
+using Quests.Subquests;
 using TMPro;
 using UnityEngine;
 
@@ -11,9 +13,9 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows._components
 
     private void Update()
     {
-      var subQuests = QuestWindow.Quest.SubQuests;
+      List<SubQuest> subQuests = QuestWindow.Quest.SubQuests;
 
-      foreach (var subQuest in subQuests)
+      foreach (SubQuest subQuest in subQuests)
       {
         if (subQuest.State.Value is QuestState.Activated or QuestState.RewardReady)
         {

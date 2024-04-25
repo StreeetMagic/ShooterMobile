@@ -14,7 +14,8 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdater
     private IStaticDataService _staticDataService;
 
     [Inject]
-    public void Construct(GameLoopZenjectFactory factory, HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService)
+    public void Construct(GameLoopZenjectFactory factory,
+      HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;

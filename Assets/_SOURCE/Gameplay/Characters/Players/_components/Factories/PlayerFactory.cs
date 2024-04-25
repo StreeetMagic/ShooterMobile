@@ -1,4 +1,3 @@
-using Gameplay.Characters.Players._components.Animators;
 using Gameplay.Characters.Players._components.InputHandlers;
 using Gameplay.Characters.Players._components.Movers;
 using Gameplay.Characters.Players._components.Rotators;
@@ -52,9 +51,7 @@ namespace Gameplay.Characters.Players._components.Factories
 
       _playerProvider.PlayerTargetHolder = player.GetComponent<PlayerTargetHolder>();
 
-      _playerProvider.PlayerAnimator = player.GetComponentInChildren<PlayerAnimator>();
-
-      _playerProvider.PlayerAnimatorEventHandler = player.GetComponentInChildren<PlayerAnimatorEventHandler>();
+      _playerProvider.ShootingPoint = player.GetComponent<ShootingPoint>().Transform;
 
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
         _saveLoadService.ProgressReaders.Add(progressReader);

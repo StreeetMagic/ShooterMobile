@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Configs.Resources.CurrencyConfigs;
 using Configs.Resources.EnemyConfigs.Scripts;
 using DataRepositories.BackpackStorages;
 using Infrastructure.AssetProviders;
@@ -14,7 +15,7 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdater
     private BackpackStorage _backpackStorage;
     private IAssetProvider _assetProvider;
 
-    public List<LootSlot> LootSlots = new List<LootSlot>();
+    public List<LootSlot> LootSlots = new();
 
     [Inject]
     public void Construct(LootSlotFactory lootSlotFactory, BackpackStorage backpackStorage, IAssetProvider assetProvider)
@@ -43,9 +44,9 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdater
 
       LootSlots.Clear();
 
-      var info = _backpackStorage.ReadLoot();
+      Dictionary<CurrencyId, int> info = _backpackStorage.ReadLoot();
 
-      foreach (var loot in info)
+      foreach (KeyValuePair<CurrencyId, int> loot in info)
         _lootSlotFactory.Create(loot.Key, Prefab, transform, loot.Value);
     }
   }

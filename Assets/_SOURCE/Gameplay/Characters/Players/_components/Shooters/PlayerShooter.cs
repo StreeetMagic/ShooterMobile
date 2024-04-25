@@ -36,7 +36,7 @@ namespace Gameplay.Characters.Players._components.Shooters
     }
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
-    private Transform Transform => _playerProvider.Player.ShootingPoint;
+    private Transform Transform => _playerProvider.ShootingPoint;
     private float Cooldown => 1 / _staticDataService.GetPlayerConfig().FireRate;
 
     public void Update()

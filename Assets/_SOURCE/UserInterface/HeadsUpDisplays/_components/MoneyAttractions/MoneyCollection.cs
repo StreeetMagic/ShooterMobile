@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using Configs.Resources.VisualEffectConfigs;
 using Gameplay.Characters.Enemies.Healths;
+using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Infrastructure;
 using UnityEngine;
@@ -25,9 +27,9 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
 
     private void Start()
     {
-      var spawners = _enemySpawnerFactory.Spawners;
+      List<EnemySpawner> spawners = _enemySpawnerFactory.Spawners;
 
-      foreach (var spawner in spawners)
+      foreach (EnemySpawner spawner in spawners)
       {
         spawner.EnemyDied += OnEnemyDied;
       }
@@ -35,7 +37,7 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
 
     private void OnEnemyDied(EnemyHealth enemyHealth)
     {
-      var position = _camera.WorldToScreenPoint(enemyHealth.transform.position);
+      Vector3 position = _camera.WorldToScreenPoint(enemyHealth.transform.position);
 
       _visualEffectFactory.Create(VIsualEffectId.MoneyCollection1, position, transform, Target);
     }
