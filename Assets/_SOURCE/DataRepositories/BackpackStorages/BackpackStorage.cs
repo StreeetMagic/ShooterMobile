@@ -17,7 +17,8 @@ namespace DataRepositories.BackpackStorages
     private readonly PlayerStatsProvider _playerStatsProvider;
     private readonly SaveLoadService _saveLoadService;
 
-    public BackpackStorage(IStaticDataService staticDataService, PlayerStatsProvider playerStatsProvider, SaveLoadService saveLoadService)
+    public BackpackStorage(IStaticDataService staticDataService,
+      PlayerStatsProvider playerStatsProvider, SaveLoadService saveLoadService)
     {
       _staticDataService = staticDataService;
       _playerStatsProvider = playerStatsProvider;

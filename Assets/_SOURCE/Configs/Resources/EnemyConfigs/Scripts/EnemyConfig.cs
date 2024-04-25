@@ -12,7 +12,8 @@ namespace Configs.Resources.EnemyConfigs.Scripts
     
     public float RunSpeed;
     
-    [Tooltip("Время бега после ранения")] public float RunTime;
+    [Tooltip("Время бега после ранения")] 
+    public float RunTime;
     
     public float WaitTimeAfterMove;
     

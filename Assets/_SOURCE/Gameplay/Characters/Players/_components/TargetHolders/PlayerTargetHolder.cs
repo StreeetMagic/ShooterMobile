@@ -52,15 +52,15 @@ namespace Gameplay.Characters.Players._components.TargetHolders
     {
       List<EnemyTargetTrigger> deadTargets = new List<EnemyTargetTrigger>();
 
-      foreach (var target in _targets)
+      foreach (EnemyTargetTrigger target in _targets)
       {
-        if (target.EnemyHealth.IsDead)
-        {
-          deadTargets.Add(target);
+        if (!target.EnemyHealth.IsDead)
+          continue;
 
-          if (_currentEnemyTarget == target)
-            target.IsTargeted = false;
-        }
+        deadTargets.Add(target);
+
+        if (_currentEnemyTarget == target)
+          target.IsTargeted = false;
       }
 
       _targets.RemoveAll(target => deadTargets.Contains(target));
@@ -70,15 +70,15 @@ namespace Gameplay.Characters.Players._components.TargetHolders
     {
       List<EnemyTargetTrigger> farTargets = new List<EnemyTargetTrigger>();
 
-      foreach (var target in _targets)
+      foreach (EnemyTargetTrigger target in _targets)
       {
-        if (Vector3.Distance(Transform.position, target.transform.position) > FireRange)
-        {
-          farTargets.Add(target);
+        if (!(Vector3.Distance(Transform.position, target.transform.position) > FireRange))
+          continue;
 
-          if (_currentEnemyTarget == target)
-            target.IsTargeted = false;
-        }
+        farTargets.Add(target);
+
+        if (_currentEnemyTarget == target)
+          target.IsTargeted = false;
       }
 
       _targets.RemoveAll(target => farTargets.Contains(target));
@@ -120,7 +120,7 @@ namespace Gameplay.Characters.Players._components.TargetHolders
       if (targets == null || targets.Count == 0)
         return;
 
-      foreach (var target in targets)
+      foreach (EnemyTargetTrigger target in targets)
       {
         if (!_targets.Contains(target))
           _targets.Add(target);

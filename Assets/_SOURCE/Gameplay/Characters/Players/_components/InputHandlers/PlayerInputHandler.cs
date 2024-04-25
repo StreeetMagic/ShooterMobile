@@ -31,13 +31,11 @@ namespace Gameplay.Characters.Players._components.InputHandlers
     public void EnableMove()
     {
       CanMove = true;
-      Debug.Log("можно двигаться");
     }
 
     public void DisableMove()
     {
       CanMove = false;
-      Debug.Log("нельзя двигаться");
     }
 
     public void Tick()

@@ -29,7 +29,6 @@ namespace Gameplay.Characters.Players._components.TargetLocators
 
     private void Scan()
     {
-      // ReSharper disable once Unity.PreferNonAllocApi
       Collider[] colliders = Physics.OverlapSphere(transform.position, Radius);
 
       var list = new List<EnemyTargetTrigger>();

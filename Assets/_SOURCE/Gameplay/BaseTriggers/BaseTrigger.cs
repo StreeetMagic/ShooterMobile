@@ -24,29 +24,29 @@ namespace Gameplay.BaseTriggers
 
     private void OnTriggerEnter(Collider other)
     {
-      if (other.TryGetComponent(out PlayerTargetTrigger playerTrigger))
+      if (!other.TryGetComponent(out PlayerTargetTrigger playerTrigger))
+        return;
+
+      if (!playerTrigger.transform.parent.TryGetComponent(out Player _))
+        return;
+
+      Dictionary<CurrencyId, int> data = _backpackStorage.ReadLoot();
+
+      foreach (KeyValuePair<CurrencyId, int> loot in data)
       {
-        if (playerTrigger.transform.parent.TryGetComponent(out Player _))
+        switch (loot.Key)
         {
-          Dictionary<CurrencyId, int> data = _backpackStorage.ReadLoot();
-
-          foreach (KeyValuePair<CurrencyId, int> loot in data)
-          {
-            switch (loot.Key)
-            {
-              case CurrencyId.Money:
-                _moneyInBankStorage.MoneyInBank.Value += loot.Value;
-                break;
+          case CurrencyId.Money:
+            _moneyInBankStorage.MoneyInBank.Value += loot.Value;
+            break;
               
-              case CurrencyId.Eggs:
-                _eggsInBankStorage.EggsInBank.Value += loot.Value;
-                break;
-            }
-          }
-
-          _backpackStorage.Clean();
+          case CurrencyId.Eggs:
+            _eggsInBankStorage.EggsInBank.Value += loot.Value;
+            break;
         }
       }
+
+      _backpackStorage.Clean();
     }
   }
 }

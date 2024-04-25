@@ -29,18 +29,18 @@ namespace Gameplay.Characters.Enemies
 
       foreach (var thisCollider in colliders)
       {
-        if (thisCollider.TryGetComponent(out EnemyFromEnemyPusher enemyPusher))
-        {
-          if (enemyPusher != this)
-          {
-            Vector3 positionWithoutY = new Vector3(transform.position.x, 0, transform.position.z);
-            Vector3 positionWithoutY2 = new Vector3(enemyPusher.transform.position.x, 0, enemyPusher.transform.position.z);
+        if (!thisCollider.TryGetComponent(out EnemyFromEnemyPusher enemyPusher))
+          continue;
 
-            var direction = (positionWithoutY - positionWithoutY2).normalized;
+        if (enemyPusher == this)
+          continue;
 
-            _enemyController.Move(direction * (Force * Time.deltaTime));
-          }
-        }
+        Vector3 positionWithoutY = new(transform.position.x, 0, transform.position.z);
+        Vector3 positionWithoutY2 = new(enemyPusher.transform.position.x, 0, enemyPusher.transform.position.z);
+
+        Vector3 direction = (positionWithoutY - positionWithoutY2).normalized;
+
+        _enemyController.Move(direction * (Force * Time.deltaTime));
       }
     }
   }

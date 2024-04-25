@@ -42,14 +42,10 @@ namespace Gameplay.Characters.Players._components.Shooters
     public void Update()
     {
       if (_backpackStorage.IsFull)
-      {
         return;
-      }
 
       if (PlayerTargetHolder.HasTarget)
-      {
         Shooting();
-      }
     }
 
     private void Shooting()

@@ -34,12 +34,12 @@ namespace Gameplay.Characters.Enemies
       {
         foreach (SubQuest subQuest in quest.SubQuests)
         {
-          if (subQuest.State.Value == QuestState.Activated)
+          if (subQuest.State.Value != QuestState.Activated)
+            continue;
+
+          if (subQuest.Setup.Config.Type == SubQuestType.KillOrinaryPersons)
           {
-            if (subQuest.Setup.Config.Type == SubQuestType.KillOrinaryPersons)
-            {
-              return true;
-            }
+            return true;
           }
         }
       }
