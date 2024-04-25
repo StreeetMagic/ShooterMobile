@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using Configs.Resources.SoundConfigs;
-using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.Factories;
-using Gameplay.Characters.Players.TargetHolders;
+﻿using Configs.Resources.SoundConfigs.Scripts;
+using DataRepositories.BackpackStorages;
+using Gameplay.Characters.Players._components.Animators;
+using Gameplay.Characters.Players._components.Factories;
+using Gameplay.Characters.Players._components.Projectiles.Scripts;
+using Gameplay.Characters.Players._components.TargetHolders;
 using Infrastructure.AudioServices;
-using Infrastructure.DataRepositories;
 using Infrastructure.StaticDataServices;
-using Infrastructure.Utilities;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.Shooters
+namespace Gameplay.Characters.Players._components.Shooters
 {
   public class PlayerShooter : MonoBehaviour
   {
@@ -19,7 +18,6 @@ namespace Gameplay.Characters.Players.Shooters
     private ProjectileFactory _projectileFactory;
     private BackpackStorage _backpackStorage;
     private AudioService _audioService;
-    private PlayerAnimator _playerAnimator;
 
     private float _timeLeft;
 
@@ -35,7 +33,6 @@ namespace Gameplay.Characters.Players.Shooters
       _backpackStorage = backpackStorage;
 
       _audioService = audioService;
-      _playerAnimator = playerAnimator;
     }
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;

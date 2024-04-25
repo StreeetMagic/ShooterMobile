@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Players.Shooters.Projectiles.Bullet.Imported.YellowBullet
+namespace Gameplay.Characters.Players._components.Projectiles.ImportedScripts
 {
   public class PixelArsenalProjectileScript : MonoBehaviour
   {

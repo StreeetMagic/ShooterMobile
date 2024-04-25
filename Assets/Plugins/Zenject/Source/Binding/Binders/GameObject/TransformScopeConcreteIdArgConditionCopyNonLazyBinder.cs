@@ -2,14 +2,16 @@
 
 using System;
 using UnityEngine;
+using Zenject.Source.Binding.BindInfo;
+using Zenject.Source.Injection;
 
-namespace Zenject
+namespace Zenject.Source.Binding.Binders.GameObject
 {
     [NoReflectionBaking]
     public class TransformScopeConcreteIdArgConditionCopyNonLazyBinder : ScopeConcreteIdArgConditionCopyNonLazyBinder
     {
         public TransformScopeConcreteIdArgConditionCopyNonLazyBinder(
-            BindInfo bindInfo,
+            BindInfo.BindInfo bindInfo,
             GameObjectCreationParameters gameObjectInfo)
             : base(bindInfo)
         {

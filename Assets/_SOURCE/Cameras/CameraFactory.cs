@@ -1,6 +1,6 @@
 ﻿using Cinemachine;
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players._components.Factories;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;

@@ -1,4 +1,4 @@
-namespace Configs.Resources.SoundConfigs
+namespace Configs.Resources.SoundConfigs.Scripts
 {
   public enum SoundId
   {

@@ -1,19 +1,17 @@
-using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.InputHandlers;
-using Gameplay.Characters.Players.Movers;
-using Gameplay.Characters.Players.Rotators;
-using Gameplay.Characters.Players.Shooters;
-using Gameplay.Characters.Players.TargetHolders;
-using Gameplay.Characters.Players.TargetLocators;
+using Gameplay.Characters.Players._components.Animators;
+using Gameplay.Characters.Players._components.InputHandlers;
+using Gameplay.Characters.Players._components.Movers;
+using Gameplay.Characters.Players._components.Rotators;
+using Gameplay.Characters.Players._components.TargetHolders;
+using Gameplay.Characters.Players._components.TargetLocators;
 using Infrastructure.AssetProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.ZenjectFactories;
 using Maps;
 using UnityEngine;
-using Zenject;
 
-namespace Gameplay.Characters.Players.Factories
+namespace Gameplay.Characters.Players._components.Factories
 {
   public class PlayerFactory
   {
@@ -26,7 +24,7 @@ namespace Gameplay.Characters.Players.Factories
 
     public PlayerFactory(GameLoopZenjectFactory factory, IAssetProvider assetProvider,
       PlayerProvider playerProvider, PersistentProgressService progressService, SaveLoadService saveLoadService,
-      MapProvider mapProvider, TickableManager tickableManager)
+      MapProvider mapProvider)
     {
       _factory = factory;
       _assetProvider = assetProvider;

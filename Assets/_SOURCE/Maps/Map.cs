@@ -1,13 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using DataRepositories.Quests;
 using Gameplay.BaseTriggers;
-using JetBrains.Annotations;
+using Gameplay.Characters.Questers;
 using Maps.EnemySpawnMarkers;
 using Maps.PlayerSpawnMarkers;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Maps
 {

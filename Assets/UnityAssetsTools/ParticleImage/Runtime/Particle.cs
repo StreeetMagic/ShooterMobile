@@ -1,11 +1,11 @@
 // Version: 1.1.0
+
 using System.Collections.Generic;
-using AssetKits.ParticleImage.Enumerations;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace AssetKits.ParticleImage {
+namespace UnityAssetsTools.ParticleImage.Runtime {
     public class Particle
     {
         private ParticleImage _source;

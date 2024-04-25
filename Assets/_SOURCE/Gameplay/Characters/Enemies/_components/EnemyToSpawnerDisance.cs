@@ -1,19 +1,21 @@
-using Gameplay.Characters.Enemies;
 using UnityEngine;
 using Zenject;
 
-public class EnemyToSpawnerDisance : MonoBehaviour
+namespace Gameplay.Characters.Enemies
 {
-  private Enemy _enemy;
-
-  [Inject]
-  public void Construct(Enemy enemy)
+  public class EnemyToSpawnerDisance : MonoBehaviour
   {
-    _enemy = enemy;
+    private Enemy _enemy;
+
+    [Inject]
+    public void Construct(Enemy enemy)
+    {
+      _enemy = enemy;
+    }
+
+    private Transform SpawnerTransform => _enemy.SpawnerTransform;
+
+    public float Value => (SpawnerTransform.position - transform.position).magnitude;
+    public bool IsAway => Value > _enemy.Config.PatrolingRadius;
   }
-
-  private Transform SpawnerTransform => _enemy.SpawnerTransform;
-
-  public float Value => (SpawnerTransform.position - transform.position).magnitude;
-  public bool IsAway => Value > _enemy.Config.PatrolingRadius;
 }

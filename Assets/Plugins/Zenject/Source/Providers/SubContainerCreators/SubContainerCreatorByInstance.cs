@@ -1,8 +1,10 @@
-using System.Collections.Generic;
 using System;
-using ModestTree;
+using System.Collections.Generic;
+using Zenject.Source.Injection;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
 
-namespace Zenject
+namespace Zenject.Source.Providers.SubContainerCreators
 {
     [NoReflectionBaking]
     public class SubContainerCreatorByInstance : ISubContainerCreator

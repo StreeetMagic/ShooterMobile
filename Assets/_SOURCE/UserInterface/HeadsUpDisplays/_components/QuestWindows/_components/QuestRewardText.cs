@@ -1,14 +1,16 @@
 using TMPro;
 using UnityEngine;
-using UserInterface.HeadsUpDisplays.QuestWindows;
 
-public class QuestRewardText : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows._components
 {
-  public QuestWindow QuestWindow;
-  public TextMeshProUGUI Text;
-
-  private void Start()
+  public class QuestRewardText : MonoBehaviour
   {
-    Text.text = "+ " + QuestWindow.Quest.Config.Reward.Quantity + " " + QuestWindow.Quest.Config.Reward.RewardId;
+    public QuestWindow QuestWindow;
+    public TextMeshProUGUI Text;
+
+    private void Start()
+    {
+      Text.text = "+ " + QuestWindow.Quest.Config.Reward.Quantity + " " + QuestWindow.Quest.Config.Reward.RewardId;
+    }
   }
 }

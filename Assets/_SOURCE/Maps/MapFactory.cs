@@ -1,9 +1,5 @@
-﻿using System;
-using Infrastructure.AssetProviders;
-using Infrastructure.Games;
-using Infrastructure.ZenjectFactories;
+﻿using Infrastructure.ZenjectFactories;
 using UnityEngine;
-using Zenject;
 using Object = UnityEngine.Object;
 
 namespace Maps
@@ -11,13 +7,11 @@ namespace Maps
   public class MapFactory
   {
     private readonly GameLoopZenjectFactory _zenjectFactory;
-    private readonly IAssetProvider _assetProvider;
     private readonly MapProvider _mapProvider;
 
-    public MapFactory(GameLoopZenjectFactory factory, IAssetProvider assetProvider, MapProvider mapProvider)
+    public MapFactory(GameLoopZenjectFactory factory, MapProvider mapProvider)
     {
       _zenjectFactory = factory;
-      _assetProvider = assetProvider;
       _mapProvider = mapProvider;
     }
 

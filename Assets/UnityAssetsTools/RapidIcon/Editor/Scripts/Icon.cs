@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
 using UnityEditor.Animations;
-using System.IO;
-using UnityEngine.Rendering;
-using UnityEditor.UIElements;
-using System.Xml;
+using UnityEngine;
 
-namespace RapidIconUIC
+namespace UnityAssetsTools.RapidIcon.Editor.Scripts
 {
 	[Serializable]
 	public class Icon

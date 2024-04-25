@@ -1,10 +1,11 @@
+using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEditor;
 using UnityEngine;
 
-namespace AssetKits.ParticleImage.Editor
+namespace UnityAssetsTools.ParticleImage.Editor.PropertyDrawer
 {
     [CustomPropertyDrawer(typeof(Module))]
-    public class ModuleDrawer : PropertyDrawer
+    public class ModuleDrawer : UnityEditor.PropertyDrawer
     {
         // Draw the property inside the given rect
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)

@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using ModestTree;
+using Zenject.Source.Binding.BindInfo;
+using Zenject.Source.Factories.Pooling.Util;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
+using Zenject.Source.Util;
+using Zenject.Source.Validation;
 
-namespace Zenject
+namespace Zenject.Source.Factories.Pooling
 {
     [NoReflectionBaking]
     public class PoolExceededFixedSizeException : Exception

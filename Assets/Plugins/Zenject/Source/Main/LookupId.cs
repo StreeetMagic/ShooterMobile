@@ -1,6 +1,7 @@
-using ModestTree;
+using Zenject.Source.Internal;
+using Zenject.Source.Providers;
 
-namespace Zenject.Internal
+namespace Zenject.Source.Main
 {
     [NoReflectionBaking]
     public class LookupId

@@ -1,6 +1,6 @@
 using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Upgrades;
 using Infrastructure.PersistentProgresses;
+using Infrastructure.Upgrades;
 using TMPro;
 using UnityEngine;
 using Zenject;

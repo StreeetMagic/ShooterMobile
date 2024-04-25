@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Configs.Resources.QuestConfigs.SubQuestConfigs;
+using Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts;
 using UnityEngine;
 
-namespace Configs.Resources.QuestConfigs
+namespace Configs.Resources.QuestConfigs.Scripts
 {
   [CreateAssetMenu(menuName = "Configs/QuestConfig", fileName = "QuestConfig")]
   public class QuestConfig : ScriptableObject

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using Zenject.Source.Factories.Pooling.Static;
 
-namespace Zenject
+namespace Zenject.Source.Factories.Pooling.Util
 {
     public class ListPool<T> : StaticMemoryPool<List<T>>
     {

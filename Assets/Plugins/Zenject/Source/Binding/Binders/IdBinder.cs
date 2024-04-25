@@ -1,11 +1,11 @@
-namespace Zenject
+namespace Zenject.Source.Binding.Binders
 {
     [NoReflectionBaking]
     public class IdBinder
     {
-        BindInfo _bindInfo;
+        BindInfo.BindInfo _bindInfo;
 
-        public IdBinder(BindInfo bindInfo)
+        public IdBinder(BindInfo.BindInfo bindInfo)
         {
             _bindInfo = bindInfo;
         }

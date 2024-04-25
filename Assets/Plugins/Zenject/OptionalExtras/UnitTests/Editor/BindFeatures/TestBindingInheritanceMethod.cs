@@ -1,7 +1,8 @@
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.TestFramework;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Other
+namespace Zenject.OptionalExtras.UnitTests.Editor.BindFeatures
 {
     [TestFixture]
     public class TestBindingInheritanceMethod : ZenjectUnitTestFixture

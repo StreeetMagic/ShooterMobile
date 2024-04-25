@@ -1,10 +1,11 @@
+using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEditor;
 using UnityEngine;
 
-namespace AssetKits.ParticleImage.Editor
+namespace UnityAssetsTools.ParticleImage.Editor.PropertyDrawer
 {
     [CustomPropertyDrawer(typeof(SeparatedMinMaxCurve))]
-    public class SeparateMinMaxCurveDrawer : PropertyDrawer
+    public class SeparateMinMaxCurveDrawer : UnityEditor.PropertyDrawer
     {
         private GUIContent _separateAxesContent;
         

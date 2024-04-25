@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Zenject.Tests.Other
+namespace Zenject.OptionalExtras.UnitTests.Editor.Other
 {
     [TestFixture]
     public class ZenjectProfileTest

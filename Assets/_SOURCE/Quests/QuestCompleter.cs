@@ -1,7 +1,6 @@
-using System.Collections.Generic;
-using Configs.Resources.QuestConfigs.SubQuestConfigs;
-using DataRepositories.Quests;
-using Gameplay.Characters.Enemies;
+using Configs.Resources.EnemyConfigs.Scripts;
+using Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts;
+using Quests.Subquests;
 
 namespace Quests
 {
@@ -22,7 +21,7 @@ namespace Quests
         {
           if (subQuest.State.Value != QuestState.Activated)
             continue;
-          
+
           if (subQuest.Setup.Config.Type != SubQuestType.KillOrinaryPersons)
             continue;
 

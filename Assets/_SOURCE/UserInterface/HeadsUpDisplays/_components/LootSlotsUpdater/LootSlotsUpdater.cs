@@ -1,50 +1,52 @@
-using System;
 using System.Collections.Generic;
-using Gameplay.Currencies;
+using Configs.Resources.EnemyConfigs.Scripts;
+using DataRepositories.BackpackStorages;
 using Infrastructure.AssetProviders;
-using Infrastructure.DataRepositories;
-using Infrastructure.StaticDataServices;
 using UnityEngine;
+using UserInterface.HeadsUpDisplays.LootSlotsUpdater.LootSlots;
 using Zenject;
 
-public class LootSlotsUpdater : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.LootSlotsUpdater
 {
-  private LootSlotFactory _lootSlotFactory;
-  private BackpackStorage _backpackStorage;
-  private IAssetProvider _assetProvider;
-
-  public List<LootSlot> LootSlots = new List<LootSlot>();
-
-  [Inject]
-  public void Construct(LootSlotFactory lootSlotFactory, BackpackStorage backpackStorage, IAssetProvider assetProvider)
+  public class LootSlotsUpdater : MonoBehaviour
   {
-    _lootSlotFactory = lootSlotFactory;
-    _backpackStorage = backpackStorage;
-    _assetProvider = assetProvider;
-  }
+    private LootSlotFactory _lootSlotFactory;
+    private BackpackStorage _backpackStorage;
+    private IAssetProvider _assetProvider;
 
-  private LootSlot Prefab => _assetProvider.Get<LootSlot>();
+    public List<LootSlot> LootSlots = new List<LootSlot>();
 
-  private void OnEnable()
-  {
-    _backpackStorage.LootDrops.Changed += OnLootDropsChanged;
-  }
+    [Inject]
+    public void Construct(LootSlotFactory lootSlotFactory, BackpackStorage backpackStorage, IAssetProvider assetProvider)
+    {
+      _lootSlotFactory = lootSlotFactory;
+      _backpackStorage = backpackStorage;
+      _assetProvider = assetProvider;
+    }
 
-  private void OnDisable()
-  {
-    _backpackStorage.LootDrops.Changed -= OnLootDropsChanged;
-  }
+    private LootSlot Prefab => _assetProvider.Get<LootSlot>();
 
-  private void OnLootDropsChanged(List<LootDrop> list)
-  {
-    foreach (LootSlot loot in LootSlots)
-      Destroy(loot.gameObject);
+    private void OnEnable()
+    {
+      _backpackStorage.LootDrops.Changed += OnLootDropsChanged;
+    }
 
-    LootSlots.Clear();
+    private void OnDisable()
+    {
+      _backpackStorage.LootDrops.Changed -= OnLootDropsChanged;
+    }
 
-    var info = _backpackStorage.ReadLoot();
+    private void OnLootDropsChanged(List<LootDrop> list)
+    {
+      foreach (LootSlot loot in LootSlots)
+        Destroy(loot.gameObject);
 
-    foreach (var loot in info)
-      _lootSlotFactory.Create(loot.Key, Prefab, transform, loot.Value);
+      LootSlots.Clear();
+
+      var info = _backpackStorage.ReadLoot();
+
+      foreach (var loot in info)
+        _lootSlotFactory.Create(loot.Key, Prefab, transform, loot.Value);
+    }
   }
 }

@@ -1,17 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DeleteSavesButton : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.DebugWindows
 {
-  public Button Button;
-
-  private void Start()
+  public class DeleteSavesButton : MonoBehaviour
   {
-    Button.onClick.AddListener(DeleteSaves);
-  }
+    public Button Button;
 
-  private void DeleteSaves()
-  {
-    PlayerPrefs.DeleteAll();
+    private void Start()
+    {
+      Button.onClick.AddListener(DeleteSaves);
+    }
+
+    private void DeleteSaves()
+    {
+      PlayerPrefs.DeleteAll();
+    }
   }
 }

@@ -1,4 +1,3 @@
-using Configs.Resources.QuestConfigs;
 using Infrastructure.UserIntefaces;
 using Quests;
 

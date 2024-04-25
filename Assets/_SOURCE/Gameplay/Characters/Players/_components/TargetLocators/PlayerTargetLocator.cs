@@ -1,14 +1,12 @@
-using System;
 using System.Collections.Generic;
-using Configs.Resources.UpgradeConfigs.Scripts;
+using Configs.Resources.StatConfigs;
 using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Characters.Players._components.PlayerStatsServices;
-using Gameplay.Characters.Players.TargetHolders;
-using Gameplay.Upgrades;
+using Gameplay.Characters.Players._components.PlayerStatsProviders;
+using Gameplay.Characters.Players._components.TargetHolders;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.TargetLocators
+namespace Gameplay.Characters.Players._components.TargetLocators
 {
   public class PlayerTargetLocator : MonoBehaviour
   {
@@ -31,6 +29,7 @@ namespace Gameplay.Characters.Players.TargetLocators
 
     private void Scan()
     {
+      // ReSharper disable once Unity.PreferNonAllocApi
       Collider[] colliders = Physics.OverlapSphere(transform.position, Radius);
 
       var list = new List<EnemyTargetTrigger>();

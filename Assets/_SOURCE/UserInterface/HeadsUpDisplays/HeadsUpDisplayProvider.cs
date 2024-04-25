@@ -1,4 +1,3 @@
-using UnityEngine;
 using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 
@@ -10,6 +9,6 @@ namespace UserInterface.HeadsUpDisplays
     public UpgradeShopWindowButton UpgradeShopButton { get; set; }
     public Borders Borders { get; set; }
     public FloatingJoystick FloatingJoystick { get; set; }
-    public LootSlotsUpdater LootSlotsUpdater { get; set; }
+    public LootSlotsUpdater.LootSlotsUpdater LootSlotsUpdater { get; set; }
   }
 }

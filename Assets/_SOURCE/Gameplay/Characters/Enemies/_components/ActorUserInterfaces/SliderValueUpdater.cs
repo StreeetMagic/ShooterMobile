@@ -1,30 +1,32 @@
 using System;
-using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class SliderValueUpdater : MonoBehaviour
+namespace Gameplay.Characters.Enemies.ActorUserInterfaces
 {
-  public Slider Slider;
-  public float SliderUpdateSpeed;
+  public class SliderValueUpdater : MonoBehaviour
+  {
+    public Slider Slider;
+    public float SliderUpdateSpeed;
 
-  private EnemyHealth _enemyHealth;
+    private EnemyHealth _enemyHealth;
   
-  [Inject]
-  private void Construct(EnemyHealth enemyHealth)
-  {
-    _enemyHealth = enemyHealth;
-  }
-
-  private void Update()
-  {
-    float value = (float)_enemyHealth.Current.Value / _enemyHealth.Initial;
-
-    if (Math.Abs(Slider.value - value) > 0.01f)
+    [Inject]
+    private void Construct(EnemyHealth enemyHealth)
     {
-      Slider.value = Mathf.MoveTowards(Slider.value, value, Time.deltaTime * SliderUpdateSpeed);
+      _enemyHealth = enemyHealth;
+    }
+
+    private void Update()
+    {
+      float value = (float)_enemyHealth.Current.Value / _enemyHealth.Initial;
+
+      if (Math.Abs(Slider.value - value) > 0.01f)
+      {
+        Slider.value = Mathf.MoveTowards(Slider.value, value, Time.deltaTime * SliderUpdateSpeed);
+      }
     }
   }
 }

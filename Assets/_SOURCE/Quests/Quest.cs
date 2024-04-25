@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Configs.Resources.QuestConfigs;
-using DataRepositories.Quests;
+using Configs.Resources.QuestConfigs.Scripts;
 using Gameplay.RewardServices;
 using Infrastructure.Utilities;
+using Quests.Subquests;
 
 namespace Quests
 {

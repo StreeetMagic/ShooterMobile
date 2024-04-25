@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityAssetsTools.ParticleImage.Editor.Utility;
+using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEditor;
+using UnityEngine;
 
-namespace AssetKits.ParticleImage.Editor
+namespace UnityAssetsTools.ParticleImage.Editor
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(ParticleTrailRenderer))]

@@ -1,4 +1,4 @@
-namespace Zenject
+namespace Zenject.Source.Binding.BindInfo
 {
     public enum PoolExpandMethods
     {

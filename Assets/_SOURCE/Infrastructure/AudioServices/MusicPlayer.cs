@@ -1,5 +1,4 @@
-﻿using Configs.Resources.SoundConfigs;
-using Configs.Resources.SoundConfigs.Scripts;
+﻿using Configs.Resources.MusicConfigs.Scripts;
 using UnityEngine;
 
 namespace Infrastructure.AudioServices

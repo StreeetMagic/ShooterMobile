@@ -1,23 +1,24 @@
-using System;
 using Quests;
 using UnityEngine;
 using UnityEngine.UI;
-using UserInterface.HeadsUpDisplays.QuestWindows;
 
-public class ActivateQuestButton : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows._components
 {
-  public Button Button;
-  public QuestWindow QuestWindow;
-
-  private Quest Quest => QuestWindow.Quest;
-
-  private void Start()
+  public class ActivateQuestButton : MonoBehaviour
   {
-    Button.onClick.AddListener(Activate);
-  }
+    public Button Button;
+    public QuestWindow QuestWindow;
 
-  private void Activate()
-  {
-    Quest.State.Value = QuestState.Activated;
+    private Quest Quest => QuestWindow.Quest;
+
+    private void Start()
+    {
+      Button.onClick.AddListener(Activate);
+    }
+
+    private void Activate()
+    {
+      Quest.State.Value = QuestState.Activated;
+    }
   }
 }

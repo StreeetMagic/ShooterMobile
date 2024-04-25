@@ -1,30 +1,29 @@
-using System;
-using Gameplay.Upgrades;
-using Infrastructure.DataRepositories;
-using Infrastructure.SaveLoadServices;
 using Infrastructure.StateMachines;
 using Infrastructure.StateMachines.GameStateMachines.States;
-using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Zenject;
+using Zenject.Source.Main;
 
-public class GameLoopBootsTrapper : MonoBehaviour
+namespace Infrastructure.GameBootstrappers
 {
-  private IStateMachine<IGameState> _stateMachine;
-  private IInstantiator _instantiator;
-
-  [Inject]
-  public void Construct(IStateMachine<IGameState> stateMachine,
-    IInstantiator instantiator)
+  public class GameLoopBootsTrapper : MonoBehaviour
   {
-    _stateMachine = stateMachine;
-    _instantiator = instantiator;
-  }
+    private IStateMachine<IGameState> _stateMachine;
+    private IInstantiator _instantiator;
 
-  private void Awake()
-  {
-    var gameLoopState = _instantiator.Instantiate<GameLoopState>();
-    _stateMachine.Register(gameLoopState);
-    _stateMachine.Enter<GameLoopState>();
+    [Inject]
+    public void Construct(IStateMachine<IGameState> stateMachine,
+      IInstantiator instantiator)
+    {
+      _stateMachine = stateMachine;
+      _instantiator = instantiator;
+    }
+
+    private void Awake()
+    {
+      var gameLoopState = _instantiator.Instantiate<GameLoopState>();
+      _stateMachine.Register(gameLoopState);
+      _stateMachine.Enter<GameLoopState>();
+    }
   }
 }

@@ -1,10 +1,8 @@
-using Gameplay.Upgrades;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
 
-namespace Infrastructure.DataRepositories
+namespace DataRepositories
 {
   public class EggsInBankStorage : IProgressWriter
   {

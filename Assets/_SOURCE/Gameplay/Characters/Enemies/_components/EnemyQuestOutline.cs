@@ -1,53 +1,50 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Configs.Resources.QuestConfigs.SubQuestConfigs;
-using DataRepositories.Quests;
-using Gameplay.Characters.Enemies;
+using Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts;
 using Quests;
+using Quests.Subquests;
 using UnityEngine;
 using Zenject;
 
-public class EnemyQuestOutline : MonoBehaviour
+namespace Gameplay.Characters.Enemies
 {
-  public GameObject Outline;
-
-  private QuestStorage _storage;
-  private Enemy _enemy;
-
-  [Inject]
-  private void Construct(QuestStorage storage, Enemy enemy)
+  public class EnemyQuestOutline : MonoBehaviour
   {
-    _storage = storage;
-    _enemy = enemy;
-  }
+    public GameObject Outline;
 
-  private void OnEnable()
-  {
-    Outline.SetActive(false);
-  }
+    private QuestStorage _storage;
 
-  private void Update()
-  {
-    Outline.SetActive(HasActiveSubQuest());
-  }
-
-  private bool HasActiveSubQuest()
-  {
-    foreach (Quest quest in _storage.GetAllQuests())
+    [Inject]
+    private void Construct(QuestStorage storage, Enemy enemy)
     {
-      foreach (SubQuest subQuest in quest.SubQuests)
+      _storage = storage;
+    }
+
+    private void OnEnable()
+    {
+      Outline.SetActive(false);
+    }
+
+    private void Update()
+    {
+      Outline.SetActive(HasActiveSubQuest());
+    }
+
+    private bool HasActiveSubQuest()
+    {
+      foreach (Quest quest in _storage.GetAllQuests())
       {
-        if (subQuest.State.Value == QuestState.Activated)
+        foreach (SubQuest subQuest in quest.SubQuests)
         {
-          if (subQuest.Setup.Config.Type == SubQuestType.KillOrinaryPersons)
+          if (subQuest.State.Value == QuestState.Activated)
           {
-            return true;
+            if (subQuest.Setup.Config.Type == SubQuestType.KillOrinaryPersons)
+            {
+              return true;
+            }
           }
         }
       }
-    }
 
-    return false;
+      return false;
+    }
   }
 }

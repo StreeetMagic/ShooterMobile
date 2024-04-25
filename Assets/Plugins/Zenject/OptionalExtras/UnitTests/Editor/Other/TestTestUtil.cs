@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.UnitTests.Editor.Util;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests
+namespace Zenject.OptionalExtras.UnitTests.Editor.Other
 {
     [TestFixture]
     public class TestTestUtil

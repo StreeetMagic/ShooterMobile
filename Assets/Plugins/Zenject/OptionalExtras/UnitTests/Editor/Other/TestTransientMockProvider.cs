@@ -1,6 +1,7 @@
 using NUnit.Framework;
+using Zenject.OptionalExtras.TestFramework;
 
-namespace Zenject.Tests.Other
+namespace Zenject.OptionalExtras.UnitTests.Editor.Other
 {
     [TestFixture]
     public class TestTransientMockProvider : ZenjectUnitTestFixture

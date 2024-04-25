@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Characters.Enemies.Movers
+namespace Gameplay.Characters.Enemies
 {
   public class RoutePointsManager : MonoBehaviour
   {

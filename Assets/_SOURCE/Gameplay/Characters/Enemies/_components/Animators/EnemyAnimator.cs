@@ -13,7 +13,7 @@ namespace Gameplay.Characters.Enemies.Animators
         public const string IsWalk = nameof(IsWalk);
         public const string Shoot = nameof(Shoot);
 
-        private List<string> _deaths = new()
+        private readonly List<string> _deaths = new()
         {
             Death1,
             Death2,
@@ -22,6 +22,10 @@ namespace Gameplay.Characters.Enemies.Animators
         };
 
         public Animator Animator;
+        
+        private static readonly int s_shoot = Animator.StringToHash(Shoot);
+        private static readonly int s_isWalk = Animator.StringToHash(IsWalk);
+        private static readonly int s_isRun = Animator.StringToHash(IsRun);
 
         public void PlayDeathAnimation()
         {
@@ -30,29 +34,29 @@ namespace Gameplay.Characters.Enemies.Animators
 
         public void PlayRunAnimation()
         {
-            Animator.SetBool(IsWalk, false);
-            Animator.SetBool(IsRun, true);
+            Animator.SetBool(s_isWalk, false);
+            Animator.SetBool(s_isRun, true);
         }
 
         public void PlayWalkAnimation()
         {
-            Animator.SetBool(IsRun, false);
-            Animator.SetBool(IsWalk, true);
+            Animator.SetBool(s_isRun, false);
+            Animator.SetBool(s_isWalk, true);
         }
 
         public void StopRunAnimation()
         {
-            Animator.SetBool(IsRun, false);
+            Animator.SetBool(s_isRun, false);
         }
 
         public void StopWalkAnimation()
         {
-            Animator.SetBool(IsWalk, false);
+            Animator.SetBool(s_isWalk, false);
         }
 
         public void PlayShootAnimation()
         {
-            Animator.SetTrigger(Shoot);
+            Animator.SetTrigger(s_shoot);
         }
     }
 }

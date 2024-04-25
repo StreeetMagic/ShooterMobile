@@ -1,9 +1,9 @@
-﻿using Gameplay.Characters.Players.Factories;
-using Gameplay.Characters.Players.TargetHolders;
-using Infrastructure.DataRepositories;
+﻿using DataRepositories.BackpackStorages;
+using Gameplay.Characters.Players._components.Factories;
+using Gameplay.Characters.Players._components.TargetHolders;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players.Rotators
+namespace Gameplay.Characters.Players._components.Rotators
 {
   public class PlayerRotatorController
   {

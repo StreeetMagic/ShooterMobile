@@ -1,17 +1,19 @@
-using Gameplay.Characters.Enemies;
 using UnityEngine;
 
-public class EnemyToTargetRotator
+namespace Gameplay.Characters.Enemies
 {
-  private readonly Enemy _enemy;
-
-  public EnemyToTargetRotator(Enemy enemy)
+  public class EnemyToTargetRotator
   {
-    _enemy = enemy;
-  }
+    private readonly Enemy _enemy;
 
-  public void RotateToTargetPosition(Vector3 direction)
-  {
-    _enemy.transform.rotation = Quaternion.LookRotation(direction);
+    public EnemyToTargetRotator(Enemy enemy)
+    {
+      _enemy = enemy;
+    }
+
+    public void RotateToTargetPosition(Vector3 direction)
+    {
+      _enemy.transform.rotation = Quaternion.LookRotation(direction);
+    }
   }
 }

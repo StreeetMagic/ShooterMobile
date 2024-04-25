@@ -1,37 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class CollisionPointRayCaster : MonoBehaviour
+namespace Gameplay.Characters.Players._components.Projectiles._components.Raycasters
 {
-  private Vector3 _previousPosition = Vector3.zero;
-  private Vector3 _currentPosition;
-  public Vector3 HitPosition;
-
-  private void FixedUpdate()
+  public class CollisionPointRayCaster : MonoBehaviour
   {
-    UpdatePositions();
-    CastRay();
-  }
+    private Vector3 _previousPosition = Vector3.zero;
+    private Vector3 _currentPosition;
+    public Vector3 HitPosition;
 
-  private void CastRay()
-  {
-    if (_previousPosition == _currentPosition)
-      return;
-
-    if (_previousPosition == Vector3.zero)
-      return;
-
-    if (Physics.Linecast(_previousPosition, _currentPosition, out var hit))
+    private void FixedUpdate()
     {
-      HitPosition = hit.point;
+      UpdatePositions();
+      CastRay();
     }
-  }
 
-  private void UpdatePositions()
-  {
-    _previousPosition = _currentPosition;
-    _currentPosition = transform.position;
+    private void CastRay()
+    {
+      if (_previousPosition == _currentPosition)
+        return;
+
+      if (_previousPosition == Vector3.zero)
+        return;
+
+      if (Physics.Linecast(_previousPosition, _currentPosition, out var hit))
+      {
+        HitPosition = hit.point;
+      }
+    }
+
+    private void UpdatePositions()
+    {
+      _previousPosition = _currentPosition;
+      _currentPosition = transform.position;
+    }
   }
 }

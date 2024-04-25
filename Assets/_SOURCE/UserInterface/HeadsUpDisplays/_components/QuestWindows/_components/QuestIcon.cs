@@ -1,14 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UserInterface.HeadsUpDisplays.QuestWindows;
 
-public class QuestIcon : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows._components
 {
-  public Image Image;
-  public QuestWindow QuestWindow;
-
-  private void Start()
+  public class QuestIcon : MonoBehaviour
   {
-    Image.sprite = QuestWindow.Quest.Config.Icon;
+    public Image Image;
+    public QuestWindow QuestWindow;
+
+    private void Start()
+    {
+      Image.sprite = QuestWindow.Quest.Config.Icon;
+    }
   }
 }

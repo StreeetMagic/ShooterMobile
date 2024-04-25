@@ -1,7 +1,8 @@
+using Configs.Resources.StatConfigs;
 using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Characters.Players._components.PlayerStatsServices;
-using Gameplay.Upgrades;
+using Gameplay.Characters.Players._components.PlayerStatsProviders;
 using Infrastructure.StaticDataServices;
+using Infrastructure.Upgrades;
 using TMPro;
 using UnityEngine;
 using Zenject;

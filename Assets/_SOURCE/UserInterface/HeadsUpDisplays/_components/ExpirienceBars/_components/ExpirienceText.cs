@@ -1,54 +1,57 @@
 using Configs.Resources.ExpirienceConfigs;
-using Infrastructure.DataRepositories;
+using DataRepositories;
 using Infrastructure.StaticDataServices;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class ExpirienceText : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.ExpirienceBars._components
 {
-  public TextMeshProUGUI Text;
-
-  private ExpierienceStorage _expierienceStorage;
-  private IStaticDataService _staticDataService;
-
-  [Inject]
-  public void Construct(ExpierienceStorage expierienceStorage, IStaticDataService staticDataService)
+  public class ExpirienceText : MonoBehaviour
   {
-    _expierienceStorage = expierienceStorage;
-    _staticDataService = staticDataService;
-  }
+    public TextMeshProUGUI Text;
 
-  private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
+    private ExpierienceStorage _expierienceStorage;
+    private IStaticDataService _staticDataService;
 
-  private void OnEnable()
-  {
-    SetText(_expierienceStorage.CurrentExpierience());
-    _expierienceStorage.AllPoints.ValueChanged += SetText;
-  }
+    [Inject]
+    public void Construct(ExpierienceStorage expierienceStorage, IStaticDataService staticDataService)
+    {
+      _expierienceStorage = expierienceStorage;
+      _staticDataService = staticDataService;
+    }
 
-  private void OnDisable()
-  {
-    _expierienceStorage.AllPoints.ValueChanged -= SetText;
-  }
+    private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
 
-  private void SetText(int value)
-  {
-    int currentExpierience = _expierienceStorage.CurrentExpierience();
-    int expierienceToNextLevel = _expierienceStorage.ExpierienceToNextLevel();
+    private void OnEnable()
+    {
+      SetText(_expierienceStorage.CurrentExpierience());
+      _expierienceStorage.AllPoints.ValueChanged += SetText;
+    }
 
-    Text.text = $"{currentExpierience}/{expierienceToNextLevel} exp";
+    private void OnDisable()
+    {
+      _expierienceStorage.AllPoints.ValueChanged -= SetText;
+    }
+
+    private void SetText(int value)
+    {
+      int currentExpierience = _expierienceStorage.CurrentExpierience();
+      int expierienceToNextLevel = _expierienceStorage.ExpierienceToNextLevel();
+
+      Text.text = $"{currentExpierience}/{expierienceToNextLevel} exp";
     
-    SetColor();
-  }
+      SetColor();
+    }
 
-  private void SetColor()
-  {
-    int currentLevel = _expierienceStorage.CurrentLevel();
-    Color newColor = Config.Levels[currentLevel - 1].Color;
-    newColor.a = 255;
+    private void SetColor()
+    {
+      int currentLevel = _expierienceStorage.CurrentLevel();
+      Color newColor = Config.Levels[currentLevel - 1].Color;
+      newColor.a = 255;
 
-    if (Text.color != newColor)
-      Text.color = newColor;
+      if (Text.color != newColor)
+        Text.color = newColor;
+    }
   }
 }

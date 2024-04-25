@@ -1,11 +1,15 @@
 using System;
 using System.Collections.Generic;
-using ModestTree;
+using Zenject.OptionalExtras.Signals.Internal.Binders.DeclareSignal;
+using Zenject.Source.Factories;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
+using Zenject.Source.Util;
 #if ZEN_SIGNALS_ADD_UNIRX
 using UniRx;
 #endif
 
-namespace Zenject
+namespace Zenject.OptionalExtras.Signals.Internal
 {
     public class SignalDeclaration : ITickable, IDisposable
     {

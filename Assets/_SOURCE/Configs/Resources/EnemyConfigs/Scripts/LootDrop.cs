@@ -1,10 +1,12 @@
 using System;
-using Gameplay.Currencies;
-using Infrastructure.DataRepositories;
+using Configs.Resources.CurrencyConfigs;
 
-[Serializable]
-public class LootDrop
+namespace Configs.Resources.EnemyConfigs.Scripts
 {
-  public CurrencyId Id;
-  public int Level;
+  [Serializable]
+  public class LootDrop
+  {
+    public CurrencyId Id;
+    public int Level;
+  }
 }

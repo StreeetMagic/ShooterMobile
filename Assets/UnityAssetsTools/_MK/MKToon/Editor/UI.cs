@@ -9,7 +9,7 @@
 #if UNITY_EDITOR
 using UnityEngine;
 
-namespace MK.Toon.Editor
+namespace UnityAssetsTools._MK.MKToon.Editor
 {
     internal class UI
     {

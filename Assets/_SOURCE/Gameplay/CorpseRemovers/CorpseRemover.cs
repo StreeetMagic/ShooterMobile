@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
@@ -10,12 +9,11 @@ using Object = UnityEngine.Object;
 
 namespace Gameplay.CorpseRemovers
 {
-  public class CorpseRemover : IDisposable
+  public class CorpseRemover
   {
     public List<EnemyHealth> Enemies { get; } = new();
 
     private readonly ICoroutineRunner _coroutineRunner;
-    private readonly List<CoroutineDecorator> _coroutines = new();
 
     public CorpseRemover(ICoroutineRunner coroutineRunner)
     {
@@ -28,19 +26,12 @@ namespace Gameplay.CorpseRemovers
       enemyHealth.Died += OnDied;
     }
 
-    public void Dispose()
-    {
-      _coroutines.Clear();
-    }
-
     private void OnDied(EnemyConfig config, EnemyHealth enemyHealth)
     {
       enemyHealth.Died -= OnDied;
 
       var coroutineDecorator = new CoroutineDecorator(_coroutineRunner, () => RemoveCorpse(enemyHealth));
       coroutineDecorator.Start();
-
-      _coroutines.Add(coroutineDecorator);
     }
 
     private IEnumerator RemoveCorpse(EnemyHealth enemyHealth)

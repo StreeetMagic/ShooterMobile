@@ -1,13 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using Gameplay.Characters.Players._components.Projectiles.ImportedScripts;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
-using Gameplay.Characters.Players.Shooters.Projectiles.Bullet;
-using Gameplay.Characters.Players.Shooters.Projectiles.Bullet.Imported;
-using Gameplay.Characters.Players.Shooters.Projectiles.Bullet.Imported.YellowBullet;
 
-namespace PixelArsenal
+namespace UnityAssetsTools.Pixel_Arsenal.Demo.Scripts
 {
     public class PixelArsenalButtonScript : MonoBehaviour
     {

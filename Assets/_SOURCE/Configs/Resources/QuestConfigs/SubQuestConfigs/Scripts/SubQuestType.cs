@@ -1,4 +1,4 @@
-namespace Configs.Resources.QuestConfigs.SubQuestConfigs
+namespace Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts
 {
   public enum SubQuestType
   {

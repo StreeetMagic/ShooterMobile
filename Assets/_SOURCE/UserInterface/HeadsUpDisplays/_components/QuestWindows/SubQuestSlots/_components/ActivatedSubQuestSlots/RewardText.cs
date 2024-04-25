@@ -1,20 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class RewardText : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots
 {
-  public SubQuestSlot SubQuestSlot;
-  public TextMeshProUGUI RewardTextComponent;
-
-  void Start()
+  public class RewardText : MonoBehaviour
   {
-    SetupText();
-  }
+    public SubQuestSlot SubQuestSlot;
+    public TextMeshProUGUI RewardTextComponent;
 
-  private void SetupText()
-  {
-    RewardTextComponent.text = "+ " + SubQuestSlot.SubQuest.Setup.Reward.Quantity + " " + SubQuestSlot.SubQuest.Setup.Reward.RewardId;
+    void Start()
+    {
+      SetupText();
+    }
+
+    private void SetupText()
+    {
+      RewardTextComponent.text = "+ " + SubQuestSlot.SubQuest.Setup.Reward.Quantity + " " + SubQuestSlot.SubQuest.Setup.Reward.RewardId;
+    }
   }
 }

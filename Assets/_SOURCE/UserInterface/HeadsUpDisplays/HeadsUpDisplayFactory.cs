@@ -30,7 +30,7 @@ namespace UserInterface.HeadsUpDisplays
       _provider.UpgradeShopButton = display.GetComponentInChildren<UpgradeShopWindowButton>();
       _provider.Borders = display.GetComponentInChildren<Borders>();
       _provider.FloatingJoystick = display.GetComponentInChildren<FloatingJoystick>();
-      _provider.LootSlotsUpdater = display.GetComponentInChildren<LootSlotsUpdater>();
+      _provider.LootSlotsUpdater = display.GetComponentInChildren<LootSlotsUpdater.LootSlotsUpdater>();
 
       display.transform.parent = null;
     }

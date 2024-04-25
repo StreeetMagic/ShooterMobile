@@ -1,8 +1,11 @@
 using System;
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.Signals.Internal.Binders;
+using Zenject.OptionalExtras.Signals.Main;
+using Zenject.OptionalExtras.TestFramework;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Signals
+namespace Zenject.OptionalExtras.UnitTests.Editor.Signals
 {
     [TestFixture]
     public class TestSignalIdentifiers : ZenjectUnitTestFixture

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;

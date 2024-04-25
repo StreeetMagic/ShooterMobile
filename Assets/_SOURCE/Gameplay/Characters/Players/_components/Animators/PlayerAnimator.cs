@@ -1,34 +1,34 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Players.Animators
+namespace Gameplay.Characters.Players._components.Animators
 {
   public class PlayerAnimator : MonoBehaviour
   {
-    private static readonly int IsRun = Animator.StringToHash(Run);
+    private static readonly int s_isRun = Animator.StringToHash(Run);
 
     private const string Run = "isRun";
 
     [SerializeField] private Animator _animator;
+    private static readonly int s_isShoot = Animator.StringToHash("isShoot");
 
     public void PlayRunAnimation()
     {
-      _animator.SetBool(IsRun, true);
+      _animator.SetBool(s_isRun, true);
     }
 
     public void Stop()
     {
-      _animator.SetBool(IsRun, false);
+      _animator.SetBool(s_isRun, false);
     }
 
     public void Shoot()
     {
-      _animator.SetBool("isShoot", true);
-      Debug.Log("Shoot");
+      _animator.SetBool(s_isShoot, true);
     }
 
     public void StopShoot()
     {
-      _animator.SetBool("isShoot", false);
+      _animator.SetBool(s_isShoot, false);
     }
   }
 }

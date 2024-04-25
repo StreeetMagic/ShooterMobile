@@ -1,35 +1,36 @@
-using DataRepositories.Quests;
 using Gameplay.BaseTriggers;
-using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players._components.Factories;
 using Maps;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class BaseDistanceText : MonoBehaviour
+namespace Gameplay.Characters.Players._components.ActorUserIntefaces.BasePointers
 {
-  public TextMeshProUGUI Text;
-
-  private PlayerProvider _playerProvider;
-  private MapProvider _mapProvider;
-
-  [Inject]
-  private void Construct(PlayerProvider playerProvider, MapProvider mapProvider)
+  public class BaseDistanceText : MonoBehaviour
   {
-    _playerProvider = playerProvider;
-    _mapProvider = mapProvider;
-  }
+    public TextMeshProUGUI Text;
 
-  private void Update()
-  {
-    BaseTrigger baseTrigger = _mapProvider.Map.BaseTrigger;
-    Player player = _playerProvider.Player;
+    private PlayerProvider _playerProvider;
+    private MapProvider _mapProvider;
 
-    float distance = Vector3.Distance(baseTrigger.transform.position, player.transform.position);
+    [Inject]
+    private void Construct(PlayerProvider playerProvider, MapProvider mapProvider)
+    {
+      _playerProvider = playerProvider;
+      _mapProvider = mapProvider;
+    }
 
-    int distanceInt = (int)distance;
+    private void Update()
+    {
+      BaseTrigger baseTrigger = _mapProvider.Map.BaseTrigger;
+      Player player = _playerProvider.Player;
 
-    Text.text = distanceInt + " m";
+      float distance = Vector3.Distance(baseTrigger.transform.position, player.transform.position);
+
+      int distanceInt = (int)distance;
+
+      Text.text = distanceInt + " m";
+    }
   }
 }

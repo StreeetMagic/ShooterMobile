@@ -2,8 +2,9 @@
 
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject.Source.Install.Contexts;
 
-namespace Zenject
+namespace Zenject.Source.Install
 {
     public class ZenjectBinding : MonoBehaviour
     {

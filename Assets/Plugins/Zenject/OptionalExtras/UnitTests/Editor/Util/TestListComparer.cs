@@ -2,10 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ModestTree;
-using Assert=ModestTree.Assert;
+using Zenject.Source.Internal;
 
-namespace Zenject.Tests
+namespace Zenject.OptionalExtras.UnitTests.Editor.Util
 {
     public static class TestListComparer
     {

@@ -1,4 +1,4 @@
-﻿using Infrastructure.DataRepositories;
+﻿using DataRepositories;
 using TMPro;
 using UnityEngine;
 using Zenject;

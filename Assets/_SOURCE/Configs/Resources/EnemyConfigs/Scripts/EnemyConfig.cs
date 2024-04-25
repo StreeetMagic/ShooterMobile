@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Gameplay.Characters.Enemies;
 using UnityEngine;
 
 namespace Configs.Resources.EnemyConfigs.Scripts

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Zenject
+namespace Zenject.Source.Factories.Pooling
 {
     // Zero parameters
     // NOTE: For this to work, the given component must be at the root game object of the thing

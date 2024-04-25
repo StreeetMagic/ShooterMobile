@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.TestFramework;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.BindFeatures
+namespace Zenject.OptionalExtras.UnitTests.Editor.BindFeatures
 {
     [TestFixture]
     public class TestMultipleContractTypes : ZenjectUnitTestFixture

@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Zenject.Internal;
+using Zenject.Source.Injection;
+using Zenject.Source.Main;
+using Zenject.Source.Util;
 
-namespace Zenject
+namespace Zenject.Source.Binding.BindInfo
 {
     public enum ScopeTypes
     {

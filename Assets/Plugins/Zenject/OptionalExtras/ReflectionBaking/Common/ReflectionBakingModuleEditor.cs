@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using ModestTree;
-using Zenject.Internal;
 using Zenject.ReflectionBaking.Mono.Cecil;
 using Zenject.ReflectionBaking.Mono.Cecil.Cil;
 using Zenject.ReflectionBaking.Mono.Collections.Generic;
+using Zenject.Source.Internal;
+using Zenject.Source.Util;
 using MethodAttributes = Zenject.ReflectionBaking.Mono.Cecil.MethodAttributes;
 
-namespace Zenject.ReflectionBaking
+namespace Zenject.OptionalExtras.ReflectionBaking.Common
 {
     public class ReflectionBakingModuleEditor
     {

@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using AssetKits.ParticleImage;
 using UnityEditor;
 using UnityEngine;
 
-namespace AssetKits.ParticleImage.Editor
+namespace UnityAssetsTools.ParticleImage.Editor.Utility
 {
     public class ParticleResolver : EditorWindow
     {

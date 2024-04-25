@@ -1,4 +1,4 @@
-namespace Zenject
+namespace Zenject.Source.Factories.Pooling
 {
     // Zero parameters
     public class PoolableMemoryPool<TValue>

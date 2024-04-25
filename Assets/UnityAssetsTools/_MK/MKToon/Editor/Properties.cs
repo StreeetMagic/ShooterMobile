@@ -7,9 +7,9 @@
 //////////////////////////////////////////////////////
 
 #if UNITY_EDITOR
-using MK.Toon;
+using UnityAssetsTools._MK.MKToon.Scripts;
 
-namespace MK.Toon.Editor
+namespace UnityAssetsTools._MK.MKToon.Editor
 {
     internal static class EditorProperties
     {

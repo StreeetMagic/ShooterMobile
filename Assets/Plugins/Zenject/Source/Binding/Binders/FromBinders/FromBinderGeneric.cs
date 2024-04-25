@@ -1,20 +1,20 @@
 using System;
 using System.Collections.Generic;
-using ModestTree;
-using System.Linq;
-
-#if !NOT_UNITY3D
 using UnityEngine;
-#endif
+using Zenject.Source.Binding.Binders.ConcreteBinders;
+using Zenject.Source.Binding.BindInfo;
+using Zenject.Source.Factories;
+using Zenject.Source.Injection;
+using Zenject.Source.Main;
 
-namespace Zenject
+namespace Zenject.Source.Binding.Binders.FromBinders
 {
     [NoReflectionBaking]
     public class FromBinderGeneric<TContract> : FromBinder
     {
         public FromBinderGeneric(
             DiContainer bindContainer,
-            BindInfo bindInfo,
+            BindInfo.BindInfo bindInfo,
             BindStatement bindStatement)
             : base(bindContainer, bindInfo, bindStatement)
         {

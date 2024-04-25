@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
-using ModestTree;
-using Zenject.Internal;
+using Zenject.Source.Binding.Finalizers;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
+using Zenject.Source.Util;
 
-namespace Zenject
+namespace Zenject.Source.Binding.BindInfo
 {
     [NoReflectionBaking]
     public class BindStatement : IDisposable

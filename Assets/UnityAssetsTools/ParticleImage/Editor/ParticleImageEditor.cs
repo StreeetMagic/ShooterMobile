@@ -1,18 +1,19 @@
 // Version: 1.1.0
-using AssetKits.ParticleImage.Enumerations;
+
+using UnityAssetsTools.ParticleImage.Editor.Utility;
+using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using PlayMode = AssetKits.ParticleImage.Enumerations.PlayMode;
+using PlayMode = UnityAssetsTools.ParticleImage.Runtime.PlayMode;
 
-namespace AssetKits.ParticleImage.Editor
+namespace UnityAssetsTools.ParticleImage.Editor
 {
     [CanEditMultipleObjects]
-    [CustomEditor(typeof(ParticleImage))]
+    [CustomEditor(typeof(Runtime.ParticleImage))]
     public class ParticleImageEditor : UnityEditor.Editor
     {
-        private ParticleImage _particle;
+        private Runtime.ParticleImage _particle;
         
         //General Properties
         private SerializedProperty _space;
@@ -134,7 +135,7 @@ namespace AssetKits.ParticleImage.Editor
         void Awake()
         {
             //Set Icons
-            MonoScript.FromMonoBehaviour(target as ParticleImage).SetIcon(Resources.Load<Texture2D>("ComponentIcon"));
+            MonoScript.FromMonoBehaviour(target as Runtime.ParticleImage).SetIcon(Resources.Load<Texture2D>("ComponentIcon"));
             _emitterModuleIcon = EditorGUIUtility.IconContent("AreaLight Gizmo").image;
             _particleModuleIcon = Resources.Load<Texture>("ParticleModule");
             _movementModuleIcon = Resources.Load<Texture>("MovementModule"); 
@@ -144,7 +145,7 @@ namespace AssetKits.ParticleImage.Editor
         private void OnEnable() 
         {
             serializedObject.Update();
-            _particle = target as ParticleImage;
+            _particle = target as Runtime.ParticleImage;
             
             //Initialize Properties
             _startPoint = serializedObject.FindProperty("_emitterConstraintEnabled");
@@ -231,7 +232,7 @@ namespace AssetKits.ParticleImage.Editor
 
             if (Application.isEditor && !EditorApplication.isPlaying)
             {
-                _particle.Invoke(nameof(ParticleImage.Play), 0.1f);
+                _particle.Invoke(nameof(Runtime.ParticleImage.Play), 0.1f);
             }
 
             EditorApplication.update += EditorUpdate;

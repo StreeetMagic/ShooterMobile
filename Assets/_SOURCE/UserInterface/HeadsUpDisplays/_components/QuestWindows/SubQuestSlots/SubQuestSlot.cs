@@ -1,58 +1,61 @@
 using System;
-using DataRepositories.Quests;
 using Quests;
+using Quests.Subquests;
 using UnityEngine;
 
-public class SubQuestSlot : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 {
-  public GameObject Unactivated;
-  public GameObject Activated;
-  public GameObject RewardTaken;
-
-  public SubQuest SubQuest { get; set; }
-
-  private void Start()
+  public class SubQuestSlot : MonoBehaviour
   {
-    SetupStates(SubQuest.State.Value);
+    public GameObject Unactivated;
+    public GameObject Activated;
+    public GameObject RewardTaken;
 
-    SubQuest.State.ValueChanged += SetupStates;
-  }
+    public SubQuest SubQuest { get; set; }
 
-  private void OnDestroy()
-  {
-    SubQuest.State.ValueChanged -= SetupStates;
-  }
-
-  private void SetupStates(QuestState state)
-  {
-    switch (state)
+    private void Start()
     {
-      case QuestState.Unknown:
-        throw new ArgumentOutOfRangeException(nameof(SubQuest.State));
+      SetupStates(SubQuest.State.Value);
 
-      case QuestState.UnActivated:
-        Unactivated.SetActive(true);
-        Activated.SetActive(false);
-        RewardTaken.SetActive(false);
-        break;
+      SubQuest.State.ValueChanged += SetupStates;
+    }
 
-      case QuestState.Activated:
-        Unactivated.SetActive(false);
-        Activated.SetActive(true);
-        RewardTaken.SetActive(false);
-        break;
+    private void OnDestroy()
+    {
+      SubQuest.State.ValueChanged -= SetupStates;
+    }
+
+    private void SetupStates(QuestState state)
+    {
+      switch (state)
+      {
+        case QuestState.Unknown:
+          throw new ArgumentOutOfRangeException(nameof(SubQuest.State));
+
+        case QuestState.UnActivated:
+          Unactivated.SetActive(true);
+          Activated.SetActive(false);
+          RewardTaken.SetActive(false);
+          break;
+
+        case QuestState.Activated:
+          Unactivated.SetActive(false);
+          Activated.SetActive(true);
+          RewardTaken.SetActive(false);
+          break;
       
-      case QuestState.RewardReady:
-        Unactivated.SetActive(false);
-        Activated.SetActive(true);
-        RewardTaken.SetActive(false);
-        break;
+        case QuestState.RewardReady:
+          Unactivated.SetActive(false);
+          Activated.SetActive(true);
+          RewardTaken.SetActive(false);
+          break;
       
-      case QuestState.RewardTaken:
-        Unactivated.SetActive(false);
-        Activated.SetActive(false);
-        RewardTaken.SetActive(true);
-        break;
+        case QuestState.RewardTaken:
+          Unactivated.SetActive(false);
+          Activated.SetActive(false);
+          RewardTaken.SetActive(true);
+          break;
+      }
     }
   }
 }

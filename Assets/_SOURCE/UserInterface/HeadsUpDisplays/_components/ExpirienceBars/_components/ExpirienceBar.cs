@@ -1,46 +1,48 @@
-using System;
 using Configs.Resources.ExpirienceConfigs;
-using Infrastructure.DataRepositories;
+using DataRepositories;
 using Infrastructure.StaticDataServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class ExpirienceBar : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.ExpirienceBars._components
 {
-  public Image Image;
-
-  private ExpierienceStorage _expierienceStorage;
-  private IStaticDataService _staticDataService;
-
-  [Inject]
-  public void Construct(ExpierienceStorage expierienceStorage, IStaticDataService staticDataService)
+  public class ExpirienceBar : MonoBehaviour
   {
-    _expierienceStorage = expierienceStorage;
-    _staticDataService = staticDataService;
-  }
+    public Image Image;
 
-  private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
+    private ExpierienceStorage _expierienceStorage;
+    private IStaticDataService _staticDataService;
 
-  private void Update()
-  {
-    SetColor();
+    [Inject]
+    public void Construct(ExpierienceStorage expierienceStorage, IStaticDataService staticDataService)
+    {
+      _expierienceStorage = expierienceStorage;
+      _staticDataService = staticDataService;
+    }
 
-    float expierienceToNextLevel = (float)_expierienceStorage.CurrentExpierience() / _expierienceStorage.ExpierienceToNextLevel();
+    private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
 
-    Image.fillAmount =
-      Image.fillAmount > expierienceToNextLevel
-        ? expierienceToNextLevel
-        : Mathf.MoveTowards(Image.fillAmount, expierienceToNextLevel, Time.deltaTime);
-  }
+    private void Update()
+    {
+      SetColor();
 
-  private void SetColor()
-  {
-    int currentLevel = _expierienceStorage.CurrentLevel();
-    Color newColor = Config.Levels[currentLevel - 1].Color;
-    newColor.a = 255;
+      float expierienceToNextLevel = (float)_expierienceStorage.CurrentExpierience() / _expierienceStorage.ExpierienceToNextLevel();
 
-    if (Image.color != newColor)
-      Image.color = newColor;
+      Image.fillAmount =
+        Image.fillAmount > expierienceToNextLevel
+          ? expierienceToNextLevel
+          : Mathf.MoveTowards(Image.fillAmount, expierienceToNextLevel, Time.deltaTime);
+    }
+
+    private void SetColor()
+    {
+      int currentLevel = _expierienceStorage.CurrentLevel();
+      Color newColor = Config.Levels[currentLevel - 1].Color;
+      newColor.a = 255;
+
+      if (Image.color != newColor)
+        Image.color = newColor;
+    }
   }
 }

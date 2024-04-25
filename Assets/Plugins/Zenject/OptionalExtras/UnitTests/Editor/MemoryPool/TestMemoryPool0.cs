@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.TestFramework;
+using Zenject.Source.Factories.Pooling;
+using Zenject.Source.Main;
+using Assert = Zenject.Source.Internal.Assert;
 
 #pragma warning disable 219
 
-namespace Zenject.Tests.Bindings
+namespace Zenject.OptionalExtras.UnitTests.Editor.MemoryPool
 {
     [TestFixture]
     public class TestMemoryPool0 : ZenjectUnitTestFixture

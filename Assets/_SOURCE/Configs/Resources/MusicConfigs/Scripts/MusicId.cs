@@ -1,4 +1,4 @@
-﻿namespace Configs.Resources.SoundConfigs.Scripts
+﻿namespace Configs.Resources.MusicConfigs.Scripts
 {
   public enum MusicId
   {

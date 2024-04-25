@@ -6,16 +6,15 @@
 // Copyright © 2020 All rights reserved.            //
 //////////////////////////////////////////////////////
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MK.Toon.Examples
+namespace UnityAssetsTools._MK.MKToon.Examples.Scripts
 {
     public class MaterialSwitcher : MonoBehaviour
     {
         [SerializeField]
-        private MK.Toon.Examples.Spectate _spectate = null;
+        private Spectate _spectate = null;
 
         [SerializeField]
         private List<Material> _materials = new List<Material>();

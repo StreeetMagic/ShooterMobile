@@ -2,10 +2,12 @@
 
 using System;
 using System.Collections.Generic;
-using ModestTree;
 using UnityEngine;
+using Zenject.Source.Injection;
+using Zenject.Source.Internal;
+using Zenject.Source.Validation;
 
-namespace Zenject
+namespace Zenject.Source.Providers.ComponentProviders
 {
     [NoReflectionBaking]
     public class GetFromGameObjectGetterComponentProvider : IProvider

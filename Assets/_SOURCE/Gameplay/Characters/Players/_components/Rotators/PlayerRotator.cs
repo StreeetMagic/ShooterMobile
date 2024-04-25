@@ -1,11 +1,9 @@
-﻿using Configs;
-using Configs.Resources;
-using Configs.Resources.PlayerConfigs.Scripts;
+﻿using Configs.Resources.PlayerConfigs.Scripts;
 using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.Rotators
+namespace Gameplay.Characters.Players._components.Rotators
 {
   public class PlayerRotator : MonoBehaviour
   {

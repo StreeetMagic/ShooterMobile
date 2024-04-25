@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-namespace PixelArsenal
+namespace UnityAssetsTools.Pixel_Arsenal.Demo.Scripts
 {
 
 public class PixelArsenalDragMouseOrbit : MonoBehaviour

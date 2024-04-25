@@ -1,37 +1,38 @@
-using System;
 using Quests;
 using TMPro;
 using UnityEngine;
-using UserInterface.HeadsUpDisplays.QuestWindows;
 
-public class CurrentSubQuestText : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows._components
 {
-  public QuestWindow QuestWindow;
-  public TextMeshProUGUI Text;
-
-  private void Update()
+  public class CurrentSubQuestText : MonoBehaviour
   {
-    var subQuests = QuestWindow.Quest.SubQuests;
+    public QuestWindow QuestWindow;
+    public TextMeshProUGUI Text;
 
-    foreach (var subQuest in subQuests)
+    private void Update()
     {
-      if (subQuest.State.Value is QuestState.Activated or QuestState.RewardReady)
+      var subQuests = QuestWindow.Quest.SubQuests;
+
+      foreach (var subQuest in subQuests)
       {
-        SetText(subQuest.Setup.Config.Description + "(" + subQuest.Setup.Quantity + ")");
-        return;
+        if (subQuest.State.Value is QuestState.Activated or QuestState.RewardReady)
+        {
+          SetText(subQuest.Setup.Config.Description + "(" + subQuest.Setup.Quantity + ")");
+          return;
+        }
+
+        SetText("");
       }
 
-      SetText("");
+      if (QuestWindow.Quest.State.Value == QuestState.RewardTaken)
+      {
+        SetText("Completed");
+      }
     }
 
-    if (QuestWindow.Quest.State.Value == QuestState.RewardTaken)
+    private void SetText(string text)
     {
-      SetText("Completed");
+      Text.text = text;
     }
-  }
-
-  private void SetText(string text)
-  {
-    Text.text = text;
   }
 }

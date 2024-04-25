@@ -1,6 +1,5 @@
 ﻿using Infrastructure.StateMachines.States;
 using Infrastructure.Utilities;
-using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.StateMachines
@@ -43,18 +42,21 @@ namespace Infrastructure.StateMachines
 
     public void Tick()
     {
+      // ReSharper disable once SuspiciousTypeConversion.Global
       if (ActiveState is ITickable tickable)
         tickable.Tick();
     }
 
     public void FixedTick()
     {
+      // ReSharper disable once SuspiciousTypeConversion.Global
       if (ActiveState is IFixedTickable fixedTickable)
         fixedTickable.FixedTick();
     }
 
     public void LateTick()
     {
+      // ReSharper disable once SuspiciousTypeConversion.Global
       if (ActiveState is ILateTickable lateTickable)
         lateTickable.LateTick();
     }

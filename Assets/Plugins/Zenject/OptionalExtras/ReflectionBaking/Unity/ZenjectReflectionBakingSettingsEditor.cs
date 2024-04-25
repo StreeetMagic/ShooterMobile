@@ -2,7 +2,7 @@
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace Zenject.ReflectionBaking
+namespace Zenject.OptionalExtras.ReflectionBaking.Unity
 {
     [CustomEditor(typeof(ZenjectReflectionBakingSettings))]
     public class ZenjectReflectionBakingSettingsEditor : Editor

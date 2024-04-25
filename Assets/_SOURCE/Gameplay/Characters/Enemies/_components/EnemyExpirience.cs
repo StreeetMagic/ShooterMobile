@@ -1,35 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
+using DataRepositories;
 using Gameplay.Characters.Enemies.Healths;
-using Infrastructure.DataRepositories;
 using UnityEngine;
 using Zenject;
 
-public class EnemyExpirience : MonoBehaviour
+namespace Gameplay.Characters.Enemies
 {
-  private ExpierienceStorage _expierienceStorage;
-  private EnemyHealth _enemyHealth;
-
-  [Inject]
-  public void Construct(ExpierienceStorage expierienceStorage, EnemyHealth enemyHealth)
+  public class EnemyExpirience : MonoBehaviour
   {
-    _expierienceStorage = expierienceStorage;
-    _enemyHealth = enemyHealth;
-  }
+    private ExpierienceStorage _expierienceStorage;
+    private EnemyHealth _enemyHealth;
 
-  private void OnEnable()
-  {
-    _enemyHealth.Died += OnDied;
-  }
+    [Inject]
+    public void Construct(ExpierienceStorage expierienceStorage, EnemyHealth enemyHealth)
+    {
+      _expierienceStorage = expierienceStorage;
+      _enemyHealth = enemyHealth;
+    }
 
-  private void OnDisable()
-  {
-    _enemyHealth.Died -= OnDied;
-  }
+    private void OnEnable()
+    {
+      _enemyHealth.Died += OnDied;
+    }
 
-  private void OnDied(EnemyConfig config, EnemyHealth health)
-  {
-    _expierienceStorage.AllPoints.Value += config.Expirience;
+    private void OnDisable()
+    {
+      _enemyHealth.Died -= OnDied;
+    }
+
+    private void OnDied(EnemyConfig config, EnemyHealth health)
+    {
+      _expierienceStorage.AllPoints.Value += config.Expirience;
+    }
   }
 }

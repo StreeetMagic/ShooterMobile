@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
-using System.IO;
-using UnityEngine.SceneManagement;
+﻿using UnityEditor;
 using UnityEditor.SceneManagement;
-using System.Threading;
-using System.Diagnostics.SymbolStore;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-namespace RapidIconUIC
+namespace UnityAssetsTools.RapidIcon.Editor.Scripts
 {
 	public class RapidIconWindow : EditorWindow
 	{

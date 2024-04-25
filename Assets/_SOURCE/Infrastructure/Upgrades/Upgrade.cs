@@ -1,8 +1,7 @@
 using Configs.Resources.UpgradeConfigs.Scripts;
 using Infrastructure.Utilities;
-using UnityEngine;
 
-namespace Gameplay.Upgrades
+namespace Infrastructure.Upgrades
 {
   public class Upgrade
   {

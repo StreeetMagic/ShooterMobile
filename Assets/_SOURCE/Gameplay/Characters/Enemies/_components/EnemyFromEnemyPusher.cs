@@ -2,42 +2,44 @@ using Loggers;
 using UnityEngine;
 using Zenject;
 
-public class EnemyFromEnemyPusher : MonoBehaviour
+namespace Gameplay.Characters.Enemies
 {
-  public float Radius;
-  public float Force;
-
-  private CharacterController _enemyController;
-  private DebugLogger _logger;
-
-  [Inject]
-  public void Construct(DebugLogger logger, CharacterController enemyController)
+  public class EnemyFromEnemyPusher : MonoBehaviour
   {
-    _logger = logger;
-    _enemyController = enemyController;
-  }
+    public float Radius;
+    public float Force;
 
-  private void Start()
-  {
-    enabled = true;
-  }
+    private CharacterController _enemyController;
 
-  private void Update()
-  {
-    var colliders = Physics.OverlapSphere(transform.position, Radius);
-
-    foreach (var collider in colliders)
+    [Inject]
+    public void Construct(DebugLogger logger, CharacterController enemyController)
     {
-      if (collider.TryGetComponent(out EnemyFromEnemyPusher enemyPusher))
+      _enemyController = enemyController;
+    }
+
+    private void Start()
+    {
+      enabled = true;
+    }
+
+    private void Update()
+    {
+      // ReSharper disable once Unity.PreferNonAllocApi
+      var colliders = Physics.OverlapSphere(transform.position, Radius);
+
+      foreach (var thisCollider in colliders)
       {
-        if (enemyPusher != this)
+        if (thisCollider.TryGetComponent(out EnemyFromEnemyPusher enemyPusher))
         {
-          Vector3 positionWithoutY = new Vector3(transform.position.x, 0, transform.position.z);
-          Vector3 positionWithoutY2 = new Vector3(enemyPusher.transform.position.x, 0, enemyPusher.transform.position.z);
+          if (enemyPusher != this)
+          {
+            Vector3 positionWithoutY = new Vector3(transform.position.x, 0, transform.position.z);
+            Vector3 positionWithoutY2 = new Vector3(enemyPusher.transform.position.x, 0, enemyPusher.transform.position.z);
 
-          var direction = (positionWithoutY - positionWithoutY2).normalized;
+            var direction = (positionWithoutY - positionWithoutY2).normalized;
 
-          _enemyController.Move(direction * Force * Time.deltaTime);
+            _enemyController.Move(direction * (Force * Time.deltaTime));
+          }
         }
       }
     }

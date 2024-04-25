@@ -8,17 +8,15 @@ namespace Infrastructure.Pools
 {
   public class ExpandablePool<T> : IPool<T> where T : MonoBehaviour, IPoolable<T>
   {
-    private readonly string _assetPath;
     private readonly Transform _parent;
     private readonly Queue<T> _pooledObjects = new();
     private readonly List<T> _wanderingObjects = new();
     private readonly ZenjectFactory _zenjectFactory;
 
-    public ExpandablePool(ZenjectFactory zenjectFactory, Transform parent, string assetPath, int size)
+    public ExpandablePool(ZenjectFactory zenjectFactory, Transform parent, int size)
     {
       _zenjectFactory = zenjectFactory;
       _parent = parent;
-      _assetPath = assetPath;
       Initialize(size);
     }
 

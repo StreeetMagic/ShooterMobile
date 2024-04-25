@@ -1,8 +1,11 @@
 #if !NOT_UNITY3D
 
-using ModestTree;
+using Zenject.Source.Binding.BindInfo;
+using Zenject.Source.Injection;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
 
-namespace Zenject
+namespace Zenject.Source.Install
 {
     // We'd prefer to make this abstract but Unity 5.3.5 has a bug where references
     // can get lost during compile errors for classes that are abstract

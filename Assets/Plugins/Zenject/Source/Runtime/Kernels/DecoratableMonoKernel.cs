@@ -1,4 +1,4 @@
-﻿namespace Zenject
+﻿namespace Zenject.Source.Runtime.Kernels
 {
     public interface IDecoratableMonoKernel
     {

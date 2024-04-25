@@ -1,6 +1,6 @@
 using System;
 
-namespace Infrastructure.DataRepositories
+namespace DataRepositories.BackpackStorages
 {
   [Serializable]
   public class Loot

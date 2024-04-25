@@ -1,7 +1,8 @@
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.TestFramework;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Injection
+namespace Zenject.OptionalExtras.UnitTests.Editor.Injection
 {
     [TestFixture]
     public class TestStructInjection : ZenjectUnitTestFixture

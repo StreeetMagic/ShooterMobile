@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using ModestTree;
+using Zenject.Source.Internal;
 
-namespace Zenject
+namespace Zenject.Source.Injection
 {
     [DebuggerStepThrough]
     public struct TypeValuePair

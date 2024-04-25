@@ -1,13 +1,10 @@
 using System;
-using Configs.Resources.QuestConfigs;
-using Configs.Resources.QuestConfigs.SubQuestConfigs;
+using Configs.Resources.QuestConfigs.Scripts;
 using Gameplay.RewardServices;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
-using Loggers;
-using Quests;
 
-namespace DataRepositories.Quests
+namespace Quests.Subquests
 {
   public class SubQuest
   {

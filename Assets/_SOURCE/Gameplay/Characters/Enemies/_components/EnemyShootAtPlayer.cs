@@ -1,7 +1,6 @@
-using System;
 using Gameplay.Characters.Enemies.Animators;
 using Gameplay.Characters.Enemies.EnemyShooters;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players._components.Factories;
 using UnityEngine;
 using Zenject;
 

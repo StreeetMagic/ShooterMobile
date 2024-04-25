@@ -21,7 +21,6 @@ namespace Gameplay.Characters.Enemies.Spawners
     private EnemyFactory _enemyFactory;
     private ICoroutineRunner _coroutineRunner;
     private int _respawnTime;
-    private List<CoroutineDecorator> _respawners = new List<CoroutineDecorator>();
     private QuestCompleter _questCompleter;
 
     public EnemyId EnemyId { get; private set; }
@@ -40,7 +39,7 @@ namespace Gameplay.Characters.Enemies.Spawners
 
     private void OnDisable()
     {
-       Enemies.Clear();
+      Enemies.Clear();
     }
 
     public void Init(EnemyId enemyId, List<SpawnPoint> spawnPoints, int respawnTime)
@@ -79,8 +78,6 @@ namespace Gameplay.Characters.Enemies.Spawners
     private void OnEnemyDied(EnemyConfig config, EnemyHealth enemyHealth)
     {
       var coroutineDecorator = new CoroutineDecorator(_coroutineRunner, WaitAndSpawn);
-
-      _respawners.Add(coroutineDecorator);
 
       coroutineDecorator.Start();
 

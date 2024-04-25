@@ -1,9 +1,6 @@
-using System;
-using Gameplay.Characters.Enemies;
-using Gameplay.Currencies;
 using UnityEngine;
 
-namespace Configs.Resources.QuestConfigs.SubQuestConfigs
+namespace Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts
 {
   [CreateAssetMenu(menuName = "Configs/SubQuestConfig", fileName = "SubQuestConfig")] 
   public class SubQuestConfig : ScriptableObject

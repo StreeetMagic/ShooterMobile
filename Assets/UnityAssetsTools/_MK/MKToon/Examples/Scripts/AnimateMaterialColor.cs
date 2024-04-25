@@ -6,11 +6,10 @@
 // Copyright © 2020 All rights reserved.            //
 //////////////////////////////////////////////////////
 
-using System.Collections;
-using System.Collections.Generic;
+using UnityAssetsTools._MK.MKToon.Scripts;
 using UnityEngine;
 
-namespace MK.Toon.Examples
+namespace UnityAssetsTools._MK.MKToon.Examples.Scripts
 {
     public class AnimateMaterialColor : AnimateMaterialProperty<Color>
     {
@@ -33,22 +32,22 @@ namespace MK.Toon.Examples
             switch(property)
             {
                 case Property.EmissionColor:
-                    MK.Toon.Properties.emissionColor.SetValue(material, value * intensity);
+                    Properties.emissionColor.SetValue(material, value * intensity);
                 break;
                 case Property.GoochBrightColor:
-                    MK.Toon.Properties.goochBrightColor.SetValue(material, value * intensity);
+                    Properties.goochBrightColor.SetValue(material, value * intensity);
                 break;
                 case Property.GoochDarkColor:
-                    MK.Toon.Properties.goochDarkColor.SetValue(material, value * intensity);
+                    Properties.goochDarkColor.SetValue(material, value * intensity);
                 break;
                 case Property.RimColor:
-                    MK.Toon.Properties.rimColor.SetValue(material, value * intensity);
+                    Properties.rimColor.SetValue(material, value * intensity);
                 break;
                 case Property.RimBrightColor:
-                    MK.Toon.Properties.rimBrightColor.SetValue(material, value * intensity);
+                    Properties.rimBrightColor.SetValue(material, value * intensity);
                 break;
                 case Property.RimDarkColor:
-                    MK.Toon.Properties.rimDarkColor.SetValue(material, value * intensity);
+                    Properties.rimDarkColor.SetValue(material, value * intensity);
                 break;
             }
         }

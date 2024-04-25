@@ -6,11 +6,10 @@
 // Copyright © 2020 All rights reserved.            //
 //////////////////////////////////////////////////////
 
-using System.Collections;
-using System.Collections.Generic;
+using UnityAssetsTools._MK.MKToon.Scripts;
 using UnityEngine;
 
-namespace MK.Toon.Examples
+namespace UnityAssetsTools._MK.MKToon.Examples.Scripts
 {
     public class AnimateMaterialFloat : AnimateMaterialProperty<float>
     {
@@ -48,63 +47,63 @@ namespace MK.Toon.Examples
             switch(property)
             {
                 case Property.Smoothness:
-                    MK.Toon.Properties.smoothness.SetValue(material, value);
+                    Properties.smoothness.SetValue(material, value);
                 break;
                 case Property.Metallic:
-                    MK.Toon.Properties.metallic.SetValue(material, value);
+                    Properties.metallic.SetValue(material, value);
                 break;
                 case Property.DissolveAmount:
-                    MK.Toon.Properties.dissolveAmount.SetValue(material, value);
+                    Properties.dissolveAmount.SetValue(material, value);
                 break;
                 case Property.NormalMapIntensity:
-                    MK.Toon.Properties.normalMapIntensity.SetValue(material, value);
+                    Properties.normalMapIntensity.SetValue(material, value);
                 break;
                 case Property.OcclusionMapIntensity:
-                    MK.Toon.Properties.occlusionMapIntensity.SetValue(material, value);
+                    Properties.occlusionMapIntensity.SetValue(material, value);
                 break;
                 case Property.Parallax:
-                    MK.Toon.Properties.parallax.SetValue(material, value);
+                    Properties.parallax.SetValue(material, value);
                 break;
                 case Property.DetailMix:
                 case Property.DetailMultiplicative:
                 case Property.DetailAdditive:
-                    MK.Toon.Properties.detailMix.SetValue(material, value);
+                    Properties.detailMix.SetValue(material, value);
                 break;
                 case Property.DetailNormalMapIntensity:
-                    MK.Toon.Properties.detailNormalMapIntensity.SetValue(material, value);
+                    Properties.detailNormalMapIntensity.SetValue(material, value);
                 break;
                 case Property.DiffuseSmoothness:
-                    MK.Toon.Properties.diffuseSmoothness.SetValue(material, value);
+                    Properties.diffuseSmoothness.SetValue(material, value);
                 break;
                 case Property.SpecularSmoothness:
-                    MK.Toon.Properties.specularSmoothness.SetValue(material, value);
+                    Properties.specularSmoothness.SetValue(material, value);
                 break;
                 case Property.RimSmoothness:
-                    MK.Toon.Properties.rimSmoothness.SetValue(material, value);
+                    Properties.rimSmoothness.SetValue(material, value);
                 break;
                 case Property.IridescenceSmoothness:
-                    MK.Toon.Properties.iridescenceSmoothness.SetValue(material, value);
+                    Properties.iridescenceSmoothness.SetValue(material, value);
                 break;
                 case Property.LightTransmissionSmoothness:
-                    MK.Toon.Properties.lightTransmissionSmoothness.SetValue(material, value);
+                    Properties.lightTransmissionSmoothness.SetValue(material, value);
                 break;
                 case Property.GoochRampIntensity:
-                    MK.Toon.Properties.goochRampIntensity.SetValue(material, value);
+                    Properties.goochRampIntensity.SetValue(material, value);
                 break;
                 case Property.IridescenceSize:
-                    MK.Toon.Properties.iridescenceSize.SetValue(material, value);
+                    Properties.iridescenceSize.SetValue(material, value);
                 break;
                 case Property.ColorGradingContrast:
-                    MK.Toon.Properties.contrast.SetValue(material, value);
+                    Properties.contrast.SetValue(material, value);
                 break;
                 case Property.ColorGradingSaturation:
-                    MK.Toon.Properties.saturation.SetValue(material, value);
+                    Properties.saturation.SetValue(material, value);
                 break;
                 case Property.ColorGradingBrightness:
-                    MK.Toon.Properties.brightness.SetValue(material, value);
+                    Properties.brightness.SetValue(material, value);
                 break;
                 case Property.Anisotropy:
-                    MK.Toon.Properties.anisotropy.SetValue(material, value);
+                    Properties.anisotropy.SetValue(material, value);
                 break;
             }
         }

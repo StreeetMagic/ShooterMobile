@@ -1,27 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.TargetHolders;
-using Gameplay.Characters.Players.TargetLocators;
-using UnityEngine;
-using UnityEngine.Serialization;
-using Zenject;
+using Gameplay.Characters.Players._components.Animators;
+using Gameplay.Characters.Players._components.TargetHolders;
+using Gameplay.Characters.Players._components.TargetLocators;
+using Zenject.Source.Install;
 
-public class PlayerInstaller : MonoInstaller
+namespace Gameplay.Characters.Players
 {
-  public PlayerHealth PlayerHealth;
-  public PlayerTargetHolder PlayerTargetHolder;
-  public PlayerTargetLocator PlayerTargetLocator;
-  public PlayerAnimator PlayerAnimator;
-
-  public override void InstallBindings()
+  public class PlayerInstaller : MonoInstaller
   {
-    Container.BindInstance(PlayerHealth);
+    public PlayerHealth PlayerHealth;
+    public PlayerTargetHolder PlayerTargetHolder;
+    public PlayerTargetLocator PlayerTargetLocator;
+    public PlayerAnimator PlayerAnimator;
 
-    Container.Bind<PlayerTargetHolder>().FromInstance(PlayerTargetHolder).AsSingle();
-    Container.Bind<PlayerTargetLocator>().FromInstance(PlayerTargetLocator).AsSingle();
-    Container.Bind<PlayerAnimator>().FromInstance(PlayerAnimator).AsSingle();
+    public override void InstallBindings()
+    {
+      Container.BindInstance(PlayerHealth);
+
+      Container.Bind<PlayerTargetHolder>().FromInstance(PlayerTargetHolder).AsSingle();
+      Container.Bind<PlayerTargetLocator>().FromInstance(PlayerTargetLocator).AsSingle();
+      Container.Bind<PlayerAnimator>().FromInstance(PlayerAnimator).AsSingle();
+    }
   }
 }

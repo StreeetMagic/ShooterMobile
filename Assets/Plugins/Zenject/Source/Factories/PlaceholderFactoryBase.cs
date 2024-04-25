@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModestTree;
+using Zenject.Source.Injection;
+using Zenject.Source.Internal;
+using Zenject.Source.Providers;
+using Zenject.Source.Util;
+using Zenject.Source.Validation;
 
-namespace Zenject
+namespace Zenject.Source.Factories
 {
     public interface IPlaceholderFactory : IValidatable
     {

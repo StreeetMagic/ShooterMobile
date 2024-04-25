@@ -5,7 +5,7 @@ using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
 
-namespace Infrastructure.DataRepositories
+namespace DataRepositories
 {
   public class ExpierienceStorage : IProgressWriter
   {
@@ -44,7 +44,7 @@ namespace Infrastructure.DataRepositories
 
     public int ExpierienceToNextLevel()
     {
-      CalculateLevelAndExperience(out int currentLevel, out int expirienceLeft);
+      CalculateLevelAndExperience(out int currentLevel, out int _);
       List<ExpirienceSetup> setups = Config.Levels;
       return setups[currentLevel].Expierience;
     }

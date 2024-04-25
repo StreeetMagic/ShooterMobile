@@ -1,9 +1,9 @@
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Upgrades;
+using Configs.Resources.StatConfigs;
 using Infrastructure.StaticDataServices;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells;
+using UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts;
 
 namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
 {
@@ -11,14 +11,12 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
   {
     private readonly IStaticDataService _staticDataService;
     private readonly GameLoopZenjectFactory _factory;
-    private readonly UpgradeService _upgradeService;
 
-    public UpgradeCellFactory(IStaticDataService staticDataService, 
-      GameLoopZenjectFactory shopWindowFactory, UpgradeService upgradeService)
+    public UpgradeCellFactory(IStaticDataService staticDataService,
+      GameLoopZenjectFactory shopWindowFactory)
     {
       _staticDataService = staticDataService;
       _factory = shopWindowFactory;
-      _upgradeService = upgradeService;
     }
 
     public void Create(StatId id, Transform parent)

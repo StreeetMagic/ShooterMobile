@@ -1,62 +1,62 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Quests;
 using UnityEngine;
 using UnityEngine.UI;
-using UserInterface.HeadsUpDisplays.QuestWindows;
 
-public class ButtonSwitcher : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows._components
 {
-  public Button ActivateButton;
-  public GameObject InProgressButton;
-  public Button TakeRewardButton;
-
-  public QuestWindow QuestWindow;
-
-  private Quest Quest => QuestWindow.Quest;
-
-  private void Start()
+  public class ButtonSwitcher : MonoBehaviour
   {
-    SetupButtons(Quest.State.Value);
-    Quest.State.ValueChanged += SetupButtons;
-  }
+    public Button ActivateButton;
+    public GameObject InProgressButton;
+    public Button TakeRewardButton;
 
-  private void OnDestroy()
-  {
-    Quest.State.ValueChanged -= SetupButtons;
-  }
+    public QuestWindow QuestWindow;
 
-  private void SetupButtons(QuestState state)
-  {
-    switch (state)
+    private Quest Quest => QuestWindow.Quest;
+
+    private void Start()
     {
-      case QuestState.Unknown:
-        throw new ArgumentOutOfRangeException(nameof(Quest.State));
+      SetupButtons(Quest.State.Value);
+      Quest.State.ValueChanged += SetupButtons;
+    }
 
-      case QuestState.UnActivated:
-        ActivateButton.gameObject.SetActive(true);
-        InProgressButton.SetActive(false);
-        TakeRewardButton.gameObject.SetActive(false);
-        break;
+    private void OnDestroy()
+    {
+      Quest.State.ValueChanged -= SetupButtons;
+    }
 
-      case QuestState.Activated:
-        ActivateButton.gameObject.SetActive(false);
-        InProgressButton.SetActive(true);
-        TakeRewardButton.gameObject.SetActive(false);
-        break;
+    private void SetupButtons(QuestState state)
+    {
+      switch (state)
+      {
+        case QuestState.Unknown:
+          throw new ArgumentOutOfRangeException(nameof(Quest.State));
 
-      case QuestState.RewardReady:
-        ActivateButton.gameObject.SetActive(false);
-        InProgressButton.SetActive(false);
-        TakeRewardButton.gameObject.SetActive(true);
-        break;
+        case QuestState.UnActivated:
+          ActivateButton.gameObject.SetActive(true);
+          InProgressButton.SetActive(false);
+          TakeRewardButton.gameObject.SetActive(false);
+          break;
 
-      case QuestState.RewardTaken:
-        ActivateButton.gameObject.SetActive(false);
-        InProgressButton.SetActive(false);
-        TakeRewardButton.gameObject.SetActive(false);
-        break;
+        case QuestState.Activated:
+          ActivateButton.gameObject.SetActive(false);
+          InProgressButton.SetActive(true);
+          TakeRewardButton.gameObject.SetActive(false);
+          break;
+
+        case QuestState.RewardReady:
+          ActivateButton.gameObject.SetActive(false);
+          InProgressButton.SetActive(false);
+          TakeRewardButton.gameObject.SetActive(true);
+          break;
+
+        case QuestState.RewardTaken:
+          ActivateButton.gameObject.SetActive(false);
+          InProgressButton.SetActive(false);
+          TakeRewardButton.gameObject.SetActive(false);
+          break;
+      }
     }
   }
 }

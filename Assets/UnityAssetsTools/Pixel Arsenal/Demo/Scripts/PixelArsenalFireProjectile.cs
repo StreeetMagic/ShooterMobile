@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections;
 
-namespace PixelArsenal
+namespace UnityAssetsTools.Pixel_Arsenal.Demo.Scripts
 {
     public class PixelArsenalFireProjectile : MonoBehaviour
     {

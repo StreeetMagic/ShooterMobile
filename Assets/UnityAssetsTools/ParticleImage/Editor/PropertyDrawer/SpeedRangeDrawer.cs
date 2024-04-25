@@ -1,10 +1,11 @@
+using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEditor;
 using UnityEngine;
 
-namespace AssetKits.ParticleImage.Editor
+namespace UnityAssetsTools.ParticleImage.Editor.PropertyDrawer
 {
     [CustomPropertyDrawer(typeof(SpeedRange))]
-    public class SpeedRangeDrawer : PropertyDrawer
+    public class SpeedRangeDrawer : UnityEditor.PropertyDrawer
     {
         private GUIContent _fromLabel = new GUIContent("From");
         private GUIContent _toLabel = new GUIContent("To");

@@ -2,14 +2,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyLootSlot : MonoBehaviour
+namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
 {
-  public Image Image;
-  public TextMeshProUGUI Text;
-
-  public void Init(Sprite sprite, int itemValue)
+  public class EnemyLootSlot : MonoBehaviour
   {
-    Image.sprite = sprite;
-    Text.text = itemValue.ToString();
+    public Image Image;
+    public TextMeshProUGUI Text;
+
+    public void Init(Sprite sprite, int itemValue)
+    {
+      Image.sprite = sprite;
+      Text.text = itemValue.ToString();
+    }
   }
 }

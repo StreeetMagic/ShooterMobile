@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.TestFramework;
+using Zenject.Source.Factories;
+using Zenject.Source.Injection;
+using Zenject.Source.Main;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Other
+namespace Zenject.OptionalExtras.UnitTests.Editor.Other
 {
     [TestFixture]
     public class TestKeyedFactoryExample : ZenjectUnitTestFixture

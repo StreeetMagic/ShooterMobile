@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.TargetTriggers;
+using Configs.Resources.CurrencyConfigs;
+using DataRepositories;
+using DataRepositories.BackpackStorages;
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.TargetLocators;
-using Gameplay.Currencies;
-using Infrastructure.DataRepositories;
 using UnityEngine;
 using Zenject;
 
@@ -27,7 +26,7 @@ namespace Gameplay.BaseTriggers
     {
       if (other.TryGetComponent(out PlayerTargetTrigger playerTrigger))
       {
-        if (playerTrigger.transform.parent.TryGetComponent(out Player player))
+        if (playerTrigger.transform.parent.TryGetComponent(out Player _))
         {
           Dictionary<CurrencyId, int> data = _backpackStorage.ReadLoot();
 

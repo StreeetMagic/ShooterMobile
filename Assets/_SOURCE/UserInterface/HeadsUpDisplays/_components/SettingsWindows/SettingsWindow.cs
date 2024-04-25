@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using Infrastructure.UserIntefaces;
-using UnityEngine;
 
-public class SettingsWindow : Window
+namespace UserInterface.HeadsUpDisplays.SettingsWindows
 {
-     
+  public class SettingsWindow : Window
+  {
+  }
 }

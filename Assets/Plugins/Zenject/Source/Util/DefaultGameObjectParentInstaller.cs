@@ -2,8 +2,9 @@
 
 using System;
 using UnityEngine;
+using Zenject.Source.Install;
 
-namespace Zenject
+namespace Zenject.Source.Util
 {
     public class DefaultGameObjectParentInstaller : Installer<string, DefaultGameObjectParentInstaller>
     {

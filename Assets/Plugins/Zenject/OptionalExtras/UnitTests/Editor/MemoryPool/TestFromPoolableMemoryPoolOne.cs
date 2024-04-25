@@ -1,8 +1,12 @@
 using System;
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.TestFramework;
+using Zenject.Source.Binding.Binders.Factory.FactoryFromBinder;
+using Zenject.Source.Factories;
+using Zenject.Source.Factories.Pooling;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Bindings
+namespace Zenject.OptionalExtras.UnitTests.Editor.MemoryPool
 {
     [TestFixture]
     public class TestFromPoolableMemoryPoolOne : ZenjectUnitTestFixture

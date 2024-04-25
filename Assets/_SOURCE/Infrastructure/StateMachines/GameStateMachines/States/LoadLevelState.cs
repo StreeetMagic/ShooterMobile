@@ -3,7 +3,6 @@ using Infrastructure.LoadingCurtains;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.SceneLoaders;
 using Infrastructure.StateMachines.States;
-using UnityEngine;
 
 namespace Infrastructure.StateMachines.GameStateMachines.States
 {

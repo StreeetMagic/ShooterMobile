@@ -1,56 +1,57 @@
-using System;
 using Maps;
+using Quests;
 using UnityEngine;
 using Zenject;
 
-public class QuestPointer : MonoBehaviour
+namespace Gameplay.Characters.Players._components.ActorUserIntefaces.QuestPointers
 {
-  public GameObject Pointer;
-
-  private Transform _questTarget;
-
-  private MapProvider _mapProvider;
-  private QuestStorage _storage;
-
-  [Inject]
-  public void Construct(MapProvider mapProvider, QuestStorage storage)
+  public class QuestPointer : MonoBehaviour
   {
-    _mapProvider = mapProvider;
-    _storage = storage;
-    _questTarget = transform;
-  }
+    public GameObject Pointer;
 
-  public Transform QuestTarget => _questTarget;
+    private Transform _questTarget;
 
-  private void LateUpdate()
-  {
-    Transform target = DefineTarget();
-    RotateToBase(target);
-    Hide(target);
-  }
+    private MapProvider _mapProvider;
 
-  private Transform DefineTarget()
-  {
-    Transform target = _mapProvider.Map.Questers[0].transform;
+    [Inject]
+    public void Construct(MapProvider mapProvider, QuestStorage storage)
+    {
+      _mapProvider = mapProvider;
+      _questTarget = transform;
+    }
 
-    return target;
-  }
+    public Transform QuestTarget => _questTarget;
 
-  private void RotateToBase(Transform target)
-  {
-    transform.rotation = Quaternion.LookRotation(transform.position - target.transform.position);
+    private void LateUpdate()
+    {
+      Transform target = DefineTarget();
+      RotateToBase(target);
+      Hide(target);
+    }
 
-    Quaternion cachedRotation = transform.rotation;
+    private Transform DefineTarget()
+    {
+      Transform target = _mapProvider.Map.Questers[0].transform;
 
-    transform.rotation = new Quaternion(0, cachedRotation.y, 0, cachedRotation.w);
-  }
+      return target;
+    }
 
-  private void Hide(Transform target)
-  {
-    const float MinDistance = 5;
+    private void RotateToBase(Transform target)
+    {
+      transform.rotation = Quaternion.LookRotation(transform.position - target.transform.position);
 
-    var distance = Vector3.Distance(transform.position, target.transform.position);
+      Quaternion cachedRotation = transform.rotation;
 
-    Pointer.gameObject.SetActive(!(distance < MinDistance));
+      transform.rotation = new Quaternion(0, cachedRotation.y, 0, cachedRotation.w);
+    }
+
+    private void Hide(Transform target)
+    {
+      const float MinDistance = 5;
+
+      var distance = Vector3.Distance(transform.position, target.transform.position);
+
+      Pointer.gameObject.SetActive(!(distance < MinDistance));
+    }
   }
 }

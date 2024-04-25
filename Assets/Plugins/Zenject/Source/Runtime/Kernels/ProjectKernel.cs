@@ -2,10 +2,11 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using ModestTree;
 using UnityEngine.SceneManagement;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
 
-namespace Zenject
+namespace Zenject.Source.Runtime.Kernels
 {
     public class ProjectKernel : MonoKernel
     {

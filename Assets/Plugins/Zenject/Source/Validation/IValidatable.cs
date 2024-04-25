@@ -1,4 +1,4 @@
-namespace Zenject
+namespace Zenject.Source.Validation
 {
     public interface IValidatable
     {

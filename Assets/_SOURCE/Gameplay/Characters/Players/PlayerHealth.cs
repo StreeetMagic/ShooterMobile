@@ -1,15 +1,12 @@
 using System;
-using Configs.Resources.EnemyConfigs.Scripts;
-using Gameplay.Characters.Enemies.Healths;
 using Infrastructure.Utilities;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Gameplay.Characters.Players
 {
   public class PlayerHealth : MonoBehaviour
   {
-    public event Action<EnemyConfig, EnemyHealth> Died;
+    public event Action Died;
     public event Action<int> Damaged;
 
     public ReactiveProperty<int> Current { get; } = new();
@@ -35,6 +32,8 @@ namespace Gameplay.Characters.Players
     {
       if (IsDead)
         return;
+
+      Died?.Invoke();
 
       IsDead = true;
     }

@@ -2,8 +2,9 @@
 
 using System;
 using UnityEngine;
+using Zenject.Source.Injection;
 
-namespace Zenject
+namespace Zenject.Source.Binding.BindInfo
 {
     [NoReflectionBaking]
     public class GameObjectCreationParameters

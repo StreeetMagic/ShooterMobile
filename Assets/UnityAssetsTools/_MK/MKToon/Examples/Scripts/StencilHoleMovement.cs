@@ -6,11 +6,9 @@
 // Copyright © 2020 All rights reserved.            //
 //////////////////////////////////////////////////////
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace MK.Toon.Examples
+namespace UnityAssetsTools._MK.MKToon.Examples.Scripts
 {
     public class StencilHoleMovement : MonoBehaviour
     {

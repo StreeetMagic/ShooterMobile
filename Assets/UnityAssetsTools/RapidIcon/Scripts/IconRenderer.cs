@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace RapidIconUIC
+namespace UnityAssetsTools.RapidIcon.Scripts
 {
 
 	public class IconRenderer : MonoBehaviour

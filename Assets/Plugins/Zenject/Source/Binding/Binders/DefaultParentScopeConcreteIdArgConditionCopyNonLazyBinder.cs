@@ -1,10 +1,12 @@
-namespace Zenject
+using Zenject.Source.Providers.SubContainerCreators;
+
+namespace Zenject.Source.Binding.Binders
 {
     [NoReflectionBaking]
     public class DefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder : ScopeConcreteIdArgConditionCopyNonLazyBinder
     {
         public DefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder(
-            SubContainerCreatorBindInfo subContainerBindInfo, BindInfo bindInfo)
+            SubContainerCreatorBindInfo subContainerBindInfo, BindInfo.BindInfo bindInfo)
             : base(bindInfo)
         {
             SubContainerCreatorBindInfo = subContainerBindInfo;

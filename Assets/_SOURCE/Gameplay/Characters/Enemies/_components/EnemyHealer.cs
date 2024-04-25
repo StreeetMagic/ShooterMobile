@@ -1,4 +1,3 @@
-using System;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
@@ -48,7 +47,7 @@ namespace Gameplay.Characters.Enemies
       if (_enemyHealth.IsFull)
         return;
 
-      float healAmount = (float)EnemyConfig.InitialHealth;
+      float healAmount = EnemyConfig.InitialHealth;
 
       _heal += healAmount * Time.deltaTime * HealMultiplier;
 

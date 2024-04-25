@@ -1,65 +1,65 @@
 using System;
-using Configs.Resources.QuestConfigs;
+using Configs.Resources.QuestConfigs.Scripts;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using Quests;
 using UnityEngine;
-using UserInterface.HeadsUpDisplays.QuestWindows;
 using Zenject;
 
-public class SubQuestSlotsFactory : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 {
-  public QuestWindow QuestWindow;
-
-  private IAssetProvider _assetProvider;
-  private ProjectZenjectFactory _factory;
-
-  [Inject]
-  private void Construct(IAssetProvider assetProvider, ProjectZenjectFactory factory)
+  public class SubQuestSlotsFactory : MonoBehaviour
   {
-    _factory = factory;
-    _assetProvider = assetProvider;
-  }
+    public QuestWindow QuestWindow;
 
-  private QuestConfig QuestConfig => QuestWindow.Quest.Config;
+    private IAssetProvider _assetProvider;
+    private ProjectZenjectFactory _factory;
 
-  private void Start()
-  {
-    CreateSubQuests();
-    
-    QuestWindow.Quest.State.ValueChanged += QuestStateChanged;
-  }
-
-  private void QuestStateChanged(QuestState state)
-  {
-     switch (state) 
-     {
-       case QuestState.Unknown:
-         throw new ArgumentOutOfRangeException(nameof(QuestWindow.Quest.State));
-       
-       case QuestState.UnActivated:
-         break;
-       
-       case QuestState.Activated:
-         QuestWindow.Quest.SubQuests[0].State.Value = QuestState.Activated;
-         break;
-       
-       case QuestState.RewardReady:
-         break;
-     }
-  }
-
-  private void CreateSubQuests()
-  {
-    for (var i = 0; i < QuestConfig.SubQuests.Count; i++)
+    [Inject]
+    private void Construct(IAssetProvider assetProvider, ProjectZenjectFactory factory)
     {
-      SubQuestSlot prefab = _assetProvider.Get<SubQuestSlot>();
+      _factory = factory;
+      _assetProvider = assetProvider;
+    }
 
-      SubQuestSlot slot = _factory.InstantiateMono(prefab, transform);
+    private QuestConfig QuestConfig => QuestWindow.Quest.Config;
 
-      slot.SubQuest = QuestWindow.Quest.SubQuests[i];
-      
-      
+    private void Start()
+    {
+      CreateSubQuests();
+
+      QuestWindow.Quest.State.ValueChanged += QuestStateChanged;
+    }
+
+    private void QuestStateChanged(QuestState state)
+    {
+      switch (state)
+      {
+        case QuestState.Unknown:
+          throw new ArgumentOutOfRangeException(nameof(QuestWindow.Quest.State));
+
+        case QuestState.UnActivated:
+          break;
+
+        case QuestState.Activated:
+          QuestWindow.Quest.SubQuests[0].State.Value = QuestState.Activated;
+          break;
+
+        case QuestState.RewardReady:
+          break;
+      }
+    }
+
+    private void CreateSubQuests()
+    {
+      for (var i = 0; i < QuestConfig.SubQuests.Count; i++)
+      {
+        SubQuestSlot prefab = _assetProvider.Get<SubQuestSlot>();
+
+        SubQuestSlot slot = _factory.InstantiateMono(prefab, transform);
+
+        slot.SubQuest = QuestWindow.Quest.SubQuests[i];
+      }
     }
   }
 }

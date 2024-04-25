@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum QuestId
+namespace Configs.Resources.QuestConfigs.Scripts
 {
-  Unknown,
-  Quest1,
-  Quest2
+  public enum QuestId
+  {
+    Unknown,
+    Quest1,
+    Quest2
+  }
 }

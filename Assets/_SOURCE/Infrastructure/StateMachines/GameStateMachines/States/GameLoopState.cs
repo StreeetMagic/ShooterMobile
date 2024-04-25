@@ -1,13 +1,16 @@
 using Cameras;
+using DataRepositories;
+using DataRepositories.BackpackStorages;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
-using Gameplay.Characters.Players._components.PlayerStatsServices;
-using Gameplay.Characters.Players.Factories;
-using Gameplay.Upgrades;
+using Gameplay.Characters.Players._components.Factories;
+using Gameplay.Characters.Players._components.PlayerStatsProviders;
 using Infrastructure.AudioServices;
 using Infrastructure.CoroutineRunners;
-using Infrastructure.DataRepositories;
+using Infrastructure.DependencyInjection;
 using Infrastructure.SaveLoadServices;
+using Infrastructure.Upgrades;
 using Maps;
+using Quests;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 
@@ -61,7 +64,7 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
       _saveLoadService.ProgressReaders.Add(_questStorage);
       _saveLoadService.LoadProgress();
 
-      _sceneTransform = GameObject.FindObjectOfType<GameLoopInstaller>().transform;
+      _sceneTransform = Object.FindObjectOfType<GameLoopInstaller>().transform;
 
       _playerStatsProvider.Start();
 

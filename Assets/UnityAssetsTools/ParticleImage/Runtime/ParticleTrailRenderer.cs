@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AssetKits.ParticleImage
+namespace UnityAssetsTools.ParticleImage.Runtime
 {
     [AddComponentMenu("UI/Particle Image/Trail Renderer")]
     public class ParticleTrailRenderer : MaskableGraphic

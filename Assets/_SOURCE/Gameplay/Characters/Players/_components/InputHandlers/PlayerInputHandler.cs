@@ -1,27 +1,25 @@
-﻿using Gameplay.Characters.Players.Factories;
-using Gameplay.Characters.Players.Movers;
-using Gameplay.Characters.Players.Rotators;
-using Gameplay.Characters.Players.TargetHolders;
+﻿using Gameplay.Characters.Players._components.Factories;
+using Gameplay.Characters.Players._components.Movers;
+using Gameplay.Characters.Players._components.Rotators;
 using Inputs;
 using UnityEngine;
 using Zenject;
+using Zenject.Source.Runtime;
 
-namespace Gameplay.Characters.Players.InputHandlers
+namespace Gameplay.Characters.Players._components.InputHandlers
 {
   public class PlayerInputHandler : ITickable
   {
     private readonly IInputService _inputService;
     private readonly PlayerProvider _playerProvider;
-    private readonly TickableManager _tickableManager;
 
     public PlayerInputHandler(IInputService inputService,
       PlayerProvider playerProvider, TickableManager tickableManager)
     {
       _inputService = inputService;
       _playerProvider = playerProvider;
-      _tickableManager = tickableManager;
-      
-      _tickableManager.Add(this);
+
+      tickableManager.Add(this);
     }
 
     private PlayerRotatorController RotatorController => _playerProvider.PlayerRotatorController;

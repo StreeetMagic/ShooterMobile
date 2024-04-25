@@ -8,7 +8,7 @@
 
 using UnityEngine;
 
-namespace MK.Toon
+namespace UnityAssetsTools._MK.MKToon.Scripts
 {
     /////////////////////////////////////////////////////////////////////////////////////////////
     // Property Base                                                                           //

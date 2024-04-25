@@ -1,11 +1,14 @@
 #if !NOT_UNITY3D
 
 using System;
-using ModestTree;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject.Source.Install.Contexts;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
+using Zenject.Source.Runtime.Kernels;
 
-namespace Zenject
+namespace Zenject.Source.Util
 {
     public enum LoadSceneRelationship
     {

@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Configs.Resources.StatConfigs;
 using Configs.Resources.UpgradeConfigs.Scripts;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
-using Unity.VisualScripting;
-using UnityEngine;
 
-namespace Gameplay.Upgrades
+namespace Infrastructure.Upgrades
 {
   public class UpgradeService : IProgressWriter
   {
@@ -57,7 +56,7 @@ namespace Gameplay.Upgrades
       foreach (StatId upgradeId in upgrades.Keys)
       {
         UpgradeConfig config = upgrades[upgradeId];
-        int level = progress.Upgrades.FirstOrDefault(u => u.Id == upgradeId).Level;
+        int level = progress.Upgrades.FirstOrDefault(u => u.Id == upgradeId)!.Level;
         _upgrades.Add(upgradeId, new Upgrade(config, level));
       }
     }

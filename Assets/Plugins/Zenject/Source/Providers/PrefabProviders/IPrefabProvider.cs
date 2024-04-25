@@ -1,6 +1,8 @@
+using Zenject.Source.Injection;
+
 #if !NOT_UNITY3D
 
-namespace Zenject
+namespace Zenject.Source.Providers.PrefabProviders
 {
     public interface IPrefabProvider
     {

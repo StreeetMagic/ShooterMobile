@@ -1,7 +1,13 @@
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.Source.Factories;
+using Zenject.Source.Factories.Pooling;
+using Zenject.Source.Injection;
+using Zenject.Source.Install;
+using Zenject.Source.Main;
+using Zenject.Source.Validation;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests
+namespace Zenject.OptionalExtras.UnitTests.Editor.Other
 {
     [TestFixture]
     public class TestValidation

@@ -7,14 +7,11 @@
 //////////////////////////////////////////////////////
 
 #if UNITY_EDITOR
-using System.Collections.Generic;
-using UnityEngine;
+using UnityAssetsTools._MK.MKToon.Editor.Base.FeatureComponents;
+using UnityAssetsTools._MK.MKToon.Scripts;
 using UnityEditor;
-using System.Linq;
-using System;
-using UnityEditor.Utils;
-using UnityEditorInternal;
-using EditorHelper = MK.Toon.Editor.EditorHelper;
+using UnityEngine;
+using EditorHelper = UnityAssetsTools._MK.MKToon.Editor.Helper.EditorHelper;
 
 // ------------------------------------------------------------------------------------------
 // Note:
@@ -32,7 +29,7 @@ using EditorHelper = MK.Toon.Editor.EditorHelper;
 // Enabling/Disabling shader passes would make the whole thing much easier (avoid variants for outline and refraction), however it only works for builtin lightModes, not for custom passes
 // ------------------------------------------------------------------------------------------
 
-namespace MK.Toon.Editor
+namespace UnityAssetsTools._MK.MKToon.Editor.Base
 {
     /// <summary>
     /// Base class for unlit editors
@@ -116,17 +113,17 @@ namespace MK.Toon.Editor
         /////////////////
         // Outline     //
         /////////////////
-        protected MK.Toon.Editor.OutlineComponent _outline = new MK.Toon.Editor.OutlineComponent();
+        protected OutlineComponent _outline = new OutlineComponent();
 
         /////////////////
         // Refraction  //
         /////////////////
-        protected MK.Toon.Editor.RefractionComponent _refraction = new MK.Toon.Editor.RefractionComponent();
+        protected RefractionComponent _refraction = new RefractionComponent();
 
         /////////////////
         // Particles   //
         /////////////////
-        protected MK.Toon.Editor.ParticlesComponent _particles = new MK.Toon.Editor.ParticlesComponent();
+        protected ParticlesComponent _particles = new ParticlesComponent();
 
         /// <summary>
         /// Find Properties to draw the editor

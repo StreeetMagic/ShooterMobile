@@ -1,7 +1,8 @@
 using System;
 using System.Diagnostics;
+using Zenject.Source.Main;
 
-namespace Zenject
+namespace Zenject.OptionalExtras.Signals.Internal
 {
     [DebuggerStepThrough]
     public struct SignalSubscriptionId : IEquatable<SignalSubscriptionId>

@@ -1,11 +1,13 @@
 ﻿using System;
-using Configs.Resources.QuestConfigs;
-using Infrastructure.StaticDataServices;
+using Configs.Resources.QuestConfigs.Scripts;
 using Infrastructure.ZenjectFactories;
 using Loggers;
+using Quests;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
+using UserInterface.HeadsUpDisplays.DebugWindows;
 using UserInterface.HeadsUpDisplays.QuestWindows;
+using UserInterface.HeadsUpDisplays.SettingsWindows;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 using Object = UnityEngine.Object;
 
@@ -17,17 +19,15 @@ namespace Infrastructure.UserIntefaces
 
     private readonly GameLoopZenjectFactory _factory;
     private readonly HeadsUpDisplayProvider _headsUpDisplayProvider;
-    private readonly IStaticDataService _staticDataService;
     private readonly QuestStorage _storage;
     private readonly DebugLogger _logger;
 
     public WindowService(GameLoopZenjectFactory factory,
-      HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService,
-      QuestStorage storage, DebugLogger logger)
+      HeadsUpDisplayProvider headsUpDisplayProvider,
+      QuestStorage storage)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;
-      _staticDataService = staticDataService;
       _storage = storage;
     }
 
@@ -59,7 +59,6 @@ namespace Infrastructure.UserIntefaces
 
         case WindowId.Quest:
           var questWindoww = _factory.InstantiateMono<QuestWindow>(HudTransform);
-          QuestConfig config = _staticDataService.GetQuestConfig(questId);
           questWindoww.Quest = _storage.GetQuest(questId);
           window = questWindoww;
           break;

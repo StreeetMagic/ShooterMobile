@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using Infrastructure.UserIntefaces;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class OpenSettingsWindowButton : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.SettingsButtons
 {
-    public Button Button;
-    
-    private WindowService _windowService;
-    
-    [Inject]
-    public void Construct(WindowService windowService)
+    public class OpenSettingsWindowButton : MonoBehaviour
     {
-        _windowService = windowService;
-        Button.onClick.AddListener(OnButtonClicked);
-    }
+        public Button Button;
     
-    private void OnButtonClicked()
-    {
-        _windowService.Create(WindowId.Settings);
+        private WindowService _windowService;
+    
+        [Inject]
+        public void Construct(WindowService windowService)
+        {
+            _windowService = windowService;
+            Button.onClick.AddListener(OnButtonClicked);
+        }
+    
+        private void OnButtonClicked()
+        {
+            _windowService.Create(WindowId.Settings);
+        }
     }
 }

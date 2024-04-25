@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModestTree;
+using Zenject.OptionalExtras.Signals.Internal;
+using Zenject.OptionalExtras.Signals.Internal.Binders;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
 #if ZEN_SIGNALS_ADD_UNIRX
 using UniRx;
 #endif
 
-namespace Zenject
+namespace Zenject.OptionalExtras.Signals.Main
 {
     public class SignalBus : ILateDisposable
     {

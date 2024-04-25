@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Characters.Players._components.PlayerStatsServices;
-using Gameplay.Currencies;
-using Infrastructure.PersistentProgresses;
+using Configs.Resources.CurrencyConfigs;
+using Configs.Resources.EnemyConfigs.Scripts;
+using Configs.Resources.LootConfigs;
+using Configs.Resources.StatConfigs;
+using Gameplay.Characters.Players._components.PlayerStatsProviders;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
-using UnityEngine;
 
-namespace Infrastructure.DataRepositories
+namespace DataRepositories.BackpackStorages
 {
   public class BackpackStorage
   {

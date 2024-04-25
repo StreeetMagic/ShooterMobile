@@ -1,12 +1,14 @@
 #if !NOT_UNITY3D
 
 using System.IO;
-using ModestTree;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using Zenject.Source.Editor.SceneParentLoading;
+using Zenject.Source.Install.Contexts;
+using Zenject.Source.Internal;
 
-namespace Zenject.Internal
+namespace Zenject.Source.Editor
 {
     public static class ZenMenuItems
     {

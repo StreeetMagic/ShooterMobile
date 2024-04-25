@@ -1,20 +1,27 @@
 using System;
+using Zenject.Source.Binding.Binders.GameObject;
+using Zenject.Source.Binding.BindInfo;
+using Zenject.Source.Injection;
+using Zenject.Source.Main;
+using Zenject.Source.Providers;
+using Zenject.Source.Providers.PrefabProviders;
+using Zenject.Source.Providers.SubContainerCreators;
 
-namespace Zenject
+namespace Zenject.Source.Binding.Binders.Factory.FactoryFromBinder.SubContainerBinder
 {
     [NoReflectionBaking]
     public class FactorySubContainerBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TContract>
         : FactorySubContainerBinderWithParams<TContract>
     {
         public FactorySubContainerBinder(
-            DiContainer bindContainer, BindInfo bindInfo, FactoryBindInfo factoryBindInfo, object subIdentifier)
+            DiContainer bindContainer, BindInfo.BindInfo bindInfo, FactoryBindInfo factoryBindInfo, object subIdentifier)
             : base(bindContainer, bindInfo, factoryBindInfo, subIdentifier)
         {
         }
 
         public ScopeConcreteIdArgConditionCopyNonLazyBinder ByMethod(
 #if !NET_4_6
-            ModestTree.Util.
+            Internal.
 #endif
             Action<DiContainer, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> installerMethod)
         {
@@ -33,7 +40,7 @@ namespace Zenject
 
         public NameTransformScopeConcreteIdArgConditionCopyNonLazyBinder ByNewGameObjectMethod(
 #if !NET_4_6
-            ModestTree.Util.
+            Internal.
 #endif
             Action<DiContainer, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> installerMethod)
         {
@@ -51,7 +58,7 @@ namespace Zenject
         public NameTransformScopeConcreteIdArgConditionCopyNonLazyBinder ByNewPrefabMethod(
             Func<InjectContext, UnityEngine.Object> prefabGetter,
 #if !NET_4_6
-            ModestTree.Util.
+            Internal.
 #endif
             Action<DiContainer, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> installerMethod)
         {
@@ -70,7 +77,7 @@ namespace Zenject
         public NameTransformScopeConcreteIdArgConditionCopyNonLazyBinder ByNewPrefabMethod(
             UnityEngine.Object prefab,
 #if !NET_4_6
-            ModestTree.Util.
+            Internal.
 #endif
             Action<DiContainer, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> installerMethod)
         {
@@ -91,7 +98,7 @@ namespace Zenject
         public NameTransformScopeConcreteIdArgConditionCopyNonLazyBinder ByNewPrefabResourceMethod(
             string resourcePath,
 #if !NET_4_6
-            ModestTree.Util.
+            Internal.
 #endif
             Action<DiContainer, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> installerMethod)
         {

@@ -1,11 +1,8 @@
 using System;
 using Configs.Resources.EnemyConfigs.Scripts;
-using Configs.Resources.UpgradeConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Players.Shooters.Projectiles;
-using Gameplay.Upgrades;
+using Infrastructure.Upgrades;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Gameplay.Characters.Enemies.TargetTriggers
@@ -15,7 +12,6 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
     public Collider Collider;
 
     public EnemyHealth EnemyHealth;
-    private UpgradeService _upgradeService;
 
     public event Action<EnemyTargetTrigger> TargetDied;
 
@@ -25,7 +21,6 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
     private void Construct(UpgradeService upgradeService, EnemyHealth enemyHealth)
     {
       EnemyHealth = enemyHealth;
-      _upgradeService = upgradeService;
 
       EnemyHealth.Died += OnDied;
     }

@@ -2,9 +2,10 @@
 #if !(UNITY_WSA && ENABLE_DOTNET)
 
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.TestFramework;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Convention.Names
+namespace Zenject.OptionalExtras.UnitTests.Editor.Conventions
 {
     [TestFixture]
     public class TestConventionNames : ZenjectUnitTestFixture

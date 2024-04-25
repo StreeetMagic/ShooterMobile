@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using Gameplay.Currencies;
+using Configs.Resources.CurrencyConfigs;
+using Configs.Resources.StatConfigs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

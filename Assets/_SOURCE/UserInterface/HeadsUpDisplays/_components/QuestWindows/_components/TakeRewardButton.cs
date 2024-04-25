@@ -1,15 +1,16 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UserInterface.HeadsUpDisplays.QuestWindows;
 
-public class TakeRewardButton : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows._components
 {
-  public QuestWindow QuestWindow;
-  public Button Button;
-
-  private void Start()
+  public class TakeRewardButton : MonoBehaviour
   {
-    Button.onClick.AddListener(() => QuestWindow.Quest.GainReward());
+    public QuestWindow QuestWindow;
+    public Button Button;
+
+    private void Start()
+    {
+      Button.onClick.AddListener(() => QuestWindow.Quest.GainReward());
+    }
   }
 }

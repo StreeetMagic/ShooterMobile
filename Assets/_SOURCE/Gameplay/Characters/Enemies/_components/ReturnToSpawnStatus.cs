@@ -1,16 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Loggers;
-using UnityEngine;
-
-public class ReturnToSpawnStatus
+namespace Gameplay.Characters.Enemies
 {
-  private readonly DebugLogger _logger;
-
-  public ReturnToSpawnStatus(DebugLogger logger)
+  public class ReturnToSpawnStatus
   {
-    _logger = logger;
+    public bool IsReturn { get; set; }
   }
-
-  public bool IsReturn { get; set; }
 }

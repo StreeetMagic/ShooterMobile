@@ -3,28 +3,31 @@ using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
 using Zenject;
 
-public class ActorUserInterface : MonoBehaviour
+namespace Gameplay.Characters.Enemies.ActorUserInterfaces
 {
-  private EnemyHealth _enemyHealth;
-
-  [Inject]
-  public void Construct(EnemyHealth enemyHealth)
+  public class ActorUserInterface : MonoBehaviour
   {
-    _enemyHealth = enemyHealth;
-  }
+    private EnemyHealth _enemyHealth;
 
-  private void OnEnable()
-  {
-    _enemyHealth.Died += OnDied;
-  }
+    [Inject]
+    public void Construct(EnemyHealth enemyHealth)
+    {
+      _enemyHealth = enemyHealth;
+    }
 
-  private void OnDisable()
-  {
-    _enemyHealth.Died -= OnDied;
-  }
+    private void OnEnable()
+    {
+      _enemyHealth.Died += OnDied;
+    }
 
-  private void OnDied(EnemyConfig arg1, EnemyHealth arg2)
-  {
-    gameObject.SetActive(false);
+    private void OnDisable()
+    {
+      _enemyHealth.Died -= OnDied;
+    }
+
+    private void OnDied(EnemyConfig arg1, EnemyHealth arg2)
+    {
+      gameObject.SetActive(false);
+    }
   }
 }

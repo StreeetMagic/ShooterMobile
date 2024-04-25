@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace AssetKits.ParticleImage.Editor
+namespace UnityAssetsTools.ParticleImage.Editor.Utility
 {
     public static class EditorUtilities
     {
@@ -22,7 +22,7 @@ namespace AssetKits.ParticleImage.Editor
                 {
                     // Create a custom game object
                     GameObject go = new GameObject("Particle Image");
-                    ParticleImage pi = go.AddComponent<ParticleImage>();
+                    Runtime.ParticleImage pi = go.AddComponent<Runtime.ParticleImage>();
                     pi.texture = AssetDatabase.GetBuiltinExtraResource<Texture2D>("Default-Particle.psd");
                     pi.canvasRect = canvas.GetComponent<RectTransform>();
                     if (menuCommand.context)
@@ -47,7 +47,7 @@ namespace AssetKits.ParticleImage.Editor
                     
                     // Create a custom game object
                     GameObject go = new GameObject("Particle Image");
-                    ParticleImage pi = go.AddComponent<ParticleImage>();
+                    Runtime.ParticleImage pi = go.AddComponent<Runtime.ParticleImage>();
                     pi.texture = AssetDatabase.GetBuiltinExtraResource<Texture2D>("Default-Particle.psd");
                     pi.canvasRect = newCanvas.GetComponent<RectTransform>();
                     GameObjectUtility.SetParentAndAlign(go, newCanvas);

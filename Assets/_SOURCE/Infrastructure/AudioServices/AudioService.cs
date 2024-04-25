@@ -1,5 +1,5 @@
 using System.Linq;
-using Configs.Resources.SoundConfigs;
+using Configs.Resources.MusicConfigs.Scripts;
 using Configs.Resources.SoundConfigs.Scripts;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
@@ -34,7 +34,7 @@ namespace Infrastructure.AudioServices
       _container.transform.SetParent(null);
 
       _musicPlayer = _factory.InstantiateNative<MusicPlayer>();
-      _soundPlayer = new SoundPlayer(_container.SoundSources);
+      _soundPlayer = new SoundPlayer();
     }
 
     public void PlayMusic(MusicId id)

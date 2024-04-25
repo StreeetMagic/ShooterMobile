@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Zenject.Source.Injection;
+using Zenject.Source.Main;
+using Zenject.Source.Providers;
 
-namespace Zenject
+namespace Zenject.Source.Binding.BindInfo
 {
     [NoReflectionBaking]
     public class FactoryBindInfo

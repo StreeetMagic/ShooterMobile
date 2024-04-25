@@ -1,9 +1,11 @@
 using System;
-using ModestTree.Util;
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
+using Zenject.Source.Runtime;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Other
+namespace Zenject.OptionalExtras.UnitTests.Editor.Other
 {
     [TestFixture]
     public class TestTaskUpdater

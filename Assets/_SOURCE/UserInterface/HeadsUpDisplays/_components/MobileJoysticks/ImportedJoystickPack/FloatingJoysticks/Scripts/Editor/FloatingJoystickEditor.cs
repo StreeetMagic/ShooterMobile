@@ -11,12 +11,12 @@ namespace UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.Flo
         {
             base.OnInspectorGUI();
 
-            if (background != null)
+            if (Background != null)
             {
-                RectTransform backgroundRect = (RectTransform)background.objectReferenceValue;
+                RectTransform backgroundRect = (RectTransform)Background.objectReferenceValue;
                 backgroundRect.anchorMax = Vector2.zero;
                 backgroundRect.anchorMin = Vector2.zero;
-                backgroundRect.pivot = center;
+                backgroundRect.pivot = Center;
             }
         }
     }

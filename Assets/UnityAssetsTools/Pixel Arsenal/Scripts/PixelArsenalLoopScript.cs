@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-namespace PixelArsenal
+namespace UnityAssetsTools.Pixel_Arsenal.Scripts
 {
 public class PixelArsenalLoopScript : MonoBehaviour {
 

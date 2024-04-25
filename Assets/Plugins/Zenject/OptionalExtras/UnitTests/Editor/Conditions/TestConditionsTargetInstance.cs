@@ -1,7 +1,8 @@
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.TestFramework;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Conditions
+namespace Zenject.OptionalExtras.UnitTests.Editor.Conditions
 {
     [TestFixture]
     public class TestConditionsTargetInstance : ZenjectUnitTestFixture

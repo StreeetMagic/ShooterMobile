@@ -1,6 +1,5 @@
-using System;
 using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players._components.Factories;
 using Loggers;
 using UnityEngine;
 using Zenject;
@@ -17,7 +16,6 @@ namespace Gameplay.Characters.Enemies
     private Enemy _enemy;
     private ReturnToSpawnStatus _returnToSpawnStatus;
     private PlayerProvider _playerProvider;
-    private DebugLogger _debugLogger;
     private EnemyToSpawnerDisance _enemyToSpawnerDisance;
 
     [Inject]
@@ -34,7 +32,6 @@ namespace Gameplay.Characters.Enemies
       _enemy = enemy;
       _returnToSpawnStatus = returnToSpawnStatus;
       _playerProvider = playerProvider;
-      _debugLogger = debugLogger;
       _enemyToSpawnerDisance = enemyToSpawnerDisance;
     }
 

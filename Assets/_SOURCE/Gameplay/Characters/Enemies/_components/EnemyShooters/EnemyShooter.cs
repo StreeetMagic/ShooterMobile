@@ -1,7 +1,5 @@
-using Configs.Resources.SoundConfigs;
-using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.Factories;
-using Gameplay.Characters.Players.TargetHolders;
+using Configs.Resources.SoundConfigs.Scripts;
+using Gameplay.Characters.Players._components.Projectiles.Scripts;
 using Infrastructure.AudioServices;
 using UnityEngine;
 
@@ -9,14 +7,12 @@ namespace Gameplay.Characters.Enemies.EnemyShooters
 {
   public class EnemyShooter
   {
-    private readonly PlayerProvider _playerProvider;
     private readonly ProjectileFactory _projectileFactory;
     private readonly AudioService _audioService;
 
-    public EnemyShooter(PlayerProvider playerProvider, ProjectileFactory zenjectFactory,
+    public EnemyShooter(ProjectileFactory zenjectFactory,
       AudioService audioService)
     {
-      _playerProvider = playerProvider;
       _projectileFactory = zenjectFactory;
       _audioService = audioService;
     }

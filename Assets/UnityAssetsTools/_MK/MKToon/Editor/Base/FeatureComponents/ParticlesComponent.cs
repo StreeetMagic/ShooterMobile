@@ -8,15 +8,14 @@
 
 #if UNITY_EDITOR
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
 using System.Linq;
-using System;
-using UnityEditor.Utils;
+using UnityAssetsTools._MK.MKToon.Scripts;
+using UnityEditor;
 using UnityEditorInternal;
-using EditorHelper = MK.Toon.Editor.EditorHelper;
+using UnityEngine;
+using EditorHelper = UnityAssetsTools._MK.MKToon.Editor.Helper.EditorHelper;
 
-namespace MK.Toon.Editor
+namespace UnityAssetsTools._MK.MKToon.Editor.Base.FeatureComponents
 {
     internal sealed class ParticlesComponent : ShaderGUI
     {   

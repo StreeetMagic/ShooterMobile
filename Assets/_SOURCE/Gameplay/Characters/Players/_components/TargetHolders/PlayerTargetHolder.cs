@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using Configs.Resources.EnemyConfigs.Scripts;
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Characters.Enemies.Healths;
+﻿using System.Collections.Generic;
+using Configs.Resources.StatConfigs;
 using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Characters.Players._components.PlayerStatsServices;
-using Gameplay.Characters.Players.Factories;
-using Gameplay.Characters.Players.TargetLocators;
-using Infrastructure.StaticDataServices;
-using Unity.VisualScripting;
+using Gameplay.Characters.Players._components.Factories;
+using Gameplay.Characters.Players._components.PlayerStatsProviders;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Characters.Players.TargetHolders
+namespace Gameplay.Characters.Players._components.TargetHolders
 {
   public class PlayerTargetHolder : MonoBehaviour
   {

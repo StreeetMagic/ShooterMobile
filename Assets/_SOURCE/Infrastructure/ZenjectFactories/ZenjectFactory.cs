@@ -1,7 +1,6 @@
 using Infrastructure.AssetProviders;
-using Maps;
 using UnityEngine;
-using Zenject;
+using Zenject.Source.Main;
 
 namespace Infrastructure.ZenjectFactories
 {

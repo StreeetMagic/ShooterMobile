@@ -7,18 +7,12 @@
 //////////////////////////////////////////////////////
 
 #if UNITY_EDITOR
-using System.Collections.Generic;
-using UnityEngine;
+using UnityAssetsTools._MK.MKToon.Editor.Base;
 using UnityEditor;
-using System.Linq;
-using System;
-using UnityEditor.Utils;
-using UnityEditorInternal;
-using EditorHelper = MK.Toon.Editor.EditorHelper;
 
-namespace MK.Toon.Editor.Legacy
+namespace UnityAssetsTools._MK.MKToon.Editor.Legacy.Standard
 {
-    internal class StandardPBSEditor : MK.Toon.Editor.PhysicallyBasedEditorBase 
+    internal class StandardPBSEditor : PhysicallyBasedEditorBase 
     {
         protected override void DrawReceiveShadows(MaterialEditor materialEditor) {}
     }

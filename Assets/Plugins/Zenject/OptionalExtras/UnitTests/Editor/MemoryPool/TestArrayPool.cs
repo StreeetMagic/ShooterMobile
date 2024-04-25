@@ -1,7 +1,9 @@
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.TestFramework;
+using Zenject.Source.Factories.Pooling.Util;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests
+namespace Zenject.OptionalExtras.UnitTests.Editor.MemoryPool
 {
     [TestFixture]
     public class TestArrayPool : ZenjectUnitTestFixture

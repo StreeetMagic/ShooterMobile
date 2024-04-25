@@ -11,7 +11,7 @@ namespace Infrastructure.SceneLoaders
   {
     private readonly ICoroutineRunner _coroutineRunner;
 
-    public SceneLoader( ICoroutineRunner coroutineRunner)
+    public SceneLoader(ICoroutineRunner coroutineRunner)
     {
       _coroutineRunner = coroutineRunner;
     }
@@ -32,11 +32,15 @@ namespace Infrastructure.SceneLoaders
     private IEnumerator LoadScene(string nextScene, Action<string> onLoaded)
     {
       AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextScene);
-      asyncOperation.allowSceneActivation = true;
 
-      while (asyncOperation.isDone == false)
+      if (asyncOperation != null)
       {
-        yield return null;
+        asyncOperation.allowSceneActivation = true;
+
+        while (asyncOperation.isDone == false)
+        {
+          yield return null;
+        }
       }
 
       onLoaded?.Invoke(nextScene);

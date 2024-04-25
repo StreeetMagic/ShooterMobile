@@ -2,50 +2,53 @@ using System;
 using Quests;
 using UnityEngine;
 
-public class ActivatedSubQuestSlot : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots
 {
-  public SubQuestSlot SubQuestSlot;
-  public GameObject GrayButton;
-  public GameObject GreenButton;
-
-  private void Start()
+  public class ActivatedSubQuestSlot : MonoBehaviour
   {
-    SetupButtons(SubQuestSlot.SubQuest.State.Value);
+    public SubQuestSlot SubQuestSlot;
+    public GameObject GrayButton;
+    public GameObject GreenButton;
 
-    SubQuestSlot.SubQuest.State.ValueChanged += SetupButtons;
-  }
-
-  private void OnDestroy()
-  {
-    SubQuestSlot.SubQuest.State.ValueChanged -= SetupButtons;
-  }
-
-  private void SetupButtons(QuestState stateValue)
-  {
-    switch (stateValue)
+    private void Start()
     {
-      case QuestState.Unknown:
-        throw new ArgumentOutOfRangeException(nameof(SubQuestSlot.SubQuest.State));
+      SetupButtons(SubQuestSlot.SubQuest.State.Value);
 
-      case QuestState.UnActivated:
-        GrayButton.SetActive(false);
-        GreenButton.SetActive(false);
-        break;
+      SubQuestSlot.SubQuest.State.ValueChanged += SetupButtons;
+    }
 
-      case QuestState.Activated:
-        GrayButton.SetActive(true);
-        GreenButton.SetActive(false);
-        break;
+    private void OnDestroy()
+    {
+      SubQuestSlot.SubQuest.State.ValueChanged -= SetupButtons;
+    }
 
-      case QuestState.RewardReady:
-        GrayButton.SetActive(false);
-        GreenButton.SetActive(true);
-        break;
+    private void SetupButtons(QuestState stateValue)
+    {
+      switch (stateValue)
+      {
+        case QuestState.Unknown:
+          throw new ArgumentOutOfRangeException(nameof(SubQuestSlot.SubQuest.State));
 
-      case QuestState.RewardTaken:
-        GrayButton.SetActive(false);
-        GreenButton.SetActive(false);
-        break;
+        case QuestState.UnActivated:
+          GrayButton.SetActive(false);
+          GreenButton.SetActive(false);
+          break;
+
+        case QuestState.Activated:
+          GrayButton.SetActive(true);
+          GreenButton.SetActive(false);
+          break;
+
+        case QuestState.RewardReady:
+          GrayButton.SetActive(false);
+          GreenButton.SetActive(true);
+          break;
+
+        case QuestState.RewardTaken:
+          GrayButton.SetActive(false);
+          GreenButton.SetActive(false);
+          break;
+      }
     }
   }
 }

@@ -1,41 +1,42 @@
-using Cameras;
-using Cinemachine;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players._components.Factories;
 using UnityEngine;
 using Zenject;
 
-public class CameraHeightController : MonoBehaviour
+namespace Cameras
 {
-  private PlayerProvider _playerProvider;
-  private CameraProvider _cameraProvider;
-
-  [Inject]
-  private void Construct(PlayerProvider playerProvider, CameraProvider cameraProvider)
+  public class CameraHeightController : MonoBehaviour
   {
-    _playerProvider = playerProvider;
-    _cameraProvider = cameraProvider;
-  }
+    private PlayerProvider _playerProvider;
+    private CameraProvider _cameraProvider;
 
-  private void Update()
-  {
-    if (_playerProvider.PlayerInputHandler == null)
-      return;
+    [Inject]
+    private void Construct(PlayerProvider playerProvider, CameraProvider cameraProvider)
+    {
+      _playerProvider = playerProvider;
+      _cameraProvider = cameraProvider;
+    }
 
-    if (_playerProvider.PlayerInputHandler.IsMoving)
-      RaiseCamera();
-    else
-      DownCamera();
-  }
+    private void Update()
+    {
+      if (_playerProvider.PlayerInputHandler == null)
+        return;
 
-  private void RaiseCamera()
-  {
-    _cameraProvider.TopCamera.VirtualCamera.Priority = 11;
-    _cameraProvider.BotCamera.VirtualCamera.Priority = 10;
-  }
+      if (_playerProvider.PlayerInputHandler.IsMoving)
+        RaiseCamera();
+      else
+        DownCamera();
+    }
 
-  private void DownCamera()
-  {
-    _cameraProvider.TopCamera.VirtualCamera.Priority = 10;
-    _cameraProvider.BotCamera.VirtualCamera.Priority = 11;
+    private void RaiseCamera()
+    {
+      _cameraProvider.TopCamera.VirtualCamera.Priority = 11;
+      _cameraProvider.BotCamera.VirtualCamera.Priority = 10;
+    }
+
+    private void DownCamera()
+    {
+      _cameraProvider.TopCamera.VirtualCamera.Priority = 10;
+      _cameraProvider.BotCamera.VirtualCamera.Priority = 11;
+    }
   }
 }

@@ -1,8 +1,9 @@
-using UnityEngine;
 using UnityEditor;
-using Zenject;
+using UnityEngine;
+using Zenject.OptionalExtras.MemoryPoolMonitor.Editor.DebugWindow;
+using Zenject.Source.Install;
 
-namespace Zenject.MemoryPoolMonitor
+namespace Zenject.OptionalExtras.MemoryPoolMonitor.Editor
 {
     [CreateAssetMenu(fileName = "MpmSettingsInstaller", menuName = "Installers/MpmSettingsInstaller")]
     public class MpmSettingsInstaller : ScriptableObjectInstaller<MpmSettingsInstaller>

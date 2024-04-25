@@ -6,7 +6,7 @@
 // Copyright © 2021 All rights reserved.            //
 //////////////////////////////////////////////////////
 
-namespace MK.Toon
+namespace UnityAssetsTools._MK.MKToon.Scripts
 {
     public static class Properties
     {

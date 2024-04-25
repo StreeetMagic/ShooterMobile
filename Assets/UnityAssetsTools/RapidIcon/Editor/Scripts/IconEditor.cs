@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.IO;
 using UnityEditor;
 using UnityEditorInternal;
-using System.IO;
-using System.Linq;
-using JetBrains.Annotations;
-using System.Reflection;
-using System.Security.Permissions;
-using TMPro.SpriteAssetUtilities;
+using UnityEngine;
 
-namespace RapidIconUIC
+namespace UnityAssetsTools.RapidIcon.Editor.Scripts
 {
 	[Serializable]
 	public class IconEditor
@@ -81,7 +75,7 @@ namespace RapidIconUIC
 			linkScale = true;
 			replaceAll = false;
 			mat = new Material(Shader.Find("RapidIcon/ImgShader"));
-			materialEditor = (MaterialEditor)Editor.CreateEditor(mat);
+			materialEditor = (MaterialEditor)UnityEditor.Editor.CreateEditor(mat);
 
 			List<Material> blankList = new List<Material>();
 			reorderableList = new ReorderableList(blankList, typeof(Material), true, true, true, true);
@@ -726,9 +720,9 @@ namespace RapidIconUIC
 
 				if (tab == 4 || tab == -1)
 				{
-					Editor.DestroyImmediate(materialEditor);
+					UnityEditor.Editor.DestroyImmediate(materialEditor);
 					if (reorderableList.list != null && reorderableList.list.Count > 0)
-						materialEditor = (MaterialEditor)Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
+						materialEditor = (MaterialEditor)UnityEditor.Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
 				}
 
 				EditorUtility.ClearProgressBar();
@@ -780,7 +774,7 @@ namespace RapidIconUIC
 			if (tab == 4 || tab == -1)
 			{
 				foreach (Material mat in to.postProcessingMaterials)
-					Editor.DestroyImmediate(mat);
+					UnityEditor.Editor.DestroyImmediate(mat);
 
 				to.postProcessingMaterials.Clear();
 
@@ -1266,8 +1260,8 @@ namespace RapidIconUIC
 					UpdateIcon(currentIcon);
 					reorderableList.list = currentIcon.postProcessingMaterials;
 					reorderableList.index = 0;
-					Editor.DestroyImmediate(materialEditor);
-					materialEditor = (MaterialEditor)Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
+					UnityEditor.Editor.DestroyImmediate(materialEditor);
+					materialEditor = (MaterialEditor)UnityEditor.Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
 				}
 			}
 		}
@@ -1307,16 +1301,16 @@ namespace RapidIconUIC
 				if (EditorGUI.EndChangeCheck())
 				{
 					updateFlag = true;
-					Editor.DestroyImmediate(materialEditor);
-					materialEditor = (MaterialEditor)Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
+					UnityEditor.Editor.DestroyImmediate(materialEditor);
+					materialEditor = (MaterialEditor)UnityEditor.Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
 				}
 			}
 		}
 
 		void SelectShader(ReorderableList l)
 		{
-			Editor.DestroyImmediate(materialEditor);
-			materialEditor = (MaterialEditor)Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
+			UnityEditor.Editor.DestroyImmediate(materialEditor);
+			materialEditor = (MaterialEditor)UnityEditor.Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
 		}
 
 		void AddShader(ReorderableList l)
@@ -1331,8 +1325,8 @@ namespace RapidIconUIC
 			currentIcon.materialDisplayNames.Add(m, "Shader " + l.list.Count);
 			currentIcon.materialToggles.Add(m, true);
 
-			Editor.DestroyImmediate(materialEditor);
-			materialEditor = (MaterialEditor)Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
+			UnityEditor.Editor.DestroyImmediate(materialEditor);
+			materialEditor = (MaterialEditor)UnityEditor.Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
 
 			currentIcon.saveData = true;
 			updateFlag = true;
@@ -1344,9 +1338,9 @@ namespace RapidIconUIC
 			l.list.Remove(l.list[l.index]);
 			l.index = (int)Mathf.Clamp(l.index, 0, l.list.Count - 1);
 
-			Editor.DestroyImmediate(materialEditor);
+			UnityEditor.Editor.DestroyImmediate(materialEditor);
 			if(l.list.Count > 0)
-				materialEditor = (MaterialEditor)Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
+				materialEditor = (MaterialEditor)UnityEditor.Editor.CreateEditor((UnityEngine.Object)reorderableList.list[reorderableList.index]);
 
 			currentIcon.saveData = true;
 			updateFlag = true;

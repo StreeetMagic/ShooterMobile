@@ -1,34 +1,36 @@
-using DataRepositories.Quests;
-using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players._components.Factories;
+using Gameplay.Characters.Questers;
 using Maps;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class QuestDistanceText : MonoBehaviour
+namespace Gameplay.Characters.Players._components.ActorUserIntefaces.QuestPointers
 {
-  public TextMeshProUGUI Text;
-
-  private PlayerProvider _playerProvider;
-  private MapProvider _mapProvider;
-
-  [Inject]
-  private void Construct(PlayerProvider playerProvider, MapProvider mapProvider)
+  public class QuestDistanceText : MonoBehaviour
   {
-    _playerProvider = playerProvider;
-    _mapProvider = mapProvider;
-  }
+    public TextMeshProUGUI Text;
 
-  private void Update()
-  {
-    Quester quester = _mapProvider.Map.Questers[0];
-    Player player = _playerProvider.Player;
+    private PlayerProvider _playerProvider;
+    private MapProvider _mapProvider;
 
-    float distance = Vector3.Distance(quester.transform.position, player.transform.position);
+    [Inject]
+    private void Construct(PlayerProvider playerProvider, MapProvider mapProvider)
+    {
+      _playerProvider = playerProvider;
+      _mapProvider = mapProvider;
+    }
 
-    int distanceInt = (int)distance;
+    private void Update()
+    {
+      Quester quester = _mapProvider.Map.Questers[0];
+      Player player = _playerProvider.Player;
 
-    Text.text = distanceInt + " m";
+      float distance = Vector3.Distance(quester.transform.position, player.transform.position);
+
+      int distanceInt = (int)distance;
+
+      Text.text = distanceInt + " m";
+    }
   }
 }

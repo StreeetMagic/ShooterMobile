@@ -1,8 +1,9 @@
 using System;
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.Source.Main;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Other
+namespace Zenject.OptionalExtras.UnitTests.Editor.Other
 {
     [TestFixture]
     public class TestDecoratorValidation

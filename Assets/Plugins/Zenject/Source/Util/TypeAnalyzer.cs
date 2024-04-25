@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using ModestTree;
-using Zenject.Internal;
+using Zenject.Source.Install;
+using Zenject.Source.Install.Contexts;
+using Zenject.Source.Internal;
+using Zenject.Source.Validation;
 
-namespace Zenject
+namespace Zenject.Source.Util
 {
     public delegate InjectTypeInfo ZenTypeInfoGetter();
 

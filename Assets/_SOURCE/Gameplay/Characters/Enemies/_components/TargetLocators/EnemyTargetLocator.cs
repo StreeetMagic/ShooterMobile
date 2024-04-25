@@ -1,9 +1,6 @@
 using System;
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players._components.PlayerStatsServices;
-using Gameplay.Upgrades;
+using Infrastructure.Upgrades;
 using UnityEngine;
 using Zenject;
 

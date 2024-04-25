@@ -1,24 +1,27 @@
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players._components.Factories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using Zenject;
 
-public class OpenQuestButtonEnabler : MonoBehaviour
+namespace Gameplay.Characters.Questers._components
 {
-  private PlayerProvider _playerProvider;
-  private HeadsUpDisplayProvider _headsUpDisplayProvider;
-
-  [Inject]
-  private void Construct(PlayerProvider playerProvider, HeadsUpDisplayProvider headsUpDisplayProvider)
+  public class OpenQuestButtonEnabler : MonoBehaviour
   {
-    _playerProvider = playerProvider;
-    _headsUpDisplayProvider = headsUpDisplayProvider;
-  }
+    private PlayerProvider _playerProvider;
+    private HeadsUpDisplayProvider _headsUpDisplayProvider;
 
-  private void Update()
-  {
-    float distance = Vector3.Distance(transform.position, _playerProvider.Player.transform.position);
+    [Inject]
+    private void Construct(PlayerProvider playerProvider, HeadsUpDisplayProvider headsUpDisplayProvider)
+    {
+      _playerProvider = playerProvider;
+      _headsUpDisplayProvider = headsUpDisplayProvider;
+    }
 
-    _headsUpDisplayProvider.HeadsUpDisplay.OpenQuestButton.gameObject.SetActive(distance < 3);
+    private void Update()
+    {
+      float distance = Vector3.Distance(transform.position, _playerProvider.Player.transform.position);
+
+      _headsUpDisplayProvider.HeadsUpDisplay.OpenQuestButton.gameObject.SetActive(distance < 3);
+    }
   }
 }

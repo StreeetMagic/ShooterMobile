@@ -1,12 +1,11 @@
 using System;
+using Configs.Resources.LootConfigs;
 
-namespace Infrastructure.DataRepositories
+namespace DataRepositories.BackpackStorages
 {
   [Serializable]
   public class BackpackSlot
   {
-    
-
     private LootConfig _lootConfig;
   }
 }

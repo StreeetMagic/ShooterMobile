@@ -1,6 +1,6 @@
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Upgrades;
-using Infrastructure.DataRepositories;
+using Configs.Resources.StatConfigs;
+using DataRepositories;
+using Infrastructure.Upgrades;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

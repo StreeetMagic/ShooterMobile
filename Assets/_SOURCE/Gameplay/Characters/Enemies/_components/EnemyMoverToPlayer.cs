@@ -1,8 +1,5 @@
-using System;
 using Gameplay.Characters.Enemies.Animators;
-using Gameplay.Characters.Enemies.Movers;
-using Gameplay.Characters.Players.Factories;
-using Loggers;
+using Gameplay.Characters.Players._components.Factories;
 using UnityEngine;
 using Zenject;
 

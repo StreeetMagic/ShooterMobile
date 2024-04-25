@@ -1,9 +1,8 @@
 using UnityEngine;
 
-namespace DataRepositories.Quests
+namespace Gameplay.Characters.Questers
 {
   public class Quester : MonoBehaviour
   {
-    
   }
 }

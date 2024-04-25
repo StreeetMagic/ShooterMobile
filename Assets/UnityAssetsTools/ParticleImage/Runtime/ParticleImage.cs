@@ -1,16 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
-using AssetKits.ParticleImage.Enumerations;
-using UnityEngine.Serialization;
-using PlayMode = AssetKits.ParticleImage.Enumerations.PlayMode;
 
-namespace AssetKits.ParticleImage
+namespace UnityAssetsTools.ParticleImage.Runtime
 {
     [AddComponentMenu("UI/Particle Image/Particle Image")]
     [RequireComponent(typeof(CanvasRenderer))]
@@ -1875,10 +1872,7 @@ namespace AssetKits.ParticleImage
             return v;
         }
     }
-}
 
-namespace AssetKits.ParticleImage.Enumerations
-{
     public enum EmitterShape
     {
         Point, Circle, Rectangle, Line, Directional

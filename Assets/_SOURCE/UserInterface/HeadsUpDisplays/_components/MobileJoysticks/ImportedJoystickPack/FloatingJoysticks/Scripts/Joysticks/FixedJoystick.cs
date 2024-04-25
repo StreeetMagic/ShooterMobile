@@ -4,6 +4,5 @@ namespace UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.Flo
 {
   public class FixedJoystick : Joystick
   {
-
   }
 }

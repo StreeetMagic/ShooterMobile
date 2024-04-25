@@ -3,11 +3,14 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using ModestTree;
 using UnityEngine;
-using Zenject.Internal;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
+using Zenject.Source.Runtime;
+using Zenject.Source.Runtime.Kernels;
+using Zenject.Source.Util;
 
-namespace Zenject
+namespace Zenject.Source.Install.Contexts
 {
     public class ProjectContext : Context
     {

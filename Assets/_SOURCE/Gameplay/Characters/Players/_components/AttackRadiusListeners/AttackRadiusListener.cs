@@ -1,43 +1,41 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Characters.Players._components.PlayerStatsServices;
-using Gameplay.Upgrades;
+using Configs.Resources.StatConfigs;
+using Gameplay.Characters.Players._components.PlayerStatsProviders;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
-public class AttackRadiusListener : MonoBehaviour
+namespace Gameplay.Characters.Players._components.AttackRadiusListeners
 {
-  private PlayerStatsProvider _playerStatsProvider;
-  private RectTransform _rectTransform;
-
-  [Inject]
-  public void Construct(PlayerStatsProvider playerStatsProvider)
-
+  public class AttackRadiusListener : MonoBehaviour
   {
-    _playerStatsProvider = playerStatsProvider;
-    _rectTransform = GetComponent<RectTransform>();
-  }
+    private PlayerStatsProvider _playerStatsProvider;
+    private RectTransform _rectTransform;
 
-  private void OnEnable()
-  {
-    int fireRangeValue = _playerStatsProvider.GetStat(StatId.FireRange).Value;
+    [Inject]
+    public void Construct(PlayerStatsProvider playerStatsProvider)
 
-    OnUpgradeChanged(fireRangeValue);
-    _playerStatsProvider.GetStat(StatId.FireRange).ValueChanged += OnUpgradeChanged;
-  }
+    {
+      _playerStatsProvider = playerStatsProvider;
+      _rectTransform = GetComponent<RectTransform>();
+    }
 
-  private void OnDisable()
-  {
-    _playerStatsProvider.GetStat(StatId.FireRange).ValueChanged -= OnUpgradeChanged;
-  }
+    private void OnEnable()
+    {
+      int fireRangeValue = _playerStatsProvider.GetStat(StatId.FireRange).Value;
 
-  private void OnUpgradeChanged(int value)
-  {
-    var radius = value * 2;
+      OnUpgradeChanged(fireRangeValue);
+      _playerStatsProvider.GetStat(StatId.FireRange).ValueChanged += OnUpgradeChanged;
+    }
 
-    _rectTransform.localScale = new Vector3(radius, radius, radius);
+    private void OnDisable()
+    {
+      _playerStatsProvider.GetStat(StatId.FireRange).ValueChanged -= OnUpgradeChanged;
+    }
+
+    private void OnUpgradeChanged(int value)
+    {
+      var radius = value * 2;
+
+      _rectTransform.localScale = new Vector3(radius, radius, radius);
+    }
   }
 }

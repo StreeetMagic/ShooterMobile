@@ -1,53 +1,56 @@
+using DataRepositories.BackpackStorages;
 using Gameplay.BaseTriggers;
-using Infrastructure.DataRepositories;
 using Maps;
 using UnityEngine;
 using Zenject;
 
-public class BasePointer : MonoBehaviour
+namespace Gameplay.Characters.Players._components.ActorUserIntefaces.BasePointers
 {
-  public GameObject Pointer;
-
-  private MapProvider _mapProvider;
-  private BackpackStorage _backpackStorage;
-
-  [Inject]
-  public void Construct(MapProvider mapProvider, BackpackStorage backpackStorage)
+  public class BasePointer : MonoBehaviour
   {
-    _mapProvider = mapProvider;
-    _backpackStorage = backpackStorage;
-  }
+    public GameObject Pointer;
 
-  private BaseTrigger BaseTrigger => _mapProvider.Map.BaseTrigger;
+    private MapProvider _mapProvider;
+    private BackpackStorage _backpackStorage;
 
-  private void LateUpdate()
-  {
-    RotateToBase();
-
-    Hide();
-  }
-
-  private void RotateToBase()
-  {
-    transform.rotation = Quaternion.LookRotation(transform.position - BaseTrigger.transform.position);
-
-    Quaternion cachedRotation = transform.rotation;
-
-    transform.rotation = new Quaternion(0, cachedRotation.y, 0, cachedRotation.w);
-  }
-
-  private void Hide()
-  {
-    if (_backpackStorage.IsFull == false)
+    [Inject]
+    public void Construct(MapProvider mapProvider, BackpackStorage backpackStorage)
     {
-      Pointer.gameObject.SetActive(false);
-      return;
+      _mapProvider = mapProvider;
+      _backpackStorage = backpackStorage;
     }
 
-    const float MinDistance = 5;
+    private BaseTrigger BaseTrigger => _mapProvider.Map.BaseTrigger;
 
-    var distance = Vector3.Distance(transform.position, BaseTrigger.transform.position);
+    private void LateUpdate()
+    {
+      RotateToBase();
 
-    Pointer.gameObject.SetActive(!(distance < MinDistance));
+      Hide();
+    }
+
+    private void RotateToBase()
+    {
+      transform.rotation = Quaternion.LookRotation(transform.position - BaseTrigger.transform.position);
+
+      Quaternion cachedRotation = transform.rotation;
+
+      transform.rotation = new Quaternion(0, cachedRotation.y, 0, cachedRotation.w);
+    }
+
+    private void Hide()
+    {
+      if (_backpackStorage.IsFull == false)
+      {
+        Pointer.gameObject.SetActive(false);
+        return;
+      }
+
+      const float MinDistance = 5;
+
+      var distance = Vector3.Distance(transform.position, BaseTrigger.transform.position);
+
+      Pointer.gameObject.SetActive(!(distance < MinDistance));
+    }
   }
 }

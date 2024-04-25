@@ -1,12 +1,12 @@
-﻿using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.InputHandlers;
-using Gameplay.Characters.Players.Movers;
-using Gameplay.Characters.Players.Rotators;
-using Gameplay.Characters.Players.Shooters;
-using Gameplay.Characters.Players.TargetHolders;
-using Gameplay.Characters.Players.TargetLocators;
+﻿using Gameplay.Characters.Players._components.Animators;
+using Gameplay.Characters.Players._components.InputHandlers;
+using Gameplay.Characters.Players._components.Movers;
+using Gameplay.Characters.Players._components.Rotators;
+using Gameplay.Characters.Players._components.Shooters;
+using Gameplay.Characters.Players._components.TargetHolders;
+using Gameplay.Characters.Players._components.TargetLocators;
 
-namespace Gameplay.Characters.Players.Factories
+namespace Gameplay.Characters.Players._components.Factories
 {
   public class PlayerProvider
   {

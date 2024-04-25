@@ -1,6 +1,4 @@
-using System;
-using Gameplay.Characters.Players.Factories;
-using Infrastructure.DataRepositories;
+using DataRepositories.BackpackStorages;
 using UnityEngine;
 using Zenject;
 

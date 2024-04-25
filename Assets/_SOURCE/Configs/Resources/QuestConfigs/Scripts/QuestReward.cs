@@ -1,7 +1,6 @@
 using System;
-using Configs.Resources.UpgradeConfigs.Scripts;
 
-namespace Configs.Resources.QuestConfigs
+namespace Configs.Resources.QuestConfigs.Scripts
 {
   [Serializable]
   public class QuestReward

@@ -1,6 +1,6 @@
 using System;
 
-namespace Zenject
+namespace Zenject.Source.Validation
 {
     [NoReflectionBaking]
     public class ValidationMarker

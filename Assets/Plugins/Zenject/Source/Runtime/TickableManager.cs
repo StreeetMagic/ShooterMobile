@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModestTree;
-using ModestTree.Util;
+using Zenject.Source.Internal;
 #if ZEN_SIGNALS_ADD_UNIRX
 using UniRx;
 #endif
 
-namespace Zenject
+namespace Zenject.Source.Runtime
 {
     public class TickableManager
     {

@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using ModestTree;
+using Zenject.Source.Injection;
+using Zenject.Source.Internal;
 
-namespace Zenject
+namespace Zenject.Source.Providers
 {
     [NoReflectionBaking]
     public class CachedProvider : IProvider

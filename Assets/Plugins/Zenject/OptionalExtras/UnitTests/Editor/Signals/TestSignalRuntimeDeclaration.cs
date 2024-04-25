@@ -1,8 +1,9 @@
-using System;
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.Signals.Main;
+using Zenject.OptionalExtras.TestFramework;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Signals
+namespace Zenject.OptionalExtras.UnitTests.Editor.Signals
 {
     public class FooSignal
     {

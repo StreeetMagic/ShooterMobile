@@ -1,7 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Zenject.Source.Binding.BindInfo;
+using Zenject.Source.Factories.Pooling.Static;
+using Zenject.Source.Factories.Pooling.Util;
+using Zenject.Source.Injection;
+using Zenject.Source.Main;
+using Zenject.Source.Providers;
 
-namespace Zenject.Internal
+namespace Zenject.Source.Util
 {
     public static class ZenPools
     {

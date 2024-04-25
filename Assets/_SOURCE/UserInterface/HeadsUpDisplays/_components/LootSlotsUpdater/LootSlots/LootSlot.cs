@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LootSlot : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.LootSlotsUpdater.LootSlots
 {
-  public Image Image;
-  public TextMeshProUGUI Text;
-
-  public void Init(Sprite icon, int lootValue)
+  public class LootSlot : MonoBehaviour
   {
-    Image.sprite = icon;
-    Text.text = lootValue.ToString();
+    public Image Image;
+    public TextMeshProUGUI Text;
+
+    public void Init(Sprite icon, int lootValue)
+    {
+      Image.sprite = icon;
+      Text.text = lootValue.ToString();
+    }
   }
 }

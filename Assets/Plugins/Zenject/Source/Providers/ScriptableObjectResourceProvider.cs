@@ -3,11 +3,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModestTree;
 using UnityEngine;
-using Zenject.Internal;
+using Zenject.Source.Injection;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
+using Zenject.Source.Util;
 
-namespace Zenject
+namespace Zenject.Source.Providers
 {
     [NoReflectionBaking]
     public class ScriptableObjectResourceProvider : IProvider

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SciFiArsenal
+namespace UnityAssetsTools.Pixel_Arsenal.Demo.Scripts
 {
 
 public class PixelArsenalSceneSelect : MonoBehaviour

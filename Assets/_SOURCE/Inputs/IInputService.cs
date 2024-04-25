@@ -40,8 +40,8 @@ namespace Inputs
       _openQuestWindow = controls.Debug.OpenQuestWindow;
       _openQuestWindow.Enable();
       _openQuestWindow.performed += _ => OpenQuestWindow?.Invoke();
-      
-      _addExpierience = controls.Debug.AddExpirience ;
+
+      _addExpierience = controls.Debug.AddExpirience;
       _addExpierience.Enable();
       _addExpierience.performed += _ => AddExpierience?.Invoke();
     }

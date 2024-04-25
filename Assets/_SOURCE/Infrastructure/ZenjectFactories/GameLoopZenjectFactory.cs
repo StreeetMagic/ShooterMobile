@@ -1,5 +1,5 @@
 using Infrastructure.AssetProviders;
-using Zenject;
+using Zenject.Source.Main;
 
 namespace Infrastructure.ZenjectFactories
 {

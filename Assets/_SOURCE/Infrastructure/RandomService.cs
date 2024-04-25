@@ -1,6 +1,6 @@
 using System;
 
-namespace Gameplay.Characters.Enemies.Spawners
+namespace Infrastructure
 {
   public class RandomService
   {

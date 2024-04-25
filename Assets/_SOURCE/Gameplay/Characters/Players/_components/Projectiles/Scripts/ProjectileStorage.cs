@@ -1,33 +1,35 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Players.Shooters.Projectiles;
 using UnityEngine;
 
-public class ProjectileStorage
+namespace Gameplay.Characters.Players._components.Projectiles.Scripts
 {
-  private Dictionary<string, PlayerProjectile> _projectiles = new();
-
-  public void Add(string guid, PlayerProjectile playerProjectile)
+  public class ProjectileStorage
   {
-    _projectiles.Add(guid, playerProjectile);
-  }
+    private Dictionary<string, PlayerProjectile> _projectiles = new();
 
-  public void Remove(string guid)
-  {
-    if (!_projectiles.ContainsKey(guid))
+    public void Add(string guid, PlayerProjectile playerProjectile)
     {
-      Debug.LogError($"Projectile with guid {guid} not found");
-      return;
+      _projectiles.Add(guid, playerProjectile);
     }
 
-    _projectiles.Remove(guid);
-  }
+    public void Remove(string guid)
+    {
+      if (!_projectiles.ContainsKey(guid))
+      {
+        Debug.LogError($"Projectile with guid {guid} not found");
+        return;
+      }
 
-  public PlayerProjectile Get(string guid)
-  {
-    if (_projectiles.TryGetValue(guid, out PlayerProjectile projectile))
-      return projectile;
+      _projectiles.Remove(guid);
+    }
 
-    Debug.LogError($"Projectile with guid {guid} not found");
-    return null;
+    public PlayerProjectile Get(string guid)
+    {
+      if (_projectiles.TryGetValue(guid, out PlayerProjectile projectile))
+        return projectile;
+
+      Debug.LogError($"Projectile with guid {guid} not found");
+      return null;
+    }
   }
 }

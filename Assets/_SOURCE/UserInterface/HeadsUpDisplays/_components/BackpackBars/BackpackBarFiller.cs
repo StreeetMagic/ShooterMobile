@@ -1,36 +1,37 @@
-using System;
-using System.Collections.Generic;
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Characters.Players._components.PlayerStatsServices;
-using Infrastructure.DataRepositories;
+using Configs.Resources.StatConfigs;
+using DataRepositories.BackpackStorages;
+using Gameplay.Characters.Players._components.PlayerStatsProviders;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class BackpackBarFiller : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.BackpackBars
 {
-  public Slider Slider;
-  public float SliderUpdateSpeed;
-
-  private PlayerStatsProvider _playerStatsProvider;
-  private BackpackStorage _backpackStorage;
-
-  [Inject]
-  private void Construct(PlayerStatsProvider playerStatsProvider, BackpackStorage backpackStorage)
+  public class BackpackBarFiller : MonoBehaviour
   {
-    _playerStatsProvider = playerStatsProvider;
-    _backpackStorage = backpackStorage;
-  }
+    public Slider Slider;
+    public float SliderUpdateSpeed;
 
-  private void Update()
-  {
-    UpdateSlider();
-  }
+    private PlayerStatsProvider _playerStatsProvider;
+    private BackpackStorage _backpackStorage;
 
-  private void UpdateSlider()
-  {
-    float max = _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
-    float current = _backpackStorage.Volume;
-    Slider.value = Mathf.MoveTowards(Slider.value, current / max, Time.deltaTime * SliderUpdateSpeed);
+    [Inject]
+    private void Construct(PlayerStatsProvider playerStatsProvider, BackpackStorage backpackStorage)
+    {
+      _playerStatsProvider = playerStatsProvider;
+      _backpackStorage = backpackStorage;
+    }
+
+    private void Update()
+    {
+      UpdateSlider();
+    }
+
+    private void UpdateSlider()
+    {
+      float max = _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
+      float current = _backpackStorage.Volume;
+      Slider.value = Mathf.MoveTowards(Slider.value, current / max, Time.deltaTime * SliderUpdateSpeed);
+    }
   }
 }

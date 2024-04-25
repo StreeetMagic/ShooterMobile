@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Zenject.Tests.Convention
+namespace Zenject.OptionalExtras.UnitTests.Editor.Conventions
 {
     public class ConventionTestAttribute : Attribute
     {

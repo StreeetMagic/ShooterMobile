@@ -2,13 +2,16 @@ using Quests;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CompleteImage : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components
 {
-  public SubQuestSlot SubQuestSlot;
-  public Image Image;
-
-  private void Update()
+  public class CompleteImage : MonoBehaviour
   {
-    Image.enabled = SubQuestSlot.SubQuest.State.Value == QuestState.RewardTaken;
+    public SubQuestSlot SubQuestSlot;
+    public Image Image;
+
+    private void Update()
+    {
+      Image.enabled = SubQuestSlot.SubQuest.State.Value == QuestState.RewardTaken;
+    }
   }
 }

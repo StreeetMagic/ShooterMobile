@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ModestTree;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
+using Zenject.Source.Runtime;
 
-namespace Zenject
+namespace Zenject.Source.Editor
 {
     // Responsibilities:
     // - Output a file specifying the full object graph for a given root dependency

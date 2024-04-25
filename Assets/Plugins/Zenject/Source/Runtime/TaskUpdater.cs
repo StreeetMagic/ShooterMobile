@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using ModestTree;
+using Zenject.Source.Internal;
+using Zenject.Source.Util;
 
-namespace Zenject
+namespace Zenject.Source.Runtime
 {
     // Update tasks once per frame based on a priority
     [DebuggerStepThrough]

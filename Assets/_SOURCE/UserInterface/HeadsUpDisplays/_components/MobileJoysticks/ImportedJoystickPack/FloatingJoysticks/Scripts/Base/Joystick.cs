@@ -15,14 +15,14 @@ namespace UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.Flo
   public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
   {
     [SerializeField] private float handleRange = 1;
-    [SerializeField] private float deadZone = 0;
+    [SerializeField] private float deadZone;
     [SerializeField] private AxisOptions axisOptions = AxisOptions.Both;
-    [SerializeField] private bool snapX = false;
-    [SerializeField] private bool snapY = false;
-    [SerializeField] protected RectTransform background = null;
-    [SerializeField] private RectTransform handle = null;
+    [SerializeField] private bool snapX;
+    [SerializeField] private bool snapY;
+    [SerializeField] protected RectTransform background;
+    [SerializeField] private RectTransform handle;
 
-    private RectTransform baseRect = null;
+    private RectTransform _baseRect;
     private Canvas _canvas;
     private Camera _cam;
     private Vector2 _input = Vector2.zero;
@@ -64,7 +64,6 @@ namespace UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.Flo
 
     public AxisOptions AxisOptions
     {
-      get => AxisOptions;
       set => axisOptions = value;
     }
 
@@ -90,7 +89,7 @@ namespace UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.Flo
     {
       HandleRange = handleRange;
       DeadZone = deadZone;
-      baseRect = GetComponent<RectTransform>();
+      _baseRect = GetComponent<RectTransform>();
       _canvas = GetComponentInParent<Canvas>();
 
       if (_canvas == null)
@@ -181,12 +180,10 @@ namespace UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.Flo
 
     protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
     {
-      Vector2 localPoint = Vector2.zero;
-
-      if (RectTransformUtility.ScreenPointToLocalPointInRectangle(baseRect, screenPosition, _cam, out localPoint))
+      if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_baseRect, screenPosition, _cam, out Vector2 localPoint))
       {
-        Vector2 pivotOffset = baseRect.pivot * baseRect.sizeDelta;
-        return localPoint - (background.anchorMax * baseRect.sizeDelta) + pivotOffset;
+        Vector2 pivotOffset = _baseRect.pivot * _baseRect.sizeDelta;
+        return localPoint - (background.anchorMax * _baseRect.sizeDelta) + pivotOffset;
       }
 
       return Vector2.zero;

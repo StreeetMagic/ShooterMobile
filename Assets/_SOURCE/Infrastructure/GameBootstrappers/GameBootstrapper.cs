@@ -1,5 +1,4 @@
-﻿using Infrastructure.Games;
-using Infrastructure.StateMachines;
+﻿using Infrastructure.StateMachines;
 using Infrastructure.StateMachines.GameStateMachines.States;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;

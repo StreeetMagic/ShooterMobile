@@ -1,4 +1,4 @@
-namespace Gameplay.Currencies
+namespace Configs.Resources.CurrencyConfigs
 {
   public enum CurrencyId
   {

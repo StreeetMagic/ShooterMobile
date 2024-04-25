@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Icon : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
 {
-    public Image Image;
-    
-    public void SetIcon(Sprite icon)
+    public class Icon : MonoBehaviour
     {
-        Image.sprite = icon;
+        public Image Image;
+    
+        public void SetIcon(Sprite icon)
+        {
+            Image.sprite = icon;
+        }
     }
 }

@@ -1,56 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
-using Configs.Resources.UpgradeConfigs.Scripts;
 using Configs.Resources.VisualEffectConfigs;
-using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players._components.PlayerStatsServices;
+using Gameplay.Characters.Players._components.PlayerStatsProviders;
+using Gameplay.Characters.Players._components.Projectiles._components.Raycasters;
+using Infrastructure;
 using UnityEngine;
 using Zenject;
 
-public class EnemyProjectile : MonoBehaviour
+namespace Gameplay.Characters.Enemies.EnemyShooters.Projectiles
 {
-  public CollisionPointRayCaster CollisionPointRayCaster;
-
-  private VisualEffectFactory _visualEffectFactory;
-  private PlayerStatsProvider _playerStatsProvider;
-  private int _count;
-
-  [Inject]
-  private void Construct(VisualEffectFactory visualEffectFactory, PlayerStatsProvider playerStatsProvider)
+  public class EnemyProjectile : MonoBehaviour
   {
-    _visualEffectFactory = visualEffectFactory;
-    _playerStatsProvider = playerStatsProvider;
-  }
+    public CollisionPointRayCaster CollisionPointRayCaster;
 
-  public string Guid { get; set; }
+    private VisualEffectFactory _visualEffectFactory;
+    private int _count;
 
-  private void OnTriggerEnter(Collider otherCollider)
-  {
-    DamageTargetTrigger(otherCollider);
-  }
-
-  private void PlayerVisualEffect() =>
-    _visualEffectFactory.Create(VIsualEffectId.BulletImpact, transform.position, transform);
-
-  private void DamageTargetTrigger(Collider other)
-  {
-    if (other.gameObject.TryGetComponent(out PlayerTargetTrigger player))
+    [Inject]
+    private void Construct(VisualEffectFactory visualEffectFactory, PlayerStatsProvider playerStatsProvider)
     {
-      if (_count == 0)
-      {
-        _count++;
-        player.TakeDamage(1);
-      }
+      _visualEffectFactory = visualEffectFactory;
     }
 
-    Destroy();
-  }
+    public string Guid { get; set; }
 
-  private void Destroy()
-  {
-    transform.position = CollisionPointRayCaster.HitPosition;
-    PlayerVisualEffect();
-    Destroy(gameObject);
+    private void OnTriggerEnter(Collider otherCollider)
+    {
+      DamageTargetTrigger(otherCollider);
+    }
+
+    private void PlayerVisualEffect() =>
+      _visualEffectFactory.Create(VIsualEffectId.BulletImpact, transform.position, transform);
+
+    private void DamageTargetTrigger(Collider other)
+    {
+      if (other.gameObject.TryGetComponent(out PlayerTargetTrigger player))
+      {
+        if (_count == 0)
+        {
+          _count++;
+          player.TakeDamage(1);
+        }
+      }
+
+      Destroy();
+    }
+
+    private void Destroy()
+    {
+      transform.position = CollisionPointRayCaster.HitPosition;
+      PlayerVisualEffect();
+      Destroy(gameObject);
+    }
   }
 }

@@ -1,8 +1,7 @@
 using System;
-using Configs.Resources.QuestConfigs.SubQuestConfigs;
-using Quests;
+using Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts;
 
-namespace DataRepositories.Quests
+namespace Quests.Subquests
 {
   [Serializable]
   public class SubQuestProgress

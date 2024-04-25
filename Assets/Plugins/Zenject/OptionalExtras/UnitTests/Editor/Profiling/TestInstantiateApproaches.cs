@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using ModestTree;
-using Zenject.Internal;
+using Zenject.OptionalExtras.TestFramework;
+using Zenject.Source.Internal;
 
 #pragma warning disable 414
 
-namespace Zenject.Tests.Injection
+namespace Zenject.OptionalExtras.UnitTests.Editor.Profiling
 {
     //[TestFixture]
     // Conclusion here is that the compiled expressions are basically identical to reflection
@@ -135,7 +135,7 @@ namespace Zenject.Tests.Injection
                 ((FooBaseBaked)P_0).PostInjectBase();
             }
 
-            [Preserve]
+            [Internal.Preserve]
             private static InjectTypeInfo CreateInjectTypeInfo()
             {
                 return new InjectTypeInfo(typeof(FooBaseBaked), new InjectTypeInfo.InjectConstructorInfo(null, new InjectableInfo[0]), new InjectTypeInfo.InjectMethodInfo[1]
@@ -238,7 +238,7 @@ namespace Zenject.Tests.Injection
                 ((FooDerivedBaked)P_0).PostInject();
             }
 
-            [Preserve]
+            [Internal.Preserve]
             private static InjectTypeInfo CreateInjectTypeInfo()
             {
                 return new InjectTypeInfo(typeof(FooDerivedBaked), new InjectTypeInfo.InjectConstructorInfo(__zenCreate, new InjectableInfo[1]

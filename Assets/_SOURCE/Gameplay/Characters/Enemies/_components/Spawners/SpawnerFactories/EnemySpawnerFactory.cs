@@ -6,7 +6,7 @@ using Infrastructure.ZenjectFactories;
 using Maps;
 using Maps.EnemySpawnMarkers;
 using UnityEngine;
-using Zenject;
+using Zenject.Source.Main;
 
 namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
 {

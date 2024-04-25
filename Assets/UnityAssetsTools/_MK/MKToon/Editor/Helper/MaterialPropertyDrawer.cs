@@ -7,10 +7,9 @@
 //////////////////////////////////////////////////////
 
 #if UNITY_EDITOR
-using UnityEditor;
 using UnityEngine;
 
-namespace MK.Toon.Editor
+namespace UnityAssetsTools._MK.MKToon.Editor.Helper
 {
     internal abstract class MaterialPropertyDrawer : UnityEditor.MaterialPropertyDrawer
     {

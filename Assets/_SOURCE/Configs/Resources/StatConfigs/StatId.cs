@@ -1,4 +1,4 @@
-namespace Configs.Resources.UpgradeConfigs.Scripts
+namespace Configs.Resources.StatConfigs
 {
   public enum StatId 
   { 

@@ -1,20 +1,22 @@
-
 using Quests;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GainRewardButton : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots
 {
-  public SubQuestSlot SubQuestSlot;
-  public Button Button;
-
-  private void Start()
+  public class GainRewardButton : MonoBehaviour
   {
-    SetupButton();
-  }
+    public SubQuestSlot SubQuestSlot;
+    public Button Button;
 
-  private void SetupButton()
-  {
-    Button.onClick.AddListener(() => SubQuestSlot.SubQuest.State.Value = QuestState.RewardTaken);
+    private void Start()
+    {
+      SetupButton();
+    }
+
+    private void SetupButton()
+    {
+      Button.onClick.AddListener(() => SubQuestSlot.SubQuest.State.Value = QuestState.RewardTaken);
+    }
   }
 }

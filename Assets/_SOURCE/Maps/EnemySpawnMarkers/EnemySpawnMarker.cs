@@ -1,4 +1,4 @@
-using Gameplay.Characters.Enemies;
+using Configs.Resources.EnemyConfigs.Scripts;
 using UnityEngine;
 
 namespace Maps.EnemySpawnMarkers

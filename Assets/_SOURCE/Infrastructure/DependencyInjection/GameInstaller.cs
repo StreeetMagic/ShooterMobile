@@ -1,16 +1,10 @@
-using Cameras;
-using Gameplay.BaseTriggers;
-using Gameplay.Characters.Enemies.Spawners;
-using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
-using Gameplay.Characters.Players._components.PlayerStatsServices;
-using Gameplay.Characters.Players.Factories;
-using Gameplay.CorpseRemovers;
+using DataRepositories;
+using DataRepositories.BackpackStorages;
+using Gameplay.Characters.Players._components.PlayerStatsProviders;
 using Gameplay.RewardServices;
-using Gameplay.Upgrades;
 using Infrastructure.AssetProviders;
 using Infrastructure.AudioServices;
 using Infrastructure.CoroutineRunners;
-using Infrastructure.DataRepositories;
 using Infrastructure.Games;
 using Infrastructure.LoadingCurtains;
 using Infrastructure.PersistentProgresses;
@@ -19,16 +13,12 @@ using Infrastructure.SceneLoaders;
 using Infrastructure.StateMachines;
 using Infrastructure.StateMachines.GameStateMachines.States;
 using Infrastructure.StaticDataServices;
-using Infrastructure.UserIntefaces;
+using Infrastructure.Upgrades;
 using Infrastructure.ZenjectFactories;
 using Inputs;
 using Loggers;
-using Maps;
 using Quests;
-using UnityEngine;
-using UserInterface.HeadsUpDisplays;
-using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
-using Zenject;
+using Zenject.Source.Install;
 
 namespace Infrastructure.DependencyInjection
 {

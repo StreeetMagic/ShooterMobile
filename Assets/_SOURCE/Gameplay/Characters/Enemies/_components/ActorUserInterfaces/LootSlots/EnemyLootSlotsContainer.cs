@@ -1,18 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLootSlotsContainer : MonoBehaviour
+namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  public class EnemyLootSlotsContainer : MonoBehaviour
+  {
+  }
 }

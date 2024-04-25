@@ -1,3 +1,4 @@
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies;
 using UnityEngine;
 

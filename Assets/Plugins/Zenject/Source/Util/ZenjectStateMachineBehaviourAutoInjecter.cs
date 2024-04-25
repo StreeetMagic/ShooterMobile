@@ -1,7 +1,8 @@
-using ModestTree;
 using UnityEngine;
+using Zenject.Source.Internal;
+using Zenject.Source.Main;
 
-namespace Zenject
+namespace Zenject.Source.Util
 {
     public class ZenjectStateMachineBehaviourAutoInjecter : MonoBehaviour
     {

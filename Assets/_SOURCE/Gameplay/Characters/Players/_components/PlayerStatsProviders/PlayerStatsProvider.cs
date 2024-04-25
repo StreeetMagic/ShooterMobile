@@ -1,14 +1,11 @@
 using System;
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Upgrades;
-using Infrastructure.StaticDataServices;
-using Infrastructure.Utilities;
-using Zenject;
 using System.Collections.Generic;
-using Configs.Resources.PlayerConfigs.Scripts;
-using UnityEngine;
+using Configs.Resources.StatConfigs;
+using Infrastructure.StaticDataServices;
+using Infrastructure.Upgrades;
+using Infrastructure.Utilities;
 
-namespace Gameplay.Characters.Players._components.PlayerStatsServices
+namespace Gameplay.Characters.Players._components.PlayerStatsProviders
 {
   public class PlayerStatsProvider
   {

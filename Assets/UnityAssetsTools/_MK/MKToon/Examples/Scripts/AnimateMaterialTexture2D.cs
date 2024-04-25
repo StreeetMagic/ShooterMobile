@@ -6,11 +6,11 @@
 // Copyright © 2020 All rights reserved.            //
 //////////////////////////////////////////////////////
 
-using System.Collections;
 using System.Collections.Generic;
+using UnityAssetsTools._MK.MKToon.Scripts;
 using UnityEngine;
 
-namespace MK.Toon.Examples
+namespace UnityAssetsTools._MK.MKToon.Examples.Scripts
 {
     public class AnimateMaterialTexture2D : AnimateMaterialProperty<Texture2D>
     {
@@ -30,16 +30,16 @@ namespace MK.Toon.Examples
             switch(property)
             {
                 case Property.DiffuseRamp:
-                    MK.Toon.Properties.diffuseRamp.SetValue(material, value);
+                    Properties.diffuseRamp.SetValue(material, value);
                 break;
                 case Property.SpecularRamp:
-                    MK.Toon.Properties.specularRamp.SetValue(material, value);
+                    Properties.specularRamp.SetValue(material, value);
                 break;
                 case Property.GoochBrightMap:
-                    MK.Toon.Properties.goochBrightMap.SetValue(material, value);
+                    Properties.goochBrightMap.SetValue(material, value);
                 break;
                 case Property.GoochDarkMap:
-                    MK.Toon.Properties.goochDarkMap.SetValue(material, value);
+                    Properties.goochDarkMap.SetValue(material, value);
                 break;
             }
         }

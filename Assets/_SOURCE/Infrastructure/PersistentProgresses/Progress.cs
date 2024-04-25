@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Configs.Resources.UpgradeConfigs.Scripts;
+using Quests;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Infrastructure.PersistentProgresses
 {

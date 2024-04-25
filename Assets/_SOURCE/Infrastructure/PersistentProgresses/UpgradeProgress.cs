@@ -1,5 +1,5 @@
 using System;
-using Configs.Resources.UpgradeConfigs.Scripts;
+using Configs.Resources.StatConfigs;
 
 namespace Infrastructure.PersistentProgresses
 {

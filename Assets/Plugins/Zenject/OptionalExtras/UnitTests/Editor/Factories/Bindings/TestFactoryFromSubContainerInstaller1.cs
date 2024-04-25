@@ -1,7 +1,11 @@
 using NUnit.Framework;
-using Assert = ModestTree.Assert;
+using Zenject.OptionalExtras.TestFramework;
+using Zenject.Source.Factories;
+using Zenject.Source.Injection;
+using Zenject.Source.Install;
+using Assert = Zenject.Source.Internal.Assert;
 
-namespace Zenject.Tests.Bindings
+namespace Zenject.OptionalExtras.UnitTests.Editor.Factories.Bindings
 {
     [TestFixture]
     public class TestFactoryFromSubContainerInstaller1 : ZenjectUnitTestFixture

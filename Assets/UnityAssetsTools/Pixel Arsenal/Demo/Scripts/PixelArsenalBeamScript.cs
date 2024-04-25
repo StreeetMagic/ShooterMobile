@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
-namespace PixelArsenal
+namespace UnityAssetsTools.Pixel_Arsenal.Demo.Scripts
 {
 
 public class PixelArsenalBeamScript : MonoBehaviour {

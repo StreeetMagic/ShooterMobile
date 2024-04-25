@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
+using Configs.Resources.CurrencyConfigs;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.ExpirienceConfigs;
+using Configs.Resources.LootConfigs;
+using Configs.Resources.MusicConfigs.Scripts;
 using Configs.Resources.PlayerConfigs.Scripts;
-using Configs.Resources.QuestConfigs;
-using Configs.Resources.SoundConfigs;
+using Configs.Resources.QuestConfigs.Scripts;
 using Configs.Resources.SoundConfigs.Scripts;
+using Configs.Resources.StatConfigs;
 using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Characters.Enemies;
-using Gameplay.Currencies;
-using Infrastructure.DataRepositories;
 
 namespace Infrastructure.StaticDataServices
 {

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Configs.Resources.UpgradeConfigs.Scripts;
+using Configs.Resources.StatConfigs;
 using UnityEngine;
 
 namespace Configs.Resources.PlayerConfigs.Scripts

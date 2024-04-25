@@ -1,5 +1,6 @@
 using System;
-using Infrastructure.DataRepositories;
+using Configs.Resources.QuestConfigs.Scripts;
+using DataRepositories;
 using Infrastructure.Games;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StateMachines;
@@ -7,10 +8,9 @@ using Infrastructure.StateMachines.GameStateMachines.States;
 using Infrastructure.UserIntefaces;
 using Inputs;
 using Loggers;
-using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.Spawners.DebugServices
+namespace Infrastructure.DebugServices
 {
   public class DebugService : IInitializable, IDisposable
   {

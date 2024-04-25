@@ -1,17 +1,19 @@
 using System;
 using System.Collections.Generic;
-
-#if !NOT_UNITY3D
 using UnityEngine;
-#endif
+using Zenject.Source.Binding.Binders.ConcreteBinders;
+using Zenject.Source.Binding.BindInfo;
+using Zenject.Source.Factories;
+using Zenject.Source.Injection;
+using Zenject.Source.Main;
 
-namespace Zenject
+namespace Zenject.Source.Binding.Binders.FromBinders
 {
     [NoReflectionBaking]
     public class FromBinderNonGeneric : FromBinder
     {
         public FromBinderNonGeneric(
-            DiContainer bindContainer, BindInfo bindInfo,
+            DiContainer bindContainer, BindInfo.BindInfo bindInfo,
             BindStatement bindStatement)
             : base(bindContainer, bindInfo, bindStatement)
         {

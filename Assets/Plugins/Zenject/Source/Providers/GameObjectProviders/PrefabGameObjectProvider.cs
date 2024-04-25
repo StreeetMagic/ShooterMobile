@@ -3,8 +3,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject.Source.Injection;
+using Zenject.Source.Providers.PrefabCreators;
 
-namespace Zenject
+namespace Zenject.Source.Providers.GameObjectProviders
 {
     [NoReflectionBaking]
     public class PrefabGameObjectProvider : IProvider

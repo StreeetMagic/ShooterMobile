@@ -1,5 +1,7 @@
 
-namespace Zenject
+using Zenject.Source.Runtime;
+
+namespace Zenject.Source.Install
 {
     // This is installed by default in ProjectContext, however, if you are using Zenject outside
     // of Unity then you might want to call this

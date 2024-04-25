@@ -3,9 +3,9 @@
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using Zenject.Internal;
+using Zenject.Source.Editor;
 
-namespace Zenject.ReflectionBaking
+namespace Zenject.OptionalExtras.ReflectionBaking.Unity
 {
     public static class ReflectionBakingMenuItems
     {

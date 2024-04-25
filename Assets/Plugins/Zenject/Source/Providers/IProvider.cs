@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Zenject.Source.Injection;
 
-namespace Zenject
+namespace Zenject.Source.Providers
 {
     // The given InjectContext values here should always be non-null
     public interface IProvider

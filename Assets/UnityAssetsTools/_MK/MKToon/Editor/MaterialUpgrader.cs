@@ -6,13 +6,14 @@
 // Copyright © 2021 All rights reserved.            //
 //////////////////////////////////////////////////////
 
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityAssetsTools._MK.MKToon.Editor.Helper;
+using UnityAssetsTools._MK.MKToon.Scripts;
 using UnityEditor;
+using UnityEngine;
 
 #if UNITY_EDITOR
-namespace MK.Toon.Editor
+namespace UnityAssetsTools._MK.MKToon.Editor
 {
     public class MaterialUpgrader : EditorWindow
     {
@@ -53,7 +54,7 @@ namespace MK.Toon.Editor
 
             if(_mkToonMaterials.Count > 0)
             {
-                MK.Toon.Editor.EditorHelper.Divider();
+                EditorHelper.Divider();
                 _targetRenderPipeline = (RenderPipelineUpgrade) EditorGUILayout.EnumPopup("Render Pipeline", _targetRenderPipeline);
                 if(GUILayout.Button("Upgrade All MK Toon Project Materials"))
                 {
@@ -71,9 +72,9 @@ namespace MK.Toon.Editor
                         {
                             _mkToonMaterials[i].shader = shader;
                             //Somehow on urp the upgrade for refractive materials requires to reset the surface
-                            MK.Toon.Properties.surface.SetValue(_mkToonMaterials[i], MK.Toon.Properties.surface.GetValue(_mkToonMaterials[i]));
+                            Properties.surface.SetValue(_mkToonMaterials[i], Properties.surface.GetValue(_mkToonMaterials[i]));
                             if(!shader.name.Contains("Unlit"))
-                                MK.Toon.Properties.receiveShadows.SetValue(_mkToonMaterials[i], MK.Toon.Properties.receiveShadows.GetValue(_mkToonMaterials[i]));
+                                Properties.receiveShadows.SetValue(_mkToonMaterials[i], Properties.receiveShadows.GetValue(_mkToonMaterials[i]));
                         }
                     }
                     AssetDatabase.Refresh();
