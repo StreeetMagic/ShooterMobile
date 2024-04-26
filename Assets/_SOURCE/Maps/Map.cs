@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Gameplay.BaseTriggers;
+using Gameplay.Bombs;
 using Gameplay.Characters.Questers;
-using Maps.EnemySpawnMarkers;
-using Maps.PlayerSpawnMarkers;
+using Maps.Markers.EnemySpawnMarkers;
+using Maps.Markers.PlayerSpawnMarkers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ namespace Maps
     public List<EnemySpawnMarker> EnemySpawnMarkers;
     public BaseTrigger BaseTrigger;
     public List<Quester> Questers;
+    public BombSpawner BombSpawner;
 
     [Button]
     private void Resolve()
@@ -35,6 +37,8 @@ namespace Maps
       BaseTrigger = GetComponentInChildren<BaseTrigger>();
 
       Questers = GetComponentsInChildren<Quester>().ToList();
+
+      BombSpawner = GetComponentInChildren<BombSpawner>();
     }
   }
 }

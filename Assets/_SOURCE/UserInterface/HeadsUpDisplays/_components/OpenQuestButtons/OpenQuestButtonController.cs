@@ -1,31 +1,33 @@
 using System.Linq;
-using Gameplay.Characters.Questers;
 using Maps;
 using UnityEngine;
 using Zenject;
 
-public class OpenQuestButtonController : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
 {
-  public OpenQuestButton OpenQuestButton;
-
-  private MapProvider _mapProvider;
-
-  [Inject]
-  private void Construct(MapProvider mapProvider)
+  public class OpenQuestButtonController : MonoBehaviour
   {
-    _mapProvider = mapProvider;
-  }
+    public OpenQuestButton OpenQuestButton;
 
-  private void Update()
-  {
-    bool isQuesterActive =
-      _mapProvider
-        .Map
-        .Questers
-        .Any(quester => quester.OpenQuestButtonEnabler.IsActive);
+    private MapProvider _mapProvider;
 
-    OpenQuestButton
-      .gameObject
-      .SetActive(isQuesterActive);
+    [Inject]
+    private void Construct(MapProvider mapProvider)
+    {
+      _mapProvider = mapProvider;
+    }
+
+    private void Update()
+    {
+      bool isQuesterActive =
+        _mapProvider
+          .Map
+          .Questers
+          .Any(quester => quester.OpenQuestButtonEnabler.IsActive);
+
+      OpenQuestButton
+        .gameObject
+        .SetActive(isQuesterActive);
+    }
   }
 }

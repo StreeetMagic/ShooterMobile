@@ -10,6 +10,7 @@ using Infrastructure.DebugServices;
 using Infrastructure.UserIntefaces;
 using Infrastructure.ZenjectFactories;
 using Maps;
+using Quests;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
@@ -48,6 +49,8 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<HeadsUpDisplayProvider>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<DebugService>().AsSingle();
+
+      Container.BindInterfacesAndSelfTo<QuestCompleter>().AsSingle();
     }
   }
 }

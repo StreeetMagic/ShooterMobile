@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Gameplay.Characters.Questers
+namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
 {
   public class OpenQuestButton : MonoBehaviour
   {

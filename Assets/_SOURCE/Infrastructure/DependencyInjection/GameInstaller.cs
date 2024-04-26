@@ -43,7 +43,7 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<MoneyInBankStorage>().AsSingle();
       Container.Bind<ExpierienceStorage>().AsSingle().NonLazy();
       Container.Bind<QuestStorage>().AsSingle();
-      Container.Bind<QuestCompleter>().AsSingle();
+
       Container.BindInterfacesAndSelfTo<RewardService>().AsSingle();
 
       Container.Bind<RandomService>().AsSingle();

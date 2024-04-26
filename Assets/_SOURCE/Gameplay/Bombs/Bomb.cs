@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+namespace Gameplay.Bombs
 {
+  public class Bomb : MonoBehaviour
+  {
+  }
 }

@@ -41,7 +41,6 @@ namespace Gameplay.Characters.Enemies
           if (subQuest.Setup.Config.Type == SubQuestType)
           {
             return true;
-            
           }
         }
       }

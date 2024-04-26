@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Maps.EnemySpawnMarkers
+namespace Maps.Markers.EnemySpawnMarkers._components
 {
   public class EnemySpawnPointMarker : MonoBehaviour
   {

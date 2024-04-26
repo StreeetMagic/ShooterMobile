@@ -1,9 +1,9 @@
-﻿using Gameplay.Characters.Questers;
-using Infrastructure.AssetProviders;
+﻿using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
+using UserInterface.HeadsUpDisplays.OpenQuestButtons;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 
 namespace UserInterface.HeadsUpDisplays

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Maps.PlayerSpawnMarkers.Editor
+namespace Maps.Markers.PlayerSpawnMarkers.Editor
 {
   [CustomEditor(typeof(PlayerSpawnMarker))]
   public class PlayerSpawnMarkerEditor : UnityEditor.Editor

@@ -1,6 +1,6 @@
-using Gameplay.Characters.Questers;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
+using UserInterface.HeadsUpDisplays.OpenQuestButtons;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 
 namespace UserInterface.HeadsUpDisplays

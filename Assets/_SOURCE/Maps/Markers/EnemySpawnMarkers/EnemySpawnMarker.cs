@@ -1,7 +1,7 @@
 using Configs.Resources.EnemyConfigs.Scripts;
 using UnityEngine;
 
-namespace Maps.EnemySpawnMarkers
+namespace Maps.Markers.EnemySpawnMarkers
 {
   public class EnemySpawnMarker : MonoBehaviour
   {
