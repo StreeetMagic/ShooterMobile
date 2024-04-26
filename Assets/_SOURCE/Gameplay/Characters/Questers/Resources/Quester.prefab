@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7135ae65310a488aae8cd5a8368823a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OpenQuestButtonEnabler: {fileID: 4630230055681412789}
 --- !u!114 &4630230055681412789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e2a10b2ac611b4885f125c185fc5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QuestId: 0
+  IsActive: 0
 --- !u!1001 &3333947773902326987
 PrefabInstance:
   m_ObjectHideFlags: 0

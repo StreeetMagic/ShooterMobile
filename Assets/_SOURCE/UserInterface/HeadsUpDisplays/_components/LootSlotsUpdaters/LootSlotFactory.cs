@@ -2,10 +2,10 @@ using Configs.Resources.CurrencyConfigs;
 using Infrastructure.StaticDataServices;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
-using UserInterface.HeadsUpDisplays.LootSlotsUpdater.LootSlots;
+using UserInterface.HeadsUpDisplays.LootSlotsUpdaters.LootSlots;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.LootSlotsUpdater
+namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
 {
   public class LootSlotFactory
   {

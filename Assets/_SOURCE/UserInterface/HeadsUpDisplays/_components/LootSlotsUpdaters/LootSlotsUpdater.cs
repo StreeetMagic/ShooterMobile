@@ -4,10 +4,10 @@ using Configs.Resources.EnemyConfigs.Scripts;
 using DataRepositories.BackpackStorages;
 using Infrastructure.AssetProviders;
 using UnityEngine;
-using UserInterface.HeadsUpDisplays.LootSlotsUpdater.LootSlots;
+using UserInterface.HeadsUpDisplays.LootSlotsUpdaters.LootSlots;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.LootSlotsUpdater
+namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
 {
   public class LootSlotsUpdater : MonoBehaviour
   {

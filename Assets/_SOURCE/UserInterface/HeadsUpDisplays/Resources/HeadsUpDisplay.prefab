@@ -361,7 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e554387cd7e8394eaa52aa3a253d2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenQuestButton: {fileID: 5536270966174227657}
 --- !u!1 &3777882547266317395
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +398,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &4301139566369187587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 763929925540248343}
+  - component: {fileID: 8954508432928465652}
+  m_Layer: 5
+  m_Name: OpenQuestButtonController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &763929925540248343
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301139566369187587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3412092768391404162}
+  m_Father: {fileID: 7616430288004336520}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8954508432928465652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301139566369187587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be18a945580361d4288a7019f2f526c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpenQuestButton: {fileID: 8901801446344646826}
 --- !u!1 &4777715744822850800
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +476,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3412092768391404162}
+  - {fileID: 763929925540248343}
   m_Father: {fileID: 3249106344908670564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -561,7 +610,7 @@ GameObject:
   - component: {fileID: 3491610666889170355}
   - component: {fileID: 8901801446344646826}
   m_Layer: 3
-  m_Name: Button_Quest
+  m_Name: OpenQuestButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,11 +630,11 @@ RectTransform:
   m_Children:
   - {fileID: 2272835395320079275}
   - {fileID: 4009534196346950768}
-  m_Father: {fileID: 7616430288004336520}
+  m_Father: {fileID: 763929925540248343}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -263, y: 214}
+  m_AnchoredPosition: {x: 238, y: 240}
   m_SizeDelta: {x: 400, y: 170}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1319731315195154420

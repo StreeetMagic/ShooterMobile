@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UserInterface.HeadsUpDisplays.LootSlotsUpdater.LootSlots
+namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters.LootSlots
 {
   public class LootSlot : MonoBehaviour
   {

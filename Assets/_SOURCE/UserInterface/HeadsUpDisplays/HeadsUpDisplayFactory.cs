@@ -1,6 +1,8 @@
-﻿using Infrastructure.AssetProviders;
+﻿using Gameplay.Characters.Questers;
+using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
+using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 
@@ -30,7 +32,8 @@ namespace UserInterface.HeadsUpDisplays
       _provider.UpgradeShopButton = display.GetComponentInChildren<UpgradeShopWindowButton>();
       _provider.Borders = display.GetComponentInChildren<Borders>();
       _provider.FloatingJoystick = display.GetComponentInChildren<FloatingJoystick>();
-      _provider.LootSlotsUpdater = display.GetComponentInChildren<LootSlotsUpdater.LootSlotsUpdater>();
+      _provider.LootSlotsUpdater = display.GetComponentInChildren<LootSlotsUpdater>();
+      _provider.OpenQuestButton = display.GetComponentInChildren<OpenQuestButton>();
 
       display.transform.parent = null;
     }

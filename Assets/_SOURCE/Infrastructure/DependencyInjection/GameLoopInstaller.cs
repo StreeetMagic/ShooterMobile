@@ -11,7 +11,7 @@ using Infrastructure.UserIntefaces;
 using Infrastructure.ZenjectFactories;
 using Maps;
 using UserInterface.HeadsUpDisplays;
-using UserInterface.HeadsUpDisplays.LootSlotsUpdater;
+using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 using Zenject.Source.Install;
 

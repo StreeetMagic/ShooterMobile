@@ -10,7 +10,7 @@ namespace Gameplay.Characters.Questers
   public class OpenQuestButton : MonoBehaviour
   {
     public Button Button;
-    public QuestId QuestId;
+    public QuestId QuestId { get; set; } = QuestId.Unknown;
 
     private WindowService _windowService;
     private DebugLogger _logger;
@@ -25,6 +25,9 @@ namespace Gameplay.Characters.Questers
 
     private void OpenQuest()
     {
+      if (QuestId == QuestId.Unknown)
+        throw new System.Exception("Unknown quest id");
+
       _windowService.Create(WindowId.Quest, QuestId);
       _logger.Log("Open quest: " + QuestId);
     }

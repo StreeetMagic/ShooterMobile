@@ -2,8 +2,8 @@ namespace Configs.Resources.QuestConfigs.Scripts
 {
   public enum QuestId
   {
-    Unknown,
-    Quest1,
-    Quest2
+    Unknown = 0,
+    Quest1 = 1,
+    Quest2 = 2
   }
 }

@@ -30,5 +30,9 @@ namespace Quests
         }
       }
     }
+
+    public void OnBombDefused()
+    {
+    }
   }
 }

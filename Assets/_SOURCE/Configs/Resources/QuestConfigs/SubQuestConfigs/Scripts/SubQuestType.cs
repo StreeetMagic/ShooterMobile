@@ -4,5 +4,6 @@ namespace Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts
   {
     Unknown = 0,
     KillOrinaryPersons = 1,
+    DefuseBomb = 2
   }
 }

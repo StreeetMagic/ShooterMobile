@@ -6,14 +6,15 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyQuestOutline : MonoBehaviour
+  public class QuestOutline : MonoBehaviour
   {
+    public SubQuestType SubQuestType;
     public GameObject Outline;
 
     private QuestStorage _storage;
 
     [Inject]
-    private void Construct(QuestStorage storage, Enemy enemy)
+    private void Construct(QuestStorage storage)
     {
       _storage = storage;
     }
@@ -37,9 +38,10 @@ namespace Gameplay.Characters.Enemies
           if (subQuest.State.Value != QuestState.Activated)
             continue;
 
-          if (subQuest.Setup.Config.Type == SubQuestType.KillOrinaryPersons)
+          if (subQuest.Setup.Config.Type == SubQuestType)
           {
             return true;
+            
           }
         }
       }

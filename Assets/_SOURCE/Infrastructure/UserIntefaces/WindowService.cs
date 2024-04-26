@@ -58,6 +58,9 @@ namespace Infrastructure.UserIntefaces
           break;
 
         case WindowId.Quest:
+          if (questId == QuestId.Unknown)
+            throw new ArgumentOutOfRangeException(nameof(questId), questId, null);
+
           var questWindoww = _factory.InstantiateMono<QuestWindow>(HudTransform);
           questWindoww.Quest = _storage.GetQuest(questId);
           window = questWindoww;
@@ -66,7 +69,7 @@ namespace Infrastructure.UserIntefaces
         default:
           throw new ArgumentOutOfRangeException(nameof(windowId), windowId, null);
       }
-      
+
       _activeWindow = window;
 
       return window;
