@@ -31,9 +31,9 @@ namespace Maps
           .transform
           .parent
           .transform;
-      
+
       BaseTrigger = GetComponentInChildren<BaseTrigger>();
-      
+
       Questers = GetComponentsInChildren<Quester>().ToList();
     }
   }
