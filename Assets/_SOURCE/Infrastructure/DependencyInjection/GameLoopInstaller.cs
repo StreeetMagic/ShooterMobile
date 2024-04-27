@@ -6,20 +6,33 @@ using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players._components.Factories;
 using Gameplay.Characters.Players._components.Projectiles.Scripts;
 using Gameplay.CorpseRemovers;
+using Infrastructure.AssetProviders;
 using Infrastructure.DebugServices;
 using Infrastructure.UserIntefaces;
 using Infrastructure.ZenjectFactories;
 using Maps;
 using Quests;
+using Quests.Subquests;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
+using UserInterface.HeadsUpDisplays.QuestWindows;
+using UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
+using Zenject;
 using Zenject.Source.Install;
 
 namespace Infrastructure.DependencyInjection
 {
   public class GameLoopInstaller : MonoInstaller
   {
+    private IAssetProvider _assetProvider;
+
+    [Inject]
+    public void Construct(IAssetProvider assetProvider)
+    {
+      _assetProvider = assetProvider;
+    }
+
     public override void InstallBindings()
     {
       Container.BindInterfacesAndSelfTo<GameLoopZenjectFactory>().AsSingle();
@@ -30,27 +43,23 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<HeadsUpDisplayFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<BaseTriggerFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<UpgradeCellFactory>().AsSingle();
-
       Container.BindInterfacesAndSelfTo<EnemyFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<ProjectileStorage>().AsSingle();
-
       Container.BindInterfacesAndSelfTo<LootSlotFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<EnemyLootSlotFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<CorpseRemover>().AsSingle();
-
       Container.BindInterfacesAndSelfTo<ProjectileFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<CameraProvider>().AsSingle();
-
       Container.BindInterfacesAndSelfTo<PlayerProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<MapProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<VisualEffectFactory>().AsSingle();
-
       Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();
       Container.BindInterfacesAndSelfTo<HeadsUpDisplayProvider>().AsSingle();
-
       Container.BindInterfacesAndSelfTo<DebugService>().AsSingle();
-
       Container.BindInterfacesAndSelfTo<QuestCompleter>().AsSingle();
+
+      Container.BindFactory<Quest, QuestWindow, QuestWindow.Factory>().FromComponentInNewPrefab(_assetProvider.Get<QuestWindow>());
+      Container.BindFactory<SubQuest, SubQuestSlot, SubQuestSlot.Factory>().FromComponentInNewPrefab(_assetProvider.Get<SubQuestSlot>());
     }
   }
 }

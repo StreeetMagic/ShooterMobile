@@ -8,7 +8,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows._components
     public Image Image;
     public QuestWindow QuestWindow;
 
-    private void Start()
+    private void OnEnable()
     {
       Image.sprite = QuestWindow.Quest.Config.Icon;
     }

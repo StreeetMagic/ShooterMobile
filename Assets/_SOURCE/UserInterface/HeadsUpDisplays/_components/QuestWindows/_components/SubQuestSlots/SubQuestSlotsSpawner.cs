@@ -3,23 +3,24 @@ using Configs.Resources.QuestConfigs.Scripts;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using Quests;
+using Quests.Subquests;
 using UnityEngine;
 using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 {
-  public class SubQuestSlotsFactory : MonoBehaviour
+  public class SubQuestSlotsSpawner : MonoBehaviour
   {
     public QuestWindow QuestWindow;
 
     private IAssetProvider _assetProvider;
-    private ProjectZenjectFactory _factory;
+    private SubQuestSlot.Factory _factory;
 
     [Inject]
-    private void Construct(IAssetProvider assetProvider, ProjectZenjectFactory factory)
+    private void Construct(IAssetProvider assetProvider, SubQuestSlot.Factory factory)
     {
-      _factory = factory;
       _assetProvider = assetProvider;
+      _factory = factory;
     }
 
     private QuestConfig QuestConfig => QuestWindow.Quest.Config;
@@ -54,11 +55,11 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
     {
       for (var i = 0; i < QuestConfig.SubQuests.Count; i++)
       {
-        SubQuestSlot prefab = _assetProvider.Get<SubQuestSlot>();
+        SubQuest subQuest = QuestWindow.Quest.SubQuests[i];
 
-        SubQuestSlot slot = _factory.InstantiateMono(prefab, transform);
+        SubQuestSlot slot = _factory.Create(subQuest);
 
-        slot.SubQuest = QuestWindow.Quest.SubQuests[i];
+        slot.transform.SetParent(transform);
       }
     }
   }
