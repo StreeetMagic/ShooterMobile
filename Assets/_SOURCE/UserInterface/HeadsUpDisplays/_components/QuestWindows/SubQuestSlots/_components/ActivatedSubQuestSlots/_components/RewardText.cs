@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots._components
 {
   public class RewardText : MonoBehaviour
   {

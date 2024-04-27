@@ -9,6 +9,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
   {
     public GameObject Unactivated;
     public GameObject Activated;
+    public GameObject RewardReady;
     public GameObject RewardTaken;
 
     public SubQuest SubQuest { get; set; }
@@ -27,6 +28,8 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 
     private void SetupStates(QuestState state)
     {
+      DisableAll();
+
       switch (state)
       {
         case QuestState.Unknown:
@@ -34,28 +37,28 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 
         case QuestState.UnActivated:
           Unactivated.SetActive(true);
-          Activated.SetActive(false);
-          RewardTaken.SetActive(false);
           break;
 
         case QuestState.Activated:
-          Unactivated.SetActive(false);
           Activated.SetActive(true);
-          RewardTaken.SetActive(false);
           break;
-      
+
         case QuestState.RewardReady:
-          Unactivated.SetActive(false);
-          Activated.SetActive(true);
-          RewardTaken.SetActive(false);
+          RewardReady.SetActive(true);
           break;
-      
+
         case QuestState.RewardTaken:
-          Unactivated.SetActive(false);
-          Activated.SetActive(false);
           RewardTaken.SetActive(true);
           break;
       }
+    }
+
+    private void DisableAll()
+    {
+      Unactivated.SetActive(false);
+      Activated.SetActive(false);
+      RewardReady.SetActive(false);
+      RewardTaken.SetActive(false);
     }
   }
 }

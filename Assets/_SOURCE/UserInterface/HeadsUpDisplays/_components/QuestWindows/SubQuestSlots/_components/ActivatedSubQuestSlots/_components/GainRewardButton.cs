@@ -2,7 +2,7 @@ using Quests;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots._components
 {
   public class GainRewardButton : MonoBehaviour
   {

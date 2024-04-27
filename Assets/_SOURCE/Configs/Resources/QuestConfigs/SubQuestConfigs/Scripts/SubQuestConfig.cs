@@ -7,6 +7,7 @@ namespace Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts
   {
     public SubQuestType Type;
     public Sprite Icon;
+    public string Name;
     public string Description;
   }
 }
