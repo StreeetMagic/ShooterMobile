@@ -1,16 +1,19 @@
+using Quests;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows._components
 {
-    public class QuestTitle : MonoBehaviour
-    {
-        public TextMeshProUGUI Text;
-        public QuestWindow QuestWindow;
+  public class QuestTitle : MonoBehaviour
+  {
+    public TextMeshProUGUI Text;
 
-        private void Start()
-        {
-            Text.text = "Quest: " + QuestWindow.Quest.Config.Name;
-        }
+    [Inject] private Quest _quest;
+
+    private void Start()
+    {
+      Text.text = "Quest: " + _quest.Config.Name;
     }
+  }
 }

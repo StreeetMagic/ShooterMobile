@@ -58,8 +58,14 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<DebugService>().AsSingle();
       Container.BindInterfacesAndSelfTo<QuestCompleter>().AsSingle();
 
-      Container.BindFactory<Quest, QuestWindow, QuestWindow.Factory>().FromComponentInNewPrefab(_assetProvider.Get<QuestWindow>());
-      Container.BindFactory<SubQuest, SubQuestSlot, SubQuestSlot.Factory>().FromComponentInNewPrefab(_assetProvider.Get<SubQuestSlot>());
+      Container.BindFactory<Quest, QuestWindow, QuestWindow.Factory>()
+        .FromSubContainerResolve()
+        .ByNewContextPrefab<QuestWindowInstaller>(_assetProvider.Get<QuestWindow>().GetComponent<QuestWindowInstaller>())
+        .AsSingle();
+
+      Container.BindFactory<SubQuest, SubQuestSlot, SubQuestSlot.Factory>()
+        .FromComponentInNewPrefab(_assetProvider.Get<SubQuestSlot>());
+
     }
   }
 }

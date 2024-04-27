@@ -944,6 +944,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6101654936180543029}
   - component: {fileID: 1802208336370171341}
+  - component: {fileID: 3612393109436621174}
+  - component: {fileID: 755897153917707384}
   m_Layer: 5
   m_Name: QuestWindow
   m_TagString: Untagged
@@ -984,6 +986,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloseButton: {fileID: 7412830250475242543}
+--- !u!114 &3612393109436621174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198060984808226176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5972402d0b529841ab5b13e81452b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestWindow: {fileID: 1802208336370171341}
+--- !u!114 &755897153917707384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198060984808226176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 3612393109436621174}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
 --- !u!1 &2408934388522702135
 GameObject:
   m_ObjectHideFlags: 0
