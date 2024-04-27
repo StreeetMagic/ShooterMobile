@@ -16,7 +16,13 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows._components.SubQuestSlots._
 
     private void Update()
     {
-      Slider.value = (float)_subQuest.CompletedQuantity.Value / _setup.Quantity;
+      var completedQuantityValue = (float)_subQuest.CompletedQuantity.Value;
+      int setupQuantity = _setup.Quantity;
+      float progress = completedQuantityValue / setupQuantity;
+
+      Slider.value = Slider.value < progress
+        ? Mathf.MoveTowards(Slider.value, progress, Time.deltaTime)
+        : progress;
     }
   }
 }
