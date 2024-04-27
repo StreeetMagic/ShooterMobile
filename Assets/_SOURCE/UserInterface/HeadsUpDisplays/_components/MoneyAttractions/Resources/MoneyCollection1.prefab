@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2162582121499164259}
   - component: {fileID: 2162582121499164257}
   - component: {fileID: 2162582121499164258}
+  - component: {fileID: 764227823471529451}
   m_Layer: 0
   m_Name: MoneyCollection1
   m_TagString: Untagged
@@ -60,9 +61,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -75,7 +76,7 @@ MonoBehaviour:
   _emitterConstraintTransform: {fileID: 0}
   _shape: 1
   _spread: 0
-  _spreadLoop: 1
+  _spreadLoop: 0
   _startDelay: 0
   _radius: 50
   _width: 100
@@ -86,7 +87,7 @@ MonoBehaviour:
   _emitOnSurface: 1
   _emitterThickness: 0
   _loop: 0
-  _duration: 0.3
+  _duration: 0.6
   _playMode: 0
   _startSize:
     separable: 1
@@ -225,16 +226,52 @@ MonoBehaviour:
     m_ColorMax: {r: 1, g: 1, b: 1, a: 1}
   _lifetime:
     m_Mode: 3
-    m_CurveMultiplier: 0
+    m_CurveMultiplier: 1
     m_CurveMin:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_CurveMax:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -412,6 +449,33 @@ MonoBehaviour:
           weightedMode: 0
           inWeight: 0
           outWeight: 0
+        - serializedVersion: 3
+          time: 0.16211174
+          value: 1.0016237
+          inSlope: 0.010016237
+          outSlope: 7.233758
+          tangentMode: 69
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.29999757
+          value: 1.9990565
+          inSlope: 7.233758
+          outSlope: -11.18424
+          tangentMode: 69
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.3890359
+          value: 1.0032302
+          inSlope: -11.18424
+          outSlope: -0.005850348
+          tangentMode: 69
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         - serializedVersion: 3
           time: 0.9411764
           value: 1
@@ -1305,7 +1369,7 @@ MonoBehaviour:
     to: 1
   _textureSheetFPS: 25
   _textureSheetCycles: 1
-  _rate: 20
+  _rate: 10
   _rateOverLifetime: 0
   _rateOverDistance: 0
   _bursts: []
@@ -1501,8 +1565,21 @@ MonoBehaviour:
   moduleEmitterFoldout: 1
   moduleParticleFoldout: 1
   moduleMovementFoldout: 1
-  moduleEventsFoldout: 0
+  moduleEventsFoldout: 1
   m_Texture: {fileID: 2800000, guid: b227706102845ea418319eff06bacbec, type: 3}
+--- !u!114 &764227823471529451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2162582121499164260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb342201e666cc47a99bd1af18ecd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleImage: {fileID: 2162582121499164258}
 --- !u!1 &7384756548577515976
 GameObject:
   m_ObjectHideFlags: 0
