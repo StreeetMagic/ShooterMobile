@@ -660,6 +660,7 @@ GameObject:
   - component: {fileID: 2287931336232288428}
   - component: {fileID: 8555751982102621333}
   - component: {fileID: 8224750768037140727}
+  - component: {fileID: 2821597612667510807}
   m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -773,10 +774,23 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 5
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 2.75
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2821597612667510807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883145579763333970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac16e340ce5ab254b83e56b3da7c1f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Slider: {fileID: 8224750768037140727}
 --- !u!1 &961449007123434946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,7 +1506,6 @@ GameObject:
   - component: {fileID: 886134884245447077}
   - component: {fileID: 106796553507479637}
   - component: {fileID: 2799660316779674702}
-  - component: {fileID: 6638458336688809496}
   m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
@@ -1557,19 +1570,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6638458336688809496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2434998052554194939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac16e340ce5ab254b83e56b3da7c1f31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Image: {fileID: 2799660316779674702}
 --- !u!1 &2439899711610893001
 GameObject:
   m_ObjectHideFlags: 0
