@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
+using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Infrastructure.CoroutineRunners;
+using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
 using Quests;
 using UnityEngine;
@@ -18,23 +20,17 @@ namespace Gameplay.Characters.Enemies.Spawners
     public Transform SpawnPointsContainer;
 
     private List<SpawnPoint> _spawnPoints;
-    private EnemyFactory _enemyFactory;
-    private ICoroutineRunner _coroutineRunner;
     private int _respawnTime;
-    private QuestCompleter _questCompleter;
 
-    public EnemyId EnemyId { get; private set; }
-
-    [Inject]
-    public void Construct(EnemyFactory enemyFactory, ICoroutineRunner coroutineRunner, QuestCompleter questCompleter)
-    {
-      _enemyFactory = enemyFactory;
-      _coroutineRunner = coroutineRunner;
-      _questCompleter = questCompleter;
-    }
+    [Inject] private ICoroutineRunner _coroutineRunner;
+    [Inject] private QuestCompleter _questCompleter;
+    [Inject] private EnemyLootSlotFactory _enemyLootSlotFactory;
+    [Inject] private Enemy.Factory _enemyFactory;
+    [Inject] private IStaticDataService _staticDataService;
 
     public event Action<EnemyHealth> EnemyDied;
 
+    public EnemyId EnemyId { get; private set; }
     public List<Enemy> Enemies { get; } = new List<Enemy>();
 
     private void OnDisable()
@@ -55,24 +51,26 @@ namespace Gameplay.Characters.Enemies.Spawners
         return;
 
       for (int i = 0; i < count; i++)
-      {
         Spawn();
-      }
     }
 
     private void Spawn()
     {
       if (_spawnPoints == null)
-      {
         throw new InvalidOperationException(nameof(_spawnPoints));
-      }
 
       int randomSpawnPointNumber = Random.Range(0, _spawnPoints.Count - 1);
-      Enemy enemy = _enemyFactory.Create(EnemyId, transform, _spawnPoints[randomSpawnPointNumber].transform.position, _spawnPoints);
+
+      Enemy enemy = _enemyFactory.Create(_staticDataService.GetEnemyConfig(EnemyId), _spawnPoints, transform);
+      enemy.transform.position = _spawnPoints[randomSpawnPointNumber].transform.position;
+      enemy.transform.SetParent(transform);
+
+      Transform enemyLootSlotsContainer = enemy.GetComponentInChildren<EnemyLootSlotsContainer>().transform;
+      _enemyLootSlotFactory.Create(enemyLootSlotsContainer, EnemyId);
 
       Enemies.Add(enemy);
 
-      enemy.Installer.EnemyHealth.Died += OnEnemyDied;
+      enemy.GetComponent<EnemyHealth>().Died += OnEnemyDied;
     }
 
     private void OnEnemyDied(EnemyConfig config, EnemyHealth enemyHealth)

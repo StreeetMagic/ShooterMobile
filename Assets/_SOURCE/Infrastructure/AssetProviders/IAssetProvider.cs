@@ -8,7 +8,7 @@ namespace Infrastructure.AssetProviders
   {
     T Get<T>() where T : MonoBehaviour;
     T Get<T>(string path) where T : MonoBehaviour;
+    EnemyMeshModel GetEnemyMeshModel(EnemyId enemyId);
     GameObject Get(string path);
-    Enemy ForEnemy(EnemyId enemyId);
   }
 }

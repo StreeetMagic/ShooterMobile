@@ -38,34 +38,19 @@ namespace Infrastructure.AssetProviders
       return load;
     }
 
+    public EnemyMeshModel GetEnemyMeshModel(EnemyId enemyId) =>
+      Resources.Load<EnemyMeshModel>(enemyId.ToString());
+
     public GameObject Get(string path)
     {
       Object load =
         Resources
           .Load(path);
-      
+
       if (load == null)
         throw new Exception("Asset not found: " + path);
-      
+
       return load as GameObject;
-    }
-
-    public Enemy ForEnemy(EnemyId enemyId)
-    {
-      switch (enemyId)
-      {
-        case EnemyId.Unknown:
-          throw new NotImplementedException("Unknown enemy id");
-
-        case EnemyId.WhiteShirt:
-          return Get<Enemy>(nameof(EnemyId.WhiteShirt));
-
-        case EnemyId.Builderman:
-          return Get<Enemy>(nameof(EnemyId.Builderman));
-
-        default:
-          throw new ArgumentOutOfRangeException(nameof(enemyId), enemyId, null);
-      }
     }
   }
 }

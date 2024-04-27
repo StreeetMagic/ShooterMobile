@@ -1,6 +1,6 @@
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Players._components.Factories;
-using Loggers;
 using UnityEngine;
 using Zenject;
 
@@ -8,32 +8,16 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyBehaviourController : MonoBehaviour
   {
-    private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
-    private EnemyMoverToPlayer _enemyMoverToPlayer;
-    private HitStatus _hitStatus;
-    private EnemyHealth _enemyHealth;
-    private EnemyShootAtPlayer _enemyShootAtPlayer;
-    private Enemy _enemy;
-    private ReturnToSpawnStatus _returnToSpawnStatus;
-    private PlayerProvider _playerProvider;
-    private EnemyToSpawnerDisance _enemyToSpawnerDisance;
-
-    [Inject]
-    public void Construct(EnemyMoverToSpawnPoint enemyMoverToSpawnPoint,
-      EnemyMoverToPlayer enemyMoverToPlayer, HitStatus hitStatus,
-      EnemyHealth enemyHealth, EnemyShootAtPlayer enemyShooter, Enemy enemy, ReturnToSpawnStatus returnToSpawnStatus,
-      PlayerProvider playerProvider, DebugLogger debugLogger, EnemyToSpawnerDisance enemyToSpawnerDisance)
-    {
-      _enemyMoverToSpawnPoint = enemyMoverToSpawnPoint;
-      _enemyMoverToPlayer = enemyMoverToPlayer;
-      _hitStatus = hitStatus;
-      _enemyHealth = enemyHealth;
-      _enemyShootAtPlayer = enemyShooter;
-      _enemy = enemy;
-      _returnToSpawnStatus = returnToSpawnStatus;
-      _playerProvider = playerProvider;
-      _enemyToSpawnerDisance = enemyToSpawnerDisance;
-    }
+    [Inject] private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
+    [Inject] private EnemyMoverToPlayer _enemyMoverToPlayer;
+    [Inject] private HitStatus _hitStatus;
+    [Inject] private EnemyHealth _enemyHealth;
+    [Inject] private EnemyShootAtPlayer _enemyShootAtPlayer;
+    [Inject] private ReturnToSpawnStatus _returnToSpawnStatus;
+    [Inject] private PlayerProvider _playerProvider;
+    [Inject] private EnemyToSpawnerDisance _enemyToSpawnerDisance;
+    [Inject] private EnemyConfig _config;
+    [Inject] private Transform _spawnerTransform;
 
     private void Start()
     {
@@ -81,9 +65,9 @@ namespace Gameplay.Characters.Enemies
     }
 
     private bool EnemyInShootingRadius() =>
-      (_playerProvider.Player.transform.position - transform.position).magnitude < _enemy.Config.Radius;
+      (_playerProvider.Player.transform.position - transform.position).magnitude < _config.Radius;
 
     private bool EnemyInPatrolingRadius() =>
-      (_enemy.SpawnerTransform.position - transform.position).magnitude < _enemy.Config.PatrolingRadius;
+      (_spawnerTransform.position - transform.position).magnitude < _config.PatrolingRadius;
   }
 }

@@ -1,3 +1,4 @@
+using Configs.Resources.EnemyConfigs.Scripts;
 using UnityEngine;
 using Zenject;
 
@@ -5,18 +6,12 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyWaiter : MonoBehaviour
   {
-    private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
-    private Enemy _enemy;
     private float _currentTime;
 
-    private float WaitTimeAfterMove => _enemy.Config.WaitTimeAfterMove;
+    [Inject] private EnemyConfig _config;
+    [Inject] private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
 
-    [Inject]
-    public void Construct(EnemyMoverToSpawnPoint enemyMoverToSpawnPoint, Enemy enemy)
-    {
-      _enemyMoverToSpawnPoint = enemyMoverToSpawnPoint;
-      _enemy = enemy;
-    }
+    private float WaitTimeAfterMove => _config.WaitTimeAfterMove;
 
     private void OnEnable()
     {

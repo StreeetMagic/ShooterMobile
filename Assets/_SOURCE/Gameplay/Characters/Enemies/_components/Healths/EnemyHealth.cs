@@ -1,6 +1,5 @@
 using System;
 using Configs.Resources.EnemyConfigs.Scripts;
-using Gameplay.Characters.Enemies.Animators;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using Infrastructure.Utilities;
@@ -11,37 +10,22 @@ namespace Gameplay.Characters.Enemies.Healths
 {
   public class EnemyHealth : MonoBehaviour
   {
-    private EnemyAnimator _enemyAnimator;
-    private RewardService _rewardService;
-    private CorpseRemover _corpseRemover;
-    private Enemy _enemy;
-    private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
-    private EnemyMoverToPlayer _enemyMoverToPlayer;
-    private HitStatus _hitStatus;
-
-    [Inject]
-    private void Construct(EnemyAnimator animator, CorpseRemover corpseRemover, RewardService rewardService,
-      Enemy enemy, EnemyMoverToSpawnPoint enemyMoverToSpawnPoint, EnemyMoverToPlayer enemyMoverToPlayer, HitStatus hitStatus)
-    {
-      _enemyAnimator = animator;
-      _corpseRemover = corpseRemover;
-      _rewardService = rewardService;
-      _enemyMoverToSpawnPoint = enemyMoverToSpawnPoint;
-      _enemyMoverToPlayer = enemyMoverToPlayer;
-      _enemy = enemy;
-      _hitStatus = hitStatus;
-    }
+    [Inject] private EnemyAnimatorProvider _animatorProvider;
+    [Inject] private RewardService _rewardService;
+    [Inject] private CorpseRemover _corpseRemover;
+    [Inject] private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
+    [Inject] private EnemyMoverToPlayer _enemyMoverToPlayer;
+    [Inject] private HitStatus _hitStatus;
+    [Inject] private EnemyConfig _config;
 
     public event Action<EnemyConfig, EnemyHealth> Died;
     public event Action<int> Damaged;
 
     public ReactiveProperty<int> Current { get; } = new();
 
-    public int Initial => Config.InitialHealth;
+    public int Initial => _config.InitialHealth;
     public bool IsFull => Current.Value == Initial;
     public bool IsDead { get; private set; }
-
-    private EnemyConfig Config => _enemy.Config;
 
     private void Start()
     {
@@ -75,11 +59,11 @@ namespace Gameplay.Characters.Enemies.Healths
 
       _enemyMoverToSpawnPoint.enabled = false;
       _enemyMoverToPlayer.enabled = false;
-      _enemyAnimator.PlayDeathAnimation();
+      _animatorProvider.Instance.PlayDeathAnimation();
 
       IsDead = true;
 
-      Died?.Invoke(Config, this);
+      Died?.Invoke(_config, this);
     }
 
     private void SetCurrentHealth(int health)

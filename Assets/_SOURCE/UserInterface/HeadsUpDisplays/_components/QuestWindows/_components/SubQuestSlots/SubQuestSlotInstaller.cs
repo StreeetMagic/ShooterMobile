@@ -10,18 +10,13 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows._components.SubQuestSlots
   {
     public SubQuestSlot SubQuestSlot;
 
-    private SubQuest _subQuest;
-
-    [Inject]
-    public void Construct(SubQuest subQuest)
-    {
-      _subQuest = subQuest;
-    }
+    [Inject] private SubQuest _subQuest;
 
     public override void InstallBindings()
     {
-      Container.Bind<SubQuest>().FromInstance(_subQuest).AsSingle();
       Container.Bind<SubQuestSlot>().FromInstance(SubQuestSlot).AsSingle();
+      
+      Container.Bind<SubQuest>().FromInstance(_subQuest).AsSingle();
       Container.Bind<SubQuestConfig>().FromInstance(_subQuest.Setup.Config).AsSingle();
       Container.Bind<SubQuestSetup>().FromInstance(_subQuest.Setup).AsSingle();
     }

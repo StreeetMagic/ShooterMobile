@@ -1,5 +1,4 @@
 ﻿using Configs.Resources.EnemyConfigs.Scripts;
-using Configs.Resources.QuestConfigs.Scripts;
 using Configs.Resources.RewardConfigs;
 using Configs.Resources.StatConfigs;
 using DataRepositories;

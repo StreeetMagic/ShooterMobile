@@ -1,8 +1,12 @@
+using System.Collections.Generic;
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Animators;
 using Gameplay.Characters.Enemies.EnemyShooters;
 using Gameplay.Characters.Enemies.Healths;
+using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using UnityEngine;
+using Zenject;
 using Zenject.Source.Install;
 
 namespace Gameplay.Characters.Enemies
@@ -11,7 +15,6 @@ namespace Gameplay.Characters.Enemies
   {
     public Enemy Enemy;
     public CharacterController CharacterController;
-    public EnemyAnimator EnemyAnimator;
     public EnemyHealth EnemyHealth;
     public RoutePointsManager RoutePointsManager;
     public EnemyHealer enemyHealer;
@@ -22,9 +25,17 @@ namespace Gameplay.Characters.Enemies
     public EnemyFromEnemyPusher EnemyFromEnemyPusher;
     public EnemyToSpawnerDisance EnemyToSpawnerDisance;
     public EnemyTargetTrigger EnemyTargetTrigger;
+    public ShootingPoint ShootingPoint;
+    public EnemyAnimatorProvider EnemyAnimatorProvider;
+
+    [Inject] private EnemyConfig _enemyConfig;
+    [Inject] private List<SpawnPoint> _spawnPoints;
+    [Inject] private Transform _spawnPointsContainer;
 
     public override void InstallBindings()
     {
+      Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();
+
       Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<ReturnToSpawnStatus>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
@@ -34,9 +45,8 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
       Container.Bind<RoutePointsManager>().FromInstance(RoutePointsManager).AsSingle().NonLazy();
       Container.Bind<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
-      Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();
       Container.Bind<CharacterController>().FromInstance(CharacterController).AsSingle().NonLazy();
-      Container.Bind<EnemyAnimator>().FromInstance(EnemyAnimator).AsSingle().NonLazy();
+      Container.Bind<EnemyAnimatorProvider>().FromInstance(EnemyAnimatorProvider).AsSingle().NonLazy();
       Container.Bind<EnemyMoverToSpawnPoint>().FromInstance(EnemyMoverToSpawnPoint).AsSingle().NonLazy();
       Container.Bind<EnemyWaiter>().FromInstance(EnemyWaiter).AsSingle().NonLazy();
       Container.Bind<EnemyMoverToPlayer>().FromInstance(EnemyMoverToPlayer).AsSingle().NonLazy();
@@ -44,6 +54,12 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyFromEnemyPusher>().FromInstance(EnemyFromEnemyPusher).AsSingle().NonLazy();
       Container.Bind<EnemyToSpawnerDisance>().FromInstance(EnemyToSpawnerDisance).AsSingle().NonLazy();
       Container.Bind<EnemyTargetTrigger>().FromInstance(EnemyTargetTrigger).AsSingle().NonLazy();
+      Container.Bind<ShootingPoint>().FromInstance(ShootingPoint).AsSingle().NonLazy();
+
+      Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
+      Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();
+      Container.Bind<Transform>().FromInstance(_spawnPointsContainer).AsSingle().NonLazy();
+      Container.Bind<EnemyId>().FromInstance(_enemyConfig.Id).AsSingle().NonLazy();
     }
   }
 }

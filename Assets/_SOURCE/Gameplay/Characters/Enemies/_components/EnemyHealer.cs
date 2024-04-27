@@ -7,23 +7,14 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyHealer : MonoBehaviour
   {
-    private EnemyHealth _enemyHealth;
-    private HitStatus _hitStatus;
-    private Enemy _enemy;
-
     private float _heal;
     private float _timer;
 
-    [Inject]
-    private void Construct(EnemyHealth enemyHealth, HitStatus hitStatus, Enemy enemy)
-    {
-      _enemyHealth = enemyHealth;
-      _hitStatus = hitStatus;
-      _enemy = enemy;
-    }
+    [Inject] private EnemyHealth _enemyHealth;
+    [Inject] private HitStatus _hitStatus;
+    [Inject] private EnemyConfig _config;
 
-    private float HealMultiplier => EnemyConfig.HealMultiplier;
-    private EnemyConfig EnemyConfig => _enemy.Config;
+    private float HealMultiplier => _config.HealMultiplier;
 
     private void OnEnable()
     {
@@ -47,13 +38,13 @@ namespace Gameplay.Characters.Enemies
       if (_enemyHealth.IsFull)
         return;
 
-      float healAmount = EnemyConfig.InitialHealth;
+      float healAmount = _config.InitialHealth;
 
       _heal += healAmount * Time.deltaTime * HealMultiplier;
 
       if (_heal >= 1)
       {
-        if (_timer >= _enemy.Config.RunTime)
+        if (_timer >= _config.RunTime)
         {
           _enemyHealth.Current.Value++;
           _heal = 0;

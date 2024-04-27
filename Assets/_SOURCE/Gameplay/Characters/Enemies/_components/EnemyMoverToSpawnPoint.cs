@@ -1,3 +1,4 @@
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Animators;
 using UnityEngine;
 using Zenject;
@@ -6,32 +7,17 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyMoverToSpawnPoint : MonoBehaviour
   {
-    private EnemyMover _mover;
-    private RoutePointsManager _routePointsManager;
-    private Enemy _enemy;
-    private EnemyMoverToPlayer _enemyMoverToPlayer;
-    private HitStatus _hitStatus;
-    private EnemyShootAtPlayer _enemyShootAtPlayer;
-    private ReturnToSpawnStatus _returnToSpawnStatus;
-    private EnemyAnimator _enemyAnimator;
+    [Inject] private EnemyMover _mover;
+    [Inject] private RoutePointsManager _routePointsManager;
+    [Inject] private EnemyMoverToPlayer _enemyMoverToPlayer;
+    [Inject] private HitStatus _hitStatus;
+    [Inject] private EnemyShootAtPlayer _enemyShootAtPlayer;
+    [Inject] private ReturnToSpawnStatus _returnToSpawnStatus;
+    [Inject] private EnemyAnimatorProvider _animatorProvider;
+    [Inject] private EnemyConfig _config;
 
-    [Inject]
-    public void Construct(EnemyMover mover, RoutePointsManager routePointsManager, Enemy enemy,
-      EnemyMoverToPlayer enemyMoverToPlayer, HitStatus hitStatus, EnemyShootAtPlayer enemyShootAtPlayer,
-      ReturnToSpawnStatus returnToSpawnStatus, ReturnToSpawnStatus returnToSpawnStatus1, EnemyAnimator enemyAnimator)
-    {
-      _mover = mover;
-      _routePointsManager = routePointsManager;
-      _enemy = enemy;
-      _enemyMoverToPlayer = enemyMoverToPlayer;
-      _hitStatus = hitStatus;
-      _enemyShootAtPlayer = enemyShootAtPlayer;
-      _returnToSpawnStatus = returnToSpawnStatus;
-      _enemyAnimator = enemyAnimator;
-    }
-
-    private float MoveSpeed => _enemy.Config.MoveSpeed;
-    private float RunSpeed => _enemy.Config.RunSpeed;
+    private float MoveSpeed => _config.MoveSpeed;
+    private float RunSpeed => _config.RunSpeed;
 
     private void OnEnable()
     {
@@ -51,12 +37,12 @@ namespace Gameplay.Characters.Enemies
     {
       if (_returnToSpawnStatus.IsReturn)
       {
-        _enemyAnimator.PlayRunAnimation();
+        _animatorProvider.Instance.PlayRunAnimation();
         return RunSpeed;
       }
       else
       {
-        _enemyAnimator.PlayWalkAnimation();
+        _animatorProvider.Instance.PlayWalkAnimation();
         return MoveSpeed;
       }
     }

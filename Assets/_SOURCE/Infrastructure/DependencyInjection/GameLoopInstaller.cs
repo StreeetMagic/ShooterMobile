@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using Cameras;
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.BaseTriggers;
+using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
-using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
+using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Characters.Players._components.Factories;
 using Gameplay.Characters.Players._components.Projectiles.Scripts;
 using Gameplay.CorpseRemovers;
@@ -13,6 +16,7 @@ using Infrastructure.ZenjectFactories;
 using Maps;
 using Quests;
 using Quests.Subquests;
+using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.QuestWindows;
@@ -43,7 +47,6 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<HeadsUpDisplayFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<BaseTriggerFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<UpgradeCellFactory>().AsSingle();
-      Container.BindInterfacesAndSelfTo<EnemyFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<ProjectileStorage>().AsSingle();
       Container.BindInterfacesAndSelfTo<LootSlotFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<EnemyLootSlotFactory>().AsSingle();
@@ -66,6 +69,11 @@ namespace Infrastructure.DependencyInjection
       Container.BindFactory<SubQuest, SubQuestSlot, SubQuestSlot.Factory>()
         .FromSubContainerResolve()
         .ByNewContextPrefab<SubQuestSlotInstaller>(_assetProvider.Get<SubQuestSlot>().GetComponent<SubQuestSlotInstaller>())
+        .AsSingle();
+
+      Container.BindFactory<EnemyConfig, List<SpawnPoint>, Transform, Enemy, Enemy.Factory>()
+        .FromSubContainerResolve()
+        .ByNewContextPrefab<EnemyInstaller>(_assetProvider.Get<Enemy>().GetComponent<EnemyInstaller>())
         .AsSingle();
     }
   }

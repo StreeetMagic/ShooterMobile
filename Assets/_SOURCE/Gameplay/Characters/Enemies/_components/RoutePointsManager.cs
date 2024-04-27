@@ -9,16 +9,10 @@ namespace Gameplay.Characters.Enemies
   public class RoutePointsManager : MonoBehaviour
   {
     private int _currentRouteIndex;
-    private List<SpawnPoint> _routePoints;
-    private Enemy _enemy;
 
-    [Inject]
-    public void Construct(Enemy enemy)
-    {
-      _enemy = enemy;
-    }
+    [Inject] private List<SpawnPoint> _spawnPoints;
 
-    public Transform NextRoutePointTransform => _routePoints[_currentRouteIndex].transform;
+    public Transform NextRoutePointTransform => _spawnPoints[_currentRouteIndex].transform;
 
     private void Start()
     {
@@ -27,9 +21,9 @@ namespace Gameplay.Characters.Enemies
 
     private void Initialize()
     {
-      List<SpawnPoint> componentsProviderSpawnPoints = _enemy.SpawnPoints;
+      List<SpawnPoint> componentsProviderSpawnPoints = _spawnPoints;
 
-      _routePoints = ShuffleRoutePoints(componentsProviderSpawnPoints);
+      _spawnPoints = ShuffleRoutePoints(componentsProviderSpawnPoints);
 
       SetRandomRoute();
     }
@@ -40,7 +34,7 @@ namespace Gameplay.Characters.Enemies
 
       do
       {
-        _currentRouteIndex = Random.Range(0, _routePoints.Count);
+        _currentRouteIndex = Random.Range(0, _spawnPoints.Count);
       } while (_currentRouteIndex == currentIndex);
     }
 

@@ -1,3 +1,4 @@
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Animators;
 using Gameplay.Characters.Players._components.Factories;
 using UnityEngine;
@@ -7,26 +8,15 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyMoverToPlayer : MonoBehaviour
   {
-    private PlayerProvider _playerProvider;
-    private Enemy _enemy;
-    private EnemyMover _mover;
-    private EnemyShootAtPlayer _enemyShootAtPlayer;
-    private EnemyAnimator _enemyAnimator;
+    [Inject] private PlayerProvider _playerProvider;
+    [Inject] private EnemyMover _mover;
+    [Inject] private EnemyShootAtPlayer _enemyShootAtPlayer;
+    [Inject] private EnemyAnimatorProvider _animatorProvider;
+    [Inject] private EnemyConfig _config;
+    [Inject] private Transform _spawnerTransform;
 
-    [Inject]
-    public void Construct(PlayerProvider playerProvider, Enemy enemy, EnemyMover mover,
-      EnemyShootAtPlayer enemyShootAtPlayer, EnemyAnimator enemyAnimator)
-    {
-      _playerProvider = playerProvider;
-      _enemy = enemy;
-      _mover = mover;
-      _enemyShootAtPlayer = enemyShootAtPlayer;
-      _enemyAnimator = enemyAnimator;
-    }
-
-    private float RunSpeed => _enemy.Config.RunSpeed;
+    private float RunSpeed => _config.RunSpeed;
     private Transform PlayerTransform => _playerProvider.Player.transform;
-    private Transform SpawnerTransform => _enemy.SpawnerTransform;
 
     private void FixedUpdate()
     {
@@ -38,7 +28,7 @@ namespace Gameplay.Characters.Enemies
     {
       float distance = (PlayerTransform.position - transform.position).magnitude;
 
-      if (distance < _enemy.Config.Radius)
+      if (distance < _config.Radius)
       {
         _enemyShootAtPlayer.enabled = true;
       }
@@ -46,9 +36,9 @@ namespace Gameplay.Characters.Enemies
 
     private void Move()
     {
-      float distanceToSpawner = (SpawnerTransform.position - transform.position).magnitude;
+      float distanceToSpawner = (_spawnerTransform.position - transform.position).magnitude;
 
-      if (distanceToSpawner < _enemy.Config.PatrolingRadius)
+      if (distanceToSpawner < _config.PatrolingRadius)
         MoveToPlayer();
     }
 
@@ -56,7 +46,7 @@ namespace Gameplay.Characters.Enemies
     {
       Vector3 direction = (PlayerTransform.position - transform.position).normalized;
       _mover.Move(direction, RunSpeed);
-      _enemyAnimator.PlayRunAnimation();
+      _animatorProvider.Instance.PlayRunAnimation();
     }
   }
 }

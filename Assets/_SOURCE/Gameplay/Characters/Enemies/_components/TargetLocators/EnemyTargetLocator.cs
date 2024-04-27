@@ -1,4 +1,5 @@
 using System;
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Players;
 using Infrastructure.Upgrades;
 using UnityEngine;
@@ -10,21 +11,13 @@ namespace Gameplay.Characters.Enemies.TargetLocators
   {
     public SphereCollider SphereCollider;
 
-    private Enemy _enemy;
-    private UpgradeService _upgradeService;
-
-    [Inject]
-    public void Construct(UpgradeService upgradeService, Enemy enemy)
-    {
-      _upgradeService = upgradeService;
-
-      _enemy = enemy;
-    }
+    [Inject] private UpgradeService _upgradeService;
+    [Inject] private EnemyConfig _config;
 
     public event Action<PlayerTargetTrigger> TargetLocated;
     public event Action<PlayerTargetTrigger> TargetLost;
 
-    private float Radius => _enemy.Config.Radius;
+    private float Radius => _config.Radius;
     public bool HasTarget { get; set; }
 
     private void Start()

@@ -1,3 +1,4 @@
+using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using TMPro;
 using UnityEngine;
@@ -9,17 +10,10 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
   {
     public TextMeshProUGUI Text;
 
-    private Enemy _enemy;
-    private EnemyHealth _enemyHealth;
+    [Inject] private EnemyHealth _enemyHealth;
+    [Inject] private EnemyConfig _config;
 
-    [Inject]
-    private void Construct(Enemy enemy, EnemyHealth enemyHealth)
-    {
-      _enemy = enemy;
-      _enemyHealth = enemyHealth;
-    }
-
-    private float MaxHealth => _enemy.Config.InitialHealth;
+    private float MaxHealth => _config.InitialHealth;
 
     private void Start()
     {
