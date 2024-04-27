@@ -16,7 +16,7 @@ using Quests.Subquests;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.QuestWindows;
-using UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots;
+using UserInterface.HeadsUpDisplays.QuestWindows._components.SubQuestSlots;
 using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
 using Zenject;
 using Zenject.Source.Install;

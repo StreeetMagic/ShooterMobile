@@ -1,23 +1,25 @@
 using Quests.Subquests;
-using UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots;
 using Zenject;
 using Zenject.Source.Install;
 
-public class SubQuestSlotInstaller : MonoInstaller
+namespace UserInterface.HeadsUpDisplays.QuestWindows._components.SubQuestSlots
 {
-  public SubQuestSlot SubQuestSlot;
-
-  private SubQuest _subQuest;
-
-  [Inject]
-  public void Construct(SubQuest subQuest)
+  public class SubQuestSlotInstaller : MonoInstaller
   {
-    _subQuest = subQuest;
-  }
+    public SubQuestSlot SubQuestSlot;
 
-  public override void InstallBindings()
-  {
-    Container.Bind<SubQuest>().FromInstance(_subQuest).AsSingle();
-    Container.Bind<SubQuestSlot>().FromInstance(SubQuestSlot).AsSingle();
+    private SubQuest _subQuest;
+
+    [Inject]
+    public void Construct(SubQuest subQuest)
+    {
+      _subQuest = subQuest;
+    }
+
+    public override void InstallBindings()
+    {
+      Container.Bind<SubQuest>().FromInstance(_subQuest).AsSingle();
+      Container.Bind<SubQuestSlot>().FromInstance(SubQuestSlot).AsSingle();
+    }
   }
 }

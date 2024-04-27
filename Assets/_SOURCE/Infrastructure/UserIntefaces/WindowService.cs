@@ -1,6 +1,5 @@
 ﻿using System;
 using Configs.Resources.QuestConfigs.Scripts;
-using Infrastructure.Utilities;
 using Infrastructure.ZenjectFactories;
 using Loggers;
 using Quests;

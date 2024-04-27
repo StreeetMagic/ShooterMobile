@@ -1,10 +1,12 @@
 ﻿using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.QuestConfigs.Scripts;
+using Configs.Resources.RewardConfigs;
 using Configs.Resources.StatConfigs;
 using DataRepositories;
 using DataRepositories.BackpackStorages;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Players._components.PlayerStatsProviders;
+using Gameplay.Rewards;
 
 namespace Gameplay.RewardServices
 {
@@ -32,35 +34,35 @@ namespace Gameplay.RewardServices
       _backpackStorage.AddLoot(enemyConfig.LootDrops);
     }
 
-    public void OnSubQuestCompleted(QuestReward questReward)
+    public void OnSubQuestCompleted(Reward reward)
     {
-      switch (questReward.RewardId)
+      switch (reward.RewardId)
       {
-        case QuestRewardId.Unknown:
+        case RewardId.Unknown:
           throw new System.NotImplementedException("Unknown quest reward type");
 
-        case QuestRewardId.Expirience:
-          _expierienceStorage.AllPoints.Value += questReward.Quantity;
+        case RewardId.Expirience:
+          _expierienceStorage.AllPoints.Value += reward.Quantity;
           break;
 
-        case QuestRewardId.BackpackCapacity:
-          _playerStatsProvider.AddQuestReward(StatId.BackpackCapacity, questReward.Quantity);
+        case RewardId.BackpackCapacity:
+          _playerStatsProvider.AddQuestReward(StatId.BackpackCapacity, reward.Quantity);
           break;
       }
     }
 
-    public void OnQuestCompleted(QuestReward reward)
+    public void OnQuestCompleted(Reward reward)
     {
       switch (reward.RewardId)
       {
-        case QuestRewardId.Unknown:
+        case RewardId.Unknown:
           throw new System.NotImplementedException("Unknown quest reward type");
 
-        case QuestRewardId.Expirience:
+        case RewardId.Expirience:
           _expierienceStorage.AllPoints.Value += reward.Quantity;
           break;
 
-        case QuestRewardId.BackpackCapacity:
+        case RewardId.BackpackCapacity:
           _playerStatsProvider.AddQuestReward(StatId.BackpackCapacity, reward.Quantity);
           break;
       }

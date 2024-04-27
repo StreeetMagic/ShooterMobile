@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts;
+using Gameplay.Rewards;
 using UnityEngine;
 
 namespace Configs.Resources.QuestConfigs.Scripts
@@ -11,7 +12,7 @@ namespace Configs.Resources.QuestConfigs.Scripts
     public QuestId Id;
     public string Name;
     public Sprite Icon;
-    public QuestReward Reward;
+    public Reward Reward;
 
     public List<SubQuestSetup> SubQuests;
   }
@@ -21,6 +22,6 @@ namespace Configs.Resources.QuestConfigs.Scripts
   {
     public SubQuestConfig Config;
     public int Quantity;
-    public QuestReward Reward;
+    public Reward Reward;
   }
 }

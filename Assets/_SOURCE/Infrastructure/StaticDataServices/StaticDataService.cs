@@ -7,6 +7,7 @@ using Configs.Resources.LootConfigs;
 using Configs.Resources.MusicConfigs.Scripts;
 using Configs.Resources.PlayerConfigs.Scripts;
 using Configs.Resources.QuestConfigs.Scripts;
+using Configs.Resources.RewardConfigs;
 using Configs.Resources.SoundConfigs.Scripts;
 using Configs.Resources.StatConfigs;
 using Configs.Resources.UpgradeConfigs.Scripts;
@@ -24,6 +25,7 @@ namespace Infrastructure.StaticDataServices
     private const string MusicConfigPath = "MusicConfigs";
     private const string QuestConfigPath = "QuestConfigs";
     private const string ExpirienceConfigPath = "ExpirienceConfigs/ExpirienceConfig";
+    private const string RewardConfigPath = "RewardConfigs";
 
     private PlayerConfig _playerConfig;
     private ExpirienceConfig _expirienceConfig;
@@ -36,6 +38,7 @@ namespace Infrastructure.StaticDataServices
     private Dictionary<SoundId, SoundConfig> _soundConfigs;
     private Dictionary<StatId, int> _stats;
     private Dictionary<QuestId, QuestConfig> _questConfigs;
+    private Dictionary<RewardId, RewardConfig> _rewardConfigs;
 
     public PlayerConfig GetPlayerConfig() =>
       _playerConfig ??= Resources.Load<PlayerConfig>(PlayerConfigPath);
@@ -73,6 +76,9 @@ namespace Infrastructure.StaticDataServices
     public Dictionary<QuestId, QuestConfig> GetQuestConfigs() =>
       _questConfigs;
 
+    public Dictionary<RewardId, RewardConfig> GetRewardConfigs() =>
+      _rewardConfigs;
+
     public void LoadConfigs()
     {
       LoadEnemyConfigs();
@@ -83,7 +89,13 @@ namespace Infrastructure.StaticDataServices
       LoadInitialStats();
       LoadQuestConfigs();
       LoadExpirienceConfig();
+      LoadRewardConfigs();
     }
+
+    private void LoadRewardConfigs() =>
+      _rewardConfigs = Resources
+        .LoadAll<RewardConfig>(RewardConfigPath)
+        .ToDictionary(x => x.Id, x => x);
 
     private void LoadQuestConfigs() =>
       _questConfigs = Resources

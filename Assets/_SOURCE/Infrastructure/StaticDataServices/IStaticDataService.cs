@@ -6,6 +6,7 @@ using Configs.Resources.LootConfigs;
 using Configs.Resources.MusicConfigs.Scripts;
 using Configs.Resources.PlayerConfigs.Scripts;
 using Configs.Resources.QuestConfigs.Scripts;
+using Configs.Resources.RewardConfigs;
 using Configs.Resources.SoundConfigs.Scripts;
 using Configs.Resources.StatConfigs;
 using Configs.Resources.UpgradeConfigs.Scripts;
@@ -26,5 +27,6 @@ namespace Infrastructure.StaticDataServices
     Dictionary<QuestId, QuestConfig> GetQuestConfigs();
     QuestConfig GetQuestConfig(QuestId questId);
     ExpirienceConfig GetExpirienceConfig();
+    Dictionary<RewardId, RewardConfig> GetRewardConfigs();
   }
 }

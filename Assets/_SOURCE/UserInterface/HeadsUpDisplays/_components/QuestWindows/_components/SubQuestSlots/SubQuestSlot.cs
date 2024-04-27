@@ -5,7 +5,7 @@ using UnityEngine;
 using Zenject;
 using Zenject.Source.Factories;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
+namespace UserInterface.HeadsUpDisplays.QuestWindows._components.SubQuestSlots
 {
   public class SubQuestSlot : MonoBehaviour
   {
@@ -14,13 +14,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
     public GameObject RewardReady;
     public GameObject RewardTaken;
 
-    [Inject]
-    private void Construct(SubQuest subQuest)
-    {
-      SubQuest = subQuest;
-    }
-
-    public SubQuest SubQuest { get; private set; }
+    [Inject] public SubQuest SubQuest { get; private set; }
 
     private void Start()
     {
@@ -68,7 +62,9 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
       RewardReady.SetActive(false);
       RewardTaken.SetActive(false);
     }
-    
-    public class Factory : PlaceholderFactory<SubQuest, SubQuestSlot> { }
+
+    public class Factory : PlaceholderFactory<SubQuest, SubQuestSlot>
+    {
+    }
   }
 }

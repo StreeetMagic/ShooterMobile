@@ -788,8 +788,9 @@ GameObject:
   - component: {fileID: 1533956220394869895}
   - component: {fileID: 1351565377578890891}
   - component: {fileID: 1546788461867524844}
+  - component: {fileID: 436187311983797823}
   m_Layer: 5
-  m_Name: Icon_Gem
+  m_Name: RewardIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -852,6 +853,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &436187311983797823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961449007123434946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5587db2d7d167094da94964b6ab860d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 1546788461867524844}
 --- !u!1 &1009170576897068785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +1057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6424decbf3bc9646a7ae1e096fbe3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   GrayButton: {fileID: 3036455265105373222}
   GreenButton: {fileID: 3735116597404697910}
 --- !u!1 &1741108881392034343
@@ -1501,7 +1514,7 @@ RectTransform:
   m_Father: {fileID: 3228948856657991404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.2, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -6, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1843,7 +1856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de326d750cf75f14f92876af85263615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Text: {fileID: 6442837291933968988}
 --- !u!1 &2954653102011781043
 GameObject:
@@ -1993,7 +2005,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de326d750cf75f14f92876af85263615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Text: {fileID: 6510794542316798613}
 --- !u!1 &2980690098424759327
 GameObject:
@@ -2219,8 +2230,9 @@ GameObject:
   - component: {fileID: 2492843236454892298}
   - component: {fileID: 3138440208726060707}
   - component: {fileID: 4417700601169329850}
+  - component: {fileID: 7854540105084505782}
   m_Layer: 5
-  m_Name: Text_3
+  m_Name: RewardText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2343,6 +2355,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7854540105084505782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700748539922440702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59e7f6d567727c4fb03b8bcc5c9cad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RewardTextComponent: {fileID: 4417700601169329850}
 --- !u!1 &3735116597404697910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,7 +2502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf2a708093f56c4c9a6434d0be00a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Button: {fileID: 3458061544153251604}
 --- !u!1 &3782484887033804349
 GameObject:
@@ -2703,7 +2727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfef40b5810c402dbbf1074813a7496b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Text: {fileID: 4548035349477177021}
 --- !u!1 &3914071031791026908
 GameObject:
@@ -2856,7 +2879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7875051771359883178
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2895,7 +2918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6424decbf3bc9646a7ae1e096fbe3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   GrayButton: {fileID: 9012109818362990674}
   GreenButton: {fileID: 7995841090411884661}
 --- !u!1 &4266739274238574443
@@ -3121,7 +3143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de326d750cf75f14f92876af85263615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Text: {fileID: 1076728123945389961}
 --- !u!1 &4737581486997351190
 GameObject:
@@ -3612,7 +3633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ae151a444fc3b449625b945d6c6a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Text: {fileID: 9141012767780087186}
 --- !u!1 &5525639778242769974
 GameObject:
@@ -3955,7 +3975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6424decbf3bc9646a7ae1e096fbe3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   GrayButton: {fileID: 279298343819083274}
   GreenButton: {fileID: 7398432126539225684}
 --- !u!1 &7398432126539225684
@@ -4092,7 +4111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf2a708093f56c4c9a6434d0be00a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Button: {fileID: 753286633928234397}
 --- !u!1 &7490336756579762505
 GameObject:
@@ -4242,7 +4260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de326d750cf75f14f92876af85263615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Text: {fileID: 3958959540897524199}
 --- !u!1 &7745512738286387309
 GameObject:
@@ -4879,7 +4896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf2a708093f56c4c9a6434d0be00a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Button: {fileID: 4137891768946367159}
 --- !u!1 &8228780762181791395
 GameObject:
@@ -5066,7 +5082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de326d750cf75f14f92876af85263615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Text: {fileID: 3828781856278064345}
 --- !u!1 &8577559430692954211
 GameObject:
@@ -5291,7 +5306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de326d750cf75f14f92876af85263615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Text: {fileID: 4167381681639816071}
 --- !u!1 &8988523421794583145
 GameObject:
@@ -5305,7 +5319,7 @@ GameObject:
   - component: {fileID: 2023296958211715900}
   - component: {fileID: 7398020415860278733}
   m_Layer: 5
-  m_Name: Reward_shape
+  m_Name: RewardPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5609,7 +5623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2a11b4229b48b594830404fb7e75fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
   Image: {fileID: 1258170769169864993}
 --- !u!1 &9173215629862111587
 GameObject:
