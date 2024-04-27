@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Infrastructure.ZenjectFactories;
-using Maps;
 using UnityEngine;
 using Zenject;
 

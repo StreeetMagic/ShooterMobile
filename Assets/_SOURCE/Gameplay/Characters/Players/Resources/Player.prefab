@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 544958688865969944}
   m_Layer: 6
-  m_Name: base_pointer
+  m_Name: BasePointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,6 +113,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 15.88}
   m_SizeDelta: {x: 2, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2037724252992656860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7062397895274126649}
+  m_Layer: 0
+  m_Name: Pointers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7062397895274126649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037724252992656860}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5893318341531998031}
+  - {fileID: 1131007997356296541}
+  m_Father: {fileID: 1874641531791036930}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2249939510684959487
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +157,7 @@ GameObject:
   - component: {fileID: 1131007997356296541}
   - component: {fileID: 1973410682738772436}
   m_Layer: 6
-  m_Name: ActorUserInterface2
+  m_Name: QuestPointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,13 +171,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2249939510684959487}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8589901509315128239}
-  m_Father: {fileID: 1874641531791036930}
+  m_Father: {fileID: 7062397895274126649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1973410682738772436
 MonoBehaviour:
@@ -333,7 +366,7 @@ GameObject:
   - component: {fileID: 5893318341531998031}
   - component: {fileID: 7262900594124172936}
   m_Layer: 6
-  m_Name: ActorUserInterface1
+  m_Name: BasePointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,13 +380,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4908555434324186413}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1960235723228296174}
-  m_Father: {fileID: 1874641531791036930}
+  m_Father: {fileID: 7062397895274126649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7262900594124172936
 MonoBehaviour:
@@ -979,7 +1012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6421400136709844027}
   m_Layer: 6
-  m_Name: quest_pointer
+  m_Name: QuestPointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1196,9 +1229,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7563147667282847347}
-  - {fileID: 5893318341531998031}
-  - {fileID: 1131007997356296541}
   - {fileID: 1412343775722502711}
+  - {fileID: 7062397895274126649}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &4028849580647468112
@@ -1273,7 +1305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947f15f8502a81348a3985aeb6ce20a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootingPoint: {fileID: 8270629885312245450}
 --- !u!114 &3683974400693218335
 MonoBehaviour:
   m_ObjectHideFlags: 0

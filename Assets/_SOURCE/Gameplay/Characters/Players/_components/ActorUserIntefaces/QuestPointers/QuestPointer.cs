@@ -10,11 +10,10 @@ namespace Gameplay.Characters.Players._components.ActorUserIntefaces.QuestPointe
     public GameObject Pointer;
 
     private Transform _questTarget;
-
     private MapProvider _mapProvider;
 
     [Inject]
-    public void Construct(MapProvider mapProvider, QuestStorage storage)
+    public void Construct(MapProvider mapProvider)
     {
       _mapProvider = mapProvider;
       _questTarget = transform;
