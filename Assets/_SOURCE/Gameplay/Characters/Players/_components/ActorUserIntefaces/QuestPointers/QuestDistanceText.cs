@@ -23,6 +23,9 @@ namespace Gameplay.Characters.Players._components.ActorUserIntefaces.QuestPointe
 
     private void Update()
     {
+      if (_mapProvider.Map == null)
+        return;
+      
       Quester quester = _mapProvider.Map.Questers[0];
       Player player = _playerProvider.Player;
 

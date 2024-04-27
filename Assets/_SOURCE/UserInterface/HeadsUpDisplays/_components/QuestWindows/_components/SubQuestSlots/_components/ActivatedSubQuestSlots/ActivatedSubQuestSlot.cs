@@ -1,25 +1,27 @@
 using System;
 using Quests;
 using UnityEngine;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots
 {
   public class ActivatedSubQuestSlot : MonoBehaviour
   {
-    public SubQuestSlot SubQuestSlot;
     public GameObject GrayButton;
     public GameObject GreenButton;
 
-    private void Start()
-    {
-      SetupButtons(SubQuestSlot.SubQuest.State.Value);
+    [Inject] private SubQuestSlot _subQuestSlot;
 
-      SubQuestSlot.SubQuest.State.ValueChanged += SetupButtons;
+    private void OnEnable()
+    {
+      SetupButtons(_subQuestSlot.SubQuest.State.Value);
+
+      _subQuestSlot.SubQuest.State.ValueChanged += SetupButtons;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-      SubQuestSlot.SubQuest.State.ValueChanged -= SetupButtons;
+      _subQuestSlot.SubQuest.State.ValueChanged -= SetupButtons;
     }
 
     private void SetupButtons(QuestState stateValue)
@@ -27,7 +29,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.A
       switch (stateValue)
       {
         case QuestState.Unknown:
-          throw new ArgumentOutOfRangeException(nameof(SubQuestSlot.SubQuest.State));
+          throw new ArgumentOutOfRangeException(nameof(_subQuestSlot.SubQuest.State));
 
         case QuestState.UnActivated:
           GrayButton.SetActive(false);

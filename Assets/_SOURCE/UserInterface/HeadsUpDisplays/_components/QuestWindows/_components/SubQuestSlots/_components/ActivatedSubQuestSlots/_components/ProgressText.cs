@@ -1,23 +1,26 @@
+using Quests.Subquests;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots._components
 {
   public class ProgressText : MonoBehaviour
   {
-    public SubQuestSlot SubQuestSlot;
     public TextMeshProUGUI Text;
 
-    private void Start()
+    [Inject] private SubQuest _subQuest;
+
+    private void OnEnable()
     {
-      SetupText(SubQuestSlot.SubQuest.CompletedQuantity.Value);
-      SubQuestSlot.SubQuest.CompletedQuantity.ValueChanged += SetupText;
+      SetupText(_subQuest.CompletedQuantity.Value);
+      _subQuest.CompletedQuantity.ValueChanged += SetupText;
     }
 
     private void SetupText(int _)
     {
-      int current = SubQuestSlot.SubQuest.CompletedQuantity.Value;
-      int max = SubQuestSlot.SubQuest.Setup.Quantity;
+      int current = _subQuest.CompletedQuantity.Value;
+      int max = _subQuest.Setup.Quantity;
 
       Text.text = $"{current}/{max}";
 

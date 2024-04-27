@@ -4669,6 +4669,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3826703385033291201}
   - component: {fileID: -3095998728224483095}
+  - component: {fileID: 8170521777294870125}
+  - component: {fileID: 7710517503228418024}
   m_Layer: 5
   m_Name: SubQuestSlot
   m_TagString: Untagged
@@ -4712,6 +4714,37 @@ MonoBehaviour:
   Activated: {fileID: 3958581225030122194}
   RewardReady: {fileID: 1687917724067276341}
   RewardTaken: {fileID: 7296366278612074768}
+--- !u!114 &8170521777294870125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979629832855462073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740a8e61ab998394c933ed89e75e4538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SubQuestSlot: {fileID: -3095998728224483095}
+--- !u!114 &7710517503228418024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979629832855462073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 8170521777294870125}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
 --- !u!1 &7995841090411884661
 GameObject:
   m_ObjectHideFlags: 0

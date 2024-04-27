@@ -19,6 +19,9 @@ namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
 
     private void Update()
     {
+      if (_mapProvider.Map == null)
+        return;
+      
       bool isQuesterActive =
         _mapProvider
           .Map

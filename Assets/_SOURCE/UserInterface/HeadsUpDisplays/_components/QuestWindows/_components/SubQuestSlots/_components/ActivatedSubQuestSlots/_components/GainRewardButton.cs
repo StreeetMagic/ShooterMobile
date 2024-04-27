@@ -1,22 +1,25 @@
 using Quests;
+using Quests.Subquests;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots._components
 {
   public class GainRewardButton : MonoBehaviour
   {
-    public SubQuestSlot SubQuestSlot;
     public Button Button;
 
-    private void Start()
+    [Inject] private SubQuest _subQuest;
+
+    private void OnEnable()
     {
       SetupButton();
     }
 
     private void SetupButton()
     {
-      Button.onClick.AddListener(() => SubQuestSlot.SubQuest.State.Value = QuestState.RewardTaken);
+      Button.onClick.AddListener(() => _subQuest.State.Value = QuestState.RewardTaken);
     }
   }
 }

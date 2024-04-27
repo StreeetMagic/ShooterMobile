@@ -8,7 +8,7 @@ public class QuestWindowInstaller : MonoInstaller
   public QuestWindow QuestWindow;
 
   private Quest _quest;
-  
+
   [Inject]
   public void Construct(Quest quest)
   {

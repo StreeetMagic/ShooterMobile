@@ -1,21 +1,24 @@
+using Quests.Subquests;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots._components
 {
   public class RewardText : MonoBehaviour
   {
-    public SubQuestSlot SubQuestSlot;
     public TextMeshProUGUI RewardTextComponent;
 
-    void Start()
+    [Inject] private SubQuest _subQuest;
+
+    private void OnEnable()
     {
       SetupText();
     }
 
     private void SetupText()
     {
-      RewardTextComponent.text = "+ " + SubQuestSlot.SubQuest.Setup.Reward.Quantity + " " + SubQuestSlot.SubQuest.Setup.Reward.RewardId;
+      RewardTextComponent.text = "+ " + _subQuest.Setup.Reward.Quantity + " " + _subQuest.Setup.Reward.RewardId;
     }
   }
 }

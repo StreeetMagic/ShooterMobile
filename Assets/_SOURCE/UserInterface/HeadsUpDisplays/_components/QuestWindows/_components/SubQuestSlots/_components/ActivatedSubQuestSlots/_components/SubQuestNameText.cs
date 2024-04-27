@@ -1,12 +1,14 @@
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots._components
 {
   public class SubQuestNameText : MonoBehaviour
   {
-    public SubQuestSlot SubQuestSlot;
     public TextMeshProUGUI Text;
+    
+    [Inject] private SubQuestSlot _subQuestSlot;
 
     private void Start()
     {
@@ -15,7 +17,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.A
 
     private void SetupText()
     {
-      Text.text = SubQuestSlot.SubQuest.Setup.Config.Name;
+      Text.text = _subQuestSlot.SubQuest.Setup.Config.Name;
     }
   }
 }

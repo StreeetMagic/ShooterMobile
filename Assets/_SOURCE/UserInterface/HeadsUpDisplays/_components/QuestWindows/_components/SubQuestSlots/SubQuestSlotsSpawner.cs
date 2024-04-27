@@ -1,7 +1,4 @@
 using System;
-using Configs.Resources.QuestConfigs.Scripts;
-using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
 using Quests;
 using Quests.Subquests;
 using UnityEngine;
@@ -11,25 +8,14 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 {
   public class SubQuestSlotsSpawner : MonoBehaviour
   {
-    public QuestWindow QuestWindow;
+    [Inject] private SubQuestSlot.Factory _factory;
+    [Inject] private Quest _quest;
 
-    private IAssetProvider _assetProvider;
-    private SubQuestSlot.Factory _factory;
-
-    [Inject]
-    private void Construct(IAssetProvider assetProvider, SubQuestSlot.Factory factory)
-    {
-      _assetProvider = assetProvider;
-      _factory = factory;
-    }
-
-    private QuestConfig QuestConfig => QuestWindow.Quest.Config;
-
-    private void Start()
+    private void OnEnable()
     {
       CreateSubQuests();
 
-      QuestWindow.Quest.State.ValueChanged += QuestStateChanged;
+      _quest.State.ValueChanged += QuestStateChanged;
     }
 
     private void QuestStateChanged(QuestState state)
@@ -43,7 +29,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
           break;
 
         case QuestState.Activated:
-          QuestWindow.Quest.SubQuests[0].State.Value = QuestState.Activated;
+          _quest.SubQuests[0].State.Value = QuestState.Activated;
           break;
 
         case QuestState.RewardReady:
@@ -53,9 +39,9 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 
     private void CreateSubQuests()
     {
-      for (var i = 0; i < QuestConfig.SubQuests.Count; i++)
+      for (var i = 0; i < _quest.Config.SubQuests.Count; i++)
       {
-        SubQuest subQuest = QuestWindow.Quest.SubQuests[i];
+        SubQuest subQuest = _quest.SubQuests[i];
 
         SubQuestSlot slot = _factory.Create(subQuest);
 

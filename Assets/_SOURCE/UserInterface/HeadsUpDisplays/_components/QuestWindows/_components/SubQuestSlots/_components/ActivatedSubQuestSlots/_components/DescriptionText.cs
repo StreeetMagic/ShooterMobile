@@ -1,17 +1,20 @@
+using Quests.Subquests;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots._components.ActivatedSubQuestSlots._components
 {
   public class DescriptionText : MonoBehaviour
   {
-    public SubQuestSlot SubQuestSlot;
     public TextMeshProUGUI Text;
+
+    [Inject] private SubQuest _subQuest;
 
     private void Update()
     {
-      int setupQuantity = SubQuestSlot.SubQuest.Setup.Quantity;
-      string description = SubQuestSlot.SubQuest.Setup.Config.Description;
+      int setupQuantity = _subQuest.Setup.Quantity;
+      string description = _subQuest.Setup.Config.Description;
 
       Text.text = description + "(" + setupQuantity + ")";
     }

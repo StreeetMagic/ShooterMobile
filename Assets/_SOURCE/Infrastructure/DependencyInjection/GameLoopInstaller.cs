@@ -64,8 +64,9 @@ namespace Infrastructure.DependencyInjection
         .AsSingle();
 
       Container.BindFactory<SubQuest, SubQuestSlot, SubQuestSlot.Factory>()
-        .FromComponentInNewPrefab(_assetProvider.Get<SubQuestSlot>());
-
+        .FromSubContainerResolve()
+        .ByNewContextPrefab<SubQuestSlotInstaller>(_assetProvider.Get<SubQuestSlot>().GetComponent<SubQuestSlotInstaller>())
+        .AsSingle();
     }
   }
 }
