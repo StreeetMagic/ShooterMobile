@@ -1,6 +1,6 @@
 using DataRepositories;
 using DataRepositories.BackpackStorages;
-using Gameplay.Characters.Players._components.PlayerStatsProviders;
+using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.RewardServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.AudioServices;

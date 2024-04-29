@@ -1,9 +1,9 @@
 using Configs.Resources.StatConfigs;
-using Gameplay.Characters.Players._components.PlayerStatsProviders;
+using Gameplay.Characters.Players.PlayerStatsProviders;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players._components.AttackRadiusListeners
+namespace Gameplay.Characters.Players.AttackRadiusListeners
 {
   public class AttackRadiusListener : MonoBehaviour
   {

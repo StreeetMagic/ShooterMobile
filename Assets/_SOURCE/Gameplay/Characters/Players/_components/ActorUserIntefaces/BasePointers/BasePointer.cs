@@ -4,7 +4,7 @@ using Maps;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players._components.ActorUserIntefaces.BasePointers
+namespace Gameplay.Characters.Players.ActorUserIntefaces.BasePointers
 {
   public class BasePointer : MonoBehaviour
   {

@@ -1,4 +1,4 @@
-﻿using Gameplay.Characters.Players._components.Projectiles.ImportedScripts;
+﻿using Gameplay.Characters.Players.Projectiles.ImportedScripts;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -1,6 +1,6 @@
 using Configs.Resources.StatConfigs;
 using Configs.Resources.UpgradeConfigs.Scripts;
-using Gameplay.Characters.Players._components.PlayerStatsProviders;
+using Gameplay.Characters.Players.PlayerStatsProviders;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Upgrades;
 using TMPro;

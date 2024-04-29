@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.StatConfigs;
 using DataRepositories.BackpackStorages;
-using Gameplay.Characters.Players._components.PlayerStatsProviders;
+using Gameplay.Characters.Players.PlayerStatsProviders;
 using UnityEngine;
 using Zenject;
 

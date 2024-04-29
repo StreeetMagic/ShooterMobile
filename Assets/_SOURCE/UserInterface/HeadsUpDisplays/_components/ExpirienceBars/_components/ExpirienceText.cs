@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.ExpirienceBars._components
+namespace UserInterface.HeadsUpDisplays.ExpirienceBars
 {
   public class ExpirienceText : MonoBehaviour
   {

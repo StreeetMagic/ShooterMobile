@@ -1,4 +1,3 @@
-using Gameplay.Characters.Questers._components;
 using UnityEngine;
 
 namespace Gameplay.Characters.Questers

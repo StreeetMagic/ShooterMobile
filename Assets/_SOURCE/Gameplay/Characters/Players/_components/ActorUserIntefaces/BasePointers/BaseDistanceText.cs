@@ -1,11 +1,11 @@
 using Gameplay.BaseTriggers;
-using Gameplay.Characters.Players._components.Factories;
+using Gameplay.Characters.Players.Factories;
 using Maps;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players._components.ActorUserIntefaces.BasePointers
+namespace Gameplay.Characters.Players.ActorUserIntefaces.BasePointers
 {
   public class BaseDistanceText : MonoBehaviour
   {

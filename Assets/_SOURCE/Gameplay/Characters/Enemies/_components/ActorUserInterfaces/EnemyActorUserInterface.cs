@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.ActorUserInterfaces
 {
-  public class ActorUserInterface : MonoBehaviour
+  public class EnemyActorUserInterface : MonoBehaviour
   {
     private EnemyHealth _enemyHealth;
 

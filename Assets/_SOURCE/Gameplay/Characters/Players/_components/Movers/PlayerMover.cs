@@ -1,8 +1,8 @@
 using Configs.Resources.PlayerConfigs.Scripts;
 using Configs.Resources.StatConfigs;
 using DataRepositories;
-using Gameplay.Characters.Players._components.Animators;
-using Gameplay.Characters.Players._components.PlayerStatsProviders;
+using Gameplay.Characters.Players.Animators;
+using Gameplay.Characters.Players.PlayerStatsProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
@@ -10,7 +10,7 @@ using Infrastructure.Upgrades;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players._components.Movers
+namespace Gameplay.Characters.Players.Movers
 {
   [RequireComponent(typeof(CharacterController))]
   public class PlayerMover : MonoBehaviour, IProgressWriter
@@ -25,7 +25,8 @@ namespace Gameplay.Characters.Players._components.Movers
     private Vector3 _gravitySpeed;
 
     [Inject]
-    private void Construct(IStaticDataService staticData, MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService, PlayerStatsProvider playerStatsProvider)
+    private void Construct(IStaticDataService staticData, 
+      MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService, PlayerStatsProvider playerStatsProvider)
     {
       _playerConfig = staticData.GetPlayerConfig();
       _characterController = GetComponent<CharacterController>();

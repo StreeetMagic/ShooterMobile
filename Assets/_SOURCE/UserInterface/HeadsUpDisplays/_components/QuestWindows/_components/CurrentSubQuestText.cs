@@ -4,7 +4,7 @@ using Quests.Subquests;
 using TMPro;
 using UnityEngine;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows._components
+namespace UserInterface.HeadsUpDisplays.QuestWindows
 {
   public class CurrentSubQuestText : MonoBehaviour
   {

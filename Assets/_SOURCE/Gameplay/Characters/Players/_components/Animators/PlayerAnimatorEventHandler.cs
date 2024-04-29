@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players._components.Animators
+namespace Gameplay.Characters.Players.Animators
 {
   public class PlayerAnimatorEventHandler : MonoBehaviour
   {

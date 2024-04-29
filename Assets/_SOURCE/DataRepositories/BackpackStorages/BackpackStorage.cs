@@ -4,7 +4,7 @@ using Configs.Resources.CurrencyConfigs;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.LootConfigs;
 using Configs.Resources.StatConfigs;
-using Gameplay.Characters.Players._components.PlayerStatsProviders;
+using Gameplay.Characters.Players.PlayerStatsProviders;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;

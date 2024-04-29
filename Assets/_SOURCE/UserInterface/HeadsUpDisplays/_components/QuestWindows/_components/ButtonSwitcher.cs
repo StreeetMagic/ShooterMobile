@@ -3,7 +3,7 @@ using Quests;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows._components
+namespace UserInterface.HeadsUpDisplays.QuestWindows
 {
   public class ButtonSwitcher : MonoBehaviour
   {

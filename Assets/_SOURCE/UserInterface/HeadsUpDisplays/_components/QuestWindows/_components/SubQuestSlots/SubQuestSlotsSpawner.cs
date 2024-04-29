@@ -4,7 +4,7 @@ using Quests.Subquests;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows._components.SubQuestSlots
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 {
   public class SubQuestSlotsSpawner : MonoBehaviour
   {

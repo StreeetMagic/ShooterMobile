@@ -4,7 +4,7 @@ using Configs.Resources.StatConfigs;
 using DataRepositories;
 using DataRepositories.BackpackStorages;
 using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Players._components.PlayerStatsProviders;
+using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Rewards;
 
 namespace Gameplay.RewardServices

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Players._components.Projectiles._components.Raycasters
+namespace Gameplay.Characters.Players.Projectiles.Raycasters
 {
   public class CollisionPointRayCaster : MonoBehaviour
   {

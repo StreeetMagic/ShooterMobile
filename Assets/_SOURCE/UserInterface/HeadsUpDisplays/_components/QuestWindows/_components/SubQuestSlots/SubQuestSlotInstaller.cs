@@ -4,7 +4,7 @@ using Quests.Subquests;
 using Zenject;
 using Zenject.Source.Install;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows._components.SubQuestSlots
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 {
   public class SubQuestSlotInstaller : MonoInstaller
   {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players._components.Projectiles._components.Movers
+namespace Gameplay.Characters.Players.Projectiles.Movers
 {
   [RequireComponent(typeof(Rigidbody))]
   public class ForwardMover : MonoBehaviour

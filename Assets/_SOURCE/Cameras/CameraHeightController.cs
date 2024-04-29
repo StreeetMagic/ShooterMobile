@@ -1,4 +1,4 @@
-using Gameplay.Characters.Players._components.Factories;
+using Gameplay.Characters.Players.Factories;
 using UnityEngine;
 using Zenject;
 

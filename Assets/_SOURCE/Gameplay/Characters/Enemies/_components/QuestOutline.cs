@@ -17,6 +17,7 @@ namespace Gameplay.Characters.Enemies
     private void Construct(QuestStorage storage)
     {
       _storage = storage;
+      
     }
 
     private void OnEnable()

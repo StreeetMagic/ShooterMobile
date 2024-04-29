@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows._components
+namespace UserInterface.HeadsUpDisplays.QuestWindows
 {
   public class QuestTitle : MonoBehaviour
   {

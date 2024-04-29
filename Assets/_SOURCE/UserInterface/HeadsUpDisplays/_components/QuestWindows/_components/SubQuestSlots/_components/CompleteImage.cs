@@ -2,7 +2,7 @@ using Quests;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows._components.SubQuestSlots._components
+namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 {
   public class CompleteImage : MonoBehaviour
   {

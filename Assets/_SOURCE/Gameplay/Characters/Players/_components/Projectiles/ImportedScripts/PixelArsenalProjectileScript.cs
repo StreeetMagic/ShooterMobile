@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Players._components.Projectiles.ImportedScripts
+namespace Gameplay.Characters.Players.Projectiles.ImportedScripts
 {
   public class PixelArsenalProjectileScript : MonoBehaviour
   {

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.ExpirienceBars._components
+namespace UserInterface.HeadsUpDisplays.ExpirienceBars
 {
   public class ExpirienceBar : MonoBehaviour
   {

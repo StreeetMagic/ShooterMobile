@@ -1,6 +1,6 @@
-using Gameplay.Characters.Players._components.Animators;
-using Gameplay.Characters.Players._components.TargetHolders;
-using Gameplay.Characters.Players._components.TargetLocators;
+using Gameplay.Characters.Players.Animators;
+using Gameplay.Characters.Players.TargetHolders;
+using Gameplay.Characters.Players.TargetLocators;
 using Zenject.Source.Install;
 
 namespace Gameplay.Characters.Players

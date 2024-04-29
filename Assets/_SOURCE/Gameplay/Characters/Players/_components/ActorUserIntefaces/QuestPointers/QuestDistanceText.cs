@@ -1,11 +1,11 @@
-using Gameplay.Characters.Players._components.Factories;
+using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Questers;
 using Maps;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players._components.ActorUserIntefaces.QuestPointers
+namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
 {
   public class QuestDistanceText : MonoBehaviour
   {

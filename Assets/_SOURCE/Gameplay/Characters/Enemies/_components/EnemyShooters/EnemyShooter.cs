@@ -1,5 +1,5 @@
 using Configs.Resources.SoundConfigs.Scripts;
-using Gameplay.Characters.Players._components.Projectiles.Scripts;
+using Gameplay.Characters.Players.Projectiles.Scripts;
 using Infrastructure.AudioServices;
 using UnityEngine;
 

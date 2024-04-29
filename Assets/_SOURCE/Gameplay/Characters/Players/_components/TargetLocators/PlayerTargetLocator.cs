@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using Configs.Resources.StatConfigs;
 using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Characters.Players._components.PlayerStatsProviders;
-using Gameplay.Characters.Players._components.TargetHolders;
+using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Characters.Players.TargetHolders;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players._components.TargetLocators
+namespace Gameplay.Characters.Players.TargetLocators
 {
   public class PlayerTargetLocator : MonoBehaviour
   {

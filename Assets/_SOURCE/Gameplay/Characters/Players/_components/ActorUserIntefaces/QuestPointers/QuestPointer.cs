@@ -2,7 +2,7 @@ using Maps;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players._components.ActorUserIntefaces.QuestPointers
+namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
 {
   public class QuestPointer : MonoBehaviour
   {

@@ -3,7 +3,7 @@ using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players._components.Rotators
+namespace Gameplay.Characters.Players.Rotators
 {
   public class PlayerRotator : MonoBehaviour
   {

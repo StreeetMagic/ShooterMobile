@@ -1,15 +1,15 @@
 ﻿using Configs.Resources.SoundConfigs.Scripts;
 using DataRepositories.BackpackStorages;
-using Gameplay.Characters.Players._components.Animators;
-using Gameplay.Characters.Players._components.Factories;
-using Gameplay.Characters.Players._components.Projectiles.Scripts;
-using Gameplay.Characters.Players._components.TargetHolders;
+using Gameplay.Characters.Players.Animators;
+using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players.Projectiles.Scripts;
+using Gameplay.Characters.Players.TargetHolders;
 using Infrastructure.AudioServices;
 using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players._components.Shooters
+namespace Gameplay.Characters.Players.Shooters
 {
   public class PlayerShooter : MonoBehaviour
   {

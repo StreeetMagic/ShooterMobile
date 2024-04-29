@@ -1,11 +1,11 @@
-﻿using Gameplay.Characters.Players._components.InputHandlers;
-using Gameplay.Characters.Players._components.Movers;
-using Gameplay.Characters.Players._components.Rotators;
-using Gameplay.Characters.Players._components.TargetHolders;
-using Gameplay.Characters.Players._components.TargetLocators;
+﻿using Gameplay.Characters.Players.InputHandlers;
+using Gameplay.Characters.Players.Movers;
+using Gameplay.Characters.Players.Rotators;
+using Gameplay.Characters.Players.TargetHolders;
+using Gameplay.Characters.Players.TargetLocators;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players._components.Factories
+namespace Gameplay.Characters.Players.Factories
 {
   public class PlayerProvider
   {

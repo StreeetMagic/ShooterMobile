@@ -1,7 +1,7 @@
 using Configs.Resources.VisualEffectConfigs;
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players._components.PlayerStatsProviders;
-using Gameplay.Characters.Players._components.Projectiles._components.Raycasters;
+using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Characters.Players.Projectiles.Raycasters;
 using Infrastructure;
 using UnityEngine;
 using Zenject;

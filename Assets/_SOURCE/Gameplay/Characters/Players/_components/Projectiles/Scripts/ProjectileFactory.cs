@@ -5,7 +5,7 @@ using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players._components.Projectiles.Scripts
+namespace Gameplay.Characters.Players.Projectiles.Scripts
 {
   public class ProjectileFactory
   {
