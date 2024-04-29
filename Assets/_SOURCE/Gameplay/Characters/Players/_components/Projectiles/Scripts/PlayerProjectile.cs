@@ -32,7 +32,7 @@ namespace Gameplay.Characters.Players.Projectiles.Scripts
     }
 
     private void PlayerVisualEffect() =>
-      _visualEffectFactory.Create(VIsualEffectId.BulletImpact, transform.position, transform);
+      _visualEffectFactory.Create(ParticleEffectId.BulletImpact, transform.position, transform);
 
     private void DamageTargetTrigger(Collider other)
     {

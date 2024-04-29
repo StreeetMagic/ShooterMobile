@@ -56,6 +56,7 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<PlayerProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<MapProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<VisualEffectFactory>().AsSingle();
+      Container.BindInterfacesAndSelfTo<ParticleImageFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();
       Container.BindInterfacesAndSelfTo<HeadsUpDisplayProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<DebugService>().AsSingle();

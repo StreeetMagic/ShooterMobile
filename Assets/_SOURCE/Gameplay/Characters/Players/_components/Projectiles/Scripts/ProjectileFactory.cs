@@ -31,7 +31,7 @@ namespace Gameplay.Characters.Players.Projectiles.Scripts
       playerProjectile.transform.SetParent(null);
       playerProjectile.Guid = guid;
 
-      _visualEffectFactory.Create(VIsualEffectId.MuzzleFlash, parent.position, parent);
+      _visualEffectFactory.Create(ParticleEffectId.MuzzleFlash, parent.position, parent);
     }
 
     public void CreateEnemyProjectile(Transform parent, Vector3 position, Vector3 rotation)
@@ -42,7 +42,7 @@ namespace Gameplay.Characters.Players.Projectiles.Scripts
       playerProjectile.transform.SetParent(null);
       playerProjectile.Guid = guid;
 
-      _visualEffectFactory.Create(VIsualEffectId.MuzzleFlash, position, parent);
+      _visualEffectFactory.Create(ParticleEffectId.MuzzleFlash, position, parent);
     }
   }
 }

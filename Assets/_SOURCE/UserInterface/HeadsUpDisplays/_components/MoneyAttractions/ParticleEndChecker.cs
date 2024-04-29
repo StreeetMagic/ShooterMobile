@@ -3,19 +3,17 @@ using UnityEngine;
 
 namespace UserInterface.HeadsUpDisplays.MoneyAttractions
 {
-    public class ParticleEndChecker : MonoBehaviour
+  public class ParticleEndChecker : MonoBehaviour
+  {
+    [SerializeField] private ParticleImage _particleImage;
+
+    private void OnEnable()
     {
-        [SerializeField] private ParticleImage _particleImage;
-
-        private void OnEnable()
-        {
-            _particleImage.onParticleFinish.AddListener(test);
-        }
-
-        void test()
-        {
-            print("партикл");
-        
-        }
+      _particleImage.onParticleFinish.AddListener(test);
     }
+
+    void test()
+    {
+    }
+  }
 }

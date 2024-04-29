@@ -32,7 +32,6 @@ namespace Gameplay.Characters
 
       _previousPosition = transform.position;
 
-      Debug.Log(CurrentMoveSpeed.Value);
     }
   }
 }
