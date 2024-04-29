@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Configs.Resources.EnemyConfigs.Scripts;
-using Gameplay.Characters.Enemies.Animators;
 using Gameplay.Characters.Enemies.EnemyShooters;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;

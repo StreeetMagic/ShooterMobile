@@ -1,21 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 
-public class ParticleEndChecker : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.MoneyAttractions
 {
-    [SerializeField] private ParticleImage _particleImage;
-
-    private void OnEnable()
+    public class ParticleEndChecker : MonoBehaviour
     {
-        _particleImage.onParticleFinish.AddListener(test);
-    }
+        [SerializeField] private ParticleImage _particleImage;
 
-    void test()
-    {
-        print("партикл");
+        private void OnEnable()
+        {
+            _particleImage.onParticleFinish.AddListener(test);
+        }
+
+        void test()
+        {
+            print("партикл");
         
+        }
     }
 }

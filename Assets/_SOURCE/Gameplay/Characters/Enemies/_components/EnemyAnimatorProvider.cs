@@ -1,7 +1,10 @@
 using Gameplay.Characters.Enemies.Animators;
 using UnityEngine;
 
-public class EnemyAnimatorProvider : MonoBehaviour
+namespace Gameplay.Characters.Enemies
 {
-  public EnemyAnimator Instance;
+  public class EnemyAnimatorProvider : MonoBehaviour
+  {
+    public EnemyAnimator Instance;
+  }
 }

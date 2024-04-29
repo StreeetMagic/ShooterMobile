@@ -1,5 +1,4 @@
 using Configs.Resources.EnemyConfigs.Scripts;
-using Gameplay.Characters.Enemies.Animators;
 using UnityEngine;
 using Zenject;
 

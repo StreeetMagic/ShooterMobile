@@ -1,4 +1,3 @@
-using System;
 using Configs.Resources.QuestConfigs.Scripts;
 using Quests.Subquests;
 using UnityEngine;
