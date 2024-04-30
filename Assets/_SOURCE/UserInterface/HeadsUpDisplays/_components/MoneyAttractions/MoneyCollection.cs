@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Configs.Resources.ParticleImageConfigs;
-using Configs.Resources.VisualEffectConfigs;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
@@ -8,7 +7,6 @@ using Infrastructure;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 using Zenject;
-using Zenject.Source.Util;
 
 namespace UserInterface.HeadsUpDisplays.MoneyAttractions
 {
@@ -21,6 +19,8 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
     private EnemySpawnerFactory _enemySpawnerFactory;
     private Camera _camera;
     private ParticleImageFactory _particleImageFactory;
+
+    private static readonly int s_bounce = Animator.StringToHash("Bounce");
 
     [Inject]
     public void Construct(EnemySpawnerFactory enemySpawnerFactory, ParticleImageFactory particleImageFactory)
@@ -38,17 +38,14 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
       {
         spawner.EnemyDied += OnEnemyDied;
       }
-
-      PlayerMoneyParticle(_camera.WorldToScreenPoint(Target.position));
     }
 
     private void OnEnemyDied(EnemyHealth enemyHealth)
     {
       Vector3 position = _camera.WorldToScreenPoint(enemyHealth.transform.position);
 
-      Debug.Log(Target.position);
-
       //TODO: Valera ищет как достать эти числа из particleImage
+      // ReSharper disable once UnusedVariable
       ParticleImage particleImage = PlayerMoneyParticle(position);
 
       int count = 5;
@@ -63,13 +60,17 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
 
     private ParticleImage PlayerMoneyParticle(Vector3 position)
     {
-      return _particleImageFactory.Create(ParticleImageId.MoneyCollection1, position, transform, Target);
+      ParticleImage playerMoneyParticle = _particleImageFactory.Create(ParticleImageId.MoneyCollection1, position, transform, Target);
+
+      Destroy(playerMoneyParticle.gameObject, 10f);
+
+      return playerMoneyParticle;
     }
 
     private void PlayBarParticle()
     {
       ParticleImage.Play();
-      Animator.SetTrigger("Bounce");
+      Animator.SetTrigger(s_bounce);
     }
   }
 }

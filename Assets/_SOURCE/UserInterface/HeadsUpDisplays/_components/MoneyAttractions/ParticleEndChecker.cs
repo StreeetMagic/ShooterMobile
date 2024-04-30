@@ -9,10 +9,10 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
 
     private void OnEnable()
     {
-      _particleImage.onParticleFinish.AddListener(test);
+      _particleImage.onParticleFinish.AddListener(Test);
     }
 
-    void test()
+    void Test()
     {
     }
   }

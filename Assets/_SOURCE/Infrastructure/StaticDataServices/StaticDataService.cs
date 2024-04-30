@@ -30,7 +30,6 @@ namespace Infrastructure.StaticDataServices
     private PlayerConfig _playerConfig;
     private ExpirienceConfig _expirienceConfig;
     private bool _enemyLoaded;
-
     private Dictionary<EnemyId, EnemyConfig> _enemyConfigs;
     private Dictionary<StatId, UpgradeConfig> _upgradeConfigs;
     private Dictionary<CurrencyId, LootConfig> _lootConfigs;

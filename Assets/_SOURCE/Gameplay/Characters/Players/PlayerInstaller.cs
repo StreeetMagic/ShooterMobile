@@ -11,6 +11,7 @@ namespace Gameplay.Characters.Players
     public PlayerTargetHolder PlayerTargetHolder;
     public PlayerTargetLocator PlayerTargetLocator;
     public PlayerAnimator PlayerAnimator;
+    public PlayerMoveSpeed PlayerMoveSpeed;
 
     public override void InstallBindings()
     {
@@ -19,6 +20,7 @@ namespace Gameplay.Characters.Players
       Container.Bind<PlayerTargetHolder>().FromInstance(PlayerTargetHolder).AsSingle();
       Container.Bind<PlayerTargetLocator>().FromInstance(PlayerTargetLocator).AsSingle();
       Container.Bind<PlayerAnimator>().FromInstance(PlayerAnimator).AsSingle();
+      Container.Bind<PlayerMoveSpeed>().FromInstance(PlayerMoveSpeed).AsSingle();
     }
   }
 }

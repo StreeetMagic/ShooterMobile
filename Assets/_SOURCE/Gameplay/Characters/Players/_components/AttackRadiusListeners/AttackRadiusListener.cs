@@ -12,7 +12,6 @@ namespace Gameplay.Characters.Players.AttackRadiusListeners
 
     [Inject]
     public void Construct(PlayerStatsProvider playerStatsProvider)
-
     {
       _playerStatsProvider = playerStatsProvider;
       _rectTransform = GetComponent<RectTransform>();

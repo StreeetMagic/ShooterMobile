@@ -40,9 +40,13 @@ namespace Gameplay.Characters.Players
 
     private void SetCurrentHealth(int health)
     {
-      Current.Value = health;
+      if (health < Current.Value)
+      {
+        Debug.Log("Игрока продамажили");
+        Damaged?.Invoke(health);
+      }
 
-      Damaged?.Invoke(health);
+      Current.Value = health;
     }
   }
 }

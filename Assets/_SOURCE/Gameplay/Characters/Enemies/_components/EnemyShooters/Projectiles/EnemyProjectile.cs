@@ -33,12 +33,14 @@ namespace Gameplay.Characters.Enemies.EnemyShooters.Projectiles
 
     private void DamageTargetTrigger(Collider other)
     {
-      if (other.gameObject.TryGetComponent(out PlayerTargetTrigger player))
+      Debug.Log(other.gameObject.name);
+
+      if (other.TryGetComponent(out Player player))
       {
         if (_count == 0)
         {
           _count++;
-          player.TakeDamage(1);
+          player.GetComponentInChildren<PlayerTargetTrigger>().TakeDamage(1);
         }
       }
 

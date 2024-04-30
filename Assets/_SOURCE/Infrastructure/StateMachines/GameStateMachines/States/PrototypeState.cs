@@ -1,17 +1,13 @@
-﻿using UnityEngine;
-
-namespace Infrastructure.StateMachines.GameStateMachines.States
+﻿namespace Infrastructure.StateMachines.GameStateMachines.States
 {
   public class PrototypeState : IGameState
   {
     public void Enter()
     {
-      Debug.Log("Entered Prototype State");
     }
 
     public void Exit()
     {
-      Debug.Log("Exited Prototype State");
     }
   }
 }

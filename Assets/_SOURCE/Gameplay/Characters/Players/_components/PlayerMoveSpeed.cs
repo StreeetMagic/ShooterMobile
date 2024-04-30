@@ -31,7 +31,6 @@ namespace Gameplay.Characters
       }
 
       _previousPosition = transform.position;
-
     }
   }
 }

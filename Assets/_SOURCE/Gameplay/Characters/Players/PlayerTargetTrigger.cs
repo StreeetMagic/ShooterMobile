@@ -27,6 +27,7 @@ namespace Gameplay.Characters.Players
 
     public void TakeDamage(int damage)
     {
+      Debug.Log("Пришел урон");
       PlayerHealth.TakeDamage(damage);
     }
 

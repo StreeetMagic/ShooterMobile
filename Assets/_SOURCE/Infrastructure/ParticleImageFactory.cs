@@ -22,21 +22,16 @@ namespace Infrastructure
       switch (visualEffectId)
       {
         case ParticleImageId.MoneyCollection1:
-          GameObject moneyCollection = _assetProvider.Get(nameof(ParticleImageId.MoneyCollection1));
-          GameObject money = _zenjectFactory.InstantiateGameObject(moneyCollection, position, Quaternion.identity, parent);
+          GameObject prefab = _assetProvider.Get(nameof(ParticleImageId.MoneyCollection1));
+          GameObject moneyObject = _zenjectFactory.InstantiateGameObject(prefab, position, Quaternion.identity, parent);
 
-          money.transform.SetParent(parent);
+          moneyObject.transform.SetParent(parent);
 
-          var particleImage = moneyCollection.GetComponent<ParticleImage>();
+          var particleImage = moneyObject.GetComponent<ParticleImage>();
 
           particleImage.main.attractorTarget = target;
-          float moneyDuration = particleImage.main.lifetime.constantMax;
-          
-          Debug.Log("Money duration: " + moneyDuration);
-          
-          particleImage.main.Play();
 
-          //Object.Destroy(money, moneyDuration);
+          particleImage.Play();
 
           return particleImage;
       }
