@@ -67,8 +67,6 @@ namespace Infrastructure.DebugServices
     private void AddExpierience()
     {
       _expierienceStorage.AllPoints.Value += 60;
-
-      _logger.Log("Expierience: " + _expierienceStorage.AllPoints.Value);
     }
   }
 }

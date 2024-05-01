@@ -29,7 +29,6 @@ namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
         throw new System.Exception("Unknown quest id");
 
       _windowService.Create(WindowId.Quest, QuestId);
-      _logger.Log("Open quest: " + QuestId);
     }
   }
 }

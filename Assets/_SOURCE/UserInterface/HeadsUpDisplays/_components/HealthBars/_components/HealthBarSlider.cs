@@ -20,7 +20,6 @@ public class HealthBarSlider : MonoBehaviour
 
   private void Update()
   {
-    new DebugLogger().Log("Health: " + PlayerHealth.Current.Value + "/" + _playerStatsProvider.GetStat(StatId.Health).Value);
     UpdateSlider(PlayerHealth.Current.Value);
   }
 
