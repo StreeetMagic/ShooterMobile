@@ -19,5 +19,6 @@ namespace Gameplay.Characters.Players.Factories
     public PlayerRotatorController PlayerRotatorController { get; set; }
     public PlayerInputHandler PlayerInputHandler { get; set; }
     public Transform ShootingPoint { get; set; }
+    public PlayerHealth PlayerHealth { get; set; }
   }
 }

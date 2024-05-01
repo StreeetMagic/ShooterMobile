@@ -21,8 +21,6 @@ namespace Gameplay.Characters.Enemies.EnemyShooters.Projectiles
       _visualEffectFactory = visualEffectFactory;
     }
 
-    public string Guid { get; set; }
-
     private void OnTriggerEnter(Collider otherCollider)
     {
       DamageTargetTrigger(otherCollider);
@@ -33,14 +31,12 @@ namespace Gameplay.Characters.Enemies.EnemyShooters.Projectiles
 
     private void DamageTargetTrigger(Collider other)
     {
-      Debug.Log(other.gameObject.name);
-
       if (other.TryGetComponent(out Player player))
       {
         if (_count == 0)
         {
           _count++;
-          player.GetComponentInChildren<PlayerTargetTrigger>().TakeDamage(1);
+          player.GetComponentInChildren<PlayerTargetTrigger>().TakeDamage(15);
         }
       }
 

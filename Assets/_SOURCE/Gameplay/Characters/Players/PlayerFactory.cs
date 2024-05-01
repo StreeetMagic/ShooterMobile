@@ -52,6 +52,8 @@ namespace Gameplay.Characters.Players.Factories
       _playerProvider.PlayerTargetHolder = player.GetComponent<PlayerTargetHolder>();
 
       _playerProvider.ShootingPoint = player.GetComponent<PlayerShootingPoint>().Transform;
+      
+      _playerProvider.PlayerHealth = player.GetComponent<PlayerHealth>();
 
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
         _saveLoadService.ProgressReaders.Add(progressReader);

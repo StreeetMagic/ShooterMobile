@@ -36,11 +36,9 @@ namespace Gameplay.Characters.Players.Projectiles.Scripts
 
     public void CreateEnemyProjectile(Transform parent, Vector3 position, Vector3 rotation)
     {
-      string guid = _randomService.GetRandomUniqueId();
       EnemyProjectile prefab = _assetProvider.Get<EnemyProjectile>();
       EnemyProjectile playerProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation), parent);
       playerProjectile.transform.SetParent(null);
-      playerProjectile.Guid = guid;
 
       _visualEffectFactory.Create(ParticleEffectId.MuzzleFlash, position, parent);
     }

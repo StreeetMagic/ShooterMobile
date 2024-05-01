@@ -51,11 +51,10 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<SceneLoader>().AsSingle();
       Container.BindInterfacesAndSelfTo<AudioService>().AsSingle();
       Container.Bind<DebugLogger>().AsSingle();
-      
+
       Container.BindInterfacesAndSelfTo<BackpackStorage>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerStatsProvider>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
-
     }
   }
 }

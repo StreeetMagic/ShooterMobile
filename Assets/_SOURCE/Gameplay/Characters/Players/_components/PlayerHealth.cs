@@ -1,17 +1,31 @@
 using System;
+using Configs.Resources.StatConfigs;
+using Gameplay.Characters.Players.PlayerStatsProviders;
+using Infrastructure.Games;
+using Infrastructure.StateMachines;
+using Infrastructure.StateMachines.GameStateMachines.States;
 using Infrastructure.Utilities;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Characters.Players
 {
   public class PlayerHealth : MonoBehaviour
   {
+    [Inject] private readonly IStateMachine<IGameState> _gameStateMachine;
+    [Inject] private PlayerStatsProvider _playerStatsProvider;
+
     public event Action Died;
     public event Action<int> Damaged;
 
     public ReactiveProperty<int> Current { get; } = new();
 
     public bool IsDead { get; private set; }
+
+    private void OnEnable()
+    {
+      Current.Value = _playerStatsProvider.GetStat(StatId.Health).Value;
+    }
 
     public void TakeDamage(int damage)
     {
@@ -36,13 +50,14 @@ namespace Gameplay.Characters.Players
       Died?.Invoke();
 
       IsDead = true;
+
+      _gameStateMachine.Enter<LoadLevelState, string, string>(Constants.Scenes.Empty, Constants.Scenes.GameLoop);
     }
 
     private void SetCurrentHealth(int health)
     {
       if (health < Current.Value)
       {
-        Debug.Log("Игрока продамажили");
         Damaged?.Invoke(health);
       }
 

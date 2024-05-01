@@ -1,0 +1,33 @@
+using System;
+using Configs.Resources.StatConfigs;
+using Gameplay.Characters.Players;
+using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players.PlayerStatsProviders;
+using Loggers;
+using UnityEngine;
+using UnityEngine.UI;
+using Zenject;
+
+public class HealthBarSlider : MonoBehaviour
+{
+  public Slider Slider;
+  public float SliderUpdateSpeed;
+
+  [Inject] private PlayerStatsProvider _playerStatsProvider;
+  [Inject] private PlayerProvider _playerProvider;
+
+  private PlayerHealth PlayerHealth => _playerProvider.PlayerHealth;
+
+  private void Update()
+  {
+    new DebugLogger().Log("Health: " + PlayerHealth.Current.Value + "/" + _playerStatsProvider.GetStat(StatId.Health).Value);
+    UpdateSlider(PlayerHealth.Current.Value);
+  }
+
+  private void UpdateSlider(int value)
+  {
+    float max = _playerStatsProvider.GetStat(StatId.Health).Value;
+    float current = PlayerHealth.Current.Value;
+    Slider.value = Mathf.MoveTowards(Slider.value, current / max, Time.deltaTime * SliderUpdateSpeed);
+  }
+}
