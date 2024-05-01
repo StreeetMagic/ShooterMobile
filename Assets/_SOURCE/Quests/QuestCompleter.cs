@@ -20,6 +20,8 @@ namespace Quests
         foreach (SubQuest subQuest in quest.SubQuests)
         {
           subQuest.State.ValueChanged += state => OnSubQuestStateChanged(state, subQuest);
+
+          OnSubQuestStateChanged(subQuest.State.Value, subQuest);
         }
       }
     }
