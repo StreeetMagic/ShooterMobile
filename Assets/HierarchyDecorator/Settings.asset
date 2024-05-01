@@ -18,7 +18,7 @@ MonoBehaviour:
     swipeSameState: 1
     swipeSelectionOnly: 1
     depthMode: 0
-    showLayers: 1
+    showLayers: 0
     clickToSelectLayer: 1
     applyChildLayers: 1
     showAllComponents: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
       style: 1
       displayHorizontal: 0
   styleData:
-    displayLayers: 1
+    displayLayers: 0
     displayIcons: 1
     styles:
     - prefix: =
@@ -3207,7 +3207,8 @@ MonoBehaviour:
         script: {fileID: 11500000, guid: 6353430718dc49f48867e7385abcbd46, type: 3}
         hash: -1
       - displayName: QuestIcon
-        name: QuestIcon, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: UserInterface.HeadsUpDisplays.QuestWindows.QuestIcon, Assembly-CSharp,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         content:
           m_Text: QuestIcon
           m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
@@ -3229,8 +3230,8 @@ MonoBehaviour:
         script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
         hash: -1
       - displayName: QuestRewardText
-        name: QuestRewardText, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
+        name: UserInterface.HeadsUpDisplays.QuestWindows.QuestRewardText, Assembly-CSharp,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         content:
           m_Text: QuestRewardText
           m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
@@ -3241,7 +3242,8 @@ MonoBehaviour:
         script: {fileID: 11500000, guid: 1f7f6c59a81bb574ca9295735d4daf58, type: 3}
         hash: -1
       - displayName: QuestTitle
-        name: QuestTitle, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: UserInterface.HeadsUpDisplays.QuestWindows.QuestTitle, Assembly-CSharp,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         content:
           m_Text: QuestTitle
           m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
@@ -3251,20 +3253,21 @@ MonoBehaviour:
         isBuiltIn: 0
         script: {fileID: 11500000, guid: 80147bb4e325b3c45bd07695ef110315, type: 3}
         hash: -1
-      - displayName: SubQuestSlotsFactory
-        name: SubQuestSlotsFactory, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
+      - displayName: SubQuestSlotsSpawner
+        name: UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots.SubQuestSlotsSpawner,
+          Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         content:
-          m_Text: SubQuestSlotsFactory
+          m_Text: SubQuestSlotsSpawner
           m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
             type: 0}
-          m_Tooltip: SubQuestSlotsFactory
+          m_Tooltip: SubQuestSlotsSpawner
         shown: 0
         isBuiltIn: 0
         script: {fileID: 11500000, guid: 217dc0fd7bf650b449679c7b4c1fd36f, type: 3}
         hash: -1
       - displayName: SubQuestSlot
-        name: SubQuestSlot, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots.SubQuestSlot,
+          Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         content:
           m_Text: SubQuestSlot
           m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
@@ -3275,7 +3278,8 @@ MonoBehaviour:
         script: {fileID: 11500000, guid: f9b4221ae17422d41b8a665d91ad778c, type: 3}
         hash: -1
       - displayName: SceneContext
-        name: Zenject.SceneContext, Zenject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: Zenject.Source.Install.Contexts.SceneContext, Zenject, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
         content:
           m_Text: SceneContext
           m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
@@ -3296,6 +3300,99 @@ MonoBehaviour:
         shown: 0
         isBuiltIn: 0
         script: {fileID: 11500000, guid: e9e2b4e1401c88f4d8a4f3875acdb809, type: 3}
+        hash: -1
+      - displayName: Bomb
+        name: Gameplay.Bombs.Bomb, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        content:
+          m_Text: Bomb
+          m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
+            type: 0}
+          m_Tooltip: Bomb
+        shown: 0
+        isBuiltIn: 0
+        script: {fileID: 11500000, guid: 488e8864ec5e7c5409b0108abdf1b169, type: 3}
+        hash: -1
+      - displayName: QuestOutline
+        name: Gameplay.Characters.Enemies.QuestOutline, Assembly-CSharp, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        content:
+          m_Text: QuestOutline
+          m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
+            type: 0}
+          m_Tooltip: QuestOutline
+        shown: 0
+        isBuiltIn: 0
+        script: {fileID: 11500000, guid: 394bc400456fcd54c8f97ea32239c608, type: 3}
+        hash: -1
+      - displayName: BombPlayerDetector
+        name: BombPlayerDetector, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        content:
+          m_Text: BombPlayerDetector
+          m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
+            type: 0}
+          m_Tooltip: BombPlayerDetector
+        shown: 0
+        isBuiltIn: 0
+        script: {fileID: 11500000, guid: 4db3cfa42362bdb4ca1903bc117ac094, type: 3}
+        hash: -1
+      - displayName: BombDefuser
+        name: BombDefuser, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        content:
+          m_Text: BombDefuser
+          m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
+            type: 0}
+          m_Tooltip: BombDefuser
+        shown: 0
+        isBuiltIn: 0
+        script: {fileID: 11500000, guid: af61bb65022494d4d9545d5181f6c4c4, type: 3}
+        hash: -1
+      - displayName: BombDestroer
+        name: BombDestroer, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        content:
+          m_Text: BombDestroer
+          m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
+            type: 0}
+          m_Tooltip: BombDestroer
+        shown: 0
+        isBuiltIn: 0
+        script: {fileID: 11500000, guid: f1cda999d9993d34493709ed1ba31c9a, type: 3}
+        hash: -1
+      - displayName: RotatorToCamera
+        name: Gameplay.Characters.Enemies.ActorUserInterfaces.RotatorToCamera, Assembly-CSharp,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        content:
+          m_Text: RotatorToCamera
+          m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
+            type: 0}
+          m_Tooltip: RotatorToCamera
+        shown: 0
+        isBuiltIn: 0
+        script: {fileID: 11500000, guid: 1c18ac360fd5f8544b2264bb47516c30, type: 3}
+        hash: -1
+      - displayName: BombDefuseBar
+        name: BombDefuseBar, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        content:
+          m_Text: BombDefuseBar
+          m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
+            type: 0}
+          m_Tooltip: BombDefuseBar
+        shown: 0
+        isBuiltIn: 0
+        script: {fileID: 11500000, guid: 76b1725beeaa870428d91f04ca7b1889, type: 3}
+        hash: -1
+      - displayName: BombDefuseRadius
+        name: BombDefuseRadius, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        content:
+          m_Text: BombDefuseRadius
+          m_Image: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000,
+            type: 0}
+          m_Tooltip: BombDefuseRadius
+        shown: 0
+        isBuiltIn: 0
+        script: {fileID: 11500000, guid: 768ec5deb1852074f8c1860f21131f1e, type: 3}
         hash: -1
     excludedComponents:
       name: Excluded

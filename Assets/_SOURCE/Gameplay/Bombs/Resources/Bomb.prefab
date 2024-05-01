@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 2360387324038016197}
   - component: {fileID: 3454342742302498092}
   m_Layer: 10
-  m_Name: world_canvas
+  m_Name: QuestOutlineCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 7030675697330953512}
   - component: {fileID: 875500262356914499}
   m_Layer: 10
-  m_Name: stats_canvas
+  m_Name: DefuseProgressCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 5861414598203300562}
   - component: {fileID: 7926957901644548294}
   m_Layer: 10
-  m_Name: quest_outline
+  m_Name: QuestOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -851,10 +851,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7654523284693265857}
+  - component: {fileID: 8357237532396556739}
   - component: {fileID: -7734432830699455308}
   - component: {fileID: 7614536279250485323}
   - component: {fileID: 8860851653816548588}
-  - component: {fileID: 8357237532396556739}
   - component: {fileID: 1550354583896813372}
   - component: {fileID: -248857009247790476}
   m_Layer: 10
@@ -881,6 +881,27 @@ Transform:
   - {fileID: 5070402874213900393}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8357237532396556739
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8984263821893617807}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2.14
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-7734432830699455308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,27 +942,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bomb: {fileID: -7734432830699455308}
   SphereCollider: {fileID: 8357237532396556739}
---- !u!135 &8357237532396556739
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8984263821893617807}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2.14
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1550354583896813372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,7 +954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af61bb65022494d4d9545d5181f6c4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefuseProgress: 0
 --- !u!114 &-248857009247790476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -979,6 +978,7 @@ GameObject:
   - component: {fileID: 6906507435853121639}
   - component: {fileID: 4530723461905639205}
   - component: {fileID: 4290940871787312343}
+  - component: {fileID: 7579013212166307257}
   m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1104,6 +1104,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7579013212166307257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9178685963115990857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fbaa03eb285d344b483102b8878b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 4290940871787312343}
+  BombDefuser: {fileID: 1550354583896813372}
 --- !u!1001 &7658142904638327174
 PrefabInstance:
   m_ObjectHideFlags: 0
