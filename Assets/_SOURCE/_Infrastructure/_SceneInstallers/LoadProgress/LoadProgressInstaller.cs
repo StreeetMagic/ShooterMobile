@@ -5,6 +5,4 @@ public class LoadProgressInstaller : MonoInstaller
   public override void InstallBindings()
   {
   }
-
-
 }

@@ -5,6 +5,4 @@ public class LoadConfigsInstaller : MonoInstaller
   public override void InstallBindings()
   {
   }
-
-
 }

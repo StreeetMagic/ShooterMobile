@@ -58,6 +58,5 @@ namespace Infrastructure.SaveLoadServices
     {
       PlayerPrefs.DeleteKey(ProgressKey);
     }
-
   }
 }

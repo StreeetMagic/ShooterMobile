@@ -29,13 +29,17 @@ namespace Infrastructure.DependencyInjection
 {
   public class GameLoopInstaller : MonoInstaller
   {
+    public GameLoopBootstrapper GameLoopBootstrapper;
+
     [Inject] private IAssetProvider _assetProvider;
 
     public override void InstallBindings()
     {
       Container.Bind<GameLoopInstaller>().FromInstance(this).AsSingle();
-      Container.BindInterfacesTo<GameLoopBootstrapper>().FromInstance(GetComponent<GameLoopBootstrapper>()).AsSingle();
-      
+
+      Container.BindInterfacesAndSelfTo<GameLoopBootstrapper>().FromInstance(GetComponent<GameLoopBootstrapper>()).AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<DebugService>().AsSingle().NonLazy();
+
       Container.BindInterfacesAndSelfTo<GameLoopZenjectFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<MapFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<PlayerFactory>().AsSingle();
@@ -56,7 +60,7 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<ParticleImageFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();
       Container.BindInterfacesAndSelfTo<HeadsUpDisplayProvider>().AsSingle();
-      Container.BindInterfacesAndSelfTo<DebugService>().AsSingle();
+
       Container.BindInterfacesAndSelfTo<QuestCompleter>().AsSingle();
 
       Container.BindFactory<Quest, QuestWindow, QuestWindow.Factory>()

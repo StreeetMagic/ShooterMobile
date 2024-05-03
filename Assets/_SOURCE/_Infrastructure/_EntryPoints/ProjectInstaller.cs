@@ -10,8 +10,6 @@ using Infrastructure.LoadingCurtains;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.SceneLoaders;
-using Infrastructure.StateMachines;
-using Infrastructure.StateMachines.GameStateMachines.States;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Upgrades;
 using Infrastructure.ZenjectFactories;
@@ -30,7 +28,6 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<LoadingCurtain>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
 
       Container.Bind<ICoroutineRunner>().To<CoroutineRunner>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.CoroutineRunner).AsSingle();
-      Container.BindInterfacesAndSelfTo<StateMachine<IGameState>>().AsSingle();
 
       Container.Bind<IInputService>().To<InputService>().AsSingle();
       Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
@@ -56,7 +53,5 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<PlayerStatsProvider>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
     }
-
-
   }
 }

@@ -1,9 +1,6 @@
 using System;
 using Configs.Resources.StatConfigs;
 using Gameplay.Characters.Players.PlayerStatsProviders;
-using Infrastructure.Games;
-using Infrastructure.StateMachines;
-using Infrastructure.StateMachines.GameStateMachines.States;
 using Infrastructure.Utilities;
 using UnityEngine;
 using Zenject;
@@ -12,7 +9,6 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerHealth : MonoBehaviour
   {
-    [Inject] private readonly IStateMachine<IGameState> _gameStateMachine;
     [Inject] private PlayerStatsProvider _playerStatsProvider;
 
     public event Action Died;
@@ -51,7 +47,7 @@ namespace Gameplay.Characters.Players
 
       IsDead = true;
 
-      _gameStateMachine.Enter<LoadLevelState, string, string>(ProjectConstants.Scenes.Empty, ProjectConstants.Scenes.GameLoop);
+       throw new NotImplementedException();
     }
 
     private void SetCurrentHealth(int health)

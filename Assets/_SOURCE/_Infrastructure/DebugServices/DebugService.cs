@@ -1,13 +1,11 @@
 using System;
 using Configs.Resources.QuestConfigs.Scripts;
 using DataRepositories;
-using Infrastructure.Games;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.SceneLoaders;
 using Infrastructure.UserIntefaces;
 using Inputs;
 using Zenject;
-using Object = UnityEngine.Object;
 
 namespace Infrastructure.DebugServices
 {
@@ -18,18 +16,17 @@ namespace Infrastructure.DebugServices
     private readonly WindowService _windowService;
     private readonly ExpierienceStorage _expierienceStorage;
     private readonly SceneLoader _sceneLoader;
-
+    private readonly GameLoopBootstrapper _gameLoopBootstrapper;
 
     public DebugService(IInputService inputService, SaveLoadService saveLoadService,
-      WindowService windowService, ExpierienceStorage expierienceStorage, SceneLoader sceneLoader 
-      )
+      WindowService windowService, ExpierienceStorage expierienceStorage, SceneLoader sceneLoader, GameLoopBootstrapper gameLoopBootstrapper)
     {
       _inputService = inputService;
       _saveLoadService = saveLoadService;
       _windowService = windowService;
       _expierienceStorage = expierienceStorage;
       _sceneLoader = sceneLoader;
-
+      _gameLoopBootstrapper = gameLoopBootstrapper;
     }
 
     public void Initialize()
@@ -50,8 +47,7 @@ namespace Infrastructure.DebugServices
 
     public void Restart()
     {
-      Object.FindObjectOfType<GameLoopBootstrapper>().Destroy();
-      _sceneLoader.Load(ProjectConstants.Scenes.Empty, () => _sceneLoader.Load(ProjectConstants.Scenes.GameLoop));
+      _gameLoopBootstrapper.Restart();
     }
 
     public void DeleteSaves()

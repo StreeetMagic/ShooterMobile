@@ -1,4 +1,3 @@
-using System;
 using Cameras;
 using DataRepositories;
 using DataRepositories.BackpackStorages;
@@ -8,9 +7,10 @@ using Gameplay.Characters.Players.PlayerStatsProviders;
 using Infrastructure.AudioServices;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.DependencyInjection;
+using Infrastructure.Games;
 using Infrastructure.SaveLoadServices;
+using Infrastructure.SceneLoaders;
 using Infrastructure.Upgrades;
-using Loggers;
 using Maps;
 using Quests;
 using UnityEngine;
@@ -33,6 +33,7 @@ public class GameLoopBootstrapper : MonoBehaviour, IInitializable
   [Inject] private ICoroutineRunner _runner;
   [Inject] private QuestStorage _questStorage;
   [Inject] private BackpackStorage _backpackStorage;
+  [Inject] private SceneLoader _sceneLoader;
 
   public void Initialize()
   {
@@ -53,7 +54,13 @@ public class GameLoopBootstrapper : MonoBehaviour, IInitializable
     _backpackStorage.Clean();
   }
 
-  public void Destroy()
+  public void Restart()
+  {
+    Destroy();
+    _sceneLoader.Load(ProjectConstants.Scenes.Empty, () => _sceneLoader.Load(ProjectConstants.Scenes.GameLoop));
+  }
+
+  private void Destroy()
   {
     _saveLoadService.ProgressReaders.Remove(_moneyInBankStorage);
     _saveLoadService.ProgressReaders.Remove(_upgradeService);
