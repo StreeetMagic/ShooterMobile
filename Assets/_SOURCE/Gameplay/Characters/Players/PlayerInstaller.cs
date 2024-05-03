@@ -12,6 +12,7 @@ namespace Gameplay.Characters.Players
     public PlayerTargetLocator PlayerTargetLocator;
     public PlayerAnimator PlayerAnimator;
     public PlayerMoveSpeed PlayerMoveSpeed;
+    public PetSpawnPointsContainer PetSpawnPointsContainer;
 
     public override void InstallBindings()
     {
@@ -21,6 +22,7 @@ namespace Gameplay.Characters.Players
       Container.Bind<PlayerTargetLocator>().FromInstance(PlayerTargetLocator).AsSingle();
       Container.Bind<PlayerAnimator>().FromInstance(PlayerAnimator).AsSingle();
       Container.Bind<PlayerMoveSpeed>().FromInstance(PlayerMoveSpeed).AsSingle();
+      Container.Bind<PetSpawnPointsContainer>().FromInstance(PetSpawnPointsContainer).AsSingle();
     }
   }
 }

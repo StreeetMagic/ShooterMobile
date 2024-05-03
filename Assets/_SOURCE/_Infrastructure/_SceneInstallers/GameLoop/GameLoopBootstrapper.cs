@@ -2,6 +2,7 @@ using Cameras;
 using DataRepositories;
 using DataRepositories.BackpackStorages;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
+using Gameplay.Characters.Pets.Hens;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.PlayerStatsProviders;
 using Infrastructure.AudioServices;
@@ -34,6 +35,7 @@ public class GameLoopBootstrapper : MonoBehaviour, IInitializable
   [Inject] private QuestStorage _questStorage;
   [Inject] private BackpackStorage _backpackStorage;
   [Inject] private SceneLoader _sceneLoader;
+  [Inject] private HenSpawner _henSpawner;
 
   public void Initialize()
   {
@@ -44,6 +46,7 @@ public class GameLoopBootstrapper : MonoBehaviour, IInitializable
     _cameraFactory.Create(_gameLoopInstaller.transform);
     _enemySpawnerFactory.Create();
     _headsUpDisplayFactory.Create(_gameLoopInstaller.transform);
+    _henSpawner.Spawn();
 
     _backpackStorage.Clean();
   }
@@ -58,6 +61,7 @@ public class GameLoopBootstrapper : MonoBehaviour, IInitializable
   {
     _playerStatsProvider.Stop();
 
+    _henSpawner.DeSpawnAll();
     _headsUpDisplayFactory.Destroy();
     // _enemySpawnerFactory.Destroy();
     // _cameraFactory.Destroy();

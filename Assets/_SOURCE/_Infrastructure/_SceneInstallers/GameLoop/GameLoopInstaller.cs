@@ -6,6 +6,7 @@ using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
+using Gameplay.Characters.Pets.Hens;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.Projectiles.Scripts;
 using Gameplay.CorpseRemovers;
@@ -43,6 +44,8 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<GameLoopZenjectFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<MapFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<PlayerFactory>().AsSingle();
+      Container.BindInterfacesAndSelfTo<HenFactory>().AsSingle();
+      Container.BindInterfacesAndSelfTo<HenSpawner>().AsSingle();
       Container.BindInterfacesAndSelfTo<CameraFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<EnemySpawnerFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<HeadsUpDisplayFactory>().AsSingle();

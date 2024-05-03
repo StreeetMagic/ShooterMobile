@@ -35,7 +35,8 @@ namespace Gameplay.Characters.Players.Factories
 
     public void Create(Transform parent)
     {
-      var prefab = _assetProvider.Get<Player>(nameof(Player));
+     // var prefab = _assetProvider.Get<Player>(nameof(Player));
+      var prefab = _assetProvider.Get<Player>();
 
       Player player = _factory.InstantiateMono(prefab, SpawnPosition(), parent);
 
@@ -54,6 +55,8 @@ namespace Gameplay.Characters.Players.Factories
       _playerProvider.ShootingPoint = player.GetComponent<PlayerShootingPoint>().Transform;
 
       _playerProvider.PlayerHealth = player.GetComponent<PlayerHealth>();
+      
+      _playerProvider.PetSpawnPointsContainer = player.GetComponentInChildren<PetSpawnPointsContainer>();
 
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
         _saveLoadService.ProgressReaders.Add(progressReader);
@@ -77,6 +80,8 @@ namespace Gameplay.Characters.Players.Factories
       _playerProvider.PlayerRotatorController = null;
       _playerProvider.PlayerTargetHolder = null;
       _playerProvider.ShootingPoint = null;
+      _playerProvider.PlayerHealth = null;
+      _playerProvider.PetSpawnPointsContainer = null;
 
       // Object.Destroy(player.gameObject);
     }

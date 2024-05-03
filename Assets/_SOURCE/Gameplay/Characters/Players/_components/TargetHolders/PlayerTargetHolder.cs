@@ -11,17 +11,11 @@ namespace Gameplay.Characters.Players.TargetHolders
 {
   public class PlayerTargetHolder : MonoBehaviour
   {
-    private PlayerProvider _playerProvider;
     private List<EnemyTargetTrigger> _targets;
     private EnemyTargetTrigger _currentEnemyTarget;
-    private PlayerStatsProvider _playerStatsProvider;
 
-    [Inject]
-    public void Construct(PlayerProvider playerProvider, PlayerStatsProvider playerStatsProvider)
-    {
-      _playerProvider = playerProvider;
-      _playerStatsProvider = playerStatsProvider;
-    }
+    [Inject] private PlayerProvider _playerProvider;
+    [Inject] private PlayerStatsProvider _playerStatsProvider;
 
     public bool HasTarget { get; private set; }
 

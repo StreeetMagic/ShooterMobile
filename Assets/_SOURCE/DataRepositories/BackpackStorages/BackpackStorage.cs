@@ -5,7 +5,6 @@ using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.LootConfigs;
 using Configs.Resources.StatConfigs;
 using Gameplay.Characters.Players.PlayerStatsProviders;
-using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
 
@@ -15,14 +14,12 @@ namespace DataRepositories.BackpackStorages
   {
     private readonly IStaticDataService _staticDataService;
     private readonly PlayerStatsProvider _playerStatsProvider;
-    private readonly SaveLoadService _saveLoadService;
 
     public BackpackStorage(IStaticDataService staticDataService,
-      PlayerStatsProvider playerStatsProvider, SaveLoadService saveLoadService)
+      PlayerStatsProvider playerStatsProvider)
     {
       _staticDataService = staticDataService;
       _playerStatsProvider = playerStatsProvider;
-      _saveLoadService = saveLoadService;
     }
 
     public bool IsFull => Volume >= _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
@@ -43,8 +40,6 @@ namespace DataRepositories.BackpackStorages
     public void Clean()
     {
       LootDrops.Clear();
-
-      _saveLoadService.SaveProgress();
     }
 
     public Dictionary<CurrencyId, int> ReadLoot()

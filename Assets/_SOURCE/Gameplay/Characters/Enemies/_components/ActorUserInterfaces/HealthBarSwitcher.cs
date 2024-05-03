@@ -8,13 +8,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
   {
     public GameObject[] Components;
 
-    private EnemyHealth _enemyHealth;
-
-    [Inject]
-    private void Construct(EnemyHealth enemyHealth)
-    {
-      _enemyHealth = enemyHealth;
-    }
+    [Inject] private EnemyHealth _enemyHealth;
 
     public void Start()
     {

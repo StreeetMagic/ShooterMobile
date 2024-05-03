@@ -2,7 +2,6 @@ using System;
 using Configs.Resources.QuestConfigs.Scripts;
 using DataRepositories;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.SceneLoaders;
 using Infrastructure.UserIntefaces;
 using Inputs;
 using Zenject;
@@ -15,17 +14,15 @@ namespace Infrastructure.DebugServices
     private readonly SaveLoadService _saveLoadService;
     private readonly WindowService _windowService;
     private readonly ExpierienceStorage _expierienceStorage;
-    private readonly SceneLoader _sceneLoader;
     private readonly GameLoopBootstrapper _gameLoopBootstrapper;
 
     public DebugService(IInputService inputService, SaveLoadService saveLoadService,
-      WindowService windowService, ExpierienceStorage expierienceStorage, SceneLoader sceneLoader, GameLoopBootstrapper gameLoopBootstrapper)
+      WindowService windowService, ExpierienceStorage expierienceStorage, GameLoopBootstrapper gameLoopBootstrapper)
     {
       _inputService = inputService;
       _saveLoadService = saveLoadService;
       _windowService = windowService;
       _expierienceStorage = expierienceStorage;
-      _sceneLoader = sceneLoader;
       _gameLoopBootstrapper = gameLoopBootstrapper;
     }
 

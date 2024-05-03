@@ -3,6 +3,7 @@ using Configs.Resources.CurrencyConfigs;
 using DataRepositories;
 using DataRepositories.BackpackStorages;
 using Gameplay.Characters.Players;
+using Infrastructure.SaveLoadServices;
 using UnityEngine;
 using Zenject;
 
@@ -10,17 +11,10 @@ namespace Gameplay.BaseTriggers
 {
   public class BaseTrigger : MonoBehaviour
   {
-    private BackpackStorage _backpackStorage;
-    private MoneyInBankStorage _moneyInBankStorage;
-    private EggsInBankStorage _eggsInBankStorage;
-
-    [Inject]
-    public void Construct(BackpackStorage backpackStorage, MoneyInBankStorage moneyInBankStorage, EggsInBankStorage eggsInBankStorage)
-    {
-      _backpackStorage = backpackStorage;
-      _moneyInBankStorage = moneyInBankStorage;
-      _eggsInBankStorage = eggsInBankStorage;
-    }
+    [Inject] private BackpackStorage _backpackStorage;
+    [Inject] private MoneyInBankStorage _moneyInBankStorage;
+    [Inject] private EggsInBankStorage _eggsInBankStorage;
+    [Inject] private SaveLoadService _saveLoadService;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,7 +33,7 @@ namespace Gameplay.BaseTriggers
           case CurrencyId.Money:
             _moneyInBankStorage.MoneyInBank.Value += loot.Value;
             break;
-              
+
           case CurrencyId.Eggs:
             _eggsInBankStorage.EggsInBank.Value += loot.Value;
             break;
@@ -47,6 +41,7 @@ namespace Gameplay.BaseTriggers
       }
 
       _backpackStorage.Clean();
+      _saveLoadService.SaveProgress();
     }
   }
 }

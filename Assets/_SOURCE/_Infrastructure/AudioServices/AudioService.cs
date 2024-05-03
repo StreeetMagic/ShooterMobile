@@ -6,7 +6,6 @@ using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Infrastructure.AudioServices

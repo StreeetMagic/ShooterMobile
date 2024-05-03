@@ -11,13 +11,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
     public Slider Slider;
     public float SliderUpdateSpeed;
 
-    private EnemyHealth _enemyHealth;
-  
-    [Inject]
-    private void Construct(EnemyHealth enemyHealth)
-    {
-      _enemyHealth = enemyHealth;
-    }
+    [Inject] private EnemyHealth _enemyHealth;
 
     private void Update()
     {

@@ -14,11 +14,12 @@ namespace Gameplay.Characters.Players.Factories
     public PlayerMover PlayerMover { get; set; }
     public PlayerRotator PlayerRotator { get; set; }
     public PlayerTargetLocator PlayerTargetLocator { get; set; }
-
     public PlayerTargetHolder PlayerTargetHolder { get; set; }
+    public PlayerHealth PlayerHealth { get; set; }
+    public PetSpawnPointsContainer PetSpawnPointsContainer { get; set; }
+   
     public PlayerRotatorController PlayerRotatorController { get; set; }
     public PlayerInputHandler PlayerInputHandler { get; set; }
     public Transform ShootingPoint { get; set; }
-    public PlayerHealth PlayerHealth { get; set; }
   }
 }

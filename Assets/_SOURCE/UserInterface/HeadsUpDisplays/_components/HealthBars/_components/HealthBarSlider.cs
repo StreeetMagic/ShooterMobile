@@ -18,6 +18,9 @@ public class HealthBarSlider : MonoBehaviour
 
   private void Update()
   {
+    if (PlayerHealth == null)
+        return;
+    
     UpdateSlider();
   }
 

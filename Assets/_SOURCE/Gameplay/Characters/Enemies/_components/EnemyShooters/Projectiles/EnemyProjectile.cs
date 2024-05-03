@@ -1,6 +1,5 @@
 using Configs.Resources.VisualEffectConfigs;
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Characters.Players.Projectiles.Raycasters;
 using Infrastructure;
 using UnityEngine;
@@ -11,16 +10,11 @@ namespace Gameplay.Characters.Enemies.EnemyShooters.Projectiles
   public class EnemyProjectile : MonoBehaviour
   {
     public CollisionPointRayCaster CollisionPointRayCaster;
-
-    private VisualEffectFactory _visualEffectFactory;
+    
     private int _count;
 
-    [Inject]
-    private void Construct(VisualEffectFactory visualEffectFactory, PlayerStatsProvider playerStatsProvider)
-    {
-      _visualEffectFactory = visualEffectFactory;
-    }
-
+    [Inject] private VisualEffectFactory _visualEffectFactory;
+    
     private void OnTriggerEnter(Collider otherCollider)
     {
       DamageTargetTrigger(otherCollider);

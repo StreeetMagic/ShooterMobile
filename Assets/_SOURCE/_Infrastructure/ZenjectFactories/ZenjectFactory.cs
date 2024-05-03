@@ -36,6 +36,11 @@ namespace Infrastructure.ZenjectFactories
         .InstantiatePrefab(_assetProvider.Get<T>())
         .GetComponent<T>();
 
+    public T InstantiateMono<T>(T behaviour) where T : MonoBehaviour =>
+      _instantiator
+        .InstantiatePrefab(behaviour)
+        .GetComponent<T>();
+
     public T InstantiateMono<T>(Transform parent) where T : MonoBehaviour
     {
       var monoBehaviour = _instantiator
@@ -47,11 +52,6 @@ namespace Infrastructure.ZenjectFactories
       return monoBehaviour;
     }
 
-    public T InstantiateMono<T>(T behaviour) where T : MonoBehaviour =>
-      _instantiator
-        .InstantiatePrefab(behaviour)
-        .GetComponent<T>();
-
     public T InstantiateMono<T>(Vector3 position) where T : MonoBehaviour
     {
       var monoBehaviour = _instantiator
@@ -61,6 +61,17 @@ namespace Infrastructure.ZenjectFactories
       monoBehaviour.transform.position = position;
 
       return monoBehaviour;
+    }
+    
+    public T InstantiateMono<T>(Vector3 position, Transform parent) where T : MonoBehaviour
+    {
+      var monoBehaviour = _instantiator
+        .InstantiatePrefab(_assetProvider.Get<T>(), parent)
+        .GetComponent<T>();
+
+      monoBehaviour.transform.position = position;
+
+      return monoBehaviour; 
     }
 
     public T InstantiateMono<T>(T behaviour, Transform parent) where T : MonoBehaviour =>
