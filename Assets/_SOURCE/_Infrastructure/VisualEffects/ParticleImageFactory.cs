@@ -34,6 +34,20 @@ namespace Infrastructure
           particleImage.Play();
 
           return particleImage;
+        
+        case ParticleImageId.EggCollection1:
+          GameObject prefab2 = _assetProvider.Get(nameof(ParticleImageId.EggCollection1));
+          GameObject moneyObject2 = _zenjectFactory.InstantiateGameObject(prefab2, position, Quaternion.identity, parent);
+
+          moneyObject2.transform.SetParent(parent);
+
+          var particleImage2 = moneyObject2.GetComponent<ParticleImage>();
+
+          particleImage2.main.attractorTarget = target;
+
+          particleImage2.Play();
+
+          return particleImage2;
       }
 
       return null;

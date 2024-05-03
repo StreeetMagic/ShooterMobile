@@ -686,6 +686,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6725257079275809871}
+  - {fileID: 265355287901698001}
   m_Father: {fileID: 3249106344908670564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -769,6 +770,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LootSlots: []
+--- !u!1 &7202651140021625428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265355287901698001}
+  - component: {fileID: 8013800202065431102}
+  m_Layer: 0
+  m_Name: EggCollection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &265355287901698001
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202651140021625428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 17969738577914731}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8013800202065431102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202651140021625428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2925a995900f154883e4b9a6af2af7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 3040804072685930612}
+  ParticleImage: {fileID: 740601347966219661}
+  Animator: {fileID: 5113782482225153847}
 --- !u!1 &7643607293451834229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,17 +1311,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MoneyInBankPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448096806663522981, guid: 98b689d49e88f8d4690c14fa5d5f278d,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cb37917483ee24fea8fab306393441e5,
-        type: 3}
-    - target: {fileID: 5448096806663522981, guid: 98b689d49e88f8d4690c14fa5d5f278d,
-        type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2017,17 +2058,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EggInBankPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 905268877500147955, guid: ac4543945101c354ab6ed17bf9622a99,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cb37917483ee24fea8fab306393441e5,
-        type: 3}
-    - target: {fileID: 905268877500147955, guid: ac4543945101c354ab6ed17bf9622a99,
-        type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3109647488189722026, guid: ac4543945101c354ab6ed17bf9622a99,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2128,12 +2158,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8799120388709841903, guid: ac4543945101c354ab6ed17bf9622a99,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: dc5564abc5b69cf45981e86f9eeae473,
-        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2177,6 +2201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BackpackBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _bursts.Array.data[0].used
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4687931492242140070, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
@@ -2373,6 +2402,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8882795805056227990, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _bursts.Array.data[0].used
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882795805974270032, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _bursts.Array.data[0].used
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9158638255441000025, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2436,12 +2475,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7421803768530699077}
     m_Modifications:
-    - target: {fileID: 1319279235825083360, guid: c3cc6658ae005eb49b832091b318dcf9,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8661490d01fe14ee3a29db3d39f643fd,
-        type: 3}
     - target: {fileID: 2980832645441016575, guid: c3cc6658ae005eb49b832091b318dcf9,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2541,17 +2574,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5917521144728534077, guid: c3cc6658ae005eb49b832091b318dcf9,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cb37917483ee24fea8fab306393441e5,
-        type: 3}
-    - target: {fileID: 5917521144728534077, guid: c3cc6658ae005eb49b832091b318dcf9,
-        type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6179187987454762806, guid: c3cc6658ae005eb49b832091b318dcf9,
         type: 3}

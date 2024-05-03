@@ -5,6 +5,7 @@ namespace Configs.Resources.ParticleImageConfigs
      Unknown = 0,
      MoneyCollection1 = 1,
      MoneyCollection2 = 2,
-     MoneyCollection3 = 3
+     MoneyCollection3 = 3,
+     EggCollection1 = 4
   }
 }
