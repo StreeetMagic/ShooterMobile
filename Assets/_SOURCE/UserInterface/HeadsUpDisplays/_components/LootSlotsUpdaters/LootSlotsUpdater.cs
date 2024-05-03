@@ -11,19 +11,11 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
 {
   public class LootSlotsUpdater : MonoBehaviour
   {
-    private LootSlotFactory _lootSlotFactory;
-    private BackpackStorage _backpackStorage;
-    private IAssetProvider _assetProvider;
-
     public List<LootSlot> LootSlots = new();
 
-    [Inject]
-    public void Construct(LootSlotFactory lootSlotFactory, BackpackStorage backpackStorage, IAssetProvider assetProvider)
-    {
-      _lootSlotFactory = lootSlotFactory;
-      _backpackStorage = backpackStorage;
-      _assetProvider = assetProvider;
-    }
+    [Inject] private LootSlotFactory _lootSlotFactory;
+    [Inject] private BackpackStorage _backpackStorage;
+    [Inject] private IAssetProvider _assetProvider;
 
     private LootSlot Prefab => _assetProvider.Get<LootSlot>();
 

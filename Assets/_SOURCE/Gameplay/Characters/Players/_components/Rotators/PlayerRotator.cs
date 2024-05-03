@@ -1,5 +1,4 @@
-﻿using Configs.Resources.PlayerConfigs.Scripts;
-using Infrastructure.StaticDataServices;
+﻿using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 
@@ -7,15 +6,9 @@ namespace Gameplay.Characters.Players.Rotators
 {
   public class PlayerRotator : MonoBehaviour
   {
-    private PlayerConfig _playerConfig;
+    [Inject] private IStaticDataService _static;
 
-    private float RotationSpeed => _playerConfig.RotationSpeed;
-
-    [Inject]
-    private void Construct(IStaticDataService staticData)
-    {
-      _playerConfig = staticData.GetPlayerConfig();
-    }
+    private float RotationSpeed => _static.GetPlayerConfig().RotationSpeed;
 
     public void RotateTowardsDirection(Vector3 direction)
     {
@@ -23,7 +16,7 @@ namespace Gameplay.Characters.Players.Rotators
 
       if (direction.sqrMagnitude < MinLength)
         return;
-      
+
       if (direction == Vector3.zero)
         return;
 

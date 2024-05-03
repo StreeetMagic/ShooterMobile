@@ -16,29 +16,23 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
     public ParticleImage ParticleImage;
     public Animator Animator;
 
-    private EnemySpawnerFactory _enemySpawnerFactory;
     private Camera _camera;
-    private ParticleImageFactory _particleImageFactory;
+
+    [Inject] private EnemySpawnerFactory _enemySpawnerFactory;
+    [Inject] private ParticleImageFactory _particleImageFactory;
 
     private static readonly int s_bounce = Animator.StringToHash("Bounce");
 
-    [Inject]
-    public void Construct(EnemySpawnerFactory enemySpawnerFactory, ParticleImageFactory particleImageFactory)
-    {
-      _enemySpawnerFactory = enemySpawnerFactory;
-      _particleImageFactory = particleImageFactory;
-      _camera = Camera.main;
-    }
-    
     private void Awake()
     {
       ParticleImage.gameObject.SetActive(false);
+      _camera = Camera.main;
     }
 
     private void Start()
     {
       List<EnemySpawner> spawners = _enemySpawnerFactory.Spawners;
-    
+
       foreach (EnemySpawner spawner in spawners)
       {
         spawner.EnemyDied += OnEnemyDied;

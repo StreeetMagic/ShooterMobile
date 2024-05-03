@@ -1,3 +1,4 @@
+using System;
 using Infrastructure.UserIntefaces;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,12 +10,10 @@ namespace UserInterface.HeadsUpDisplays.SettingsButtons
   {
     public Button Button;
 
-    private WindowService _windowService;
+    [Inject] private WindowService _windowService;
 
-    [Inject]
-    public void Construct(WindowService windowService)
+    private void Awake()
     {
-      _windowService = windowService;
       Button.onClick.AddListener(OnButtonClicked);
     }
 

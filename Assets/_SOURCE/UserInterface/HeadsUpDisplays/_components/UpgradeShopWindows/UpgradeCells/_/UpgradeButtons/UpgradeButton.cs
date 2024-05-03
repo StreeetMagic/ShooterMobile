@@ -12,15 +12,8 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells._.Upgrad
     public Button Button;
     public UpgradeCell UpgradeCell;
 
-    private UpgradeService _upgradeService;
-    private MoneyInBankStorage _moneyInBankStorage;
-
-    [Inject]
-    public void Construct(UpgradeService upgradeService, MoneyInBankStorage moneyInBankStorage)
-    {
-      _upgradeService = upgradeService;
-      _moneyInBankStorage = moneyInBankStorage;
-    }
+    [Inject] private UpgradeService _upgradeService;
+    [Inject] private MoneyInBankStorage _moneyInBankStorage;
 
     private StatId Id => UpgradeCell.UpgradeConfig.Id;
 

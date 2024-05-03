@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1594099167375317582}
   - component: {fileID: 7539969305759629245}
   - component: {fileID: 1020252158064092523}
+  - component: {fileID: 3914655751829813133}
   m_Layer: 11
   m_Name: Hen
   m_TagString: Untagged
@@ -143,6 +144,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b58f8fa338b324196d64d6e2f11766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3914655751829813133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608299628221347556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7de301772947389dcb2e10f4b1dbe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoolDown: 2
 --- !u!1001 &8288794925830915507
 PrefabInstance:
   m_ObjectHideFlags: 0

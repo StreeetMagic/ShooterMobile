@@ -26,13 +26,8 @@ namespace UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.Flo
     private Canvas _canvas;
     private Camera _cam;
     private Vector2 _input = Vector2.zero;
-    private IInputService _inputService;
 
-    [Inject]
-    public void Construct(IInputService inputService)
-    {
-      _inputService = inputService;
-    }
+    [Inject] private IInputService _inputService;
 
     private void Update()
     {

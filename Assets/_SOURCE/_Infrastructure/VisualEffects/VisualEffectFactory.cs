@@ -26,19 +26,27 @@ namespace Infrastructure
           throw new ArgumentOutOfRangeException(nameof(visualEffectId), visualEffectId, null);
 
         case ParticleEffectId.MuzzleFlash:
-          GameObject muzzleFlashEffect = _assetProvider.Get("MuzzleFlashRoundYellow");
-          GameObject muzzleFlash = _zenjectFactory.InstantiateGameObject(muzzleFlashEffect, position, Quaternion.identity, parent);
+          GameObject muzzlePrefab = _assetProvider.Get("MuzzleFlashRoundYellow");
+          GameObject muzzleFlash = _zenjectFactory.InstantiateGameObject(muzzlePrefab, position, Quaternion.identity, parent);
           muzzleFlash.transform.SetParent(null);
-          float duration = muzzleFlashEffect.GetComponent<ParticleSystem>().main.duration;
+          float duration = muzzlePrefab.GetComponent<ParticleSystem>().main.duration;
           Object.Destroy(muzzleFlash, duration);
           break;
 
         case ParticleEffectId.BulletImpact:
-          GameObject bulletImpact = _assetProvider.Get("FatBulletExplosionYellow");
-          GameObject impact = _zenjectFactory.InstantiateGameObject(bulletImpact, position, Quaternion.identity, parent);
+          GameObject impactPrefab = _assetProvider.Get("FatBulletExplosionYellow");
+          GameObject impact = _zenjectFactory.InstantiateGameObject(impactPrefab, position, Quaternion.identity, parent);
           impact.transform.SetParent(null);
-          float impactDuration = bulletImpact.GetComponent<ParticleSystem>().main.duration;
+          float impactDuration = impactPrefab.GetComponent<ParticleSystem>().main.duration;
           Object.Destroy(impact, impactDuration);
+          break;
+
+        case ParticleEffectId.HenExplosion:
+          GameObject explosionPrefab = _assetProvider.Get("HenExplosion");
+          GameObject explosion = _zenjectFactory.InstantiateGameObject(explosionPrefab, position, Quaternion.identity, parent);
+          explosion.transform.SetParent(null);
+          float explosionDuration = explosionPrefab.GetComponent<ParticleSystem>().main.duration;
+          Object.Destroy(explosion, explosionDuration);
           break;
       }
     }

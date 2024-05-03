@@ -23,7 +23,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
       switch (state)
       {
         case QuestState.Unknown:
-          throw new ArgumentOutOfRangeException(nameof(QuestWindow.Quest.State));
+          throw new ArgumentOutOfRangeException(nameof(_quest.State));
 
         case QuestState.UnActivated:
           break;

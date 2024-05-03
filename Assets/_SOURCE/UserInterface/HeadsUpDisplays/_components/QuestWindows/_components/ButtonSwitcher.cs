@@ -2,6 +2,7 @@ using System;
 using Quests;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows
 {
@@ -11,19 +12,17 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows
     public GameObject InProgressButton;
     public Button TakeRewardButton;
 
-    public QuestWindow QuestWindow;
-
-    private Quest Quest => QuestWindow.Quest;
+    [Inject] private Quest _quest;
 
     private void Start()
     {
-      SetupButtons(Quest.State.Value);
-      Quest.State.ValueChanged += SetupButtons;
+      SetupButtons(_quest.State.Value);
+      _quest.State.ValueChanged += SetupButtons;
     }
 
     private void OnDestroy()
     {
-      Quest.State.ValueChanged -= SetupButtons;
+      _quest.State.ValueChanged -= SetupButtons;
     }
 
     private void SetupButtons(QuestState state)
@@ -31,7 +30,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows
       switch (state)
       {
         case QuestState.Unknown:
-          throw new ArgumentOutOfRangeException(nameof(Quest.State));
+          throw new ArgumentOutOfRangeException(nameof(_quest.State));
 
         case QuestState.UnActivated:
           ActivateButton.gameObject.SetActive(true);

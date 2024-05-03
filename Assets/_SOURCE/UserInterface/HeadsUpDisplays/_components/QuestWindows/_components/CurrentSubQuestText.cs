@@ -3,17 +3,19 @@ using Quests;
 using Quests.Subquests;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows
 {
   public class CurrentSubQuestText : MonoBehaviour
   {
-    public QuestWindow QuestWindow;
     public TextMeshProUGUI Text;
+
+    [Inject] private Quest _quest;
 
     private void Update()
     {
-      List<SubQuest> subQuests = QuestWindow.Quest.SubQuests;
+      List<SubQuest> subQuests = _quest.SubQuests;
 
       foreach (SubQuest subQuest in subQuests)
       {
@@ -26,7 +28,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows
         SetText("");
       }
 
-      if (QuestWindow.Quest.State.Value == QuestState.RewardTaken)
+      if (_quest.State.Value == QuestState.RewardTaken)
       {
         SetText("Completed");
       }

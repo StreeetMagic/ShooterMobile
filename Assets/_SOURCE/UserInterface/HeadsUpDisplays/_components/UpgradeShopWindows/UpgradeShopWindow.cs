@@ -13,19 +13,9 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
 
     private readonly List<GameObject> _otherStuff = new();
 
-    private IStaticDataService _staticDataService;
-    private UpgradeCellFactory _upgradeCellFactory;
-    private HeadsUpDisplayProvider _headsUpDisplayProvider;
-
-    [Inject]
-    public void Construct(IStaticDataService staticDataService, 
-      UpgradeCellFactory shopWindowFactory,
-      HeadsUpDisplayProvider headsUpDisplayProvider)
-    {
-      _staticDataService = staticDataService;
-      _upgradeCellFactory = shopWindowFactory;
-      _headsUpDisplayProvider = headsUpDisplayProvider;
-    }
+    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private UpgradeCellFactory _upgradeCellFactory;
+    [Inject] private HeadsUpDisplayProvider _headsUpDisplayProvider;
 
     private void Start()
     {

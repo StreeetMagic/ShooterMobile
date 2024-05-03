@@ -7,13 +7,12 @@ namespace Gameplay.Characters.Players.AttackRadiusListeners
 {
   public class AttackRadiusListener : MonoBehaviour
   {
-    private PlayerStatsProvider _playerStatsProvider;
     private RectTransform _rectTransform;
 
-    [Inject]
-    public void Construct(PlayerStatsProvider playerStatsProvider)
+    [Inject] private PlayerStatsProvider _playerStatsProvider;
+
+    private void Awake()
     {
-      _playerStatsProvider = playerStatsProvider;
       _rectTransform = GetComponent<RectTransform>();
     }
 
@@ -32,7 +31,7 @@ namespace Gameplay.Characters.Players.AttackRadiusListeners
 
     private void OnUpgradeChanged(int value)
     {
-      var radius = value * 2;
+      int radius = value * 2;
 
       _rectTransform.localScale = new Vector3(radius, radius, radius);
     }

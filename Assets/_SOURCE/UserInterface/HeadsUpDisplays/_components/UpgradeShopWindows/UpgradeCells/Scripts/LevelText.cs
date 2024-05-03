@@ -12,13 +12,7 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
     public UpgradeCell UpgradeCell;
     public TextMeshProUGUI LevelTextUI;
 
-    private UpgradeService _upgradeService;
-
-    [Inject]
-    public void Construct(PersistentProgressService progressService, UpgradeService upgradeService)
-    {
-      _upgradeService = upgradeService;
-    }
+    [Inject] private UpgradeService _upgradeService;
 
     private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
 

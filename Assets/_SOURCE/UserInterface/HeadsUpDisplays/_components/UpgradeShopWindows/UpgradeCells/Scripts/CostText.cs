@@ -12,15 +12,8 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
     public UpgradeCell UpgradeCell;
     public TextMeshProUGUI CostTextUI;
 
-    private UpgradeService _upgradeService;
-    private IStaticDataService _staticDataService;
-
-    [Inject]
-    public void Construct(UpgradeService upgradeService, IStaticDataService staticDataService)
-    {
-      _upgradeService = upgradeService;
-      _staticDataService = staticDataService;
-    }
+    [Inject] private UpgradeService _upgradeService;
+    [Inject] private IStaticDataService _staticDataService;
 
     private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
     private Upgrade Upgrade => _upgradeService.GetUpgrade(Config.Id);

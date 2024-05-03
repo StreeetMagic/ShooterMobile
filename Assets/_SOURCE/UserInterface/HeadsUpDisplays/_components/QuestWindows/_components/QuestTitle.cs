@@ -9,13 +9,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows
   {
     public TextMeshProUGUI Text;
 
-    private Quest _quest;
-    
-    [Inject]
-    public void Construct(Quest quest)
-    {
-      _quest = quest;
-    }
+    [Inject] private Quest _quest;
 
     private void OnEnable()
     {

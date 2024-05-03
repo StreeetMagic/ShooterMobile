@@ -11,15 +11,8 @@ namespace UserInterface.HeadsUpDisplays.ExpirienceBars
   {
     public Image Image;
 
-    private ExpierienceStorage _expierienceStorage;
-    private IStaticDataService _staticDataService;
-
-    [Inject]
-    public void Construct(ExpierienceStorage expierienceStorage, IStaticDataService staticDataService)
-    {
-      _expierienceStorage = expierienceStorage;
-      _staticDataService = staticDataService;
-    }
+    [Inject] private ExpierienceStorage _expierienceStorage;
+    [Inject] private IStaticDataService _staticDataService;
 
     private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
 

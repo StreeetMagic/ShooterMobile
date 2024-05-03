@@ -6,18 +6,9 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyRoutePointsSwitcher : MonoBehaviour
   {
-    private RoutePointsManager _routePointsManager;
-    private EnemyWaiter _enemyWaiter;
-    private ReturnToSpawnStatus _returnToSpawnStatus;
-
-    [Inject]
-    public void Construct(RoutePointsManager routePointsManager, EnemyWaiter enemyWaiter,
-      ReturnToSpawnStatus returnToSpawnStatus, DebugLogger logger)
-    {
-      _routePointsManager = routePointsManager;
-      _enemyWaiter = enemyWaiter;
-      _returnToSpawnStatus = returnToSpawnStatus;
-    }
+    [Inject] private RoutePointsManager _routePointsManager;
+    [Inject] private EnemyWaiter _enemyWaiter;
+    [Inject] private ReturnToSpawnStatus _returnToSpawnStatus;
 
     private void FixedUpdate()
     {

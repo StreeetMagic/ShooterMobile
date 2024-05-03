@@ -9,13 +9,7 @@ namespace UserInterface.HeadsUpDisplays.DebugWindows
   {
     public Button Button;
 
-    private DebugService _debugService;
-
-    [Inject]
-    private void Construct(DebugService debugService)
-    {
-      _debugService = debugService;
-    }
+    [Inject] private DebugService _debugService;
 
     private void Start()
     {

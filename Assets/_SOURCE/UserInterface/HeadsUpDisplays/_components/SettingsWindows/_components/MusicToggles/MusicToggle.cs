@@ -9,13 +9,7 @@ namespace UserInterface.HeadsUpDisplays.SettingsWindows.MusicToggles
   {
     public Toggle Toggle;
 
-    private AudioService _audioService;
-
-    [Inject]
-    public void Construct(AudioService audioService)
-    {
-      _audioService = audioService;
-    }
+    [Inject] private AudioService _audioService;
 
     private void Awake()
     {

@@ -9,19 +9,13 @@ namespace UserInterface.HeadsUpDisplays.DebugWindows.DebugButtons
   {
     public Button Button;
 
-    private WindowService _windowService;
+    [Inject] private WindowService _windowService;
 
-    [Inject]
-    public void Construct(WindowService windowService)
-    {
-      _windowService = windowService;
-    }
-  
     private void Start()
     {
       Button.onClick.AddListener(OnClick);
     }
-  
+
     public void OnClick()
     {
       _windowService.Create(WindowId.Debug);

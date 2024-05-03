@@ -1,6 +1,7 @@
 using Quests;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows
 {
@@ -9,7 +10,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows
     public Button Button;
     public QuestWindow QuestWindow;
 
-    private Quest Quest => QuestWindow.Quest;
+    [Inject] private Quest _quest;
 
     private void Start()
     {
@@ -18,7 +19,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows
 
     private void Activate()
     {
-      Quest.State.Value = QuestState.Activated;
+      _quest.State.Value = QuestState.Activated;
     }
   }
 }

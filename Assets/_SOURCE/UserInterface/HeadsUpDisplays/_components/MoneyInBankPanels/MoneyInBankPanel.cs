@@ -9,13 +9,7 @@ namespace UserInterface.HeadsUpDisplays.MoneyInBankPanels
   {
     [SerializeField] private TextMeshProUGUI _moneyInBankText;
 
-    private MoneyInBankStorage _moneyInBankStorage;
-
-    [Inject]
-    public void Construct(MoneyInBankStorage moneyInBankStorage)
-    {
-      _moneyInBankStorage = moneyInBankStorage;
-    }
+    [Inject] private MoneyInBankStorage _moneyInBankStorage;
 
     private void Start()
     {

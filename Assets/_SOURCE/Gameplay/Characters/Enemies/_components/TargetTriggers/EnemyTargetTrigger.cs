@@ -11,18 +11,19 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
   {
     public Collider Collider;
 
-    public EnemyHealth EnemyHealth;
-
     public event Action<EnemyTargetTrigger> TargetDied;
 
     public bool IsTargeted { get; set; }
+    [Inject] public EnemyHealth EnemyHealth { get; private set; }
 
-    [Inject]
-    private void Construct(UpgradeService upgradeService, EnemyHealth enemyHealth)
+    private void OnEnable()
     {
-      EnemyHealth = enemyHealth;
-
       EnemyHealth.Died += OnDied;
+    }
+
+    private void OnDisable()
+    {
+      EnemyHealth.Died -= OnDied;
     }
 
     private void OnDied(EnemyConfig arg1, EnemyHealth arg2)

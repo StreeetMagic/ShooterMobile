@@ -7,17 +7,16 @@ namespace Gameplay.Characters.Players.Projectiles.Movers
   [RequireComponent(typeof(Rigidbody))]
   public class ForwardMover : MonoBehaviour
   {
-    private IStaticDataService _staticDataService;
     private Rigidbody _rigidbody;
 
-    [Inject]
-    public void Construct(IStaticDataService staticDataService)
-    {
-      _staticDataService = staticDataService;
-      _rigidbody = GetComponent<Rigidbody>();
-    }
+    [Inject] private IStaticDataService _staticDataService;
 
     private float BulletSpeed => _staticDataService.GetPlayerConfig().BulletSpeed;
+
+    private void Start()
+    {
+      _rigidbody = GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate()
     {

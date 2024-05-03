@@ -1,16 +1,19 @@
+using Quests;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.QuestWindows
 {
   public class QuestIcon : MonoBehaviour
   {
     public Image Image;
-    public QuestWindow QuestWindow;
+    
+    [Inject] private Quest _quest;
 
     private void OnEnable()
     {
-      Image.sprite = QuestWindow.Quest.Config.Icon;
+      Image.sprite = _quest.Config.Icon;
     }
   }
 }

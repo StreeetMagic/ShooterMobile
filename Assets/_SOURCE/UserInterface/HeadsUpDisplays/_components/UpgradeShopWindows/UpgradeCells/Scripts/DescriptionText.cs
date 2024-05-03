@@ -14,17 +14,9 @@ namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
     public UpgradeCell UpgradeCell;
     public TextMeshProUGUI DescriptionTextUI;
 
-    private UpgradeService _upgradeService;
-    private IStaticDataService _staticDataService;
-    private PlayerStatsProvider _playerStatsProvider;
-
-    [Inject]
-    public void Construct(UpgradeService upgradeService, IStaticDataService staticDataService, PlayerStatsProvider playerStatsProvider)
-    {
-      _upgradeService = upgradeService;
-      _staticDataService = staticDataService;
-      _playerStatsProvider = playerStatsProvider;
-    }
+    [Inject] private UpgradeService _upgradeService;
+    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private PlayerStatsProvider _playerStatsProvider;
 
     private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
     private StatId Id => Config.Id;

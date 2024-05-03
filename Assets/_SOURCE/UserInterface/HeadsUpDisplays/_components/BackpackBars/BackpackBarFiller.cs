@@ -12,16 +12,9 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
     public Slider Slider;
     public float SliderUpdateSpeed;
 
-    private PlayerStatsProvider _playerStatsProvider;
-    private BackpackStorage _backpackStorage;
+    [Inject] private PlayerStatsProvider _playerStatsProvider;
+    [Inject] private BackpackStorage _backpackStorage;
 
-    [Inject]
-    private void Construct(PlayerStatsProvider playerStatsProvider, BackpackStorage backpackStorage)
-    {
-      _playerStatsProvider = playerStatsProvider;
-      _backpackStorage = backpackStorage;
-    }
-    
     private void Start()
     {
       Slider.value = 0;

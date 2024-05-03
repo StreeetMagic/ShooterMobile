@@ -13,16 +13,10 @@ namespace Gameplay.Characters.Players.Projectiles.Scripts
   {
     public CollisionPointRayCaster CollisionPointRayCaster;
 
-    private VisualEffectFactory _visualEffectFactory;
-    private PlayerStatsProvider _playerStatsProvider;
     private int _count;
 
-    [Inject]
-    private void Construct(VisualEffectFactory visualEffectFactory, PlayerStatsProvider playerStatsProvider)
-    {
-      _visualEffectFactory = visualEffectFactory;
-      _playerStatsProvider = playerStatsProvider;
-    }
+    [Inject] private VisualEffectFactory _visualEffectFactory;
+    [Inject] private PlayerStatsProvider _playerStatsProvider;
 
     public string Guid { get; set; }
 
