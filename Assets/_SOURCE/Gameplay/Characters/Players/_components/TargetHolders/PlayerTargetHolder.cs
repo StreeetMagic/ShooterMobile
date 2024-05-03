@@ -12,15 +12,15 @@ namespace Gameplay.Characters.Players.TargetHolders
   public class PlayerTargetHolder : MonoBehaviour
   {
     private List<EnemyTargetTrigger> _targets;
-    private EnemyTargetTrigger _currentEnemyTarget;
 
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private PlayerStatsProvider _playerStatsProvider;
 
     public bool HasTarget { get; private set; }
+    public EnemyTargetTrigger CurrentTarget { get; private set; }
 
-    public Vector3 DirectionToTarget => _currentEnemyTarget.transform.position - Transform.position;
-    public Vector3 LookDirectionToTarget => new Vector3(_currentEnemyTarget.transform.position.x, Transform.position.y, _currentEnemyTarget.transform.position.z) - Transform.position;
+    public Vector3 DirectionToTarget => CurrentTarget.transform.position - Transform.position;
+    public Vector3 LookDirectionToTarget => new Vector3(CurrentTarget.transform.position.x, Transform.position.y, CurrentTarget.transform.position.z) - Transform.position;
     private float FireRange => _playerStatsProvider.GetStat(StatId.FireRange).Value;
 
     private Transform Transform => _playerProvider.Player.transform;
@@ -39,9 +39,9 @@ namespace Gameplay.Characters.Players.TargetHolders
       RemoveFarTargets();
       RemoveDeadTargets();
 
-      if (_currentEnemyTarget != null)
+      if (CurrentTarget != null)
       {
-        _currentEnemyTarget.IsTargeted = true;
+        CurrentTarget.IsTargeted = true;
       }
     }
 
@@ -56,7 +56,7 @@ namespace Gameplay.Characters.Players.TargetHolders
 
         deadTargets.Add(target);
 
-        if (_currentEnemyTarget == target)
+        if (CurrentTarget == target)
           target.IsTargeted = false;
       }
 
@@ -74,7 +74,7 @@ namespace Gameplay.Characters.Players.TargetHolders
 
         farTargets.Add(target);
 
-        if (_currentEnemyTarget == target)
+        if (CurrentTarget == target)
           target.IsTargeted = false;
       }
 
@@ -85,20 +85,20 @@ namespace Gameplay.Characters.Players.TargetHolders
     {
       if (_targets.Count == 0)
       {
-        if (_currentEnemyTarget != null)
+        if (CurrentTarget != null)
         {
-          _currentEnemyTarget.IsTargeted = false;
+          CurrentTarget.IsTargeted = false;
         }
 
         HasTarget = false;
-        _currentEnemyTarget = null;
+        CurrentTarget = null;
       }
-      else if (_currentEnemyTarget == null)
+      else if (CurrentTarget == null)
       {
         SetRandomCurrentTarget();
         HasTarget = true;
       }
-      else if (_currentEnemyTarget.EnemyHealth.IsDead)
+      else if (CurrentTarget.EnemyHealth.IsDead)
       {
         SetRandomCurrentTarget();
         HasTarget = true;
@@ -109,7 +109,7 @@ namespace Gameplay.Characters.Players.TargetHolders
     {
       EnemyTargetTrigger currentEnemyTarget = _targets[Random.Range(0, _targets.Count)];
       currentEnemyTarget.IsTargeted = true;
-      _currentEnemyTarget = currentEnemyTarget;
+      CurrentTarget = currentEnemyTarget;
     }
 
     public void AddTargets(List<EnemyTargetTrigger> targets)

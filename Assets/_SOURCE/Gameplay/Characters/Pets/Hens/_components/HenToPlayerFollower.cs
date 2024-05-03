@@ -4,7 +4,7 @@ using Gameplay.Characters.Players.PlayerStatsProviders;
 using UnityEngine;
 using Zenject;
 
-public class HenPlayerFollower : MonoBehaviour
+public class HenToPlayerFollower : MonoBehaviour
 {
   [Inject] private HenMover _henMover;
   [Inject] private PlayerStatsProvider _playerStatsProvider;
@@ -22,9 +22,8 @@ public class HenPlayerFollower : MonoBehaviour
 
     if (distance > minDistance)
     {
-      Vector3 direction = (Player.position - transform.position).normalized;
-      _henMover.Move(direction, MoveSpeed);
-      _henRotator.Rotate(direction);
+      _henMover.Move(Player.position, MoveSpeed);
+      _henRotator.Rotate(Player.position);
     }
   }
 }
