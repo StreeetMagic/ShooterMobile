@@ -18,18 +18,33 @@ using Infrastructure.ZenjectFactories;
 using Inputs;
 using Loggers;
 using Quests;
+using UnityEngine;
+using Zenject;
 using Zenject.Source.Install;
 
 namespace Infrastructure.DependencyInjection
 {
-  public class GameInstaller : MonoInstaller
+  public class ProjectInstaller : MonoInstaller, IInitializable
   {
+    public void Initialize()
+    {
+      IStateMachine<IGameState> gameStateMachine = Container.Resolve<IStateMachine<IGameState>>();
+      ProjectZenjectFactory factory = Container.Resolve<ProjectZenjectFactory>();
+      
+      gameStateMachine.Register(factory.InstantiateNative<BootstrapState>());
+      gameStateMachine.Register(factory.InstantiateNative<LoadLevelState>());
+
+      gameStateMachine.Enter<BootstrapState>();
+    }
+
     public override void InstallBindings()
     {
-      Container.Bind<ProjectZenjectFactory>().AsSingle();
-      Container.Bind<LoadingCurtain>().FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
+      Container.BindInterfacesTo<ProjectInstaller>().FromInstance(this).AsSingle();
 
-      Container.Bind<ICoroutineRunner>().To<CoroutineRunner>().FromComponentInNewPrefabResource(Constants.AssetsPath.Prefabs.CoroutineRunner).AsSingle();
+      Container.Bind<ProjectZenjectFactory>().AsSingle();
+      Container.Bind<LoadingCurtain>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
+
+      Container.Bind<ICoroutineRunner>().To<CoroutineRunner>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.CoroutineRunner).AsSingle();
       Container.BindInterfacesAndSelfTo<StateMachine<IGameState>>().AsSingle();
 
       Container.Bind<IInputService>().To<InputService>().AsSingle();

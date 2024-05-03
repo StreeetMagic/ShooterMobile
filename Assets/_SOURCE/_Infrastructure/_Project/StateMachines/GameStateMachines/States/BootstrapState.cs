@@ -48,8 +48,8 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     private static string SceneName() =>
       SceneManager
         .GetActiveScene()
-        .name == Constants.Scenes.Initial
-        ? Constants.Scenes.GameLoop
+        .name == ProjectConstants.Scenes.Initial
+        ? ProjectConstants.Scenes.GameLoop
         : SceneManager.GetActiveScene().name;
   }
 }

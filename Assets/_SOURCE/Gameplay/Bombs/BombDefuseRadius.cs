@@ -13,7 +13,7 @@ public class BombDefuseRadius : MonoBehaviour
 
   private void OnEnable()
   {
-    float value = Constants.CommonSettings.BombDefuseRadius * 2f;
+    float value = ProjectConstants.CommonSettings.BombDefuseRadius * 2f;
 
     _rectTransform.localScale = new Vector3(value, value, value);
   }

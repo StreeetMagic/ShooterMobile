@@ -38,7 +38,7 @@ public class PlayerBombDefuser : MonoBehaviour
   {
     if (_playerMoveSpeed.CurrentMoveSpeed.Value == 0)
     {
-      float progressPerFrame = (Time.deltaTime / Constants.CommonSettings.BombDefuseDuration);
+      float progressPerFrame = (Time.deltaTime / ProjectConstants.CommonSettings.BombDefuseDuration);
 
       if (Bombs.Count > 0)
       {

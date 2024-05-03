@@ -84,9 +84,6 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
       _mapFactory.Destroy();
       _playerFactory.Destroy();
-      // _cameraFactory.Destroy();
-      // _enemySpawnerFactory.Destroy();
-      // _headsUpDisplayFactory.Destroy();
     }
   }
 }

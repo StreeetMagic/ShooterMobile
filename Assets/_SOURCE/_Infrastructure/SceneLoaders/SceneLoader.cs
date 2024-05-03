@@ -26,7 +26,7 @@ namespace Infrastructure.SceneLoaders
 
     public void Load(Action<string> onLoaded = null)
     {
-      _coroutineRunner.StartCoroutine(LoadScene(Constants.Scenes.Initial, onLoaded));
+      _coroutineRunner.StartCoroutine(LoadScene(ProjectConstants.Scenes.Initial, onLoaded));
     }
 
     private IEnumerator LoadScene(string nextScene, Action<string> onLoaded)

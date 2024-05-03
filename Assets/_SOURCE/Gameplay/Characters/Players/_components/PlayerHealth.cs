@@ -51,7 +51,7 @@ namespace Gameplay.Characters.Players
 
       IsDead = true;
 
-      _gameStateMachine.Enter<LoadLevelState, string, string>(Constants.Scenes.Empty, Constants.Scenes.GameLoop);
+      _gameStateMachine.Enter<LoadLevelState, string, string>(ProjectConstants.Scenes.Empty, ProjectConstants.Scenes.GameLoop);
     }
 
     private void SetCurrentHealth(int health)

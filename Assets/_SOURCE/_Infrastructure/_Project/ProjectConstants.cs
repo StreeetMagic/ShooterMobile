@@ -1,6 +1,6 @@
 namespace Infrastructure.Games
 {
-  public class Constants
+  public class ProjectConstants
   {
     public class CommonSettings
     {

@@ -44,7 +44,7 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
     private void LoadGameLoopScene(string nextScene)
     {
-      _sceneLoader.Load(Constants.Scenes.GameLoop, OnSceneLoaded);
+      _sceneLoader.Load(ProjectConstants.Scenes.GameLoop, OnSceneLoaded);
     }
 
     public void Exit()
@@ -62,14 +62,14 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
     {
       switch (name)
       {
-        case Constants.Scenes.Initial:
+        case ProjectConstants.Scenes.Initial:
           _gameStateMachine.Enter<BootstrapState>();
           break;
 
-        case Constants.Scenes.GameLoop:
+        case ProjectConstants.Scenes.GameLoop:
           break;
 
-        case Constants.Scenes.Empty:
+        case ProjectConstants.Scenes.Empty:
           break;
       }
     }

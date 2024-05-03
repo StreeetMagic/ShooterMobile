@@ -12,7 +12,7 @@ public class BombPlayerDetector : MonoBehaviour
 
   private void Awake()
   {
-    SphereCollider.radius = Constants.CommonSettings.BombDefuseRadius;
+    SphereCollider.radius = ProjectConstants.CommonSettings.BombDefuseRadius;
   }
 
   private void OnTriggerEnter(Collider other)

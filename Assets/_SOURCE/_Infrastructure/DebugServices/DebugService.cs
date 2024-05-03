@@ -51,7 +51,7 @@ namespace Infrastructure.DebugServices
 
     public void Restart()
     {
-      _gameStateMachine.Enter<LoadLevelState, string, string>(Constants.Scenes.Empty, Constants.Scenes.GameLoop);
+      _gameStateMachine.Enter<LoadLevelState, string, string>(ProjectConstants.Scenes.Empty, ProjectConstants.Scenes.GameLoop);
     }
 
     public void DeleteSaves()
