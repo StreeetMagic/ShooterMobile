@@ -1,9 +1,7 @@
-using System;
 using Configs.Resources.StatConfigs;
 using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.PlayerStatsProviders;
-using Loggers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -20,10 +18,10 @@ public class HealthBarSlider : MonoBehaviour
 
   private void Update()
   {
-    UpdateSlider(PlayerHealth.Current.Value);
+    UpdateSlider();
   }
 
-  private void UpdateSlider(int value)
+  private void UpdateSlider()
   {
     float max = _playerStatsProvider.GetStat(StatId.Health).Value;
     float current = PlayerHealth.Current.Value;

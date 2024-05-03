@@ -18,29 +18,14 @@ using Infrastructure.ZenjectFactories;
 using Inputs;
 using Loggers;
 using Quests;
-using UnityEngine;
-using Zenject;
 using Zenject.Source.Install;
 
 namespace Infrastructure.DependencyInjection
 {
-  public class ProjectInstaller : MonoInstaller, IInitializable
+  public class ProjectInstaller : MonoInstaller
   {
-    public void Initialize()
-    {
-      IStateMachine<IGameState> gameStateMachine = Container.Resolve<IStateMachine<IGameState>>();
-      ProjectZenjectFactory factory = Container.Resolve<ProjectZenjectFactory>();
-      
-      gameStateMachine.Register(factory.InstantiateNative<BootstrapState>());
-      gameStateMachine.Register(factory.InstantiateNative<LoadLevelState>());
-
-      gameStateMachine.Enter<BootstrapState>();
-    }
-
     public override void InstallBindings()
     {
-      Container.BindInterfacesTo<ProjectInstaller>().FromInstance(this).AsSingle();
-
       Container.Bind<ProjectZenjectFactory>().AsSingle();
       Container.Bind<LoadingCurtain>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
 
@@ -71,5 +56,7 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<PlayerStatsProvider>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
     }
+
+
   }
 }

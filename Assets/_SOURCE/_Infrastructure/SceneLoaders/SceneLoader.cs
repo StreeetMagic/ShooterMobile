@@ -18,18 +18,18 @@ namespace Infrastructure.SceneLoaders
 
     public event Action<string> SceneLoaded;
 
-    public void Load(string name, Action<string> onLoaded = null)
+    public void Load(string name, Action onLoaded = null)
     {
       //DOTween.KillAll();
       _coroutineRunner.StartCoroutine(LoadScene(name, onLoaded));
     }
 
-    public void Load(Action<string> onLoaded = null)
+    public void Load(Action onLoaded = null)
     {
       _coroutineRunner.StartCoroutine(LoadScene(ProjectConstants.Scenes.Initial, onLoaded));
     }
 
-    private IEnumerator LoadScene(string nextScene, Action<string> onLoaded)
+    private IEnumerator LoadScene(string nextScene, Action onLoaded)
     {
       AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextScene);
 
@@ -43,7 +43,7 @@ namespace Infrastructure.SceneLoaders
         }
       }
 
-      onLoaded?.Invoke(nextScene);
+      onLoaded?.Invoke();
       SceneLoaded?.Invoke(nextScene);
     }
   }

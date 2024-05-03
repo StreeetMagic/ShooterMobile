@@ -3,11 +3,11 @@ using Configs.Resources.QuestConfigs.Scripts;
 using DataRepositories;
 using Infrastructure.Games;
 using Infrastructure.SaveLoadServices;
+using Infrastructure.SceneLoaders;
 using Infrastructure.StateMachines;
 using Infrastructure.StateMachines.GameStateMachines.States;
 using Infrastructure.UserIntefaces;
 using Inputs;
-using Loggers;
 using Zenject;
 
 namespace Infrastructure.DebugServices
@@ -19,18 +19,18 @@ namespace Infrastructure.DebugServices
     private readonly SaveLoadService _saveLoadService;
     private readonly WindowService _windowService;
     private readonly ExpierienceStorage _expierienceStorage;
-    private readonly DebugLogger _logger;
+    private readonly SceneLoader _sceneLoader;
 
     public DebugService(IInputService inputService,
       IStateMachine<IGameState> gameStateMachine, SaveLoadService saveLoadService,
-      WindowService windowService, ExpierienceStorage expierienceStorage, DebugLogger logger)
+      WindowService windowService, ExpierienceStorage expierienceStorage, SceneLoader sceneLoader)
     {
       _inputService = inputService;
       _gameStateMachine = gameStateMachine;
       _saveLoadService = saveLoadService;
       _windowService = windowService;
       _expierienceStorage = expierienceStorage;
-      _logger = logger;
+      _sceneLoader = sceneLoader;
     }
 
     public void Initialize()
@@ -51,7 +51,7 @@ namespace Infrastructure.DebugServices
 
     public void Restart()
     {
-      _gameStateMachine.Enter<LoadLevelState, string, string>(ProjectConstants.Scenes.Empty, ProjectConstants.Scenes.GameLoop);
+      _sceneLoader.Load(ProjectConstants.Scenes.Empty, () => _sceneLoader.Load(ProjectConstants.Scenes.GameLoop));
     }
 
     public void DeleteSaves()

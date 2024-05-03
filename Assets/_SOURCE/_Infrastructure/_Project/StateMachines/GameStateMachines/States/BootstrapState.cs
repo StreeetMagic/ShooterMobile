@@ -28,17 +28,11 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
       LoadInitialScene();
     }
 
-    private void LoadInitialScene()
+    public void Exit()
     {
-      _sceneLoader.Load(_ =>
-      {
-        _staticDataService.LoadConfigs();
-        _audioService.PlayMusic(MusicId.Game);
-        EnterNextState();
-      });
     }
 
-    public void Exit()
+    private void LoadInitialScene()
     {
     }
 

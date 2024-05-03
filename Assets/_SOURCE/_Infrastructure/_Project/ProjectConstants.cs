@@ -13,7 +13,8 @@ namespace Infrastructure.Games
       public const string Initial = nameof(Initial);
       public const string GameLoop = nameof(GameLoop);
       public const string Empty = nameof(Empty);
-      public const string InitialSceneName = nameof(InitialSceneName);
+      public const string LoadProgress = nameof(LoadProgress);
+      public const string LoadConfigs = nameof(LoadConfigs);
     }
 
     public class AssetsPath

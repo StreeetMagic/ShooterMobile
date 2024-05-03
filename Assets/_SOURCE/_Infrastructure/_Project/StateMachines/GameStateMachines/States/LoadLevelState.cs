@@ -26,25 +26,22 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
     public void Enter()
     {
-      CommonActions();
-      _sceneLoader.Load(OnSceneLoaded);
+
     }
 
     public void Enter(string sceneName)
     {
-      CommonActions();
-      _sceneLoader.Load(sceneName, OnSceneLoaded);
+
     }
 
     public void Enter(string emptyScene, string nextScene)
     {
-      CommonActions();
-      _sceneLoader.Load(emptyScene, LoadGameLoopScene);
+
     }
 
     private void LoadGameLoopScene(string nextScene)
     {
-      _sceneLoader.Load(ProjectConstants.Scenes.GameLoop, OnSceneLoaded);
+
     }
 
     public void Exit()

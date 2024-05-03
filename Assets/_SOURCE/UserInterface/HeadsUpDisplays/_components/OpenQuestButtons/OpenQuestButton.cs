@@ -13,13 +13,11 @@ namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
     public QuestId QuestId { get; set; } = QuestId.Unknown;
 
     private WindowService _windowService;
-    private DebugLogger _logger;
 
     [Inject]
     private void Construct(WindowService windowService, DebugLogger logger)
     {
       _windowService = windowService;
-      _logger = logger;
       Button.onClick.AddListener(OpenQuest);
     }
 
