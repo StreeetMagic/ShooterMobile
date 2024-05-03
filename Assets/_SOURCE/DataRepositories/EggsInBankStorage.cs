@@ -8,14 +8,14 @@ namespace DataRepositories
   {
     public ReactiveProperty<int> EggsInBank { get; } = new();
 
-    public void ReadProgress(Progress progress)
+    public void ReadProgress(ProjectProgress projectProgress)
     {
-      EggsInBank.Value = progress.EggsInBank;
+      EggsInBank.Value = projectProgress.EggsInBank;
     }
 
-    public void WriteProgress(Progress progress)
+    public void WriteProgress(ProjectProgress projectProgress)
     {
-      progress.EggsInBank = EggsInBank.Value;
+      projectProgress.EggsInBank = EggsInBank.Value;
     }
   }
 }

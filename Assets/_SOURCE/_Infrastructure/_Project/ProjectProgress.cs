@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Infrastructure.PersistentProgresses
 {
   [Serializable]
-  public class Progress
+  public class ProjectProgress
   {
     public int MoneyInBank;
     public int EggsInBank;

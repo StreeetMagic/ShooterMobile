@@ -31,7 +31,7 @@ namespace Quests
     public List<Quest> GetAllQuests()
       => _quests.Values.ToList();
 
-    public void ReadProgress(Progress progress)
+    public void ReadProgress(ProjectProgress projectProgress)
     {
       Dictionary<QuestId, QuestConfig> configs = _staticDataService.GetQuestConfigs();
 
@@ -39,17 +39,17 @@ namespace Quests
 
       foreach (QuestId questId in configs.Keys)
       {
-        List<SubQuest> subQuests = SubQuest(configs[questId], progress);
+        List<SubQuest> subQuests = SubQuest(configs[questId], projectProgress);
 
-        QuestState questState = QuestState(progress, questId);
+        QuestState questState = QuestState(projectProgress, questId);
 
         _quests.Add(questId, new Quest(questState, configs[questId], subQuests, _rewardService));
       }
     }
 
-    public void WriteProgress(Progress progress)
+    public void WriteProgress(ProjectProgress projectProgress)
     {
-      progress.Quests.Clear();
+      projectProgress.Quests.Clear();
 
       foreach (KeyValuePair<QuestId, Quest> quest in _quests)
       {
@@ -58,25 +58,25 @@ namespace Quests
         foreach (SubQuest subQuest in quest.Value.SubQuests)
           subQuests.Add(new SubQuestProgress(subQuest.Setup.Config.Type, subQuest.CompletedQuantity.Value, subQuest.State.Value));
 
-        progress.Quests.Add(new QuestProgress(quest.Key, quest.Value.State.Value, subQuests));
+        projectProgress.Quests.Add(new QuestProgress(quest.Key, quest.Value.State.Value, subQuests));
       }
     }
 
-    private static QuestState QuestState(Progress progress, QuestId questId)
+    private static QuestState QuestState(ProjectProgress projectProgress, QuestId questId)
     {
-      return progress
+      return projectProgress
         .Quests
         .Find(x => x.Id == questId)
         .State;
     }
 
-    private List<SubQuest> SubQuest(QuestConfig config, Progress progress)
+    private List<SubQuest> SubQuest(QuestConfig config, ProjectProgress projectProgress)
     {
       List<SubQuest> subQuests = new List<SubQuest>();
 
       for (var i = 0; i < config.SubQuests.Count; i++)
       {
-        SubQuestProgress progressSubQuest = progress.Quests.Find(x => x.Id == config.Id).SubQuests[i];
+        SubQuestProgress progressSubQuest = projectProgress.Quests.Find(x => x.Id == config.Id).SubQuests[i];
 
         SubQuestSetup setup = config.SubQuests[i];
         subQuests.Add(new SubQuest(setup, progressSubQuest.CompletedQuantity, progressSubQuest.State, i, _saveLoadService, _rewardService));

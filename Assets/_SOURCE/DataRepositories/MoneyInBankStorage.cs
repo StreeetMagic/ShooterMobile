@@ -8,10 +8,10 @@ namespace DataRepositories
   {
     public ReactiveProperty<int> MoneyInBank { get; } = new();
 
-    public void ReadProgress(Progress progress) =>
-      MoneyInBank.Value = progress.MoneyInBank;
+    public void ReadProgress(ProjectProgress projectProgress) =>
+      MoneyInBank.Value = projectProgress.MoneyInBank;
 
-    public void WriteProgress(Progress progress) =>
-      progress.MoneyInBank = MoneyInBank.Value;
+    public void WriteProgress(ProjectProgress projectProgress) =>
+      projectProgress.MoneyInBank = MoneyInBank.Value;
   }
 }

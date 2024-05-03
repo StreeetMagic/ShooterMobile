@@ -74,9 +74,9 @@ namespace Infrastructure.AudioServices
       IsMusicMuted = true;
     }
 
-    public void ReadProgress(Progress progress)
+    public void ReadProgress(ProjectProgress projectProgress)
     {
-      bool mute = progress.MusicMute;
+      bool mute = projectProgress.MusicMute;
 
       if (mute)
         MuteMusic();
@@ -84,9 +84,9 @@ namespace Infrastructure.AudioServices
         UnMuteMusic();
     }
 
-    public void WriteProgress(Progress progress)
+    public void WriteProgress(ProjectProgress projectProgress)
     {
-      progress.MusicMute = IsMusicMuted;
+      projectProgress.MusicMute = IsMusicMuted;
     }
   }
 }

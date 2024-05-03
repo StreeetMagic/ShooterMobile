@@ -83,9 +83,9 @@ namespace Gameplay.Characters.Players.Factories
 
     private Vector3 SpawnPosition()
     {
-      return _progressService.Progress.PlayerPosition == Vector3.zero
+      return _progressService.ProjectProgress.PlayerPosition == Vector3.zero
         ? _mapProvider.Map.PlayerSpawnMarker.transform.position
-        : _progressService.Progress.PlayerPosition;
+        : _progressService.ProjectProgress.PlayerPosition;
     }
   }
 }

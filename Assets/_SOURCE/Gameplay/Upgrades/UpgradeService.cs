@@ -48,7 +48,7 @@ namespace Infrastructure.Upgrades
         .Values[GetUpgrade(statId).Level.Value + 1]
         .Cost;
 
-    public void ReadProgress(Progress progress)
+    public void ReadProgress(ProjectProgress projectProgress)
     {
       Dictionary<StatId, UpgradeConfig> upgrades = _staticDataService.GetUpgradeConfigs();
       _upgrades = new Dictionary<StatId, Upgrade>();
@@ -56,14 +56,14 @@ namespace Infrastructure.Upgrades
       foreach (StatId upgradeId in upgrades.Keys)
       {
         UpgradeConfig config = upgrades[upgradeId];
-        int level = progress.Upgrades.FirstOrDefault(u => u.Id == upgradeId)!.Level;
+        int level = projectProgress.Upgrades.FirstOrDefault(u => u.Id == upgradeId)!.Level;
         _upgrades.Add(upgradeId, new Upgrade(config, level));
       }
     }
 
-    public void WriteProgress(Progress progress)
+    public void WriteProgress(ProjectProgress projectProgress)
     {
-      progress.Upgrades =
+      projectProgress.Upgrades =
         _upgrades
           .Select(keyValuePair => new UpgradeProgress(keyValuePair.Key, keyValuePair.Value.Level.Value))
           .ToList();

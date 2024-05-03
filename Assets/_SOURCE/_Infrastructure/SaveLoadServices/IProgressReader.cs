@@ -4,6 +4,6 @@ namespace Infrastructure.SaveLoadServices
 {
   public interface IProgressReader
   {
-    void ReadProgress(Progress progress);
+    void ReadProgress(ProjectProgress projectProgress);
   }
 }

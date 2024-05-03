@@ -10,6 +10,7 @@ namespace Gameplay.Characters.Players
   public class PlayerHealth : MonoBehaviour
   {
     [Inject] private PlayerStatsProvider _playerStatsProvider;
+    [Inject] private GameLoopBootstrapper _gameLoopBootstrapper;
 
     public event Action Died;
     public event Action<int> Damaged;
@@ -47,7 +48,7 @@ namespace Gameplay.Characters.Players
 
       IsDead = true;
 
-       throw new NotImplementedException();
+      _gameLoopBootstrapper.Restart();
     }
 
     private void SetCurrentHealth(int health)

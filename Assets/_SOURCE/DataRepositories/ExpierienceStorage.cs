@@ -20,14 +20,14 @@ namespace DataRepositories
 
     private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
 
-    public void ReadProgress(Progress progress)
+    public void ReadProgress(ProjectProgress projectProgress)
     {
-      AllPoints.Value = progress.Expierience;
+      AllPoints.Value = projectProgress.Expierience;
     }
 
-    public void WriteProgress(Progress progress)
+    public void WriteProgress(ProjectProgress projectProgress)
     {
-      progress.Expierience = AllPoints.Value;
+      projectProgress.Expierience = AllPoints.Value;
     }
 
     public int CurrentLevel()

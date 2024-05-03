@@ -33,7 +33,7 @@ namespace Infrastructure.SaveLoadServices
     {
       foreach (IProgressReader progressReader in ProgressReaders)
       {
-        progressReader.ReadProgress(_progressService.Progress);
+        progressReader.ReadProgress(_progressService.ProjectProgress);
       }
     }
 
@@ -41,10 +41,10 @@ namespace Infrastructure.SaveLoadServices
       ProgressReaders
         .OfType<IProgressWriter>()
         .ToList()
-        .ForEach(progressWriter => progressWriter.WriteProgress(_progressService.Progress));
+        .ForEach(progressWriter => progressWriter.WriteProgress(_progressService.ProjectProgress));
 
     private void WritePlayerPrefs() =>
-      PlayerPrefs.SetString(ProgressKey, JsonUtility.ToJson(_progressService.Progress));
+      PlayerPrefs.SetString(ProgressKey, JsonUtility.ToJson(_progressService.ProjectProgress));
 
     private void ReadPlayerPrefs()
     {

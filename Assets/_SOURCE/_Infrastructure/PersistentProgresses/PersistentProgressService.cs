@@ -18,43 +18,43 @@ namespace Infrastructure.PersistentProgresses
       _staticDataService = staticDataService;
     }
 
-    public Progress Progress { get; private set; }
+    public ProjectProgress ProjectProgress { get; private set; }
 
     public void LoadProgress(string getString) =>
-      Progress =
+      ProjectProgress =
         JsonUtility
-          .FromJson<Progress>(getString);
+          .FromJson<ProjectProgress>(getString);
 
     public void SetDefault()
     {
-      Progress = new Progress();
+      ProjectProgress = new ProjectProgress();
 
-      Progress.MoneyInBank = 500;
-      Progress.EggsInBank = 0;
-      Progress.PlayerPosition = Vector3.zero;
-      Progress.Expierience = 0;
-      Progress.MusicMute = false;
+      ProjectProgress.MoneyInBank = 500;
+      ProjectProgress.EggsInBank = 0;
+      ProjectProgress.PlayerPosition = Vector3.zero;
+      ProjectProgress.Expierience = 0;
+      ProjectProgress.MusicMute = false;
 
       Upgrades();
       Quests();
 
       void Upgrades()
       {
-        Progress.Upgrades = new List<UpgradeProgress>();
+        ProjectProgress.Upgrades = new List<UpgradeProgress>();
 
         Dictionary<StatId, UpgradeConfig> upgrades =
           _staticDataService
             .GetUpgradeConfigs();
 
         foreach (KeyValuePair<StatId, UpgradeConfig> upgrade in upgrades)
-          Progress
+          ProjectProgress
             .Upgrades
             .Add(new UpgradeProgress(upgrade.Key, 0));
       }
 
       void Quests()
       {
-        Progress.Quests = new List<QuestProgress>();
+        ProjectProgress.Quests = new List<QuestProgress>();
 
         Dictionary<QuestId, QuestConfig> quests =
           _staticDataService
@@ -70,7 +70,7 @@ namespace Infrastructure.PersistentProgresses
             subQuests.Add(progressSubQuest);
           }
 
-          Progress
+          ProjectProgress
             .Quests
             .Add(new QuestProgress(quest.Key, QuestState.UnActivated, subQuests));
         }
