@@ -30,10 +30,13 @@ namespace Gameplay.Characters.Enemies
 
     private void Update()
     {
-      if (_playerProvider.Player == null)
-        return;
+      // if (_playerProvider.Player == null)
+      //   return;
 
-      Vector3 direction = (PlayerTransform.position - transform.position).normalized;
+      // Vector3 direction = (PlayerTransform.position - transform.position).normalized;
+
+      Vector3 direction = new Vector3(PlayerTransform.position.x - transform.position.x, 0, PlayerTransform.position.z - transform.position.z).normalized;
+
       _enemyToTargetRotator.RotateToTargetPosition(direction);
 
       _time += Time.deltaTime;

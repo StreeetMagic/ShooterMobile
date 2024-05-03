@@ -7,7 +7,7 @@ public class ProjectBootstrapper : MonoBehaviour
 {
   [Inject] private SceneLoader _sceneLoader;
   
-  public void Awake()
+  public void Start()
   {
     _sceneLoader.Load(ProjectConstants.Scenes.LoadConfigs);
   }

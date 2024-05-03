@@ -9,7 +9,7 @@ public class LoadConfigsBootstrapper : MonoBehaviour
   [Inject] private SceneLoader _sceneLoader;
   [Inject] private IStaticDataService _staticDataService;
 
-  public void Awake()
+  public void Start()
   {
     _staticDataService.LoadConfigs();
     _sceneLoader.Load(ProjectConstants.Scenes.LoadProgress);

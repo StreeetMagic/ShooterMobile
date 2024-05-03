@@ -31,8 +31,6 @@ namespace Infrastructure.AudioServices
 
     public void Initialize()
     {
-      Debug.Log("1" + SceneManager.GetActiveScene().name);
-      
       _container = _factory.InstantiateMono<AudioSourceContainer>();
       _container.transform.SetParent(null);
 
@@ -65,8 +63,6 @@ namespace Infrastructure.AudioServices
 
     public void UnMuteMusic()
     {
-      Debug.Log("2");
-      
       _container.MusicSources[0].mute = false;
 
       IsMusicMuted = false;

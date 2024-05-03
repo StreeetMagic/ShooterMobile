@@ -46,7 +46,7 @@ namespace Infrastructure.DependencyInjection
       Container.Bind<RandomService>().AsSingle();
 
       Container.Bind<SceneLoader>().AsSingle();
-      Container.BindInterfacesAndSelfTo<AudioService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<AudioService>().AsSingle().NonLazy();
       Container.Bind<DebugLogger>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<BackpackStorage>().AsSingle().NonLazy();
