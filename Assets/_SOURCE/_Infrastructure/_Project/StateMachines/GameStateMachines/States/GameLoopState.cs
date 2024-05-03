@@ -57,33 +57,12 @@ namespace Infrastructure.StateMachines.GameStateMachines.States
 
     public void Enter()
     {
-      _backpackStorage.Clean();
-      _saveLoadService.ProgressReaders.Add(_moneyInBankStorage);
-      _saveLoadService.ProgressReaders.Add(_upgradeService);
-      _saveLoadService.ProgressReaders.Add(_audioService);
-      _saveLoadService.ProgressReaders.Add(_questStorage);
-      _saveLoadService.LoadProgress();
 
-      _sceneTransform = Object.FindObjectOfType<GameLoopInstaller>().transform;
-
-      _playerStatsProvider.Start();
-
-      _mapFactory.Create(_sceneTransform);
-      _playerFactory.Create(_sceneTransform);
-      _cameraFactory.Create(_sceneTransform);
-      _enemySpawnerFactory.Create();
-      _headsUpDisplayFactory.Create(_sceneTransform);
     }
 
     public void Exit()
     {
-      _runner.StopAllCoroutines();
-      _saveLoadService.ProgressReaders.Remove(_moneyInBankStorage);
-      _saveLoadService.ProgressReaders.Remove(_upgradeService);
-      _saveLoadService.ProgressReaders.Remove(_audioService);
 
-      _mapFactory.Destroy();
-      _playerFactory.Destroy();
     }
   }
 }

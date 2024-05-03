@@ -25,7 +25,7 @@ namespace Gameplay.Characters.Players.Movers
     private Vector3 _gravitySpeed;
 
     [Inject]
-    private void Construct(IStaticDataService staticData, 
+    private void Construct(IStaticDataService staticData,
       MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService, PlayerStatsProvider playerStatsProvider)
     {
       _playerConfig = staticData.GetPlayerConfig();
@@ -70,11 +70,13 @@ namespace Gameplay.Characters.Players.Movers
 
     public void ReadProgress(Progress progress)
     {
-      _characterController.enabled = false;
+      if (_characterController != null)
+        _characterController.enabled = false;
 
       transform.position = progress.PlayerPosition;
 
-      _characterController.enabled = true;
+      if (_characterController != null)
+        _characterController.enabled = true;
     }
 
     public void WriteProgress(Progress progress)

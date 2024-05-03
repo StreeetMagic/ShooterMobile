@@ -10,6 +10,8 @@ namespace UserInterface.HeadsUpDisplays
 {
   public class HeadsUpDisplayFactory
   {
+    private HeadsUpDisplay _instance;
+
     private readonly GameLoopZenjectFactory _factory;
     private readonly IAssetProvider _assetProvider;
     private readonly HeadsUpDisplayProvider _provider;
@@ -26,16 +28,30 @@ namespace UserInterface.HeadsUpDisplays
     public void Create(Transform parent)
     {
       HeadsUpDisplay prefab = _assetProvider.Get<HeadsUpDisplay>();
-      HeadsUpDisplay display = _factory.InstantiateMono(prefab, parent);
+      _instance = _factory.InstantiateMono(prefab, parent);
 
-      _provider.HeadsUpDisplay = display;
-      _provider.UpgradeShopButton = display.GetComponentInChildren<UpgradeShopWindowButton>();
-      _provider.Borders = display.GetComponentInChildren<Borders>();
-      _provider.FloatingJoystick = display.GetComponentInChildren<FloatingJoystick>();
-      _provider.LootSlotsUpdater = display.GetComponentInChildren<LootSlotsUpdater>();
-      _provider.OpenQuestButton = display.GetComponentInChildren<OpenQuestButton>();
+      _provider.HeadsUpDisplay = _instance;
+      _provider.UpgradeShopButton = _instance.GetComponentInChildren<UpgradeShopWindowButton>();
+      _provider.Borders = _instance.GetComponentInChildren<Borders>();
+      _provider.FloatingJoystick = _instance.GetComponentInChildren<FloatingJoystick>();
+      _provider.LootSlotsUpdater = _instance.GetComponentInChildren<LootSlotsUpdater>();
+      _provider.OpenQuestButton = _instance.GetComponentInChildren<OpenQuestButton>();
 
-      display.transform.parent = null;
+      _instance.transform.parent = null;
+    }
+
+    public void Destroy()
+    {
+      Object.Destroy(_instance.gameObject);
+
+      _provider.HeadsUpDisplay = null;
+      _provider.UpgradeShopButton = null;
+      _provider.Borders = null;
+      _provider.FloatingJoystick = null;
+      _provider.LootSlotsUpdater = null;
+      _provider.OpenQuestButton = null;
+
+      _instance = null;
     }
   }
 }

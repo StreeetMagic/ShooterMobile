@@ -38,6 +38,9 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     private void FixedUpdate()
     {
+      if (_playerProvider.Player == null)
+        return;
+
       ManageCurrentTarget();
       RemoveFarTargets();
       RemoveDeadTargets();

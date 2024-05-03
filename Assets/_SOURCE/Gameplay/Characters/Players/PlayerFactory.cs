@@ -52,7 +52,7 @@ namespace Gameplay.Characters.Players.Factories
       _playerProvider.PlayerTargetHolder = player.GetComponent<PlayerTargetHolder>();
 
       _playerProvider.ShootingPoint = player.GetComponent<PlayerShootingPoint>().Transform;
-      
+
       _playerProvider.PlayerHealth = player.GetComponent<PlayerHealth>();
 
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
@@ -63,10 +63,22 @@ namespace Gameplay.Characters.Players.Factories
     {
       Player player = _playerProvider.Player;
 
-      foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
-        _saveLoadService.ProgressReaders.Remove(progressReader);
+      if (player != null)
+      {
+        foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
+          _saveLoadService.ProgressReaders.Remove(progressReader);
+      }
 
-      Object.Destroy(player.gameObject);
+      _playerProvider.Player = null;
+      _playerProvider.PlayerMover = null;
+      _playerProvider.PlayerRotator = null;
+      _playerProvider.PlayerTargetLocator = null;
+      _playerProvider.PlayerInputHandler = null;
+      _playerProvider.PlayerRotatorController = null;
+      _playerProvider.PlayerTargetHolder = null;
+      _playerProvider.ShootingPoint = null;
+
+      // Object.Destroy(player.gameObject);
     }
 
     private Vector3 SpawnPosition()

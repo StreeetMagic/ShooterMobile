@@ -5,7 +5,6 @@ using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
 using Infrastructure.ZenjectFactories;
-using Loggers;
 using UnityEngine;
 using Zenject;
 
@@ -31,8 +30,6 @@ namespace Infrastructure.AudioServices
 
     public void Initialize()
     {
-       new DebugLogger().Log("asdasdasdasd");
-      
       _container = _factory.InstantiateMono<AudioSourceContainer>();
       _container.transform.SetParent(null);
 

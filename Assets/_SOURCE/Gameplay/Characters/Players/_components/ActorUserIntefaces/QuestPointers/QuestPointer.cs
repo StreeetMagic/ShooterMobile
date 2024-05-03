@@ -22,6 +22,9 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
 
     private void LateUpdate()
     {
+      if (_mapProvider.Map == null)
+        return;
+      
       Transform target = DefineTarget();
       RotateToBase(target);
       Hide(target);

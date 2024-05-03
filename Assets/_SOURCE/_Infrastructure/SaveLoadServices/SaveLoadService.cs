@@ -29,9 +29,13 @@ namespace Infrastructure.SaveLoadServices
       UpdateProgressReaders();
     }
 
-    private void UpdateProgressReaders() =>
-      ProgressReaders
-        .ForEach(progressReader => progressReader.ReadProgress(_progressService.Progress));
+    private void UpdateProgressReaders()
+    {
+      foreach (IProgressReader progressReader in ProgressReaders)
+      {
+        progressReader.ReadProgress(_progressService.Progress);
+      }
+    }
 
     private void UpdateProgressWriters() =>
       ProgressReaders
@@ -54,5 +58,6 @@ namespace Infrastructure.SaveLoadServices
     {
       PlayerPrefs.DeleteKey(ProgressKey);
     }
+
   }
 }

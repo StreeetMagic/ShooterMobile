@@ -43,6 +43,9 @@ namespace Gameplay.Characters.Players.Shooters
     {
       if (_backpackStorage.IsFull)
         return;
+      
+      if (_playerProvider.Player == null)
+        return;
 
       if (PlayerTargetHolder.HasTarget)
         Shooting();

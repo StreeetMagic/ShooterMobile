@@ -27,6 +27,11 @@ namespace Gameplay.Characters.Players.PlayerStatsProviders
 
       _upgradeService.Changed += UpdateValues;
     }
+    
+    public void Stop()
+    {
+      _upgradeService.Changed -= UpdateValues;
+    }
 
     public void AddQuestReward(StatId statId, int value)
     {

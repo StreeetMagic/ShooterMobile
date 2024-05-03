@@ -24,6 +24,9 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.BasePointers
 
     private void LateUpdate()
     {
+      if (_mapProvider.Map == null)
+        return;
+      
       RotateToBase();
 
       Hide();

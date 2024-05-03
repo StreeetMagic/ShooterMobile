@@ -1,3 +1,4 @@
+using System;
 using Cameras;
 using DataRepositories;
 using DataRepositories.BackpackStorages;
@@ -9,13 +10,14 @@ using Infrastructure.CoroutineRunners;
 using Infrastructure.DependencyInjection;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Upgrades;
+using Loggers;
 using Maps;
 using Quests;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using Zenject;
 
-public class GameLoopBootstrapper : MonoBehaviour
+public class GameLoopBootstrapper : MonoBehaviour, IInitializable
 {
   [Inject] private GameLoopInstaller _gameLoopInstaller;
   [Inject] private PlayerFactory _playerFactory;
@@ -32,7 +34,7 @@ public class GameLoopBootstrapper : MonoBehaviour
   [Inject] private QuestStorage _questStorage;
   [Inject] private BackpackStorage _backpackStorage;
 
-  public void Start()
+  public void Initialize()
   {
     _saveLoadService.ProgressReaders.Add(_moneyInBankStorage);
     _saveLoadService.ProgressReaders.Add(_upgradeService);
@@ -51,15 +53,19 @@ public class GameLoopBootstrapper : MonoBehaviour
     _backpackStorage.Clean();
   }
 
-  public void OnDestroy()
+  public void Destroy()
   {
-    // _runner.StopAllCoroutines();
     _saveLoadService.ProgressReaders.Remove(_moneyInBankStorage);
     _saveLoadService.ProgressReaders.Remove(_upgradeService);
     _saveLoadService.ProgressReaders.Remove(_audioService);
     _saveLoadService.ProgressReaders.Remove(_questStorage);
 
-     _playerFactory.Destroy();
-     _mapFactory.Destroy();
+    _playerStatsProvider.Stop();
+    
+    _headsUpDisplayFactory.Destroy();
+    // _enemySpawnerFactory.Destroy();
+    // _cameraFactory.Destroy();
+    _playerFactory.Destroy();
+    _mapFactory.Destroy();
   }
 }

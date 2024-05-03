@@ -11,8 +11,6 @@ using Gameplay.Characters.Players.Projectiles.Scripts;
 using Gameplay.CorpseRemovers;
 using Infrastructure.AssetProviders;
 using Infrastructure.DebugServices;
-using Infrastructure.StateMachines;
-using Infrastructure.StateMachines.GameStateMachines.States;
 using Infrastructure.UserIntefaces;
 using Infrastructure.ZenjectFactories;
 using Maps;
@@ -36,6 +34,7 @@ namespace Infrastructure.DependencyInjection
     public override void InstallBindings()
     {
       Container.Bind<GameLoopInstaller>().FromInstance(this).AsSingle();
+      Container.BindInterfacesTo<GameLoopBootstrapper>().FromInstance(GetComponent<GameLoopBootstrapper>()).AsSingle();
       
       Container.BindInterfacesAndSelfTo<GameLoopZenjectFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<MapFactory>().AsSingle();
