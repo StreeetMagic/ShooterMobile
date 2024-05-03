@@ -1437,45 +1437,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: greenExplosion
       objectReference: {fileID: 0}
+    - target: {fileID: 1762952752276261651, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1762952752276261653, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1762952753243521491, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762952753243521491, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
-        type: 3}
-      propertyPath: _colorOverLifetime.m_GradientMax.ctime1
-      value: 31534
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762952753243521491, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
-        type: 3}
-      propertyPath: _colorOverLifetime.m_GradientMax.ctime2
-      value: 40940
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762952753243521491, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
-        type: 3}
-      propertyPath: _colorOverLifetime.m_GradientMax.key2.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762952753243521491, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
-        type: 3}
-      propertyPath: _colorOverLifetime.m_GradientMax.key2.g
-      value: 0.7132075
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762952753243521491, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
-        type: 3}
-      propertyPath: _colorOverLifetime.m_GradientMax.key2.r
-      value: 0.17052229
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4853658085337884359, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

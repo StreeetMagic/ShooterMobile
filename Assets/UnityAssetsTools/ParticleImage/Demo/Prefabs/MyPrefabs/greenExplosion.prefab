@@ -25,7 +25,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762952752276261651}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   _emitterThickness: 0
   _loop: 0
   _duration: 1
-  _playMode: 1
+  _playMode: 0
   _startSize:
     separable: 1
     separated: 0
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   _bursts:
   - time: 0
     count: 5
-    used: 1
+    used: 0
   _particleTrailRenderer: {fileID: 0}
   _trailModule:
     enabled: 0
@@ -1478,7 +1478,7 @@ MonoBehaviour:
   _emitterThickness: 0
   _loop: 0
   _duration: 1
-  _playMode: 1
+  _playMode: 0
   _startSize:
     separable: 1
     separated: 1
@@ -1720,15 +1720,15 @@ MonoBehaviour:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
       key1: {r: 0.96981126, g: 0.96981126, b: 0.96981126, a: 1}
-      key2: {r: 0.09173846, g: 1, b: 0, a: 1}
+      key2: {r: 0.17052229, g: 0.7132075, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 1}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 37085
-      ctime2: 65535
+      ctime1: 31534
+      ctime2: 40940
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -2621,7 +2621,7 @@ MonoBehaviour:
   _bursts:
   - time: 0
     count: 5
-    used: 1
+    used: 0
   _particleTrailRenderer: {fileID: 0}
   _trailModule:
     enabled: 0
@@ -2903,7 +2903,7 @@ MonoBehaviour:
   _emitterThickness: 0
   _loop: 0
   _duration: 0.1
-  _playMode: 1
+  _playMode: 0
   _startSize:
     separable: 1
     separated: 1
@@ -4019,7 +4019,7 @@ MonoBehaviour:
   _bursts:
   - time: 0
     count: 1
-    used: 1
+    used: 0
   _particleTrailRenderer: {fileID: 0}
   _trailModule:
     enabled: 0

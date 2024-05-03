@@ -29,11 +29,16 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
       _particleImageFactory = particleImageFactory;
       _camera = Camera.main;
     }
+    
+    private void Awake()
+    {
+      ParticleImage.gameObject.SetActive(false);
+    }
 
     private void Start()
     {
       List<EnemySpawner> spawners = _enemySpawnerFactory.Spawners;
-
+    
       foreach (EnemySpawner spawner in spawners)
       {
         spawner.EnemyDied += OnEnemyDied;
@@ -69,6 +74,7 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
 
     private void PlayBarParticle()
     {
+      ParticleImage.gameObject.SetActive(true);
       ParticleImage.Play();
       Animator.SetTrigger(s_bounce);
     }

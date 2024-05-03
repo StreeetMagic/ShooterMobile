@@ -21,6 +21,11 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
       _playerStatsProvider = playerStatsProvider;
       _backpackStorage = backpackStorage;
     }
+    
+    private void Start()
+    {
+      Slider.value = 0;
+    }
 
     private void Update()
     {
