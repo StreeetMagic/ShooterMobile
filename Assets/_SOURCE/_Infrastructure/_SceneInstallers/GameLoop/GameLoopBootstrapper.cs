@@ -37,12 +37,6 @@ public class GameLoopBootstrapper : MonoBehaviour, IInitializable
 
   public void Initialize()
   {
-    _saveLoadService.ProgressReaders.Add(_moneyInBankStorage);
-    _saveLoadService.ProgressReaders.Add(_upgradeService);
-    _saveLoadService.ProgressReaders.Add(_audioService);
-    _saveLoadService.ProgressReaders.Add(_questStorage);
-    _saveLoadService.LoadProgress();
-
     _playerStatsProvider.Start();
 
     _mapFactory.Create(_gameLoopInstaller.transform);
@@ -62,13 +56,8 @@ public class GameLoopBootstrapper : MonoBehaviour, IInitializable
 
   private void Destroy()
   {
-    _saveLoadService.ProgressReaders.Remove(_moneyInBankStorage);
-    _saveLoadService.ProgressReaders.Remove(_upgradeService);
-    _saveLoadService.ProgressReaders.Remove(_audioService);
-    _saveLoadService.ProgressReaders.Remove(_questStorage);
-
     _playerStatsProvider.Stop();
-    
+
     _headsUpDisplayFactory.Destroy();
     // _enemySpawnerFactory.Destroy();
     // _cameraFactory.Destroy();
