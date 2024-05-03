@@ -6,15 +6,8 @@ namespace Cameras
 {
   public class CameraHeightController : MonoBehaviour
   {
-    private PlayerProvider _playerProvider;
-    private CameraProvider _cameraProvider;
-
-    [Inject]
-    private void Construct(PlayerProvider playerProvider, CameraProvider cameraProvider)
-    {
-      _playerProvider = playerProvider;
-      _cameraProvider = cameraProvider;
-    }
+    [Inject] private PlayerProvider _playerProvider;
+    [Inject] private CameraProvider _cameraProvider;
 
     private void Update()
     {

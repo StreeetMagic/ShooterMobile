@@ -1,4 +1,3 @@
-using Infrastructure.Upgrades;
 using UnityEngine;
 using Zenject;
 
@@ -8,16 +7,23 @@ namespace Gameplay.Characters.Players
   {
     public Collider Collider;
 
-    public PlayerHealth PlayerHealth;
+    [Inject] private PlayerHealth _playerHealth;
 
     public bool IsTargeted { get; set; }
 
-    [Inject]
-    private void Construct(UpgradeService upgradeService, PlayerHealth playerHealth)
+    private void OnEnable()
     {
-      PlayerHealth = playerHealth;
+      _playerHealth.Died += OnDied;
+    }
 
-      PlayerHealth.Died += OnDied;
+    private void OnDisable()
+    {
+      _playerHealth.Died -= OnDied;
+    }
+
+    private void FixedUpdate()
+    {
+      transform.localPosition = Vector3.zero;
     }
 
     private void OnDied()
@@ -27,12 +33,7 @@ namespace Gameplay.Characters.Players
 
     public void TakeDamage(int damage)
     {
-      PlayerHealth.TakeDamage(damage);
-    }
-
-    private void FixedUpdate()
-    {
-      transform.localPosition = Vector3.zero;
+      _playerHealth.TakeDamage(damage);
     }
   }
 }

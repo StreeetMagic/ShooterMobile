@@ -1,12 +1,10 @@
 using Configs.Resources.PlayerConfigs.Scripts;
 using Configs.Resources.StatConfigs;
-using DataRepositories;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.PlayerStatsProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
-using Infrastructure.Upgrades;
 using UnityEngine;
 using Zenject;
 
@@ -17,24 +15,16 @@ namespace Gameplay.Characters.Players.Movers
   {
     [SerializeField] private PlayerAnimator _playerAnimator;
 
-    private CharacterController _characterController;
-    private PlayerConfig _playerConfig;
-    private PlayerStatsProvider _playerStatsProvider;
-
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
 
-    [Inject]
-    private void Construct(IStaticDataService staticData,
-      MoneyInBankStorage moneyInBankStorage, UpgradeService upgradeService, PlayerStatsProvider playerStatsProvider)
-    {
-      _playerConfig = staticData.GetPlayerConfig();
-      _characterController = GetComponent<CharacterController>();
-      _playerStatsProvider = playerStatsProvider;
-    }
+    [Inject] private CharacterController _characterController;
+    [Inject] private PlayerStatsProvider _playerStatsProvider;
+    [Inject] private IStaticDataService _staticDataService;
 
+    private PlayerConfig PlayerConfig => _staticDataService.GetPlayerConfig();
     private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;
-    private float GravityScale => _playerConfig.GravityScale;
+    private float GravityScale => PlayerConfig.GravityScale;
 
     public void Move(Vector3 directionXYZ)
     {

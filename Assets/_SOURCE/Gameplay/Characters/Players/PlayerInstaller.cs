@@ -1,6 +1,7 @@
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
+using UnityEngine;
 using Zenject.Source.Install;
 
 namespace Gameplay.Characters.Players
@@ -23,6 +24,8 @@ namespace Gameplay.Characters.Players
       Container.Bind<PlayerAnimator>().FromInstance(PlayerAnimator).AsSingle();
       Container.Bind<PlayerMoveSpeed>().FromInstance(PlayerMoveSpeed).AsSingle();
       Container.Bind<PetSpawnPointsContainer>().FromInstance(PetSpawnPointsContainer).AsSingle();
+
+      Container.Bind<CharacterController>().FromInstance(GetComponent<CharacterController>()).AsSingle();
     }
   }
 }

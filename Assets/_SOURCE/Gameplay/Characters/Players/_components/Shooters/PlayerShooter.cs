@@ -1,6 +1,5 @@
 ﻿using Configs.Resources.SoundConfigs.Scripts;
 using DataRepositories.BackpackStorages;
-using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.Projectiles.Scripts;
 using Gameplay.Characters.Players.TargetHolders;
@@ -13,27 +12,13 @@ namespace Gameplay.Characters.Players.Shooters
 {
   public class PlayerShooter : MonoBehaviour
   {
-    private PlayerProvider _playerProvider;
-    private IStaticDataService _staticDataService;
-    private ProjectileFactory _projectileFactory;
-    private BackpackStorage _backpackStorage;
-    private AudioService _audioService;
-
     private float _timeLeft;
 
-    [Inject]
-    public void Construct(
-      PlayerProvider playerProvider, IStaticDataService staticDataService,
-      ProjectileFactory zenjectFactory, BackpackStorage backpackStorage,
-      AudioService audioService, PlayerAnimator playerAnimator)
-    {
-      _playerProvider = playerProvider;
-      _staticDataService = staticDataService;
-      _projectileFactory = zenjectFactory;
-      _backpackStorage = backpackStorage;
-
-      _audioService = audioService;
-    }
+    [Inject] private PlayerProvider _playerProvider;
+    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ProjectileFactory _projectileFactory;
+    [Inject] private BackpackStorage _backpackStorage;
+    [Inject] private AudioService _audioService;
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
     private Transform Transform => _playerProvider.ShootingPoint;
@@ -43,7 +28,7 @@ namespace Gameplay.Characters.Players.Shooters
     {
       if (_backpackStorage.IsFull)
         return;
-      
+
       if (_playerProvider.Player == null)
         return;
 

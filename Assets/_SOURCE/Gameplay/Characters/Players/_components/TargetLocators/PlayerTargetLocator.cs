@@ -12,17 +12,10 @@ namespace Gameplay.Characters.Players.TargetLocators
   {
     private const int MaxTargets = 20;
 
-    private PlayerStatsProvider _playerStatsProvider;
-    private PlayerTargetHolder _playerTargetHolder;
-    private Collider[] _colliders;
+    private readonly Collider[] _colliders = new Collider[MaxTargets];
 
-    [Inject]
-    public void Construct(PlayerStatsProvider playerStatsProvider, PlayerTargetHolder playerTargetHolder)
-    {
-      _playerStatsProvider = playerStatsProvider;
-      _playerTargetHolder = playerTargetHolder;
-      _colliders = new Collider[MaxTargets];
-    }
+    [Inject] private PlayerStatsProvider _playerStatsProvider;
+    [Inject] private PlayerTargetHolder _playerTargetHolder;
 
     private float Radius => _playerStatsProvider.GetStat(StatId.FireRange).Value;
 
