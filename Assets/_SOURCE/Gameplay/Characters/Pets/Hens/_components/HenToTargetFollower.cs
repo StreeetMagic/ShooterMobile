@@ -1,4 +1,5 @@
 using Configs.Resources.StatConfigs;
+using Gameplay.Characters.Pets.Hens.MeshModels;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.PlayerStatsProviders;
 using UnityEngine;
@@ -12,16 +13,36 @@ namespace Gameplay.Characters.Pets.Hens
     [Inject] private HenMover _henMover;
     [Inject] private PlayerStatsProvider _playerStatsProvider;
     [Inject] private HenRotator _henRotator;
+    [Inject] private HenAnimator _henAnimator;
+
+    private float timeLeft;
 
     private Transform Target => _playerProvider.PlayerTargetHolder.CurrentTarget.transform;
     private int MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;
 
+    private void Awake()
+    {
+      enabled = false;
+    }
+
+    private void OnEnable()
+    {
+      var delay = _henAnimator.PlayAlarmAnimation();
+
+      timeLeft = delay;
+    }
+
     private void Update()
     {
-      if (_playerProvider.PlayerTargetHolder.CurrentTarget != null)
+      timeLeft -= Time.deltaTime;
+
+      if (timeLeft <= 0)
       {
-        _henMover.Move(Target.position, MoveSpeed);
-        _henRotator.Rotate(Target.position);
+        if (_playerProvider.PlayerTargetHolder.CurrentTarget != null)
+        {
+          _henMover.Move(Target.position, MoveSpeed);
+          _henRotator.Rotate(Target.position);
+        }
       }
     }
   }

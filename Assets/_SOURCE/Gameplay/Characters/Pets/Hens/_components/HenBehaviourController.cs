@@ -7,8 +7,10 @@ namespace Gameplay.Characters.Pets.Hens._components
   public class HenBehaviourController : MonoBehaviour
   {
     [Inject] private PlayerProvider _playerProvider;
+    
     [Inject] private HenToPlayerFollower _henToPlayerFollower;
     [Inject] private HenToTargetFollower _henToTargetFollower;
+    [Inject] private HenDamageDealer _henDamageDealer;
     [Inject] private HenIdle _henIdle;
 
     private bool HasTarget => _playerProvider.PlayerTargetHolder.HasTarget;
@@ -18,12 +20,15 @@ namespace Gameplay.Characters.Pets.Hens._components
       if (HasTarget)
       {
         _henToTargetFollower.enabled = true;
+        _henDamageDealer.enabled = true;
         
         _henToPlayerFollower.enabled = false;
         _henIdle.enabled = false;
       }
       else
       {
+        _henDamageDealer.enabled = false;
+        
         float distanceToPlayer = Vector3.Distance(_playerProvider.Player.transform.position, transform.position); 
         
         if (distanceToPlayer > 4f)
