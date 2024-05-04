@@ -59,7 +59,7 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
 
     private ParticleImage PlayerEggParticle(Vector3 position)
     {
-      Debug.Log("фыв");
+      Debug.Log("Ебашу яйцами");
       
       ParticleImage playerMoneyParticle = _particleImageFactory.Create(ParticleImageId.EggCollection1, position, transform, Target);
 
