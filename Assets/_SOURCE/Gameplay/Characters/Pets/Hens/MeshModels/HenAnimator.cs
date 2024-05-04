@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gameplay.Characters.Pets.Hens.MeshModels
 {
-  public class HenAnimatorController : MonoBehaviour
+  public class HenAnimator : MonoBehaviour
   {
     [SerializeField] private float _delayToBoom;
     [SerializeField] private float _delayToFollowTarget;

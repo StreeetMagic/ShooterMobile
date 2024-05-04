@@ -1,5 +1,6 @@
 using Gameplay.Characters.Pets.Hens;
 using Gameplay.Characters.Pets.Hens._components;
+using Gameplay.Characters.Pets.Hens.MeshModels;
 using UnityEngine;
 using Zenject.Source.Install;
 
@@ -16,5 +17,7 @@ public class HenInstaller : MonoInstaller
     Container.Bind<HenBehaviourController>().FromInstance(GetComponent<HenBehaviourController>());
     Container.Bind<HenToTargetFollower>().FromInstance(GetComponent<HenToTargetFollower>());
     Container.Bind<HenDamageDealer>().FromInstance(GetComponent<HenDamageDealer>());
+    Container.Bind<HenIdle>().FromInstance(GetComponent<HenIdle>());
+    Container.Bind<HenAnimator>().FromInstance(GetComponentInChildren<HenAnimator>());
   }
 }

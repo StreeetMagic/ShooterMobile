@@ -9,6 +9,7 @@ namespace Gameplay.Characters.Pets.Hens._components
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private HenToPlayerFollower _henToPlayerFollower;
     [Inject] private HenToTargetFollower _henToTargetFollower;
+    [Inject] private HenIdle _henIdle;
 
     private bool HasTarget => _playerProvider.PlayerTargetHolder.HasTarget;
 
@@ -17,12 +18,28 @@ namespace Gameplay.Characters.Pets.Hens._components
       if (HasTarget)
       {
         _henToTargetFollower.enabled = true;
+        
         _henToPlayerFollower.enabled = false;
+        _henIdle.enabled = false;
       }
       else
       {
-        _henToTargetFollower.enabled = false;
-        _henToPlayerFollower.enabled = true;
+        float distanceToPlayer = Vector3.Distance(_playerProvider.Player.transform.position, transform.position); 
+        
+        if (distanceToPlayer > 4f)
+        {
+          _henToPlayerFollower.enabled = true;
+          
+          _henToTargetFollower.enabled = false;
+          _henIdle.enabled = false;
+        }
+        else
+        {
+          _henIdle.enabled = true;
+          
+          _henToTargetFollower.enabled = false;
+          _henToPlayerFollower.enabled = false;
+        }
       }
     }
   }
