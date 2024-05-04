@@ -11,7 +11,6 @@ namespace Inputs
     event Action Restart;
     event Action DeleteSaves;
     event Action OpenQuestWindow;
-    event Action AddExpierience;
   }
 
   public class InputService : IInputService
@@ -20,7 +19,6 @@ namespace Inputs
     private readonly InputAction _restart;
     private readonly InputAction _deleteSaves;
     private readonly InputAction _openQuestWindow;
-    private readonly InputAction _addExpierience;
 
     public InputService()
     {
@@ -40,16 +38,11 @@ namespace Inputs
       _openQuestWindow = controls.Debug.OpenQuestWindow;
       _openQuestWindow.Enable();
       _openQuestWindow.performed += _ => OpenQuestWindow?.Invoke();
-
-      _addExpierience = controls.Debug.AddExpirience;
-      _addExpierience.Enable();
-      _addExpierience.performed += _ => AddExpierience?.Invoke();
     }
 
     public event Action Restart;
     public event Action DeleteSaves;
     public event Action OpenQuestWindow;
-    public event Action AddExpierience;
 
     public Vector2 MoveDirection =>
       MoveDirectionFloatingJoystick != Vector2.zero

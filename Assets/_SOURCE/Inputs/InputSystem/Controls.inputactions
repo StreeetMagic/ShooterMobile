@@ -158,15 +158,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "AddExpirience",
-                    "type": "Button",
-                    "id": "8abffc17-4964-4aab-9443-b9b89b9447d1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -200,17 +191,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenQuestWindow",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "961142cd-e805-44c3-9c5a-4ac92c86337f",
-                    "path": "<Keyboard>/o",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AddExpirience",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

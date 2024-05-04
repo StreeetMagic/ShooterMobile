@@ -31,7 +31,6 @@ namespace Infrastructure.DebugServices
       _inputService.Restart += Restart;
       _inputService.DeleteSaves += DeleteSaves;
       _inputService.OpenQuestWindow += OpenQuest;
-      _inputService.AddExpierience += AddExpierience;
     }
 
     public void Dispose()
@@ -39,7 +38,6 @@ namespace Infrastructure.DebugServices
       _inputService.Restart -= Restart;
       _inputService.DeleteSaves -= DeleteSaves;
       _inputService.OpenQuestWindow -= OpenQuest;
-      _inputService.AddExpierience -= AddExpierience;
     }
 
     public void Restart()
@@ -55,11 +53,6 @@ namespace Infrastructure.DebugServices
     private void OpenQuest()
     {
       _windowService.Create(WindowId.Quest, QuestId.Quest1);
-    }
-
-    private void AddExpierience()
-    {
-      _expierienceStorage.AllPoints.Value += 60;
     }
   }
 }

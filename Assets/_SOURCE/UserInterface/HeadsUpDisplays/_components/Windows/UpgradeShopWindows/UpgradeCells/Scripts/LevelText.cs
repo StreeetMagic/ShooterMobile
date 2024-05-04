@@ -1,5 +1,4 @@
 using Configs.Resources.UpgradeConfigs.Scripts;
-using Infrastructure.PersistentProgresses;
 using Infrastructure.Upgrades;
 using TMPro;
 using UnityEngine;

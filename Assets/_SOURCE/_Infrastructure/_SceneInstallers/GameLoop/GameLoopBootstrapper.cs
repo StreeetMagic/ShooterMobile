@@ -39,6 +39,10 @@ public class GameLoopBootstrapper : MonoBehaviour, IInitializable
 
   public void Initialize()
   {
+    _saveLoadService.LoadProgress();
+    
+    Time.timeScale = 1f;
+
     _playerStatsProvider.Start();
 
     _mapFactory.Create(_gameLoopInstaller.transform);
@@ -54,16 +58,22 @@ public class GameLoopBootstrapper : MonoBehaviour, IInitializable
   public void Restart()
   {
     Destroy();
-    _sceneLoader.Load(ProjectConstants.Scenes.Empty, () => _sceneLoader.Load(ProjectConstants.Scenes.GameLoop));
+    _sceneLoader.Load(ProjectConstants.Scenes.Empty,
+      () =>
+      {
+        _sceneLoader.Load(ProjectConstants.Scenes.GameLoop);
+      });
   }
 
   private void Destroy()
   {
+    Time.timeScale = 0f;
+
     _playerStatsProvider.Stop();
 
     _henSpawner.DeSpawnAll();
     _headsUpDisplayFactory.Destroy();
-    // _enemySpawnerFactory.Destroy();
+    _enemySpawnerFactory.Destroy();
     // _cameraFactory.Destroy();
     _playerFactory.Destroy();
     _mapFactory.Destroy();

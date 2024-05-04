@@ -30,8 +30,8 @@ namespace Gameplay.Characters.Enemies
 
     private void Update()
     {
-      // if (_playerProvider.Player == null)
-      //   return;
+      if (_playerProvider.Player == null)
+        return;
 
       // Vector3 direction = (PlayerTransform.position - transform.position).normalized;
 

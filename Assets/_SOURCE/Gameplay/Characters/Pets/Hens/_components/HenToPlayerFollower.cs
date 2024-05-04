@@ -16,14 +16,7 @@ public class HenToPlayerFollower : MonoBehaviour
 
   private void Update()
   {
-    float minDistance = 2f;
-
-    float distance = Vector3.Distance(Player.position, transform.position);
-
-    if (distance > minDistance)
-    {
-      _henMover.Move(Player.position, MoveSpeed);
-      _henRotator.Rotate(Player.position);
-    }
+    _henMover.Move(Player.position, MoveSpeed);
+    _henRotator.Rotate(Player.position);
   }
 }
