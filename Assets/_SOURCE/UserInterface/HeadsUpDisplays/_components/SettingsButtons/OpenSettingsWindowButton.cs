@@ -1,4 +1,3 @@
-using System;
 using Infrastructure.UserIntefaces;
 using UnityEngine;
 using UnityEngine.UI;

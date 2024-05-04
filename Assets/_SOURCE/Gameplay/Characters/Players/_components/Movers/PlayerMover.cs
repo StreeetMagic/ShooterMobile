@@ -68,6 +68,8 @@ namespace Gameplay.Characters.Players.Movers
       if (_characterController != null)
         _characterController.enabled = true;
     }
+    
+
 
     public void WriteProgress(ProjectProgress projectProgress)
     {

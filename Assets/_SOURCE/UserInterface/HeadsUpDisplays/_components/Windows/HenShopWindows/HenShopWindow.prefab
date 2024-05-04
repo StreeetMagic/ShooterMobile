@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041C\u0410\u0413\u0410\u0417\u0418\u041D \u041A\u0423\u0420\u041E\u0427\u0415\u041A"
+  m_text: HEN SHOP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d45e3b3ddc47584883953ef9ab1c1a3, type: 2}
   m_sharedMaterial: {fileID: -4152916143916392683, guid: 5d45e3b3ddc47584883953ef9ab1c1a3,
@@ -1411,6 +1411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HenShop_cell
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979629832855462073, guid: 77baa50606c524444992fa185fccb2fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8433059449685412177, guid: 77baa50606c524444992fa185fccb2fd,
         type: 3}

@@ -124,6 +124,5 @@ namespace Gameplay.Characters.Enemies.Spawners
   
       Spawn();
     }
-
   }
 }
