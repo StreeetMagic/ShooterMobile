@@ -83,7 +83,7 @@ namespace Gameplay.Characters.Players.Factories
       _playerProvider.PlayerHealth = null;
       _playerProvider.PetSpawnPointsContainer = null;
 
-      // Object.Destroy(player.gameObject);
+       Object.Destroy(player.gameObject);
     }
 
     private Vector3 SpawnPosition()

@@ -21,6 +21,7 @@ namespace Gameplay.Characters.Enemies.Spawners
 
     private List<SpawnPoint> _spawnPoints;
     private int _respawnTime;
+    private CoroutineDecorator _coroutine;
 
     [Inject] private ICoroutineRunner _coroutineRunner;
     [Inject] private QuestCompleter _questCompleter;
@@ -31,7 +32,7 @@ namespace Gameplay.Characters.Enemies.Spawners
     public event Action<EnemyHealth> EnemyDied;
 
     public EnemyId EnemyId { get; private set; }
-    public List<Enemy> Enemies { get; } = new List<Enemy>();
+    public List<Enemy> Enemies { get; } = new();
 
     private void OnDisable()
     {
@@ -54,10 +55,28 @@ namespace Gameplay.Characters.Enemies.Spawners
         Spawn();
     }
 
+    public void DeSpawnAll()
+    {
+      if (_coroutine != null)
+        _coroutine.Stop();
+
+      _coroutine = null;
+
+      foreach (Enemy enemy in Enemies)
+      {
+        Destroy(enemy.gameObject);
+      }
+
+      Enemies.Clear();
+    }
+
     private void Spawn()
     {
       if (_spawnPoints == null)
         throw new InvalidOperationException(nameof(_spawnPoints));
+
+      if (transform == null)
+        return;
 
       int randomSpawnPointNumber = Random.Range(0, _spawnPoints.Count - 1);
 
@@ -75,9 +94,9 @@ namespace Gameplay.Characters.Enemies.Spawners
 
     private void OnEnemyDied(EnemyConfig config, EnemyHealth enemyHealth)
     {
-      var coroutineDecorator = new CoroutineDecorator(_coroutineRunner, WaitAndSpawn);
+      _coroutine = new CoroutineDecorator(_coroutineRunner, WaitAndSpawn);
 
-      coroutineDecorator.Start();
+      _coroutine.Start();
 
       enemyHealth.Died -= OnEnemyDied;
 
@@ -97,7 +116,14 @@ namespace Gameplay.Characters.Enemies.Spawners
     {
       yield return new WaitForSeconds(_respawnTime);
 
+      if (this == null)
+        yield break;
+
+      if (gameObject == null)
+        yield break;
+  
       Spawn();
     }
+
   }
 }

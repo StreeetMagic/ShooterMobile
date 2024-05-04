@@ -32,7 +32,7 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
     private void Start()
     {
       List<EnemySpawner> spawners = _enemySpawnerFactory.Spawners;
-
+    
       foreach (EnemySpawner spawner in spawners)
       {
         spawner.EnemyDied += OnEnemyDied;

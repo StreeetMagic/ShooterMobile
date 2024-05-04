@@ -20,15 +20,14 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
     public EnemySpawnerFactory(IAssetProvider assetProvider,
       GameLoopZenjectFactory zenjectFactory, MapProvider mapProvider, IInstantiator instantiator)
     {
-      IAssetProvider assetProvider1 = assetProvider;
       _zenjectFactory = zenjectFactory;
       _mapProvider = mapProvider;
       _instantiator = instantiator;
-      _spawnerPrefab = assetProvider1.Get<EnemySpawner>();
-      assetProvider1.Get<SpawnPoint>();
+      
+      _spawnerPrefab = assetProvider.Get<EnemySpawner>();
     }
 
-    public List<EnemySpawner> Spawners { get; } = new List<EnemySpawner>();
+    public List<EnemySpawner> Spawners { get; } = new();
 
     private Map Map => _mapProvider.Map;
 
@@ -72,6 +71,16 @@ namespace Gameplay.Characters.Enemies.Spawners.SpawnerFactories
       }
 
       return spawnPoints;
+    }
+
+    public void Destroy()
+    {
+      foreach (EnemySpawner spawner in Spawners)
+      {
+        spawner.DeSpawnAll();
+      } 
+      
+      Spawners.Clear();
     }
   }
 }
