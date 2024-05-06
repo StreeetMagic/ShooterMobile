@@ -36,6 +36,7 @@ namespace UserInterface.HeadsUpDisplays
       _provider.FloatingJoystick = _instance.GetComponentInChildren<FloatingJoystick>();
       _provider.LootSlotsUpdater = _instance.GetComponentInChildren<LootSlotsUpdater>();
       _provider.OpenQuestButton = _instance.GetComponentInChildren<OpenQuestButton>();
+      _provider.OpenShopButton = _instance.GetComponentInChildren<OpenShopButton>();
 
       _instance.transform.parent = null;
     }
@@ -50,6 +51,7 @@ namespace UserInterface.HeadsUpDisplays
       _provider.FloatingJoystick = null;
       _provider.LootSlotsUpdater = null;
       _provider.OpenQuestButton = null;
+      _provider.OpenShopButton = null;
 
       _instance = null;
     }

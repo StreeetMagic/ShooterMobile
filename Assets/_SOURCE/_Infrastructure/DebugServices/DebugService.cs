@@ -1,6 +1,5 @@
 using System;
 using Configs.Resources.QuestConfigs.Scripts;
-using DataRepositories;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.UserIntefaces;
 using Inputs;
@@ -13,16 +12,14 @@ namespace Infrastructure.DebugServices
     private readonly IInputService _inputService;
     private readonly SaveLoadService _saveLoadService;
     private readonly WindowService _windowService;
-    private readonly ExpierienceStorage _expierienceStorage;
     private readonly GameLoopBootstrapper _gameLoopBootstrapper;
 
     public DebugService(IInputService inputService, SaveLoadService saveLoadService,
-      WindowService windowService, ExpierienceStorage expierienceStorage, GameLoopBootstrapper gameLoopBootstrapper)
+      WindowService windowService, GameLoopBootstrapper gameLoopBootstrapper)
     {
       _inputService = inputService;
       _saveLoadService = saveLoadService;
       _windowService = windowService;
-      _expierienceStorage = expierienceStorage;
       _gameLoopBootstrapper = gameLoopBootstrapper;
     }
 

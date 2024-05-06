@@ -1,4 +1,3 @@
-using System;
 using Gameplay.Characters.Pets.Hens.MeshModels;
 using UnityEngine;
 using Zenject;

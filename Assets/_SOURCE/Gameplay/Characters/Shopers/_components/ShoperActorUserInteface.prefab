@@ -379,14 +379,13 @@ GameObject:
   - component: {fileID: 7472107946750145054}
   - component: {fileID: 991727131159806524}
   - component: {fileID: 1603822094352059287}
-  - component: {fileID: 8031486387005407186}
   m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8774142516298007260
 RectTransform:
   m_ObjectHideFlags: 0
@@ -485,18 +484,6 @@ MonoBehaviour:
   Parent: {fileID: 6034103579287611292}
   Offset: 0
   HeightOffset: 4
---- !u!114 &8031486387005407186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4561939709586139568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e51d7505aca45c4491525a2d5a57a42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7634114306014680462
 GameObject:
   m_ObjectHideFlags: 0

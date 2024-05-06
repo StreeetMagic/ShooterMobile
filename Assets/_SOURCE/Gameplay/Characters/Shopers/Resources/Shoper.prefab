@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8762931992365728216}
   - component: {fileID: 1330427169053251991}
+  - component: {fileID: 6829493789890724055}
   m_Layer: 0
   m_Name: Shoper
   m_TagString: Untagged
@@ -46,6 +47,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7fd09cc25586345b0171fe3a499626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OpenShopButtonEnabler: {fileID: 6829493789890724055}
+--- !u!114 &6829493789890724055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2766593202402125704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e51d7505aca45c4491525a2d5a57a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WindowId: 5
+  IsActive: 0
 --- !u!1001 &213770357761107398
 PrefabInstance:
   m_ObjectHideFlags: 0

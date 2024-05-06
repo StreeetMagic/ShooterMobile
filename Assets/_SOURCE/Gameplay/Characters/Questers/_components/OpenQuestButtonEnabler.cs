@@ -13,17 +13,13 @@ namespace Gameplay.Characters.Questers
     public QuestId QuestId;
     public bool IsActive;
 
-    private PlayerProvider _playerProvider;
-    private HeadsUpDisplayProvider _headsUpDisplayProvider;
+    [Inject] private PlayerProvider _playerProvider;
+    [Inject] private HeadsUpDisplayProvider _headsUpDisplayProvider;
 
-    [Inject]
-    private void Construct(PlayerProvider playerProvider, HeadsUpDisplayProvider headsUpDisplayProvider)
+    private void OnEnable()
     {
       if (QuestId == QuestId.Unknown)
         throw new System.Exception("Unknown quest id");
-
-      _playerProvider = playerProvider;
-      _headsUpDisplayProvider = headsUpDisplayProvider;
     }
 
     private void Update()
@@ -35,8 +31,8 @@ namespace Gameplay.Characters.Questers
 
       if (distance < Distance)
       {
-        IsActive = true;
         _headsUpDisplayProvider.OpenQuestButton.QuestId = QuestId;
+        IsActive = true;
       }
       else
       {

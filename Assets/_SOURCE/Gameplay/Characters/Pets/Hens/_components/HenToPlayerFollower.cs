@@ -1,4 +1,3 @@
-using System;
 using Configs.Resources.StatConfigs;
 using Gameplay.Characters.Pets.Hens.MeshModels;
 using Gameplay.Characters.Players.Factories;

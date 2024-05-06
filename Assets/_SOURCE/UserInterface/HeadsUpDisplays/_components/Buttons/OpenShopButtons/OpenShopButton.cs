@@ -10,23 +10,21 @@ namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
   public class OpenShopButton : MonoBehaviour
   {
     public Button Button;
-    public QuestId QuestId { get; set; } = QuestId.Unknown;
+    public WindowId WindowId { get; set; } = WindowId.Unknown;
 
-    private WindowService _windowService;
+    [Inject] private WindowService _windowService;
 
-    [Inject]
-    private void Construct(WindowService windowService, DebugLogger logger)
+    private void Awake()
     {
-      _windowService = windowService;
-      Button.onClick.AddListener(OpenQuest);
+      Button.onClick.AddListener(OpenShop);
     }
 
-    private void OpenQuest()
+    private void OpenShop()
     {
-      if (QuestId == QuestId.Unknown)
-        throw new System.Exception("Unknown quest id");
+      if (WindowId == WindowId.Unknown)
+        throw new System.Exception("WindowId is unknown");
 
-      _windowService.Create(WindowId.Quest, QuestId);
+      _windowService.Create(WindowId);
     }
   }
 }

@@ -9,14 +9,16 @@ namespace Gameplay.Characters.Pets.Hens
 {
   public class HenDamageDealer : MonoBehaviour
   {
+    private float _timeLeft;
+    private bool _activated;
+
+    readonly RaycastHit[] _targets = new RaycastHit[128];
+
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private HenSpawner _henSpawner;
     [Inject] private HenVisualEffector _henVisualEffector;
     [Inject] private Hen _hen;
     [Inject] private HenAnimator _henAnimator;
-
-    private float _timeLeft;
-    private bool _activated;
 
     private Transform Target => _playerProvider.PlayerTargetHolder.CurrentTarget.transform;
     private bool HasTarget => _playerProvider.PlayerTargetHolder.HasTarget;
@@ -50,10 +52,12 @@ namespace Gameplay.Characters.Pets.Hens
     {
       _henVisualEffector.PlayExplosion();
 
-      RaycastHit[] targets = Physics.SphereCastAll(transform.position, 3f, Vector3.up);
+      int hitCount = Physics.SphereCastNonAlloc(transform.position, 5f, transform.forward, _targets);
 
-      foreach (RaycastHit target in targets)
+      for (var i = 0; i < hitCount; i++)
       {
+        RaycastHit target = _targets[i];
+
         if (target.transform.TryGetComponent(out EnemyTargetTrigger enemyTargetTrigger))
         {
           int randomDamage = Random.Range(10, 51);

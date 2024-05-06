@@ -15,7 +15,7 @@ namespace Gameplay.Characters.Pets.Hens
     [Inject] private HenRotator _henRotator;
     [Inject] private HenAnimator _henAnimator;
 
-    private float timeLeft;
+    private float _timeLeft;
 
     private Transform Target => _playerProvider.PlayerTargetHolder.CurrentTarget.transform;
     private int MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;
@@ -29,14 +29,14 @@ namespace Gameplay.Characters.Pets.Hens
     {
       var delay = _henAnimator.PlayAlarmAnimation();
 
-      timeLeft = delay;
+      _timeLeft = delay;
     }
 
     private void Update()
     {
-      timeLeft -= Time.deltaTime;
+      _timeLeft -= Time.deltaTime;
 
-      if (timeLeft <= 0)
+      if (_timeLeft <= 0)
       {
         if (_playerProvider.PlayerTargetHolder.CurrentTarget != null)
         {

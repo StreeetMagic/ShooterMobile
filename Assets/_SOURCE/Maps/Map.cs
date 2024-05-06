@@ -17,6 +17,7 @@ namespace Maps
     public List<EnemySpawnMarker> EnemySpawnMarkers;
     public BaseTrigger BaseTrigger;
     public List<Quester> Questers;
+    public List<Shoper> Shopers;
     public BombSpawner BombSpawner;
 
     [Button]
@@ -37,6 +38,8 @@ namespace Maps
       BaseTrigger = GetComponentInChildren<BaseTrigger>();
 
       Questers = GetComponentsInChildren<Quester>().ToList();
+
+      Shopers = GetComponentsInChildren<Shoper>().ToList();
 
       BombSpawner = GetComponentInChildren<BombSpawner>();
     }

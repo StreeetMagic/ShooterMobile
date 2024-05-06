@@ -13,5 +13,6 @@ namespace UserInterface.HeadsUpDisplays
     public FloatingJoystick FloatingJoystick { get; set; }
     public LootSlotsUpdater LootSlotsUpdater { get; set; }
     public OpenQuestButton OpenQuestButton { get; set; }
+    public OpenShopButton OpenShopButton { get; set; }
   }
 }
