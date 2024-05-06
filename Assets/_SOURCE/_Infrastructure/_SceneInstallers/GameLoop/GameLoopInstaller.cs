@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Cameras;
 using Configs.Resources.EnemyConfigs.Scripts;
+using Configs.Resources.QuestConfigs.Scripts;
 using Gameplay.BaseTriggers;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
@@ -66,7 +67,7 @@ namespace Infrastructure.DependencyInjection
 
       Container.BindInterfacesAndSelfTo<QuestCompleter>().AsSingle();
 
-      Container.BindFactory<Quest, QuestWindow, QuestWindow.Factory>()
+      Container.BindFactory<Quest, QuestConfig, QuestWindow, QuestWindow.Factory>()
         .FromSubContainerResolve()
         .ByNewContextPrefab<QuestWindowInstaller>(_assetProvider.Get<QuestWindow>().GetComponent<QuestWindowInstaller>())
         .AsSingle();

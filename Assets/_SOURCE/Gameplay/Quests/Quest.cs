@@ -9,29 +9,29 @@ namespace Quests
   public class Quest
   {
     private readonly RewardService _rewardService;
+    private readonly QuestConfig _config;
 
     public Quest(QuestState state, QuestConfig config,
       List<SubQuest> subQuests, RewardService rewardService)
     {
-      State = new ReactiveProperty<QuestState>(state);
-      Config = config;
-      SubQuests = subQuests;
+      _config = config;
       _rewardService = rewardService;
 
+      State = new ReactiveProperty<QuestState>(state);
+
+      SubQuests = subQuests;
+
       foreach (SubQuest subQuest in subQuests)
-      {
         subQuest.Completed += OnSubQuestCompleted;
-      }
     }
 
     public ReactiveProperty<QuestState> State { get; }
-    public QuestConfig Config { get; }
     public List<SubQuest> SubQuests { get; }
 
     public void GainReward()
     {
       State.Value = QuestState.RewardTaken;
-      _rewardService.OnQuestCompleted(Config.Reward);
+      _rewardService.OnQuestCompleted(_config.Reward);
     }
 
     private void OnSubQuestCompleted(int index)

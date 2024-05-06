@@ -1,4 +1,5 @@
 using System;
+using Configs.Resources.QuestConfigs.Scripts;
 using Quests;
 using Quests.Subquests;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
   {
     [Inject] private SubQuestSlot.Factory _factory;
     [Inject] private Quest _quest;
+    [Inject] private QuestConfig _config;
 
     private void OnEnable()
     {
@@ -39,7 +41,7 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
 
     private void CreateSubQuests()
     {
-      for (var i = 0; i < _quest.Config.SubQuests.Count; i++)
+      for (var i = 0; i < _config.SubQuests.Count; i++)
       {
         SubQuest subQuest = _quest.SubQuests[i];
 
