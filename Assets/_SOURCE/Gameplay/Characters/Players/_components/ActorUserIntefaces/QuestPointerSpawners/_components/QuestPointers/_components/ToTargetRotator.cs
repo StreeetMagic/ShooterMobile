@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Configs.Resources.QuestConfigs.Scripts;
 using Maps;
 using UnityEngine;
 using Zenject;
@@ -7,25 +9,60 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
   public class ToTargetRotator : MonoBehaviour
   {
     [Inject] private MapProvider _mapProvider;
-    [Inject] private QuestTargetProvider _targetProvider;
-    
-    private Transform Target => _targetProvider.QuestTarget;
+    [Inject] private QuestTargetsProvider _targetProvider;
+    [Inject] private QuestConfig _config;
 
     private void LateUpdate()
     {
       if (_mapProvider.Map == null)
         return;
 
-      RotateTo(Target);
+      List<Transform> targets = _targetProvider.GetTargetsOrNull(_config.Id);
+
+      if (targets == null)
+        return;
+
+      if (targets.Count == 0)
+        return;
+
+      RotateTo(targets);
     }
 
-    private void RotateTo(Transform target)
+    private void RotateTo(List<Transform> target)
     {
-      transform.rotation = Quaternion.LookRotation(transform.position - target.transform.position);
+      if (target == null)
+        return;
+
+      List<Transform> validTargets = target.FindAll(t => t != null);
+
+      Transform closestTarget = GetClosestTarget(validTargets);
+
+      transform.rotation = Quaternion.LookRotation(transform.position - closestTarget.transform.position);
 
       Quaternion cachedRotation = transform.rotation;
 
       transform.rotation = new Quaternion(0, cachedRotation.y, 0, cachedRotation.w);
+    }
+
+    private Transform GetClosestTarget(List<Transform> validTargets)
+    {
+      Transform closestTarget = null;
+
+      float minDistance = float.MaxValue;
+
+      foreach (Transform target in validTargets)
+      {
+        float distance = Vector3.Distance(transform.position, target.position);
+
+        if (distance < minDistance)
+        {
+          minDistance = distance;
+        }
+
+        closestTarget = target;
+      }
+      
+      return closestTarget;
     }
   }
 }

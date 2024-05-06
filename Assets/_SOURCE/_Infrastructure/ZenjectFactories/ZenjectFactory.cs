@@ -22,6 +22,13 @@ namespace Infrastructure.ZenjectFactories
           .Instantiate<T>();
     }
 
+    public T InstantiateNative<T>(params object[] args)
+    {
+      return
+        _instantiator
+          .Instantiate<T>(args);
+    }
+
     public GameObject InstantiateGameObject(GameObject gameObject)
     {
       return

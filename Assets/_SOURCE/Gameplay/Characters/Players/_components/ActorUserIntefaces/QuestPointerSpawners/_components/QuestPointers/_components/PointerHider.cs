@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Configs.Resources.QuestConfigs.Scripts;
 using Maps;
 using UnityEngine;
 using Zenject;
@@ -9,25 +11,46 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
     public GameObject Pointer;
 
     [Inject] private MapProvider _mapProvider;
-    [Inject] private QuestTargetProvider _targetProvider;
-
-    public Transform Target => _targetProvider.QuestTarget;
+    [Inject] private QuestTargetsProvider _targetProvider;
+    [Inject] private QuestConfig _config;
 
     private void LateUpdate()
     {
       if (_mapProvider.Map == null)
         return;
+      
+      List<Transform> targets = _targetProvider.GetTargetsOrNull(_config.Id);
 
-      Hide(Target);
+      if (targets == null)
+      {
+        Hide();
+        return;
+      }
+
+      if (targets.Count == 0)
+      {
+        Hide();
+        return;
+      }
+
+      MeasureDistance(targets[0]);
     }
 
-    private void Hide(Transform target)
+    private void MeasureDistance(Transform target)
     {
       const float MinDistance = 5;
 
       var distance = Vector3.Distance(transform.position, target.transform.position);
 
-      Pointer.gameObject.SetActive(!(distance < MinDistance));
+      if (distance < MinDistance)
+        Pointer.SetActive(false);
+      else
+        Hide();
+    }
+
+    private void Hide()
+    {
+      Pointer.SetActive(true);
     }
   }
 }
