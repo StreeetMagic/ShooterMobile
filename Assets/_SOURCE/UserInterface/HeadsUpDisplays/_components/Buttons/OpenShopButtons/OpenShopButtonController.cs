@@ -7,7 +7,7 @@ namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
 {
   public class OpenShopButtonController : MonoBehaviour
   {
-    public OpenQuestButton OpenQuestButton;
+    public OpenShopButton OpenQuestButton;
 
     private MapProvider _mapProvider;
 
