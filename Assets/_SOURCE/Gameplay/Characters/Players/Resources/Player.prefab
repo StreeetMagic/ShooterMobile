@@ -256,7 +256,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5893318341531998031}
-  - {fileID: 1131007997356296541}
+  - {fileID: 3101652726781816979}
   m_Father: {fileID: 8367234769874795680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2249939510684959487
@@ -290,7 +290,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8589901509315128239}
-  m_Father: {fileID: 7062397895274126649}
+  m_Father: {fileID: 3101652726781816979}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1973410682738772436
 MonoBehaviour:
@@ -410,6 +410,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6727409346961371333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3695168662746124728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3101652726781816979}
+  m_Layer: 0
+  m_Name: QuestPointerSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3101652726781816979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3695168662746124728}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1131007997356296541}
+  m_Father: {fileID: 7062397895274126649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3698846977355182938
 GameObject:
@@ -675,7 +707,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collider: {fileID: 4162461610482616363}
-  PlayerHealth: {fileID: 8160612684496890031}
 --- !u!1 &5382535160304660945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1606,7 @@ MonoBehaviour:
   PlayerTargetLocator: {fileID: 7581658404683493182}
   PlayerAnimator: {fileID: 2860814150951373908}
   PlayerMoveSpeed: {fileID: 4113114958346391883}
+  PetSpawnPointsContainer: {fileID: 0}
 --- !u!114 &2865720521955186985
 MonoBehaviour:
   m_ObjectHideFlags: 0

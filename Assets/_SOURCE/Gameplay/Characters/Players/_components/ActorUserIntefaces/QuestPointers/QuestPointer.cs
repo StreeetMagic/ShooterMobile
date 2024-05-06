@@ -11,6 +11,7 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
     private Transform _questTarget;
     private MapProvider _mapProvider;
 
+
     [Inject]
     public void Construct(MapProvider mapProvider)
     {
