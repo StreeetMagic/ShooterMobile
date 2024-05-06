@@ -24,7 +24,6 @@ namespace Gameplay.Characters.Players
       Container.Bind<PlayerAnimator>().FromInstance(PlayerAnimator).AsSingle();
       Container.Bind<PlayerMoveSpeed>().FromInstance(PlayerMoveSpeed).AsSingle();
       Container.Bind<PetSpawnPointsContainer>().FromInstance(PetSpawnPointsContainer).AsSingle();
-
       Container.Bind<CharacterController>().FromInstance(GetComponent<CharacterController>()).AsSingle();
     }
   }

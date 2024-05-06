@@ -11,21 +11,14 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
   {
     public TextMeshProUGUI Text;
 
-    private PlayerProvider _playerProvider;
-    private MapProvider _mapProvider;
-
-    [Inject]
-    private void Construct(PlayerProvider playerProvider, MapProvider mapProvider)
-    {
-      _playerProvider = playerProvider;
-      _mapProvider = mapProvider;
-    }
+    [Inject] private readonly PlayerProvider _playerProvider;
+    [Inject] private readonly MapProvider _mapProvider;
 
     private void Update()
     {
       if (_mapProvider.Map == null)
         return;
-      
+
       Quester quester = _mapProvider.Map.Questers[0];
       Player player = _playerProvider.Player;
 
