@@ -8,6 +8,8 @@ namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
   public class OpenShopButton : MonoBehaviour
   {
     public Button Button;
+    public RectTransform RectTransform;
+    
     public WindowId WindowId { get; set; } = WindowId.Unknown;
 
     [Inject] private WindowService _windowService;

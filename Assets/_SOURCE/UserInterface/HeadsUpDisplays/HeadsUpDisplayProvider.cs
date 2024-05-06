@@ -1,3 +1,4 @@
+using UnityEngine;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
 using UserInterface.HeadsUpDisplays.OpenQuestButtons;
@@ -7,6 +8,7 @@ namespace UserInterface.HeadsUpDisplays
 {
   public class HeadsUpDisplayProvider
   {
+    public RectTransform CanvasTransform { get; set; }
     public HeadsUpDisplay HeadsUpDisplay { get; set; }
     public UpgradeShopWindowButton UpgradeShopButton { get; set; }
     public Borders Borders { get; set; }

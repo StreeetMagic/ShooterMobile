@@ -31,6 +31,8 @@ namespace Cameras
 
       CreateCamera(parent, player, BotCamera, 11);
       CreateCamera(parent, player, TopCamera, 10);
+
+      _cameraProvider.MainCamera = Object.FindObjectOfType<Camera>();
     }
 
     private void CreateCamera(Transform parent, Player player, string cameraType, int priority)

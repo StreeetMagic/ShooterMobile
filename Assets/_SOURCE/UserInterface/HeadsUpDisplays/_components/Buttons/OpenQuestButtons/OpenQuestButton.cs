@@ -9,6 +9,8 @@ namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
   public class OpenQuestButton : MonoBehaviour
   {
     public Button Button;
+    public RectTransform RectTransform;
+    
     public QuestId QuestId { get; set; } = QuestId.Unknown;
 
     [Inject] private WindowService _windowService;

@@ -31,6 +31,7 @@ namespace UserInterface.HeadsUpDisplays
       _instance = _factory.InstantiateMono(prefab, parent);
 
       _provider.HeadsUpDisplay = _instance;
+      _provider.CanvasTransform = _instance.GetComponentInChildren<RectTransform>();
       _provider.UpgradeShopButton = _instance.GetComponentInChildren<UpgradeShopWindowButton>();
       _provider.Borders = _instance.GetComponentInChildren<Borders>();
       _provider.FloatingJoystick = _instance.GetComponentInChildren<FloatingJoystick>();
@@ -52,6 +53,7 @@ namespace UserInterface.HeadsUpDisplays
       _provider.LootSlotsUpdater = null;
       _provider.OpenQuestButton = null;
       _provider.OpenShopButton = null;
+      _provider.CanvasTransform = null;
 
       _instance = null;
     }

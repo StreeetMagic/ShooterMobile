@@ -1,7 +1,9 @@
+using Cameras;
 using Configs.Resources.QuestConfigs.Scripts;
 using Gameplay.Characters.Players.Factories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
+using UserInterface.HeadsUpDisplays.OpenQuestButtons;
 using Zenject;
 
 namespace Gameplay.Characters.Questers
@@ -10,11 +12,13 @@ namespace Gameplay.Characters.Questers
   {
     public const float Distance = 4;
 
+    public float YOffset = 200;
     public QuestId QuestId;
     public bool IsActive;
 
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private HeadsUpDisplayProvider _headsUpDisplayProvider;
+    [Inject] private CameraProvider _cameraProvider;
 
     private void OnEnable()
     {
@@ -32,12 +36,22 @@ namespace Gameplay.Characters.Questers
       if (distance < Distance)
       {
         _headsUpDisplayProvider.OpenQuestButton.QuestId = QuestId;
+        SetButtonPosition(_headsUpDisplayProvider.OpenQuestButton);
         IsActive = true;
       }
       else
       {
         IsActive = false;
       }
+    }
+
+    private void SetButtonPosition(OpenQuestButton openQuestButton)
+    {
+      Vector2 screenPoint = _cameraProvider.MainCamera.WorldToScreenPoint(transform.position);
+
+      RectTransformUtility.ScreenPointToLocalPointInRectangle(_headsUpDisplayProvider.CanvasTransform, screenPoint, null, out Vector2 localPoint);
+
+      openQuestButton.RectTransform.anchoredPosition = localPoint + Vector2.up * YOffset;
     }
   }
 }
