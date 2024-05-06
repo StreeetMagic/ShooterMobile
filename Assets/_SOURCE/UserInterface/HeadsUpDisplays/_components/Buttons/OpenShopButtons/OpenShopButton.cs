@@ -1,6 +1,4 @@
-using Configs.Resources.QuestConfigs.Scripts;
 using Infrastructure.UserIntefaces;
-using Loggers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

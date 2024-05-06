@@ -1,4 +1,3 @@
-using Configs.Resources.QuestConfigs.Scripts;
 using Gameplay.Characters.Players.Factories;
 using Infrastructure.UserIntefaces;
 using UnityEngine;

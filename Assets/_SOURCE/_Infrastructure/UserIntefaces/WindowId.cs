@@ -8,6 +8,5 @@
     Settings = 3,
     Quest = 4,
     HenShop = 5,
-    
   }
 }
