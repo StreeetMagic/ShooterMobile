@@ -39,7 +39,7 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
 
     private void MeasureDistance(Transform target)
     {
-      const float MinDistance = 5;
+      const float MinDistance = 2;
 
       var distance = Vector3.Distance(transform.position, target.transform.position);
 

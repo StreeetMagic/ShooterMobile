@@ -4,6 +4,7 @@ using System.Linq;
 using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.QuestConfigs.Scripts;
 using Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts;
+using Gameplay.Bombs;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
@@ -23,7 +24,7 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
     private readonly MapProvider _mapProvider;
     private readonly PlayerProvider _playerProvider;
 
-    public SubQuestTargetsProvider(EnemySpawnerFactory enemySpawnerFactory, QuestStorage storage, 
+    public SubQuestTargetsProvider(EnemySpawnerFactory enemySpawnerFactory, QuestStorage storage,
       MapProvider mapProvider, PlayerProvider playerProvider)
     {
       _enemySpawnerFactory = enemySpawnerFactory;
@@ -106,27 +107,45 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
       {
         enemies.AddRange(spawner.Enemies);
       }
-      
+
       float minDistance = float.MaxValue;
       Enemy nearestEnemy = null;
 
       foreach (Enemy enemy in enemies)
       {
         float distance = Vector3.Distance(enemy.transform.position, _playerProvider.Player.transform.position);
-        
+
         if (distance < minDistance)
         {
           minDistance = distance;
           nearestEnemy = enemy;
         }
       }
-      
+
+      if (nearestEnemy == null)
+        return null;
+
       return new List<Transform> { nearestEnemy.transform };
     }
 
     private List<Transform> GetDefuseBombTargetsOrNull(SubQuest subQuest)
     {
-       return new List<Transform>();
+      int index = subQuest.Index;
+      BombSpawner spawner = _mapProvider.Map.BombSpawner;
+
+      List<Bomb> bombs = spawner.Bombs[index];
+
+      List<Bomb> activeBombs = new List<Bomb>();
+
+      foreach (Bomb bomb in bombs)
+      {
+        if (bomb.Defuser.IsDefused == false)
+        {
+          activeBombs.Add(bomb);
+        }
+      }
+      
+      return activeBombs.Select(bomb => bomb.transform).ToList();
     }
   }
 }

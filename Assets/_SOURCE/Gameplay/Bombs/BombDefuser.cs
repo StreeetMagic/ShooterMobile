@@ -3,16 +3,18 @@ using UnityEngine;
 
 public class BombDefuser : MonoBehaviour
 {
-  public float DefuseProgress { get; set; }
-  
   public event Action<BombDefuser> Defused;
+
+  public float DefuseProgress { get; set; }
+  public bool IsDefused { get; set; }
 
   private void Update()
   {
     if (DefuseProgress >= 1)
     {
+      IsDefused = true;
       Defused?.Invoke(this);
-      
+
       Destroy(gameObject);
     }
   }
