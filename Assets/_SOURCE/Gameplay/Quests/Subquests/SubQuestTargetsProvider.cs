@@ -135,17 +135,13 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
 
       List<Bomb> bombs = spawner.Bombs[index];
 
-      List<Bomb> activeBombs = new List<Bomb>();
+      List<Bomb> activeBombs = bombs
+          .Where(bomb => bomb.Defuser.IsDefused == false)
+          .ToList();
 
-      foreach (Bomb bomb in bombs)
-      {
-        if (bomb.Defuser.IsDefused == false)
-        {
-          activeBombs.Add(bomb);
-        }
-      }
-      
-      return activeBombs.Select(bomb => bomb.transform).ToList();
+      return activeBombs
+        .Select(bomb => bomb.transform)
+        .ToList();
     }
   }
 }
