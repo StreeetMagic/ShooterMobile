@@ -18,9 +18,9 @@ namespace Gameplay.Characters.Players.Movers
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
 
-    [Inject] private CharacterController _characterController;
-    [Inject] private PlayerStatsProvider _playerStatsProvider;
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private readonly CharacterController _characterController;
+    [Inject] private readonly PlayerStatsProvider _playerStatsProvider;
+    [Inject] private readonly IStaticDataService _staticDataService;
 
     private PlayerConfig PlayerConfig => _staticDataService.GetPlayerConfig();
     private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;

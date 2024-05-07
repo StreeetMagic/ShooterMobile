@@ -6885,8 +6885,10 @@ MonoBehaviour:
   - {fileID: 78619836309047363}
   BaseTrigger: {fileID: 5161913181976777917}
   Questers:
-  - {fileID: 1929595893872451096}
   - {fileID: 3964781903151392281}
+  - {fileID: 1929595893872451096}
+  Shopers:
+  - {fileID: 9203388910530069816}
   BombSpawner: {fileID: 177528041804546376}
 --- !u!1001 &76653449375674431
 PrefabInstance:
@@ -46073,6 +46075,11 @@ PrefabInstance:
       propertyPath: QuestId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4630230055681412789, guid: 50e1baa3870c2b143b82ebcae15f96c1,
+        type: 3}
+      propertyPath: YOffset
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -60894,6 +60901,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7912720116634655919}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9203388910530069816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1330427169053251991, guid: f2cbf015a4ce97c4bad9e7572888377a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7912720116634655919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7fd09cc25586345b0171fe3a499626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7931261119984991711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67934,6 +67953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: QuestId
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630230055681412789, guid: 50e1baa3870c2b143b82ebcae15f96c1,
+        type: 3}
+      propertyPath: YOffset
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 6397549018055459839, guid: 50e1baa3870c2b143b82ebcae15f96c1,
         type: 3}

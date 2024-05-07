@@ -6,6 +6,7 @@
     UpgradeShop = 1,
     Debug = 2,
     Settings = 3,
-    Quest
+    Quest = 4,
+    HenShop = 5,
   }
 }

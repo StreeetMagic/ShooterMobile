@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d43319d36de79e4cb6083408b3e99a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenQuestButton: {fileID: 0}
+  OpenShopButton: {fileID: 5884831293045566064}
 --- !u!1 &7810869394821921580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,12 +1622,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3861838042632449042}
     m_Modifications:
-    - target: {fileID: 2461764031664237825, guid: c808a41e8e7fbea4a88a90a4890e3b18,
+    - target: {fileID: 1805427020909498763, guid: c808a41e8e7fbea4a88a90a4890e3b18,
         type: 3}
-      propertyPath: m_Sprite
+      propertyPath: Button
       value: 
-      objectReference: {fileID: 21300000, guid: 70105ff0df233384f9e05855dc14add4,
-        type: 3}
+      objectReference: {fileID: 1682611964675205847}
     - target: {fileID: 2548081358691123286, guid: c808a41e8e7fbea4a88a90a4890e3b18,
         type: 3}
       propertyPath: m_Name
@@ -1733,16 +1732,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5313997930069306025, guid: c808a41e8e7fbea4a88a90a4890e3b18,
-        type: 3}
-      propertyPath: m_text
-      value: Pet shop
-      objectReference: {fileID: 0}
-    - target: {fileID: 5313997930069306025, guid: c808a41e8e7fbea4a88a90a4890e3b18,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 43.7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1754,6 +1743,30 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5234648066369698811}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1682611964675205847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6916651636042436908, guid: c808a41e8e7fbea4a88a90a4890e3b18,
+    type: 3}
+  m_PrefabInstance: {fileID: 5234648066369698811}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5884831293045566064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1805427020909498763, guid: c808a41e8e7fbea4a88a90a4890e3b18,
+    type: 3}
+  m_PrefabInstance: {fileID: 5234648066369698811}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e99f51fcb025b45b55e7065fdf6cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5928152816892214713
 PrefabInstance:
   m_ObjectHideFlags: 0

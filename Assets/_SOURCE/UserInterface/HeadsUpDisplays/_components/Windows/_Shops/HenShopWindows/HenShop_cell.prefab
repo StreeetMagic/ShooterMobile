@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1533956220394869895}
   - component: {fileID: 1351565377578890891}
   - component: {fileID: 1546788461867524844}
-  - component: {fileID: 436187311983797823}
   m_Layer: 5
   m_Name: resoursec_Icon
   m_TagString: Untagged
@@ -76,19 +75,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &436187311983797823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961449007123434946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5587db2d7d167094da94964b6ab860d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Image: {fileID: 1546788461867524844}
 --- !u!1 &2937920124685896161
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +86,6 @@ GameObject:
   - component: {fileID: 2014803322481542301}
   - component: {fileID: 7710882428468658071}
   - component: {fileID: 6442837291933968988}
-  - component: {fileID: 6063482270548061011}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -225,19 +210,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6063482270548061011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2937920124685896161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de326d750cf75f14f92876af85263615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: {fileID: 6442837291933968988}
 --- !u!1 &3700748539922440702
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +221,6 @@ GameObject:
   - component: {fileID: 2492843236454892298}
   - component: {fileID: 3138440208726060707}
   - component: {fileID: 4417700601169329850}
-  - component: {fileID: 7854540105084505782}
   m_Layer: 5
   m_Name: price_Text
   m_TagString: Untagged
@@ -374,19 +345,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7854540105084505782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3700748539922440702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a59e7f6d567727c4fb03b8bcc5c9cad5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RewardTextComponent: {fileID: 4417700601169329850}
 --- !u!1 &3782484887033804349
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +432,6 @@ GameObject:
   - component: {fileID: 7769762298750487384}
   - component: {fileID: 2435096155681815575}
   - component: {fileID: 4548035349477177021}
-  - component: {fileID: 3574963332813126666}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -599,19 +556,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3574963332813126666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3892001992878218510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfef40b5810c402dbbf1074813a7496b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: {fileID: 4548035349477177021}
 --- !u!1 &3958581225030122194
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +565,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7875051771359883178}
-  - component: {fileID: 5140970386182976965}
   m_Layer: 5
   m_Name: root
   m_TagString: Untagged
@@ -650,20 +593,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 850, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5140970386182976965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3958581225030122194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6424decbf3bc9646a7ae1e096fbe3db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GrayButton: {fileID: 0}
-  GreenButton: {fileID: 7995841090411884661}
 --- !u!1 &4722569333406716484
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,9 +906,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3826703385033291201}
-  - component: {fileID: -3095998728224483095}
-  - component: {fileID: 8170521777294870125}
-  - component: {fileID: 7710517503228418024}
   m_Layer: 5
   m_Name: HenShop_cell
   m_TagString: Untagged
@@ -1007,53 +933,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 850, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-3095998728224483095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7979629832855462073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9b4221ae17422d41b8a665d91ad778c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Unactivated: {fileID: 0}
-  Activated: {fileID: 3958581225030122194}
-  RewardReady: {fileID: 0}
-  RewardTaken: {fileID: 0}
---- !u!114 &8170521777294870125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7979629832855462073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740a8e61ab998394c933ed89e75e4538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SubQuestSlot: {fileID: -3095998728224483095}
---- !u!114 &7710517503228418024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7979629832855462073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 8170521777294870125}
-  _installerPrefabs: []
-  _autoRun: 1
-  _kernel: {fileID: 0}
 --- !u!1 &7995841090411884661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,7 +945,6 @@ GameObject:
   - component: {fileID: 799417803181854343}
   - component: {fileID: 3989012827199818676}
   - component: {fileID: 4137891768946367159}
-  - component: {fileID: 4083438217885624630}
   m_Layer: 5
   m_Name: ButtonGreen
   m_TagString: Untagged
@@ -1176,19 +1054,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4083438217885624630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7995841090411884661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cf2a708093f56c4c9a6434d0be00a80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 4137891768946367159}
 --- !u!1 &8228780762181791395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1345,6 @@ GameObject:
   - component: {fileID: 4727522441587645620}
   - component: {fileID: 4854306163518891782}
   - component: {fileID: 1258170769169864993}
-  - component: {fileID: 3543336275130185504}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -1545,16 +1409,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3543336275130185504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9014493092437084714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e2a11b4229b48b594830404fb7e75fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Image: {fileID: 1258170769169864993}

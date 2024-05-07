@@ -1,7 +1,9 @@
+using Cameras;
 using Configs.Resources.QuestConfigs.Scripts;
 using Gameplay.Characters.Players.Factories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
+using UserInterface.HeadsUpDisplays.OpenQuestButtons;
 using Zenject;
 
 namespace Gameplay.Characters.Questers
@@ -10,20 +12,18 @@ namespace Gameplay.Characters.Questers
   {
     public const float Distance = 4;
 
+    public float YOffset = 200;
     public QuestId QuestId;
     public bool IsActive;
 
-    private PlayerProvider _playerProvider;
-    private HeadsUpDisplayProvider _headsUpDisplayProvider;
+    [Inject] private PlayerProvider _playerProvider;
+    [Inject] private HeadsUpDisplayProvider _headsUpDisplayProvider;
+    [Inject] private CameraProvider _cameraProvider;
 
-    [Inject]
-    private void Construct(PlayerProvider playerProvider, HeadsUpDisplayProvider headsUpDisplayProvider)
+    private void OnEnable()
     {
       if (QuestId == QuestId.Unknown)
         throw new System.Exception("Unknown quest id");
-
-      _playerProvider = playerProvider;
-      _headsUpDisplayProvider = headsUpDisplayProvider;
     }
 
     private void Update()
@@ -35,13 +35,23 @@ namespace Gameplay.Characters.Questers
 
       if (distance < Distance)
       {
-        IsActive = true;
         _headsUpDisplayProvider.OpenQuestButton.QuestId = QuestId;
+        SetButtonPosition(_headsUpDisplayProvider.OpenQuestButton);
+        IsActive = true;
       }
       else
       {
         IsActive = false;
       }
+    }
+
+    private void SetButtonPosition(OpenQuestButton openQuestButton)
+    {
+      Vector2 screenPoint = _cameraProvider.MainCamera.WorldToScreenPoint(transform.position);
+
+      RectTransformUtility.ScreenPointToLocalPointInRectangle(_headsUpDisplayProvider.CanvasTransform, screenPoint, null, out Vector2 localPoint);
+
+      openQuestButton.RectTransform.anchoredPosition = localPoint + Vector2.up * YOffset;
     }
   }
 }

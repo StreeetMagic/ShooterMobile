@@ -71,6 +71,10 @@ namespace Infrastructure.UserIntefaces
           questWindow.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
           window = questWindow;
           break;
+        
+        case WindowId.HenShop:
+          window = _factory.InstantiateMono<HenShopWindow>(HudTransform);
+          break;
 
         default:
           throw new ArgumentOutOfRangeException(nameof(windowId), windowId, null);
