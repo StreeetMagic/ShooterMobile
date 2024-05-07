@@ -25,8 +25,12 @@ namespace Gameplay.Characters.Players.Projectiles.Scripts
       DamageTargetTrigger(otherCollider);
     }
 
-    private void PlayerVisualEffect() =>
+    private void PlayerVisualEffect()
+    {
+      Debug.Log(transform.position);
+      
       _visualEffectFactory.Create(ParticleEffectId.PlayerBulletImpact, transform.position, transform);
+    }
 
     private void DamageTargetTrigger(Collider other)
     {
@@ -44,7 +48,8 @@ namespace Gameplay.Characters.Players.Projectiles.Scripts
 
     private void Destroy()
     {
-      transform.position = CollisionPointRayCaster.HitPosition;
+     // transform.position = CollisionPointRayCaster.HitPosition;
+     
       PlayerVisualEffect();
       Destroy(gameObject);
     }

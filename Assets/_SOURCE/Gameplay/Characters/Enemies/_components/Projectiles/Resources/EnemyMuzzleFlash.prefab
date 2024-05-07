@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 473026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyMuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 473026}
     m_Modifications:
+    - target: {fileID: 162754, guid: 9971eebea0c4b6544a1cdcc5f56f4d3f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 169396, guid: 9971eebea0c4b6544a1cdcc5f56f4d3f, type: 3}
       propertyPath: m_Name
       value: MuzzleFlashRoundRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 169396, guid: 9971eebea0c4b6544a1cdcc5f56f4d3f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 189894, guid: 9971eebea0c4b6544a1cdcc5f56f4d3f, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 486764, guid: 9971eebea0c4b6544a1cdcc5f56f4d3f, type: 3}
       propertyPath: m_LocalPosition.x

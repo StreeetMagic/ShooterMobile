@@ -141,12 +141,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 8366864484286407346}
     m_Modifications:
     - target: {fileID: 128464, guid: 9da7920c982a18d49af893f503ba7db2, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 128464, guid: 9da7920c982a18d49af893f503ba7db2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 166626, guid: 9da7920c982a18d49af893f503ba7db2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 183718, guid: 9da7920c982a18d49af893f503ba7db2, type: 3}
       propertyPath: m_Name
       value: FatBulletRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 183718, guid: 9da7920c982a18d49af893f503ba7db2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 411922, guid: 9da7920c982a18d49af893f503ba7db2, type: 3}
       propertyPath: m_LocalScale.x

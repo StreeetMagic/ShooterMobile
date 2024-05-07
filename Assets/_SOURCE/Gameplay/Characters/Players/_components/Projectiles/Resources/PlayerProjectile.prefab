@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3382448}
   - component: {fileID: -6526923361910134216}
   - component: {fileID: -13020810088034499}
-  - component: {fileID: 2847183051534798538}
   m_Layer: 7
   m_Name: PlayerProjectile
   m_TagString: Untagged
@@ -120,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12ef01fcfc2a464ab51d2a563f6d753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionPointRayCaster: {fileID: 2847183051534798538}
+  CollisionPointRayCaster: {fileID: 6980302435583141664}
 --- !u!114 &-13020810088034499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,19 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e009e89e22674a43aef5ba7eabf9f25f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2847183051534798538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 186734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1412ffcdeeedde4ba82d5ee46931dad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HitPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1825218175181328190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -238,7 +224,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8242296, guid: 46005f942c1d80946b4839eba43d1c4e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

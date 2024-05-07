@@ -6,6 +6,7 @@ namespace Gameplay.Characters.Players.Projectiles.Raycasters
   {
     private Vector3 _previousPosition = Vector3.zero;
     private Vector3 _currentPosition;
+    
     public Vector3 HitPosition;
 
     private void FixedUpdate()

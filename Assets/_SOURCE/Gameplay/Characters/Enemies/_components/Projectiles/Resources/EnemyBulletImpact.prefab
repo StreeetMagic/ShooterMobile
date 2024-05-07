@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 444154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyBulletImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 444154}
     m_Modifications:
+    - target: {fileID: 162750, guid: ef5dc26d2db547645be0df47e2ca0fc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 195184, guid: ef5dc26d2db547645be0df47e2ca0fc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 198438, guid: ef5dc26d2db547645be0df47e2ca0fc4, type: 3}
       propertyPath: m_Name
       value: FatBulletExplosionRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 198438, guid: ef5dc26d2db547645be0df47e2ca0fc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 199134, guid: ef5dc26d2db547645be0df47e2ca0fc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 403356, guid: ef5dc26d2db547645be0df47e2ca0fc4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102,6 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11426586, guid: ef5dc26d2db547645be0df47e2ca0fc4, type: 3}
+    - {fileID: 8203448, guid: ef5dc26d2db547645be0df47e2ca0fc4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

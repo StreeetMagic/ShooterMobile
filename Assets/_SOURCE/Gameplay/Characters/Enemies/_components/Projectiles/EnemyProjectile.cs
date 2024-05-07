@@ -39,7 +39,7 @@ namespace Gameplay.Characters.Enemies.EnemyShooters.Projectiles
 
     private void Destroy()
     {
-      transform.position = CollisionPointRayCaster.HitPosition;
+      //transform.position = CollisionPointRayCaster.HitPosition;
       PlayerVisualEffect();
       Destroy(gameObject);
     }

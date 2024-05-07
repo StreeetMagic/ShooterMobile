@@ -12,6 +12,7 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
   {
     public GameObject NotFullBar;
     public GameObject FullBar;
+    public GameObject Text;
 
     [Inject] private PlayerStatsProvider _playerStatsProvider;
     [Inject] private BackpackStorage _backpackStorage;
@@ -43,6 +44,7 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
 
       FullBar.SetActive(isFull);
       NotFullBar.SetActive(!isFull);
+      Text.SetActive(!isFull);
     }
   }
 }

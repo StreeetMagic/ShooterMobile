@@ -15,7 +15,7 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
   {
     public Transform Target;
     public ParticleImage ParticleImage;
-    public BackpackBar_bounce_effect BounceEffect;
+    public BackpackBarBounceEffect BounceEffect;
 
     private Camera _camera;
 
