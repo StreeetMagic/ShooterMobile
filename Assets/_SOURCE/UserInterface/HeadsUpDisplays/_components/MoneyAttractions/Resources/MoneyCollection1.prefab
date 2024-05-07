@@ -88,7 +88,7 @@ MonoBehaviour:
   _emitterThickness: 0
   _loop: 0
   _duration: 0.6
-  _playMode: 0
+  _playMode: 1
   _startSize:
     separable: 1
     separated: 0
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   moduleEmitterFoldout: 1
   moduleParticleFoldout: 1
   moduleMovementFoldout: 1
-  moduleEventsFoldout: 1
+  moduleEventsFoldout: 0
   m_Texture: {fileID: 2800000, guid: b227706102845ea418319eff06bacbec, type: 3}
 --- !u!114 &764227823471529451
 MonoBehaviour:
