@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Configs.Resources.EnemyConfigs.Scripts;
 using Configs.Resources.QuestConfigs.Scripts;
-using Gameplay.Characters.Enemies.Spawners;
-using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Questers;
 using Maps;
 using Quests;
@@ -14,69 +11,52 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
 {
   public class QuestTargetsProvider
   {
-    private readonly EnemySpawnerFactory _enemySpawnerFactory;
     private readonly QuestStorage _storage;
     private readonly MapProvider _mapProvider;
+    private readonly SubQuestTargetsProvider _subQuestTargetsProvider;
 
-    public QuestTargetsProvider(EnemySpawnerFactory enemySpawnerFactory, QuestStorage storage, MapProvider mapProvider)
+    public QuestTargetsProvider(QuestStorage storage,
+      MapProvider mapProvider, SubQuestTargetsProvider subQuestTargetsProvider)
     {
-      _enemySpawnerFactory = enemySpawnerFactory;
       _storage = storage;
       _mapProvider = mapProvider;
+      _subQuestTargetsProvider = subQuestTargetsProvider;
     }
 
     public List<Transform> GetTargetsOrNull(QuestId questId)
     {
       switch (questId)
       {
-        case QuestId.Unknown:
-          return null; 
-
         case QuestId.Quest1:
-          return GetQuest1TargetsOrNull();
-
         case QuestId.Quest2:
-          return GetQuest2TargetsOrNull();
+          return GetQuestTargetsOrNull(questId);
 
+        case QuestId.Unknown:
         default:
-           return null;
+          throw new ArgumentOutOfRangeException(nameof(questId), questId, null);
       }
     }
 
-    private List<Transform> GetQuest1TargetsOrNull()
+    private List<Transform> GetQuestTargetsOrNull(QuestId questId)
     {
-      Quest quest = _storage.GetQuest(QuestId.Quest1);
+      Quest quest = _storage.GetQuest(questId);
 
-      if (quest.State.Value == QuestState.RewardReady || quest.State.Value == QuestState.UnActivated)
+      switch (quest.State.Value)
       {
-        Quester quester = _mapProvider.Map.Questers.First(q => q.OpenQuestButtonEnabler.QuestId == QuestId.Quest1);
+        case QuestState.UnActivated:
+        case QuestState.RewardReady:
+          return _subQuestTargetsProvider.GetQuester(questId);
 
-        return new List<Transform> { quester.transform };
+        case QuestState.Activated:
+          return _subQuestTargetsProvider.GetTargetsOrNull(quest);
+
+        case QuestState.RewardTaken:
+          return null;
+
+        case QuestState.Unknown:
+        default:
+          throw new ArgumentOutOfRangeException(nameof(questId), questId, null);
       }
-      else if (quest.State.Value == QuestState.Activated)
-      {
-        List<EnemySpawner> spawners = new List<EnemySpawner>();
-
-        foreach (EnemySpawner spawner in _enemySpawnerFactory.Spawners)
-        {
-          if (spawner.EnemyId == EnemyId.WhiteShirt)
-            spawners.Add(spawner);
-        }
-
-        List<Transform> targets = new List<Transform>();
-
-        foreach (EnemySpawner spawner in spawners)
-          targets.Add(spawner.transform);
-
-        return targets;
-      }
-
-      return null;
-    }
-
-    private List<Transform> GetQuest2TargetsOrNull()
-    {
-       return null;
     }
   }
 }

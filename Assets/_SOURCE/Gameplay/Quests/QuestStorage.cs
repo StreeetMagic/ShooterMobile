@@ -78,7 +78,7 @@ namespace Quests
 
       for (var i = 0; i < config.SubQuests.Count; i++)
       {
-        SubQuestProgress progressSubQuest = 
+        SubQuestProgress progressSubQuest =
           projectProgress
             .Quests
             .Find(x => x.Id == config.Id)
@@ -94,6 +94,15 @@ namespace Quests
       }
 
       return subQuests;
+    }
+
+    public SubQuest GetActiveSubQuest(QuestId configId)
+    {
+      Quest quest = _quests[configId];
+
+      return quest
+        .SubQuests
+        .First(x => x.State.Value == Quests.QuestState.Activated);
     }
   }
 }

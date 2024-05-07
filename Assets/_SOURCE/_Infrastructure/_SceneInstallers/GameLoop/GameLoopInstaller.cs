@@ -67,6 +67,7 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();
       Container.BindInterfacesAndSelfTo<HeadsUpDisplayProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<QuestTargetsProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<SubQuestTargetsProvider>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<QuestCompleter>().AsSingle();
 
