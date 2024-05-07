@@ -17,5 +17,9 @@ namespace Infrastructure.PersistentProgresses
 
     public List<UpgradeProgress> Upgrades;
     public List<QuestProgress> Quests;
+
+    public ProjectProgress()
+    {
+    }
   }
 }

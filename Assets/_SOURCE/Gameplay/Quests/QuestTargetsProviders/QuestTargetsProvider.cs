@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Configs.Resources.QuestConfigs.Scripts;
-using Gameplay.Characters.Questers;
-using Maps;
 using Quests;
 using UnityEngine;
 
@@ -12,14 +9,11 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
   public class QuestTargetsProvider
   {
     private readonly QuestStorage _storage;
-    private readonly MapProvider _mapProvider;
     private readonly SubQuestTargetsProvider _subQuestTargetsProvider;
 
-    public QuestTargetsProvider(QuestStorage storage,
-      MapProvider mapProvider, SubQuestTargetsProvider subQuestTargetsProvider)
+    public QuestTargetsProvider(QuestStorage storage, SubQuestTargetsProvider subQuestTargetsProvider)
     {
       _storage = storage;
-      _mapProvider = mapProvider;
       _subQuestTargetsProvider = subQuestTargetsProvider;
     }
 

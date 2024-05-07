@@ -50,7 +50,6 @@ public class GameLoopBootstrapper : MonoBehaviour, IInitializable
     _cameraFactory.Create(_gameLoopInstaller.transform);
     _enemySpawnerFactory.Create();
     _headsUpDisplayFactory.Create(_gameLoopInstaller.transform);
-    _henSpawner.Spawn();
 
     _backpackStorage.Clean();
   }

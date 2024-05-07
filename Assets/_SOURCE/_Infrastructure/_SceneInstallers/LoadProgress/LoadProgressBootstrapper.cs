@@ -16,6 +16,7 @@ public class LoadProgressBootstrapper : MonoBehaviour
   [Inject] private UpgradeService _upgradeService;
   [Inject] private AudioService _audioService;
   [Inject] private QuestStorage _questStorage;
+  [Inject] private EggsInBankStorage _eggsInBankStorage;
 
   public void Start()
   {
@@ -23,6 +24,7 @@ public class LoadProgressBootstrapper : MonoBehaviour
     _saveLoadService.ProgressReaders.Add(_upgradeService);
     _saveLoadService.ProgressReaders.Add(_audioService);
     _saveLoadService.ProgressReaders.Add(_questStorage);
+    _saveLoadService.ProgressReaders.Add(_eggsInBankStorage);
 
     _saveLoadService.LoadProgress();
 

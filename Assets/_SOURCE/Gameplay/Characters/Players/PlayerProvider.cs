@@ -17,6 +17,7 @@ namespace Gameplay.Characters.Players.Factories
     public PlayerTargetHolder PlayerTargetHolder { get; set; }
     public PlayerHealth PlayerHealth { get; set; }
     public PetSpawnPointsContainer PetSpawnPointsContainer { get; set; }
+    public PlayerHenSpawner PlayerHenSpawner { get; set; }
    
     public PlayerRotatorController PlayerRotatorController { get; set; }
     public PlayerInputHandler PlayerInputHandler { get; set; }

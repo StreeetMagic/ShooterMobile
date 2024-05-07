@@ -27,13 +27,14 @@ namespace Infrastructure.PersistentProgresses
 
     public void SetDefault()
     {
-      ProjectProgress = new ProjectProgress();
-
-      ProjectProgress.MoneyInBank = 500;
-      ProjectProgress.EggsInBank = 0;
-      ProjectProgress.PlayerPosition = Vector3.zero;
-      ProjectProgress.Expierience = 0;
-      ProjectProgress.MusicMute = false;
+      ProjectProgress = new ProjectProgress
+      {
+        MoneyInBank = 100,
+        EggsInBank = 10,
+        PlayerPosition = Vector3.zero,
+        Expierience = 0,
+        MusicMute = false
+      };
 
       Upgrades();
       Quests();

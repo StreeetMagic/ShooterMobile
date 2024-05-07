@@ -20,15 +20,13 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
   public class SubQuestTargetsProvider
   {
     private readonly EnemySpawnerFactory _enemySpawnerFactory;
-    private readonly QuestStorage _storage;
     private readonly MapProvider _mapProvider;
     private readonly PlayerProvider _playerProvider;
 
-    public SubQuestTargetsProvider(EnemySpawnerFactory enemySpawnerFactory, QuestStorage storage,
+    public SubQuestTargetsProvider(EnemySpawnerFactory enemySpawnerFactory,
       MapProvider mapProvider, PlayerProvider playerProvider)
     {
       _enemySpawnerFactory = enemySpawnerFactory;
-      _storage = storage;
       _mapProvider = mapProvider;
       _playerProvider = playerProvider;
     }
@@ -81,7 +79,7 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
       switch (subQuest.Setup.Config.Type)
       {
         case SubQuestType.KillOrinaryPersons:
-          return GetKillOrinaryPersonsTargetsOrNull(subQuest);
+          return GetKillOrinaryPersonsTargetsOrNull();
 
         case SubQuestType.DefuseBomb:
           return GetDefuseBombTargetsOrNull(subQuest);
@@ -92,7 +90,7 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
       }
     }
 
-    private List<Transform> GetKillOrinaryPersonsTargetsOrNull(SubQuest subQuest)
+    private List<Transform> GetKillOrinaryPersonsTargetsOrNull()
     {
       EnemyId enemyId = EnemyId.WhiteShirt;
 

@@ -4,15 +4,18 @@ using Zenject;
 
 public class PlayerHenSpawner : MonoBehaviour
 {
-  [Inject] private HenSpawner _henSpawner;
+  private const float CoolDown = 2f;
 
   private float _coolDownTimer;
 
-  private readonly float _coolDown = 2f;
+  [Inject] private readonly HenSpawner _henSpawner;
+
+  public int Count { get; set; }
 
   private void Start()
   {
-    _coolDownTimer = _coolDown;
+    _coolDownTimer = CoolDown;
+    Count = 1;
   }
 
   private void Update()
@@ -25,9 +28,13 @@ public class PlayerHenSpawner : MonoBehaviour
       }
       else
       {
-        _coolDownTimer = _coolDown;
+        if (Count > 0)
+        {
+          Count--;
+          _coolDownTimer = CoolDown;
 
-        _henSpawner.Spawn();
+          _henSpawner.Spawn();
+        }
       }
     }
   }

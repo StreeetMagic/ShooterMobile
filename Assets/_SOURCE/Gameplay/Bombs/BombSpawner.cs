@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
@@ -20,9 +19,9 @@ namespace Gameplay.Bombs
     {
       Bombs = new List<List<Bomb>>()
       {
-        new List<Bomb>(),
-        new List<Bomb>(),
-        new List<Bomb>()
+        new(),
+        new(),
+        new()
       };
     }
 

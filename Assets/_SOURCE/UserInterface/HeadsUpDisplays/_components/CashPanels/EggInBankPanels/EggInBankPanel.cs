@@ -11,22 +11,12 @@ namespace UserInterface.HeadsUpDisplays.EggInBankPanels
 
     [Inject] private EggsInBankStorage _moneyInBankStorage;
 
-    private void Start()
+    private void Update()
     {
       SetEggsInBank();
-
-      _moneyInBankStorage.EggsInBank.ValueChanged += OnEggsInBankValueChanged;
-    }
-
-    private void OnDestroy()
-    {
-      _moneyInBankStorage.EggsInBank.ValueChanged -= OnEggsInBankValueChanged;
     }
 
     private void SetEggsInBank() =>
       _eggsInBankText.text = "" + _moneyInBankStorage.EggsInBank.Value;
-
-    private void OnEggsInBankValueChanged(int obj) =>
-      SetEggsInBank();
   }
 }
