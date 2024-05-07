@@ -11,7 +11,7 @@ public class BackpackBarBounceEffect : MonoBehaviour
   {
     slider.transform
       .DOPunchScale(Vector3.one * bounceStrength, bounceSpeed, vibrato: 1, elasticity: 0)
-      .SetEase(Ease.Linear)
+      .SetEase(Ease.OutQuad)
       .OnComplete(() => slider.transform.localScale = Vector3.one);
   }
 }

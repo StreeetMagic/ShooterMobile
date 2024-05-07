@@ -27,8 +27,6 @@ namespace Gameplay.Characters.Players.Projectiles.Scripts
 
     private void PlayerVisualEffect()
     {
-      Debug.Log(transform.position);
-      
       _visualEffectFactory.Create(ParticleEffectId.PlayerBulletImpact, transform.position, transform);
     }
 

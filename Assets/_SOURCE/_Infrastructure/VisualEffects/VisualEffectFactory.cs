@@ -34,7 +34,6 @@ namespace Infrastructure
           break;
 
         case ParticleEffectId.PlayerBulletImpact:
-          Debug.Log("Ебашу в кашу");
           GameObject impactPrefab2 = _assetProvider.Get("PlayerBulletImpact");
           GameObject impact2 = _zenjectFactory.InstantiateGameObject(impactPrefab2, position, Quaternion.identity, parent);
           impact2.transform.SetParent(null);
