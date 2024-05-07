@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Configs.Resources.QuestConfigs.Scripts;
-using Gameplay.RewardServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.StaticDataServices;
+using Infrastructure.ZenjectFactories;
 using Quests.Subquests;
 
 namespace Quests
@@ -14,15 +14,13 @@ namespace Quests
     private Dictionary<QuestId, Quest> _quests;
 
     private readonly IStaticDataService _staticDataService;
-    private readonly SaveLoadService _saveLoadService;
-    private readonly RewardService _rewardService;
+    private readonly ProjectZenjectFactory _gameLoopZenjectFactory;
 
     public QuestStorage(IStaticDataService staticDataService,
-      SaveLoadService saveLoadService, RewardService rewardService)
+      ProjectZenjectFactory gameLoopZenjectFactory)
     {
       _staticDataService = staticDataService;
-      _saveLoadService = saveLoadService;
-      _rewardService = rewardService;
+      _gameLoopZenjectFactory = gameLoopZenjectFactory;
     }
 
     public Quest GetQuest(QuestId questId)
@@ -43,7 +41,9 @@ namespace Quests
 
         QuestState questState = QuestState(projectProgress, questId);
 
-        _quests.Add(questId, new Quest(questState, configs[questId], subQuests, _rewardService));
+        var quest = _gameLoopZenjectFactory.InstantiateNative<Quest>(questState, configs[questId], subQuests);
+
+        _quests.Add(questId, quest);
       }
     }
 
@@ -56,7 +56,9 @@ namespace Quests
         List<SubQuestProgress> subQuests = new List<SubQuestProgress>();
 
         foreach (SubQuest subQuest in quest.Value.SubQuests)
+        {
           subQuests.Add(new SubQuestProgress(subQuest.Setup.Config.Type, subQuest.CompletedQuantity.Value, subQuest.State.Value));
+        }
 
         projectProgress.Quests.Add(new QuestProgress(quest.Key, quest.Value.State.Value, subQuests));
       }
@@ -76,13 +78,31 @@ namespace Quests
 
       for (var i = 0; i < config.SubQuests.Count; i++)
       {
-        SubQuestProgress progressSubQuest = projectProgress.Quests.Find(x => x.Id == config.Id).SubQuests[i];
+        SubQuestProgress progressSubQuest =
+          projectProgress
+            .Quests
+            .Find(x => x.Id == config.Id)
+            .SubQuests[i];
 
         SubQuestSetup setup = config.SubQuests[i];
-        subQuests.Add(new SubQuest(setup, progressSubQuest.CompletedQuantity, progressSubQuest.State, i, _saveLoadService, _rewardService));
+
+        var subQuest =
+          _gameLoopZenjectFactory
+            .InstantiateNative<SubQuest>(setup, progressSubQuest.CompletedQuantity, progressSubQuest.State, i);
+
+        subQuests.Add(subQuest);
       }
 
       return subQuests;
+    }
+
+    public SubQuest GetActiveSubQuest(QuestId configId)
+    {
+      Quest quest = _quests[configId];
+
+      return quest
+        .SubQuests
+        .First(x => x.State.Value == Quests.QuestState.Activated);
     }
   }
 }

@@ -1,6 +1,7 @@
 ﻿using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
+using UserInterface.HeadsUpDisplays.BackpackBars;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
 using UserInterface.HeadsUpDisplays.OpenQuestButtons;
@@ -38,6 +39,9 @@ namespace UserInterface.HeadsUpDisplays
       _provider.LootSlotsUpdater = _instance.GetComponentInChildren<LootSlotsUpdater>();
       _provider.OpenQuestButton = _instance.GetComponentInChildren<OpenQuestButton>();
       _provider.OpenShopButton = _instance.GetComponentInChildren<OpenShopButton>();
+      _provider.BackpackBarFiller = _instance.GetComponentInChildren<BackpackBarFiller>();
+      _provider.BaseTriggerTarget = _instance.GetComponentInChildren<BaseTriggerTarget>();
+      _provider.ResourcesSendersContainer = _instance.GetComponentInChildren<ResourcesSendersContainer>();
 
       _instance.transform.parent = null;
     }
@@ -54,6 +58,9 @@ namespace UserInterface.HeadsUpDisplays
       _provider.OpenQuestButton = null;
       _provider.OpenShopButton = null;
       _provider.CanvasTransform = null;
+      _provider.BackpackBarFiller = null;
+      _provider.BaseTriggerTarget = null;
+      _provider.ResourcesSendersContainer = null;
 
       _instance = null;
     }

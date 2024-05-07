@@ -1,4 +1,4 @@
-using Quests;
+using Configs.Resources.QuestConfigs.Scripts;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -9,11 +9,11 @@ namespace UserInterface.HeadsUpDisplays.QuestWindows
   {
     public TextMeshProUGUI Text;
 
-    [Inject] private Quest _quest;
+    [Inject] private QuestConfig _config;
 
     private void OnEnable()
     {
-      Text.text = "Quest: " + _quest.Config.Name;
+      Text.text = "Quest: " + _config.Name;
     }
   }
 }

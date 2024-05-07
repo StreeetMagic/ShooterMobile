@@ -13,19 +13,19 @@ namespace Quests
     public Quest(QuestState state, QuestConfig config,
       List<SubQuest> subQuests, RewardService rewardService)
     {
-      State = new ReactiveProperty<QuestState>(state);
       Config = config;
-      SubQuests = subQuests;
       _rewardService = rewardService;
 
+      State = new ReactiveProperty<QuestState>(state);
+
+      SubQuests = subQuests;
+
       foreach (SubQuest subQuest in subQuests)
-      {
         subQuest.Completed += OnSubQuestCompleted;
-      }
     }
 
-    public ReactiveProperty<QuestState> State { get; }
     public QuestConfig Config { get; }
+    public ReactiveProperty<QuestState> State { get; }
     public List<SubQuest> SubQuests { get; }
 
     public void GainReward()

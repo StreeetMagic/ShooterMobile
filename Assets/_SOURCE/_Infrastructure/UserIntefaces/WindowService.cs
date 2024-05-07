@@ -1,5 +1,6 @@
 ﻿using System;
 using Configs.Resources.QuestConfigs.Scripts;
+using Infrastructure.StaticDataServices;
 using Infrastructure.ZenjectFactories;
 using Loggers;
 using Quests;
@@ -22,15 +23,17 @@ namespace Infrastructure.UserIntefaces
     private readonly QuestStorage _storage;
     private readonly DebugLogger _logger;
     private readonly QuestWindow.Factory _questWindowFactory;
+    private readonly IStaticDataService _staticDataService;
 
     public WindowService(GameLoopZenjectFactory factory,
-      HeadsUpDisplayProvider headsUpDisplayProvider,
-      QuestStorage storage, QuestWindow.Factory questWindowFactory)
+      HeadsUpDisplayProvider headsUpDisplayProvider, QuestStorage storage,
+      QuestWindow.Factory questWindowFactory, IStaticDataService staticDataService)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;
       _storage = storage;
       _questWindowFactory = questWindowFactory;
+      _staticDataService = staticDataService;
     }
 
     private Transform HudTransform => _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
@@ -64,14 +67,15 @@ namespace Infrastructure.UserIntefaces
             throw new ArgumentOutOfRangeException(nameof(questId), questId, null);
 
           Quest quest = _storage.GetQuest(questId);
-          
-          QuestWindow questWindow = _questWindowFactory.Create(quest);
-          
+          QuestConfig config = _staticDataService.GetQuestConfig(questId);
+
+          QuestWindow questWindow = _questWindowFactory.Create(quest, config);
+
           questWindow.transform.SetParent(HudTransform);
           questWindow.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
           window = questWindow;
           break;
-        
+
         case WindowId.HenShop:
           window = _factory.InstantiateMono<HenShopWindow>(HudTransform);
           break;

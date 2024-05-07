@@ -1,12 +1,15 @@
 using System.Collections.Generic;
 using Cameras;
 using Configs.Resources.EnemyConfigs.Scripts;
+using Configs.Resources.QuestConfigs.Scripts;
 using Gameplay.BaseTriggers;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Characters.Pets.Hens;
+using Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers;
+using Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.QuestPointers;
 using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.Projectiles.Scripts;
 using Gameplay.CorpseRemovers;
@@ -63,10 +66,12 @@ namespace Infrastructure.DependencyInjection
       Container.BindInterfacesAndSelfTo<ParticleImageFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();
       Container.BindInterfacesAndSelfTo<HeadsUpDisplayProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<QuestTargetsProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<SubQuestTargetsProvider>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<QuestCompleter>().AsSingle();
 
-      Container.BindFactory<Quest, QuestWindow, QuestWindow.Factory>()
+      Container.BindFactory<Quest, QuestConfig, QuestWindow, QuestWindow.Factory>()
         .FromSubContainerResolve()
         .ByNewContextPrefab<QuestWindowInstaller>(_assetProvider.Get<QuestWindow>().GetComponent<QuestWindowInstaller>())
         .AsSingle();
@@ -79,6 +84,11 @@ namespace Infrastructure.DependencyInjection
       Container.BindFactory<EnemyConfig, List<SpawnPoint>, Transform, Enemy, Enemy.Factory>()
         .FromSubContainerResolve()
         .ByNewContextPrefab<EnemyInstaller>(_assetProvider.Get<Enemy>().GetComponent<EnemyInstaller>())
+        .AsSingle();
+
+      Container.BindFactory<Quest, QuestConfig, QuestPointer, QuestPointer.Factory>()
+        .FromSubContainerResolve()
+        .ByNewContextPrefab<QuestPointerInstaller>(_assetProvider.Get<QuestPointer>().GetComponent<QuestPointerInstaller>())
         .AsSingle();
     }
   }

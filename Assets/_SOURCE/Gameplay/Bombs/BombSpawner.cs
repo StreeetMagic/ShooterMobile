@@ -11,12 +11,18 @@ namespace Gameplay.Bombs
     public List<Transform> SubQuest2;
     public List<Transform> SubQuest3;
 
-    private GameLoopZenjectFactory _gameLoopZenjectFactory;
+    public List<List<Bomb>> Bombs;
 
-    [Inject]
-    public void Construct(GameLoopZenjectFactory gameLoopZenjectFactory)
+    [Inject] private readonly GameLoopZenjectFactory _gameLoopZenjectFactory;
+
+    private void Awake()
     {
-      _gameLoopZenjectFactory = gameLoopZenjectFactory;
+      Bombs = new List<List<Bomb>>()
+      {
+        new(),
+        new(),
+        new()
+      };
     }
 
     public void SpawnBombs(int subQuestIndex)
@@ -25,25 +31,36 @@ namespace Gameplay.Bombs
       {
         case 0:
           foreach (Transform spawnTransform in SubQuest1)
-            SpawnBomb(spawnTransform);
+          {
+            Bomb spawnBomb = SpawnBomb(spawnTransform);
+            Bombs[0].Add(spawnBomb);
+          }
+
           break;
 
         case 1:
           foreach (Transform spawnTransform in SubQuest2)
-            SpawnBomb(spawnTransform);
+          {
+            Bomb spawnBomb = SpawnBomb(spawnTransform);
+            Bombs[1].Add(spawnBomb);
+          }
           break;
 
         case 2:
           foreach (Transform spawnTransform in SubQuest3)
-            SpawnBomb(spawnTransform);
+          {
+            Bomb spawnBomb = SpawnBomb(spawnTransform);
+            Bombs[2].Add(spawnBomb);
+          }
           break;
       }
     }
 
-    private void SpawnBomb(Transform spawnTransform)
+    private Bomb SpawnBomb(Transform spawnTransform)
     {
-      _gameLoopZenjectFactory
-        .InstantiateMono<Bomb>(spawnTransform.position);
+      return
+        _gameLoopZenjectFactory
+          .InstantiateMono<Bomb>(spawnTransform.position);
     }
   }
 }

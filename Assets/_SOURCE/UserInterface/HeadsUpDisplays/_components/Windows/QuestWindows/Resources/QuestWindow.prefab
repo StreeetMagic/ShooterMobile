@@ -694,7 +694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7f6c59a81bb574ca9295735d4daf58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestWindow: {fileID: 1802208336370171341}
   Text: {fileID: 1547448459474680673}
 --- !u!1 &1408188912991076436
 GameObject:
@@ -785,7 +784,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Image: {fileID: 4363183559706669905}
-  QuestWindow: {fileID: 1802208336370171341}
 --- !u!1 &1662036323671296667
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,7 +866,6 @@ MonoBehaviour:
   ActivateButton: {fileID: 8608514687060164949}
   InProgressButton: {fileID: 6156185490664310185}
   TakeRewardButton: {fileID: 2232851946561752249}
-  QuestWindow: {fileID: 1802208336370171341}
 --- !u!1 &2035202225071620420
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,8 +940,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6101654936180543029}
   - component: {fileID: 1802208336370171341}
-  - component: {fileID: 3612393109436621174}
   - component: {fileID: 755897153917707384}
+  - component: {fileID: 3612393109436621174}
   m_Layer: 5
   m_Name: QuestWindow
   m_TagString: Untagged
@@ -985,19 +982,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloseButton: {fileID: 7412830250475242543}
---- !u!114 &3612393109436621174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2198060984808226176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5972402d0b529841ab5b13e81452b74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QuestWindow: {fileID: 1802208336370171341}
 --- !u!114 &755897153917707384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,6 +1000,18 @@ MonoBehaviour:
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
+--- !u!114 &3612393109436621174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198060984808226176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5972402d0b529841ab5b13e81452b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2408934388522702135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,7 +2038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa17aec4d1955be408cdd4c59314e0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestWindow: {fileID: 1802208336370171341}
   Button: {fileID: 2232851946561752249}
 --- !u!1 &6156185490664310185
 GameObject:
@@ -2403,7 +2398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217dc0fd7bf650b449679c7b4c1fd36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestWindow: {fileID: 0}
 --- !u!1 &7916828063661138468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,7 +2622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5262e7deb30fcb4f88d80de7cfed982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestWindow: {fileID: 1802208336370171341}
   Text: {fileID: 5266899949527334317}
 --- !u!1 &8512639910412240305
 GameObject:
