@@ -572,7 +572,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7893355109579765247}
   m_Father: {fileID: 1135616538834826620}
@@ -761,10 +761,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0413\u0420\u0423\u0417 (0/6)"
+  m_text: "\u0413\u0420\u0423\u0417 (0/6)\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8395ce52b9aead9478f327786b6f5678, type: 2}
+  m_sharedMaterial: {fileID: 580097951811233044, guid: 8395ce52b9aead9478f327786b6f5678,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -788,13 +789,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.45
+  m_fontSize: 35.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -910,8 +911,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0413\u0420\u0423\u0417 \u041F\u041E\u041B\u041D\u042B\u0419\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8395ce52b9aead9478f327786b6f5678, type: 2}
+  m_sharedMaterial: {fileID: 580097951811233044, guid: 8395ce52b9aead9478f327786b6f5678,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -935,7 +937,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.1
+  m_fontSize: 29.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -971,7 +973,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 97.08307, y: 8.591309, z: 103.95662, w: 7.732361}
+  m_margin: {x: 10.2109375, y: 8.591309, z: 11.702896, w: 7.732361}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1166,8 +1168,8 @@ RectTransform:
   m_Children:
   - {fileID: 4350323423627113748}
   - {fileID: 3097136506867565249}
-  - {fileID: 9036667219671031660}
   - {fileID: 8325920789824019046}
+  - {fileID: 9036667219671031660}
   - {fileID: 2820818490336033782}
   - {fileID: 6571378068152575855}
   m_Father: {fileID: 6063001269194841619}
@@ -1445,17 +1447,17 @@ PrefabInstance:
     - target: {fileID: 1762952752276261653, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1762952753243521491, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4853658085337884359, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
