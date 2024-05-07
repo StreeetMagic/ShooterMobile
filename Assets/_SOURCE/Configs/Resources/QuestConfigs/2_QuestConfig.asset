@@ -16,21 +16,21 @@ MonoBehaviour:
   Name: Bomb Defuse
   Icon: {fileID: 21300000, guid: 0a581261c6564475292652140798ad51, type: 3}
   Reward:
-    RewardId: 1
-    Quantity: 1500
+    RewardId: 2
+    Quantity: 25
   SubQuests:
   - Config: {fileID: 11400000, guid: 9f9a835bce4d66d4ba029fd81d897ac2, type: 2}
     Quantity: 1
     Reward:
       RewardId: 1
-      Quantity: 111
+      Quantity: 350
   - Config: {fileID: 11400000, guid: 9f9a835bce4d66d4ba029fd81d897ac2, type: 2}
-    Quantity: 3
+    Quantity: 1
     Reward:
       RewardId: 1
-      Quantity: 222
+      Quantity: 350
   - Config: {fileID: 11400000, guid: 9f9a835bce4d66d4ba029fd81d897ac2, type: 2}
-    Quantity: 5
+    Quantity: 1
     Reward:
       RewardId: 1
-      Quantity: 333
+      Quantity: 350
