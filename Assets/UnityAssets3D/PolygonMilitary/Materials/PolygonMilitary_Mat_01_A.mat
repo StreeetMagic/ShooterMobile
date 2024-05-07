@@ -8,11 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PolygonMilitary_Mat_01_A
-  m_Shader: {fileID: 4800000, guid: 33d931101d04f6f41a725e506fa100a0, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4bcb592405d924346aeef2fa38365884, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
+  - OUTLINES
   - _MK_ALBEDO_MAP
   - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
   - _MK_EMISSION
@@ -189,6 +190,8 @@ Material:
     - _Mode: 0
     - _NormalMapIntensity: 1
     - _OcclusionStrength: 1
+    - _Offset1: 0
+    - _Offset2: 0
     - _OptionsTab: 1
     - _Outline: 3
     - _OutlineData: 0
@@ -208,9 +211,11 @@ Material:
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
     - _Saturation: 1
+    - _Shininess: 0.1
     - _SketchMapScale: 1
     - _Smoothness: 0.2
     - _SmoothnessTextureChannel: 0
+    - _SpecSmooth: 0.05
     - _Specular: 0
     - _SpecularHighlights: 1
     - _SpecularIntensity: 1
@@ -227,12 +232,14 @@ Material:
     - _StencilZFail: 0
     - _StylizeTab: 1
     - _Surface: 0
+    - _TexLod: 5
     - _ThresholdMapScale: 1
     - _UVSec: 0
     - _VertexAnimation: 0
     - _VertexAnimationIntensity: 0.05
     - _VertexAnimationStutter: 0
     - _WrappedLighting: 0
+    - _ZSmooth: -0.5
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
@@ -242,13 +249,14 @@ Material:
     - _EmissionColor: {r: 0.6075471, g: 0.6075471, b: 0.6075471, a: 1}
     - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
     - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}
+    - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.93962264, g: 0.93962264, b: 0.93962264, a: 1}
     - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SColor: {r: 0.19499996, g: 0.19499996, b: 0.19499996, a: 1}
+    - _SColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _VertexAnimationFrequency: {r: 2.5, g: 2.5, b: 2.5, a: 1}
   m_BuildTextureStacks: []
