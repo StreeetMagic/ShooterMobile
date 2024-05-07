@@ -71,7 +71,7 @@ namespace Infrastructure.UserIntefaces
 
           QuestWindow questWindow = _questWindowFactory.Create(quest, config);
 
-          questWindow.transform.SetParent(HudTransform);
+          questWindow.transform.SetParent(HudTransform, false);
           questWindow.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
           window = questWindow;
           break;

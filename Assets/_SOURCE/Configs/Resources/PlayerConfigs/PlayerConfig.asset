@@ -15,10 +15,10 @@ MonoBehaviour:
   RotationSpeed: 10
   GravityScale: 0.1
   FireRate: 2
-  BulletSpeed: 40
+  BulletSpeed: 25
   Stats:
   - StatId: 1
-    Value: 50
+    Value: 10
   - StatId: 2
     Value: 50
   - StatId: 3
@@ -28,6 +28,6 @@ MonoBehaviour:
   - StatId: 5
     Value: 8
   - StatId: 6
-    Value: 5
+    Value: 3
   - StatId: 7
-    Value: 1000
+    Value: 100
