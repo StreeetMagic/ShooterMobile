@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using Cameras;
 using Configs.Resources.CurrencyConfigs;
+using Configs.Resources.ParticleImageConfigs;
 using DataRepositories;
 using DataRepositories.BackpackStorages;
 using Gameplay.Characters.Players;
+using Infrastructure;
 using Infrastructure.SaveLoadServices;
 using UnityEngine;
+using UserInterface.HeadsUpDisplays;
 using Zenject;
 
 namespace Gameplay.BaseTriggers
@@ -15,6 +19,9 @@ namespace Gameplay.BaseTriggers
     [Inject] private MoneyInBankStorage _moneyInBankStorage;
     [Inject] private EggsInBankStorage _eggsInBankStorage;
     [Inject] private SaveLoadService _saveLoadService;
+    [Inject] private HeadsUpDisplayProvider _headsUpDisplayProvider;
+    [Inject] private CameraProvider _cameraProvider;
+    [Inject] private ParticleImageFactory _particleImageFactory;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,15 +33,21 @@ namespace Gameplay.BaseTriggers
 
       Dictionary<CurrencyId, int> data = _backpackStorage.ReadLoot();
 
+      Transform target = _headsUpDisplayProvider.BaseTriggerTarget.transform;
+      Transform parent = _headsUpDisplayProvider.ResourcesSendersContainer.transform;
+
       foreach (KeyValuePair<CurrencyId, int> loot in data)
       {
         switch (loot.Key)
         {
           case CurrencyId.Money:
+
+            _particleImageFactory.Create(ParticleImageId.MoneySender, _headsUpDisplayProvider.BackpackBarFiller.transform.position, parent, target, loot.Value);
             _moneyInBankStorage.MoneyInBank.Value += loot.Value;
             break;
 
           case CurrencyId.Eggs:
+            _particleImageFactory.Create(ParticleImageId.EggSender, _headsUpDisplayProvider.BackpackBarFiller.transform.position, parent, target, loot.Value);
             _eggsInBankStorage.EggsInBank.Value += loot.Value;
             break;
         }

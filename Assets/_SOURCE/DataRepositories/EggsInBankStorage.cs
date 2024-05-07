@@ -1,7 +1,6 @@
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
-using UnityEngine;
 
 namespace DataRepositories
 {

@@ -59,8 +59,6 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
 
     private ParticleImage PlayerEggParticle(Vector3 position)
     {
-      Debug.Log("Ебашу яйцами");
-      
       ParticleImage playerMoneyParticle = _particleImageFactory.Create(ParticleImageId.EggCollection1, position, transform, Target);
 
       Destroy(playerMoneyParticle.gameObject, 10f);

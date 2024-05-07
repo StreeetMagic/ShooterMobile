@@ -1,4 +1,5 @@
 using UnityEngine;
+using UserInterface.HeadsUpDisplays.BackpackBars;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
 using UserInterface.HeadsUpDisplays.OpenQuestButtons;
@@ -16,5 +17,8 @@ namespace UserInterface.HeadsUpDisplays
     public LootSlotsUpdater LootSlotsUpdater { get; set; }
     public OpenQuestButton OpenQuestButton { get; set; }
     public OpenShopButton OpenShopButton { get; set; }
+    public BackpackBarFiller BackpackBarFiller { get; set; }
+    public BaseTriggerTarget BaseTriggerTarget { get; set; }
+    public ResourcesSendersContainer ResourcesSendersContainer { get; set; }
   }
 }

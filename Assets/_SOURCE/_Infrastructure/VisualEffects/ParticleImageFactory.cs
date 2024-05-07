@@ -17,7 +17,7 @@ namespace Infrastructure
       _zenjectFactory = zenjectFactory;
     }
 
-    public ParticleImage Create(ParticleImageId visualEffectId, Vector3 position, Transform parent, Transform target = null)
+    public ParticleImage Create(ParticleImageId visualEffectId, Vector3 position, Transform parent, Transform target = null, int amount = 0)
     {
       switch (visualEffectId)
       {
@@ -34,7 +34,7 @@ namespace Infrastructure
           particleImage.Play();
 
           return particleImage;
-        
+
         case ParticleImageId.EggCollection1:
           GameObject prefab2 = _assetProvider.Get(nameof(ParticleImageId.EggCollection1));
           GameObject moneyObject2 = _zenjectFactory.InstantiateGameObject(prefab2, position, Quaternion.identity, parent);
@@ -48,6 +48,36 @@ namespace Infrastructure
           particleImage2.Play();
 
           return particleImage2;
+
+        case ParticleImageId.MoneySender:
+
+          GameObject prefab3 = _assetProvider.Get(nameof(ParticleImageId.MoneySender));
+          GameObject moneyObject3 = _zenjectFactory.InstantiateGameObject(prefab3, position, Quaternion.identity, parent);
+
+          moneyObject3.transform.SetParent(parent);
+
+          var particleImage3 = moneyObject3.GetComponent<ParticleImage>();
+
+          particleImage3.main.rateOverTime = amount;
+          particleImage3.main.attractorTarget = target;
+          particleImage3.Play();
+
+          return particleImage3;
+
+        case ParticleImageId.EggSender:
+          
+          GameObject prefab4 = _assetProvider.Get(nameof(ParticleImageId.EggSender));
+          GameObject moneyObject4 = _zenjectFactory.InstantiateGameObject(prefab4, position, Quaternion.identity, parent);
+          
+          moneyObject4.transform.SetParent(parent);
+          
+          var particleImage4 = moneyObject4.GetComponent<ParticleImage>();
+          
+          particleImage4.main.rateOverTime = amount;
+          particleImage4.main.attractorTarget = target;
+          particleImage4.Play();
+          
+          return particleImage4;
       }
 
       return null;
