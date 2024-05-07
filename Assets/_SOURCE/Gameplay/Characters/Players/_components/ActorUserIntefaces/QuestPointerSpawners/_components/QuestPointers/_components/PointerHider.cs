@@ -12,13 +12,14 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
 
     [Inject] private MapProvider _mapProvider;
     [Inject] private QuestTargetsProvider _targetProvider;
-    [Inject] private QuestConfig _config;
+
+    [SerializeField] [Inject] QuestConfig _config;
 
     private void LateUpdate()
     {
       if (_mapProvider.Map == null)
         return;
-      
+
       List<Transform> targets = _targetProvider.GetTargetsOrNull(_config.Id);
 
       if (targets == null)
@@ -43,14 +44,19 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
       var distance = Vector3.Distance(transform.position, target.transform.position);
 
       if (distance < MinDistance)
-        Pointer.SetActive(false);
-      else
         Hide();
+      else
+        Show();
+    }
+
+    private void Show()
+    {
+      Pointer.SetActive(true);
     }
 
     private void Hide()
     {
-      Pointer.SetActive(true);
+      Pointer.SetActive(false);
     }
   }
 }
