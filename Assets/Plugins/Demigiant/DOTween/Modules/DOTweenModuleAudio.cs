@@ -2,16 +2,16 @@
 // Created: 2018/07/13
 
 #if true // MODULE_MARKER
-using DG.Tweening;
+using System;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using UnityEngine;
-using UnityEngine.Audio;
-
-// Required for AudioMixer
+#if UNITY_5 || UNITY_2017_1_OR_NEWER
+using UnityEngine.Audio; // Required for AudioMixer
+#endif
 
 #pragma warning disable 1591
-namespace Demigiant.DOTween.Modules
+namespace DG.Tweening
 {
 	public static class DOTweenModuleAudio
     {
@@ -26,7 +26,7 @@ namespace Demigiant.DOTween.Modules
         {
             if (endValue < 0) endValue = 0;
             else if (endValue > 1) endValue = 1;
-            TweenerCore<float, float, FloatOptions> t = DG.Tweening.DOTween.To(() => target.volume, x => target.volume = x, endValue, duration);
+            TweenerCore<float, float, FloatOptions> t = DOTween.To(() => target.volume, x => target.volume = x, endValue, duration);
             t.SetTarget(target);
             return t;
         }
@@ -36,14 +36,15 @@ namespace Demigiant.DOTween.Modules
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
         public static TweenerCore<float, float, FloatOptions> DOPitch(this AudioSource target, float endValue, float duration)
         {
-            TweenerCore<float, float, FloatOptions> t = DG.Tweening.DOTween.To(() => target.pitch, x => target.pitch = x, endValue, duration);
+            TweenerCore<float, float, FloatOptions> t = DOTween.To(() => target.pitch, x => target.pitch = x, endValue, duration);
             t.SetTarget(target);
             return t;
         }
 
         #endregion
 
-        #region AudioMixer
+#if UNITY_5 || UNITY_2017_1_OR_NEWER
+        #region AudioMixer (Unity 5 or Newer)
 
         /// <summary>Tweens an AudioMixer's exposed float to the given value.
         /// Also stores the AudioMixer as the tween's target so it can be used for filtered operations.
@@ -52,7 +53,7 @@ namespace Demigiant.DOTween.Modules
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
         public static TweenerCore<float, float, FloatOptions> DOSetFloat(this AudioMixer target, string floatName, float endValue, float duration)
         {
-            TweenerCore<float, float, FloatOptions> t = DG.Tweening.DOTween.To(()=> {
+            TweenerCore<float, float, FloatOptions> t = DOTween.To(()=> {
                     float currVal;
                     target.GetFloat(floatName, out currVal);
                     return currVal;
@@ -73,7 +74,7 @@ namespace Demigiant.DOTween.Modules
         /// otherwise they will be ignored</param>
         public static int DOComplete(this AudioMixer target, bool withCallbacks = false)
         {
-            return DG.Tweening.DOTween.Complete(target, withCallbacks);
+            return DOTween.Complete(target, withCallbacks);
         }
 
         /// <summary>
@@ -84,7 +85,7 @@ namespace Demigiant.DOTween.Modules
         /// <param name="complete">If TRUE completes the tween before killing it</param>
         public static int DOKill(this AudioMixer target, bool complete = false)
         {
-            return DG.Tweening.DOTween.Kill(target, complete);
+            return DOTween.Kill(target, complete);
         }
 
         /// <summary>
@@ -94,7 +95,7 @@ namespace Demigiant.DOTween.Modules
         /// </summary>
         public static int DOFlip(this AudioMixer target)
         {
-            return DG.Tweening.DOTween.Flip(target);
+            return DOTween.Flip(target);
         }
 
         /// <summary>
@@ -107,7 +108,7 @@ namespace Demigiant.DOTween.Modules
         /// <param name="andPlay">If TRUE will play the tween after reaching the given position, otherwise it will pause it</param>
         public static int DOGoto(this AudioMixer target, float to, bool andPlay = false)
         {
-            return DG.Tweening.DOTween.Goto(target, to, andPlay);
+            return DOTween.Goto(target, to, andPlay);
         }
 
         /// <summary>
@@ -117,7 +118,7 @@ namespace Demigiant.DOTween.Modules
         /// </summary>
         public static int DOPause(this AudioMixer target)
         {
-            return DG.Tweening.DOTween.Pause(target);
+            return DOTween.Pause(target);
         }
 
         /// <summary>
@@ -127,7 +128,7 @@ namespace Demigiant.DOTween.Modules
         /// </summary>
         public static int DOPlay(this AudioMixer target)
         {
-            return DG.Tweening.DOTween.Play(target);
+            return DOTween.Play(target);
         }
 
         /// <summary>
@@ -137,7 +138,7 @@ namespace Demigiant.DOTween.Modules
         /// </summary>
         public static int DOPlayBackwards(this AudioMixer target)
         {
-            return DG.Tweening.DOTween.PlayBackwards(target);
+            return DOTween.PlayBackwards(target);
         }
 
         /// <summary>
@@ -147,7 +148,7 @@ namespace Demigiant.DOTween.Modules
         /// </summary>
         public static int DOPlayForward(this AudioMixer target)
         {
-            return DG.Tweening.DOTween.PlayForward(target);
+            return DOTween.PlayForward(target);
         }
 
         /// <summary>
@@ -157,7 +158,7 @@ namespace Demigiant.DOTween.Modules
         /// </summary>
         public static int DORestart(this AudioMixer target)
         {
-            return DG.Tweening.DOTween.Restart(target);
+            return DOTween.Restart(target);
         }
 
         /// <summary>
@@ -167,7 +168,7 @@ namespace Demigiant.DOTween.Modules
         /// </summary>
         public static int DORewind(this AudioMixer target)
         {
-            return DG.Tweening.DOTween.Rewind(target);
+            return DOTween.Rewind(target);
         }
 
         /// <summary>
@@ -177,7 +178,7 @@ namespace Demigiant.DOTween.Modules
         /// </summary>
         public static int DOSmoothRewind(this AudioMixer target)
         {
-            return DG.Tweening.DOTween.SmoothRewind(target);
+            return DOTween.SmoothRewind(target);
         }
 
         /// <summary>
@@ -187,12 +188,13 @@ namespace Demigiant.DOTween.Modules
         /// </summary>
         public static int DOTogglePause(this AudioMixer target)
         {
-            return DG.Tweening.DOTween.TogglePause(target);
+            return DOTween.TogglePause(target);
         }
 
         #endregion
 
         #endregion
+#endif
 
         #endregion
     }
