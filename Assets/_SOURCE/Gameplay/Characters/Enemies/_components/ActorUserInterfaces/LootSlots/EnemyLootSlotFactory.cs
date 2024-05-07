@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Configs.Resources.CurrencyConfigs;
 using Configs.Resources.EnemyConfigs.Scripts;
+using DataRepositories.BackpackStorages;
 using Infrastructure.AssetProviders;
 using Infrastructure.StaticDataServices;
 using Infrastructure.ZenjectFactories;
@@ -33,7 +34,10 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
 
       foreach (LootDrop item in list)
       {
-        int count = _staticDataService.GetLootConfig(item.Id).Loots[item.Level - 1].Value;
+        List<Loot> loots = _staticDataService.GetLootConfig(item.Id).Loots;
+        int itemLevel = item.Level - 1;
+
+        int count = loots[itemLevel].Value;
         lootData.Add(item.Id, count);
       }
 
