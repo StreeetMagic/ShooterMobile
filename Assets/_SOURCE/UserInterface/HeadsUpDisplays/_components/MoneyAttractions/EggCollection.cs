@@ -14,14 +14,14 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
   {
     public Transform Target;
     public ParticleImage ParticleImage;
-    public Animator Animator;
+    public BackpackBar_bounce_effect BounceEffect;
 
     private Camera _camera;
 
     [Inject] private EnemySpawnerFactory _enemySpawnerFactory;
     [Inject] private ParticleImageFactory _particleImageFactory;
 
-    private static readonly int s_bounce = Animator.StringToHash("Bounce");
+    //private static readonly int s_bounce = Animator.StringToHash("Bounce");
 
     private void Awake()
     {
@@ -70,7 +70,7 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
     {
       ParticleImage.gameObject.SetActive(true);
       ParticleImage.Play();
-      Animator.SetTrigger(s_bounce);
+      BounceEffect.ApplyBounceEffect();
     }
   }
 }

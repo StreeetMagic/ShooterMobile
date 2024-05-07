@@ -29,7 +29,7 @@ namespace Infrastructure
           GameObject muzzlePrefab1 = _assetProvider.Get("PlayerMuzzleFlash");
           GameObject muzzleFlash1 = _zenjectFactory.InstantiateGameObject(muzzlePrefab1, position, Quaternion.identity, parent);
           muzzleFlash1.transform.SetParent(null);
-          float duration1 = muzzlePrefab1.GetComponent<ParticleSystem>().main.duration;
+          float duration1 = muzzlePrefab1.GetComponentInChildren<ParticleSystem>().main.duration;
           Object.Destroy(muzzleFlash1, duration1);
           break;
 
@@ -45,7 +45,7 @@ namespace Infrastructure
           GameObject muzzlePrefab = _assetProvider.Get("EnemyMuzzleFlash");
           GameObject muzzleFlash = _zenjectFactory.InstantiateGameObject(muzzlePrefab, position, Quaternion.identity, parent);
           muzzleFlash.transform.SetParent(null);
-          float duration = muzzlePrefab.GetComponent<ParticleSystem>().main.duration;
+          float duration = muzzlePrefab.GetComponentInChildren<ParticleSystem>().main.duration;
           Object.Destroy(muzzleFlash, duration);
           break;
         
@@ -53,7 +53,7 @@ namespace Infrastructure
           GameObject impactPrefab = _assetProvider.Get("EnemyBulletImpact");
           GameObject impact = _zenjectFactory.InstantiateGameObject(impactPrefab, position, Quaternion.identity, parent);
           impact.transform.SetParent(null);
-          float impactDuration = impactPrefab.GetComponent<ParticleSystem>().main.duration;
+          float impactDuration = impactPrefab.GetComponentInChildren<ParticleSystem>().main.duration;
           Object.Destroy(impact, impactDuration);
           break;
         

@@ -1146,7 +1146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1135616538834826620}
   - component: {fileID: 3070983853029536889}
-  - component: {fileID: 4032670735047731244}
+  - component: {fileID: 6138600108803881123}
   m_Layer: 5
   m_Name: BackpackBar
   m_TagString: Untagged
@@ -1230,27 +1230,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!95 &4032670735047731244
-Animator:
-  serializedVersion: 5
+--- !u!114 &6138600108803881123
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8191677569348921608}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5f6d04f0c56b5954a8f0efadbbf9048d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116e38f8977a40943a61f4ff307e8809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1135616538834826620}
+  bounceStrength: 0.5
+  bounceSpeed: 1
 --- !u!1 &8872807072104199701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,6 +1370,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1762952752276261650, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762952752276261650, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762952752276261650, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762952752276261650, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1433,6 +1442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762952752276261650, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1762952752276261651, guid: 909a6ee8cb9c6ca45874357ba2e83fe6,
         type: 3}

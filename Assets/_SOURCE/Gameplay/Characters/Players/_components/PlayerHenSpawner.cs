@@ -15,7 +15,7 @@ public class PlayerHenSpawner : MonoBehaviour
   private void Start()
   {
     _coolDownTimer = CoolDown;
-    Count = 1;
+    Count = 0;
   }
 
   private void Update()
