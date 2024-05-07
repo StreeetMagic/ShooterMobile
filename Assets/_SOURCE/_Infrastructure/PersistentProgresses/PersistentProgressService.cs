@@ -30,7 +30,7 @@ namespace Infrastructure.PersistentProgresses
       ProjectProgress = new ProjectProgress
       {
         MoneyInBank = 100,
-        EggsInBank = 10,
+        EggsInBank = 0,
         PlayerPosition = Vector3.zero,
         Expierience = 0,
         MusicMute = false
