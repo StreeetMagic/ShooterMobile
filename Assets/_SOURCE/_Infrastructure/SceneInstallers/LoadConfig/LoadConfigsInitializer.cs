@@ -1,10 +1,10 @@
-using _Infrastructure.Projects;
-using _Infrastructure.SceneLoaders;
-using _Infrastructure.StaticDataServices;
+using Projects;
+using SceneLoaders;
+using StaticDataServices;
 using UnityEngine;
 using Zenject;
 
-namespace _Infrastructure.SceneInstallers.LoadConfig
+namespace SceneInstallers.LoadConfig
 {
   public class LoadConfigsInitializer : MonoBehaviour, IInitializable
   {

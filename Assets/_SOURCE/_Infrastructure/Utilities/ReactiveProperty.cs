@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _Infrastructure.Utilities
+namespace Utilities
 {
   [Serializable]
   public class ReactiveProperty<T>

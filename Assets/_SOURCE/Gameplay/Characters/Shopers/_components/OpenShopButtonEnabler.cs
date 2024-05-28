@@ -1,7 +1,7 @@
-using _Infrastructure.UserIntefaces;
 using Cameras;
 using Gameplay.Characters.Players;
 using UnityEngine;
+using UserIntefaces;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.Buttons.OpenShopButtons;
 using Zenject;

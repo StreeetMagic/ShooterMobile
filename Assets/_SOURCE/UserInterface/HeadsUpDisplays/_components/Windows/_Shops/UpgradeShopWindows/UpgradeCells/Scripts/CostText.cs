@@ -1,5 +1,5 @@
-using _Infrastructure.StaticDataServices;
 using Gameplay.Upgrades;
+using StaticDataServices;
 using TMPro;
 using UnityEngine;
 using Zenject;

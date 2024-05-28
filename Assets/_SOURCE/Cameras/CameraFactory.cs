@@ -1,8 +1,8 @@
-﻿using _Infrastructure.AssetProviders;
-using _Infrastructure.ZenjectFactories;
+﻿using AssetProviders;
 using Cinemachine;
 using Gameplay.Characters.Players;
 using UnityEngine;
+using ZenjectFactories;
 
 namespace Cameras
 {

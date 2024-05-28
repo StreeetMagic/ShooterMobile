@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace _Infrastructure.AssetProviders
+namespace AssetProviders
 {
   public class AssetProvider : IAssetProvider
   {

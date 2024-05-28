@@ -1,7 +1,7 @@
-using _Infrastructure.UserIntefaces;
 using Gameplay.Quests;
 using UnityEngine;
 using UnityEngine.UI;
+using UserIntefaces;
 using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.Buttons.OpenQuestButtons

@@ -1,13 +1,13 @@
 using System.Collections.Generic;
-using _Infrastructure.Projects;
-using _Infrastructure.StaticDataServices;
 using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
+using Projects;
+using StaticDataServices;
 using UnityEngine;
 
-namespace _Infrastructure.PersistentProgresses
+namespace PersistentProgresses
 {
   public class PersistentProgressService
   {
@@ -27,54 +27,56 @@ namespace _Infrastructure.PersistentProgresses
 
     public void SetDefault()
     {
+      DefaultProjectProgressConfig defaultProgress = _staticDataService.GetDefaultProjectProgressConfig();
+      
       ProjectProgress = new ProjectProgress
       {
-        MoneyInBank = 100,
-        EggsInBank = 0,
-        PlayerPosition = Vector3.zero,
-        Expierience = 0,
-        MusicMute = false
+        MoneyInBank = defaultProgress.MoneyInBank,
+        EggsInBank = defaultProgress.EggsInBank, 
+        PlayerPosition = defaultProgress.PlayerPosition, 
+        Expierience = defaultProgress.Expierience, 
+        MusicMute = defaultProgress.MusicMute, 
       };
 
       Upgrades();
       Quests();
+    }
 
-      void Upgrades()
+    private void Upgrades()
+    {
+      ProjectProgress.Upgrades = new List<UpgradeProgress>();
+
+      Dictionary<StatId, UpgradeConfig> upgrades =
+        _staticDataService
+          .GetUpgradeConfigs();
+
+      foreach (KeyValuePair<StatId, UpgradeConfig> upgrade in upgrades)
+        ProjectProgress
+          .Upgrades
+          .Add(new UpgradeProgress(upgrade.Key, 0));
+    }
+
+    private void Quests()
+    {
+      ProjectProgress.Quests = new List<QuestProgress>();
+
+      Dictionary<QuestId, QuestConfig> quests =
+        _staticDataService
+          .GetQuestConfigs();
+
+      foreach (KeyValuePair<QuestId, QuestConfig> quest in quests)
       {
-        ProjectProgress.Upgrades = new List<UpgradeProgress>();
+        List<SubQuestProgress> subQuests = new List<SubQuestProgress>();
 
-        Dictionary<StatId, UpgradeConfig> upgrades =
-          _staticDataService
-            .GetUpgradeConfigs();
-
-        foreach (KeyValuePair<StatId, UpgradeConfig> upgrade in upgrades)
-          ProjectProgress
-            .Upgrades
-            .Add(new UpgradeProgress(upgrade.Key, 0));
-      }
-
-      void Quests()
-      {
-        ProjectProgress.Quests = new List<QuestProgress>();
-
-        Dictionary<QuestId, QuestConfig> quests =
-          _staticDataService
-            .GetQuestConfigs();
-
-        foreach (KeyValuePair<QuestId, QuestConfig> quest in quests)
+        for (var i = 0; i < quest.Value.SubQuests.Count; i++)
         {
-          List<SubQuestProgress> subQuests = new List<SubQuestProgress>();
-
-          for (var i = 0; i < quest.Value.SubQuests.Count; i++)
-          {
-            SubQuestProgress progressSubQuest = new SubQuestProgress(quest.Value.SubQuests[i].Config.Type, 0, QuestState.UnActivated);
-            subQuests.Add(progressSubQuest);
-          }
-
-          ProjectProgress
-            .Quests
-            .Add(new QuestProgress(quest.Key, QuestState.UnActivated, subQuests));
+          SubQuestProgress progressSubQuest = new SubQuestProgress(quest.Value.SubQuests[i].Config.Type, 0, QuestState.UnActivated);
+          subQuests.Add(progressSubQuest);
         }
+
+        ProjectProgress
+          .Quests
+          .Add(new QuestProgress(quest.Key, QuestState.UnActivated, subQuests));
       }
     }
   }

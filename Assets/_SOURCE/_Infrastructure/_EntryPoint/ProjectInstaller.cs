@@ -1,14 +1,6 @@
-using _Infrastructure.AssetProviders;
-using _Infrastructure.AudioServices;
-using _Infrastructure.CoroutineRunners;
-using _Infrastructure.LoadingCurtains;
-using _Infrastructure.PersistentProgresses;
-using _Infrastructure.Projects;
-using _Infrastructure.RandomServices;
-using _Infrastructure.SaveLoadServices;
-using _Infrastructure.SceneLoaders;
-using _Infrastructure.StaticDataServices;
-using _Infrastructure.ZenjectFactories;
+using AssetProviders;
+using AudioServices;
+using CoroutineRunners;
 using CurrencyRepositories;
 using CurrencyRepositories.BackpackStorages;
 using CurrencyRepositories.Expirience;
@@ -17,10 +9,18 @@ using Gameplay.Quests;
 using Gameplay.RewardServices;
 using Gameplay.Upgrades;
 using Inputs;
+using LoadingCurtains;
 using Loggers;
+using PersistentProgresses;
+using Projects;
+using RandomServices;
+using SaveLoadServices;
+using SceneLoaders;
+using StaticDataServices;
 using Zenject.Source.Install;
+using ZenjectFactories;
 
-namespace _Infrastructure._EntryPoint
+namespace _EntryPoint
 {
   public class ProjectInstaller : MonoInstaller
   {

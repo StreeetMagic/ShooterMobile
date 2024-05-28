@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using _Infrastructure.PersistentProgresses;
+using PersistentProgresses;
 using UnityEngine;
 
-namespace _Infrastructure.SaveLoadServices
+namespace SaveLoadServices
 {
   public class SaveLoadService
   {

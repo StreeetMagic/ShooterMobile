@@ -1,7 +1,7 @@
-using _Infrastructure.StaticDataServices;
 using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
+using StaticDataServices;
 using TMPro;
 using UnityEngine;
 using Zenject;

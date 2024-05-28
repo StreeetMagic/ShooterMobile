@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using _Infrastructure.AssetProviders;
-using _Infrastructure.StaticDataServices;
-using _Infrastructure.ZenjectFactories;
+using AssetProviders;
 using CurrencyRepositories;
 using CurrencyRepositories.BackpackStorages;
+using StaticDataServices;
 using UnityEngine;
+using ZenjectFactories;
 
 namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
 {

@@ -1,8 +1,8 @@
 using System;
-using _Infrastructure.Utilities;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using UnityEngine;
+using Utilities;
 using Zenject;
 
 namespace Gameplay.Characters.Enemies.Healths

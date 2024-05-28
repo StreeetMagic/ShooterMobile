@@ -4,7 +4,7 @@ using Gameplay.Quests;
 using Gameplay.Upgrades;
 using UnityEngine;
 
-namespace _Infrastructure.Projects
+namespace Projects
 {
   [Serializable]
   public class ProjectProgress

@@ -1,5 +1,5 @@
-using _Infrastructure.StaticDataServices;
 using CurrencyRepositories.Expirience;
+using StaticDataServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

@@ -1,4 +1,4 @@
-﻿namespace _Infrastructure.UserIntefaces
+﻿namespace UserIntefaces
 {
   public enum WindowId
   {

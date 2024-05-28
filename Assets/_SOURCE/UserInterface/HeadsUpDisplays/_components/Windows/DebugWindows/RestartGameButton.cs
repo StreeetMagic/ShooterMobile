@@ -1,4 +1,4 @@
-using _Infrastructure.DebugServices;
+using DebugServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

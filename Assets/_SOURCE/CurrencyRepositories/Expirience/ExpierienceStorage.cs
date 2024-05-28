@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using _Infrastructure.Projects;
-using _Infrastructure.SaveLoadServices;
-using _Infrastructure.StaticDataServices;
-using _Infrastructure.Utilities;
+using Projects;
+using SaveLoadServices;
+using StaticDataServices;
+using Utilities;
 
 namespace CurrencyRepositories.Expirience
 {

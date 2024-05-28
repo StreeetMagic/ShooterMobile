@@ -1,4 +1,4 @@
-using _Infrastructure.UserIntefaces;
+using UserIntefaces;
 
 namespace UserInterface.HeadsUpDisplays.Windows.DebugWindows
 {

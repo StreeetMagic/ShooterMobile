@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using _Infrastructure.AssetProviders;
+using AssetProviders;
 using CurrencyRepositories;
 using CurrencyRepositories.BackpackStorages;
 using Gameplay.Characters.Enemies;

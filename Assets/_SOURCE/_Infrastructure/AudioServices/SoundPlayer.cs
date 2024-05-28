@@ -1,7 +1,7 @@
 ﻿using Sounds;
 using UnityEngine;
 
-namespace _Infrastructure.AudioServices
+namespace AudioServices
 {
   public class SoundPlayer
   {

@@ -10,10 +10,11 @@ using Gameplay.Rewards;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
 using Musics;
+using PersistentProgresses;
 using Sounds;
 using UnityEngine;
 
-namespace _Infrastructure.StaticDataServices
+namespace StaticDataServices
 {
   public class StaticDataService : IStaticDataService
   {
@@ -26,6 +27,7 @@ namespace _Infrastructure.StaticDataServices
     private const string QuestConfigPath = "QuestConfigs";
     private const string ExpirienceConfigPath = "ExpirienceConfigs/ExpirienceConfig";
     private const string RewardConfigPath = "RewardConfigs";
+    private const string DefaultProjectProgressConfigPath = "DefaultProjectProgressConfig/DefaultProjectProgressConfig";
 
     private PlayerConfig _playerConfig;
     private ExpirienceConfig _expirienceConfig;
@@ -38,12 +40,16 @@ namespace _Infrastructure.StaticDataServices
     private Dictionary<StatId, int> _stats;
     private Dictionary<QuestId, QuestConfig> _questConfigs;
     private Dictionary<RewardId, RewardConfig> _rewardConfigs;
+    private DefaultProjectProgressConfig _defaultProjectProgressConfig;
 
     public PlayerConfig GetPlayerConfig() =>
-      _playerConfig ??= Resources.Load<PlayerConfig>(PlayerConfigPath);
+      _playerConfig;
+
+    public DefaultProjectProgressConfig GetDefaultProjectProgressConfig() =>
+      _defaultProjectProgressConfig;
 
     private void LoadExpirienceConfig() =>
-      _expirienceConfig ??= Resources.Load<ExpirienceConfig>(ExpirienceConfigPath);
+      _expirienceConfig = Resources.Load<ExpirienceConfig>(ExpirienceConfigPath);
 
     public EnemyConfig GetEnemyConfig(EnemyId enemyId) =>
       _enemyConfigs[enemyId];
@@ -89,7 +95,17 @@ namespace _Infrastructure.StaticDataServices
       LoadQuestConfigs();
       LoadExpirienceConfig();
       LoadRewardConfigs();
+      LoadPlayerConfig();
+      LoadDefaultProjectProgressConfig();
     }
+
+    private void LoadDefaultProjectProgressConfig() =>
+      _defaultProjectProgressConfig = Resources
+        .Load<DefaultProjectProgressConfig>(DefaultProjectProgressConfigPath);
+
+    private void LoadPlayerConfig() =>
+      _playerConfig = Resources
+        .Load<PlayerConfig>(PlayerConfigPath);
 
     private void LoadRewardConfigs() =>
       _rewardConfigs = Resources
@@ -103,11 +119,11 @@ namespace _Infrastructure.StaticDataServices
 
     private void LoadInitialStats()
     {
-      List<PlayerConfig.StatValuePair> stats = Resources.Load<PlayerConfig>(PlayerConfigPath).Stats;
+      List<StatSetup> stats = Resources.Load<PlayerConfig>(PlayerConfigPath).Stats;
 
       _stats = new Dictionary<StatId, int>();
 
-      foreach (PlayerConfig.StatValuePair stat in stats)
+      foreach (StatSetup stat in stats)
         _stats.Add(stat.StatId, stat.Value);
     }
 

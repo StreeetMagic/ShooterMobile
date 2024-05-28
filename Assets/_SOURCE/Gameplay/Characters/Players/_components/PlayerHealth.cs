@@ -1,9 +1,9 @@
 using System;
-using _Infrastructure.SceneInstallers.GameLoop;
-using _Infrastructure.Utilities;
 using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
+using SceneInstallers.GameLoop;
 using UnityEngine;
+using Utilities;
 using Zenject;
 
 namespace Gameplay.Characters.Players

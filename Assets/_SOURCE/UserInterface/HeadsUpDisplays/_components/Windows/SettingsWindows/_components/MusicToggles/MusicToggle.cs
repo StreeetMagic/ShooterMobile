@@ -1,4 +1,4 @@
-using _Infrastructure.AudioServices;
+using AudioServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

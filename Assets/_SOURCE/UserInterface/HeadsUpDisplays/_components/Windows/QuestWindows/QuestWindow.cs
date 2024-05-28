@@ -1,5 +1,5 @@
-using _Infrastructure.UserIntefaces;
 using Gameplay.Quests;
+using UserIntefaces;
 using Zenject.Source.Factories;
 
 namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows

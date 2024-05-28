@@ -1,10 +1,10 @@
-using _Infrastructure.AssetProviders;
-using _Infrastructure.RandomServices;
-using _Infrastructure.VisualEffects;
-using _Infrastructure.ZenjectFactories;
+using AssetProviders;
 using Gameplay.Characters.Enemies.Projectiles;
 using Gameplay.Characters.Players.Projectiles;
+using RandomServices;
 using UnityEngine;
+using VisualEffects;
+using ZenjectFactories;
 
 namespace Gameplay.Projectiles.Scripts
 {

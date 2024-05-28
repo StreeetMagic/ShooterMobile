@@ -1,7 +1,7 @@
 using Gameplay.Characters.Enemies;
 using UnityEngine;
 
-namespace _Infrastructure.AssetProviders
+namespace AssetProviders
 {
   public interface IAssetProvider
   {

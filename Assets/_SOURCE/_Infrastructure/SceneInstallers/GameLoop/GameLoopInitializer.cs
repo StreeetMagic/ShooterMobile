@@ -1,9 +1,6 @@
-using _Infrastructure.AudioServices;
-using _Infrastructure.CoroutineRunners;
-using _Infrastructure.Projects;
-using _Infrastructure.SaveLoadServices;
-using _Infrastructure.SceneLoaders;
+using AudioServices;
 using Cameras;
+using CoroutineRunners;
 using CurrencyRepositories;
 using CurrencyRepositories.BackpackStorages;
 using DG.Tweening;
@@ -14,11 +11,14 @@ using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Quests;
 using Gameplay.Upgrades;
 using Maps;
+using Projects;
+using SaveLoadServices;
+using SceneLoaders;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using Zenject;
 
-namespace _Infrastructure.SceneInstallers.GameLoop
+namespace SceneInstallers.GameLoop
 {
   public class GameLoopInitializer : MonoBehaviour, IGameLoopInitializer
   {

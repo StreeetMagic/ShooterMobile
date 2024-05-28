@@ -1,4 +1,4 @@
-namespace _Infrastructure.SceneInstallers.GameLoop
+namespace SceneInstallers.GameLoop
 {
   public interface IGameLoopInitializer
   {

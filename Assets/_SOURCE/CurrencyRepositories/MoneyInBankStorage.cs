@@ -1,6 +1,6 @@
-﻿using _Infrastructure.Projects;
-using _Infrastructure.SaveLoadServices;
-using _Infrastructure.Utilities;
+﻿using Projects;
+using SaveLoadServices;
+using Utilities;
 
 namespace CurrencyRepositories
 {

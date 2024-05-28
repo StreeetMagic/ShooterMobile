@@ -1,6 +1,6 @@
 using System;
-using _Infrastructure.Utilities;
 using UnityEngine;
+using Utilities;
 
 namespace Gameplay.Characters.Players
 {

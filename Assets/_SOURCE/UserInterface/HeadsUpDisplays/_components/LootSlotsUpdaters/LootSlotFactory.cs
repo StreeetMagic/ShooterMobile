@@ -1,9 +1,9 @@
-using _Infrastructure.StaticDataServices;
-using _Infrastructure.ZenjectFactories;
 using CurrencyRepositories;
+using StaticDataServices;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters.LootSlots;
 using Zenject;
+using ZenjectFactories;
 
 namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
 {

@@ -1,9 +1,9 @@
-using _Infrastructure.AssetProviders;
-using _Infrastructure.ZenjectFactories;
+using AssetProviders;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
+using ZenjectFactories;
 
-namespace _Infrastructure.VisualEffects
+namespace VisualEffects
 {
   public class ParticleImageFactory
   {

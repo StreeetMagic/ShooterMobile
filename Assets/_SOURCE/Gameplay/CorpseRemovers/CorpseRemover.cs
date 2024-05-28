@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using _Infrastructure.CoroutineRunners;
-using _Infrastructure.Utilities;
+using CoroutineRunners;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
+using Utilities;
 using Object = UnityEngine.Object;
 
 namespace Gameplay.CorpseRemovers

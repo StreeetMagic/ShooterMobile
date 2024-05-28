@@ -1,6 +1,6 @@
-using _Infrastructure.StaticDataServices;
 using Gameplay.Quests.Subquests;
 using Gameplay.Rewards;
+using StaticDataServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

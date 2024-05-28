@@ -1,7 +1,7 @@
-using _Infrastructure.AssetProviders;
+using AssetProviders;
 using Zenject.Source.Main;
 
-namespace _Infrastructure.ZenjectFactories
+namespace ZenjectFactories
 {
   public class ProjectZenjectFactory : ZenjectFactory
   {

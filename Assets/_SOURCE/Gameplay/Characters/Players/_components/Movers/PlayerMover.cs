@@ -1,9 +1,9 @@
-using _Infrastructure.Projects;
-using _Infrastructure.SaveLoadServices;
-using _Infrastructure.StaticDataServices;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
+using Projects;
+using SaveLoadServices;
+using StaticDataServices;
 using UnityEngine;
 using Zenject;
 

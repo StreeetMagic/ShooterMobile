@@ -1,14 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using _Infrastructure.CoroutineRunners;
-using _Infrastructure.StaticDataServices;
-using _Infrastructure.Utilities;
+using CoroutineRunners;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Quests;
+using StaticDataServices;
 using UnityEngine;
+using Utilities;
 using Zenject;
 using Random = UnityEngine.Random;
 

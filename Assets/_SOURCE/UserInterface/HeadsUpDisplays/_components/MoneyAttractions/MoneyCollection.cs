@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using _Infrastructure.VisualEffects;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.BackpackBars;
+using VisualEffects;
 using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.MoneyAttractions

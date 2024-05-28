@@ -1,4 +1,4 @@
-namespace _Infrastructure.Utilities
+namespace Utilities
 {
   public class Implementation<T>
   {

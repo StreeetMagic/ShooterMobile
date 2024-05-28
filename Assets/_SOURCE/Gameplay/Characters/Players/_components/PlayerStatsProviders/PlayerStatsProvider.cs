@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using _Infrastructure.StaticDataServices;
-using _Infrastructure.Utilities;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
+using StaticDataServices;
+using Utilities;
 
 namespace Gameplay.Characters.Players.PlayerStatsProviders
 {

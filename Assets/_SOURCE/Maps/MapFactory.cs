@@ -1,6 +1,6 @@
-﻿using _Infrastructure.Projects;
-using _Infrastructure.ZenjectFactories;
+﻿using Projects;
 using UnityEngine;
+using ZenjectFactories;
 using Object = UnityEngine.Object;
 
 namespace Maps

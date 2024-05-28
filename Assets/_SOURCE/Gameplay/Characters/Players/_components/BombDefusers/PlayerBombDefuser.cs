@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using _Infrastructure.Projects;
 using Gameplay.Bombs;
+using StaticDataServices;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +12,7 @@ namespace Gameplay.Characters.Players.BombDefusers
 
     [Inject] private PlayerHealth _playerHealth;
     [Inject] private PlayerMoveSpeed _playerMoveSpeed;
+    [Inject] private IStaticDataService _staticDataService;
 
     private void OnEnable()
     {
@@ -36,7 +37,7 @@ namespace Gameplay.Characters.Players.BombDefusers
     {
       if (_playerMoveSpeed.CurrentMoveSpeed.Value == 0)
       {
-        float progressPerFrame = (Time.deltaTime / ProjectConstants.CommonSettings.BombDefuseDuration);
+        float progressPerFrame = (Time.deltaTime / _staticDataService.GetPlayerConfig().BombDefuseDuration);
 
         if (Bombs.Count <= 0)
           return;

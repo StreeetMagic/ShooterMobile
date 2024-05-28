@@ -1,10 +1,10 @@
 using System;
-using _Infrastructure.AssetProviders;
-using _Infrastructure.ZenjectFactories;
+using AssetProviders;
 using UnityEngine;
+using ZenjectFactories;
 using Object = UnityEngine.Object;
 
-namespace _Infrastructure.VisualEffects
+namespace VisualEffects
 {
   public class VisualEffectFactory
   {

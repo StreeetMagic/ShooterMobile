@@ -1,10 +1,6 @@
-using _Infrastructure.AudioServices;
-using _Infrastructure.CoroutineRunners;
-using _Infrastructure.Projects;
-using _Infrastructure.SaveLoadServices;
-using _Infrastructure.SceneInstallers.GameLoop;
-using _Infrastructure.SceneLoaders;
+using AudioServices;
 using Cameras;
+using CoroutineRunners;
 using CurrencyRepositories;
 using CurrencyRepositories.BackpackStorages;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
@@ -14,11 +10,15 @@ using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Quests;
 using Gameplay.Upgrades;
 using Maps;
+using Projects;
+using SaveLoadServices;
+using SceneInstallers.GameLoop;
+using SceneLoaders;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using Zenject;
 
-namespace _Infrastructure.SceneInstallers.VladTestScene
+namespace SceneInstallers.VladTestScene
 {
   public class VladTestSceneInitializer : MonoBehaviour, IGameLoopInitializer
   {
@@ -62,7 +62,10 @@ namespace _Infrastructure.SceneInstallers.VladTestScene
       Destroy();
 
       _sceneLoader.Load(ProjectConstants.Scenes.Empty,
-        () => { _sceneLoader.Load(ProjectConstants.Scenes.GameLoop); });
+        () =>
+        {
+          _sceneLoader.Load(ProjectConstants.Scenes.VladTestScene);
+        });
     }
 
     private void Destroy()

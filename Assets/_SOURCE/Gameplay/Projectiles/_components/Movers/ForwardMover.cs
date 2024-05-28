@@ -1,4 +1,4 @@
-﻿using _Infrastructure.StaticDataServices;
+﻿using StaticDataServices;
 using UnityEngine;
 using Zenject;
 

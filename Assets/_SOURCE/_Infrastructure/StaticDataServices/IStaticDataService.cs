@@ -9,9 +9,10 @@ using Gameplay.Rewards;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
 using Musics;
+using PersistentProgresses;
 using Sounds;
 
-namespace _Infrastructure.StaticDataServices
+namespace StaticDataServices
 {
   public interface IStaticDataService
   {
@@ -28,5 +29,6 @@ namespace _Infrastructure.StaticDataServices
     QuestConfig GetQuestConfig(QuestId questId);
     ExpirienceConfig GetExpirienceConfig();
     Dictionary<RewardId, RewardConfig> GetRewardConfigs();
+    DefaultProjectProgressConfig GetDefaultProjectProgressConfig();
   }
 }

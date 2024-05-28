@@ -1,9 +1,9 @@
-using _Infrastructure.Projects;
-using _Infrastructure.SceneLoaders;
+using Projects;
+using SceneLoaders;
 using UnityEngine;
 using Zenject;
 
-namespace _Infrastructure._EntryPoint
+namespace _EntryPoint
 {
   public class ProjectInitializer : MonoBehaviour, IInitializable
   {

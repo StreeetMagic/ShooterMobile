@@ -1,8 +1,8 @@
-using _Infrastructure.AssetProviders;
-using _Infrastructure.ZenjectFactories;
+using AssetProviders;
 using Gameplay.Characters.Enemies.Animators;
 using UnityEngine;
 using Zenject;
+using ZenjectFactories;
 
 namespace Gameplay.Characters.Enemies.ModelSpawner
 {

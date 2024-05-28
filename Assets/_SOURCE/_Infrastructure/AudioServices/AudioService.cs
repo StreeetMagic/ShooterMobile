@@ -1,14 +1,14 @@
 using System.Linq;
-using _Infrastructure.Projects;
-using _Infrastructure.SaveLoadServices;
-using _Infrastructure.StaticDataServices;
-using _Infrastructure.ZenjectFactories;
 using Musics;
+using Projects;
+using SaveLoadServices;
 using Sounds;
+using StaticDataServices;
 using UnityEngine;
 using Zenject;
+using ZenjectFactories;
 
-namespace _Infrastructure.AudioServices
+namespace AudioServices
 {
   public class AudioService : IInitializable, IProgressWriter
   {

@@ -1,9 +1,9 @@
-﻿using _Infrastructure.AudioServices;
-using _Infrastructure.StaticDataServices;
+﻿using AudioServices;
 using CurrencyRepositories.BackpackStorages;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Projectiles.Scripts;
 using Sounds;
+using StaticDataServices;
 using UnityEngine;
 using Zenject;
 

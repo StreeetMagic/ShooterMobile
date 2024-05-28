@@ -1,10 +1,10 @@
-using _Infrastructure.Projects;
-using _Infrastructure.SceneLoaders;
+using Projects;
+using SceneLoaders;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace _Infrastructure.SceneInstallers.ChooseGameMode.Buttons
+namespace SceneInstallers.ChooseGameMode.Buttons
 {
   public class DefaultButton : MonoBehaviour
   {

@@ -1,6 +1,6 @@
-﻿using _Infrastructure.Projects;
+﻿using Projects;
 
-namespace _Infrastructure.SaveLoadServices
+namespace SaveLoadServices
 {
   public interface IProgressWriter : IProgressReader
   {

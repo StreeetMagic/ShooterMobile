@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace _Infrastructure.SceneInstallers.ChooseGameMode
+namespace SceneInstallers.ChooseGameMode
 {
   public class ChooseGameModeInitializer : MonoBehaviour, IInitializable
   {

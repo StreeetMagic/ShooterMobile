@@ -1,8 +1,8 @@
-using _Infrastructure.AssetProviders;
+using AssetProviders;
 using UnityEngine;
 using Zenject.Source.Main;
 
-namespace _Infrastructure.ZenjectFactories
+namespace ZenjectFactories
 {
   public abstract class ZenjectFactory
   {

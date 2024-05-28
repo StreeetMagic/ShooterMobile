@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace _Infrastructure.Utilities
+namespace Utilities
 {
   public class ReactiveList<T>
   {

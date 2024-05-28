@@ -1,12 +1,12 @@
 using System.Collections.Generic;
-using _Infrastructure.SaveLoadServices;
-using _Infrastructure.VisualEffects;
 using Cameras;
 using CurrencyRepositories;
 using CurrencyRepositories.BackpackStorages;
 using Gameplay.Characters.Players;
+using SaveLoadServices;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
+using VisualEffects;
 using Zenject;
 
 namespace Gameplay.BaseTriggers

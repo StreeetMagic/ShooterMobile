@@ -1,13 +1,7 @@
-namespace _Infrastructure.Projects
+namespace Projects
 {
   public class ProjectConstants
   {
-    public class CommonSettings
-    {
-      public const float BombDefuseRadius = 3f;
-      public const float BombDefuseDuration = 3f;
-    }
-
     public class Scenes
     {
       public const string Initial = nameof(Initial);
@@ -21,17 +15,11 @@ namespace _Infrastructure.Projects
 
     public class AssetsPath
     {
-      public class Materials
-      {
-      }
-
       public class Prefabs
       {
         public const string CoroutineRunner = nameof(CoroutineRunner);
         public const string LoadingCurtain = nameof(LoadingCurtain);
         public const string VladMap = nameof(VladMap);
-        //public const string Map = nameof(Map);
-        // public const string PlayerVlad = nameof(PlayerVlad);
       }
     }
   }

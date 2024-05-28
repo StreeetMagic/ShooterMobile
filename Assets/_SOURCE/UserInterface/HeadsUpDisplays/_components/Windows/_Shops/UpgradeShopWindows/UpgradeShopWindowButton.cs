@@ -1,7 +1,7 @@
-﻿using _Infrastructure.SaveLoadServices;
-using _Infrastructure.UserIntefaces;
+﻿using SaveLoadServices;
 using UnityEngine;
 using UnityEngine.UI;
+using UserIntefaces;
 using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows

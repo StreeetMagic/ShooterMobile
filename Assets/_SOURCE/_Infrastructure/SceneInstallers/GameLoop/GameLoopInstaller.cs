@@ -1,10 +1,7 @@
 using System.Collections.Generic;
-using _Infrastructure.AssetProviders;
-using _Infrastructure.DebugServices;
-using _Infrastructure.UserIntefaces;
-using _Infrastructure.VisualEffects;
-using _Infrastructure.ZenjectFactories;
+using AssetProviders;
 using Cameras;
+using DebugServices;
 using Gameplay.BaseTriggers;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
@@ -19,15 +16,18 @@ using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
 using Maps;
 using UnityEngine;
+using UserIntefaces;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows;
 using UserInterface.HeadsUpDisplays.Windows.QuestWindows;
 using UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots;
+using VisualEffects;
 using Zenject;
 using Zenject.Source.Install;
+using ZenjectFactories;
 
-namespace _Infrastructure.SceneInstallers.GameLoop
+namespace SceneInstallers.GameLoop
 {
   public class GameLoopInstaller : MonoInstaller
   {

@@ -1,7 +1,4 @@
-using _Infrastructure.AssetProviders;
-using _Infrastructure.PersistentProgresses;
-using _Infrastructure.SaveLoadServices;
-using _Infrastructure.ZenjectFactories;
+using AssetProviders;
 using Gameplay.Characters.Players.InputHandlers;
 using Gameplay.Characters.Players.Movers;
 using Gameplay.Characters.Players.PetSpawnPointsContainers;
@@ -9,7 +6,10 @@ using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
 using Maps;
+using PersistentProgresses;
+using SaveLoadServices;
 using UnityEngine;
+using ZenjectFactories;
 
 namespace Gameplay.Characters.Players
 {

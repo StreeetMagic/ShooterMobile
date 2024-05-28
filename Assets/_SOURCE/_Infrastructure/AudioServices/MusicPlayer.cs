@@ -1,7 +1,7 @@
 ﻿using Musics;
 using UnityEngine;
 
-namespace _Infrastructure.AudioServices
+namespace AudioServices
 {
   public class MusicPlayer
   {

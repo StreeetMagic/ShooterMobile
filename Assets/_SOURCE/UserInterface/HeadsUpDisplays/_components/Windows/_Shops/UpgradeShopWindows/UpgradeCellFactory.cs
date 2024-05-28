@@ -1,9 +1,9 @@
-using _Infrastructure.StaticDataServices;
-using _Infrastructure.ZenjectFactories;
 using Gameplay.Stats;
+using StaticDataServices;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows.UpgradeCells;
 using UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows.UpgradeCells.Scripts;
+using ZenjectFactories;
 
 namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows
 {

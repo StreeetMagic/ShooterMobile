@@ -1,8 +1,7 @@
 ﻿using System;
-using _Infrastructure.StaticDataServices;
-using _Infrastructure.ZenjectFactories;
 using Gameplay.Quests;
 using Loggers;
+using StaticDataServices;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.Windows._Shops.HenShopWindows;
@@ -10,9 +9,10 @@ using UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows;
 using UserInterface.HeadsUpDisplays.Windows.DebugWindows;
 using UserInterface.HeadsUpDisplays.Windows.QuestWindows;
 using UserInterface.HeadsUpDisplays.Windows.SettingsWindows;
+using ZenjectFactories;
 using Object = UnityEngine.Object;
 
-namespace _Infrastructure.UserIntefaces
+namespace UserIntefaces
 {
   public class WindowService
   {
