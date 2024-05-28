@@ -1,13 +1,12 @@
-using Configs.Resources.StatConfigs;
-using Configs.Resources.VisualEffectConfigs;
+using _Infrastructure.VisualEffects;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players.PlayerStatsProviders;
-using Gameplay.Characters.Players.Projectiles.Raycasters;
-using Infrastructure;
+using Gameplay.Projectiles._components.Raycasters;
+using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.Projectiles.Scripts
+namespace Gameplay.Characters.Players.Projectiles
 {
   public class PlayerProjectile : MonoBehaviour
   {

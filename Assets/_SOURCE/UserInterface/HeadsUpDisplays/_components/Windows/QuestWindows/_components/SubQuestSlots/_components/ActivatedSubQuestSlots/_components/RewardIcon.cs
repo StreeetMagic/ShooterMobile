@@ -1,11 +1,11 @@
-using Configs.Resources.RewardConfigs;
-using Infrastructure.StaticDataServices;
-using Quests.Subquests;
+using _Infrastructure.StaticDataServices;
+using Gameplay.Quests.Subquests;
+using Gameplay.Rewards;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots.ActivatedSubQuestSlots
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots._components.ActivatedSubQuestSlots._components
 {
   public class RewardIcon : MonoBehaviour
   {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters
+namespace Gameplay.Characters.Players
 {
   public class PlayerShootingPoint : MonoBehaviour
   {

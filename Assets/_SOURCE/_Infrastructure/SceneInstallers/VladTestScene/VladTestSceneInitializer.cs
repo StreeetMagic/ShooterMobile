@@ -1,19 +1,19 @@
+using _Infrastructure.AudioServices;
+using _Infrastructure.CoroutineRunners;
+using _Infrastructure.Projects;
+using _Infrastructure.SaveLoadServices;
+using _Infrastructure.SceneInstallers.GameLoop;
+using _Infrastructure.SceneLoaders;
 using Cameras;
-using DataRepositories;
-using DataRepositories.BackpackStorages;
+using CurrencyRepositories;
+using CurrencyRepositories.BackpackStorages;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Pets.Hens;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.PlayerStatsProviders;
-using Infrastructure.AudioServices;
-using Infrastructure.CoroutineRunners;
-using Infrastructure.DependencyInjection;
-using Infrastructure.Games;
-using Infrastructure.SaveLoadServices;
-using Infrastructure.SceneLoaders;
-using Infrastructure.Upgrades;
+using Gameplay.Quests;
+using Gameplay.Upgrades;
 using Maps;
-using Quests;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using Zenject;
@@ -74,7 +74,6 @@ namespace _Infrastructure.SceneInstallers.VladTestScene
       _henSpawner.DeSpawnAll();
       _headsUpDisplayFactory.Destroy();
       _enemySpawnerFactory.Destroy();
-      // _cameraFactory.Destroy();
       _playerFactory.Destroy();
       _mapFactory.Destroy();
     }

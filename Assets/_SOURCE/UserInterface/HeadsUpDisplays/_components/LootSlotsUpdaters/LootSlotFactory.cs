@@ -1,6 +1,6 @@
-using Configs.Resources.CurrencyConfigs;
-using Infrastructure.StaticDataServices;
-using Infrastructure.ZenjectFactories;
+using _Infrastructure.StaticDataServices;
+using _Infrastructure.ZenjectFactories;
+using CurrencyRepositories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters.LootSlots;
 using Zenject;

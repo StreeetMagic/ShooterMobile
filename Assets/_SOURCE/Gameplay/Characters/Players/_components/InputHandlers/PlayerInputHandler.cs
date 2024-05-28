@@ -1,5 +1,4 @@
-﻿using Gameplay.Characters.Players.Factories;
-using Gameplay.Characters.Players.Movers;
+﻿using Gameplay.Characters.Players.Movers;
 using Gameplay.Characters.Players.Rotators;
 using Inputs;
 using UnityEngine;

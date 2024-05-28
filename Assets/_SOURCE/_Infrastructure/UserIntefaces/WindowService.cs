@@ -1,18 +1,18 @@
 ﻿using System;
-using Configs.Resources.QuestConfigs.Scripts;
-using Infrastructure.StaticDataServices;
-using Infrastructure.ZenjectFactories;
+using _Infrastructure.StaticDataServices;
+using _Infrastructure.ZenjectFactories;
+using Gameplay.Quests;
 using Loggers;
-using Quests;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
-using UserInterface.HeadsUpDisplays.DebugWindows;
-using UserInterface.HeadsUpDisplays.QuestWindows;
-using UserInterface.HeadsUpDisplays.SettingsWindows;
-using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
+using UserInterface.HeadsUpDisplays.Windows._Shops.HenShopWindows;
+using UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows;
+using UserInterface.HeadsUpDisplays.Windows.DebugWindows;
+using UserInterface.HeadsUpDisplays.Windows.QuestWindows;
+using UserInterface.HeadsUpDisplays.Windows.SettingsWindows;
 using Object = UnityEngine.Object;
 
-namespace Infrastructure.UserIntefaces
+namespace _Infrastructure.UserIntefaces
 {
   public class WindowService
   {

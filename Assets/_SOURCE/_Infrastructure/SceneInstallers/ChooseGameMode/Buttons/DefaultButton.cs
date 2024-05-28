@@ -1,17 +1,20 @@
-using Infrastructure.Games;
-using Infrastructure.SceneLoaders;
+using _Infrastructure.Projects;
+using _Infrastructure.SceneLoaders;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class DefaultButton : MonoBehaviour
+namespace _Infrastructure.SceneInstallers.ChooseGameMode.Buttons
 {
-  public Button Button;
-
-  [Inject] private SceneLoader _sceneLoader;
-
-  private void Start()
+  public class DefaultButton : MonoBehaviour
   {
-    Button.onClick.AddListener(() => { _sceneLoader.Load(ProjectConstants.Scenes.GameLoop); });
+    public Button Button;
+
+    [Inject] private SceneLoader _sceneLoader;
+
+    private void Start()
+    {
+      Button.onClick.AddListener(() => { _sceneLoader.Load(ProjectConstants.Scenes.GameLoop); });
+    }
   }
 }

@@ -1,5 +1,4 @@
 using Gameplay.BaseTriggers;
-using Gameplay.Characters.Players.Factories;
 using Maps;
 using TMPro;
 using UnityEngine;

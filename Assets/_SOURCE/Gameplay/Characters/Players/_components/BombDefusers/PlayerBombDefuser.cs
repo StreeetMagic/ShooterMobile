@@ -1,60 +1,61 @@
 using System.Collections.Generic;
+using _Infrastructure.Projects;
 using Gameplay.Bombs;
-using Gameplay.Characters;
-using Gameplay.Characters.Players;
-using Infrastructure.Games;
 using UnityEngine;
 using Zenject;
 
-public class PlayerBombDefuser : MonoBehaviour
+namespace Gameplay.Characters.Players.BombDefusers
 {
-  public List<Bomb> Bombs { get; } = new();
-
-  [Inject] private PlayerHealth _playerHealth;
-  [Inject] private PlayerMoveSpeed _playerMoveSpeed;
-
-  private void OnEnable()
+  public class PlayerBombDefuser : MonoBehaviour
   {
-    _playerHealth.Damaged += OnDamaged;
-  }
+    public List<Bomb> Bombs { get; } = new();
 
-  private void OnDisable()
-  {
-    _playerHealth.Damaged -= OnDamaged;
-  }
+    [Inject] private PlayerHealth _playerHealth;
+    [Inject] private PlayerMoveSpeed _playerMoveSpeed;
 
-  private void OnDamaged(int obj)
-  {
-    if (Bombs.Count > 0)
+    private void OnEnable()
     {
-      if (Bombs[0] != null)
-      {
-        Bombs[0].GetComponent<BombDefuser>().DefuseProgress = 0;
-      }
+      _playerHealth.Damaged += OnDamaged;
     }
-  }
 
-  private void Update()
-  {
-    if (_playerMoveSpeed.CurrentMoveSpeed.Value == 0)
+    private void OnDisable()
     {
-      float progressPerFrame = (Time.deltaTime / ProjectConstants.CommonSettings.BombDefuseDuration);
-
-      if (Bombs.Count > 0)
-      {
-        if (Bombs[0] != null)
-        {
-          Bombs[0].GetComponent<BombDefuser>().DefuseProgress += progressPerFrame;
-        }
-      }
+      _playerHealth.Damaged -= OnDamaged;
     }
-    else
+
+    private void OnDamaged(int obj)
     {
       if (Bombs.Count > 0)
       {
         if (Bombs[0] != null)
         {
           Bombs[0].GetComponent<BombDefuser>().DefuseProgress = 0;
+        }
+      }
+    }
+
+    private void Update()
+    {
+      if (_playerMoveSpeed.CurrentMoveSpeed.Value == 0)
+      {
+        float progressPerFrame = (Time.deltaTime / ProjectConstants.CommonSettings.BombDefuseDuration);
+
+        if (Bombs.Count > 0)
+        {
+          if (Bombs[0] != null)
+          {
+            Bombs[0].GetComponent<BombDefuser>().DefuseProgress += progressPerFrame;
+          }
+        }
+      }
+      else
+      {
+        if (Bombs.Count > 0)
+        {
+          if (Bombs[0] != null)
+          {
+            Bombs[0].GetComponent<BombDefuser>().DefuseProgress = 0;
+          }
         }
       }
     }

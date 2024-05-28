@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Infrastructure.Utilities
+namespace _Infrastructure.Utilities
 {
   public static class FluentBuilder
   {

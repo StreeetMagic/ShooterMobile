@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Games
+﻿namespace _Infrastructure.Projects
 {
   public enum DeviceTypes
   {

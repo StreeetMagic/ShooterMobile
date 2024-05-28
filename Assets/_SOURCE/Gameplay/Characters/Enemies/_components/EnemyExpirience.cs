@@ -1,5 +1,4 @@
-using Configs.Resources.EnemyConfigs.Scripts;
-using DataRepositories;
+using CurrencyRepositories.Expirience;
 using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
 using Zenject;

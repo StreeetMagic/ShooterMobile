@@ -1,9 +1,9 @@
-using Quests;
+using Gameplay.Quests;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components
 {
   public class ActivateQuestButton : MonoBehaviour
   {

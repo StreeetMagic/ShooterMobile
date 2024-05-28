@@ -1,5 +1,5 @@
-﻿using Infrastructure.Games;
-using Infrastructure.ZenjectFactories;
+﻿using _Infrastructure.Projects;
+using _Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Object = UnityEngine.Object;
 

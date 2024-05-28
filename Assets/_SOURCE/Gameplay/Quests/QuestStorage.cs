@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
-using Configs.Resources.QuestConfigs.Scripts;
-using Infrastructure.PersistentProgresses;
-using Infrastructure.SaveLoadServices;
-using Infrastructure.StaticDataServices;
-using Infrastructure.ZenjectFactories;
-using Quests.Subquests;
+using _Infrastructure.Projects;
+using _Infrastructure.SaveLoadServices;
+using _Infrastructure.StaticDataServices;
+using _Infrastructure.ZenjectFactories;
+using Gameplay.Quests.Subquests;
 
-namespace Quests
+namespace Gameplay.Quests
 {
   public class QuestStorage : IProgressWriter
   {

@@ -1,24 +1,26 @@
-using DataRepositories;
-using DataRepositories.BackpackStorages;
+using _Infrastructure.AssetProviders;
+using _Infrastructure.AudioServices;
+using _Infrastructure.CoroutineRunners;
+using _Infrastructure.LoadingCurtains;
+using _Infrastructure.PersistentProgresses;
+using _Infrastructure.Projects;
+using _Infrastructure.RandomServices;
+using _Infrastructure.SaveLoadServices;
+using _Infrastructure.SceneLoaders;
+using _Infrastructure.StaticDataServices;
+using _Infrastructure.ZenjectFactories;
+using CurrencyRepositories;
+using CurrencyRepositories.BackpackStorages;
+using CurrencyRepositories.Expirience;
 using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Quests;
 using Gameplay.RewardServices;
-using Infrastructure.AssetProviders;
-using Infrastructure.AudioServices;
-using Infrastructure.CoroutineRunners;
-using Infrastructure.Games;
-using Infrastructure.LoadingCurtains;
-using Infrastructure.PersistentProgresses;
-using Infrastructure.SaveLoadServices;
-using Infrastructure.SceneLoaders;
-using Infrastructure.StaticDataServices;
-using Infrastructure.Upgrades;
-using Infrastructure.ZenjectFactories;
+using Gameplay.Upgrades;
 using Inputs;
 using Loggers;
-using Quests;
 using Zenject.Source.Install;
 
-namespace Infrastructure.DependencyInjection
+namespace _Infrastructure._EntryPoint
 {
   public class ProjectInstaller : MonoInstaller
   {

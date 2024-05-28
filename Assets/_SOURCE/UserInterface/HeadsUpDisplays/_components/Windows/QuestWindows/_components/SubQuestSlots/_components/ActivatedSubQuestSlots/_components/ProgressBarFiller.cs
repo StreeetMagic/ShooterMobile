@@ -1,10 +1,10 @@
-using Configs.Resources.QuestConfigs.Scripts;
-using Quests.Subquests;
+using Gameplay.Quests;
+using Gameplay.Quests.Subquests;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots.ActivatedSubQuestSlots
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots._components.ActivatedSubQuestSlots._components
 {
   public class ProgressBarFiller : MonoBehaviour
   {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Infrastructure.Utilities
+namespace _Infrastructure.Utilities
 {
   public static class LayerMaskExtension
   {

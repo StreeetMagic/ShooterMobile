@@ -1,7 +1,6 @@
-using Configs.Resources.EnemyConfigs.Scripts;
+using _Infrastructure.AssetProviders;
+using _Infrastructure.ZenjectFactories;
 using Gameplay.Characters.Enemies.Animators;
-using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Zenject;
 

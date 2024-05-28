@@ -1,11 +1,10 @@
 using System;
-using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies;
 using Unity.VisualScripting;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Infrastructure.AssetProviders
+namespace _Infrastructure.AssetProviders
 {
   public class AssetProvider : IAssetProvider
   {

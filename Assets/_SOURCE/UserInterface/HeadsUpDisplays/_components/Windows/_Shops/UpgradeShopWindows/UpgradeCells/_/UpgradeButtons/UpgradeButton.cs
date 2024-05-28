@@ -1,11 +1,11 @@
-using Configs.Resources.StatConfigs;
-using DataRepositories;
-using Infrastructure.Upgrades;
+using CurrencyRepositories;
+using Gameplay.Stats;
+using Gameplay.Upgrades;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells._.UpgradeButtons
+namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows.UpgradeCells.@_.UpgradeButtons
 {
   public class UpgradeButton : MonoBehaviour
   {

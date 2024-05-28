@@ -1,20 +1,23 @@
-using Infrastructure.Games;
+using _Infrastructure.Projects;
 using UnityEngine;
 
-[RequireComponent(typeof(RectTransform))]
-public class BombDefuseRadius : MonoBehaviour
+namespace Gameplay.Bombs
 {
-  private RectTransform _rectTransform;
-
-  private void Awake()
+  [RequireComponent(typeof(RectTransform))]
+  public class BombDefuseRadius : MonoBehaviour
   {
-    _rectTransform = GetComponent<RectTransform>();
-  }
+    private RectTransform _rectTransform;
 
-  private void OnEnable()
-  {
-    float value = ProjectConstants.CommonSettings.BombDefuseRadius * 2f;
+    private void Awake()
+    {
+      _rectTransform = GetComponent<RectTransform>();
+    }
 
-    _rectTransform.localScale = new Vector3(value, value, value);
+    private void OnEnable()
+    {
+      float value = ProjectConstants.CommonSettings.BombDefuseRadius * 2f;
+
+      _rectTransform.localScale = new Vector3(value, value, value);
+    }
   }
 }

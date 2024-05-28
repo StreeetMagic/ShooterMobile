@@ -1,14 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BombDefuseBar : MonoBehaviour
+namespace Gameplay.Bombs
 {
-  public Slider Slider;
-
-  public BombDefuser BombDefuser;
-
-  private void Update()
+  public class BombDefuseBar : MonoBehaviour
   {
-    Slider.value = BombDefuser.DefuseProgress;
+    public Slider Slider;
+
+    public BombDefuser BombDefuser;
+
+    private void Update()
+    {
+      Slider.value = BombDefuser.DefuseProgress;
+    }
   }
 }

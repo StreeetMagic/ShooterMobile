@@ -3,6 +3,7 @@ using System.Linq;
 using Gameplay.BaseTriggers;
 using Gameplay.Bombs;
 using Gameplay.Characters.Questers;
+using Gameplay.Characters.Shopers;
 using Maps.Markers.EnemySpawnMarkers;
 using Maps.Markers.PlayerSpawnMarkers;
 using Sirenix.OdinInspector;

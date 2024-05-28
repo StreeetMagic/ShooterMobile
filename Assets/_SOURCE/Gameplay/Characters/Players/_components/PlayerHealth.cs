@@ -1,7 +1,8 @@
 using System;
-using Configs.Resources.StatConfigs;
+using _Infrastructure.SceneInstallers.GameLoop;
+using _Infrastructure.Utilities;
 using Gameplay.Characters.Players.PlayerStatsProviders;
-using Infrastructure.Utilities;
+using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
 

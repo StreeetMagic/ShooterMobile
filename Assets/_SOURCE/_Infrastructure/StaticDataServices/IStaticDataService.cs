@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using Configs.Resources.CurrencyConfigs;
-using Configs.Resources.EnemyConfigs.Scripts;
-using Configs.Resources.ExpirienceConfigs;
-using Configs.Resources.LootConfigs;
-using Configs.Resources.MusicConfigs.Scripts;
-using Configs.Resources.PlayerConfigs.Scripts;
-using Configs.Resources.QuestConfigs.Scripts;
-using Configs.Resources.RewardConfigs;
-using Configs.Resources.SoundConfigs.Scripts;
-using Configs.Resources.StatConfigs;
-using Configs.Resources.UpgradeConfigs.Scripts;
+using CurrencyRepositories;
+using CurrencyRepositories.Expirience;
+using Gameplay.Characters.Enemies;
+using Gameplay.Characters.Players;
+using Gameplay.Loots;
+using Gameplay.Quests;
+using Gameplay.Rewards;
+using Gameplay.Stats;
+using Gameplay.Upgrades;
+using Musics;
+using Sounds;
 
-namespace Infrastructure.StaticDataServices
+namespace _Infrastructure.StaticDataServices
 {
   public interface IStaticDataService
   {

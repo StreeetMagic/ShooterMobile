@@ -1,9 +1,9 @@
-using Infrastructure.UserIntefaces;
+using _Infrastructure.UserIntefaces;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.DebugWindows.DebugButtons
+namespace UserInterface.HeadsUpDisplays.Windows.DebugWindows.DebugButtons
 {
   public class DebugButton : MonoBehaviour
   {

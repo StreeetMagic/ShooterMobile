@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Gameplay.Characters.Players.Projectiles.ImportedScripts
+namespace Gameplay.Projectiles.ImportedScripts
 {
     public class PixelArsenalLightFade : MonoBehaviour
     {

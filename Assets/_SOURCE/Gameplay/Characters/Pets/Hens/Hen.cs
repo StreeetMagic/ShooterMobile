@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class Hen : MonoBehaviour
+namespace Gameplay.Characters.Pets.Hens
 {
+  public class Hen : MonoBehaviour
+  {
+  }
 }

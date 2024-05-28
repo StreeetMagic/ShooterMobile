@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Quests;
+using Gameplay.Quests;
+using Gameplay.Upgrades;
 using UnityEngine;
 
-namespace Infrastructure.PersistentProgresses
+namespace _Infrastructure.Projects
 {
   [Serializable]
   public class ProjectProgress

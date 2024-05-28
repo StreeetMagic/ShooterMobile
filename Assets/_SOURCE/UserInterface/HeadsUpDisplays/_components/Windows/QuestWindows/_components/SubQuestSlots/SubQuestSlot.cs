@@ -1,11 +1,11 @@
 using System;
-using Quests;
-using Quests.Subquests;
+using Gameplay.Quests;
+using Gameplay.Quests.Subquests;
 using UnityEngine;
 using Zenject;
 using Zenject.Source.Factories;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots
 {
   public class SubQuestSlot : MonoBehaviour
   {

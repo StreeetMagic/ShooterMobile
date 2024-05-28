@@ -1,7 +1,6 @@
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Infrastructure.Utilities;
+using _Infrastructure.Utilities;
 
-namespace Infrastructure.Upgrades
+namespace Gameplay.Upgrades
 {
   public class Upgrade
   {

@@ -1,20 +1,23 @@
 using TMPro;
 using UnityEngine;
 
-public class BombDefuseText : MonoBehaviour
+namespace Gameplay.Bombs
 {
-  public TextMeshProUGUI Text;
-  public BombDefuser BombDefuser;
-
-  private void Update()
+  public class BombDefuseText : MonoBehaviour
   {
-    SetText();
-  }
+    public TextMeshProUGUI Text;
+    public BombDefuser BombDefuser;
 
-  public void SetText()
-  {
-    int value = (int)(BombDefuser.DefuseProgress * 100);
+    private void Update()
+    {
+      SetText();
+    }
 
-    Text.text = $"{value}%";
+    public void SetText()
+    {
+      int value = (int)(BombDefuser.DefuseProgress * 100);
+
+      Text.text = $"{value}%";
+    }
   }
 }

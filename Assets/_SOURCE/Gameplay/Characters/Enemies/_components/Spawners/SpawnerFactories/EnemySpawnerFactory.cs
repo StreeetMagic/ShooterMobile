@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using _Infrastructure.AssetProviders;
+using _Infrastructure.ZenjectFactories;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
-using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
 using Maps;
 using Maps.Markers.EnemySpawnMarkers;
+using Maps.Markers.EnemySpawnMarkers._components;
 using UnityEngine;
 using Zenject.Source.Main;
 

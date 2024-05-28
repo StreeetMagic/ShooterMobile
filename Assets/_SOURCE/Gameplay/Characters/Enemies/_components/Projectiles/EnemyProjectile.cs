@@ -1,11 +1,10 @@
-using Configs.Resources.VisualEffectConfigs;
+using _Infrastructure.VisualEffects;
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.Projectiles.Raycasters;
-using Infrastructure;
+using Gameplay.Projectiles._components.Raycasters;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.EnemyShooters.Projectiles
+namespace Gameplay.Characters.Enemies.Projectiles
 {
   public class EnemyProjectile : MonoBehaviour
   {

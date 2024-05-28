@@ -1,8 +1,7 @@
 using System;
-using Configs.Resources.EnemyConfigs.Scripts;
+using _Infrastructure.Utilities;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
-using Infrastructure.Utilities;
 using UnityEngine;
 using Zenject;
 

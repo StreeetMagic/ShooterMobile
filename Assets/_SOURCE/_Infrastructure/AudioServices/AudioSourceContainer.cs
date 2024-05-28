@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Infrastructure.AudioServices
+namespace _Infrastructure.AudioServices
 {
     public class AudioSourceContainer : MonoBehaviour
     {

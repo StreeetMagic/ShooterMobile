@@ -1,10 +1,9 @@
-using Configs.Resources.PlayerConfigs.Scripts;
-using Configs.Resources.StatConfigs;
+using _Infrastructure.Projects;
+using _Infrastructure.SaveLoadServices;
+using _Infrastructure.StaticDataServices;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.PlayerStatsProviders;
-using Infrastructure.PersistentProgresses;
-using Infrastructure.SaveLoadServices;
-using Infrastructure.StaticDataServices;
+using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
 

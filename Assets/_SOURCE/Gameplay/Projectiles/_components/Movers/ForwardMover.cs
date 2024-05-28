@@ -1,8 +1,8 @@
-﻿using Infrastructure.StaticDataServices;
+﻿using _Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.Projectiles.Movers
+namespace Gameplay.Projectiles._components.Movers
 {
   [RequireComponent(typeof(Rigidbody))]
   public class ForwardMover : MonoBehaviour

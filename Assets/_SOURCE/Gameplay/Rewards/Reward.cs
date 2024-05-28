@@ -1,5 +1,4 @@
 using System;
-using Configs.Resources.RewardConfigs;
 
 namespace Gameplay.Rewards
 {

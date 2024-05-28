@@ -1,10 +1,9 @@
-﻿using Configs.Resources.SoundConfigs.Scripts;
-using DataRepositories.BackpackStorages;
-using Gameplay.Characters.Players.Factories;
-using Gameplay.Characters.Players.Projectiles.Scripts;
+﻿using _Infrastructure.AudioServices;
+using _Infrastructure.StaticDataServices;
+using CurrencyRepositories.BackpackStorages;
 using Gameplay.Characters.Players.TargetHolders;
-using Infrastructure.AudioServices;
-using Infrastructure.StaticDataServices;
+using Gameplay.Projectiles.Scripts;
+using Sounds;
 using UnityEngine;
 using Zenject;
 

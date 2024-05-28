@@ -1,6 +1,6 @@
-using Infrastructure.UserIntefaces;
+using _Infrastructure.UserIntefaces;
 
-namespace UserInterface.HeadsUpDisplays.SettingsWindows
+namespace UserInterface.HeadsUpDisplays.Windows.SettingsWindows
 {
   public class SettingsWindow : Window
   {

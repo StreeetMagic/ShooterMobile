@@ -3,23 +3,26 @@ using Maps;
 using UnityEngine;
 using Zenject;
 
-public class BaseTriggerTarget : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays
 {
-  public RectTransform RectTransform;
-
-  [Inject] private CameraProvider _cameraProvider;
-  [Inject] private MapProvider _mapProvider;
-
-  private void Update()
+  public class BaseTriggerTarget : MonoBehaviour
   {
-    if (_cameraProvider.MainCamera == null)
-      return;
+    public RectTransform RectTransform;
 
-    if (_mapProvider.Map == null)
-      return;
+    [Inject] private CameraProvider _cameraProvider;
+    [Inject] private MapProvider _mapProvider;
 
-    var screenPosition = _cameraProvider.MainCamera.WorldToScreenPoint(_mapProvider.Map.BaseTrigger.transform.position);
+    private void Update()
+    {
+      if (_cameraProvider.MainCamera == null)
+        return;
 
-    RectTransform.position = screenPosition;
+      if (_mapProvider.Map == null)
+        return;
+
+      var screenPosition = _cameraProvider.MainCamera.WorldToScreenPoint(_mapProvider.Map.BaseTrigger.transform.position);
+
+      RectTransform.position = screenPosition;
+    }
   }
 }

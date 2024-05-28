@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Configs.Resources.StatConfigs;
-using Infrastructure.StaticDataServices;
-using Infrastructure.UserIntefaces;
+using _Infrastructure.StaticDataServices;
+using _Infrastructure.UserIntefaces;
+using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
+namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows
 {
   public class UpgradeShopWindow : Window
   {

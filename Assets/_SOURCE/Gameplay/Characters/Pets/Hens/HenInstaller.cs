@@ -1,23 +1,25 @@
-using Gameplay.Characters.Pets.Hens;
 using Gameplay.Characters.Pets.Hens._components;
 using Gameplay.Characters.Pets.Hens.MeshModels;
 using UnityEngine;
 using Zenject.Source.Install;
 
-public class HenInstaller : MonoInstaller
+namespace Gameplay.Characters.Pets.Hens
 {
-  public override void InstallBindings()
+  public class HenInstaller : MonoInstaller
   {
-    Container.Bind<Hen>().FromInstance(GetComponent<Hen>());
-    Container.Bind<HenMover>().FromInstance(GetComponent<HenMover>());
-    Container.Bind<HenToPlayerFollower>().FromInstance(GetComponent<HenToPlayerFollower>());
-    Container.Bind<HenRotator>().FromInstance(GetComponent<HenRotator>());
-    Container.Bind<CharacterController>().FromInstance(GetComponent<CharacterController>());
-    Container.Bind<HenVisualEffector>().FromInstance(GetComponent<HenVisualEffector>());
-    Container.Bind<HenBehaviourController>().FromInstance(GetComponent<HenBehaviourController>());
-    Container.Bind<HenToTargetFollower>().FromInstance(GetComponent<HenToTargetFollower>());
-    Container.Bind<HenDamageDealer>().FromInstance(GetComponent<HenDamageDealer>());
-    Container.Bind<HenIdle>().FromInstance(GetComponent<HenIdle>());
-    Container.Bind<HenAnimator>().FromInstance(GetComponentInChildren<HenAnimator>());
+    public override void InstallBindings()
+    {
+      Container.Bind<Hen>().FromInstance(GetComponent<Hen>());
+      Container.Bind<HenMover>().FromInstance(GetComponent<HenMover>());
+      Container.Bind<HenToPlayerFollower>().FromInstance(GetComponent<HenToPlayerFollower>());
+      Container.Bind<HenRotator>().FromInstance(GetComponent<HenRotator>());
+      Container.Bind<CharacterController>().FromInstance(GetComponent<CharacterController>());
+      Container.Bind<HenVisualEffector>().FromInstance(GetComponent<HenVisualEffector>());
+      Container.Bind<HenBehaviourController>().FromInstance(GetComponent<HenBehaviourController>());
+      Container.Bind<HenToTargetFollower>().FromInstance(GetComponent<HenToTargetFollower>());
+      Container.Bind<HenDamageDealer>().FromInstance(GetComponent<HenDamageDealer>());
+      Container.Bind<HenIdle>().FromInstance(GetComponent<HenIdle>());
+      Container.Bind<HenAnimator>().FromInstance(GetComponentInChildren<HenAnimator>());
+    }
   }
 }

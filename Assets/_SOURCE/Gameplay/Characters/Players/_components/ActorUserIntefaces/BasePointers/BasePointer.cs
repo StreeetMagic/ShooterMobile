@@ -1,4 +1,4 @@
-using DataRepositories.BackpackStorages;
+using CurrencyRepositories.BackpackStorages;
 using Gameplay.BaseTriggers;
 using Maps;
 using UnityEngine;

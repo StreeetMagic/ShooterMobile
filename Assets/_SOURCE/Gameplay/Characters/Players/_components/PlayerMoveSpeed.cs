@@ -1,8 +1,8 @@
 using System;
-using Infrastructure.Utilities;
+using _Infrastructure.Utilities;
 using UnityEngine;
 
-namespace Gameplay.Characters
+namespace Gameplay.Characters.Players
 {
   public class PlayerMoveSpeed : MonoBehaviour
   {

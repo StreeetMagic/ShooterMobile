@@ -1,9 +1,9 @@
-﻿using Infrastructure.PersistentProgresses;
+﻿using _Infrastructure.PersistentProgresses;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Infrastructure.UserIntefaces
+namespace _Infrastructure.UserIntefaces
 {
   public abstract class Window : MonoBehaviour
   {

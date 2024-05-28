@@ -1,17 +1,20 @@
-using Infrastructure.Games;
-using Infrastructure.SceneLoaders;
+using _Infrastructure.Projects;
+using _Infrastructure.SceneLoaders;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class VladTestButton : MonoBehaviour
+namespace _Infrastructure.SceneInstallers.ChooseGameMode.Buttons
 {
-  public Button Button;
-
-  [Inject] private SceneLoader _sceneLoader;
-
-  private void Start()
+  public class VladTestButton : MonoBehaviour
   {
-    Button.onClick.AddListener(() => { _sceneLoader.Load(ProjectConstants.Scenes.VladTestScene); });
+    public Button Button;
+
+    [Inject] private SceneLoader _sceneLoader;
+
+    private void Start()
+    {
+      Button.onClick.AddListener(() => { _sceneLoader.Load(ProjectConstants.Scenes.VladTestScene); });
+    }
   }
 }

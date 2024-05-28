@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
-using Infrastructure.CoroutineRunners;
+using _Infrastructure.CoroutineRunners;
 using UnityEngine;
 
-namespace Infrastructure.Utilities
+namespace _Infrastructure.Utilities
 {
   public class CoroutineDecorator
   {

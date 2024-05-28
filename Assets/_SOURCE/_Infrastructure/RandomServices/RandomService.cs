@@ -1,6 +1,6 @@
 using System;
 
-namespace Infrastructure
+namespace _Infrastructure.RandomServices
 {
   public class RandomService
   {

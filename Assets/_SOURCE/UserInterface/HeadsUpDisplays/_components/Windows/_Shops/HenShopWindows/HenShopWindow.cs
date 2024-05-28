@@ -1,5 +1,8 @@
-using Infrastructure.UserIntefaces;
+using _Infrastructure.UserIntefaces;
 
-public class HenShopWindow : Window
+namespace UserInterface.HeadsUpDisplays.Windows._Shops.HenShopWindows
 {
+  public class HenShopWindow : Window
+  {
+  }
 }

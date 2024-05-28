@@ -1,6 +1,6 @@
-using Infrastructure.UserIntefaces;
+using _Infrastructure.UserIntefaces;
 
-namespace UserInterface.HeadsUpDisplays.DebugWindows
+namespace UserInterface.HeadsUpDisplays.Windows.DebugWindows
 {
   public class DebugWindow : Window
   {

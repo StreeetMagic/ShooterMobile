@@ -1,27 +1,30 @@
-using Configs.Resources.StatConfigs;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Stats;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class HealthBarText : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays.Bars.HealthBars._components
 {
-  public TextMeshProUGUI Text;
-
-  [Inject] private PlayerProvider _playerProvider;
-  [Inject] private PlayerStatsProvider _playerStatsProvider;
-
-  private void Update()
+  public class HealthBarText : MonoBehaviour
   {
-    if (_playerProvider.PlayerHealth == null)
-      return;
+    public TextMeshProUGUI Text;
 
-    int maxHealth = _playerStatsProvider.GetStat(StatId.Health).Value;
-    int currentHealth = _playerProvider.PlayerHealth.Current.Value;
+    [Inject] private PlayerProvider _playerProvider;
+    [Inject] private PlayerStatsProvider _playerStatsProvider;
 
-    float healthPercentage = (float)currentHealth / maxHealth * 100;
+    private void Update()
+    {
+      if (_playerProvider.PlayerHealth == null)
+        return;
 
-    Text.text = $"HP {healthPercentage}%";
+      int maxHealth = _playerStatsProvider.GetStat(StatId.Health).Value;
+      int currentHealth = _playerProvider.PlayerHealth.Current.Value;
+
+      float healthPercentage = (float)currentHealth / maxHealth * 100;
+
+      Text.text = $"HP {healthPercentage}%";
+    }
   }
 }

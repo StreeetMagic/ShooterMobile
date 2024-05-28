@@ -1,9 +1,8 @@
-using Configs.Resources.QuestConfigs.Scripts;
-using Infrastructure.UserIntefaces;
-using Quests;
+using _Infrastructure.UserIntefaces;
+using Gameplay.Quests;
 using Zenject.Source.Factories;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows
 {
   public class QuestWindow : Window
   {

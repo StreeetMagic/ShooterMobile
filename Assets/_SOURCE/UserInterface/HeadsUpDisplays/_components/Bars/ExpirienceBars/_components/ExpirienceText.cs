@@ -1,11 +1,10 @@
-using Configs.Resources.ExpirienceConfigs;
-using DataRepositories;
-using Infrastructure.StaticDataServices;
+using _Infrastructure.StaticDataServices;
+using CurrencyRepositories.Expirience;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.ExpirienceBars
+namespace UserInterface.HeadsUpDisplays.Bars.ExpirienceBars._components
 {
   public class ExpirienceText : MonoBehaviour
   {

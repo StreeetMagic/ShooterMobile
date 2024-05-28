@@ -1,9 +1,9 @@
-using Infrastructure.UserIntefaces;
+using _Infrastructure.UserIntefaces;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
+namespace UserInterface.HeadsUpDisplays.Buttons.OpenShopButtons
 {
   public class OpenShopButton : MonoBehaviour
   {

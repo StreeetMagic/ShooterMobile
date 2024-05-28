@@ -1,9 +1,12 @@
 using Zenject.Source.Install;
 
-public class LoadConfigsInstaller : MonoInstaller
+namespace _Infrastructure.SceneInstallers.LoadConfig
 {
-  public override void InstallBindings()
+  public class LoadConfigsInstaller : MonoInstaller
   {
-    Container.BindInterfacesAndSelfTo<LoadConfigsInitializer>().FromInstance(GetComponent<LoadConfigsInitializer>()).AsSingle().NonLazy();
+    public override void InstallBindings()
+    {
+      Container.BindInterfacesAndSelfTo<LoadConfigsInitializer>().FromInstance(GetComponent<LoadConfigsInitializer>()).AsSingle().NonLazy();
+    }
   }
 }

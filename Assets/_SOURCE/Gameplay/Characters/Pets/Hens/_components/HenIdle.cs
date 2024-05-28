@@ -2,17 +2,20 @@ using Gameplay.Characters.Pets.Hens.MeshModels;
 using UnityEngine;
 using Zenject;
 
-public class HenIdle : MonoBehaviour
+namespace Gameplay.Characters.Pets.Hens
 {
-  [Inject] private HenAnimator _henAnimator;
-
-  private void Awake()
+  public class HenIdle : MonoBehaviour
   {
-    enabled = false;
-  }
+    [Inject] private HenAnimator _henAnimator;
 
-  private void OnEnable()
-  {
-    _henAnimator.StopMovingAnimation();
+    private void Awake()
+    {
+      enabled = false;
+    }
+
+    private void OnEnable()
+    {
+      _henAnimator.StopMovingAnimation();
+    }
   }
 }

@@ -1,11 +1,10 @@
 using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Characters.Pets.Hens._components;
 using Gameplay.Characters.Pets.Hens.MeshModels;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Pets.Hens
+namespace Gameplay.Characters.Pets.Hens._components
 {
   public class HenDamageDealer : MonoBehaviour
   {

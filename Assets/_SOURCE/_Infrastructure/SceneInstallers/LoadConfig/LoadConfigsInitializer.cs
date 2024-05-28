@@ -1,17 +1,20 @@
-using Infrastructure.Games;
-using Infrastructure.SceneLoaders;
-using Infrastructure.StaticDataServices;
+using _Infrastructure.Projects;
+using _Infrastructure.SceneLoaders;
+using _Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 
-public class LoadConfigsInitializer : MonoBehaviour, IInitializable
+namespace _Infrastructure.SceneInstallers.LoadConfig
 {
-  [Inject] private SceneLoader _sceneLoader;
-  [Inject] private IStaticDataService _staticDataService;
-
-  public void Initialize()
+  public class LoadConfigsInitializer : MonoBehaviour, IInitializable
   {
-    _staticDataService.LoadConfigs();
-    _sceneLoader.Load(ProjectConstants.Scenes.LoadProgress);
+    [Inject] private SceneLoader _sceneLoader;
+    [Inject] private IStaticDataService _staticDataService;
+
+    public void Initialize()
+    {
+      _staticDataService.LoadConfigs();
+      _sceneLoader.Load(ProjectConstants.Scenes.LoadProgress);
+    }
   }
 }

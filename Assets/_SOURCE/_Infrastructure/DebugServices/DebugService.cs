@@ -1,11 +1,12 @@
 using System;
-using Configs.Resources.QuestConfigs.Scripts;
-using Infrastructure.SaveLoadServices;
-using Infrastructure.UserIntefaces;
+using _Infrastructure.SaveLoadServices;
+using _Infrastructure.SceneInstallers.GameLoop;
+using _Infrastructure.UserIntefaces;
+using Gameplay.Quests;
 using Inputs;
 using Zenject;
 
-namespace Infrastructure.DebugServices
+namespace _Infrastructure.DebugServices
 {
   public class DebugService : IInitializable, IDisposable
   {

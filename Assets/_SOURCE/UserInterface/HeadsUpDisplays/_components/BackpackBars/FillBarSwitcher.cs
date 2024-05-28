@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Configs.Resources.EnemyConfigs.Scripts;
-using Configs.Resources.StatConfigs;
-using DataRepositories.BackpackStorages;
+using CurrencyRepositories.BackpackStorages;
+using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
 

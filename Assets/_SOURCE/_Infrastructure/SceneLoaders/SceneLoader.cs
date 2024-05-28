@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections;
-using Infrastructure.CoroutineRunners;
-using Infrastructure.Games;
+using _Infrastructure.CoroutineRunners;
+using _Infrastructure.Projects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Infrastructure.SceneLoaders
+namespace _Infrastructure.SceneLoaders
 {
   public class SceneLoader
   {

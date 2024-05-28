@@ -1,8 +1,8 @@
-using Quests;
+using Gameplay.Quests;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots._components
 {
   public class CompleteImage : MonoBehaviour
   {

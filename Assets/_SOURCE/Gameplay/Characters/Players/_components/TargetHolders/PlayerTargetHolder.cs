@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Configs.Resources.StatConfigs;
 using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Characters.Players.Factories;
 using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;

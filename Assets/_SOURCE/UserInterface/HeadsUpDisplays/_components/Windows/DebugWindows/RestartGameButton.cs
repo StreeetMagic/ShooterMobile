@@ -1,9 +1,9 @@
-using Infrastructure.DebugServices;
+using _Infrastructure.DebugServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.DebugWindows
+namespace UserInterface.HeadsUpDisplays.Windows.DebugWindows
 {
   public class RestartGameButton : MonoBehaviour
   {

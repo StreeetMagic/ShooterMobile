@@ -1,4 +1,3 @@
-using Configs.Resources.EnemyConfigs.Scripts;
 using UnityEngine;
 using Zenject;
 

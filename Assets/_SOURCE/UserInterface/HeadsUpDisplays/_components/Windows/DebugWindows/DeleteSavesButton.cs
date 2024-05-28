@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UserInterface.HeadsUpDisplays.DebugWindows
+namespace UserInterface.HeadsUpDisplays.Windows.DebugWindows
 {
   public class DeleteSavesButton : MonoBehaviour
   {

@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using Configs.Resources.CurrencyConfigs;
-using Configs.Resources.EnemyConfigs.Scripts;
-using DataRepositories.BackpackStorages;
-using Infrastructure.AssetProviders;
-using Infrastructure.StaticDataServices;
-using Infrastructure.ZenjectFactories;
+using _Infrastructure.AssetProviders;
+using _Infrastructure.StaticDataServices;
+using _Infrastructure.ZenjectFactories;
+using CurrencyRepositories;
+using CurrencyRepositories.BackpackStorages;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots

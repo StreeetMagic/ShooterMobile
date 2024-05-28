@@ -1,13 +1,12 @@
-using Configs.Resources.StatConfigs;
-using Configs.Resources.UpgradeConfigs.Scripts;
+using _Infrastructure.StaticDataServices;
 using Gameplay.Characters.Players.PlayerStatsProviders;
-using Infrastructure.StaticDataServices;
-using Infrastructure.Upgrades;
+using Gameplay.Stats;
+using Gameplay.Upgrades;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
+namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows.UpgradeCells.Scripts
 {
   public class DescriptionText : MonoBehaviour
   {

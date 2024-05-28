@@ -1,9 +1,12 @@
 using Zenject.Source.Install;
 
-public class ChooseGameModeInstaller : MonoInstaller
+namespace _Infrastructure.SceneInstallers.ChooseGameMode
 {
-  public override void InstallBindings()
+  public class ChooseGameModeInstaller : MonoInstaller
   {
-    Container.BindInterfacesAndSelfTo<ChooseGameModeInitializer>().FromInstance(GetComponent<ChooseGameModeInitializer>()).AsSingle().NonLazy();
+    public override void InstallBindings()
+    {
+      Container.BindInterfacesAndSelfTo<ChooseGameModeInitializer>().FromInstance(GetComponent<ChooseGameModeInitializer>()).AsSingle().NonLazy();
+    }
   }
 }

@@ -1,6 +1,6 @@
-using Configs.Resources.SoundConfigs.Scripts;
-using Gameplay.Characters.Players.Projectiles.Scripts;
-using Infrastructure.AudioServices;
+using _Infrastructure.AudioServices;
+using Gameplay.Projectiles.Scripts;
+using Sounds;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies.EnemyShooters

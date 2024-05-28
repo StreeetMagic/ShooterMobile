@@ -2,38 +2,41 @@ using Gameplay.Characters.Pets.Hens;
 using UnityEngine;
 using Zenject;
 
-public class PlayerHenSpawner : MonoBehaviour
+namespace Gameplay.Characters.Players
 {
-  private const float CoolDown = 2f;
-
-  private float _coolDownTimer;
-
-  [Inject] private readonly HenSpawner _henSpawner;
-
-  public int Count { get; set; }
-
-  private void Start()
+  public class PlayerHenSpawner : MonoBehaviour
   {
-    _coolDownTimer = CoolDown;
-    Count = 0;
-  }
+    private const float CoolDown = 2f;
 
-  private void Update()
-  {
-    if (_henSpawner.Count == 0)
+    private float _coolDownTimer;
+
+    [Inject] private readonly HenSpawner _henSpawner;
+
+    public int Count { get; set; }
+
+    private void Start()
     {
-      if (_coolDownTimer > 0)
-      {
-        _coolDownTimer -= Time.deltaTime;
-      }
-      else
-      {
-        if (Count > 0)
-        {
-          Count--;
-          _coolDownTimer = CoolDown;
+      _coolDownTimer = CoolDown;
+      Count = 0;
+    }
 
-          _henSpawner.Spawn();
+    private void Update()
+    {
+      if (_henSpawner.Count == 0)
+      {
+        if (_coolDownTimer > 0)
+        {
+          _coolDownTimer -= Time.deltaTime;
+        }
+        else
+        {
+          if (Count > 0)
+          {
+            Count--;
+            _coolDownTimer = CoolDown;
+
+            _henSpawner.Spawn();
+          }
         }
       }
     }

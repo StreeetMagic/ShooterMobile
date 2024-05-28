@@ -1,10 +1,10 @@
-﻿using Infrastructure.SaveLoadServices;
-using Infrastructure.UserIntefaces;
+﻿using _Infrastructure.SaveLoadServices;
+using _Infrastructure.UserIntefaces;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
+namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows
 {
   public class UpgradeShopWindowButton : MonoBehaviour
   {

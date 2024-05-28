@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Configs.Resources.EnemyConfigs.Scripts;
+using _Infrastructure.CoroutineRunners;
+using _Infrastructure.Utilities;
+using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Healths;
-using Infrastructure.CoroutineRunners;
-using Infrastructure.Utilities;
 using UnityEngine;
 using Object = UnityEngine.Object;
 

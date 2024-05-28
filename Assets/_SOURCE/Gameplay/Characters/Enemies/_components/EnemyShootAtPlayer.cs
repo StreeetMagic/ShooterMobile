@@ -1,6 +1,5 @@
-using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.EnemyShooters;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players;
 using UnityEngine;
 using Zenject;
 

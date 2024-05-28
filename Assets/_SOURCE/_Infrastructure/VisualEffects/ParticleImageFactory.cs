@@ -1,10 +1,9 @@
-using Configs.Resources.ParticleImageConfigs;
-using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
+using _Infrastructure.AssetProviders;
+using _Infrastructure.ZenjectFactories;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 
-namespace Infrastructure
+namespace _Infrastructure.VisualEffects
 {
   public class ParticleImageFactory
   {

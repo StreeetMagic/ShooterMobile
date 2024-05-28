@@ -1,9 +1,9 @@
-using Quests.Subquests;
+using Gameplay.Quests.Subquests;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots.ActivatedSubQuestSlots
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots._components.ActivatedSubQuestSlots._components
 {
   public class RewardText : MonoBehaviour
   {

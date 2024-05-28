@@ -1,9 +1,12 @@
 using Zenject.Source.Install;
 
-public class LoadProgressInstaller : MonoInstaller
+namespace _Infrastructure.SceneInstallers.LoadProgress
 {
-  public override void InstallBindings()
+  public class LoadProgressInstaller : MonoInstaller
   {
-    Container.BindInterfacesAndSelfTo<LoadProgressInitializer>().FromInstance(GetComponent<LoadProgressInitializer>()).AsSingle().NonLazy();
+    public override void InstallBindings()
+    {
+      Container.BindInterfacesAndSelfTo<LoadProgressInitializer>().FromInstance(GetComponent<LoadProgressInitializer>()).AsSingle().NonLazy();
+    }
   }
 }

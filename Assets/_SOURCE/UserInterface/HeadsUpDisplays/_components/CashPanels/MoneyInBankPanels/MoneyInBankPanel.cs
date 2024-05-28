@@ -1,9 +1,9 @@
-﻿using DataRepositories;
+﻿using CurrencyRepositories;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.MoneyInBankPanels
+namespace UserInterface.HeadsUpDisplays.CashPanels.MoneyInBankPanels
 {
   public class MoneyInBankPanel : MonoBehaviour
   {

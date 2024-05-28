@@ -1,12 +1,12 @@
 using Cameras;
-using Configs.Resources.QuestConfigs.Scripts;
-using Gameplay.Characters.Players.Factories;
+using Gameplay.Characters.Players;
+using Gameplay.Quests;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
-using UserInterface.HeadsUpDisplays.OpenQuestButtons;
+using UserInterface.HeadsUpDisplays.Buttons.OpenQuestButtons;
 using Zenject;
 
-namespace Gameplay.Characters.Questers
+namespace Gameplay.Characters.Questers._components
 {
   public class OpenQuestButtonEnabler : MonoBehaviour
   {

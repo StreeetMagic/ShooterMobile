@@ -1,8 +1,9 @@
+using Gameplay.Characters.Shopers;
 using Maps;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
+namespace UserInterface.HeadsUpDisplays.Buttons.OpenShopButtons
 {
   public class OpenShopButtonController : MonoBehaviour
   {

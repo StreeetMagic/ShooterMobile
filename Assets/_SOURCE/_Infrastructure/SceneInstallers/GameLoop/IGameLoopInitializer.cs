@@ -1,4 +1,7 @@
-public interface IGameLoopInitializer
+namespace _Infrastructure.SceneInstallers.GameLoop
 {
-  void Restart();
+  public interface IGameLoopInitializer
+  {
+    void Restart();
+  }
 }

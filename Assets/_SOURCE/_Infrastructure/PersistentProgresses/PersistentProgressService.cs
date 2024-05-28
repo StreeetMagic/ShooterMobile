@@ -1,13 +1,13 @@
 using System.Collections.Generic;
-using Configs.Resources.QuestConfigs.Scripts;
-using Configs.Resources.StatConfigs;
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Infrastructure.StaticDataServices;
-using Quests;
-using Quests.Subquests;
+using _Infrastructure.Projects;
+using _Infrastructure.StaticDataServices;
+using Gameplay.Quests;
+using Gameplay.Quests.Subquests;
+using Gameplay.Stats;
+using Gameplay.Upgrades;
 using UnityEngine;
 
-namespace Infrastructure.PersistentProgresses
+namespace _Infrastructure.PersistentProgresses
 {
   public class PersistentProgressService
   {

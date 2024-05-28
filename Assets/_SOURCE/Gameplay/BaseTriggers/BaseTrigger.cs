@@ -1,12 +1,10 @@
 using System.Collections.Generic;
+using _Infrastructure.SaveLoadServices;
+using _Infrastructure.VisualEffects;
 using Cameras;
-using Configs.Resources.CurrencyConfigs;
-using Configs.Resources.ParticleImageConfigs;
-using DataRepositories;
-using DataRepositories.BackpackStorages;
+using CurrencyRepositories;
+using CurrencyRepositories.BackpackStorages;
 using Gameplay.Characters.Players;
-using Infrastructure;
-using Infrastructure.SaveLoadServices;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using Zenject;

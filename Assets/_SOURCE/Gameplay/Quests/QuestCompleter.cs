@@ -1,9 +1,8 @@
-using Configs.Resources.EnemyConfigs.Scripts;
-using Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts;
+using Gameplay.Characters.Enemies;
+using Gameplay.Quests.Subquests;
 using Maps;
-using Quests.Subquests;
 
-namespace Quests
+namespace Gameplay.Quests
 {
   public class QuestCompleter
   {

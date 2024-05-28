@@ -1,16 +1,17 @@
+using _Infrastructure.AssetProviders;
+using _Infrastructure.PersistentProgresses;
+using _Infrastructure.SaveLoadServices;
+using _Infrastructure.ZenjectFactories;
 using Gameplay.Characters.Players.InputHandlers;
 using Gameplay.Characters.Players.Movers;
+using Gameplay.Characters.Players.PetSpawnPointsContainers;
 using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
-using Infrastructure.AssetProviders;
-using Infrastructure.PersistentProgresses;
-using Infrastructure.SaveLoadServices;
-using Infrastructure.ZenjectFactories;
 using Maps;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players.Factories
+namespace Gameplay.Characters.Players
 {
   public class PlayerFactory
   {

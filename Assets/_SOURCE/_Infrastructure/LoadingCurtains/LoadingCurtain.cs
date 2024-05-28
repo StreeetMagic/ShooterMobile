@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Infrastructure.LoadingCurtains
+namespace _Infrastructure.LoadingCurtains
 {
   public class LoadingCurtain : MonoBehaviour
   {

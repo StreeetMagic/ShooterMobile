@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class ResourcesSendersContainer : MonoBehaviour
+namespace UserInterface.HeadsUpDisplays
 {
+  public class ResourcesSendersContainer : MonoBehaviour
+  {
+  }
 }

@@ -1,35 +1,33 @@
 using System.Collections.Generic;
+using _Infrastructure.AssetProviders;
+using _Infrastructure.DebugServices;
+using _Infrastructure.UserIntefaces;
+using _Infrastructure.VisualEffects;
+using _Infrastructure.ZenjectFactories;
 using Cameras;
-using Configs.Resources.EnemyConfigs.Scripts;
-using Configs.Resources.QuestConfigs.Scripts;
 using Gameplay.BaseTriggers;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Characters.Pets.Hens;
-using Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers;
+using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.QuestPointers;
-using Gameplay.Characters.Players.Factories;
-using Gameplay.Characters.Players.Projectiles.Scripts;
 using Gameplay.CorpseRemovers;
-using Infrastructure.AssetProviders;
-using Infrastructure.DebugServices;
-using Infrastructure.UserIntefaces;
-using Infrastructure.ZenjectFactories;
+using Gameplay.Projectiles.Scripts;
+using Gameplay.Quests;
+using Gameplay.Quests.Subquests;
 using Maps;
-using Quests;
-using Quests.Subquests;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
-using UserInterface.HeadsUpDisplays.QuestWindows;
-using UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots;
-using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
+using UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows;
+using UserInterface.HeadsUpDisplays.Windows.QuestWindows;
+using UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots;
 using Zenject;
 using Zenject.Source.Install;
 
-namespace Infrastructure.DependencyInjection
+namespace _Infrastructure.SceneInstallers.GameLoop
 {
   public class GameLoopInstaller : MonoInstaller
   {

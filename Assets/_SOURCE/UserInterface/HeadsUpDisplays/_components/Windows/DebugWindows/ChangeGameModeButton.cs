@@ -1,11 +1,10 @@
-using Infrastructure.DebugServices;
-using Infrastructure.Games;
-using Infrastructure.SceneLoaders;
+using _Infrastructure.Projects;
+using _Infrastructure.SceneLoaders;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.DebugWindows
+namespace UserInterface.HeadsUpDisplays.Windows.DebugWindows
 {
   public class ChangeGameModeButton : MonoBehaviour
   {

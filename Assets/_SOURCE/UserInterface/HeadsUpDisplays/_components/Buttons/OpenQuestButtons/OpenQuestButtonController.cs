@@ -3,7 +3,7 @@ using Maps;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.OpenQuestButtons
+namespace UserInterface.HeadsUpDisplays.Buttons.OpenQuestButtons
 {
   public class OpenQuestButtonController : MonoBehaviour
   {

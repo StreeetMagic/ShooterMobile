@@ -1,7 +1,7 @@
-﻿using Configs.Resources.MusicConfigs.Scripts;
+﻿using Musics;
 using UnityEngine;
 
-namespace Infrastructure.AudioServices
+namespace _Infrastructure.AudioServices
 {
   public class MusicPlayer
   {

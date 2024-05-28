@@ -1,10 +1,9 @@
-using Configs.Resources.QuestConfigs.Scripts;
-using Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts;
-using Quests.Subquests;
+using Gameplay.Quests;
+using Gameplay.Quests.Subquests;
 using Zenject;
 using Zenject.Source.Install;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows.SubQuestSlots
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots
 {
   public class SubQuestSlotInstaller : MonoInstaller
   {

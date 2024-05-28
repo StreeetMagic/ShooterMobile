@@ -1,7 +1,6 @@
 using System;
-using Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts;
 
-namespace Quests.Subquests
+namespace Gameplay.Quests.Subquests
 {
   [Serializable]
   public class SubQuestProgress

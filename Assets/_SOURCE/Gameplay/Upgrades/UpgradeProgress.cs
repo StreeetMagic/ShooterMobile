@@ -1,7 +1,7 @@
 using System;
-using Configs.Resources.StatConfigs;
+using Gameplay.Stats;
 
-namespace Infrastructure.PersistentProgresses
+namespace Gameplay.Upgrades
 {
   [Serializable]
   public class UpgradeProgress

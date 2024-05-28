@@ -1,5 +1,4 @@
 using System;
-using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
 using Zenject;

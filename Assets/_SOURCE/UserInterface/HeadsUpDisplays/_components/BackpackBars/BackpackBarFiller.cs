@@ -1,6 +1,6 @@
-using Configs.Resources.StatConfigs;
-using DataRepositories.BackpackStorages;
+using CurrencyRepositories.BackpackStorages;
 using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Stats;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

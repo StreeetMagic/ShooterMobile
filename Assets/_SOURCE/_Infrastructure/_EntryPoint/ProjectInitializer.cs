@@ -1,14 +1,17 @@
-using Infrastructure.Games;
-using Infrastructure.SceneLoaders;
+using _Infrastructure.Projects;
+using _Infrastructure.SceneLoaders;
 using UnityEngine;
 using Zenject;
 
-public class ProjectInitializer : MonoBehaviour, IInitializable
+namespace _Infrastructure._EntryPoint
 {
-  [Inject] private SceneLoader _sceneLoader;
-
-  public void Initialize()
+  public class ProjectInitializer : MonoBehaviour, IInitializable
   {
-    _sceneLoader.Load(ProjectConstants.Scenes.LoadConfigs);
+    [Inject] private SceneLoader _sceneLoader;
+
+    public void Initialize()
+    {
+      _sceneLoader.Load(ProjectConstants.Scenes.LoadConfigs);
+    }
   }
 }

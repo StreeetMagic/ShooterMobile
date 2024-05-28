@@ -1,21 +1,24 @@
 using System;
 using UnityEngine;
 
-public class BombDefuser : MonoBehaviour
+namespace Gameplay.Bombs
 {
-  public event Action<BombDefuser> Defused;
-
-  public float DefuseProgress { get; set; }
-  public bool IsDefused { get; set; }
-
-  private void Update()
+  public class BombDefuser : MonoBehaviour
   {
-    if (DefuseProgress >= 1)
-    {
-      IsDefused = true;
-      Defused?.Invoke(this);
+    public event Action<BombDefuser> Defused;
 
-      Destroy(gameObject);
+    public float DefuseProgress { get; set; }
+    public bool IsDefused { get; set; }
+
+    private void Update()
+    {
+      if (DefuseProgress >= 1)
+      {
+        IsDefused = true;
+        Defused?.Invoke(this);
+
+        Destroy(gameObject);
+      }
     }
   }
 }

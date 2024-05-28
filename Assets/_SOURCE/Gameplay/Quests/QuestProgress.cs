@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Configs.Resources.QuestConfigs.Scripts;
-using Quests.Subquests;
+using Gameplay.Quests.Subquests;
 
-namespace Quests
+namespace Gameplay.Quests
 {
   [Serializable]
   public class QuestProgress

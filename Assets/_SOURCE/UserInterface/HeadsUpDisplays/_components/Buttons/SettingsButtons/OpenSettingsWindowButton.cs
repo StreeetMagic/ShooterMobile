@@ -1,9 +1,9 @@
-using Infrastructure.UserIntefaces;
+using _Infrastructure.UserIntefaces;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.SettingsButtons
+namespace UserInterface.HeadsUpDisplays.Buttons.SettingsButtons
 {
   public class OpenSettingsWindowButton : MonoBehaviour
   {

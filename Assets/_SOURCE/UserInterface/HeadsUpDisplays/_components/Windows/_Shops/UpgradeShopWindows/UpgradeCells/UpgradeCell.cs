@@ -1,7 +1,7 @@
-using Configs.Resources.UpgradeConfigs.Scripts;
+using Gameplay.Upgrades;
 using UnityEngine;
 
-namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells
+namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows.UpgradeCells
 {
   public class UpgradeCell : MonoBehaviour
   {

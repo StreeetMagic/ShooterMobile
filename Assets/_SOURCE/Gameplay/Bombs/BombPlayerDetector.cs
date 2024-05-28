@@ -1,47 +1,50 @@
-using Gameplay.Bombs;
+using _Infrastructure.Projects;
 using Gameplay.Characters.Players;
-using Infrastructure.Games;
+using Gameplay.Characters.Players.BombDefusers;
 using UnityEngine;
 
-public class BombPlayerDetector : MonoBehaviour
+namespace Gameplay.Bombs
 {
-  public Bomb Bomb;
-  public SphereCollider SphereCollider;
-
-  public bool IsPlayerDetected { get; private set; }
-
-  private void Awake()
+  public class BombPlayerDetector : MonoBehaviour
   {
-    SphereCollider.radius = ProjectConstants.CommonSettings.BombDefuseRadius;
-  }
+    public Bomb Bomb;
+    public SphereCollider SphereCollider;
 
-  private void OnTriggerEnter(Collider other)
-  {
-    if (other.TryGetComponent(out Player player))
+    public bool IsPlayerDetected { get; private set; }
+
+    private void Awake()
     {
-      IsPlayerDetected = true;
+      SphereCollider.radius = ProjectConstants.CommonSettings.BombDefuseRadius;
+    }
 
-      var playerBombDefuser = player.GetComponent<PlayerBombDefuser>();
-
-      if (playerBombDefuser.Bombs.Contains(Bomb) == false)
+    private void OnTriggerEnter(Collider other)
+    {
+      if (other.TryGetComponent(out Player player))
       {
-        playerBombDefuser.Bombs.Add(Bomb);
+        IsPlayerDetected = true;
+
+        var playerBombDefuser = player.GetComponent<PlayerBombDefuser>();
+
+        if (playerBombDefuser.Bombs.Contains(Bomb) == false)
+        {
+          playerBombDefuser.Bombs.Add(Bomb);
+        }
       }
     }
-  }
 
-  private void OnTriggerExit(Collider other)
-  {
-    if (other.TryGetComponent(out Player player))
+    private void OnTriggerExit(Collider other)
     {
-      IsPlayerDetected = false;
-      GetComponent<BombDefuser>().DefuseProgress = 0;
-
-      var playerBombDefuser = player.GetComponent<PlayerBombDefuser>();
-
-      if (playerBombDefuser.Bombs.Contains(Bomb))
+      if (other.TryGetComponent(out Player player))
       {
-        playerBombDefuser.Bombs.Remove(Bomb);
+        IsPlayerDetected = false;
+        GetComponent<BombDefuser>().DefuseProgress = 0;
+
+        var playerBombDefuser = player.GetComponent<PlayerBombDefuser>();
+
+        if (playerBombDefuser.Bombs.Contains(Bomb))
+        {
+          playerBombDefuser.Bombs.Remove(Bomb);
+        }
       }
     }
   }

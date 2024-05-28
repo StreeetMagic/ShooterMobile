@@ -1,9 +1,9 @@
-using Configs.Resources.QuestConfigs.Scripts;
+using Gameplay.Quests;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components
 {
   public class QuestTitle : MonoBehaviour
   {

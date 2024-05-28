@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using Quests;
-using Quests.Subquests;
+using Gameplay.Quests;
+using Gameplay.Quests.Subquests;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components
 {
   public class CurrentSubQuestText : MonoBehaviour
   {

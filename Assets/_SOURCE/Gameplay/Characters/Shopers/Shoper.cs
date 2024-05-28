@@ -1,6 +1,10 @@
+using Gameplay.Characters.Shopers._components;
 using UnityEngine;
 
-public class Shoper : MonoBehaviour
+namespace Gameplay.Characters.Shopers
 {
-  public OpenShopButtonEnabler OpenShopButtonEnabler;
+  public class Shoper : MonoBehaviour
+  {
+    public OpenShopButtonEnabler OpenShopButtonEnabler;
+  }
 }

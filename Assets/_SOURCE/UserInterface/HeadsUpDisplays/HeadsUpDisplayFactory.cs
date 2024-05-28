@@ -1,11 +1,12 @@
-﻿using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
+﻿using _Infrastructure.AssetProviders;
+using _Infrastructure.ZenjectFactories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.BackpackBars;
+using UserInterface.HeadsUpDisplays.Buttons.OpenQuestButtons;
+using UserInterface.HeadsUpDisplays.Buttons.OpenShopButtons;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
-using UserInterface.HeadsUpDisplays.OpenQuestButtons;
-using UserInterface.HeadsUpDisplays.UpgradeShopWindows;
+using UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows;
 
 namespace UserInterface.HeadsUpDisplays
 {

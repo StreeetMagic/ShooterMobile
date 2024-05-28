@@ -1,4 +1,4 @@
-namespace Quests
+namespace Gameplay.Quests
 {
   public enum QuestState
   {

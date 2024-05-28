@@ -1,11 +1,10 @@
-using Configs.Resources.UpgradeConfigs.Scripts;
-using Infrastructure.StaticDataServices;
-using Infrastructure.Upgrades;
+using _Infrastructure.StaticDataServices;
+using Gameplay.Upgrades;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts
+namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows.UpgradeCells.Scripts
 {
   public class CostText : MonoBehaviour
   {

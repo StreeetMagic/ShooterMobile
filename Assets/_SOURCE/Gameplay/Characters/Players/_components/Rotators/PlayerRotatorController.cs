@@ -1,5 +1,4 @@
-﻿using DataRepositories.BackpackStorages;
-using Gameplay.Characters.Players.Factories;
+﻿using CurrencyRepositories.BackpackStorages;
 using Gameplay.Characters.Players.TargetHolders;
 using UnityEngine;
 

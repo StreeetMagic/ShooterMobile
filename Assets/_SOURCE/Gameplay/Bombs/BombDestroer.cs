@@ -1,50 +1,53 @@
 using System.Collections.Generic;
-using Configs.Resources.QuestConfigs.SubQuestConfigs.Scripts;
-using Gameplay.Bombs;
-using Gameplay.Characters.Players.Factories;
-using Quests;
+using Gameplay.Characters.Players;
+using Gameplay.Characters.Players.BombDefusers;
+using Gameplay.Quests;
+using Gameplay.Quests.Subquests;
 using UnityEngine;
 using Zenject;
 
-public class BombDestroer : MonoBehaviour
+namespace Gameplay.Bombs
 {
-  public BombDefuser BombDefuser;
-
-  [Inject] private PlayerProvider _playerProvider;
-  [Inject] private QuestStorage _storage;
-
-  private void OnEnable()
+  public class BombDestroer : MonoBehaviour
   {
-    BombDefuser.Defused += OnDefused;
-  }
+    public BombDefuser BombDefuser;
 
-  private void OnDisable()
-  {
-    BombDefuser.Defused -= OnDefused;
-  }
+    [Inject] private PlayerProvider _playerProvider;
+    [Inject] private QuestStorage _storage;
 
-  private void OnDefused(BombDefuser defuser)
-  {
-    PlayerBombDefuser playerBombDefuser = _playerProvider.Player.GetComponent<PlayerBombDefuser>();
-
-    if (playerBombDefuser.Bombs.Contains(defuser.GetComponent<Bomb>()))
+    private void OnEnable()
     {
-      playerBombDefuser.Bombs.Remove(defuser.GetComponent<Bomb>());
+      BombDefuser.Defused += OnDefused;
     }
 
-    List<Quest> allQuests = _storage.GetAllQuests();
-
-    foreach (var quest in allQuests)
+    private void OnDisable()
     {
-      if (quest.State.Value == QuestState.Activated)
+      BombDefuser.Defused -= OnDefused;
+    }
+
+    private void OnDefused(BombDefuser defuser)
+    {
+      PlayerBombDefuser playerBombDefuser = _playerProvider.Player.GetComponent<PlayerBombDefuser>();
+
+      if (playerBombDefuser.Bombs.Contains(defuser.GetComponent<Bomb>()))
       {
-        foreach (var subQuest in quest.SubQuests)
+        playerBombDefuser.Bombs.Remove(defuser.GetComponent<Bomb>());
+      }
+
+      List<Quest> allQuests = _storage.GetAllQuests();
+
+      foreach (var quest in allQuests)
+      {
+        if (quest.State.Value == QuestState.Activated)
         {
-          if (subQuest.State.Value == QuestState.Activated)
+          foreach (var subQuest in quest.SubQuests)
           {
-            if (subQuest.Setup.Config.Type == SubQuestType.DefuseBomb)
+            if (subQuest.State.Value == QuestState.Activated)
             {
-              subQuest.CompletedQuantity.Value++;
+              if (subQuest.Setup.Config.Type == SubQuestType.DefuseBomb)
+              {
+                subQuest.CompletedQuantity.Value++;
+              }
             }
           }
         }

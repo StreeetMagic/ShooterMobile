@@ -1,7 +1,6 @@
 using System;
-using Configs.Resources.EnemyConfigs.Scripts;
 using Gameplay.Characters.Players;
-using Infrastructure.Upgrades;
+using Gameplay.Upgrades;
 using UnityEngine;
 using Zenject;
 

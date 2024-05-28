@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using Configs.Resources.QuestConfigs.Scripts;
+using Gameplay.Quests;
 using Maps;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointers
+namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.QuestPointers._components
 {
   public class ToTargetRotator : MonoBehaviour
   {

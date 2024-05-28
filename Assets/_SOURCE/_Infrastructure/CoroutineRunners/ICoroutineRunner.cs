@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Infrastructure.CoroutineRunners
+namespace _Infrastructure.CoroutineRunners
 {
   public interface ICoroutineRunner : IDisposable
   {

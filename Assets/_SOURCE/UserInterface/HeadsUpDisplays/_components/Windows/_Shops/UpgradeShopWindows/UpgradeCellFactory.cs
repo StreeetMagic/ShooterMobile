@@ -1,11 +1,11 @@
-using Configs.Resources.StatConfigs;
-using Infrastructure.StaticDataServices;
-using Infrastructure.ZenjectFactories;
+using _Infrastructure.StaticDataServices;
+using _Infrastructure.ZenjectFactories;
+using Gameplay.Stats;
 using UnityEngine;
-using UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells;
-using UserInterface.HeadsUpDisplays.UpgradeShopWindows.UpgradeCells.Scripts;
+using UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows.UpgradeCells;
+using UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows.UpgradeCells.Scripts;
 
-namespace UserInterface.HeadsUpDisplays.UpgradeShopWindows
+namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows
 {
   public class UpgradeCellFactory
   {

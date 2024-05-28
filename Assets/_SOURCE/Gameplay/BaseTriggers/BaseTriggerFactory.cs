@@ -1,5 +1,5 @@
-using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
+using _Infrastructure.AssetProviders;
+using _Infrastructure.ZenjectFactories;
 using UnityEngine;
 
 namespace Gameplay.BaseTriggers

@@ -1,9 +1,8 @@
-using Configs.Resources.QuestConfigs.Scripts;
-using Quests;
+using Gameplay.Quests;
 using Zenject;
 using Zenject.Source.Install;
 
-namespace UserInterface.HeadsUpDisplays.QuestWindows
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows
 {
   public class QuestWindowInstaller : MonoInstaller
   {

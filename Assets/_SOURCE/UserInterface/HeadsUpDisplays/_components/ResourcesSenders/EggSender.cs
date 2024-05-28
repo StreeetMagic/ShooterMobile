@@ -1,7 +1,7 @@
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 
-namespace UserInterface.HeadsUpDisplays.ResourcesSenders
+namespace UserInterface.HeadsUpDisplays
 {
   public class EggSender : MonoBehaviour
   {

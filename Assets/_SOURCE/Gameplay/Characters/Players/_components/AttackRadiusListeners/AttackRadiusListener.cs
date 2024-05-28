@@ -1,5 +1,5 @@
-using Configs.Resources.StatConfigs;
 using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
 

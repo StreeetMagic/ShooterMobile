@@ -1,11 +1,12 @@
-using Configs.Resources.VisualEffectConfigs;
-using Gameplay.Characters.Enemies.EnemyShooters.Projectiles;
-using Infrastructure;
-using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
+using _Infrastructure.AssetProviders;
+using _Infrastructure.RandomServices;
+using _Infrastructure.VisualEffects;
+using _Infrastructure.ZenjectFactories;
+using Gameplay.Characters.Enemies.Projectiles;
+using Gameplay.Characters.Players.Projectiles;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players.Projectiles.Scripts
+namespace Gameplay.Projectiles.Scripts
 {
   public class ProjectileFactory
   {

@@ -1,5 +1,4 @@
-using Configs.Resources.QuestConfigs.Scripts;
-using Quests;
+using Gameplay.Quests;
 using UnityEngine;
 using Zenject.Source.Factories;
 

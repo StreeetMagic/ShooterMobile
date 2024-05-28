@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class HenRotator : MonoBehaviour
+namespace Gameplay.Characters.Pets.Hens
 {
-  public void Rotate(Vector3 target)
+  public class HenRotator : MonoBehaviour
   {
-    Vector3 direction = (target - transform.position).normalized;
-    transform.rotation = Quaternion.LookRotation(direction);
+    public void Rotate(Vector3 target)
+    {
+      Vector3 direction = (target - transform.position).normalized;
+      transform.rotation = Quaternion.LookRotation(direction);
+    }
   }
 }

@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using Configs.Resources.QuestConfigs.Scripts;
+using _Infrastructure.Utilities;
+using Gameplay.Quests.Subquests;
 using Gameplay.RewardServices;
-using Infrastructure.Utilities;
-using Quests.Subquests;
 
-namespace Quests
+namespace Gameplay.Quests
 {
   public class Quest
   {

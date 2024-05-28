@@ -1,7 +1,7 @@
-﻿using Configs.Resources.SoundConfigs.Scripts;
+﻿using Sounds;
 using UnityEngine;
 
-namespace Infrastructure.AudioServices
+namespace _Infrastructure.AudioServices
 {
   public class SoundPlayer
   {

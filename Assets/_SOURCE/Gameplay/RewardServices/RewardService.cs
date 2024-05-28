@@ -1,11 +1,10 @@
-﻿using Configs.Resources.EnemyConfigs.Scripts;
-using Configs.Resources.RewardConfigs;
-using Configs.Resources.StatConfigs;
-using DataRepositories;
-using DataRepositories.BackpackStorages;
+﻿using CurrencyRepositories.BackpackStorages;
+using CurrencyRepositories.Expirience;
+using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Healths;
 using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Rewards;
+using Gameplay.Stats;
 
 namespace Gameplay.RewardServices
 {

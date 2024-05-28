@@ -1,6 +1,6 @@
-﻿using Infrastructure.PersistentProgresses;
+﻿using _Infrastructure.Projects;
 
-namespace Infrastructure.SaveLoadServices
+namespace _Infrastructure.SaveLoadServices
 {
   public interface IProgressWriter : IProgressReader
   {

@@ -1,9 +1,9 @@
-using Infrastructure.AudioServices;
+using _Infrastructure.AudioServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.SettingsWindows.MusicToggles
+namespace UserInterface.HeadsUpDisplays.Windows.SettingsWindows._components.MusicToggles
 {
   public class MusicToggle : MonoBehaviour
   {
