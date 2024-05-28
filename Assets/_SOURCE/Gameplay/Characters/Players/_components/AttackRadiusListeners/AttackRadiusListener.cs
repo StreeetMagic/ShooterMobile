@@ -18,7 +18,7 @@ namespace Gameplay.Characters.Players.AttackRadiusListeners
 
     private void OnEnable()
     {
-      int fireRangeValue = _playerStatsProvider.GetStat(StatId.FireRange).Value;
+      float fireRangeValue = _playerStatsProvider.GetStat(StatId.FireRange).Value;
 
       OnUpgradeChanged(fireRangeValue);
       _playerStatsProvider.GetStat(StatId.FireRange).ValueChanged += OnUpgradeChanged;
@@ -29,9 +29,9 @@ namespace Gameplay.Characters.Players.AttackRadiusListeners
       _playerStatsProvider.GetStat(StatId.FireRange).ValueChanged -= OnUpgradeChanged;
     }
 
-    private void OnUpgradeChanged(int value)
+    private void OnUpgradeChanged(float value)
     {
-      int radius = value * 2;
+      float radius = value * 2;
 
       _rectTransform.localScale = new Vector3(radius, radius, radius);
     }

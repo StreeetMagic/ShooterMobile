@@ -24,7 +24,7 @@ namespace Gameplay.Characters.Players.BombDefusers
       _playerHealth.Damaged -= OnDamaged;
     }
 
-    private void OnDamaged(int obj)
+    private void OnDamaged(float obj)
     {
       if (Bombs.Count <= 0)
         return;

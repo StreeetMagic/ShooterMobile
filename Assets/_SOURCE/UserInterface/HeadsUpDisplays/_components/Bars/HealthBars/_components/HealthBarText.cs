@@ -19,10 +19,10 @@ namespace UserInterface.HeadsUpDisplays.Bars.HealthBars._components
       if (_playerProvider.PlayerHealth == null)
         return;
 
-      int maxHealth = _playerStatsProvider.GetStat(StatId.Health).Value;
-      int currentHealth = _playerProvider.PlayerHealth.Current.Value;
+      float maxHealth = _playerStatsProvider.GetStat(StatId.Health).Value;
+      float currentHealth = _playerProvider.PlayerHealth.Current.Value;
 
-      float healthPercentage = (float)currentHealth / maxHealth * 100;
+      float healthPercentage = currentHealth / maxHealth * 100;
 
       Text.text = $"HP {healthPercentage}%";
     }

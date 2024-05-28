@@ -31,13 +31,12 @@ namespace StaticDataServices
 
     private PlayerConfig _playerConfig;
     private ExpirienceConfig _expirienceConfig;
-    private bool _enemyLoaded;
     private Dictionary<EnemyId, EnemyConfig> _enemyConfigs;
     private Dictionary<StatId, UpgradeConfig> _upgradeConfigs;
     private Dictionary<CurrencyId, LootConfig> _lootConfigs;
     private Dictionary<MusicId, MusicConfig> _musicConfigs;
     private Dictionary<SoundId, SoundConfig> _soundConfigs;
-    private Dictionary<StatId, int> _stats;
+    private Dictionary<StatId, float> _stats;
     private Dictionary<QuestId, QuestConfig> _questConfigs;
     private Dictionary<RewardId, RewardConfig> _rewardConfigs;
     private DefaultProjectProgressConfig _defaultProjectProgressConfig;
@@ -69,7 +68,7 @@ namespace StaticDataServices
     public SoundConfig GetSoundConfig(SoundId soundId) =>
       _soundConfigs[soundId];
 
-    public int GetInitialStat(StatId id) =>
+    public float GetInitialStat(StatId id) =>
       _stats[id];
 
     public QuestConfig GetQuestConfig(QuestId questId) =>
@@ -121,7 +120,7 @@ namespace StaticDataServices
     {
       List<StatSetup> stats = Resources.Load<PlayerConfig>(PlayerConfigPath).Stats;
 
-      _stats = new Dictionary<StatId, int>();
+      _stats = new Dictionary<StatId, float>();
 
       foreach (StatSetup stat in stats)
         _stats.Add(stat.StatId, stat.Value);

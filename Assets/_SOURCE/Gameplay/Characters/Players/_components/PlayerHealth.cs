@@ -14,9 +14,9 @@ namespace Gameplay.Characters.Players
     [Inject] private IGameLoopInitializer _gameLoopInitializer;
 
     public event Action Died;
-    public event Action<int> Damaged;
+    public event Action<float> Damaged;
 
-    public ReactiveProperty<int> Current { get; } = new();
+    public ReactiveProperty<float> Current { get; } = new();
 
     public bool IsDead { get; private set; }
 
@@ -52,7 +52,7 @@ namespace Gameplay.Characters.Players
       _gameLoopInitializer.Restart();
     }
 
-    private void SetCurrentHealth(int health)
+    private void SetCurrentHealth(float health)
     {
       if (health < Current.Value)
       {

@@ -17,7 +17,7 @@ namespace Gameplay.Characters.Enemies
     
     public float WaitTimeAfterMove;
     
-    public int InitialHealth;
+    public float InitialHealth;
     
     public int MoneyReward;
     

@@ -25,7 +25,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
       _enemyHealth.Current.ValueChanged -= UpdateText;
     }
 
-    private void UpdateText(int current)
+    private void UpdateText(float current)
     {
       Text.text = Mathf.RoundToInt(current / MaxHealth * 100) + "%";
     }

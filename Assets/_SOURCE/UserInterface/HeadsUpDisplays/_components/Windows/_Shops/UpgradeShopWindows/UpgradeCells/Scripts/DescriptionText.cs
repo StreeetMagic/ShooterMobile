@@ -47,7 +47,7 @@ namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows.Upgrad
           .Level
           .Value;
 
-      int currentValue =
+      float currentValue =
         _playerStatsProvider
           .GetStat(Id)
           .Value;

@@ -18,12 +18,12 @@ namespace Gameplay.Characters.Enemies.Healths
     [Inject] private EnemyConfig _config;
 
     public event Action<EnemyConfig, EnemyHealth> Died;
-    public event Action<int> Damaged;
+    public event Action<float> Damaged;
 
-    public ReactiveProperty<int> Current { get; } = new();
+    public ReactiveProperty<float> Current { get; } = new();
 
-    public int Initial => _config.InitialHealth;
-    public bool IsFull => Current.Value == Initial;
+    public float Initial => _config.InitialHealth;
+    public bool IsFull => Current.Value >= Initial;
     public bool IsDead { get; private set; }
 
     private void Start()
@@ -34,7 +34,7 @@ namespace Gameplay.Characters.Enemies.Healths
       _rewardService.AddEnemy(this);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
       if (damage <= 0)
       {
@@ -65,7 +65,7 @@ namespace Gameplay.Characters.Enemies.Healths
       Died?.Invoke(_config, this);
     }
 
-    private void SetCurrentHealth(int health)
+    private void SetCurrentHealth(float health)
     {
       Current.Value = health;
     }

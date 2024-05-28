@@ -31,7 +31,7 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
       TargetDied?.Invoke(this);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
       EnemyHealth.TakeDamage(damage);
     }

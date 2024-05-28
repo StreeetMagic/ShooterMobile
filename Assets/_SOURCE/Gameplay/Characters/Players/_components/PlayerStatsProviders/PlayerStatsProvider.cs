@@ -12,8 +12,8 @@ namespace Gameplay.Characters.Players.PlayerStatsProviders
     private readonly UpgradeService _upgradeService;
     private readonly IStaticDataService _staticDataService;
 
-    private readonly Dictionary<StatId, ReactiveProperty<int>> _upgradeStats = new();
-    private readonly Dictionary<StatId, ReactiveProperty<int>> _questStats = new();
+    private readonly Dictionary<StatId, ReactiveProperty<float>> _upgradeStats = new();
+    private readonly Dictionary<StatId, ReactiveProperty<float>> _questStats = new();
 
     public PlayerStatsProvider(UpgradeService upgradeService, IStaticDataService staticDataService)
     {
@@ -35,14 +35,27 @@ namespace Gameplay.Characters.Players.PlayerStatsProviders
 
     public void AddQuestReward(StatId statId, int value)
     {
-      if (_questStats.TryGetValue(statId, out ReactiveProperty<int> stat))
+      if (_questStats.TryGetValue(statId, out ReactiveProperty<float> stat))
       {
         stat.Value += value;
       }
       else
       {
-        _questStats.Add(statId, new ReactiveProperty<int>(value));
+        _questStats.Add(statId, new ReactiveProperty<float>(value));
       }
+    }
+
+    public ReactiveProperty<float> GetStat(StatId id)
+    {
+      float value = 0;
+
+      if (_upgradeStats.TryGetValue(id, out ReactiveProperty<float> upgrade))
+        value += upgrade.Value;
+
+      if (_questStats.TryGetValue(id, out ReactiveProperty<float> questStat))
+        value += questStat.Value;
+
+      return new ReactiveProperty<float>(value);
     }
 
     private void UpdateValues()
@@ -54,25 +67,12 @@ namespace Gameplay.Characters.Players.PlayerStatsProviders
         if (statId == StatId.Unknown)
           continue;
 
-        var key = new ReactiveProperty<int>();
+        var key = new ReactiveProperty<float>();
         _upgradeStats.Add(statId, key);
 
         int currentUpgradeValue = _upgradeService.GetCurrentUpgradeValue(statId);
         key.Value = _staticDataService.GetInitialStat(statId) + currentUpgradeValue;
       }
-    }
-
-    public ReactiveProperty<int> GetStat(StatId id)
-    {
-      int value = 0;
-
-      if (_upgradeStats.TryGetValue(id, out ReactiveProperty<int> upgrade))
-        value += upgrade.Value;
-
-      if (_questStats.TryGetValue(id, out ReactiveProperty<int> questStat))
-        value += questStat.Value;
-
-      return new ReactiveProperty<int>(value);
     }
   }
 }

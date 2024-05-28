@@ -21,7 +21,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
       _enemyHealth.Current.ValueChanged -= OnHealthChanged;
     }
 
-    private void OnHealthChanged(int _)
+    private void OnHealthChanged(float _)
     {
       if (_enemyHealth.IsFull)
         foreach (GameObject component in Components)

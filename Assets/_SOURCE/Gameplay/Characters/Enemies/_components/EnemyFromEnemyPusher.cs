@@ -24,6 +24,9 @@ namespace Gameplay.Characters.Enemies
 
     private void Update()
     {
+      if (_enemyController == null || !_enemyController.enabled || !_enemyController.gameObject.activeInHierarchy)
+        return;
+
       // ReSharper disable once Unity.PreferNonAllocApi
       var colliders = Physics.OverlapSphere(transform.position, Radius);
 
@@ -39,6 +42,9 @@ namespace Gameplay.Characters.Enemies
         Vector3 positionWithoutY2 = new(enemyPusher.transform.position.x, 0, enemyPusher.transform.position.z);
 
         Vector3 direction = (positionWithoutY - positionWithoutY2).normalized;
+
+        if (direction == Vector3.zero)
+          continue;
 
         _enemyController.Move(direction * (Force * Time.deltaTime));
       }

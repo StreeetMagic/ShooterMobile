@@ -14,20 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationSpeed: 10
   GravityScale: 0.1
-  FireRate: 2
+  FireRate: 30
   BulletSpeed: 25
+  BombDefuseDuration: 5
+  BombDefuseRadius: 5
   Stats:
   - StatId: 1
-    Value: 10
-  - StatId: 2
     Value: 50
+  - StatId: 2
+    Value: 10
   - StatId: 3
     Value: 1
   - StatId: 4
     Value: 1
   - StatId: 5
-    Value: 8
+    Value: 5
   - StatId: 6
-    Value: 3
+    Value: 10
   - StatId: 7
-    Value: 1000
+    Value: 100

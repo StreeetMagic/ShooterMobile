@@ -34,14 +34,14 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
       DisplayText();
     }
 
-    private void OnBackpackCapacityChanged(int obj)
+    private void OnBackpackCapacityChanged(float obj)
     {
       DisplayText();
     }
 
     private void DisplayText()
     {
-      int max = _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
+      float max = _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
       int current = _backpackStorage.Volume;
       Text.text = $"{current}/{max}";
     }

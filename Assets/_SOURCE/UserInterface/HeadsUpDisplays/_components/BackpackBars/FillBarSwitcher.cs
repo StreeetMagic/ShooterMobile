@@ -30,7 +30,7 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
       Setup();
     }
 
-    private void OnBackpackCapacityChanged(int obj)
+    private void OnBackpackCapacityChanged(float obj)
     {
       Setup();
     }

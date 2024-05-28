@@ -1,3 +1,4 @@
+using System.Linq;
 using Gameplay.Characters.Questers;
 using Gameplay.Quests;
 using Maps;
@@ -13,17 +14,21 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.Qu
 
     [Inject] private readonly PlayerProvider _playerProvider;
     [Inject] private readonly MapProvider _mapProvider;
-    [Inject] private readonly Quest _quest;
+    [Inject] private readonly QuestConfig _quest;
+    [Inject] private readonly QuestTargetsProvider _targetProvider;
 
     private void Update()
     {
       if (_mapProvider.Map == null)
         return;
 
-      Quester quester = _mapProvider.Map.Questers[_quest.Index];
+      Transform target = _targetProvider.GetTargetsOrNull(_quest.Id)?.FirstOrDefault();
       Player player = _playerProvider.Player;
 
-      float distance = Vector3.Distance(quester.transform.position, player.transform.position);
+      if (target == null || player == null)
+        return;
+
+      float distance = Vector3.Distance(target.position, player.transform.position);
 
       int distanceInt = (int)distance;
 
