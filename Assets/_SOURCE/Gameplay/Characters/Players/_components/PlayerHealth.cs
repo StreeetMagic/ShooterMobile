@@ -25,7 +25,7 @@ namespace Gameplay.Characters.Players
       Current.Value = _playerStatsProvider.GetStat(StatId.Health).Value;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
       if (damage <= 0)
       {

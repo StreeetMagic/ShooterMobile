@@ -31,7 +31,7 @@ namespace Gameplay.Characters.Players
       Collider.enabled = false;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
       _playerHealth.TakeDamage(damage);
     }

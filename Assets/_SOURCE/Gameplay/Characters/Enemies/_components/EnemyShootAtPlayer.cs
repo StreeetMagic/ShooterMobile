@@ -32,8 +32,6 @@ namespace Gameplay.Characters.Enemies
       if (_playerProvider.Player == null)
         return;
 
-      // Vector3 direction = (PlayerTransform.position - transform.position).normalized;
-
       Vector3 direction = new Vector3(PlayerTransform.position.x - transform.position.x, 0, PlayerTransform.position.z - transform.position.z).normalized;
 
       _enemyToTargetRotator.RotateToTargetPosition(direction);
@@ -54,7 +52,7 @@ namespace Gameplay.Characters.Enemies
 
     private void Shoot(Vector3 direction)
     {
-      _shooter.Shoot(_shootingPoint.PointTransform, _shootingPoint.PointTransform.position, direction);
+      _shooter.Shoot(_shootingPoint.PointTransform, _shootingPoint.PointTransform.position, direction, _config);
 
       _animatorProvider.Instance.PlayShootAnimation();
     }

@@ -36,5 +36,7 @@ namespace Gameplay.Characters.Enemies
     public float EnemyDetectionColliderRadius;
 
     public float ForceFromOtherEnemy;
+
+    public float BulletDamage;
   }
 }

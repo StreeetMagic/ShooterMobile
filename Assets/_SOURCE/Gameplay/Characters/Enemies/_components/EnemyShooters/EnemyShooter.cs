@@ -17,9 +17,9 @@ namespace Gameplay.Characters.Enemies.EnemyShooters
       _audioService = audioService;
     }
 
-    public void Shoot(Transform parentTransform, Vector3 startPosition, Vector3 directionToTarget)
+    public void Shoot(Transform parentTransform, Vector3 startPosition, Vector3 directionToTarget, EnemyConfig enemyConfig)
     {
-      _projectileFactory.CreateEnemyProjectile(parentTransform, startPosition, directionToTarget);
+      _projectileFactory.CreateEnemyProjectile(parentTransform, startPosition, directionToTarget, enemyConfig);
       _audioService.PlaySound(SoundId.Shoot);
     }
   }

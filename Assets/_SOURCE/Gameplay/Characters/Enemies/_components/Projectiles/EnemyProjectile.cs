@@ -14,6 +14,8 @@ namespace Gameplay.Characters.Enemies.Projectiles
 
     [Inject] private VisualEffectFactory _visualEffectFactory;
     
+    public EnemyConfig EnemyConfig { get; set; }
+    
     private void OnTriggerEnter(Collider otherCollider)
     {
       DamageTargetTrigger(otherCollider);
@@ -29,7 +31,10 @@ namespace Gameplay.Characters.Enemies.Projectiles
         if (_count == 0)
         {
           _count++;
-          player.GetComponentInChildren<PlayerTargetTrigger>().TakeDamage(15);
+          
+          player
+            .GetComponentInChildren<PlayerTargetTrigger>()
+            .TakeDamage(EnemyConfig.BulletDamage);
         }
       }
 

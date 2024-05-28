@@ -27,7 +27,7 @@ namespace Gameplay.Characters.Players.PlayerStatsProviders
 
       _upgradeService.Changed += UpdateValues;
     }
-    
+
     public void Stop()
     {
       _upgradeService.Changed -= UpdateValues;
@@ -49,9 +49,11 @@ namespace Gameplay.Characters.Players.PlayerStatsProviders
     {
       float value = 0;
 
-      if (_upgradeStats.TryGetValue(id, out ReactiveProperty<float> upgrade))
-        value += upgrade.Value;
-
+      value += _staticDataService.GetInitialStat(id);
+      
+      if (_upgradeStats.TryGetValue(id, out ReactiveProperty<float> stat))
+        value += stat.Value;
+      
       if (_questStats.TryGetValue(id, out ReactiveProperty<float> questStat))
         value += questStat.Value;
 
@@ -71,7 +73,7 @@ namespace Gameplay.Characters.Players.PlayerStatsProviders
         _upgradeStats.Add(statId, key);
 
         int currentUpgradeValue = _upgradeService.GetCurrentUpgradeValue(statId);
-        key.Value = _staticDataService.GetInitialStat(statId) + currentUpgradeValue;
+        key.Value = currentUpgradeValue;
       }
     }
   }

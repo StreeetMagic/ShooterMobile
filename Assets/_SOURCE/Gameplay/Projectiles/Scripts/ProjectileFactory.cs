@@ -1,4 +1,5 @@
 using AssetProviders;
+using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Projectiles;
 using Gameplay.Characters.Players.Projectiles;
 using RandomServices;
@@ -35,11 +36,12 @@ namespace Gameplay.Projectiles.Scripts
       _visualEffectFactory.Create(ParticleEffectId.PlayerMuzzleFlash, parent.position, parent);
     }
 
-    public void CreateEnemyProjectile(Transform parent, Vector3 position, Vector3 rotation)
+    public void CreateEnemyProjectile(Transform parent, Vector3 position, Vector3 rotation, EnemyConfig enemyConfig)
     {
       EnemyProjectile prefab = _assetProvider.Get<EnemyProjectile>();
-      EnemyProjectile playerProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation), parent);
-      playerProjectile.transform.SetParent(null);
+      EnemyProjectile enemyProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation), parent);
+      enemyProjectile.EnemyConfig = enemyConfig;
+      enemyProjectile.transform.SetParent(null);
 
       _visualEffectFactory.Create(ParticleEffectId.EnemyMuzzleFlash, position, parent);
     }
