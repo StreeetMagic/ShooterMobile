@@ -1135,7 +1135,7 @@ MonoBehaviour:
   PlayerTargetLocator: {fileID: 7581658404683493182}
   PlayerAnimator: {fileID: 2860814150951373908}
   PlayerMoveSpeed: {fileID: 4113114958346391883}
-  PetSpawnPointsContainer: {fileID: 0}
+  PetSpawnPointsContainer: {fileID: 4737300267756779004}
 --- !u!114 &2865720521955186985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1278,10 +1278,40 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1874641531791036930}
     m_Modifications:
+    - target: {fileID: 486864431092014794, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531896414635138916, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1036077295475358459, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
         type: 3}
       propertyPath: m_Name
       value: MeshModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919583734959887704, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314302620302664610, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903328439079366079, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5515376798340206263, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9062243674088626575, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
         type: 3}
@@ -1331,6 +1361,16 @@ PrefabInstance:
     - target: {fileID: 9062243674088626575, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062692019251956934, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123418392099322852, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

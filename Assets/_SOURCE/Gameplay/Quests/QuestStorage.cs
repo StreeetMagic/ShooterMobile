@@ -34,15 +34,15 @@ namespace Gameplay.Quests
 
       _quests = new Dictionary<QuestId, Quest>();
 
-      foreach (QuestId questId in configs.Keys)
+      for (int i = 0; i < projectProgress.Quests.Count; i++) 
       {
-        List<SubQuest> subQuests = SubQuest(configs[questId], projectProgress);
+        List<SubQuest> subQuests = SubQuest(configs[projectProgress.Quests[i].Id], projectProgress);
 
-        QuestState questState = QuestState(projectProgress, questId);
+        QuestState questState = QuestState(projectProgress, projectProgress.Quests[i].Id);
 
-        var quest = _gameLoopZenjectFactory.InstantiateNative<Quest>(questState, configs[questId], subQuests);
+        var quest = _gameLoopZenjectFactory.InstantiateNative<Quest>(questState, configs[projectProgress.Quests[i].Id], subQuests, i);
 
-        _quests.Add(questId, quest);
+        _quests.Add(projectProgress.Quests[i].Id, quest);
       }
     }
 

@@ -10,7 +10,7 @@ namespace Gameplay.Quests
     private readonly RewardService _rewardService;
 
     public Quest(QuestState state, QuestConfig config,
-      List<SubQuest> subQuests, RewardService rewardService)
+      List<SubQuest> subQuests, RewardService rewardService, int index)
     {
       Config = config;
       _rewardService = rewardService;
@@ -21,11 +21,14 @@ namespace Gameplay.Quests
 
       foreach (SubQuest subQuest in subQuests)
         subQuest.Completed += OnSubQuestCompleted;
+
+      Index = index;
     }
 
     public QuestConfig Config { get; }
     public ReactiveProperty<QuestState> State { get; }
     public List<SubQuest> SubQuests { get; }
+    public int Index { get; }
 
     public void GainReward()
     {

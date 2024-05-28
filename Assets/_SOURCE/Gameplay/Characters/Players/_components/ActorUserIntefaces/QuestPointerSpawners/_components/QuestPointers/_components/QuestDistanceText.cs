@@ -1,4 +1,5 @@
 using Gameplay.Characters.Questers;
+using Gameplay.Quests;
 using Maps;
 using TMPro;
 using UnityEngine;
@@ -12,13 +13,14 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.Qu
 
     [Inject] private readonly PlayerProvider _playerProvider;
     [Inject] private readonly MapProvider _mapProvider;
+    [Inject] private readonly Quest _quest;
 
     private void Update()
     {
       if (_mapProvider.Map == null)
         return;
 
-      Quester quester = _mapProvider.Map.Questers[0];
+      Quester quester = _mapProvider.Map.Questers[_quest.Index];
       Player player = _playerProvider.Player;
 
       float distance = Vector3.Distance(quester.transform.position, player.transform.position);

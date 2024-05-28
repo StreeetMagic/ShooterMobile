@@ -25,13 +25,11 @@ namespace Gameplay.Characters.Players.BombDefusers
 
     private void OnDamaged(int obj)
     {
-      if (Bombs.Count > 0)
-      {
-        if (Bombs[0] != null)
-        {
-          Bombs[0].GetComponent<BombDefuser>().DefuseProgress = 0;
-        }
-      }
+      if (Bombs.Count <= 0)
+        return;
+
+      if (Bombs[0] != null)
+        Bombs[0].GetComponent<BombDefuser>().DefuseProgress = 0;
     }
 
     private void Update()
@@ -40,23 +38,19 @@ namespace Gameplay.Characters.Players.BombDefusers
       {
         float progressPerFrame = (Time.deltaTime / ProjectConstants.CommonSettings.BombDefuseDuration);
 
-        if (Bombs.Count > 0)
-        {
-          if (Bombs[0] != null)
-          {
-            Bombs[0].GetComponent<BombDefuser>().DefuseProgress += progressPerFrame;
-          }
-        }
+        if (Bombs.Count <= 0)
+          return;
+
+        if (Bombs[0] != null)
+          Bombs[0].GetComponent<BombDefuser>().DefuseProgress += progressPerFrame;
       }
       else
       {
-        if (Bombs.Count > 0)
-        {
-          if (Bombs[0] != null)
-          {
-            Bombs[0].GetComponent<BombDefuser>().DefuseProgress = 0;
-          }
-        }
+        if (Bombs.Count <= 0)
+          return;
+
+        if (Bombs[0] != null)
+          Bombs[0].GetComponent<BombDefuser>().DefuseProgress = 0;
       }
     }
   }
