@@ -10,7 +10,7 @@ namespace Gameplay.Characters.Players
   public class PlayerHealth : MonoBehaviour
   {
     [Inject] private PlayerStatsProvider _playerStatsProvider;
-    [Inject] private GameLoopInitializer _gameLoopInitializer;
+    [Inject] private IGameLoopInitializer _gameLoopInitializer;
 
     public event Action Died;
     public event Action<int> Damaged;

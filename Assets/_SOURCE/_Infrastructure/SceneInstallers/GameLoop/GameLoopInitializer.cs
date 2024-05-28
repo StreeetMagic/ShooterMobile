@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using Cameras;
 using DataRepositories;
 using DataRepositories.BackpackStorages;
+using DG.Tweening;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Pets.Hens;
 using Gameplay.Characters.Players.Factories;
@@ -18,7 +20,7 @@ using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using Zenject;
 
-public class GameLoopInitializer : MonoBehaviour, IInitializable
+public class GameLoopInitializer : MonoBehaviour, IGameLoopInitializer
 {
   [Inject] private GameLoopInstaller _gameLoopInstaller;
   [Inject] private PlayerFactory _playerFactory;
@@ -37,10 +39,10 @@ public class GameLoopInitializer : MonoBehaviour, IInitializable
   [Inject] private SceneLoader _sceneLoader;
   [Inject] private HenSpawner _henSpawner;
 
-  public void Initialize()
+  public void Start()
   {
     _saveLoadService.LoadProgress();
-    
+
     Time.timeScale = 1f;
 
     _playerStatsProvider.Start();
@@ -58,14 +60,12 @@ public class GameLoopInitializer : MonoBehaviour, IInitializable
   {
     Destroy();
     _sceneLoader.Load(ProjectConstants.Scenes.Empty,
-      () =>
-      {
-        _sceneLoader.Load(ProjectConstants.Scenes.GameLoop);
-      });
+      () => { _sceneLoader.Load(ProjectConstants.Scenes.GameLoop); });
   }
 
   private void Destroy()
   {
+    DOTween.KillAll();
     Time.timeScale = 0f;
 
     _playerStatsProvider.Stop();
@@ -76,5 +76,21 @@ public class GameLoopInitializer : MonoBehaviour, IInitializable
     // _cameraFactory.Destroy();
     _playerFactory.Destroy();
     _mapFactory.Destroy();
+
+    //CleanUpProgressReaders();
+  }
+
+  private void CleanUpProgressReaders()
+  {
+    var validReaders = new List<IProgressReader>();
+
+    foreach (IProgressReader progressReader in _saveLoadService.ProgressReaders)
+    {
+      if (progressReader != null)
+        validReaders.Add(progressReader);
+    }
+    
+    _saveLoadService.ProgressReaders = validReaders;
   }
 }
+

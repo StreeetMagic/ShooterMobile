@@ -12,10 +12,10 @@ namespace Infrastructure.DebugServices
     private readonly IInputService _inputService;
     private readonly SaveLoadService _saveLoadService;
     private readonly WindowService _windowService;
-    private readonly GameLoopInitializer _gameLoopInitializer;
+    private readonly IGameLoopInitializer _gameLoopInitializer;
 
     public DebugService(IInputService inputService, SaveLoadService saveLoadService,
-      WindowService windowService, GameLoopInitializer gameLoopInitializer)
+      WindowService windowService, IGameLoopInitializer gameLoopInitializer)
     {
       _inputService = inputService;
       _saveLoadService = saveLoadService;

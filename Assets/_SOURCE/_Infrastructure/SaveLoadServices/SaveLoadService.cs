@@ -15,7 +15,7 @@ namespace Infrastructure.SaveLoadServices
       _progressService = progressService;
     }
 
-    public List<IProgressReader> ProgressReaders { get; } = new();
+    public List<IProgressReader> ProgressReaders { get; set; } = new();
 
     public void SaveProgress()
     {

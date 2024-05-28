@@ -37,8 +37,8 @@ namespace Infrastructure.DependencyInjection
 
     public override void InstallBindings()
     {
+      Container.Bind<IGameLoopInitializer>().FromInstance(GetComponent<IGameLoopInitializer>()).AsSingle().NonLazy();
       Container.Bind<GameLoopInstaller>().FromInstance(this).AsSingle();
-      Container.BindInterfacesAndSelfTo<GameLoopInitializer>().FromInstance(GetComponent<GameLoopInitializer>()).AsSingle().NonLazy();
 
       Container.BindInterfacesAndSelfTo<DebugService>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<GameLoopZenjectFactory>().AsSingle();

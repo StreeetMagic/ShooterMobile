@@ -15,6 +15,8 @@ namespace Infrastructure.Games
       public const string Empty = nameof(Empty);
       public const string LoadProgress = nameof(LoadProgress);
       public const string LoadConfigs = nameof(LoadConfigs);
+      public const string ChooseGameMode = nameof(ChooseGameMode);
+      public const string VladTestScene = nameof(VladTestScene);
     }
 
     public class AssetsPath

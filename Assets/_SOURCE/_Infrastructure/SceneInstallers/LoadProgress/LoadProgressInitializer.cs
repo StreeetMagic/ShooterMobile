@@ -28,6 +28,6 @@ public class LoadProgressInitializer : MonoBehaviour, IInitializable
 
     _saveLoadService.LoadProgress();
 
-    _sceneLoader.Load(ProjectConstants.Scenes.GameLoop);
+    _sceneLoader.Load(ProjectConstants.Scenes.ChooseGameMode);
   }
 }

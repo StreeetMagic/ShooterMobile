@@ -60,13 +60,12 @@ namespace Gameplay.Characters.Players.Movers
 
     public void ReadProgress(ProjectProgress projectProgress)
     {
-      if (_characterController != null)
-        _characterController.enabled = false;
+      if (_characterController == null)
+        return;
 
+      _characterController.enabled = false;
       transform.position = projectProgress.PlayerPosition;
-
-      if (_characterController != null)
-        _characterController.enabled = true;
+      _characterController.enabled = true;
     }
 
     public void WriteProgress(ProjectProgress projectProgress)
