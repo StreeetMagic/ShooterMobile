@@ -29,6 +29,11 @@ namespace Infrastructure.SaveLoadServices
       UpdateProgressReaders();
     }
 
+    public void DeleteSaves()
+    {
+      PlayerPrefs.DeleteKey(ProgressKey);
+    }
+
     private void UpdateProgressReaders()
     {
       foreach (IProgressReader progressReader in ProgressReaders)
@@ -52,11 +57,6 @@ namespace Infrastructure.SaveLoadServices
         _progressService.LoadProgress(PlayerPrefs.GetString(ProgressKey));
       else
         _progressService.SetDefault();
-    }
-
-    public void DeleteSaves()
-    {
-      PlayerPrefs.DeleteKey(ProgressKey);
     }
   }
 }

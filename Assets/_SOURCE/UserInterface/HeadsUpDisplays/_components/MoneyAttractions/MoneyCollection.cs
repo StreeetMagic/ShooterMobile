@@ -6,7 +6,6 @@ using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Infrastructure;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.MoneyAttractions

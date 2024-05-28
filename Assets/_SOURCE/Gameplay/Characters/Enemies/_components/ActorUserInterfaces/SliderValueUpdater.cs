@@ -23,12 +23,11 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
       {
         Slider.value = Mathf.MoveTowards(Slider.value, value, Time.deltaTime * SliderUpdateSpeed);
       }
-      
+
       if (Math.Abs(WhiteSlider.value - value) > 0.01f)
       {
         WhiteSlider.value = Mathf.MoveTowards(WhiteSlider.value, value, Time.deltaTime * WhiteSliderUpdateSpeed);
       }
-
     }
   }
 }

@@ -24,6 +24,7 @@ namespace Infrastructure.DependencyInjection
   {
     public override void InstallBindings()
     {
+      Container.BindInterfacesAndSelfTo<ProjectInitializer>().FromInstance(GetComponent<ProjectInitializer>()).AsSingle().NonLazy();
       Container.Bind<ProjectZenjectFactory>().AsSingle();
       Container.Bind<LoadingCurtain>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
 

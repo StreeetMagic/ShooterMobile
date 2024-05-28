@@ -12,15 +12,15 @@ namespace Infrastructure.DebugServices
     private readonly IInputService _inputService;
     private readonly SaveLoadService _saveLoadService;
     private readonly WindowService _windowService;
-    private readonly GameLoopBootstrapper _gameLoopBootstrapper;
+    private readonly GameLoopInitializer _gameLoopInitializer;
 
     public DebugService(IInputService inputService, SaveLoadService saveLoadService,
-      WindowService windowService, GameLoopBootstrapper gameLoopBootstrapper)
+      WindowService windowService, GameLoopInitializer gameLoopInitializer)
     {
       _inputService = inputService;
       _saveLoadService = saveLoadService;
       _windowService = windowService;
-      _gameLoopBootstrapper = gameLoopBootstrapper;
+      _gameLoopInitializer = gameLoopInitializer;
     }
 
     public void Initialize()
@@ -39,7 +39,7 @@ namespace Infrastructure.DebugServices
 
     public void Restart()
     {
-      _gameLoopBootstrapper.Restart();
+      _gameLoopInitializer.Restart();
     }
 
     public void DeleteSaves()

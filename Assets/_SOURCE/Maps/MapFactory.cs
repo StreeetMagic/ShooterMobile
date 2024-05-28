@@ -1,4 +1,5 @@
-﻿using Infrastructure.ZenjectFactories;
+﻿using Infrastructure.Games;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -15,15 +16,14 @@ namespace Maps
       _mapProvider = mapProvider;
     }
 
-    public void Create(Transform parent)
+    public void Create(Transform parent, bool isTest = false)
     {
-      _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>();
+      _mapProvider.Map = isTest == false
+        ? _zenjectFactory.InstantiateMono<Map>()
+        : _zenjectFactory.InstantiateMono<Map>(ProjectConstants.AssetsPath.Prefabs.VladMap);
 
       MoveToRootParent(_mapProvider.Map);
     }
-
-    private void MoveToRootParent(Map map) =>
-      map.transform.SetParent(null);
 
     public void Destroy()
     {
@@ -33,5 +33,8 @@ namespace Maps
       Object.Destroy(_mapProvider.Map.gameObject);
       _mapProvider.Map = null;
     }
+
+    private void MoveToRootParent(Map map) =>
+      map.transform.SetParent(null);
   }
 }

@@ -54,6 +54,13 @@ namespace Infrastructure.ZenjectFactories
         .InstantiatePrefab(_assetProvider.Get<T>())
         .GetComponent<T>();
     }
+    
+    public T InstantiateMono<T>(string path) where T : MonoBehaviour
+    {
+      return _instantiator
+        .InstantiatePrefab(_assetProvider.Get<T>(path))
+        .GetComponent<T>();
+    }
 
     public T InstantiateMono<T>(Transform parent) where T : MonoBehaviour
     {
