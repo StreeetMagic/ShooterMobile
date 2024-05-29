@@ -6,9 +6,9 @@ namespace PersistentProgresses
   public class DefaultProjectProgressConfig : ScriptableObject
   {
     public int MoneyInBank = 100;
-    public int EggsInBank = 0;
+    public int EggsInBank;
     public Vector3 PlayerPosition = Vector3.zero;
-    public int Expierience = 0;
-    public bool MusicMute = false;
+    public int Expierience;
+    public bool MusicMute;
   }
 }

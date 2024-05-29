@@ -4,7 +4,7 @@ public enum WeaponTypeId
   Unarmed = 1,
   Knife = 2,
   Club = 3,
-  CrowBar = 4,
+  Crowbar = 4,
   Machete = 5,
   BerettaM9A1 = 6,
   Magnum = 7,
@@ -14,7 +14,7 @@ public enum WeaponTypeId
   M4A1S = 11,
   Ak47 = 12,
   Aug = 13,
-  ScatterGun = 14,
+  TwoBarrel = 14,
   Nova = 15,
   Xm1014 = 16,
 }

@@ -17,7 +17,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
 
     private void Update()
     {
-      float value = (float)_enemyHealth.Current.Value / _enemyHealth.Initial;
+      float value = _enemyHealth.Current.Value / _enemyHealth.Initial;
 
       if (Math.Abs(Slider.value - value) > 0.01f)
       {

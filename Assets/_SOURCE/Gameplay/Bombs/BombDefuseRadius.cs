@@ -1,4 +1,3 @@
-using Gameplay.Characters.Players;
 using StaticDataServices;
 using UnityEngine;
 using Zenject;

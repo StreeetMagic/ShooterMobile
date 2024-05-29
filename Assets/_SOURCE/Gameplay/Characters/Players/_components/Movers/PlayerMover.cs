@@ -52,11 +52,6 @@ namespace Gameplay.Characters.Players.Movers
       }
     }
 
-    private void ApplyGravity()
-    {
-      _gravitySpeed += Physics.gravity * GravityScale * Time.deltaTime;
-    }
-
     public void ReadProgress(ProjectProgress projectProgress)
     {
       if (_characterController == null)
@@ -65,6 +60,11 @@ namespace Gameplay.Characters.Players.Movers
       _characterController.enabled = false;
       transform.position = projectProgress.PlayerPosition;
       _characterController.enabled = true;
+    }
+
+    private void ApplyGravity()
+    {
+      _gravitySpeed += Physics.gravity * GravityScale * Time.deltaTime;
     }
 
     public void WriteProgress(ProjectProgress projectProgress)
