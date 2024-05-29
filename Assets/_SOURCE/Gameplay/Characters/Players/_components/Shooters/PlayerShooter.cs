@@ -20,7 +20,7 @@ namespace Gameplay.Characters.Players.Shooters
     [Inject] private AudioService _audioService;
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
-    private Transform Transform => _playerProvider.ShootingPoint;
+    private Transform Transform => _playerProvider.WeaponShootingPointPoint.Transform;
     private float Cooldown => 1 / _staticDataService.GetPlayerConfig().FireRate;
 
     public void Update()

@@ -49,7 +49,8 @@ namespace Gameplay.Characters.Players
       _playerProvider.PlayerInputHandler = _factory.InstantiateNative<PlayerInputHandler>();
       _playerProvider.PlayerRotatorController = _factory.InstantiateNative<PlayerRotatorController>();
       _playerProvider.PlayerTargetHolder = player.GetComponent<PlayerTargetHolder>();
-      _playerProvider.ShootingPoint = player.GetComponent<PlayerShootingPoint>().Transform;
+      _playerProvider.WeaponShootingPointPoint = player.GetComponentInChildren<WeaponShootingPoint>();
+      
       _playerProvider.PlayerHealth = player.GetComponent<PlayerHealth>();
       _playerProvider.PetSpawnPointsContainer = player.GetComponentInChildren<PetSpawnPointsContainer>();
       _playerProvider.PlayerHenSpawner = player.GetComponent<PlayerHenSpawner>();
@@ -75,7 +76,7 @@ namespace Gameplay.Characters.Players
       _playerProvider.PlayerInputHandler = null;
       _playerProvider.PlayerRotatorController = null;
       _playerProvider.PlayerTargetHolder = null;
-      _playerProvider.ShootingPoint = null;
+      _playerProvider.WeaponShootingPointPoint = null;
       _playerProvider.PlayerHealth = null;
       _playerProvider.PetSpawnPointsContainer = null;
       _playerProvider.PlayerHenSpawner = null;

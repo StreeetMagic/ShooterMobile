@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerShootingPoint : MonoBehaviour
+  public class WeaponShootingPoint : MonoBehaviour
   {
     public Transform Transform;
   }

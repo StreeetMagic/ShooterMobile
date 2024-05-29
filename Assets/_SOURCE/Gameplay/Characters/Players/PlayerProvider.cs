@@ -4,7 +4,6 @@ using Gameplay.Characters.Players.PetSpawnPointsContainers;
 using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
-using UnityEngine;
 
 namespace Gameplay.Characters.Players
 {
@@ -22,6 +21,6 @@ namespace Gameplay.Characters.Players
    
     public PlayerRotatorController PlayerRotatorController { get; set; }
     public PlayerInputHandler PlayerInputHandler { get; set; }
-    public Transform ShootingPoint { get; set; }
+    public WeaponShootingPoint WeaponShootingPointPoint { get; set; }
   }
 }

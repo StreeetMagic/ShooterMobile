@@ -6,6 +6,5 @@ namespace Gameplay.Weapons
   public class WeaponContainer : MonoBehaviour
   {
     public List<WeaponSetup> Weapons;
-    
   }
 }
