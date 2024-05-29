@@ -50,9 +50,29 @@ namespace Gameplay.Characters.Players.Shooters
 
     private void Shoot()
     {
-      Vector3 directionToTarget = PlayerTargetHolder.DirectionToTarget;
-      _projectileFactory.CreatePlayerProjectile(Transform, directionToTarget);
-      _audioService.PlaySound(SoundId.Shoot);
+      for (int i = 0; i < 3; i++)
+      {
+        Vector3 directionToTarget = PlayerTargetHolder.DirectionToTarget;
+
+        directionToTarget = AddAngle(directionToTarget, 4f);
+
+        _projectileFactory.CreatePlayerProjectile(Transform, directionToTarget);
+        _audioService.PlaySound(SoundId.Shoot);
+      }
+    }
+
+    private Vector3 AddAngle(Vector3 directionToTarget, float angle)
+    {
+      float randomHorizontalAngle = Random.Range(-angle, angle);
+      float randomVerticalAngle = Random.Range(-angle, angle);
+
+      Quaternion horizontalRotation = Quaternion.AngleAxis(randomHorizontalAngle, Vector3.up);
+      Quaternion verticalRotation = Quaternion.AngleAxis(randomVerticalAngle, Vector3.right);
+
+      directionToTarget = horizontalRotation * directionToTarget;
+      directionToTarget = verticalRotation * directionToTarget;
+
+      return directionToTarget.normalized;
     }
   }
 }
