@@ -50,7 +50,7 @@ namespace Gameplay.Characters.Players.Shooters
 
     private void Shoot()
     {
-      for (int i = 0; i < 3; i++)
+      for (int i = 0; i < 1; i++)
       {
         Vector3 directionToTarget = PlayerTargetHolder.DirectionToTarget;
 
