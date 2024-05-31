@@ -20,7 +20,7 @@ using Zenject;
 
 namespace SceneInstallers.VladTestScene
 {
-  public class VladTestSceneInitializer : MonoBehaviour, IGameLoopInitializer
+  public class SimeonTestSceneInitializer : MonoBehaviour, IGameLoopInitializer
   {
     [Inject] private GameLoopInstaller _gameLoopInstaller;
     [Inject] private PlayerFactory _playerFactory;
@@ -48,7 +48,7 @@ namespace SceneInstallers.VladTestScene
 
       _playerStatsProvider.Start();
 
-      _mapFactory.Create(_gameLoopInstaller.transform, "vlad");
+      _mapFactory.Create(_gameLoopInstaller.transform, "simeon");
       _playerFactory.Create(_gameLoopInstaller.transform);
       _cameraFactory.Create(_gameLoopInstaller.transform);
       _enemySpawnerFactory.Create();

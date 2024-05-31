@@ -16,11 +16,22 @@ namespace Maps
       _mapProvider = mapProvider;
     }
 
-    public void Create(Transform parent, bool isTest = false)
+    public void Create(Transform parent, string mapName = "default")
     {
-      _mapProvider.Map = isTest == false
-        ? _zenjectFactory.InstantiateMono<Map>()
-        : _zenjectFactory.InstantiateMono<Map>(ProjectConstants.AssetsPath.Prefabs.VladMap);
+      switch (mapName)
+      {
+        case "default":
+          _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>();
+          break;
+        
+        case "simeon":
+          _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>(ProjectConstants.AssetsPath.Prefabs.SimeonMap);
+          break;
+        
+        case "vlad":
+          _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>(ProjectConstants.AssetsPath.Prefabs.VladMap);
+          break;
+      }    
 
       MoveToRootParent(_mapProvider.Map);
     }
