@@ -25,8 +25,5 @@ public class PlayerWeaponRaiser : MonoBehaviour
       _timeLeft -= Time.deltaTime;
       return;
     }
-
-    if (IsRaised)
-      Debug.Log("Raised");
   }
 }

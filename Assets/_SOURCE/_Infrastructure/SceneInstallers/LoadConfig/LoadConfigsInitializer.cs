@@ -14,6 +14,7 @@ namespace SceneInstallers.LoadConfig
     public void Initialize()
     {
       _staticDataService.LoadConfigs();
+
       _sceneLoader.Load(ProjectConstants.Scenes.LoadProgress);
     }
   }

@@ -11,7 +11,7 @@ namespace _EntryPoint
 
     public void Initialize()
     {
-      _sceneLoader.Load(ProjectConstants.Scenes.LoadConfigs);
+      _sceneLoader.Load(ProjectConstants.Scenes.ChooseGameMode);
     }
   }
 }

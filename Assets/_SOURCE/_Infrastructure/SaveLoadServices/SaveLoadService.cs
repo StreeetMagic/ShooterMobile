@@ -1,30 +1,36 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Loggers;
 using PersistentProgresses;
+using Projects;
 using UnityEngine;
 
 namespace SaveLoadServices
 {
   public class SaveLoadService
   {
-    private const string ProgressKey = nameof(ProgressKey);
     private readonly PersistentProgressService _progressService;
+    private readonly ProjectData _projectData;
 
-    public SaveLoadService(PersistentProgressService progressService)
+    public SaveLoadService(PersistentProgressService progressService, ProjectData projectData)
     {
       _progressService = progressService;
+      _projectData = projectData;
     }
 
     public List<IProgressReader> ProgressReaders { get; set; } = new();
+    private string ProgressKey => $"{_projectData.GameMode}_progress";
 
     public void SaveProgress()
     {
+      new DebugLogger().Log("Save progress");
       UpdateProgressWriters();
       WritePlayerPrefs();
     }
 
     public void LoadProgress()
     {
+      new DebugLogger().Log("Load progress");
       ReadPlayerPrefs();
       UpdateProgressReaders();
     }

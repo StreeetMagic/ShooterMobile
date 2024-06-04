@@ -11,10 +11,15 @@ namespace SceneInstallers.ChooseGameMode.Buttons
     public Button Button;
 
     [Inject] private SceneLoader _sceneLoader;
+    [Inject] private ProjectData _projectData;
 
     private void Start()
     {
-      Button.onClick.AddListener(() => { _sceneLoader.Load(ProjectConstants.Scenes.SimeonTestScene); });
+      Button.onClick.AddListener(() =>
+      {
+        _projectData.GameMode = GameMode.SimeonTest;
+        _sceneLoader.Load(ProjectConstants.Scenes.LoadConfigs);
+      });
     }
   }
 }

@@ -11,10 +11,15 @@ namespace SceneInstallers.ChooseGameMode.Buttons
     public Button Button;
 
     [Inject] private SceneLoader _sceneLoader;
+    [Inject] private ProjectData _projectData;
 
     private void Start()
     {
-      Button.onClick.AddListener(() => { _sceneLoader.Load(ProjectConstants.Scenes.VladTestScene); });
+      Button.onClick.AddListener(() =>
+      {
+        _projectData.GameMode = GameMode.VladTest;
+        _sceneLoader.Load(ProjectConstants.Scenes.LoadConfigs);
+      });
     }
   }
 }

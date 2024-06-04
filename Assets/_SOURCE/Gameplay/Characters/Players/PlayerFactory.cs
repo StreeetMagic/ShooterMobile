@@ -55,6 +55,8 @@ namespace Gameplay.Characters.Players
 
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
         _saveLoadService.ProgressReaders.Add(progressReader);
+      
+      
     }
 
     public void Destroy()

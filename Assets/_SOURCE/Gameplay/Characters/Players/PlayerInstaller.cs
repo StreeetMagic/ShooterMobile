@@ -5,6 +5,7 @@ using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
 using Gameplay.Weapons;
+using SaveLoadServices;
 using UnityEngine;
 using Zenject;
 using Zenject.Source.Install;
@@ -27,6 +28,7 @@ namespace Gameplay.Characters.Players
     public WeaponShootingPoint WeaponShootingPoint;
 
     [Inject] private PlayerProvider _playerProvider;
+    [Inject] private SaveLoadService _saveLoadServices;
 
     public override void InstallBindings()
     {
@@ -48,6 +50,7 @@ namespace Gameplay.Characters.Players
 
       Container.Bind<PlayerMover>().AsSingle().NonLazy();
       _playerProvider.PlayerMover = Container.Resolve<PlayerMover>();
+      _saveLoadServices.ProgressReaders.Add(Container.Resolve<PlayerMover>());
 
       Container.Bind<PlayerRotator>().AsSingle().NonLazy();
       _playerProvider.PlayerRotator = Container.Resolve<PlayerRotator>();

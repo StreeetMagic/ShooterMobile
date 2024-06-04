@@ -1,3 +1,4 @@
+using System;
 using AudioServices;
 using CurrencyRepositories;
 using Gameplay.Quests;
@@ -19,6 +20,7 @@ namespace SceneInstallers.LoadProgress
     [Inject] private AudioService _audioService;
     [Inject] private QuestStorage _questStorage;
     [Inject] private EggsInBankStorage _eggsInBankStorage;
+    [Inject] private ProjectData _projectData;
 
     public void Initialize()
     {
@@ -30,7 +32,26 @@ namespace SceneInstallers.LoadProgress
 
       _saveLoadService.LoadProgress();
 
-      _sceneLoader.Load(ProjectConstants.Scenes.ChooseGameMode);
+      switch (_projectData.GameMode)
+      {
+        case GameMode.Unknown:
+          throw new Exception("Unknown game mode");
+
+        case GameMode.Default:
+          _sceneLoader.Load(ProjectConstants.Scenes.GameLoop);
+          break;
+
+        case GameMode.SimeonTest:
+          _sceneLoader.Load(ProjectConstants.Scenes.SimeonTestScene);
+          break;
+
+        case GameMode.VladTest:
+          _sceneLoader.Load(ProjectConstants.Scenes.VladTestScene);
+          break;
+        
+        default:
+          throw new ArgumentOutOfRangeException();
+      }
     }
   }
 }

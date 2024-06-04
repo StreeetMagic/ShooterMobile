@@ -1,6 +1,7 @@
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
+using Loggers;
 using Projects;
 using SaveLoadServices;
 using StaticDataServices;
@@ -18,7 +19,7 @@ namespace Gameplay.Characters.Players.Movers
 
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
-    
+
     public PlayerMover(
       PlayerAnimator playerAnimator,
       CharacterController characterController,
@@ -71,6 +72,7 @@ namespace Gameplay.Characters.Players.Movers
 
     public void WriteProgress(ProjectProgress projectProgress)
     {
+      new DebugLogger().Log($"Player position: {_transform.position}");
       projectProgress.PlayerPosition = _transform.position;
     }
 

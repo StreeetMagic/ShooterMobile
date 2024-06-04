@@ -55,6 +55,7 @@ namespace _EntryPoint
       Container.BindInterfacesAndSelfTo<BackpackStorage>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerStatsProvider>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<ProjectData>().AsSingle();
     }
   }
 }

@@ -11,10 +11,15 @@ namespace SceneInstallers.ChooseGameMode.Buttons
     public Button Button;
 
     [Inject] private SceneLoader _sceneLoader;
+    [Inject] private ProjectData _projectData;
 
     private void Start()
     {
-      Button.onClick.AddListener(() => { _sceneLoader.Load(ProjectConstants.Scenes.GameLoop); });
+      Button.onClick.AddListener(() =>
+      {
+        _projectData.GameMode = GameMode.Default;
+        _sceneLoader.Load(ProjectConstants.Scenes.LoadConfigs);
+      });
     }
   }
 }
