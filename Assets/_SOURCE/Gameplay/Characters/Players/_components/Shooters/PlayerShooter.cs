@@ -18,6 +18,7 @@ namespace Gameplay.Characters.Players.Shooters
     [Inject] private ProjectileFactory _projectileFactory;
     [Inject] private BackpackStorage _backpackStorage;
     [Inject] private AudioService _audioService;
+    [Inject] private PlayerWeaponRaiser _playerWeaponRaiser;
 
     private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
     private Transform Transform => _playerProvider.WeaponShootingPointPoint.Transform;
@@ -29,6 +30,9 @@ namespace Gameplay.Characters.Players.Shooters
         return;
 
       if (_playerProvider.Player == null)
+        return;
+
+      if (_playerWeaponRaiser.IsRaised == false)
         return;
 
       if (PlayerTargetHolder.HasTarget)

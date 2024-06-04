@@ -1,12 +1,18 @@
 ﻿using StaticDataServices;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Characters.Players.Rotators
 {
-  public class PlayerRotator : MonoBehaviour
+  public class PlayerRotator
   {
-    [Inject] private IStaticDataService _static;
+    private readonly IStaticDataService _static;
+    private readonly Transform _transform;
+    
+    public PlayerRotator(IStaticDataService staticDataService, Transform transform)
+    {
+      _static = staticDataService;
+      _transform = transform;
+    }
 
     private float RotationSpeed => _static.GetPlayerConfig().RotationSpeed;
 
@@ -21,7 +27,7 @@ namespace Gameplay.Characters.Players.Rotators
         return;
 
       Quaternion targetRotation = Quaternion.LookRotation(direction);
-      transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * RotationSpeed);
+      _transform.rotation = Quaternion.Slerp(_transform.rotation, targetRotation, Time.deltaTime * RotationSpeed);
     }
   }
 }

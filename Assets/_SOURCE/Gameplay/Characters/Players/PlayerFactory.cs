@@ -43,8 +43,6 @@ namespace Gameplay.Characters.Players
       player.transform.SetParent(null);
       _playerProvider.Player = player;
 
-      _playerProvider.PlayerMover = player.GetComponent<PlayerMover>();
-      _playerProvider.PlayerRotator = player.GetComponent<PlayerRotator>();
       _playerProvider.PlayerTargetLocator = player.GetComponentInChildren<PlayerTargetLocator>();
       _playerProvider.PlayerInputHandler = _factory.InstantiateNative<PlayerInputHandler>();
       _playerProvider.PlayerRotatorController = _factory.InstantiateNative<PlayerRotatorController>();

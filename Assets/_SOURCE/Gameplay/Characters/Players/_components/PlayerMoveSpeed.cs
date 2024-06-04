@@ -9,6 +9,7 @@ namespace Gameplay.Characters.Players
     private Vector3 _previousPosition;
 
     public ReactiveProperty<float> CurrentMoveSpeed { get; } = new(0f);
+    public bool IsMoving => CurrentMoveSpeed.Value > 0f;
 
     private void OnEnable()
     {
