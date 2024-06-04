@@ -52,6 +52,7 @@ namespace Gameplay.Characters.Players
       _playerProvider.PlayerHealth = player.GetComponent<PlayerHealth>();
       _playerProvider.PetSpawnPointsContainer = player.GetComponentInChildren<PetSpawnPointsContainer>();
       _playerProvider.PlayerHenSpawner = player.GetComponent<PlayerHenSpawner>();
+      _playerProvider.PlayerWeaponId = player.GetComponent<PlayerWeaponId>();
 
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
         _saveLoadService.ProgressReaders.Add(progressReader);
@@ -78,6 +79,7 @@ namespace Gameplay.Characters.Players
       _playerProvider.PlayerHealth = null;
       _playerProvider.PetSpawnPointsContainer = null;
       _playerProvider.PlayerHenSpawner = null;
+      _playerProvider.PlayerWeaponId = null;
 
       Object.Destroy(player.gameObject);
     }

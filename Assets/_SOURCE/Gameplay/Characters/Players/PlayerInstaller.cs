@@ -22,11 +22,13 @@ namespace Gameplay.Characters.Players
     public PlayerMoveSpeed PlayerMoveSpeed;
     public PetSpawnPointsContainer PetSpawnPointsContainer;
     public PlayerWeaponRaiser PlayerWeaponRaiser;
+    public PlayerWeaponId PlayerWeaponId;
 
     public WeaponContainer WeaponContainer;
     public WeaponSwitcher WeaponSwitcher;
     public Weapon Weapon;
     public WeaponShootingPoint WeaponShootingPoint;
+    public WeaponAttacker WeaponAttacker;
 
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private SaveLoadService _saveLoadServices;
@@ -43,10 +45,12 @@ namespace Gameplay.Characters.Players
       Container.Bind<PetSpawnPointsContainer>().FromInstance(PetSpawnPointsContainer).AsSingle();
       Container.Bind<CharacterController>().FromInstance(GetComponent<CharacterController>()).AsSingle();
       Container.Bind<PlayerWeaponRaiser>().FromInstance(PlayerWeaponRaiser).AsSingle();
+      Container.Bind<PlayerWeaponId>().FromInstance(PlayerWeaponId).AsSingle();
 
       Container.Bind<WeaponContainer>().FromInstance(WeaponContainer).AsSingle();
       Container.Bind<WeaponSwitcher>().FromInstance(WeaponSwitcher).AsSingle();
       Container.Bind<Weapon>().FromInstance(Weapon).AsSingle();
+      Container.Bind<WeaponAttacker>().FromInstance(WeaponAttacker).AsSingle();
       Container.Bind<WeaponShootingPoint>().FromInstance(WeaponShootingPoint).AsSingle();
 
       Container.Bind<PlayerMover>().AsSingle().NonLazy();
