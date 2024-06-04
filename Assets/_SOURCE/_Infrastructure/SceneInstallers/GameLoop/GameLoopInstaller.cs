@@ -31,6 +31,8 @@ namespace SceneInstallers.GameLoop
 {
   public class GameLoopInstaller : MonoInstaller
   {
+    public Map Map;
+
     [Inject] private IAssetProvider _assetProvider;
 
     public override void InstallBindings()
@@ -56,7 +58,10 @@ namespace SceneInstallers.GameLoop
       Container.BindInterfacesAndSelfTo<ProjectileFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<CameraProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<PlayerProvider>().AsSingle();
+
       Container.BindInterfacesAndSelfTo<MapProvider>().AsSingle();
+      Container.Resolve<MapProvider>().Map = Map;
+
       Container.BindInterfacesAndSelfTo<VisualEffectFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<ParticleImageFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();

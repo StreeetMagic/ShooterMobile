@@ -21,15 +21,15 @@ namespace Maps
       switch (mapName)
       {
         case "default":
-          _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>();
+         // _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>();
           break;
         
         case "simeon":
-          _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>(ProjectConstants.AssetsPath.Prefabs.SimeonMap);
+         // _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>(ProjectConstants.AssetsPath.Prefabs.SimeonMap);
           break;
         
         case "vlad":
-          _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>(ProjectConstants.AssetsPath.Prefabs.VladMap);
+         // _mapProvider.Map = _zenjectFactory.InstantiateMono<Map>(ProjectConstants.AssetsPath.Prefabs.VladMap);
           break;
       }    
 
