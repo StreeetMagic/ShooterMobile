@@ -36,9 +36,7 @@ namespace Gameplay.Quests.Subquests
       _saveLoadService.SaveProgress();
 
       if (count >= Setup.Quantity)
-      {
         State.Value = QuestState.RewardReady;
-      }
     }
 
     private void OnStateChanged(QuestState state)

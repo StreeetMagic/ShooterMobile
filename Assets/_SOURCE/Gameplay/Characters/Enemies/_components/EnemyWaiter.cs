@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Enemies
     {
       _currentTime = 0;
       _enemyMoverToSpawnPoint.enabled = false;
-    }
+    } 
 
     private void Update()
     {
@@ -30,3 +30,5 @@ namespace Gameplay.Characters.Enemies
     }
   }
 }
+
+

@@ -63,6 +63,15 @@ namespace Gameplay.Quests
       }
     }
 
+    public SubQuest GetActiveSubQuest(QuestId configId)
+    {
+      Quest quest = _quests[configId];
+
+      return quest
+        .SubQuests
+        .First(x => x.State.Value == Quests.QuestState.Activated);
+    }
+
     private static QuestState QuestState(ProjectProgress projectProgress, QuestId questId)
     {
       return projectProgress
@@ -93,15 +102,6 @@ namespace Gameplay.Quests
       }
 
       return subQuests;
-    }
-
-    public SubQuest GetActiveSubQuest(QuestId configId)
-    {
-      Quest quest = _quests[configId];
-
-      return quest
-        .SubQuests
-        .First(x => x.State.Value == Quests.QuestState.Activated);
     }
   }
 }
