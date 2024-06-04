@@ -8,13 +8,17 @@ public class WeaponSwitcher : MonoBehaviour
   [Inject] private Weapon _weapon;
   [Inject] private WeaponContainer _weaponContainer;
   [Inject] private WeaponShootingPoint _shootingPoint;
+  [Inject] private PlayerWeaponId _playerWeaponId;
 
   private void Start()
   {
+    if (_playerWeaponId.WeaponTypeId == WeaponTypeId.Unknown)
+      throw new System.Exception("У игрока не указан айдишник оружия");
+
     DisableAll();
     NullShootingPoint();
 
-    SwitchTo(_weapon.Current);
+    SwitchTo(_playerWeaponId.WeaponTypeId);
   }
 
   public void SwitchTo(WeaponTypeId weaponTypeId)

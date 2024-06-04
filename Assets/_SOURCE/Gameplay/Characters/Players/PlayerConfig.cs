@@ -22,6 +22,9 @@ namespace Gameplay.Characters.Players
     
     [Tooltip("Время на изготовку для стрельбы")]
     public float WeaponRaiseTime = 0.2f;
+    
+    [Tooltip("Начальное оружие")]
+    public WeaponTypeId StartWeapon = WeaponTypeId.Knife;
 
     public List<StatSetup> Stats;
   }

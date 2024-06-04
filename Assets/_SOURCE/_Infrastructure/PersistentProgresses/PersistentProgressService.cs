@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.Characters.Players;
 using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
 using Gameplay.Stats;
@@ -29,6 +30,8 @@ namespace PersistentProgresses
     {
       DefaultProjectProgressConfig defaultProgress = _staticDataService.GetDefaultProjectProgressConfig();
       
+      PlayerConfig playerConfig = _staticDataService.GetPlayerConfig();
+      
       ProjectProgress = new ProjectProgress
       {
         MoneyInBank = defaultProgress.MoneyInBank,
@@ -36,6 +39,7 @@ namespace PersistentProgresses
         PlayerPosition = defaultProgress.PlayerPosition, 
         Expierience = defaultProgress.Expierience, 
         MusicMute = defaultProgress.MusicMute, 
+        PlayerWeaponId = playerConfig.StartWeapon,
       };
 
       Upgrades();

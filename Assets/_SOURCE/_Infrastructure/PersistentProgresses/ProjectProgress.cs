@@ -15,6 +15,7 @@ namespace Projects
     public int Level;
     public bool MusicMute;
     public Vector3 PlayerPosition;
+    public WeaponTypeId PlayerWeaponId;
 
     public List<UpgradeProgress> Upgrades;
     public List<QuestProgress> Quests;
