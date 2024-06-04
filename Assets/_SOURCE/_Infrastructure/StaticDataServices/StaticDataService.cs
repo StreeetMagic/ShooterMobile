@@ -11,6 +11,7 @@ using Gameplay.Stats;
 using Gameplay.Upgrades;
 using Musics;
 using PersistentProgresses;
+using Projects;
 using Sounds;
 using UnityEngine;
 
@@ -18,16 +19,18 @@ namespace StaticDataServices
 {
   public class StaticDataService : IStaticDataService
   {
-    private const string PlayerConfigPath = "PlayerConfigs/PlayerConfig";
-    private const string EnemyConfigPath = "EnemyConfigs";
-    private const string UpgradeConfigPath = "UpgradeConfigs";
-    private const string SoundConfigPath = "SoundConfigs";
-    private const string LootConfigPath = "LootConfigs";
-    private const string MusicConfigPath = "MusicConfigs";
-    private const string QuestConfigPath = "QuestConfigs";
-    private const string ExpirienceConfigPath = "ExpirienceConfigs/ExpirienceConfig";
-    private const string RewardConfigPath = "RewardConfigs";
-    private const string DefaultProjectProgressConfigPath = "DefaultProjectProgressConfig/DefaultProjectProgressConfig";
+    private readonly ProjectData _projectData;
+
+    private string _playerConfigPath;
+    private string _enemyConfigPath;
+    private string _upgradeConfigPath;
+    private string _soundConfigPath;
+    private string _lootConfigPath;
+    private string _musicConfigPath;
+    private string _questConfigPath;
+    private string _expirienceConfigPath;
+    private string _rewardConfigPath;
+    private string _defaultProjectProgressConfigPath;
 
     private PlayerConfig _playerConfig;
     private ExpirienceConfig _expirienceConfig;
@@ -41,6 +44,11 @@ namespace StaticDataServices
     private Dictionary<RewardId, RewardConfig> _rewardConfigs;
     private DefaultProjectProgressConfig _defaultProjectProgressConfig;
 
+    public StaticDataService(ProjectData projectData)
+    {
+      _projectData = projectData;
+    }
+
     public PlayerConfig GetPlayerConfig() =>
       _playerConfig;
 
@@ -48,7 +56,7 @@ namespace StaticDataServices
       _defaultProjectProgressConfig;
 
     private void LoadExpirienceConfig() =>
-      _expirienceConfig = Resources.Load<ExpirienceConfig>(ExpirienceConfigPath);
+      _expirienceConfig = Resources.Load<ExpirienceConfig>(_expirienceConfigPath);
 
     public EnemyConfig GetEnemyConfig(EnemyId enemyId) =>
       _enemyConfigs[enemyId];
@@ -85,6 +93,21 @@ namespace StaticDataServices
 
     public void LoadConfigs()
     {
+      string startPath = _projectData.GameMode + "/";
+
+      string playerConfigPath = startPath + "PlayerConfigs/PlayerConfig";
+
+      _playerConfigPath = playerConfigPath;
+      _enemyConfigPath = startPath + "EnemyConfigs";
+      _upgradeConfigPath = startPath + "UpgradeConfigs";
+      _soundConfigPath = startPath + "SoundConfigs";
+      _lootConfigPath = startPath + "LootConfigs";
+      _musicConfigPath = startPath + "MusicConfigs";
+      _questConfigPath = startPath + "QuestConfigs";
+      _expirienceConfigPath = startPath + "ExpirienceConfigs/ExpirienceConfig";
+      _rewardConfigPath = startPath + "RewardConfigs";
+      _defaultProjectProgressConfigPath = startPath + "DefaultProjectProgressConfig/DefaultProjectProgressConfig";
+
       LoadEnemyConfigs();
       LoadUpgradeConfigs();
       LoadLootConfigs();
@@ -100,25 +123,25 @@ namespace StaticDataServices
 
     private void LoadDefaultProjectProgressConfig() =>
       _defaultProjectProgressConfig = Resources
-        .Load<DefaultProjectProgressConfig>(DefaultProjectProgressConfigPath);
+        .Load<DefaultProjectProgressConfig>(_defaultProjectProgressConfigPath);
 
     private void LoadPlayerConfig() =>
       _playerConfig = Resources
-        .Load<PlayerConfig>(PlayerConfigPath);
+        .Load<PlayerConfig>(_playerConfigPath);
 
     private void LoadRewardConfigs() =>
       _rewardConfigs = Resources
-        .LoadAll<RewardConfig>(RewardConfigPath)
+        .LoadAll<RewardConfig>(_rewardConfigPath)
         .ToDictionary(x => x.Id, x => x);
 
     private void LoadQuestConfigs() =>
       _questConfigs = Resources
-        .LoadAll<QuestConfig>(QuestConfigPath)
+        .LoadAll<QuestConfig>(_questConfigPath)
         .ToDictionary(x => x.Id, x => x);
 
     private void LoadInitialStats()
     {
-      List<StatSetup> stats = Resources.Load<PlayerConfig>(PlayerConfigPath).Stats;
+      List<StatSetup> stats = Resources.Load<PlayerConfig>(_playerConfigPath).Stats;
 
       _stats = new Dictionary<StatId, float>();
 
@@ -128,27 +151,27 @@ namespace StaticDataServices
 
     private void LoadUpgradeConfigs() =>
       _upgradeConfigs = Resources
-        .LoadAll<UpgradeConfig>(UpgradeConfigPath)
+        .LoadAll<UpgradeConfig>(_upgradeConfigPath)
         .ToDictionary(x => x.Id, x => x);
 
     private void LoadEnemyConfigs() =>
       _enemyConfigs = Resources
-        .LoadAll<EnemyConfig>(EnemyConfigPath)
+        .LoadAll<EnemyConfig>(_enemyConfigPath)
         .ToDictionary(x => x.Id, x => x);
 
     private void LoadLootConfigs() =>
       _lootConfigs = Resources
-        .LoadAll<LootConfig>(LootConfigPath)
+        .LoadAll<LootConfig>(_lootConfigPath)
         .ToDictionary(x => x.Id, x => x);
 
     private void LoadMusicConfigs() =>
       _musicConfigs = Resources
-        .LoadAll<MusicConfig>(MusicConfigPath)
+        .LoadAll<MusicConfig>(_musicConfigPath)
         .ToDictionary(x => x.Id, x => x);
 
     private void LoadSoundConfigs() =>
       _soundConfigs = Resources
-        .LoadAll<SoundConfig>(SoundConfigPath)
+        .LoadAll<SoundConfig>(_soundConfigPath)
         .ToDictionary(x => x.Id, x => x);
   }
 }
