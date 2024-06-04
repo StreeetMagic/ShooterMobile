@@ -19,6 +19,9 @@ namespace Gameplay.Characters.Players
     public float BombDefuseDuration = 5;
 
     public float BombDefuseRadius = 5f;
+    
+    [Tooltip("Время на изготовку для стрельбы")]
+    public float WeaponRaiseTime = 0.2f;
 
     public List<StatSetup> Stats;
   }

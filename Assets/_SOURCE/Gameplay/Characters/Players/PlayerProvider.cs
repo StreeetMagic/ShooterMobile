@@ -1,5 +1,4 @@
-﻿using System;
-using Gameplay.Characters.Players.InputHandlers;
+﻿using Gameplay.Characters.Players.InputHandlers;
 using Gameplay.Characters.Players.Movers;
 using Gameplay.Characters.Players.PetSpawnPointsContainers;
 using Gameplay.Characters.Players.Rotators;

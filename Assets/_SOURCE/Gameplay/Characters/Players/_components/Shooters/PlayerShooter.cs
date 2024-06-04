@@ -24,7 +24,7 @@ namespace Gameplay.Characters.Players.Shooters
     private Transform Transform => _playerProvider.WeaponShootingPointPoint.Transform;
     private float Cooldown => 1 / _staticDataService.GetPlayerConfig().FireRate;
 
-    public void Update()
+    private void Update()
     {
       if (_backpackStorage.IsFull)
         return;

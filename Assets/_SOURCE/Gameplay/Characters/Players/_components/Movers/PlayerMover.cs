@@ -1,7 +1,6 @@
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
-using Loggers;
 using Projects;
 using SaveLoadServices;
 using StaticDataServices;
