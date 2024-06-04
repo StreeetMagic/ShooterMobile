@@ -6,15 +6,16 @@ namespace Gameplay.Characters.Players.Rotators
   public class PlayerRotator
   {
     private readonly IStaticDataService _static;
-    private readonly Transform _transform;
-    
-    public PlayerRotator(IStaticDataService staticDataService, Transform transform)
+    private readonly PlayerProvider _playerProvider;
+
+    public PlayerRotator(IStaticDataService staticDataService, PlayerProvider playerProvider)
     {
       _static = staticDataService;
-      _transform = transform;
+      _playerProvider = playerProvider;
     }
 
     private float RotationSpeed => _static.GetPlayerConfig().RotationSpeed;
+    private Transform Transform => _playerProvider.Transform;
 
     public void RotateTowardsDirection(Vector3 direction)
     {
@@ -27,7 +28,7 @@ namespace Gameplay.Characters.Players.Rotators
         return;
 
       Quaternion targetRotation = Quaternion.LookRotation(direction);
-      _transform.rotation = Quaternion.Slerp(_transform.rotation, targetRotation, Time.deltaTime * RotationSpeed);
+      Transform.rotation = Quaternion.Slerp(Transform.rotation, targetRotation, Time.deltaTime * RotationSpeed);
     }
   }
 }

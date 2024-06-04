@@ -1,3 +1,4 @@
+using System;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.Movers;
 using Gameplay.Characters.Players.PetSpawnPointsContainers;
@@ -12,7 +13,7 @@ using Zenject.Source.Install;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerInstaller : MonoInstaller
+  public class PlayerInstaller : MonoInstaller, IDisposable
   {
     public PlayerHealth PlayerHealth;
     public PlayerTargetHolder PlayerTargetHolder;
@@ -32,7 +33,7 @@ namespace Gameplay.Characters.Players
 
     public override void InstallBindings()
     {
-      Container.Bind<Transform>().FromInstance(transform).AsSingle();
+      Container.BindInterfacesAndSelfTo<PlayerInstaller>().FromInstance(this).AsSingle();
       Container.BindInstance(PlayerHealth);
 
       Container.Bind<PlayerTargetHolder>().FromInstance(PlayerTargetHolder).AsSingle();
@@ -54,6 +55,15 @@ namespace Gameplay.Characters.Players
 
       Container.Bind<PlayerRotator>().AsSingle().NonLazy();
       _playerProvider.PlayerRotator = Container.Resolve<PlayerRotator>();
+    }
+
+    public void Dispose()
+    {
+      _saveLoadServices.ProgressReaders.Remove(_playerProvider.PlayerMover);
+      _playerProvider.PlayerMover = null;
+      Container.Unbind<PlayerMover>();
+
+      _playerProvider.PlayerRotator = null;
     }
   }
 }

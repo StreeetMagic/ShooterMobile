@@ -64,7 +64,7 @@ namespace SceneInstallers.VladTestScene
       _sceneLoader.Load(ProjectConstants.Scenes.Empty,
         () =>
         {
-          _sceneLoader.Load(ProjectConstants.Scenes.VladTestScene);
+          _sceneLoader.Load(ProjectConstants.Scenes.SimeonTestScene);
         });
     }
 

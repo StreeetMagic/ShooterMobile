@@ -15,7 +15,7 @@ namespace Gameplay.Characters.Players.Movers
     private readonly CharacterController _characterController;
     private readonly PlayerStatsProvider _playerStatsProvider;
     private readonly IStaticDataService _staticDataService;
-    private readonly Transform _transform;
+    private readonly PlayerProvider _playerProvider;
 
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
@@ -25,18 +25,19 @@ namespace Gameplay.Characters.Players.Movers
       CharacterController characterController,
       PlayerStatsProvider playerStatsProvider,
       IStaticDataService staticDataService,
-      Transform playerTransform)
+      PlayerProvider playerProvider)
     {
       _playerAnimator = playerAnimator;
       _characterController = characterController;
       _playerStatsProvider = playerStatsProvider;
       _staticDataService = staticDataService;
-      _transform = playerTransform;
+      _playerProvider = playerProvider;
     }
 
     private PlayerConfig PlayerConfig => _staticDataService.GetPlayerConfig();
     private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;
     private float GravityScale => PlayerConfig.GravityScale;
+    private Transform Transform => _playerProvider.Transform;
 
     public void Move(Vector3 directionXYZ)
     {
@@ -66,14 +67,13 @@ namespace Gameplay.Characters.Players.Movers
         return;
 
       _characterController.enabled = false;
-      _transform.position = projectProgress.PlayerPosition;
+      Transform.position = projectProgress.PlayerPosition;
       _characterController.enabled = true;
     }
 
     public void WriteProgress(ProjectProgress projectProgress)
     {
-      new DebugLogger().Log($"Player position: {_transform.position}");
-      projectProgress.PlayerPosition = _transform.position;
+      projectProgress.PlayerPosition = Transform.position;
     }
 
     private void ApplyGravity()

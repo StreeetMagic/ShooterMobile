@@ -49,6 +49,9 @@ namespace Gameplay.Characters.Players.InputHandlers
       if (Mover == null)
         return;
       
+      if (RotatorController == null)
+        return;
+      
       Mover.Move(moveDirection);
 
       RotatorController.RotateTowardsDirection(moveDirection);

@@ -23,14 +23,12 @@ namespace SaveLoadServices
 
     public void SaveProgress()
     {
-      new DebugLogger().Log("Save progress");
       UpdateProgressWriters();
       WritePlayerPrefs();
     }
 
     public void LoadProgress()
     {
-      new DebugLogger().Log("Load progress");
       ReadPlayerPrefs();
       UpdateProgressReaders();
     }

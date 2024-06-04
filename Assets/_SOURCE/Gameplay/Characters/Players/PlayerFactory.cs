@@ -43,20 +43,19 @@ namespace Gameplay.Characters.Players
       player.transform.SetParent(null);
       _playerProvider.Player = player;
 
+      _playerProvider.Transform = player.transform;
       _playerProvider.PlayerTargetLocator = player.GetComponentInChildren<PlayerTargetLocator>();
       _playerProvider.PlayerInputHandler = _factory.InstantiateNative<PlayerInputHandler>();
       _playerProvider.PlayerRotatorController = _factory.InstantiateNative<PlayerRotatorController>();
       _playerProvider.PlayerTargetHolder = player.GetComponent<PlayerTargetHolder>();
       _playerProvider.WeaponShootingPointPoint = player.GetComponentInChildren<WeaponShootingPoint>();
-      
+
       _playerProvider.PlayerHealth = player.GetComponent<PlayerHealth>();
       _playerProvider.PetSpawnPointsContainer = player.GetComponentInChildren<PetSpawnPointsContainer>();
       _playerProvider.PlayerHenSpawner = player.GetComponent<PlayerHenSpawner>();
 
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
         _saveLoadService.ProgressReaders.Add(progressReader);
-      
-      
     }
 
     public void Destroy()
@@ -70,8 +69,8 @@ namespace Gameplay.Characters.Players
       }
 
       _playerProvider.Player = null;
-      _playerProvider.PlayerMover = null;
-      _playerProvider.PlayerRotator = null;
+  
+      _playerProvider.Transform = null;
       _playerProvider.PlayerTargetLocator = null;
       _playerProvider.PlayerInputHandler = null;
       _playerProvider.PlayerRotatorController = null;
@@ -81,7 +80,7 @@ namespace Gameplay.Characters.Players
       _playerProvider.PetSpawnPointsContainer = null;
       _playerProvider.PlayerHenSpawner = null;
 
-       Object.Destroy(player.gameObject);
+      Object.Destroy(player.gameObject);
     }
 
     private Vector3 SpawnPosition()
