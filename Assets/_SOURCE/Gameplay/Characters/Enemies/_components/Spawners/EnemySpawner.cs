@@ -28,7 +28,7 @@ namespace Gameplay.Characters.Enemies.Spawners
     [Inject] private Enemy.Factory _enemyFactory;
     [Inject] private IStaticDataService _staticDataService;
 
-    public event Action<EnemyHealth> EnemyDied;
+    public event Action<IHealth> EnemyDied;
 
     public EnemyId EnemyId { get; private set; }
     public List<Enemy> Enemies { get; } = new();
@@ -88,10 +88,10 @@ namespace Gameplay.Characters.Enemies.Spawners
 
       Enemies.Add(enemy);
 
-      enemy.GetComponent<EnemyHealth>().Died += OnEnemyDied;
+      enemy.GetComponent<IHealth>().Died += OnEnemyDied;
     }
 
-    private void OnEnemyDied(EnemyConfig config, EnemyHealth enemyHealth)
+    private void OnEnemyDied(EnemyConfig config, IHealth enemyHealth)
     {
       _coroutine = new CoroutineDecorator(_coroutineRunner, WaitAndSpawn);
 

@@ -22,7 +22,7 @@ namespace Gameplay.Characters.Enemies
     public EnemyShootAtPlayer EnemyShooter;
     public EnemyFromEnemyPusher EnemyFromEnemyPusher;
     public EnemyToSpawnerDisance EnemyToSpawnerDisance;
-    public EnemyTargetTrigger EnemyTargetTrigger;
+    public EnemyTargetTrigger TargetTrigger;
     public ShootingPoint ShootingPoint;
     public EnemyAnimatorProvider EnemyAnimatorProvider;
 
@@ -42,7 +42,7 @@ namespace Gameplay.Characters.Enemies
 
       Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
       Container.Bind<RoutePointsManager>().FromInstance(RoutePointsManager).AsSingle().NonLazy();
-      Container.Bind<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
+      Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
       Container.Bind<CharacterController>().FromInstance(CharacterController).AsSingle().NonLazy();
       Container.Bind<EnemyAnimatorProvider>().FromInstance(EnemyAnimatorProvider).AsSingle().NonLazy();
       Container.Bind<EnemyMoverToSpawnPoint>().FromInstance(EnemyMoverToSpawnPoint).AsSingle().NonLazy();
@@ -51,7 +51,7 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyShootAtPlayer>().FromInstance(EnemyShooter).AsSingle().NonLazy();
       Container.Bind<EnemyFromEnemyPusher>().FromInstance(EnemyFromEnemyPusher).AsSingle().NonLazy();
       Container.Bind<EnemyToSpawnerDisance>().FromInstance(EnemyToSpawnerDisance).AsSingle().NonLazy();
-      Container.Bind<EnemyTargetTrigger>().FromInstance(EnemyTargetTrigger).AsSingle().NonLazy();
+      Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();
       Container.Bind<ShootingPoint>().FromInstance(ShootingPoint).AsSingle().NonLazy();
 
       Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();

@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.Healths
 {
-  public class EnemyHealth : MonoBehaviour
+  public class EnemyHealth : MonoBehaviour, IHealth
   {
     [Inject] private EnemyAnimatorProvider _animatorProvider;
     [Inject] private RewardService _rewardService;
@@ -17,7 +17,7 @@ namespace Gameplay.Characters.Enemies.Healths
     [Inject] private HitStatus _hitStatus;
     [Inject] private EnemyConfig _config;
 
-    public event Action<EnemyConfig, EnemyHealth> Died;
+    public event Action<EnemyConfig, IHealth> Died;
     public event Action<float> Damaged;
 
     public ReactiveProperty<float> Current { get; } = new();

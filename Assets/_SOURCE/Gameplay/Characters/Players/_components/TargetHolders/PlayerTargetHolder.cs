@@ -10,13 +10,13 @@ namespace Gameplay.Characters.Players.TargetHolders
 {
   public class PlayerTargetHolder : MonoBehaviour
   {
-    private List<EnemyTargetTrigger> _targets;
+    private List<ITargetTrigger> _targets;
 
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private PlayerStatsProvider _playerStatsProvider;
 
     public bool HasTarget { get; private set; }
-    public EnemyTargetTrigger CurrentTarget { get; private set; }
+    public ITargetTrigger CurrentTarget { get; private set; }
 
     public Vector3 DirectionToTarget => CurrentTarget.transform.position - Transform.position;
     public Vector3 LookDirectionToTarget => new Vector3(CurrentTarget.transform.position.x, Transform.position.y, CurrentTarget.transform.position.z) - Transform.position;
@@ -26,7 +26,7 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     private void OnEnable()
     {
-      _targets = new List<EnemyTargetTrigger>();
+      _targets = new List<ITargetTrigger>();
     }
 
     private void FixedUpdate()
@@ -46,11 +46,11 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     private void RemoveDeadTargets()
     {
-      List<EnemyTargetTrigger> deadTargets = new List<EnemyTargetTrigger>();
+      List<ITargetTrigger> deadTargets = new List<ITargetTrigger>();
 
-      foreach (EnemyTargetTrigger target in _targets)
+      foreach (ITargetTrigger target in _targets)
       {
-        if (!target.EnemyHealth.IsDead)
+        if (!target.Health.IsDead)
           continue;
 
         deadTargets.Add(target);
@@ -64,9 +64,9 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     private void RemoveFarTargets()
     {
-      List<EnemyTargetTrigger> farTargets = new List<EnemyTargetTrigger>();
+      List<ITargetTrigger> farTargets = new List<ITargetTrigger>();
 
-      foreach (EnemyTargetTrigger target in _targets)
+      foreach (ITargetTrigger target in _targets)
       {
         if (!(Vector3.Distance(Transform.position, target.transform.position) > FireRange))
           continue;
@@ -97,7 +97,7 @@ namespace Gameplay.Characters.Players.TargetHolders
         SetRandomCurrentTarget();
         HasTarget = true;
       }
-      else if (CurrentTarget.EnemyHealth.IsDead)
+      else if (CurrentTarget.Health.IsDead)
       {
         SetRandomCurrentTarget();
         HasTarget = true;
@@ -106,17 +106,17 @@ namespace Gameplay.Characters.Players.TargetHolders
 
     private void SetRandomCurrentTarget()
     {
-      EnemyTargetTrigger currentEnemyTarget = _targets[Random.Range(0, _targets.Count)];
-      currentEnemyTarget.IsTargeted = true;
-      CurrentTarget = currentEnemyTarget;
+      ITargetTrigger currentTarget = _targets[Random.Range(0, _targets.Count)];
+      currentTarget.IsTargeted = true;
+      CurrentTarget = currentTarget;
     }
 
-    public void AddTargets(List<EnemyTargetTrigger> targets)
+    public void AddTargets(List<ITargetTrigger> targets)
     {
       if (targets == null || targets.Count == 0)
         return;
 
-      foreach (EnemyTargetTrigger target in targets)
+      foreach (ITargetTrigger target in targets)
       {
         if (!_targets.Contains(target))
           _targets.Add(target);

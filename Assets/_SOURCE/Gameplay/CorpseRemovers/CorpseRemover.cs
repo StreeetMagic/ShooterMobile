@@ -11,7 +11,7 @@ namespace Gameplay.CorpseRemovers
 {
   public class CorpseRemover
   {
-    public List<EnemyHealth> Enemies { get; } = new();
+    public List<IHealth> Enemies { get; } = new();
 
     private readonly ICoroutineRunner _coroutineRunner;
 
@@ -20,13 +20,13 @@ namespace Gameplay.CorpseRemovers
       _coroutineRunner = coroutineRunner;
     }
 
-    public void Add(EnemyHealth enemyHealth)
+    public void Add(IHealth enemyHealth)
     {
       Enemies.Add(enemyHealth);
       enemyHealth.Died += OnDied;
     }
 
-    private void OnDied(EnemyConfig config, EnemyHealth enemyHealth)
+    private void OnDied(EnemyConfig config, IHealth enemyHealth)
     {
       enemyHealth.Died -= OnDied;
 
@@ -34,7 +34,7 @@ namespace Gameplay.CorpseRemovers
       coroutineDecorator.Start();
     }
 
-    private IEnumerator RemoveCorpse(EnemyHealth enemyHealth)
+    private IEnumerator RemoveCorpse(IHealth enemyHealth)
     {
       yield return new WaitForSeconds(2f);
 

@@ -9,7 +9,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
   {
     public TextMeshProUGUI Text;
 
-    [Inject] private EnemyHealth _enemyHealth;
+    [Inject] private IHealth _enemyHealth;
     [Inject] private EnemyConfig _config;
 
     private float MaxHealth => _config.InitialHealth;

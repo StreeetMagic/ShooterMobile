@@ -28,16 +28,16 @@ namespace Gameplay.Characters.Players.TargetLocators
     {
       int count = Physics.OverlapSphereNonAlloc(transform.position, Radius, _colliders);
 
-      var list = new List<EnemyTargetTrigger>();
+      var list = new List<ITargetTrigger>();
 
       for (var index = 0; index < count; index++)
       {
         Collider collider1 = _colliders[index];
 
-        if (collider1.gameObject.TryGetComponent(out EnemyTargetTrigger targetTrigger) == false)
+        if (collider1.gameObject.TryGetComponent(out ITargetTrigger targetTrigger) == false)
           continue;
 
-        if (targetTrigger.EnemyHealth.IsDead)
+        if (targetTrigger.Health.IsDead)
           continue;
 
         list.Add(targetTrigger);

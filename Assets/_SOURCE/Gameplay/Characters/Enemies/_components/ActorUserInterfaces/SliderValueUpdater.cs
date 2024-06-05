@@ -13,7 +13,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
     public float SliderUpdateSpeed;
     public float WhiteSliderUpdateSpeed;
 
-    [Inject] private EnemyHealth _enemyHealth;
+    [Inject] private IHealth _enemyHealth;
 
     private void Update()
     {

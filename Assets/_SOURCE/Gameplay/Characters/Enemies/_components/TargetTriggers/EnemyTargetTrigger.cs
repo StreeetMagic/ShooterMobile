@@ -5,40 +5,40 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.TargetTriggers
 {
-  public class EnemyTargetTrigger : MonoBehaviour
+  public class EnemyTargetTrigger : MonoBehaviour, ITargetTrigger
   {
     public Collider Collider;
 
-    public event Action<EnemyTargetTrigger> TargetDied;
+    public event Action<ITargetTrigger> TargetDied;
 
     public bool IsTargeted { get; set; }
-    [Inject] public EnemyHealth EnemyHealth { get; private set; }
+    [Inject] public IHealth Health { get; private set; }
 
     private void OnEnable()
     {
-      EnemyHealth.Died += OnDied;
+      Health.Died += OnDied;
     }
 
     private void OnDisable()
     {
-      EnemyHealth.Died -= OnDied;
+      Health.Died -= OnDied; 
     }
 
-    private void OnDied(EnemyConfig arg1, EnemyHealth arg2)
+    private void OnDied(EnemyConfig arg1, IHealth arg2)
     {
       Collider.enabled = false;
 
       TargetDied?.Invoke(this);
     }
 
-    public void TakeDamage(float damage)
-    {
-      EnemyHealth.TakeDamage(damage);
-    }
-
     private void FixedUpdate()
     {
       transform.localPosition = Vector3.zero;
+    }
+
+    public void TakeDamage(float damage)
+    {
+      Health.TakeDamage(damage);
     }
   }
 }

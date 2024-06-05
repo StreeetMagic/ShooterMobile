@@ -8,7 +8,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
   {
     public GameObject[] Components;
 
-    [Inject] private EnemyHealth _enemyHealth;
+    [Inject] private IHealth _enemyHealth;
 
     public void Start()
     {

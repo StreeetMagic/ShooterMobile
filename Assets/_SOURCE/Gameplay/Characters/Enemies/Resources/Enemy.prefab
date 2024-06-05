@@ -134,7 +134,7 @@ MonoBehaviour:
   EnemyShooter: {fileID: 1059117782256098412}
   EnemyFromEnemyPusher: {fileID: 3212565556203649086}
   EnemyToSpawnerDisance: {fileID: 7085896218561486164}
-  EnemyTargetTrigger: {fileID: 6660041158880107429}
+  TargetTrigger: {fileID: 4949865898261959369}
   ShootingPoint: {fileID: 6874966587935280439}
   EnemyAnimatorProvider: {fileID: 989760437509561374}
 --- !u!114 &6943619904983208316
@@ -371,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 1216875472340336332, guid: ff9e879b3b2c1024e83bf24cb25b8cb5,
         type: 3}
       propertyPath: m_Name
-      value: TargetTrigger
+      value: EnemyTargetTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 5138085262824814231, guid: ff9e879b3b2c1024e83bf24cb25b8cb5,
         type: 3}
@@ -428,9 +428,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff9e879b3b2c1024e83bf24cb25b8cb5, type: 3}
---- !u!114 &6660041158880107429 stripped
+--- !u!114 &4949865898261959369 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -1549132215726544593, guid: ff9e879b3b2c1024e83bf24cb25b8cb5,
+  m_CorrespondingSourceObject: {fileID: 8240510482893480003, guid: ff9e879b3b2c1024e83bf24cb25b8cb5,
     type: 3}
   m_PrefabInstance: {fileID: 3957916751689609866}
   m_PrefabAsset: {fileID: 0}

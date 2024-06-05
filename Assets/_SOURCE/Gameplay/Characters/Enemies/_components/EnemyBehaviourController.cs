@@ -10,7 +10,7 @@ namespace Gameplay.Characters.Enemies
     [Inject] private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
     [Inject] private EnemyMoverToPlayer _enemyMoverToPlayer;
     [Inject] private HitStatus _hitStatus;
-    [Inject] private EnemyHealth _enemyHealth;
+    [Inject] private IHealth _enemyHealth;
     [Inject] private EnemyShootAtPlayer _enemyShootAtPlayer;
     [Inject] private ReturnToSpawnStatus _returnToSpawnStatus;
     [Inject] private PlayerProvider _playerProvider;

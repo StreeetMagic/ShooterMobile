@@ -7,15 +7,8 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyExpirience : MonoBehaviour
   {
-    private ExpierienceStorage _expierienceStorage;
-    private EnemyHealth _enemyHealth;
-
-    [Inject]
-    public void Construct(ExpierienceStorage expierienceStorage, EnemyHealth enemyHealth)
-    {
-      _expierienceStorage = expierienceStorage;
-      _enemyHealth = enemyHealth;
-    }
+    [Inject] private ExpierienceStorage _expierienceStorage;
+    [Inject] private IHealth _enemyHealth;
 
     private void OnEnable()
     {
@@ -27,7 +20,7 @@ namespace Gameplay.Characters.Enemies
       _enemyHealth.Died -= OnDied;
     }
 
-    private void OnDied(EnemyConfig config, EnemyHealth health)
+    private void OnDied(EnemyConfig config, IHealth health)
     {
       _expierienceStorage.AllPoints.Value += config.Expirience;
     }

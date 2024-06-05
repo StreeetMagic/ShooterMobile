@@ -22,12 +22,12 @@ namespace Gameplay.RewardServices
       _playerStatsProvider = playerStatsProvider;
     }
 
-    public void AddEnemy(EnemyHealth enemyHealth)
+    public void AddEnemy(IHealth enemyHealth)
     {
       enemyHealth.Died += OnEnemyDied;
     }
 
-    private void OnEnemyDied(EnemyConfig enemyConfig, EnemyHealth enemyHealth)
+    private void OnEnemyDied(EnemyConfig enemyConfig, IHealth enemyHealth)
     {
       _backpackStorage.AddLoot(enemyConfig.LootDrops);
     }

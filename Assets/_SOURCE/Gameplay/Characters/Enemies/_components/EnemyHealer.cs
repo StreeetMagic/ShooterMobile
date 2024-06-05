@@ -9,7 +9,7 @@ namespace Gameplay.Characters.Enemies
     private float _heal;
     private float _timer;
 
-    [Inject] private EnemyHealth _enemyHealth;
+    [Inject] private IHealth _enemyHealth;
     [Inject] private HitStatus _hitStatus;
     [Inject] private EnemyConfig _config;
 

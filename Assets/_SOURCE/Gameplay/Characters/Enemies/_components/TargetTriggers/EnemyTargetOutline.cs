@@ -8,19 +8,12 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
   {
     public GameObject Outline;
 
-    private EnemyTargetTrigger _enemyTargetTrigger;
-    private BackpackStorage _backpackStorage;
-
-    [Inject]
-    private void Construct(EnemyTargetTrigger enemyTargetTrigger, BackpackStorage backpackStorage)
-    {
-      _enemyTargetTrigger = enemyTargetTrigger;
-      _backpackStorage = backpackStorage;
-    }
+    [Inject] private ITargetTrigger _targetTrigger;
+    [Inject] private BackpackStorage _backpackStorage;
 
     private void Update()
     {
-      bool isTargeted = _enemyTargetTrigger.IsTargeted;
+      bool isTargeted = _targetTrigger.IsTargeted;
 
       if (_backpackStorage.IsFull)
         isTargeted = false;

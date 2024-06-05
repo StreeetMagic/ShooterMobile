@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5138085262824814231}
   - component: {fileID: 7859778311746978955}
-  - component: {fileID: -1549132215726544593}
   - component: {fileID: 4679670141440192379}
+  - component: {fileID: 8240510482893480003}
   m_Layer: 3
-  m_Name: TargetTrigger
+  m_Name: EnemyTargetTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,20 +57,6 @@ CapsuleCollider:
   m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: 0.65, z: 0}
---- !u!114 &-1549132215726544593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216875472340336332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0794b9e9a210184ca90037eb03a242a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: {fileID: 0}
-  Collider: {fileID: 7859778311746978955}
 --- !u!54 &4679670141440192379
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,3 +84,16 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &8240510482893480003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216875472340336332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0794b9e9a210184ca90037eb03a242a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collider: {fileID: 7859778311746978955}

@@ -6,25 +6,20 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyColliderDisabler : MonoBehaviour
   {
-    private EnemyHealth _enemy;
-
-    [Inject]
-    private void Construct(EnemyHealth enemy)
-    {
-      _enemy = enemy;
-    }
+    [Inject] private IHealth _health;
+    [Inject] private Enemy _enemy;
 
     private void OnEnable()
     {
-      _enemy.Died += DisableColliders;
+      _health.Died += DisableColliders;
     }
 
     private void OnDisable()
     {
-      _enemy.Died -= DisableColliders;
+      _health.Died -= DisableColliders;
     }
 
-    private void DisableColliders(EnemyConfig enemyConfig, EnemyHealth enemyHealth)
+    private void DisableColliders(EnemyConfig enemyConfig, IHealth enemyHealth)
     {
       Collider[] colliders = _enemy.GetComponentsInChildren<Collider>();
 

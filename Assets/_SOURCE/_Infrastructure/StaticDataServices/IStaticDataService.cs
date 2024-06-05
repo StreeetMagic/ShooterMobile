@@ -30,5 +30,7 @@ namespace StaticDataServices
     ExpirienceConfig GetExpirienceConfig();
     Dictionary<RewardId, RewardConfig> GetRewardConfigs();
     DefaultProjectProgressConfig GetDefaultProjectProgressConfig();
+    Dictionary<WeaponTypeId, WeaponConfig> GetWeaponConfigs();
+    WeaponConfig GetWeaponConfig(WeaponTypeId weaponTypeId);
   }
 }

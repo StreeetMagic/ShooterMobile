@@ -39,7 +39,7 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
       }
     }
 
-    private void OnEnemyDied(EnemyHealth enemyHealth)
+    private void OnEnemyDied(IHealth enemyHealth)
     {
       Vector3 position = _camera.WorldToScreenPoint(enemyHealth.transform.position);
 

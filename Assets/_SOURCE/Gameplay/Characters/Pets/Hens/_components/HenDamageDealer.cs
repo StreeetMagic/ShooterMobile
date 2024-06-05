@@ -57,11 +57,11 @@ namespace Gameplay.Characters.Pets.Hens._components
       {
         RaycastHit target = _targets[i];
 
-        if (target.transform.TryGetComponent(out EnemyTargetTrigger enemyTargetTrigger))
+        if (target.transform.TryGetComponent(out ITargetTrigger enemyTargetTrigger))
         {
           int randomDamage = Random.Range(10, 51);
 
-          enemyTargetTrigger.EnemyHealth.TakeDamage(randomDamage);
+          enemyTargetTrigger.Health.TakeDamage(randomDamage);
 
           enemyTargetTrigger.transform.parent.GetComponent<CharacterController>().Move((enemyTargetTrigger.transform.position - transform.position).normalized * 1f);
         }

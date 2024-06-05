@@ -6,13 +6,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
 {
   public class EnemyActorUserInterface : MonoBehaviour
   {
-    private EnemyHealth _enemyHealth;
-
-    [Inject]
-    public void Construct(EnemyHealth enemyHealth)
-    {
-      _enemyHealth = enemyHealth;
-    }
+    [Inject] private IHealth _enemyHealth;
 
     private void OnEnable()
     {
@@ -24,7 +18,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces
       _enemyHealth.Died -= OnDied;
     }
 
-    private void OnDied(EnemyConfig arg1, EnemyHealth arg2)
+    private void OnDied(EnemyConfig arg1, IHealth arg2)
     {
       gameObject.SetActive(false);
     }
