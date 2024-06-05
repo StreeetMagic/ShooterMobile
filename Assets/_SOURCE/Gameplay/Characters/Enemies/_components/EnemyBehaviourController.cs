@@ -64,7 +64,7 @@ namespace Gameplay.Characters.Enemies
     }
 
     private bool EnemyInShootingRadius() =>
-      (_playerProvider.Player.transform.position - transform.position).magnitude < _config.Radius;
+      (_playerProvider.Player.transform.position - transform.position).magnitude < _config.ShootRange;
 
     private bool EnemyInPatrolingRadius() =>
       (_spawnerTransform.position - transform.position).magnitude < _config.PatrolingRadius;

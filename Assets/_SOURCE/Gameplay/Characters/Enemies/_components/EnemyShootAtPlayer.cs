@@ -42,7 +42,7 @@ namespace Gameplay.Characters.Enemies
       {
         var distance = (PlayerTransform.position - transform.position).magnitude;
 
-        if (distance <= _config.Radius)
+        if (distance <= _config.ShootRange)
         {
           Shoot(direction);
           _time = 0;

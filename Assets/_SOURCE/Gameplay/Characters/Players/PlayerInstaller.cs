@@ -23,6 +23,7 @@ namespace Gameplay.Characters.Players
     public PetSpawnPointsContainer PetSpawnPointsContainer;
     public PlayerWeaponRaiser PlayerWeaponRaiser;
     public PlayerWeaponId PlayerWeaponId;
+    public PlayerToTargetAggro PlayerToTargetAggro;
 
     public WeaponContainer WeaponContainer;
     public WeaponSwitcher WeaponSwitcher;
@@ -46,6 +47,7 @@ namespace Gameplay.Characters.Players
       Container.Bind<CharacterController>().FromInstance(GetComponent<CharacterController>()).AsSingle();
       Container.Bind<PlayerWeaponRaiser>().FromInstance(PlayerWeaponRaiser).AsSingle();
       Container.Bind<PlayerWeaponId>().FromInstance(PlayerWeaponId).AsSingle();
+      Container.Bind<PlayerToTargetAggro>().FromInstance(PlayerToTargetAggro).AsSingle();
 
       Container.Bind<WeaponContainer>().FromInstance(WeaponContainer).AsSingle();
       Container.Bind<WeaponSwitcher>().FromInstance(WeaponSwitcher).AsSingle();

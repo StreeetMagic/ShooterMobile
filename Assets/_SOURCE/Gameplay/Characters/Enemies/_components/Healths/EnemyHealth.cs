@@ -39,20 +39,21 @@ namespace Gameplay.Characters.Enemies.Healths
     public void TakeDamage(float damage)
     {
       if (damage <= 0)
-      {
         throw new ArgumentOutOfRangeException(nameof(damage));
-      }
 
       SetCurrentHealth(Current.Value - damage);
       Damaged?.Invoke(Current.Value);
 
-      foreach (Enemy enemy in _spawner.Enemies)
-        enemy.Installer.EnemyHealth.Hit();
+      NotifyOtherEnemies();
 
       if (Current.Value <= 0)
-      {
         Die();
-      }
+    }
+
+    public void NotifyOtherEnemies()
+    {
+      foreach (Enemy enemy in _spawner.Enemies)
+        enemy.Installer.EnemyHealth.Hit();
     }
 
     public void Hit()

@@ -8,35 +8,52 @@ namespace Gameplay.Characters.Enemies
   {
     public EnemyId Id;
     
-    public float MoveSpeed;
+    [Tooltip("Скорость движения во время патрулирования")]
+    public float MoveSpeed = 5f;
     
-    public float RunSpeed;
+    [Tooltip("Скорость бега при преследовании игрока и возвращении на место")]
+    public float RunSpeed = 10f;
     
-    [Tooltip("Время бега после ранения")] 
-    public float RunTime;
+    [Tooltip("Время после которого включится лечение при отстутствии входящего урона")] 
+    public float RunTime = 1f;
     
-    public float WaitTimeAfterMove;
+    [Tooltip("Время ожидания после достижения маршрутной точки")]
+    public float WaitTimeAfterMove = .1f;
     
-    public float InitialHealth;
+    [Tooltip("Начальное здоровье")]
+    public float InitialHealth = 100f;
     
-    public int MoneyReward;
-    
-    public float HealMultiplier;
+    [Tooltip("Награда за убийство")]
+    public int MoneyReward = 10;
 
+    [Tooltip("Множитель восстановления здоровья")]
+    public float HealMultiplier = 1;
+
+    [Tooltip("Набор наград при убийстве")]
     public List<LootDrop> LootDrops;
     
-    public float Radius;
+    [Tooltip("Радиус стрельбы")]
+    public float ShootRange = 10f;
 
-    public int FireRate;
-    
-    public int PatrolingRadius;
+    [Tooltip("Радиус агра если рядом пробежал игрок")]
+    public float AggroRadius = 3f;
 
-    public int Expirience;
+    [Tooltip("Скорострельность: выстрелов в секунду")]
+    public int FireRate = 10;
 
-    public float EnemyDetectionColliderRadius;
+    [Tooltip("Урон пули")] 
+    public float BulletDamage = 5;
 
-    public float ForceFromOtherEnemy;
+    [Tooltip("Максимальное расстояние преследования игрока от центра спаунера")]
+    public float PatrolingRadius = 20;
 
-    public float BulletDamage;
+    [Tooltip("Награда за убийство")] 
+    public int Expirience = 100;
+
+    [Tooltip("Радиус толкания соседних врагов (нужно для исключения стака 3д моделей)")]
+    public float EnemyDetectionColliderRadius = 0.1f;
+
+    [Tooltip("Сила отталкивания соседних врагов в радиусе действия")]
+    public float ForceFromOtherEnemys = .3f;
   }
 }

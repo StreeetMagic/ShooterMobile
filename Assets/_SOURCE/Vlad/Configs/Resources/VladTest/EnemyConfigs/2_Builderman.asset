@@ -25,9 +25,11 @@ MonoBehaviour:
     Level: 2
   - Id: 2
     Level: 1
-  Radius: 10
+  ShootRange: 0
+  AggroRadius: 3
   FireRate: 2
+  BulletDamage: 0
   PatrolingRadius: 12
   Expirience: 30
-  EnemyDetectionColliderRadius: 0
-  ForceFromOtherEnemy: 0
+  EnemyDetectionColliderRadius: 0.09
+  ForceFromOtherEnemys: 0.3

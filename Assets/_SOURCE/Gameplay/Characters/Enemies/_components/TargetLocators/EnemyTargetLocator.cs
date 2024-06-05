@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Enemies.TargetLocators
     public event Action<PlayerTargetTrigger> TargetLocated;
     public event Action<PlayerTargetTrigger> TargetLost;
 
-    private float Radius => _config.Radius;
+    private float Radius => _config.ShootRange;
     public bool HasTarget { get; set; }
 
     private void Start()

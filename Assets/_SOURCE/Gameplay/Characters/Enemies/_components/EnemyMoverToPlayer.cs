@@ -26,7 +26,7 @@ namespace Gameplay.Characters.Enemies
     {
       float distance = (PlayerTransform.position - transform.position).magnitude;
 
-      if (distance < _config.Radius)
+      if (distance < _config.ShootRange)
       {
         _enemyShootAtPlayer.enabled = true;
       }

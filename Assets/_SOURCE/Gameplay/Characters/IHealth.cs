@@ -16,5 +16,6 @@ namespace Gameplay.Characters.Enemies.Healths
     Transform transform { get; }
     T GetComponent<T>();
     void Hit();
+    void NotifyOtherEnemies();
   }
 }

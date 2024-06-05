@@ -8,11 +8,15 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
   public class EnemyTargetTrigger : MonoBehaviour, ITargetTrigger
   {
     public Collider Collider;
+    
+    [Inject] private EnemyConfig _config;
 
     public event Action<ITargetTrigger> TargetDied;
 
-    public bool IsTargeted { get; set; }
     [Inject] public IHealth Health { get; private set; }
+    [Inject] public HitStatus HitStatus { get; private set; }
+    public bool IsTargeted { get; set; }
+    public float AggroRadius => _config.AggroRadius;
 
     private void OnEnable()
     {
@@ -21,7 +25,7 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
 
     private void OnDisable()
     {
-      Health.Died -= OnDied; 
+      Health.Died -= OnDied;
     }
 
     private void OnDied(EnemyConfig arg1, IHealth arg2)

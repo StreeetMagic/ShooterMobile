@@ -8,6 +8,8 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
     void TakeDamage(float damage);
     bool IsTargeted { get; set; }
     IHealth Health { get; }
+    float AggroRadius { get; }
+    HitStatus HitStatus { get; }
     Transform transform { get; }
   }
 }

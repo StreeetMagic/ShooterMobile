@@ -23,5 +23,9 @@ namespace Gameplay.Dummies
     public void Hit()
     {
     }
+
+    public void NotifyOtherEnemies()
+    {
+    }
   }
 }
