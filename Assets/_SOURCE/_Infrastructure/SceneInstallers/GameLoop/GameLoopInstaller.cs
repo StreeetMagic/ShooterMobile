@@ -5,6 +5,7 @@ using DebugServices;
 using Gameplay.BaseTriggers;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
+using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Characters.Pets.Hens;
@@ -81,7 +82,7 @@ namespace SceneInstallers.GameLoop
         .ByNewContextPrefab<SubQuestSlotInstaller>(_assetProvider.Get<SubQuestSlot>().GetComponent<SubQuestSlotInstaller>())
         .AsSingle();
 
-      Container.BindFactory<EnemyConfig, List<SpawnPoint>, Transform, Enemy, Enemy.Factory>()
+      Container.BindFactory<EnemyConfig, List<SpawnPoint>, Transform, EnemySpawner, Enemy, Enemy.Factory>()
         .FromSubContainerResolve()
         .ByNewContextPrefab<EnemyInstaller>(_assetProvider.Get<Enemy>().GetComponent<EnemyInstaller>())
         .AsSingle();

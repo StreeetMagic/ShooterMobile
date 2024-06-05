@@ -15,5 +15,6 @@ namespace Gameplay.Characters.Enemies.Healths
     void TakeDamage(float damage);
     Transform transform { get; }
     T GetComponent<T>();
+    void Hit();
   }
 }

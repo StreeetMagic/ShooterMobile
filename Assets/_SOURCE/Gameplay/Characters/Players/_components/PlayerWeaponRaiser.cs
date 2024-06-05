@@ -22,8 +22,6 @@ public class PlayerWeaponRaiser : MonoBehaviour
     }
 
     if (_timeLeft > 0)
-    {
       _timeLeft -= Time.deltaTime;
-    }
   }
 }

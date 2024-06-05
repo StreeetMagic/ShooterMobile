@@ -1,4 +1,5 @@
 using System;
+using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Gameplay.Characters.Enemies.Healths
     [Inject] private EnemyMoverToPlayer _enemyMoverToPlayer;
     [Inject] private HitStatus _hitStatus;
     [Inject] private EnemyConfig _config;
+    [Inject] private EnemySpawner _spawner;
 
     public event Action<EnemyConfig, IHealth> Died;
     public event Action<float> Damaged;
@@ -43,12 +45,19 @@ namespace Gameplay.Characters.Enemies.Healths
 
       SetCurrentHealth(Current.Value - damage);
       Damaged?.Invoke(Current.Value);
-      _hitStatus.IsHit = true;
+
+      foreach (Enemy enemy in _spawner.Enemies)
+        enemy.Installer.EnemyHealth.Hit();
 
       if (Current.Value <= 0)
       {
         Die();
       }
+    }
+
+    public void Hit()
+    {
+      _hitStatus.IsHit = true;
     }
 
     private void Die()

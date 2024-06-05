@@ -28,7 +28,7 @@ namespace Gameplay.Characters.Players.Shooters
       if (PlayerTargetHolder.HasTarget)
         _weaponAttacker.Attack();
       else 
-        _weaponAttacker.ResetCooldown();
+        _weaponAttacker.ResetValues();
     }
   }
 }

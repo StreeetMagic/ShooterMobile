@@ -47,17 +47,19 @@ namespace AudioServices
 
     public void PlaySound(SoundId id, Vector3 at = default)
     {
-      if (IsWorking == false)
-        return;
-
-      SoundConfig config = _staticDataService.GetSoundConfig(id);
-
-      AudioSource source = _container.SoundSources.FirstOrDefault(source => source.isPlaying == false);
-
-      if (source == null)
-        return;
-
-      _soundPlayer.Play(config, source, at);
+      return;
+      
+      // if (IsWorking == false)
+      //   return;
+      //
+      // SoundConfig config = _staticDataService.GetSoundConfig(id);
+      //
+      // AudioSource source = _container.SoundSources.FirstOrDefault(source => source.isPlaying == false);
+      //
+      // if (source == null)
+      //   return;
+      //
+      // _soundPlayer.Play(config, source, at);
     }
 
     public void UnMuteMusic()

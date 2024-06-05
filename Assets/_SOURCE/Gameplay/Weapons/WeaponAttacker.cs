@@ -1,3 +1,4 @@
+using System;
 using AudioServices;
 using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.TargetHolders;
@@ -6,6 +7,7 @@ using Sounds;
 using StaticDataServices;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class WeaponAttacker : MonoBehaviour
 {
@@ -16,13 +18,17 @@ public class WeaponAttacker : MonoBehaviour
   [Inject] private PlayerWeaponId _playerWeaponId;
 
   private float _timeLeft;
+  private float _burstPauseLeft;
+  private int _burstShots;
 
   private WeaponConfig WeaponConfig => _staticDataService.GetWeaponConfig(_playerWeaponId.WeaponTypeId);
+  private float Cooldown => (float)1 / WeaponConfig.FireRate;
+
   private Transform Transform => _playerProvider.WeaponShootingPointPoint.Transform;
   private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
-  private float Cooldown => (float)1 / WeaponConfig.FireRate;
   private int BulletsPerShot => WeaponConfig.BulletsPerShot;
-  public float BulletSpreadAngle => WeaponConfig.BulletSpreadAngle;
+  private float BulletSpreadAngle => WeaponConfig.BulletSpreadAngle;
+  private WeaponAttackTypeId WeaponAttackTypeId => WeaponConfig.WeaponAttackTypeId;
 
   public void Attack()
   {
@@ -32,14 +38,64 @@ public class WeaponAttacker : MonoBehaviour
       return;
     }
 
-    Shoot();
+    switch (WeaponAttackTypeId)
+    {
+      case WeaponAttackTypeId.Single:
+        Shoot();
+        _timeLeft = Cooldown;
+        break;
 
-    _timeLeft = Cooldown;
+      case WeaponAttackTypeId.Burst:
+        Burst();
+        break;
+
+      case WeaponAttackTypeId.Auto:
+        Shoot();
+        _timeLeft = Cooldown;
+        break;
+
+      case WeaponAttackTypeId.Melee:
+        throw new NotImplementedException();
+
+        break;
+
+      case WeaponAttackTypeId.Throw:
+        throw new NotImplementedException();
+
+        break;
+
+      case WeaponAttackTypeId.Unknown:
+        throw new Exception("WeaponAttackTypeId.Unknown");
+
+      default:
+        throw new Exception("Unknown WeaponAttackTypeId");
+    }
   }
 
-  public void ResetCooldown()
+  public void ResetValues()
   {
     _timeLeft = Cooldown;
+    _burstPauseLeft = WeaponConfig.TimeBetweenBursts;
+    _burstShots = 0;
+  }
+
+  private void Burst()
+  {
+    if (_burstPauseLeft > 0)
+    {
+      _burstPauseLeft -= Time.deltaTime;
+      return;
+    }
+
+    Shoot();
+    _burstShots++;
+    _timeLeft = Cooldown;
+
+    if (_burstShots >= WeaponConfig.ShotsPerBurst)
+    {
+      _burstPauseLeft = WeaponConfig.TimeBetweenBursts; 
+      _burstShots = 0;
+    }
   }
 
   private void Shoot()

@@ -19,5 +19,9 @@ namespace Gameplay.Dummies
     public void TakeDamage(float damage)
     {
     }
+
+    public void Hit()
+    {
+    }
   }
 }
