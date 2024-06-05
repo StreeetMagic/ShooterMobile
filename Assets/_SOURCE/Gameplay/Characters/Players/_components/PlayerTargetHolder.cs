@@ -4,7 +4,6 @@ using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Players.TargetHolders
 {
@@ -92,23 +91,40 @@ namespace Gameplay.Characters.Players.TargetHolders
         HasTarget = false;
         CurrentTarget = null;
       }
-      else if (CurrentTarget == null)
+      else
       {
-        SetRandomCurrentTarget();
-        HasTarget = true;
-      }
-      else if (CurrentTarget.Health.IsDead)
-      {
-        SetRandomCurrentTarget();
+        SetNearestCurrentTarget();
         HasTarget = true;
       }
     }
 
-    private void SetRandomCurrentTarget()
+    private void SetNearestCurrentTarget()
     {
-      ITargetTrigger currentTarget = _targets[Random.Range(0, _targets.Count)];
-      currentTarget.IsTargeted = true;
-      CurrentTarget = currentTarget;
+      ITargetTrigger nearestTarget = null;
+      float nearestDistance = float.MaxValue;
+
+      foreach (ITargetTrigger target in _targets)
+      {
+        float distance = Vector3.Distance(Transform.position, target.transform.position);
+
+        if (distance < nearestDistance)
+        {
+          nearestDistance = distance;
+          nearestTarget = target;
+        }
+      }
+
+      if (CurrentTarget != null && CurrentTarget != nearestTarget)
+      {
+        CurrentTarget.IsTargeted = false;
+      }
+
+      CurrentTarget = nearestTarget;
+
+      if (CurrentTarget != null)
+      {
+        CurrentTarget.IsTargeted = true;
+      }
     }
 
     public void AddTargets(List<ITargetTrigger> targets)
