@@ -21,15 +21,15 @@ namespace SceneLoaders
     public void Load(string name, Action onLoaded = null)
     {
       //DOTween.KillAll();
-      _coroutineRunner.StartCoroutine(LoadScene(name, onLoaded));
+      _coroutineRunner.StartCoroutine(LoadSceneAsync(name, onLoaded));
     }
 
     public void Load(Action onLoaded = null)
     {
-      _coroutineRunner.StartCoroutine(LoadScene(ProjectConstants.Scenes.Initial, onLoaded));
+      _coroutineRunner.StartCoroutine(LoadSceneAsync(ProjectConstants.Scenes.Initial, onLoaded));
     }
 
-    private IEnumerator LoadScene(string nextScene, Action onLoaded)
+    private IEnumerator LoadSceneAsync(string nextScene, Action onLoaded)
     {
       AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextScene);
 
