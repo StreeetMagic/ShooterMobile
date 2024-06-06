@@ -22,10 +22,10 @@ namespace StaticDataServices
   {
     private readonly ProjectData _projectData;
 
-    private Dictionary<StatId, float> _stats;
     private DefaultProjectProgressConfig _defaultProjectProgressConfig;
     private PlayerConfig _playerConfig;
     private ExpirienceConfig _expirienceConfig;
+    private Dictionary<StatId, float> _stats;
     private Dictionary<EnemyId, EnemyConfig> _enemyConfigs;
     private Dictionary<StatId, UpgradeConfig> _upgradeConfigs;
     private Dictionary<CurrencyId, LootConfig> _lootConfigs;
@@ -63,46 +63,19 @@ namespace StaticDataServices
     {
       string startPath = _projectData.GameMode + "/";
 
-      string playerConfigPath = startPath + "PlayerConfigs/PlayerConfig";
-      string enemyConfigPath = startPath + "EnemyConfigs";
-      string upgradeConfigPath = startPath + "UpgradeConfigs";
-      string soundConfigPath = startPath + "SoundConfigs";
-      string lootConfigPath = startPath + "LootConfigs";
-      string musicConfigPath = startPath + "MusicConfigs";
-      string questConfigPath = startPath + "QuestConfigs";
-      string expirienceConfigPath = startPath + "ExpirienceConfigs/ExpirienceConfig";
-      string rewardConfigPath = startPath + "RewardConfigs";
-      string defaultProjectProgressConfigPath = startPath + "DefaultProjectProgressConfig/DefaultProjectProgressConfig";
-      string weaponConfigPath = startPath + "WeaponConfigs";
-      string grenadeConfigPath = startPath + "GrenadeConfigs";
-
-      LoadEnemyConfigs(enemyConfigPath);
-      LoadUpgradeConfigs(upgradeConfigPath);
-      LoadLootConfigs(lootConfigPath);
-      LoadMusicConfigs(musicConfigPath);
-      LoadSoundConfigs(soundConfigPath);
-      LoadInitialStats(playerConfigPath);
-      LoadQuestConfigs(questConfigPath);
-      LoadExpirienceConfig(expirienceConfigPath);
-      LoadRewardConfigs(rewardConfigPath);
-      LoadPlayerConfig(playerConfigPath);
-      LoadDefaultProjectProgressConfig(defaultProjectProgressConfigPath);
-      LoadWeaponConfigs(weaponConfigPath);
-      LoadGrenadeConfigs(grenadeConfigPath);
+      Resources.Load<PlayerConfig>(startPath + "PlayerConfigs/PlayerConfig").Stats.ToList().ForEach(stat => _stats.Add(stat.StatId, stat.Value));
+      _enemyConfigs = Resources.LoadAll<EnemyConfig>(startPath + "EnemyConfigs").ToDictionary(x => x.Id, x => x);
+      _upgradeConfigs = Resources.LoadAll<UpgradeConfig>(startPath + "UpgradeConfigs").ToDictionary(x => x.Id, x => x);
+      _lootConfigs = Resources.LoadAll<LootConfig>(startPath + "LootConfigs").ToDictionary(x => x.Id, x => x);
+      _musicConfigs = Resources.LoadAll<MusicConfig>(startPath + "MusicConfigs").ToDictionary(x => x.Id, x => x);
+      _soundConfigs = Resources.LoadAll<SoundConfig>(startPath + "SoundConfigs").ToDictionary(x => x.Id, x => x);
+      _questConfigs = Resources.LoadAll<QuestConfig>(startPath + "QuestConfigs").ToDictionary(x => x.Id, x => x);
+      _expirienceConfig = Resources.Load<ExpirienceConfig>(startPath + "ExpirienceConfigs/ExpirienceConfig");
+      _rewardConfigs = Resources.LoadAll<RewardConfig>(startPath + "RewardConfigs").ToDictionary(x => x.Id, x => x);
+      _playerConfig = Resources.Load<PlayerConfig>(startPath + "PlayerConfigs/PlayerConfig");
+      _defaultProjectProgressConfig = Resources.Load<DefaultProjectProgressConfig>(startPath + "DefaultProjectProgressConfig/DefaultProjectProgressConfig");
+      _weaponConfigs = Resources.LoadAll<WeaponConfig>(startPath + "WeaponConfigs").ToDictionary(x => x.WeaponTypeId, x => x);
+      _grenadeConfigs = Resources.LoadAll<GrenadeConfig>(startPath + "GrenadeConfigs").ToDictionary(x => x.TypeId, x => x);
     }
-
-    private void LoadGrenadeConfigs(string grenadeConfigPath) => _grenadeConfigs = Resources.LoadAll<GrenadeConfig>(grenadeConfigPath).ToDictionary(x => x.TypeId, x => x);
-    private void LoadWeaponConfigs(string weaponConfigPath) => _weaponConfigs = Resources.LoadAll<WeaponConfig>(weaponConfigPath).ToDictionary(x => x.WeaponTypeId, x => x);
-    private void LoadDefaultProjectProgressConfig(string defaultProjectProgressConfigPath) => _defaultProjectProgressConfig = Resources.Load<DefaultProjectProgressConfig>(defaultProjectProgressConfigPath);
-    private void LoadExpirienceConfig(string expirienceConfigPath) => _expirienceConfig = Resources.Load<ExpirienceConfig>(expirienceConfigPath);
-    private void LoadPlayerConfig(string playerConfigPath) => _playerConfig = Resources.Load<PlayerConfig>(playerConfigPath);
-    private void LoadRewardConfigs(string rewardConfigPath) => _rewardConfigs = Resources.LoadAll<RewardConfig>(rewardConfigPath).ToDictionary(x => x.Id, x => x);
-    private void LoadQuestConfigs(string questConfigPath) => _questConfigs = Resources.LoadAll<QuestConfig>(questConfigPath).ToDictionary(x => x.Id, x => x);
-    private void LoadUpgradeConfigs(string upgradeConfigPath) => _upgradeConfigs = Resources.LoadAll<UpgradeConfig>(upgradeConfigPath).ToDictionary(x => x.Id, x => x);
-    private void LoadEnemyConfigs(string enemyConfigPath) => _enemyConfigs = Resources.LoadAll<EnemyConfig>(enemyConfigPath).ToDictionary(x => x.Id, x => x);
-    private void LoadLootConfigs(string lootConfigPath) => _lootConfigs = Resources.LoadAll<LootConfig>(lootConfigPath).ToDictionary(x => x.Id, x => x);
-    private void LoadMusicConfigs(string musicConfigPath) => _musicConfigs = Resources.LoadAll<MusicConfig>(musicConfigPath).ToDictionary(x => x.Id, x => x);
-    private void LoadSoundConfigs(string soundConfigPath) => _soundConfigs = Resources.LoadAll<SoundConfig>(soundConfigPath).ToDictionary(x => x.Id, x => x);
-    private void LoadInitialStats(string playerConfigPath) => Resources.Load<PlayerConfig>(playerConfigPath).Stats.ToList().ForEach(stat => _stats.Add(stat.StatId, stat.Value));
   }
 }
