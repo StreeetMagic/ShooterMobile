@@ -6344,6 +6344,7 @@ GameObject:
   - component: {fileID: 9062243674088626575}
   - component: {fileID: 1301069402596870516}
   - component: {fileID: 3640486782794773416}
+  - component: {fileID: 2882147248780845790}
   m_Layer: 6
   m_Name: PlayerMeshModel
   m_TagString: Player
@@ -6405,6 +6406,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1301069402596870516}
+--- !u!114 &2882147248780845790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036077295475358459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349533b9a342ae149b465e180592fe72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Container: {fileID: 4024299108929112523}
 --- !u!1 &1052262511242189651
 GameObject:
   m_ObjectHideFlags: 0
@@ -8855,37 +8869,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7780039679761686051}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1489190915834545943
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7489787650059444534}
-  m_Layer: 6
-  m_Name: shootpoint
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7489787650059444534
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489190915834545943}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.128, y: -0, z: 0.692}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4903328439079203231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494283340904213704
 GameObject:
@@ -54702,7 +54685,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 9141171c01a7ebe40ae0d942b9415812, type: 3}
       propertyPath: m_Name
-      value: w_python
+      value: Magnum
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9141171c01a7ebe40ae0d942b9415812, type: 3}
       propertyPath: m_Layer
@@ -54789,7 +54772,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 942136167057fdc448c473b53a2899ce, type: 3}
       propertyPath: m_Name
-      value: w_m4a1
+      value: M4A1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 942136167057fdc448c473b53a2899ce, type: 3}
       propertyPath: m_Layer
@@ -54963,7 +54946,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: f11e8fb0ecb03e846831c7d99c0faf92, type: 3}
       propertyPath: m_Name
-      value: w_xm1014
+      value: Xm1014
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f11e8fb0ecb03e846831c7d99c0faf92, type: 3}
       propertyPath: m_Layer
@@ -55686,7 +55669,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7f43c1b814d2b3444af1348adc0840bc, type: 3}
       propertyPath: m_Name
-      value: w_DesertEagle
+      value: DesertEagle
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f43c1b814d2b3444af1348adc0840bc, type: 3}
       propertyPath: m_Layer
@@ -56358,7 +56341,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 9514c110953faae49b1f1170b3eb1ed9, type: 3}
       propertyPath: m_Name
-      value: w_ak47
+      value: AK47
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9514c110953faae49b1f1170b3eb1ed9, type: 3}
       propertyPath: m_Layer
@@ -56437,7 +56420,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 64d85cdc8c59e054cb786bc29566c1e9, type: 3}
       propertyPath: m_Name
-      value: w_twobarrel
+      value: TwoBarrel
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 64d85cdc8c59e054cb786bc29566c1e9, type: 3}
       propertyPath: m_Layer
@@ -56848,7 +56831,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: c3bf23d82ce206d46a774b972819daef, type: 3}
       propertyPath: m_Name
-      value: w_crowbar
+      value: Crowbar
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c3bf23d82ce206d46a774b972819daef, type: 3}
       propertyPath: m_Layer
@@ -56927,7 +56910,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 2d7a063446c28f041b4c33a3b1e30fd5, type: 3}
       propertyPath: m_Name
-      value: w_aug
+      value: AUG
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2d7a063446c28f041b4c33a3b1e30fd5, type: 3}
       propertyPath: m_Layer
@@ -57350,7 +57333,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 2676194032723d5459fe9f25485759ec, type: 3}
       propertyPath: m_Name
-      value: w_machete
+      value: Machete
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2676194032723d5459fe9f25485759ec, type: 3}
       propertyPath: m_Layer
@@ -57485,11 +57468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 400000, guid: 436bd2d545c9a3c43a000276b1b722b1,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7489787650059444534}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 436bd2d545c9a3c43a000276b1b722b1, type: 3}
 --- !u!4 &4903328439079203231 stripped
@@ -57591,7 +57570,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: a2052fc83162bcd47b922b56d95237be, type: 3}
       propertyPath: m_Name
-      value: w_knife
+      value: Knife
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a2052fc83162bcd47b922b56d95237be, type: 3}
       propertyPath: m_Layer
@@ -57761,7 +57740,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: b01217cc8a9928b4f8d464e57cfe4b14, type: 3}
       propertyPath: m_Name
-      value: w_beretta92
+      value: BerettaM9A1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b01217cc8a9928b4f8d464e57cfe4b14, type: 3}
       propertyPath: m_Layer
@@ -58757,7 +58736,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 4171616dcf15fa848a87ac26e45fe87b, type: 3}
       propertyPath: m_Name
-      value: w_batton
+      value: Club
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 4171616dcf15fa848a87ac26e45fe87b, type: 3}
       propertyPath: m_Layer
@@ -59401,7 +59380,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: b38819ecd0c97d6458e62dac8acac8f0, type: 3}
       propertyPath: m_Name
-      value: w_shotgun
+      value: Nova
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b38819ecd0c97d6458e62dac8acac8f0, type: 3}
       propertyPath: m_Layer
@@ -59488,7 +59467,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7775f143a44bf4d4aa18c9960fca183b, type: 3}
       propertyPath: m_Name
-      value: w_famas
+      value: Famas
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7775f143a44bf4d4aa18c9960fca183b, type: 3}
       propertyPath: m_Layer

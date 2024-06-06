@@ -10,7 +10,7 @@ public enum WeaponTypeId
   // Magnum = 7,
   DesertEagle = 8,
   // SmithAndWesson = 9,
-  // Famas = 10,
+   Famas = 10,
   // M4A1S = 11,
   Ak47 = 12,
   // Aug = 13,
