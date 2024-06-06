@@ -14,7 +14,7 @@ namespace Gameplay.Characters.Enemies
     [Inject] private EnemyMoverToPlayer _enemyMoverToPlayer;
     [Inject] private EnemyToTargetRotator _enemyToTargetRotator;
     [Inject] private EnemyConfig _config;
-    [Inject] private ShootingPoint _shootingPoint;
+    [Inject] private EnemyShootingPoint _shootingPoint;
     [Inject] private EnemyAnimatorProvider _animatorProvider;
 
     private float Cooldown => 1 / (float)_config.FireRate;
