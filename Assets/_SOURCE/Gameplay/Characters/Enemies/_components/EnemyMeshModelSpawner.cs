@@ -6,7 +6,7 @@ using ZenjectFactories;
 
 namespace Gameplay.Characters.Enemies.ModelSpawner
 {
-  public class MeshModelSpawner : MonoBehaviour
+  public class EnemyMeshModelSpawner : MonoBehaviour
   {
     [Inject] private IAssetProvider _assetProvider;
     [Inject] private EnemyId _enemyId;

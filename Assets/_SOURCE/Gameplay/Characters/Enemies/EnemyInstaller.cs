@@ -21,7 +21,6 @@ namespace Gameplay.Characters.Enemies
     public EnemyWaiter EnemyWaiter;
     public EnemyMoverToPlayer EnemyMoverToPlayer;
     public EnemyShootAtPlayer EnemyShooter;
-    public EnemyFromEnemyPusher EnemyFromEnemyPusher;
     public EnemyToSpawnerDisance EnemyToSpawnerDisance;
     public EnemyTargetTrigger TargetTrigger;
     public EnemyShootingPoint ShootingPoint;
@@ -42,7 +41,10 @@ namespace Gameplay.Characters.Enemies
       Container.BindInterfacesAndSelfTo<EnemyReturnToSpawnStatus>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<HitStatus>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyToTargetRotator>().AsSingle().NonLazy();
+      
+      Container.BindInterfacesAndSelfTo<EnemyStateMachine>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyBootstrapState>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyPatrolState>().AsSingle().NonLazy();
 
       Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
       Container.Bind<EnemyRoutePointsManager>().FromInstance(enemyRoutePointsManager).AsSingle().NonLazy();
@@ -52,7 +54,6 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyWaiter>().FromInstance(EnemyWaiter).AsSingle().NonLazy();
       Container.Bind<EnemyMoverToPlayer>().FromInstance(EnemyMoverToPlayer).AsSingle().NonLazy();
       Container.Bind<EnemyShootAtPlayer>().FromInstance(EnemyShooter).AsSingle().NonLazy();
-      Container.Bind<EnemyFromEnemyPusher>().FromInstance(EnemyFromEnemyPusher).AsSingle().NonLazy();
       Container.Bind<EnemyToSpawnerDisance>().FromInstance(EnemyToSpawnerDisance).AsSingle().NonLazy();
       Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();
       Container.Bind<EnemyShootingPoint>().FromInstance(ShootingPoint).AsSingle().NonLazy();
