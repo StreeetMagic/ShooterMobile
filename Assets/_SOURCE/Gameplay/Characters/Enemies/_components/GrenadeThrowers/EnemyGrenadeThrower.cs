@@ -1,12 +1,19 @@
+using AssetProviders;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Players;
+using Gameplay.Grenades;
+using StaticDataServices;
 using UnityEngine;
 using Zenject;
+using ZenjectFactories;
 
 public class EnemyGrenadeThrower : MonoBehaviour
 {
   [Inject] private PlayerProvider _playerProvider;
   [Inject] private EnemyConfig _config;
+  [Inject] private IAssetProvider _assetProvider;
+  [Inject] private IStaticDataService _staticDataService;
+  [Inject] private GameLoopZenjectFactory _gameLoopZenjectFactory;
 
   private float _cooldownLeft;
   private bool _readyToThrow;
@@ -54,5 +61,22 @@ public class EnemyGrenadeThrower : MonoBehaviour
     _cooldownLeft = _config.GrenadeThrowCooldown;
     _randomDelayLeft = _randomDelay;
     _grenadesLeft--;
+
+    LauchGrenade();
+  }
+
+  private void LauchGrenade()
+  {
+    GrenadeTypeId grenadeTypeId = _config.GrenadeTypeId;
+
+    var grenade = _gameLoopZenjectFactory.InstantiateMono<Grenade>();
+
+    var mover = grenade.GetComponent<GrenadeMover>();
+    mover.Init(_staticDataService.GetGrenadeConfig(grenadeTypeId), transform.position, _playerProvider.Player.transform.position);
+
+    var detonator = grenade.GetComponent<GrenadeDetonator>();
+    detonator.Init(_staticDataService.GetGrenadeConfig(grenadeTypeId));
+
+    mover.Throw();
   }
 }

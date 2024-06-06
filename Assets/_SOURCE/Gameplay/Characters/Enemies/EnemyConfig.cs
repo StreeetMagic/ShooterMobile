@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Gameplay.Grenades;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies
@@ -6,6 +7,7 @@ namespace Gameplay.Characters.Enemies
   [CreateAssetMenu(fileName = nameof(EnemyConfig), menuName = "Configs/EnemyConfig")]
   public class EnemyConfig : ScriptableObject
   {
+    [Tooltip("Идентификатор")]
     public EnemyId Id;
 
     [Tooltip("Скорость движения во время патрулирования")]
@@ -20,16 +22,20 @@ namespace Gameplay.Characters.Enemies
     [Tooltip("Время ожидания после достижения маршрутной точки")]
     public float WaitTimeAfterMove = .1f;
 
-    [Tooltip("Начальное здоровье")] public float InitialHealth = 100f;
+    [Tooltip("Начальное здоровье")] 
+    public float InitialHealth = 100f;
 
-    [Tooltip("Награда за убийство")] public int MoneyReward = 10;
+    [Tooltip("Награда за убийство")] 
+    public int MoneyReward = 10;
 
     [Tooltip("Множитель восстановления здоровья")]
     public float HealMultiplier = 1;
 
-    [Tooltip("Набор наград при убийстве")] public List<LootDrop> LootDrops;
+    [Tooltip("Набор наград при убийстве")] 
+    public List<LootDrop> LootDrops;
 
-    [Tooltip("Радиус стрельбы")] public float ShootRange = 10f;
+    [Tooltip("Радиус стрельбы")] 
+    public float ShootRange = 10f;
 
     [Tooltip("Радиус агра если рядом пробежал игрок")]
     public float AggroRadius = 3f;
@@ -37,12 +43,14 @@ namespace Gameplay.Characters.Enemies
     [Tooltip("Скорострельность: выстрелов в секунду")]
     public int FireRate = 10;
 
-    [Tooltip("Урон пули")] public float BulletDamage = 5;
+    [Tooltip("Урон пули")] 
+    public float BulletDamage = 5;
 
     [Tooltip("Максимальное расстояние преследования игрока от центра спаунера")]
     public float PatrolingRadius = 20;
 
-    [Tooltip("Награда за убийство")] public int Expirience = 100;
+    [Tooltip("Награда за убийство")] 
+    public int Expirience = 100;
 
     [Tooltip("Радиус толкания соседних врагов (нужно для исключения стака 3д моделей)")]
     public float EnemyDetectionColliderRadius = 0.1f;
@@ -52,6 +60,9 @@ namespace Gameplay.Characters.Enemies
 
     [Tooltip("Способность бросать гранату")]
     public bool GrenadeThrower = true;
+
+    [Tooltip("ID гранаты")]
+    public GrenadeTypeId GrenadeTypeId = GrenadeTypeId.Frag1;
 
     [Tooltip("Кулдаун бросания гранаты")]
     public float GrenadeThrowCooldown = 10f;
