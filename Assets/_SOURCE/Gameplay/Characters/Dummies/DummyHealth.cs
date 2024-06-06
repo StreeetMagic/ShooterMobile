@@ -11,7 +11,7 @@ namespace Gameplay.Dummies
     public event Action<EnemyConfig, IHealth> Died;
     public event Action<float> Damaged;
 
-    public ReactiveProperty<float> Current { get; }
+    public ReactiveProperty<float> Current { get; } = new(float.MaxValue);
     public float Initial => float.MaxValue;
     public bool IsFull => true;
     public bool IsDead => false;

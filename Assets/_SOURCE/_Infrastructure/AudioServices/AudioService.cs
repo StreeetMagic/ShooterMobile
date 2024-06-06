@@ -1,4 +1,3 @@
-using System.Linq;
 using Musics;
 using Projects;
 using SaveLoadServices;
@@ -17,6 +16,8 @@ namespace AudioServices
 
     private AudioSourceContainer _container;
     private MusicPlayer _musicPlayer;
+
+    // ReSharper disable once NotAccessedField.Local
     private SoundPlayer _soundPlayer;
 
     public AudioService(ProjectZenjectFactory factory, IStaticDataService staticDataService)
@@ -47,8 +48,6 @@ namespace AudioServices
 
     public void PlaySound(SoundId id, Vector3 at = default)
     {
-      return;
-      
       // if (IsWorking == false)
       //   return;
       //

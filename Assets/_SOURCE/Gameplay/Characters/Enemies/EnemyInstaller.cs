@@ -15,7 +15,7 @@ namespace Gameplay.Characters.Enemies
     public Enemy Enemy;
     public CharacterController CharacterController;
     public EnemyHealth EnemyHealth;
-    public RoutePointsManager RoutePointsManager;
+    public EnemyRoutePointsManager enemyRoutePointsManager;
     public EnemyHealer enemyHealer;
     public EnemyMoverToSpawnPoint EnemyMoverToSpawnPoint;
     public EnemyWaiter EnemyWaiter;
@@ -37,13 +37,13 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();
 
       Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<ReturnToSpawnStatus>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyReturnToSpawnStatus>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<HitStatus>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyToTargetRotator>().AsSingle().NonLazy();
 
       Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
-      Container.Bind<RoutePointsManager>().FromInstance(RoutePointsManager).AsSingle().NonLazy();
+      Container.Bind<EnemyRoutePointsManager>().FromInstance(enemyRoutePointsManager).AsSingle().NonLazy();
       Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
       Container.Bind<CharacterController>().FromInstance(CharacterController).AsSingle().NonLazy();
       Container.Bind<EnemyAnimatorProvider>().FromInstance(EnemyAnimatorProvider).AsSingle().NonLazy();

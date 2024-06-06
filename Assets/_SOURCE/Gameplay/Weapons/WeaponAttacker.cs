@@ -57,12 +57,8 @@ public class WeaponAttacker : MonoBehaviour
       case WeaponAttackTypeId.Melee:
         throw new NotImplementedException();
 
-        break;
-
       case WeaponAttackTypeId.Throw:
         throw new NotImplementedException();
-
-        break;
 
       case WeaponAttackTypeId.Unknown:
         throw new Exception("WeaponAttackTypeId.Unknown");
@@ -93,7 +89,7 @@ public class WeaponAttacker : MonoBehaviour
 
     if (_burstShots >= WeaponConfig.ShotsPerBurst)
     {
-      _burstPauseLeft = WeaponConfig.TimeBetweenBursts; 
+      _burstPauseLeft = WeaponConfig.TimeBetweenBursts;
       _burstShots = 0;
     }
   }

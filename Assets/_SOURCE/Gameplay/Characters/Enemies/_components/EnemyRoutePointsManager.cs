@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class RoutePointsManager : MonoBehaviour
+  public class EnemyRoutePointsManager : MonoBehaviour
   {
     private int _currentRouteIndex;
 

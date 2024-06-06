@@ -10,6 +10,7 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
     IHealth Health { get; }
     float AggroRadius { get; }
     HitStatus HitStatus { get; }
+    // ReSharper disable once InconsistentNaming
     Transform transform { get; }
   }
 }

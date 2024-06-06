@@ -1,6 +1,6 @@
 namespace Gameplay.Characters.Enemies
 {
-  public class ReturnToSpawnStatus
+  public class EnemyReturnToSpawnStatus
   {
     public bool IsReturn { get; set; }
   }

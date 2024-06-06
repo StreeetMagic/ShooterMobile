@@ -6,11 +6,11 @@ namespace Gameplay.Characters.Enemies
   public class EnemyMoverToSpawnPoint : MonoBehaviour
   {
     [Inject] private EnemyMover _mover;
-    [Inject] private RoutePointsManager _routePointsManager;
+    [Inject] private EnemyRoutePointsManager _enemyRoutePointsManager;
     [Inject] private EnemyMoverToPlayer _enemyMoverToPlayer;
     [Inject] private HitStatus _hitStatus;
     [Inject] private EnemyShootAtPlayer _enemyShootAtPlayer;
-    [Inject] private ReturnToSpawnStatus _returnToSpawnStatus;
+    [Inject] private EnemyReturnToSpawnStatus _returnToSpawnStatus;
     [Inject] private EnemyAnimatorProvider _animatorProvider;
     [Inject] private EnemyConfig _config;
 
@@ -26,7 +26,7 @@ namespace Gameplay.Characters.Enemies
 
     private void FixedUpdate()
     {
-      Vector3 direction = (_routePointsManager.NextRoutePointTransform.position - transform.position).normalized;
+      Vector3 direction = (_enemyRoutePointsManager.NextRoutePointTransform.position - transform.position).normalized;
 
       _mover.Move(direction, GetMoveSpeed());
     }
