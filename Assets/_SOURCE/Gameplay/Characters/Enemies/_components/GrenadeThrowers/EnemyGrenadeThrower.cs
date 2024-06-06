@@ -10,6 +10,16 @@ public class EnemyGrenadeThrower : MonoBehaviour
 
   private float _cooldownLeft;
   private bool _readyToThrow;
+  private float _randomDelay;
+  private float _randomDelayLeft;
+  private int _grenadesLeft;
+
+  private void Start()
+  {
+    _randomDelay = Random.Range(0, _config.GrenadeThrowRandomDelay);
+    _randomDelayLeft = _randomDelay;
+    _grenadesLeft = _config.MaxGrenadesCount;
+  }
 
   public void Update()
   {
@@ -20,7 +30,16 @@ public class EnemyGrenadeThrower : MonoBehaviour
     }
     else if (_playerProvider.PlayerStandsOnSamePosition.TimeOnSamePosition >= _config.TargetStandsOnSamePositionTime)
     {
-      _readyToThrow = true;
+      if (_randomDelayLeft > 0)
+      {
+        _randomDelayLeft -= Time.deltaTime;
+
+        _readyToThrow = false;
+      }
+      else
+      {
+        _readyToThrow = true;
+      }
     }
   }
 
@@ -29,6 +48,11 @@ public class EnemyGrenadeThrower : MonoBehaviour
     if (!_readyToThrow)
       return;
 
+    if (_grenadesLeft <= 0)
+      return;
+
     _cooldownLeft = _config.GrenadeThrowCooldown;
+    _randomDelayLeft = _randomDelay;
+    _grenadesLeft--;
   }
 }
