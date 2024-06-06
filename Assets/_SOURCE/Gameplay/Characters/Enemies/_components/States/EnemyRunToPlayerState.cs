@@ -14,14 +14,11 @@ namespace Gameplay.Characters.Enemies
     private readonly EnemyConfig _config;
     private readonly Transform _spawnerTransform;
     private readonly Enemy _enemy;
+    private readonly EnemyReturnToSpawnStatus _enemyReturnToSpawnStatus;
 
-    public EnemyRunToPlayerState(
-      PlayerProvider playerProvider,
-      EnemyMover mover,
-      EnemyAnimatorProvider animatorProvider,
-      EnemyConfig config,
-      Transform spawnerTransform,
-      Enemy enemy)
+    public EnemyRunToPlayerState(PlayerProvider playerProvider, EnemyMover mover, EnemyAnimatorProvider animatorProvider,
+      EnemyConfig config, Transform spawnerTransform, Enemy enemy, EnemyStateMachine enemyStateMachine,
+      EnemyReturnToSpawnStatus enemyReturnToSpawnStatus)
     {
       _playerProvider = playerProvider;
       _mover = mover;
@@ -29,10 +26,9 @@ namespace Gameplay.Characters.Enemies
       _config = config;
       _spawnerTransform = spawnerTransform;
       _enemy = enemy;
+      _enemyStateMachine = enemyStateMachine;
+      _enemyReturnToSpawnStatus = enemyReturnToSpawnStatus;
     }
-
-    private float RunSpeed => _config.RunSpeed;
-    private Transform PlayerTransform => _playerProvider.Player.transform;
 
     public void Enter()
     {
@@ -40,11 +36,18 @@ namespace Gameplay.Characters.Enemies
 
     public void Tick()
     {
+      float distance = Vector3.Distance(_playerProvider.Player.transform.position, _enemy.transform.position);
+      Debug.Log("Distance to player = " + distance + "shoot range = " + _config.ShootRange);
+
+      if (distance < _config.ShootRange)
+        _enemyStateMachine.Enter<EnemyShootAtPlayerState>();
+
       Move();
     }
 
     public void Exit()
     {
+      _mover.Stop();
     }
 
     private void Move()
@@ -52,14 +55,19 @@ namespace Gameplay.Characters.Enemies
       float distanceToSpawner = (_spawnerTransform.position - _enemy.transform.position).magnitude;
 
       if (distanceToSpawner < _config.PatrolingRadius)
+      {
         MoveToPlayer();
+      }
       else
-        _enemyStateMachine.Enter<EnemyRunToSpawnPointState>();
+      {
+        _enemyReturnToSpawnStatus.IsReturn = true;
+        _enemyStateMachine.Enter<EnemyPatrolState>();
+      }
     }
 
     private void MoveToPlayer()
     {
-      _mover.Move(PlayerTransform.position, RunSpeed);
+      _mover.Move(_playerProvider.Player.transform.position, _config.RunSpeed);
       _animatorProvider.Instance.PlayRunAnimation();
     }
   }

@@ -3,12 +3,14 @@ namespace Gameplay.Characters.Enemies
   public class HitStatus
   {
     private readonly EnemyStateMachine _enemyStateMachine;
+    private readonly EnemyReturnToSpawnStatus _enemyReturnToSpawnStatus;
 
     private bool _isHit;
 
-    public HitStatus(EnemyStateMachine enemyStateMachine)
+    public HitStatus(EnemyStateMachine enemyStateMachine, EnemyReturnToSpawnStatus enemyReturnToSpawnStatus)
     {
       _enemyStateMachine = enemyStateMachine;
+      _enemyReturnToSpawnStatus = enemyReturnToSpawnStatus;
     }
 
     public bool IsHit
@@ -19,7 +21,7 @@ namespace Gameplay.Characters.Enemies
       }
       set
       {
-        if (value)
+        if (value && !_enemyReturnToSpawnStatus.IsReturn)
         {
           _enemyStateMachine.Enter<EnemyRunToPlayerState>();
         }

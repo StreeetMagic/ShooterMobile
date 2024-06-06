@@ -22,6 +22,7 @@ namespace Gameplay.Characters.Enemies
     public EnemyShootingPoint ShootingPoint;
     public EnemyAnimatorProvider EnemyAnimatorProvider;
     public NavMeshAgent NavMeshAgent;
+    public EnemyToPlayerRotator EnemyToPlayerRotator;
 
     [Inject] private EnemyConfig _enemyConfig;
     [Inject] private List<SpawnPoint> _spawnPoints;
@@ -45,6 +46,7 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyToSpawnerDisance>().FromInstance(EnemyToSpawnerDisance).AsSingle().NonLazy();
       Container.Bind<EnemyShootingPoint>().FromInstance(ShootingPoint).AsSingle().NonLazy();
       Container.Bind<NavMeshAgent>().FromInstance(NavMeshAgent).AsSingle().NonLazy();
+      Container.Bind<EnemyToPlayerRotator>().FromInstance(EnemyToPlayerRotator).AsSingle().NonLazy();
 
       Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
       Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();
@@ -64,7 +66,6 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyBootstrapState>().AsSingle().NonLazy();
       Container.Bind<EnemyPatrolState>().AsSingle().NonLazy();
       Container.Bind<EnemyRunToPlayerState>().AsSingle().NonLazy();
-      Container.Bind<EnemyRunToSpawnPointState>().AsSingle().NonLazy();
       Container.Bind<EnemyShootAtPlayerState>().AsSingle().NonLazy();
       Container.Bind<EnemyThrowGrenadeState>().AsSingle().NonLazy();
       Container.Bind<EnemyWaitState>().AsSingle().NonLazy();
@@ -75,7 +76,6 @@ namespace Gameplay.Characters.Enemies
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyBootstrapState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyPatrolState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyRunToPlayerState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyRunToSpawnPointState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyShootAtPlayerState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyThrowGrenadeState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyWaitState>());

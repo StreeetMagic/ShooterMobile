@@ -27,6 +27,7 @@ namespace Gameplay.Characters.Enemies
       _animatorProvider = animatorProvider;
       _config = config;
       _enemy = enemy;
+
     }
 
     public void Enter()
@@ -35,7 +36,6 @@ namespace Gameplay.Characters.Enemies
 
     public void Exit()
     {
-      _returnToSpawnStatus.IsReturn = false;
     }
 
     public void Tick()
@@ -47,6 +47,7 @@ namespace Gameplay.Characters.Enemies
       if (distance < 0.1f)
       {
         _enemyRoutePointsManager.SetRandomRoute();
+        _returnToSpawnStatus.IsReturn = false;
       }
     }
 
