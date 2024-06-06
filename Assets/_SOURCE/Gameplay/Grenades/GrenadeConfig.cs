@@ -16,5 +16,8 @@ namespace Gameplay.Grenades
     
     [Tooltip("Радиус детонации")]
     public float DetonationRadius = 1f;
+    
+    [Tooltip("Урон")]
+    public float Damage = 50;
   }
 }

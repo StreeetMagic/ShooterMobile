@@ -71,8 +71,17 @@ public class EnemyGrenadeThrower : MonoBehaviour
 
     var grenade = _gameLoopZenjectFactory.InstantiateMono<Grenade>();
 
+    Vector3 targetPosition = _playerProvider.Player.transform.position;
+    
+    var offset = .6f;
+    
+    float xOffset = Random.Range(-offset, offset); 
+    float zOffset = Random.Range(-offset, offset);
+    
+    Vector3 newPosition = new Vector3(targetPosition.x + xOffset, targetPosition.y, targetPosition.z + zOffset);
+    
     var mover = grenade.GetComponent<GrenadeMover>();
-    mover.Init(_staticDataService.GetGrenadeConfig(grenadeTypeId), transform.position, _playerProvider.Player.transform.position);
+    mover.Init(_staticDataService.GetGrenadeConfig(grenadeTypeId), transform.position, newPosition);
 
     var detonator = grenade.GetComponent<GrenadeDetonator>();
     detonator.Init(_staticDataService.GetGrenadeConfig(grenadeTypeId));

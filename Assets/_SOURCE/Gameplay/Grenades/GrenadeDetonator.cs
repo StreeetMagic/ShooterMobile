@@ -1,4 +1,5 @@
 using System.Collections;
+using Gameplay.Characters.Players;
 using UnityEngine;
 using VisualEffects;
 using Zenject;
@@ -8,6 +9,7 @@ namespace Gameplay.Grenades
   public class GrenadeDetonator : MonoBehaviour
   {
     [Inject] private VisualEffectFactory _visualEffectFactory;
+    [Inject] private PlayerProvider _playerProvider;
 
     private GrenadeConfig _config;
 
@@ -34,7 +36,25 @@ namespace Gameplay.Grenades
       }
 
       _visualEffectFactory.Create(ParticleEffectId.HenExplosion, transform.position, null);
+
+      DamagePlayer();
+
       Destroy(gameObject);
+    }
+
+    private void DamagePlayer()
+    {
+      PlayerHealth playerHealth = _playerProvider.PlayerHealth;
+
+      if (playerHealth == null)
+        return;
+      
+      float distance = Vector3.Distance(playerHealth.transform.position, transform.position);
+      
+      if (distance > _config.DetonationRadius)
+        return;
+
+      playerHealth.TakeDamage(_config.Damage);
     }
   }
 }
