@@ -48,6 +48,7 @@ namespace Gameplay.Characters.Players
       _playerProvider.PlayerRotatorController = _factory.InstantiateNative<PlayerRotatorController>();
       _playerProvider.PlayerTargetHolder = player.GetComponent<PlayerTargetHolder>();
       _playerProvider.WeaponShootingPointPoint = player.GetComponentInChildren<WeaponShootingPoint>();
+      _playerProvider.PlayerStandsOnSamePosition = player.GetComponent<PlayerStandsOnSamePosition>();
 
       _playerProvider.PlayerHealth = player.GetComponent<PlayerHealth>();
       _playerProvider.PetSpawnPointsContainer = player.GetComponentInChildren<PetSpawnPointsContainer>();
@@ -80,6 +81,7 @@ namespace Gameplay.Characters.Players
       _playerProvider.PetSpawnPointsContainer = null;
       _playerProvider.PlayerHenSpawner = null;
       _playerProvider.PlayerWeaponId = null;
+      _playerProvider.PlayerStandsOnSamePosition = null;
 
       Object.Destroy(player.gameObject);
     }

@@ -26,6 +26,7 @@ namespace Gameplay.Characters.Enemies
     public EnemyTargetTrigger TargetTrigger;
     public EnemyShootingPoint ShootingPoint;
     public EnemyAnimatorProvider EnemyAnimatorProvider;
+    public EnemyGrenadeThrower EnemyGrenadeThrower;
 
     [Inject] private EnemyConfig _enemyConfig;
     [Inject] private List<SpawnPoint> _spawnPoints;
@@ -55,6 +56,7 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyToSpawnerDisance>().FromInstance(EnemyToSpawnerDisance).AsSingle().NonLazy();
       Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();
       Container.Bind<EnemyShootingPoint>().FromInstance(ShootingPoint).AsSingle().NonLazy();
+      Container.Bind<EnemyGrenadeThrower>().FromInstance(EnemyGrenadeThrower).AsSingle().NonLazy();
 
       Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
       Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();

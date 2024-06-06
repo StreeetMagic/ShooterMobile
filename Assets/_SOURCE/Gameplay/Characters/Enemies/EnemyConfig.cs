@@ -57,6 +57,6 @@ namespace Gameplay.Characters.Enemies
     public float GrenadeThrowCooldown = 10f;
     
     [Tooltip("Время, после которого в неподвижную цель полетит граната")]
-    public float EnemyStandsOnSamePositionTime = 1f;
+    public float TargetStandsOnSamePositionTime = 1f;
   }
 }

@@ -17,6 +17,7 @@ namespace Gameplay.Characters.Enemies
     [Inject] private EnemyToSpawnerDisance _enemyToSpawnerDisance;
     [Inject] private EnemyConfig _config;
     [Inject] private Transform _spawnerTransform;
+    [Inject] private EnemyGrenadeThrower _grenadeThrower;
 
     private void Start()
     {
@@ -52,6 +53,7 @@ namespace Gameplay.Characters.Enemies
 
         if (EnemyInShootingRadius())
         {
+          _grenadeThrower.Throw();
           _enemyMoverToPlayer.enabled = false;
           _enemyShootAtPlayer.enabled = true;
         }

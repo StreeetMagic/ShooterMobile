@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 6874966587935280439}
   - component: {fileID: 4569622047740737737}
   - component: {fileID: 989760437509561374}
+  - component: {fileID: 1766727795279495950}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -138,6 +139,7 @@ MonoBehaviour:
   TargetTrigger: {fileID: 4949865898261959369}
   ShootingPoint: {fileID: 6874966587935280439}
   EnemyAnimatorProvider: {fileID: 989760437509561374}
+  EnemyGrenadeThrower: {fileID: 1766727795279495950}
 --- !u!114 &6943619904983208316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +363,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Instance: {fileID: 0}
+--- !u!114 &1766727795279495950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342982923862884670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ccf058b2761ac44930b590a1fd3d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3957916751689609866
 PrefabInstance:
   m_ObjectHideFlags: 0
