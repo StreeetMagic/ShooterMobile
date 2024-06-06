@@ -68,6 +68,7 @@ namespace SceneInstallers.GameLoop
 
     private void Destroy()
     {
+      _runner.StopAllCoroutines();
       DOTween.KillAll();
       Time.timeScale = 0f;
 

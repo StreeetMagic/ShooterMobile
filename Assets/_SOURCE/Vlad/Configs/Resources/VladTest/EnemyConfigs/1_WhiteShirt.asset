@@ -17,7 +17,7 @@ MonoBehaviour:
   RunSpeed: 5
   RunTime: 2
   WaitTimeAfterMove: 0.1
-  InitialHealth: 50
+  InitialHealth: 5000
   MoneyReward: 2
   HealMultiplier: 1
   LootDrops:
@@ -25,10 +25,11 @@ MonoBehaviour:
     Level: 1
   - Id: 2
     Level: 1
-  Radius: 8
+  ShootRange: 10
+  AggroRadius: 3
   FireRate: 1
+  BulletDamage: 10
   PatrolingRadius: 8
   Expirience: 25
   EnemyDetectionColliderRadius: 0.1
-  ForceFromOtherEnemy: 0.3
-  BulletDamage: 10
+  ForceFromOtherEnemys: 0.3

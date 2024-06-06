@@ -37,7 +37,7 @@ namespace Gameplay.CorpseRemovers
     private IEnumerator RemoveCorpse(IHealth enemyHealth)
     {
       yield return new WaitForSeconds(2f);
-
+      
       if (enemyHealth == null)
         yield break;
 
