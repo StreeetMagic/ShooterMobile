@@ -4,5 +4,8 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyStateMachine : StateMachine
   {
+    public EnemyStateMachine(EnemyStatesProvider enemyStatesProvider) : base(enemyStatesProvider)
+    {
+    }
   }
 }

@@ -11,7 +11,7 @@ namespace Gameplay.Dummies
 
     public IHealth Health => _dummyHealth;
     public float AggroRadius { get; } = 1f;
-    public HitStatus HitStatus { get; } = new();
+    public HitStatus HitStatus { get; } = new(null);
 
     public bool IsTargeted { get; set; }
 

@@ -7,7 +7,7 @@ using UnityEngine;
 using Zenject;
 using ZenjectFactories;
 
-public class EnemyGrenadeThrower : MonoBehaviour
+public abstract class EnemyGrenadeThrower : MonoBehaviour
 {
   [Inject] private PlayerProvider _playerProvider;
   [Inject] private EnemyConfig _config;

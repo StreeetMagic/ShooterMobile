@@ -13,8 +13,6 @@ namespace Gameplay.Characters.Enemies.Healths
     [Inject] private EnemyAnimatorProvider _animatorProvider;
     [Inject] private RewardService _rewardService;
     [Inject] private CorpseRemover _corpseRemover;
-    [Inject] private EnemyMoverToSpawnPoint _enemyMoverToSpawnPoint;
-    [Inject] private EnemyMoverToPlayer _enemyMoverToPlayer;
     [Inject] private HitStatus _hitStatus;
     [Inject] private EnemyConfig _config;
     [Inject] private EnemySpawner _spawner;
@@ -66,8 +64,6 @@ namespace Gameplay.Characters.Enemies.Healths
       if (IsDead)
         return;
 
-      _enemyMoverToSpawnPoint.enabled = false;
-      _enemyMoverToPlayer.enabled = false;
       _animatorProvider.Instance.PlayDeathAnimation();
 
       IsDead = true;

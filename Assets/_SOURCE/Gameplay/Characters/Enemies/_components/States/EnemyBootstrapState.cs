@@ -4,14 +4,20 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyBootstrapState : IState
   {
+    private readonly EnemyStateMachine _enemyStateMachine;
+
+    public EnemyBootstrapState(EnemyStateMachine enemyStateMachine)
+    {
+      _enemyStateMachine = enemyStateMachine;
+    }
+
     public void Enter()
     {
-      throw new System.NotImplementedException();
+      _enemyStateMachine.Enter<EnemyPatrolState>();
     }
 
     public void Exit()
     {
-      throw new System.NotImplementedException();
     }
   }
 }

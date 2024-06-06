@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyWaiter : MonoBehaviour
+  public abstract class EnemyWaiter : MonoBehaviour
   {
     private float _currentTime;
 
@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Enemies
     {
       _currentTime = 0;
       _enemyMoverToSpawnPoint.enabled = false;
-    } 
+    }
 
     private void Update()
     {
@@ -30,5 +30,3 @@ namespace Gameplay.Characters.Enemies
     }
   }
 }
-
-

@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyShootAtPlayer : MonoBehaviour
+  public abstract class EnemyShootAtPlayer : MonoBehaviour
   {
     private float _time;
 
