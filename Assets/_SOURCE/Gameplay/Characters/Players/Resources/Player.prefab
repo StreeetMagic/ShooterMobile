@@ -1186,8 +1186,9 @@ GameObject:
   - component: {fileID: -3798552014200442747}
   - component: {fileID: 8686259311332552613}
   - component: {fileID: -4777224835996921659}
-  - component: {fileID: 6932890305590998589}
   - component: {fileID: 4973806196405820310}
+  - component: {fileID: 6932890305590998589}
+  - component: {fileID: 5913704536499391891}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1280,6 +1281,7 @@ MonoBehaviour:
   PlayerWeaponRaiser: {fileID: -4777224835996921659}
   PlayerWeaponId: {fileID: 6932890305590998589}
   PlayerToTargetAggro: {fileID: 4973806196405820310}
+  PlayerStandsOnSamePosition: {fileID: 5913704536499391891}
   WeaponContainer: {fileID: 7428322110479050930}
   WeaponSwitcher: {fileID: 512680655011637266}
   Weapon: {fileID: 3915996156472598876}
@@ -1393,6 +1395,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437ded33ced19314daf06ab19402b0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4973806196405820310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166388366812776296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc0a1bc74724cf7bced012e55eef147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6932890305590998589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca2ead8bef74f33be575be4eb4ebbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4973806196405820310
+--- !u!114 &5913704536499391891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1414,7 +1428,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9166388366812776296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bc0a1bc74724cf7bced012e55eef147, type: 3}
+  m_Script: {fileID: 11500000, guid: f5fe58c4de6e476c9462abbe40074248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1528475235872063484

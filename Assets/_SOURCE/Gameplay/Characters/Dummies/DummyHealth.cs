@@ -27,5 +27,17 @@ namespace Gameplay.Dummies
     public void NotifyOtherEnemies()
     {
     }
+
+    // ReSharper disable once UnusedMember.Local
+    private void OnDied(EnemyConfig config, IHealth health)
+    {
+      Died?.Invoke(config, health);
+    }
+
+    // ReSharper disable once UnusedMember.Local
+    private void OnDamaged(float damage)
+    {
+      Damaged?.Invoke(damage);
+    }
   }
 }
