@@ -13,7 +13,7 @@ namespace Gameplay.Characters.Enemies
 
     public void RotateToTargetPosition(Vector3 direction)
     {
-      _enemy.transform.rotation = Quaternion.LookRotation(direction);
+    //  _enemy.transform.rotation = Quaternion.LookRotation(direction);
     }
   }
 }

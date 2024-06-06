@@ -1,3 +1,4 @@
+using System;
 using Gameplay.Characters.Players;
 using UnityEngine;
 using Zenject;
@@ -12,9 +13,15 @@ namespace Gameplay.Characters.Enemies
     [Inject] private EnemyAnimatorProvider _animatorProvider;
     [Inject] private EnemyConfig _config;
     [Inject] private Transform _spawnerTransform;
+    [Inject] private EnemyReturnToSpawnStatus _returnToSpawnStatus;
 
     private float RunSpeed => _config.RunSpeed;
     private Transform PlayerTransform => _playerProvider.Player.transform;
+
+    private void OnEnable()
+    {
+      _returnToSpawnStatus.IsReturn = false;
+    }
 
     private void FixedUpdate()
     {
@@ -42,8 +49,7 @@ namespace Gameplay.Characters.Enemies
 
     private void MoveToPlayer()
     {
-      Vector3 direction = (PlayerTransform.position - transform.position).normalized;
-      _mover.Move(direction, RunSpeed);
+      _mover.Move(PlayerTransform.position, RunSpeed);
       _animatorProvider.Instance.PlayRunAnimation();
     }
   }

@@ -1,22 +1,27 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Gameplay.Characters.Enemies
 {
   public class EnemyMover
   {
-    private readonly CharacterController _characterController;
+    private readonly NavMeshAgent _navMeshAgent;
+    private readonly Enemy _enemy;
     private readonly EnemyToTargetRotator _enemyToTargetRotator;
 
-    private EnemyMover(CharacterController characterController, EnemyToTargetRotator enemyToTargetRotator)
+    private EnemyMover(NavMeshAgent navMeshAgent, Enemy enemy, EnemyToTargetRotator enemyToTargetRotator)
     {
-      _characterController = characterController;
+      _navMeshAgent = navMeshAgent;
+      _enemy = enemy;
       _enemyToTargetRotator = enemyToTargetRotator;
     }
 
-    public void Move(Vector3 moveDirection, float moveSpeed)
+    public void Move(Vector3 target, float moveSpeed)
     {
-      _characterController.Move(moveDirection * (moveSpeed * Time.fixedDeltaTime));
-      _enemyToTargetRotator.RotateToTargetPosition(moveDirection);
+      _enemyToTargetRotator.RotateToTargetPosition((target - _enemy.transform.position).normalized);
+
+      _navMeshAgent.SetDestination(target);
+      _navMeshAgent.speed = moveSpeed;
     }
   }
 }

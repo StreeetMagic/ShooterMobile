@@ -9,14 +9,6 @@ namespace Gameplay.Characters.Enemies
     public float Radius;
     public float Force;
 
-    private CharacterController _enemyController;
-
-    [Inject]
-    public void Construct(DebugLogger logger, CharacterController enemyController)
-    {
-      _enemyController = enemyController;
-    }
-
     private void Start()
     {
       enabled = true;
@@ -24,9 +16,6 @@ namespace Gameplay.Characters.Enemies
 
     private void Update()
     {
-      if (_enemyController == null || !_enemyController.enabled || !_enemyController.gameObject.activeInHierarchy)
-        return;
-
       // ReSharper disable once Unity.PreferNonAllocApi
       var colliders = Physics.OverlapSphere(transform.position, Radius);
 
@@ -46,7 +35,7 @@ namespace Gameplay.Characters.Enemies
         if (direction == Vector3.zero)
           continue;
 
-        _enemyController.Move(direction * (Force * Time.deltaTime));
+        //  _enemyController.Move(direction * (Force * Time.deltaTime));
       }
     }
   }

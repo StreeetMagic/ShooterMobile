@@ -17,11 +17,8 @@ namespace Gameplay.Characters.Enemies.ModelSpawner
     private void OnEnable()
     {
       EnemyMeshModel prefab = _assetProvider.GetEnemyMeshModel(_enemyId);
-
       EnemyMeshModel meshModel = _factory.InstantiateMono(prefab, transform.position, transform);
-
       _shootingPoint.PointTransform = meshModel.GetComponent<EnemyShootingPoint>().PointTransform;
-
       _animatorProvider.Instance = meshModel.GetComponent<EnemyAnimator>();
     }
   }

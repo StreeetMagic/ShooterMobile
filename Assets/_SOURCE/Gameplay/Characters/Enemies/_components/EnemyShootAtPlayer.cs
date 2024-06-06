@@ -52,6 +52,8 @@ namespace Gameplay.Characters.Enemies
 
     private void Shoot(Vector3 direction)
     {
+      Debug.Log("Выстрелил" + "");
+        
       _shooter.Shoot(_shootingPoint.PointTransform, _shootingPoint.PointTransform.position, direction, _config);
 
       _animatorProvider.Instance.PlayShootAnimation();

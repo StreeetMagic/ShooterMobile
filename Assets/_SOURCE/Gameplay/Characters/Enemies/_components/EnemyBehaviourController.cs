@@ -40,14 +40,14 @@ namespace Gameplay.Characters.Enemies
         _enemyMoverToPlayer.enabled = false;
         _enemyShootAtPlayer.enabled = false;
       }
-      else if (EnemyInPatrolingRadius() == false && _enemyToSpawnerDisance.IsAway)
+      else if (InPatrolingRadius() == false && _enemyToSpawnerDisance.IsAway)
       {
         _enemyMoverToSpawnPoint.enabled = true;
         _returnToSpawnStatus.IsReturn = true;
         _enemyMoverToPlayer.enabled = false;
         _enemyShootAtPlayer.enabled = false;
       }
-      else if (_hitStatus.IsHit && EnemyInPatrolingRadius())
+      else if (_hitStatus.IsHit && InPatrolingRadius())
       {
         _enemyMoverToSpawnPoint.enabled = false;
 
@@ -68,7 +68,7 @@ namespace Gameplay.Characters.Enemies
     private bool EnemyInShootingRadius() =>
       (_playerProvider.Player.transform.position - transform.position).magnitude < _config.ShootRange;
 
-    private bool EnemyInPatrolingRadius() =>
+    private bool InPatrolingRadius() =>
       (_spawnerTransform.position - transform.position).magnitude < _config.PatrolingRadius;
   }
 }

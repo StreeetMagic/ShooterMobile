@@ -9,13 +9,13 @@ namespace Gameplay.Characters.Enemies.Projectiles
   public class EnemyProjectile : MonoBehaviour
   {
     public CollisionPointRayCaster CollisionPointRayCaster;
-    
+
     private int _count;
 
     [Inject] private VisualEffectFactory _visualEffectFactory;
-    
+
     public EnemyConfig EnemyConfig { get; set; }
-    
+
     private void OnTriggerEnter(Collider otherCollider)
     {
       DamageTargetTrigger(otherCollider);
@@ -26,12 +26,14 @@ namespace Gameplay.Characters.Enemies.Projectiles
 
     private void DamageTargetTrigger(Collider other)
     {
+      Debug.Log(other.gameObject.name);
+
       if (other.TryGetComponent(out Player player))
       {
         if (_count == 0)
         {
           _count++;
-          
+
           player
             .GetComponentInChildren<PlayerTargetTrigger>()
             .TakeDamage(EnemyConfig.BulletDamage);

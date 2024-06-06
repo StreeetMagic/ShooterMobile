@@ -26,9 +26,7 @@ namespace Gameplay.Characters.Enemies
 
     private void FixedUpdate()
     {
-      Vector3 direction = (_enemyRoutePointsManager.NextRoutePointTransform.position - transform.position).normalized;
-
-      _mover.Move(direction, GetMoveSpeed());
+      _mover.Move(_enemyRoutePointsManager.NextRoutePointTransform.position, GetMoveSpeed());
     }
 
     private float GetMoveSpeed()

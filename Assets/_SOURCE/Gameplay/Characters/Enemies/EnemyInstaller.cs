@@ -5,6 +5,7 @@ using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 using Zenject.Source.Install;
 
@@ -13,7 +14,6 @@ namespace Gameplay.Characters.Enemies
   public class EnemyInstaller : MonoInstaller
   {
     public Enemy Enemy;
-    public CharacterController CharacterController;
     public EnemyHealth EnemyHealth;
     public EnemyRoutePointsManager enemyRoutePointsManager;
     public EnemyHealer enemyHealer;
@@ -27,6 +27,7 @@ namespace Gameplay.Characters.Enemies
     public EnemyShootingPoint ShootingPoint;
     public EnemyAnimatorProvider EnemyAnimatorProvider;
     public EnemyGrenadeThrower EnemyGrenadeThrower;
+    public NavMeshAgent NavMeshAgent;
 
     [Inject] private EnemyConfig _enemyConfig;
     [Inject] private List<SpawnPoint> _spawnPoints;
@@ -46,7 +47,6 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
       Container.Bind<EnemyRoutePointsManager>().FromInstance(enemyRoutePointsManager).AsSingle().NonLazy();
       Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
-      Container.Bind<CharacterController>().FromInstance(CharacterController).AsSingle().NonLazy();
       Container.Bind<EnemyAnimatorProvider>().FromInstance(EnemyAnimatorProvider).AsSingle().NonLazy();
       Container.Bind<EnemyMoverToSpawnPoint>().FromInstance(EnemyMoverToSpawnPoint).AsSingle().NonLazy();
       Container.Bind<EnemyWaiter>().FromInstance(EnemyWaiter).AsSingle().NonLazy();
@@ -57,6 +57,7 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();
       Container.Bind<EnemyShootingPoint>().FromInstance(ShootingPoint).AsSingle().NonLazy();
       Container.Bind<EnemyGrenadeThrower>().FromInstance(EnemyGrenadeThrower).AsSingle().NonLazy();
+      Container.Bind<NavMeshAgent>().FromInstance(NavMeshAgent).AsSingle().NonLazy();
 
       Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
       Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();
