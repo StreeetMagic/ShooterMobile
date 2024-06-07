@@ -1,9 +1,9 @@
 using Gameplay.Characters.Players;
-using PUNBALL.Infrastructure.StateMachine;
+using StateMachine;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies
+namespace Gameplay.Characters.Enemies.States
 {
   public class EnemyRunToPlayerState : IState, ITickable
   {

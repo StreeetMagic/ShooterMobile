@@ -1,8 +1,8 @@
-using PUNBALL.Infrastructure.StateMachine;
+using StateMachine;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies
+namespace Gameplay.Characters.Enemies.States
 {
   public class EnemyPatrolState : IState, ITickable
   {
@@ -27,7 +27,6 @@ namespace Gameplay.Characters.Enemies
       _animatorProvider = animatorProvider;
       _config = config;
       _enemy = enemy;
-
     }
 
     public void Enter()

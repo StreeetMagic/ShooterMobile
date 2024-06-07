@@ -1,4 +1,4 @@
-using CurrencyRepositories.Expirience;
+using Gameplay.CurrencyRepositories.Expirience;
 using StaticDataServices;
 using TMPro;
 using UnityEngine;

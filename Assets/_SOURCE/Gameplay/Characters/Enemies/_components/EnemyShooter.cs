@@ -3,7 +3,7 @@ using Gameplay.Projectiles.Scripts;
 using Sounds;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.EnemyShooters
+namespace Gameplay.Characters.Enemies
 {
   public class EnemyShooter
   {

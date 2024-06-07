@@ -1,8 +1,8 @@
-using Projects;
+using PersistentProgresses;
 using SaveLoadServices;
 using Utilities;
 
-namespace CurrencyRepositories
+namespace Gameplay.CurrencyRepositories
 {
   public class EggsInBankStorage : IProgressWriter
   {

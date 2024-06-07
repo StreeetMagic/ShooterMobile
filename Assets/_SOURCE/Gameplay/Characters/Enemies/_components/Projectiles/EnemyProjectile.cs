@@ -1,5 +1,5 @@
 using Gameplay.Characters.Players;
-using Gameplay.Projectiles._components.Raycasters;
+using Gameplay.Projectiles.Raycasters;
 using UnityEngine;
 using VisualEffects;
 using Zenject;

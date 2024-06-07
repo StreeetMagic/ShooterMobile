@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.TargetHolders
+namespace Gameplay.Characters.Players
 {
   public class PlayerTargetHolder : MonoBehaviour
   {

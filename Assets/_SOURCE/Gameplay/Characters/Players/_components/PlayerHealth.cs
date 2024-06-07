@@ -1,5 +1,4 @@
 using System;
-using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
 using SceneInstallers.GameLoop;
 using UnityEngine;

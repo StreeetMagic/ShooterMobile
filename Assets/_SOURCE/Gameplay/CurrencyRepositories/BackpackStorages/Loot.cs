@@ -1,6 +1,6 @@
 using System;
 
-namespace CurrencyRepositories.BackpackStorages
+namespace Gameplay.CurrencyRepositories.BackpackStorages
 {
   [Serializable]
   public class Loot

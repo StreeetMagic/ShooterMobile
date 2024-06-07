@@ -1,9 +1,12 @@
-public enum WeaponAttackTypeId
+namespace Gameplay.Weapons
 {
-  Unknown = 0,
-  Single = 1,
-  Burst = 2,
-  Auto = 3,
-  Melee = 4,
-  Throw = 5
+  public enum WeaponAttackTypeId
+  {
+    Unknown = 0,
+    Single = 1,
+    Burst = 2,
+    Auto = 3,
+    Melee = 4,
+    Throw = 5
+  }
 }

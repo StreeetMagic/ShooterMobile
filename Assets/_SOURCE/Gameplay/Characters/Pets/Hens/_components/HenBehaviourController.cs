@@ -1,9 +1,8 @@
-using Gameplay.Characters.Pets.Hens._components;
 using Gameplay.Characters.Players;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Pets.Hens
+namespace Gameplay.Characters.Pets.Hens._components
 {
   public class HenBehaviourController : MonoBehaviour
   {

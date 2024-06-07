@@ -1,4 +1,4 @@
-﻿namespace PUNBALL.Infrastructure.StateMachine
+﻿namespace StateMachine
 {
     public interface IState : IExitableState
     {

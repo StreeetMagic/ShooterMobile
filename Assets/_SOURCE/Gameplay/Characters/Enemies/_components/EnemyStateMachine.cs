@@ -1,8 +1,6 @@
-using PUNBALL.Infrastructure.StateMachine;
-
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyStateMachine : StateMachine
+  public class EnemyStateMachine : StateMachine.StateMachine
   {
     public EnemyStateMachine(EnemyStatesProvider enemyStatesProvider) : base(enemyStatesProvider)
     {

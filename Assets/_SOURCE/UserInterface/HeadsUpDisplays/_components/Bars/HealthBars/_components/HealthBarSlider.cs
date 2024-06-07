@@ -1,5 +1,4 @@
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
 using UnityEngine;
 using UnityEngine.UI;

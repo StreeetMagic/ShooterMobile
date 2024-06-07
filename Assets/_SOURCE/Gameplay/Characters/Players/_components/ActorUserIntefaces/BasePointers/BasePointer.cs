@@ -1,5 +1,5 @@
-using CurrencyRepositories.BackpackStorages;
 using Gameplay.BaseTriggers;
+using Gameplay.CurrencyRepositories.BackpackStorages;
 using Maps;
 using UnityEngine;
 using Zenject;

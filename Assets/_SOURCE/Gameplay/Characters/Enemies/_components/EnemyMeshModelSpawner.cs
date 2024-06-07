@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using ZenjectFactories;
 
-namespace Gameplay.Characters.Enemies.ModelSpawner
+namespace Gameplay.Characters.Enemies
 {
   public class EnemyMeshModelSpawner : MonoBehaviour
   {

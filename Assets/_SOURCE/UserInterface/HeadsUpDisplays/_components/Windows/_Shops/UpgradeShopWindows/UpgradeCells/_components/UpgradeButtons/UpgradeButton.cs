@@ -1,4 +1,4 @@
-using CurrencyRepositories;
+using Gameplay.CurrencyRepositories;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
 using UnityEngine;

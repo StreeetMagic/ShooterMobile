@@ -1,4 +1,4 @@
-﻿using CurrencyRepositories;
+﻿using Gameplay.CurrencyRepositories;
 using TMPro;
 using UnityEngine;
 using Zenject;

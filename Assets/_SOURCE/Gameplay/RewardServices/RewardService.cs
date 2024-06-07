@@ -1,8 +1,8 @@
-﻿using CurrencyRepositories.BackpackStorages;
-using CurrencyRepositories.Expirience;
+﻿using Gameplay.Characters;
 using Gameplay.Characters.Enemies;
-using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Characters.Players;
+using Gameplay.CurrencyRepositories.BackpackStorages;
+using Gameplay.CurrencyRepositories.Expirience;
 using Gameplay.Rewards;
 using Gameplay.Stats;
 

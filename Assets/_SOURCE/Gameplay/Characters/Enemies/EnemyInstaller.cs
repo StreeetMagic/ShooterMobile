@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.EnemyShooters;
-using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Enemies.Spawners;
-using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
+using Gameplay.Characters.Enemies.States;
 using Gameplay.Characters.Enemies.TargetTriggers;
+using Gameplay.Spawners;
+using Gameplay.Spawners.SpawnPoints;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;

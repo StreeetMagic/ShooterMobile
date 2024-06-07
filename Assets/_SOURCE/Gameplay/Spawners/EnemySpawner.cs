@@ -2,17 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CoroutineRunners;
+using Gameplay.Characters;
+using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
-using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
 using Gameplay.Quests;
+using Gameplay.Spawners.SpawnPoints;
 using StaticDataServices;
 using UnityEngine;
 using Utilities;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Characters.Enemies.Spawners
+namespace Gameplay.Spawners
 {
   public class EnemySpawner : MonoBehaviour
   {

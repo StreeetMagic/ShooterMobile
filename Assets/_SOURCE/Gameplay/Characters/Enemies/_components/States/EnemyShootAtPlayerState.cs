@@ -1,11 +1,10 @@
-using Gameplay.Characters.Enemies.EnemyShooters;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players;
-using PUNBALL.Infrastructure.StateMachine;
+using StateMachine;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies
+namespace Gameplay.Characters.Enemies.States
 {
   public class EnemyShootAtPlayerState : IState, ITickable
   {

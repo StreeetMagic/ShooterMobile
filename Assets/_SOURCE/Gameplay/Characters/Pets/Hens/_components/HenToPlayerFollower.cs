@@ -1,11 +1,10 @@
 using Gameplay.Characters.Pets.Hens.MeshModels;
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Pets.Hens
+namespace Gameplay.Characters.Pets.Hens._components
 {
   public class HenToPlayerFollower : MonoBehaviour
   {

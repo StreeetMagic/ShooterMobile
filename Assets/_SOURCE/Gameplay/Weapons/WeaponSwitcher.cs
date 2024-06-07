@@ -1,56 +1,58 @@
 using Gameplay.Characters.Players;
-using Gameplay.Weapons;
 using UnityEngine;
 using Zenject;
 
-public class WeaponSwitcher : MonoBehaviour
+namespace Gameplay.Weapons
 {
-  [Inject] private Weapon _weapon;
-  [Inject] private WeaponContainer _weaponContainer;
-  [Inject] private WeaponShootingPoint _shootingPoint;
-  [Inject] private PlayerWeaponId _playerWeaponId;
-
-  private void Start()
+  public class WeaponSwitcher : MonoBehaviour
   {
-    if (_playerWeaponId.WeaponTypeId == WeaponTypeId.Unknown)
-      throw new System.Exception("У игрока не указан айдишник оружия");
+    [Inject] private Weapon _weapon;
+    [Inject] private WeaponContainer _weaponContainer;
+    [Inject] private WeaponShootingPoint _shootingPoint;
+    [Inject] private PlayerWeaponId _playerWeaponId;
 
-    DisableAll();
-    NullShootingPoint();
+    private void Start()
+    {
+      if (_playerWeaponId.WeaponTypeId == WeaponTypeId.Unknown)
+        throw new System.Exception("У игрока не указан айдишник оружия");
 
-    SwitchTo(_playerWeaponId.WeaponTypeId);
-  }
+      DisableAll();
+      NullShootingPoint();
 
-  public void SwitchTo(WeaponTypeId weaponTypeId)
-  {
-    GameObject weapon =
-      _weaponContainer
+      SwitchTo(_playerWeaponId.WeaponTypeId);
+    }
+
+    public void SwitchTo(WeaponTypeId weaponTypeId)
+    {
+      GameObject weapon =
+        _weaponContainer
+          .Weapons
+          .Find(x => x.WeaponTypeId == weaponTypeId)
+          .GameObject;
+
+      EnableGameObject(weapon);
+      SetShootingPoint(weaponTypeId);
+    }
+
+    private void DisableAll()
+    {
+      foreach (WeaponSetup weapon in _weaponContainer.Weapons)
+        DisableGameObject(weapon.GameObject);
+    }
+
+    private void DisableGameObject(GameObject weapon) =>
+      weapon.SetActive(false);
+
+    private void EnableGameObject(GameObject weapon) =>
+      weapon.SetActive(true);
+
+    private void NullShootingPoint() =>
+      _shootingPoint.Transform = null;
+
+    private void SetShootingPoint(WeaponTypeId weaponTypeId) =>
+      _shootingPoint.Transform = _weaponContainer
         .Weapons
         .Find(x => x.WeaponTypeId == weaponTypeId)
-        .GameObject;
-
-    EnableGameObject(weapon);
-    SetShootingPoint(weaponTypeId);
+        .ShootingPoint;
   }
-
-  private void DisableAll()
-  {
-    foreach (WeaponSetup weapon in _weaponContainer.Weapons)
-      DisableGameObject(weapon.GameObject);
-  }
-
-  private void DisableGameObject(GameObject weapon) =>
-    weapon.SetActive(false);
-
-  private void EnableGameObject(GameObject weapon) =>
-    weapon.SetActive(true);
-
-  private void NullShootingPoint() =>
-    _shootingPoint.Transform = null;
-
-  private void SetShootingPoint(WeaponTypeId weaponTypeId) =>
-    _shootingPoint.Transform = _weaponContainer
-      .Weapons
-      .Find(x => x.WeaponTypeId == weaponTypeId)
-      .ShootingPoint;
 }

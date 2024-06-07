@@ -1,4 +1,3 @@
-using Gameplay.Characters.Enemies.Healths;
 using TMPro;
 using UnityEngine;
 using Zenject;

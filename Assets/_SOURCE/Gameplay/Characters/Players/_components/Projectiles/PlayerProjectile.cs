@@ -1,6 +1,4 @@
-using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Characters.Players.PlayerStatsProviders;
-using Gameplay.Projectiles._components.Raycasters;
+using Gameplay.Projectiles.Raycasters;
 using Gameplay.Stats;
 using UnityEngine;
 using VisualEffects;

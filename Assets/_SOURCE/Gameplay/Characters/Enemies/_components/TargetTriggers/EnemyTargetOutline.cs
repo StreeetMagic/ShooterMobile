@@ -1,4 +1,4 @@
-using CurrencyRepositories.BackpackStorages;
+using Gameplay.CurrencyRepositories.BackpackStorages;
 using UnityEngine;
 using Zenject;
 

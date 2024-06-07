@@ -1,6 +1,6 @@
-using PUNBALL.Infrastructure.StateMachine;
+using StateMachine;
 
-namespace Gameplay.Characters.Enemies
+namespace Gameplay.Characters.Enemies.States
 {
   public class EnemyBootstrapState : IState
   {

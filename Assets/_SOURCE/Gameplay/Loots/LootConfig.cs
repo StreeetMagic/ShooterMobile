@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using CurrencyRepositories;
-using CurrencyRepositories.BackpackStorages;
+using Gameplay.CurrencyRepositories;
+using Gameplay.CurrencyRepositories.BackpackStorages;
 using UnityEngine;
 
 namespace Gameplay.Loots

@@ -6,7 +6,7 @@ using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.Buttons.OpenQuestButtons;
 using Zenject;
 
-namespace Gameplay.Characters.Questers._components
+namespace Gameplay.Characters.Questers
 {
   public class OpenQuestButtonEnabler : MonoBehaviour
   {

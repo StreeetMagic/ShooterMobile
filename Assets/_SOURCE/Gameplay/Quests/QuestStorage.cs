@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Quests.Subquests;
-using Projects;
+using PersistentProgresses;
 using SaveLoadServices;
 using StaticDataServices;
 using ZenjectFactories;

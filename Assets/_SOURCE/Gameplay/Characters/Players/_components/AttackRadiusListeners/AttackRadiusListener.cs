@@ -1,4 +1,3 @@
-using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
 using UnityEngine;
 using Zenject;

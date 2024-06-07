@@ -1,5 +1,5 @@
-using CurrencyRepositories.BackpackStorages;
-using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Characters.Players;
+using Gameplay.CurrencyRepositories.BackpackStorages;
 using Gameplay.Stats;
 using UnityEngine;
 using UnityEngine.UI;

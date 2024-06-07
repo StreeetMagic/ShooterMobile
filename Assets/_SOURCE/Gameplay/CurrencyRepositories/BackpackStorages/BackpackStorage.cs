@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
-using Gameplay.Characters.Enemies;
-using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Characters.Players;
 using Gameplay.Loots;
 using Gameplay.Stats;
 using StaticDataServices;
 using Utilities;
 
-namespace CurrencyRepositories.BackpackStorages
+namespace Gameplay.CurrencyRepositories.BackpackStorages
 {
   public class BackpackStorage
   {

@@ -1,5 +1,4 @@
-﻿using CurrencyRepositories.BackpackStorages;
-using Gameplay.Characters.Players.TargetHolders;
+﻿using Gameplay.CurrencyRepositories.BackpackStorages;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players.Rotators

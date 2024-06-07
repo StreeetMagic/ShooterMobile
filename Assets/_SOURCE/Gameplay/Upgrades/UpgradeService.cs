@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Stats;
-using Projects;
+using PersistentProgresses;
 using SaveLoadServices;
 using StaticDataServices;
 

@@ -1,5 +1,5 @@
-using CurrencyRepositories;
 using Gameplay.Characters.Players;
+using Gameplay.CurrencyRepositories;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

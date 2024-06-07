@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Spawners;
-using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
+using Gameplay.Spawners;
+using Gameplay.Spawners.SpawnPoints;
 using UnityEngine;
 using Zenject.Source.Factories;
 

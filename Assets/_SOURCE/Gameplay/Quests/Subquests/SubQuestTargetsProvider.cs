@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Bombs;
 using Gameplay.Characters.Enemies;
-using Gameplay.Characters.Enemies.Spawners;
-using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Players;
 using Gameplay.Characters.Questers;
+using Gameplay.Spawners;
+using Gameplay.Spawners.SpawnerFactories;
 using Maps;
 using UnityEngine;
 

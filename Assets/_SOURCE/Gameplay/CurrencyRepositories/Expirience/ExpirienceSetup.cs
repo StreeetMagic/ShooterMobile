@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace CurrencyRepositories.Expirience
+namespace Gameplay.CurrencyRepositories.Expirience
 {
   [Serializable]
   public class ExpirienceSetup

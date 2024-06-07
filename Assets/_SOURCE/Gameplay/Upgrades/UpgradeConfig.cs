@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using CurrencyRepositories;
+using Gameplay.CurrencyRepositories;
 using Gameplay.Stats;
 using Sirenix.OdinInspector;
 using UnityEngine;

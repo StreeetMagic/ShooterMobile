@@ -1,77 +1,79 @@
 using System.Collections;
-using Gameplay.Grenades;
 using UnityEngine;
 
-[RequireComponent(typeof(GrenadeDetonator))]
-public class GrenadeMover : MonoBehaviour
+namespace Gameplay.Grenades
 {
-  private Vector3 _startPosition;
-  private Vector3 _targetPosition;
-
-  private GrenadeDetonator _detonator;
-  private GrenadeDetonationRadius _detonationRadius;
-  private GrenadeConfig _config;
-
-  private float FlightTime => _config.FlightTime;
-
-  public void Init(GrenadeConfig config, Vector3 startPosition, Vector3 targetPosition)
+  [RequireComponent(typeof(GrenadeDetonator))]
+  public class GrenadeMover : MonoBehaviour
   {
-    _startPosition = startPosition;
-    _targetPosition = targetPosition;
-    _config = config;
+    private Vector3 _startPosition;
+    private Vector3 _targetPosition;
 
-    _detonator = GetComponent<GrenadeDetonator>();
-    _detonationRadius = GetComponentInChildren<GrenadeDetonationRadius>();
-    _detonationRadius.Init(_config);
-    _detonationRadius.gameObject.SetActive(false);
-  }
+    private GrenadeDetonator _detonator;
+    private GrenadeDetonationRadius _detonationRadius;
+    private GrenadeConfig _config;
 
-  public void Throw()
-  {
-    StartCoroutine(MoveGrenade());
-  }
+    private float FlightTime => _config.FlightTime;
 
-  private IEnumerator MoveGrenade()
-  {
-    Vector3 initialVelocity = CalculateInitialVelocity();
-    float elapsedTime = 0f;
-
-    while (elapsedTime < FlightTime)
+    public void Init(GrenadeConfig config, Vector3 startPosition, Vector3 targetPosition)
     {
-      elapsedTime += Time.deltaTime;
+      _startPosition = startPosition;
+      _targetPosition = targetPosition;
+      _config = config;
 
-      float t = elapsedTime / FlightTime;
-      transform.position = CalculatePosition(t, initialVelocity);
-
-      yield return null;
+      _detonator = GetComponent<GrenadeDetonator>();
+      _detonationRadius = GetComponentInChildren<GrenadeDetonationRadius>();
+      _detonationRadius.Init(_config);
+      _detonationRadius.gameObject.SetActive(false);
     }
 
-    transform.position = _targetPosition;
-    _detonator.Detonate();
-    _detonationRadius.gameObject.SetActive(true);
-  }
+    public void Throw()
+    {
+      StartCoroutine(MoveGrenade());
+    }
 
-  private Vector3 CalculateInitialVelocity()
-  {
-    Vector3 displacement = _targetPosition - _startPosition;
-    Vector3 displacementXZ = new Vector3(displacement.x, 0, displacement.z);
+    private IEnumerator MoveGrenade()
+    {
+      Vector3 initialVelocity = CalculateInitialVelocity();
+      float elapsedTime = 0f;
 
-    float time = FlightTime;
-    float vxz = displacementXZ.magnitude / time;
-    float vy = (displacement.y - 0.5f * Physics.gravity.y * time * time) / time;
+      while (elapsedTime < FlightTime)
+      {
+        elapsedTime += Time.deltaTime;
 
-    Vector3 result = displacementXZ.normalized * vxz;
-    result.y = vy;
+        float t = elapsedTime / FlightTime;
+        transform.position = CalculatePosition(t, initialVelocity);
 
-    return result;
-  }
+        yield return null;
+      }
 
-  private Vector3 CalculatePosition(float t, Vector3 initialVelocity)
-  {
-    Vector3 result = _startPosition +
-                     initialVelocity * t +
-                     0.5f * Physics.gravity * t * t;
+      transform.position = _targetPosition;
+      _detonator.Detonate();
+      _detonationRadius.gameObject.SetActive(true);
+    }
 
-    return result;
+    private Vector3 CalculateInitialVelocity()
+    {
+      Vector3 displacement = _targetPosition - _startPosition;
+      Vector3 displacementXZ = new Vector3(displacement.x, 0, displacement.z);
+
+      float time = FlightTime;
+      float vxz = displacementXZ.magnitude / time;
+      float vy = (displacement.y - 0.5f * Physics.gravity.y * time * time) / time;
+
+      Vector3 result = displacementXZ.normalized * vxz;
+      result.y = vy;
+
+      return result;
+    }
+
+    private Vector3 CalculatePosition(float t, Vector3 initialVelocity)
+    {
+      Vector3 result = _startPosition +
+                       initialVelocity * t +
+                       0.5f * Physics.gravity * t * t;
+
+      return result;
+    }
   }
 }

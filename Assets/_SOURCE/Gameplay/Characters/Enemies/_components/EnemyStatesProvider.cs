@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using PUNBALL.Infrastructure.StateMachine;
+using StateMachine;
 
 namespace Gameplay.Characters.Enemies
 {

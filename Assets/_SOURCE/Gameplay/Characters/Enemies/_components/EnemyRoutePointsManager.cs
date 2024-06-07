@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Spawners.SpawnPoints;
+using Gameplay.Spawners.SpawnPoints;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;

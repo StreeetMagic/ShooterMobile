@@ -1,5 +1,4 @@
-using CurrencyRepositories.Expirience;
-using Gameplay.Characters.Enemies.Healths;
+using Gameplay.CurrencyRepositories.Expirience;
 using UnityEngine;
 using Zenject;
 

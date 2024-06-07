@@ -1,4 +1,4 @@
-using CurrencyRepositories;
+using Gameplay.CurrencyRepositories;
 using StaticDataServices;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters.LootSlots;

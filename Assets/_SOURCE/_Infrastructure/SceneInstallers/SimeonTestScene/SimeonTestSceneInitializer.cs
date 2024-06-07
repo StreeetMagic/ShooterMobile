@@ -1,6 +1,7 @@
 using Projects;
+using SceneInstallers.GameLoop;
 
-namespace SceneInstallers.GameLoop
+namespace SceneInstallers.SimeonTestScene
 {
   public class SimeonTestSceneInitializer : GameLoopBaseInitializer
   {

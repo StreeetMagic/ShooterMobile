@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using AssetProviders;
-using CurrencyRepositories;
-using CurrencyRepositories.BackpackStorages;
+using Gameplay.CurrencyRepositories;
+using Gameplay.CurrencyRepositories.BackpackStorages;
+using Gameplay.Loots;
 using StaticDataServices;
 using UnityEngine;
 using ZenjectFactories;

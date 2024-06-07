@@ -1,5 +1,4 @@
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.BombDefusers;
 using StaticDataServices;
 using UnityEngine;
 using Zenject;

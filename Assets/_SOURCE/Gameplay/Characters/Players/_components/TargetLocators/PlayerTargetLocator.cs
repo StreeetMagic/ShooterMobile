@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Characters.Players.PlayerStatsProviders;
-using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Stats;
 using UnityEngine;
 using Zenject;

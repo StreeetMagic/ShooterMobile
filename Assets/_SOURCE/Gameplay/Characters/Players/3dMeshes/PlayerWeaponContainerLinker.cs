@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class PlayerWeaponContainerLinker : MonoBehaviour
+namespace Gameplay.Characters.Players._3dMeshes
 {
-  public Transform Container;
+  public class PlayerWeaponContainerLinker : MonoBehaviour
+  {
+    public Transform Container;
+  }
 }

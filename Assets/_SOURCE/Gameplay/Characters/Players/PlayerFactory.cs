@@ -1,9 +1,8 @@
 using AssetProviders;
-using Gameplay.Characters.Players.InputHandlers;
 using Gameplay.Characters.Players.PetSpawnPointsContainers;
 using Gameplay.Characters.Players.Rotators;
-using Gameplay.Characters.Players.TargetHolders;
 using Gameplay.Characters.Players.TargetLocators;
+using Gameplay.Weapons;
 using Maps;
 using PersistentProgresses;
 using SaveLoadServices;

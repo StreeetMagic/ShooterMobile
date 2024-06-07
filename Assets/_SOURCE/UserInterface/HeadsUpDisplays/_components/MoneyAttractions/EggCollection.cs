@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Enemies.Spawners;
-using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
+using Gameplay.Characters;
+using Gameplay.Spawners;
+using Gameplay.Spawners.SpawnerFactories;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.BackpackBars;

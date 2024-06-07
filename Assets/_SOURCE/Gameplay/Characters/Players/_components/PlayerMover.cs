@@ -1,12 +1,11 @@
 using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.PlayerStatsProviders;
 using Gameplay.Stats;
-using Projects;
+using PersistentProgresses;
 using SaveLoadServices;
 using StaticDataServices;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players.Movers
+namespace Gameplay.Characters.Players
 {
   public class PlayerMover : IProgressWriter
   {

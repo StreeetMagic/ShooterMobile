@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Gameplay.Grenades;
+using Gameplay.Loots;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies

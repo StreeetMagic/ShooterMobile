@@ -1,20 +1,23 @@
 using TMPro;
 using UnityEngine;
 
-public class VladLogText : MonoBehaviour
+namespace Vlad
 {
-  public TextMeshProUGUI Text;
-
-  public static VladLogText Instance { get; private set; }
-
-  private void Awake()
+  public class VladLogText : MonoBehaviour
   {
-    if (Instance != null)
-    {
-      Destroy(gameObject);
-      return;
-    }
+    public TextMeshProUGUI Text;
 
-    Instance = this;
+    public static VladLogText Instance { get; private set; }
+
+    private void Awake()
+    {
+      if (Instance != null)
+      {
+        Destroy(gameObject);
+        return;
+      }
+
+      Instance = this;
+    }
   }
 }

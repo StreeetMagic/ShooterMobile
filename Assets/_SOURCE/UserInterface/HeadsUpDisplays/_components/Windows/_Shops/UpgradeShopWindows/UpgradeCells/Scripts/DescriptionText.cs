@@ -1,4 +1,4 @@
-using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Characters.Players;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
 using StaticDataServices;

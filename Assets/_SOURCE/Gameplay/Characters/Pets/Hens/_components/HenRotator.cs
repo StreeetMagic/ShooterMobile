@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Pets.Hens
+namespace Gameplay.Characters.Pets.Hens._components
 {
   public class HenRotator : MonoBehaviour
   {

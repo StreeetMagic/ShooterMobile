@@ -1,4 +1,7 @@
-namespace Gameplay.Characters.Enemies
+using Gameplay.Characters.Enemies;
+using Gameplay.Characters.Enemies.States;
+
+namespace Gameplay.Characters
 {
   public class HitStatus
   {

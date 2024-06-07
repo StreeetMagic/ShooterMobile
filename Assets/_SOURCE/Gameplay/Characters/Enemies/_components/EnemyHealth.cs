@@ -1,12 +1,12 @@
 using System;
-using Gameplay.Characters.Enemies.Spawners;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
+using Gameplay.Spawners;
 using UnityEngine;
 using Utilities;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.Healths
+namespace Gameplay.Characters.Enemies
 {
   public class EnemyHealth : MonoBehaviour, IHealth
   {

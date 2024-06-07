@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using Projects;
+using PersistentProgresses;
 using SaveLoadServices;
 using StaticDataServices;
 using Utilities;
 
-namespace CurrencyRepositories.Expirience
+namespace Gameplay.CurrencyRepositories.Expirience
 {
   public class ExpierienceStorage : IProgressWriter
   {

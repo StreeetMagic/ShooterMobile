@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Gameplay.Stats;
+using Gameplay.Weapons;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players

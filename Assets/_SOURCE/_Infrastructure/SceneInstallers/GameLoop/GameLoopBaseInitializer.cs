@@ -1,14 +1,13 @@
 using AudioServices;
 using Cameras;
 using CoroutineRunners;
-using CurrencyRepositories;
-using CurrencyRepositories.BackpackStorages;
 using DG.Tweening;
-using Gameplay.Characters.Enemies.Spawners.SpawnerFactories;
 using Gameplay.Characters.Pets.Hens;
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.CurrencyRepositories;
+using Gameplay.CurrencyRepositories.BackpackStorages;
 using Gameplay.Quests;
+using Gameplay.Spawners.SpawnerFactories;
 using Gameplay.Upgrades;
 using Maps;
 using Projects;

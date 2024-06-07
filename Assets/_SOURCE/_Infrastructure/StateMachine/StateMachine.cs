@@ -1,9 +1,10 @@
 using System;
 using Gameplay.Characters.Enemies;
 using UnityEngine;
+using Vlad;
 using Zenject;
 
-namespace PUNBALL.Infrastructure.StateMachine
+namespace StateMachine
 {
   public abstract class StateMachine : ITickable
   {

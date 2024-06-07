@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Cameras;
-using CurrencyRepositories;
-using CurrencyRepositories.BackpackStorages;
 using Gameplay.Characters.Players;
+using Gameplay.CurrencyRepositories;
+using Gameplay.CurrencyRepositories.BackpackStorages;
 using SaveLoadServices;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;

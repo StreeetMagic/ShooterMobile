@@ -1,7 +1,6 @@
-using Gameplay.Characters.Enemies.Healths;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.TargetTriggers
+namespace Gameplay.Characters
 {
   public interface ITargetTrigger
   {

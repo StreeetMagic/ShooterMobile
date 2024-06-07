@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Gameplay.Characters.Players;
-using Gameplay.Characters.Players.BombDefusers;
 using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
 using UnityEngine;

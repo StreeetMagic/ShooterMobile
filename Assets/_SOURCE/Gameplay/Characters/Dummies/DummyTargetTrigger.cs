@@ -1,9 +1,6 @@
-using Gameplay.Characters.Enemies;
-using Gameplay.Characters.Enemies.Healths;
-using Gameplay.Characters.Enemies.TargetTriggers;
 using UnityEngine;
 
-namespace Gameplay.Dummies
+namespace Gameplay.Characters.Dummies
 {
   public class DummyTargetTrigger : MonoBehaviour, ITargetTrigger
   {

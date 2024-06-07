@@ -1,4 +1,5 @@
-using Projects;
+using Gameplay.Weapons;
+using PersistentProgresses;
 using SaveLoadServices;
 using StaticDataServices;
 using UnityEngine;

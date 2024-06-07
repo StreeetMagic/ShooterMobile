@@ -1,10 +1,10 @@
 using AssetProviders;
 using AudioServices;
 using CoroutineRunners;
-using CurrencyRepositories;
-using CurrencyRepositories.BackpackStorages;
-using CurrencyRepositories.Expirience;
-using Gameplay.Characters.Players.PlayerStatsProviders;
+using Gameplay.Characters.Players;
+using Gameplay.CurrencyRepositories;
+using Gameplay.CurrencyRepositories.BackpackStorages;
+using Gameplay.CurrencyRepositories.Expirience;
 using Gameplay.Quests;
 using Gameplay.RewardServices;
 using Gameplay.Upgrades;

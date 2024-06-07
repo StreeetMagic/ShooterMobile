@@ -1,5 +1,5 @@
-﻿using CurrencyRepositories.BackpackStorages;
-using Gameplay.Characters.Players.TargetHolders;
+﻿using Gameplay.CurrencyRepositories.BackpackStorages;
+using Gameplay.Weapons;
 using UnityEngine;
 using Zenject;
 

@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
-using CurrencyRepositories;
-using CurrencyRepositories.Expirience;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Players;
+using Gameplay.CurrencyRepositories;
+using Gameplay.CurrencyRepositories.Expirience;
 using Gameplay.Grenades;
 using Gameplay.Loots;
 using Gameplay.Quests;
 using Gameplay.Rewards;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
+using Gameplay.Weapons;
 using Musics;
 using PersistentProgresses;
 using Sounds;

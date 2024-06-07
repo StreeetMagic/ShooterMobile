@@ -1,11 +1,10 @@
-﻿using Gameplay.Characters.Players.Movers;
-using Gameplay.Characters.Players.Rotators;
+﻿using Gameplay.Characters.Players.Rotators;
 using Inputs;
 using UnityEngine;
 using Zenject;
 using Zenject.Source.Runtime;
 
-namespace Gameplay.Characters.Players.InputHandlers
+namespace Gameplay.Characters.Players
 {
   public class PlayerInputHandler : ITickable
   {

@@ -1,6 +1,9 @@
-public enum WeaponRangeType
+namespace Gameplay.Weapons
 {
-  Unknown = 0,
-  Melee = 1,
-  Range = 2,
+  public enum WeaponRangeType
+  {
+    Unknown = 0,
+    Melee = 1,
+    Range = 2,
+  }
 }

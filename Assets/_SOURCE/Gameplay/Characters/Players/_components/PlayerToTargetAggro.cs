@@ -1,4 +1,3 @@
-using Gameplay.Characters.Players.TargetHolders;
 using UnityEngine;
 using Zenject;
 

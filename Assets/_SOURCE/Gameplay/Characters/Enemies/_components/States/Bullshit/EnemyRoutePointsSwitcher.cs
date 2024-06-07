@@ -1,12 +1,8 @@
 using UnityEngine;
-using Zenject;
 
-namespace Gameplay.Characters.Enemies
+namespace Gameplay.Characters.Enemies.States.Bullshit
 {
   public abstract class EnemyRoutePointsSwitcher : MonoBehaviour
   {
-    private void FixedUpdate()
-    {
-    }
   }
 }

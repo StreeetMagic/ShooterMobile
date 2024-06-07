@@ -7,7 +7,7 @@ namespace Gameplay.Characters.Enemies
   {
     private readonly NavMeshAgent _navMeshAgent;
 
-    private EnemyMover(NavMeshAgent navMeshAgent, Enemy enemy)
+    private EnemyMover(NavMeshAgent navMeshAgent)
     {
       _navMeshAgent = navMeshAgent;
     }

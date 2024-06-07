@@ -1,27 +1,29 @@
-using Gameplay.Characters.Players;
 using StaticDataServices;
 using UnityEngine;
 using Zenject;
 
-public class PlayerWeaponRaiser : MonoBehaviour
+namespace Gameplay.Characters.Players
 {
-  [Inject] private PlayerMoveSpeed _playerMoveSpeed;
-  [Inject] private IStaticDataService _staticData;
-
-  private float _timeLeft;
-
-  public bool IsRaised => _timeLeft <= 0;
-  private float WeaponRaiseTime => _staticData.GetPlayerConfig().WeaponRaiseTime;
-
-  public void Update()
+  public class PlayerWeaponRaiser : MonoBehaviour
   {
-    if (_playerMoveSpeed.IsMoving)
-    {
-      _timeLeft = WeaponRaiseTime;
-      return;
-    }
+    [Inject] private PlayerMoveSpeed _playerMoveSpeed;
+    [Inject] private IStaticDataService _staticData;
 
-    if (_timeLeft > 0)
-      _timeLeft -= Time.deltaTime;
+    private float _timeLeft;
+
+    public bool IsRaised => _timeLeft <= 0;
+    private float WeaponRaiseTime => _staticData.GetPlayerConfig().WeaponRaiseTime;
+
+    public void Update()
+    {
+      if (_playerMoveSpeed.IsMoving)
+      {
+        _timeLeft = WeaponRaiseTime;
+        return;
+      }
+
+      if (_timeLeft > 0)
+        _timeLeft -= Time.deltaTime;
+    }
   }
 }

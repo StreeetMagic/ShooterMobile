@@ -5,7 +5,7 @@ using Gameplay.Upgrades;
 using StaticDataServices;
 using Utilities;
 
-namespace Gameplay.Characters.Players.PlayerStatsProviders
+namespace Gameplay.Characters.Players
 {
   public class PlayerStatsProvider
   {

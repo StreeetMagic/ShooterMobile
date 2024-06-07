@@ -1,8 +1,9 @@
 using System;
+using Gameplay.Characters.Enemies;
 using UnityEngine;
 using Utilities;
 
-namespace Gameplay.Characters.Enemies.Healths
+namespace Gameplay.Characters
 {
   public interface IHealth
   {

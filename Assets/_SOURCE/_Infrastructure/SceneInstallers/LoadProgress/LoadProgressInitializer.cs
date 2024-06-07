@@ -1,6 +1,6 @@
 using System;
 using AudioServices;
-using CurrencyRepositories;
+using Gameplay.CurrencyRepositories;
 using Gameplay.Quests;
 using Gameplay.Upgrades;
 using Projects;

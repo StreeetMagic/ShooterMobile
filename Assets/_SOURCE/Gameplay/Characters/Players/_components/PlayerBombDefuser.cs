@@ -4,7 +4,7 @@ using StaticDataServices;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.BombDefusers
+namespace Gameplay.Characters.Players
 {
   public class PlayerBombDefuser : MonoBehaviour
   {

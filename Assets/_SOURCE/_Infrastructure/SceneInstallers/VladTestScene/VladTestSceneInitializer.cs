@@ -1,6 +1,7 @@
 using Projects;
+using SceneInstallers.GameLoop;
 
-namespace SceneInstallers.GameLoop
+namespace SceneInstallers.VladTestScene
 {
   public class VladTestSceneInitializer : GameLoopBaseInitializer
   {

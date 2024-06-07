@@ -4,7 +4,6 @@ using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
-using Projects;
 using StaticDataServices;
 using UnityEngine;
 
