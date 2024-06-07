@@ -56,7 +56,7 @@ namespace Gameplay.Characters.Enemies.Healths
 
     public void Hit()
     {
-      _hitStatus.IsHit = true;
+      _hitStatus.Enable();
     }
 
     private void Die()

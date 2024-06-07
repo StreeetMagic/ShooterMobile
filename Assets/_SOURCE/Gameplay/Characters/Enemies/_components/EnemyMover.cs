@@ -14,14 +14,14 @@ namespace Gameplay.Characters.Enemies
 
     public void Move(Vector3 target, float moveSpeed)
     {
+      _navMeshAgent.isStopped = false;
       _navMeshAgent.SetDestination(target);
       _navMeshAgent.speed = moveSpeed;
     }
 
     public void Stop()
     {
-      _navMeshAgent.SetDestination(_navMeshAgent.transform.position);
-      _navMeshAgent.speed = 0f;
+      _navMeshAgent.isStopped = true;
     }
   }
 }

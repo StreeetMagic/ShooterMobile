@@ -37,12 +37,11 @@ namespace Gameplay.Characters.Enemies
     public void Tick()
     {
       float distance = Vector3.Distance(_playerProvider.Player.transform.position, _enemy.transform.position);
-      Debug.Log("Distance to player = " + distance + "shoot range = " + _config.ShootRange);
 
       if (distance < _config.ShootRange)
         _enemyStateMachine.Enter<EnemyShootAtPlayerState>();
-
-      Move();
+      else
+        Move();
     }
 
     public void Exit()

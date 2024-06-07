@@ -1,4 +1,6 @@
+using System;
 using Gameplay.Characters.Enemies;
+using UnityEngine;
 using Zenject;
 
 namespace PUNBALL.Infrastructure.StateMachine
@@ -18,6 +20,7 @@ namespace PUNBALL.Infrastructure.StateMachine
     {
       var state = _enemyStatesProvider.GetState<T>();
       ChangeState(state);
+      Debug.Log("Entered : " + typeof(T).Name);
       state.Enter();
     }
 
@@ -26,9 +29,10 @@ namespace PUNBALL.Infrastructure.StateMachine
       if (ActiveState != null)
       {
         if (ActiveState is ITickable tickable)
-        {
           tickable.Tick();
-        }
+
+        Type activeStateType = ActiveState.GetType();
+        VladLogText.Instance.Text.text = activeStateType.Name;
       }
     }
 

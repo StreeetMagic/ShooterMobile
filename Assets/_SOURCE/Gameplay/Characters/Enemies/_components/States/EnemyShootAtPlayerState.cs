@@ -18,9 +18,12 @@ namespace Gameplay.Characters.Enemies
     private readonly EnemyAnimatorProvider _animatorProvider;
     private readonly Enemy _enemy;
     private readonly EnemyToPlayerRotator _enemyToPlayerRotator;
+    private readonly EnemyStateMachine _enemyStateMachine;
+    private readonly EnemyMover _mover;
 
     public EnemyShootAtPlayerState(PlayerProvider playerProvider, EnemyShooter shooter,
-      EnemyConfig config, EnemyShootingPoint shootingPoint, EnemyAnimatorProvider animatorProvider, Enemy enemy, EnemyToPlayerRotator enemyToPlayerRotator)
+      EnemyConfig config, EnemyShootingPoint shootingPoint, EnemyAnimatorProvider animatorProvider,
+      Enemy enemy, EnemyToPlayerRotator enemyToPlayerRotator, EnemyStateMachine enemyStateMachine, EnemyMover mover)
     {
       _shooter = shooter;
       _playerProvider = playerProvider;
@@ -30,6 +33,8 @@ namespace Gameplay.Characters.Enemies
       _animatorProvider = animatorProvider;
       _enemy = enemy;
       _enemyToPlayerRotator = enemyToPlayerRotator;
+      _enemyStateMachine = enemyStateMachine;
+      _mover = mover;
     }
 
     private float Cooldown => 1 / (float)_config.FireRate;
@@ -37,14 +42,16 @@ namespace Gameplay.Characters.Enemies
 
     public void Enter()
     {
-      Debug.Log("Enter shoot state");
-      
       _animatorProvider.Instance.StopRunAnimation();
       _animatorProvider.Instance.StopWalkAnimation();
+      _mover.Stop();
+
+      _time = 0;
     }
 
     public void Exit()
     {
+      _time = 0;
     }
 
     public void Tick()
@@ -53,6 +60,9 @@ namespace Gameplay.Characters.Enemies
         return;
 
       _enemyToPlayerRotator.RotateToTargetPosition(PlayerTransform.position);
+
+      if (Vector3.Distance(PlayerTransform.position, _enemy.transform.position) > _config.ShootRange)
+        _enemyStateMachine.Enter<EnemyRunToPlayerState>();
 
       Vector3 direction = new Vector3(PlayerTransform.position.x - _enemy.transform.position.x, 0, PlayerTransform.position.z - _enemy.transform.position.z).normalized;
 

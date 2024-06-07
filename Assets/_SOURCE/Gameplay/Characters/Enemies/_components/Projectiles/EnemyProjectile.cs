@@ -26,8 +26,6 @@ namespace Gameplay.Characters.Enemies.Projectiles
 
     private void DamageTargetTrigger(Collider other)
     {
-      Debug.Log(other.gameObject.name);
-
       if (other.TryGetComponent(out Player player))
       {
         if (_count == 0)
