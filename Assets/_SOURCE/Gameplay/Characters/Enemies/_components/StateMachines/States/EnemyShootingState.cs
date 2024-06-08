@@ -42,7 +42,7 @@ namespace Gameplay.Characters.Enemies.States
     {
       _toPlayerRotator.Rotate();
       
-      Vector3 direction = new Vector3(_playerProvider.Player.transform.position.x - _enemy.transform.position.x, 0, _playerProvider.Player.transform.position.z - _enemy.transform.position.z).normalized;
+      Vector3 direction = new Vector3(_playerProvider.Instance.transform.position.x - _enemy.transform.position.x, 0, _playerProvider.Instance.transform.position.z - _enemy.transform.position.z).normalized;
 
       _shootTimeLeft -= Time.deltaTime;
 

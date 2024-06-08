@@ -11,10 +11,10 @@ namespace Cameras
 
     private void Update()
     {
-      if (_playerProvider.PlayerInputHandler == null)
+      if (_playerProvider.Instance.InputHandler == null)
         return;
 
-      if (_playerProvider.PlayerInputHandler.IsMoving)
+      if (_playerProvider.Instance.InputHandler.IsMoving)
         RaiseCamera();
       else
         DownCamera();

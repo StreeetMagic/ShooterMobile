@@ -4,23 +4,25 @@ using Zenject;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerHenSpawner : MonoBehaviour
+  public class PlayerHenSpawner : ITickable
   {
     private const float CoolDown = 2f;
 
+    private readonly HenSpawner _henSpawner;
+
     private float _coolDownTimer;
 
-    [Inject] private readonly HenSpawner _henSpawner;
-
-    public int Count { get; set; }
-
-    private void Start()
+    public PlayerHenSpawner(HenSpawner henSpawner)
     {
+      _henSpawner = henSpawner;
+
       _coolDownTimer = CoolDown;
       Count = 0;
     }
 
-    private void Update()
+    public int Count { get; set; }
+
+    public void Tick()
     {
       if (_henSpawner.Count == 0)
       {

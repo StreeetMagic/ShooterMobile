@@ -25,8 +25,8 @@ namespace Gameplay.Weapons
     private WeaponConfig WeaponConfig => _staticDataService.GetWeaponConfig(_playerWeaponId.WeaponTypeId);
     private float Cooldown => (float)1 / WeaponConfig.FireRate;
 
-    private Transform Transform => _playerProvider.WeaponShootingPointPoint.Transform;
-    private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
+    private Transform Transform => _playerProvider.Instance.WeaponShootingPointPoint.Transform;
+    private PlayerTargetHolder PlayerTargetHolder => _playerProvider.Instance.TargetHolder;
     private int BulletsPerShot => WeaponConfig.BulletsPerShot;
     private float BulletSpreadAngle => WeaponConfig.BulletSpreadAngle;
     private WeaponAttackTypeId WeaponAttackTypeId => WeaponConfig.WeaponAttackTypeId;

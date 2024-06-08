@@ -28,10 +28,10 @@ namespace Gameplay.Characters.Questers
 
     private void Update()
     {
-      if (_playerProvider.Player == null)
+      if (_playerProvider.Instance == null)
         return;
 
-      float distance = Vector3.Distance(transform.position, _playerProvider.Player.transform.position);
+      float distance = Vector3.Distance(transform.position, _playerProvider.Instance.transform.position);
 
       if (distance < Distance)
       {

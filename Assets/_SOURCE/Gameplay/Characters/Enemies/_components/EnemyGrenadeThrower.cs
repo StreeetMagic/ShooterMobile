@@ -43,7 +43,7 @@ namespace Gameplay.Characters.Enemies.States
 
       var grenade = _gameLoopZenjectFactory.InstantiateMono<Grenade>();
 
-      Vector3 targetPosition = _playerProvider.Player.transform.position;
+      Vector3 targetPosition = _playerProvider.Instance.transform.position;
 
       var offset = .6f;
 
@@ -62,6 +62,6 @@ namespace Gameplay.Characters.Enemies.States
     }
 
     private bool TargetStandsOnSamePosition() =>
-      _playerProvider.PlayerStandsOnSamePosition.TimeOnSamePosition >= _config.TargetStandsOnSamePositionTime;
+      _playerProvider.Instance.PlayerStandsOnSamePosition.TimeOnSamePosition >= _config.TargetStandsOnSamePositionTime;
   }
 }

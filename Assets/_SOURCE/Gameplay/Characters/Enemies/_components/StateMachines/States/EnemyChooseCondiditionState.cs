@@ -26,7 +26,7 @@ namespace Gameplay.Characters.Enemies.States
     {
       if (_hitStatus.IsHit)
       {
-        float distanceToPlayer = Vector3.Distance(_playerProvider.Player.transform.position, _enemy.transform.position);
+        float distanceToPlayer = Vector3.Distance(_playerProvider.Instance.transform.position, _enemy.transform.position);
         float shootRange = _config.ShootRange;
 
         if (distanceToPlayer > shootRange)

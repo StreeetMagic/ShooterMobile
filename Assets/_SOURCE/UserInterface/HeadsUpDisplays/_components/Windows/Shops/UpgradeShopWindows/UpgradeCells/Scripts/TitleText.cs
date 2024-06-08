@@ -2,7 +2,7 @@ using Gameplay.Upgrades;
 using TMPro;
 using UnityEngine;
 
-namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows.UpgradeCells.Scripts
+namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.UpgradeCells.Scripts
 {
   public class TitleText : MonoBehaviour
   {

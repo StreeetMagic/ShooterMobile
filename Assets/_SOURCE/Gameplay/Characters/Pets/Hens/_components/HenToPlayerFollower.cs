@@ -4,7 +4,7 @@ using Gameplay.Stats;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Pets.Hens._components
+namespace Gameplay.Characters.Pets.Hens
 {
   public class HenToPlayerFollower : MonoBehaviour
   {
@@ -15,7 +15,7 @@ namespace Gameplay.Characters.Pets.Hens._components
     [Inject] private HenAnimator _henAnimator;
 
     private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;
-    private Transform Player => _playerProvider.Player.transform;
+    private Transform Player => _playerProvider.Instance.transform;
 
     private void Awake()
     {

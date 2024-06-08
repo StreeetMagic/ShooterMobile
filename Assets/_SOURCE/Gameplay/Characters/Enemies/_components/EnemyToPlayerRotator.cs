@@ -11,7 +11,7 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
 
     public void Rotate()
     {
-      Vector3 target = _playerProvider.Player.transform.position;
+      Vector3 target = _playerProvider.Instance.transform.position;
 
       Vector3 direction = target - _enemy.transform.position;
 

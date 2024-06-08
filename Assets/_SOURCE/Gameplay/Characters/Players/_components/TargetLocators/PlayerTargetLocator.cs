@@ -5,25 +5,28 @@ using Zenject;
 
 namespace Gameplay.Characters.Players.TargetLocators
 {
-  public class PlayerTargetLocator : MonoBehaviour
+  public class PlayerTargetLocator : ITickable
   {
     private const int MaxTargets = 20;
 
+    private readonly PlayerStatsProvider _playerStatsProvider;
+    private readonly PlayerTargetHolder _playerTargetHolder;
     private readonly Collider[] _colliders = new Collider[MaxTargets];
+    private readonly Transform _transform;
 
-    [Inject] private PlayerStatsProvider _playerStatsProvider;
-    [Inject] private PlayerTargetHolder _playerTargetHolder;
+    public PlayerTargetLocator(PlayerStatsProvider playerStatsProvider,
+      PlayerTargetHolder playerTargetHolder, Transform transform)
+    {
+      _playerStatsProvider = playerStatsProvider;
+      _playerTargetHolder = playerTargetHolder;
+      _transform = transform;
+    }
 
     private float Radius => _playerStatsProvider.GetStat(StatId.FireRange).Value;
 
-    private void Update()
+    public void Tick()
     {
-      Scan();
-    }
-
-    private void Scan()
-    {
-      int count = Physics.OverlapSphereNonAlloc(transform.position, Radius, _colliders);
+      int count = Physics.OverlapSphereNonAlloc(_transform.position, Radius, _colliders);
 
       var list = new List<ITargetTrigger>();
 

@@ -44,12 +44,12 @@ namespace Gameplay.Grenades
 
     private void DamagePlayer()
     {
-      PlayerHealth playerHealth = _playerProvider.PlayerHealth;
+      PlayerHealth playerHealth = _playerProvider.Instance.Health;
 
       if (playerHealth == null)
         return;
       
-      float distance = Vector3.Distance(playerHealth.transform.position, transform.position);
+      float distance = Vector3.Distance(_playerProvider.Instance.Transform.position, transform.position);
       
       if (distance > _config.DetonationRadius)
         return;

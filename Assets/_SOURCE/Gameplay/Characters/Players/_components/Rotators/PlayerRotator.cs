@@ -15,7 +15,7 @@ namespace Gameplay.Characters.Players.Rotators
     }
 
     private float RotationSpeed => _static.GetPlayerConfig().RotationSpeed;
-    private Transform Transform => _playerProvider.Transform;
+    private Transform Transform => _playerProvider.Instance.transform;
 
     public void RotateTowardsDirection(Vector3 direction)
     {

@@ -1,28 +1,25 @@
 using System;
 using Gameplay.Stats;
 using SceneInstallers.GameLoop;
-using UnityEngine;
 using Utilities;
-using Zenject;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerHealth : MonoBehaviour
+  public class PlayerHealth
   {
-    [Inject] private PlayerStatsProvider _playerStatsProvider;
-    [Inject] private IGameLoopInitializer _gameLoopInitializer;
+    private readonly IGameLoopInitializer _gameLoopInitializer;
+
+    public PlayerHealth(PlayerStatsProvider playerStatsProvider, IGameLoopInitializer gameLoopInitializer)
+    {
+      _gameLoopInitializer = gameLoopInitializer;
+      Current.Value = playerStatsProvider.GetStat(StatId.Health).Value;
+    }
 
     public event Action Died;
     public event Action<float> Damaged;
 
     public ReactiveProperty<float> Current { get; } = new();
-
     public bool IsDead { get; private set; }
-
-    private void OnEnable()
-    {
-      Current.Value = _playerStatsProvider.GetStat(StatId.Health).Value;
-    }
 
     public void TakeDamage(float damage)
     {

@@ -87,14 +87,14 @@ namespace Gameplay.Characters.Enemies.States
 
       float maxDistance = distances.Max();
 
-      float distanceToPlayer = Vector3.Distance(_playerProvider.Player.transform.position, _enemy.transform.position);
+      float distanceToPlayer = Vector3.Distance(_playerProvider.Instance.transform.position, _enemy.transform.position);
 
       return distanceToPlayer > maxDistance;
     }
 
     private bool InMeleeRange()
     {
-      return Vector3.Distance(_playerProvider.Player.transform.position, _enemy.transform.position) <= _config.MeleeRange;
+      return Vector3.Distance(_playerProvider.Instance.transform.position, _enemy.transform.position) <= _config.MeleeRange;
     }
   }
 }

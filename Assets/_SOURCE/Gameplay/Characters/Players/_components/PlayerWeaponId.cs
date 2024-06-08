@@ -2,21 +2,17 @@ using Gameplay.Weapons;
 using PersistentProgresses;
 using SaveLoadServices;
 using StaticDataServices;
-using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerWeaponId : MonoBehaviour, IProgressWriter
+  public class PlayerWeaponId : IProgressWriter
   {
-    [Inject] private IStaticDataService _staticDataService;
-
-    private void Awake()
+    public PlayerWeaponId(IStaticDataService staticDataService)
     {
-      WeaponTypeId = _staticDataService.GetPlayerConfig().StartWeapon;
+      WeaponTypeId = staticDataService.GetPlayerConfig().StartWeapon;
     }
 
-    public WeaponTypeId WeaponTypeId { get; set; } = WeaponTypeId.Unknown;
+    public WeaponTypeId WeaponTypeId { get; set; }
 
     public void ReadProgress(ProjectProgress projectProgress)
     {

@@ -36,7 +36,7 @@ namespace Gameplay.Characters.Enemies.States
 
     public void Tick()
     {
-      float distance = Vector3.Distance(_playerProvider.Player.transform.position, _enemy.transform.position);
+      float distance = Vector3.Distance(_playerProvider.Instance.transform.position, _enemy.transform.position);
 
       if (distance < _config.ShootRange)
         _enemyStateMachine.Enter<EnemyChooseAttackState>();
@@ -68,7 +68,7 @@ namespace Gameplay.Characters.Enemies.States
 
     private void Chase()
     {
-      _mover.Move(_playerProvider.Player.transform.position, _config.RunSpeed);
+      _mover.Move(_playerProvider.Instance.transform.position, _config.RunSpeed);
       _animatorProvider.Instance.PlayRunAnimation();
     }
   }

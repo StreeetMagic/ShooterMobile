@@ -1,4 +1,3 @@
-using Gameplay.Characters.Pets.Hens._components;
 using Gameplay.Characters.Pets.Hens.MeshModels;
 using Gameplay.Characters.Players;
 using Gameplay.Stats;
@@ -17,7 +16,7 @@ namespace Gameplay.Characters.Pets.Hens
 
     private float _timeLeft;
 
-    private Transform Target => _playerProvider.PlayerTargetHolder.CurrentTarget.transform;
+    private Transform Target => _playerProvider.Instance.TargetHolder.CurrentTarget.transform;
     private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;
 
     private void Awake()
@@ -38,7 +37,7 @@ namespace Gameplay.Characters.Pets.Hens
 
       if (_timeLeft <= 0)
       {
-        if (_playerProvider.PlayerTargetHolder.CurrentTarget != null)
+        if (_playerProvider.Instance.TargetHolder.CurrentTarget != null)
         {
           _henMover.Move(Target.position, MoveSpeed);
           _henRotator.Rotate(Target.position);

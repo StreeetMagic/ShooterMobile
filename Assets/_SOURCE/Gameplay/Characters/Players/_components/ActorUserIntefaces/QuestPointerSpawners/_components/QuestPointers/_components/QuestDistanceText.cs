@@ -22,7 +22,7 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.Qu
         return;
 
       Transform target = _targetProvider.GetTargetsOrNull(_quest.Id)?.FirstOrDefault();
-      Player player = _playerProvider.Player;
+      Player player = _playerProvider.Instance;
 
       if (target == null || player == null)
         return;

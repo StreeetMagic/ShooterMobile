@@ -5,27 +5,27 @@ namespace Gameplay.Characters.Players.Rotators
 {
   public class PlayerRotatorController
   {
-    private readonly PlayerProvider _playerProvider;
     private readonly BackpackStorage _backpackStorage;
+    private readonly PlayerTargetHolder _playerTargetHolder;
+    private readonly PlayerRotator _playerRotator;
 
-    public PlayerRotatorController(PlayerProvider playerProvider, BackpackStorage backpackStorage)
+    public PlayerRotatorController(BackpackStorage backpackStorage, 
+      PlayerTargetHolder playerTargetHolder, PlayerRotator playerRotator)
     {
-      _playerProvider = playerProvider;
       _backpackStorage = backpackStorage;
+      _playerTargetHolder = playerTargetHolder;
+      _playerRotator = playerRotator;
     }
-
-    private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
-    private PlayerRotator PlayerRotator => _playerProvider.PlayerRotator;
 
     public void RotateTowardsDirection(Vector3 direction)
     {
       if (RotateToTargetConditions())
-        direction = PlayerTargetHolder.LookDirectionToTarget;
+        direction = _playerTargetHolder.LookDirectionToTarget;
 
-      PlayerRotator.RotateTowardsDirection(direction);
+      _playerRotator.RotateTowardsDirection(direction);
     }
 
     private bool RotateToTargetConditions() =>
-      PlayerTargetHolder.HasTarget && _backpackStorage.IsFull == false;
+      _playerTargetHolder.HasTarget && _backpackStorage.IsFull == false;
   }
 }

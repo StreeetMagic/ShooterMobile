@@ -26,7 +26,7 @@ namespace Gameplay.Bombs
 
     private void OnDefused(BombDefuser defuser)
     {
-      PlayerBombDefuser playerBombDefuser = _playerProvider.Player.GetComponent<PlayerBombDefuser>();
+      PlayerBombDefuser playerBombDefuser = _playerProvider.Instance.GetComponent<PlayerBombDefuser>();
 
       if (playerBombDefuser.Bombs.Contains(defuser.GetComponent<Bomb>()))
       {

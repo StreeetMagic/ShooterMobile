@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.Bars.HealthBars._components
+namespace UserInterface.HeadsUpDisplays.Bars.HealthBars
 {
   public class HealthBarSlider : MonoBehaviour
   {
@@ -14,7 +14,7 @@ namespace UserInterface.HeadsUpDisplays.Bars.HealthBars._components
     [Inject] private PlayerStatsProvider _playerStatsProvider;
     [Inject] private PlayerProvider _playerProvider;
 
-    private PlayerHealth PlayerHealth => _playerProvider.PlayerHealth;
+    private PlayerHealth PlayerHealth => _playerProvider.Instance.Health;
 
     private void Update()
     {

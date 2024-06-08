@@ -17,7 +17,7 @@ namespace Gameplay.Characters.Pets.Hens
 
     public Hen Create()
     {
-      Vector3 position = _playerProvider.PetSpawnPointsContainer.GetRandomSpawnPoint().position;
+      Vector3 position = _playerProvider.Instance.PetSpawnPointsContainer.GetRandomSpawnPoint().position;
 
       var hen = _factory.InstantiateMono<Hen>(position);
 

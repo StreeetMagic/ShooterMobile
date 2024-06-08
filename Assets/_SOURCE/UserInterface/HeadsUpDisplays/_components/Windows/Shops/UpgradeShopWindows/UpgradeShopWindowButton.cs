@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UserIntefaces;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows
+namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows
 {
   public class UpgradeShopWindowButton : MonoBehaviour
   {

@@ -4,11 +4,11 @@ using Loggers;
 using StaticDataServices;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
-using UserInterface.HeadsUpDisplays.Windows._Shops.HenShopWindows;
-using UserInterface.HeadsUpDisplays.Windows._Shops.UpgradeShopWindows;
 using UserInterface.HeadsUpDisplays.Windows.DebugWindows;
 using UserInterface.HeadsUpDisplays.Windows.QuestWindows;
 using UserInterface.HeadsUpDisplays.Windows.SettingsWindows;
+using UserInterface.HeadsUpDisplays.Windows.Shops.HenShopWindows;
+using UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows;
 using ZenjectFactories;
 using Object = UnityEngine.Object;
 

@@ -106,7 +106,7 @@ namespace Gameplay.Quests.Subquests
 
       foreach (Enemy enemy in enemies)
       {
-        float distance = Vector3.Distance(enemy.transform.position, _playerProvider.Player.transform.position);
+        float distance = Vector3.Distance(enemy.transform.position, _playerProvider.Instance.transform.position);
 
         if (distance < minDistance)
         {

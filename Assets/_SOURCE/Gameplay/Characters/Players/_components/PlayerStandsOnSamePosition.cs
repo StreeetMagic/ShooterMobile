@@ -3,28 +3,30 @@ using Zenject;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerStandsOnSamePosition : MonoBehaviour
+  public class PlayerStandsOnSamePosition : ITickable
   {
-    [Inject] private PlayerMover _playerMover;
+    private readonly Transform _transform;
 
     private Vector3 _lastPosition;
 
-    public float TimeOnSamePosition { get; private set; }
-
-    private void OnEnable()
+    public PlayerStandsOnSamePosition(Transform transform)
     {
-      _lastPosition = transform.position;
+      _transform = transform;
+
+      _lastPosition = _transform.position;
       TimeOnSamePosition = 0;
     }
 
-    private void Update()
+    public float TimeOnSamePosition { get; private set; }
+
+    public void Tick()
     {
-      if (transform.position == _lastPosition)
+      if (_transform.position == _lastPosition)
         TimeOnSamePosition += Time.deltaTime;
       else
         TimeOnSamePosition = 0;
 
-      _lastPosition = transform.position;
+      _lastPosition = _transform.position;
     }
   }
 }

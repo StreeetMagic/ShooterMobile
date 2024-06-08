@@ -2,6 +2,7 @@ using System;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.PetSpawnPointsContainers;
 using Gameplay.Characters.Players.Rotators;
+using Gameplay.Characters.Players.Shooters;
 using Gameplay.Characters.Players.TargetLocators;
 using Gameplay.Weapons;
 using SaveLoadServices;
@@ -13,16 +14,9 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerInstaller : MonoInstaller, IDisposable
   {
-    public PlayerHealth PlayerHealth;
-    public PlayerTargetHolder PlayerTargetHolder;
-    public PlayerTargetLocator PlayerTargetLocator;
+    public Player Player;
     public PlayerAnimator PlayerAnimator;
-    public PlayerMoveSpeed PlayerMoveSpeed;
     public PetSpawnPointsContainer PetSpawnPointsContainer;
-    public PlayerWeaponRaiser PlayerWeaponRaiser;
-    public PlayerWeaponId PlayerWeaponId;
-    public PlayerToTargetAggro PlayerToTargetAggro;
-    public PlayerStandsOnSamePosition PlayerStandsOnSamePosition;
 
     public WeaponContainer WeaponContainer;
     public WeaponSwitcher WeaponSwitcher;
@@ -30,24 +24,18 @@ namespace Gameplay.Characters.Players
     public WeaponShootingPoint WeaponShootingPoint;
     public WeaponAttacker WeaponAttacker;
 
-    [Inject] private PlayerProvider _playerProvider;
     [Inject] private SaveLoadService _saveLoadServices;
 
     public override void InstallBindings()
     {
-      Container.BindInterfacesAndSelfTo<PlayerInstaller>().FromInstance(this).AsSingle();
-      Container.BindInstance(PlayerHealth);
+      Container.Bind<Player>().FromInstance(Player).AsSingle();
+      Container.BindInterfacesAndSelfTo<PlayerInstaller>().FromInstance(this).AsSingle().NonLazy();
 
-      Container.Bind<PlayerTargetHolder>().FromInstance(PlayerTargetHolder).AsSingle();
-      Container.Bind<PlayerTargetLocator>().FromInstance(PlayerTargetLocator).AsSingle();
       Container.Bind<PlayerAnimator>().FromInstance(PlayerAnimator).AsSingle();
-      Container.Bind<PlayerMoveSpeed>().FromInstance(PlayerMoveSpeed).AsSingle();
       Container.Bind<PetSpawnPointsContainer>().FromInstance(PetSpawnPointsContainer).AsSingle();
       Container.Bind<CharacterController>().FromInstance(GetComponent<CharacterController>()).AsSingle();
-      Container.Bind<PlayerWeaponRaiser>().FromInstance(PlayerWeaponRaiser).AsSingle();
-      Container.Bind<PlayerWeaponId>().FromInstance(PlayerWeaponId).AsSingle();
-      Container.Bind<PlayerToTargetAggro>().FromInstance(PlayerToTargetAggro).AsSingle();
-      Container.Bind<PlayerStandsOnSamePosition>().FromInstance(PlayerStandsOnSamePosition).AsSingle();
+
+      Container.Bind<Transform>().FromInstance(transform).AsSingle();
 
       Container.Bind<WeaponContainer>().FromInstance(WeaponContainer).AsSingle();
       Container.Bind<WeaponSwitcher>().FromInstance(WeaponSwitcher).AsSingle();
@@ -56,20 +44,28 @@ namespace Gameplay.Characters.Players
       Container.Bind<WeaponShootingPoint>().FromInstance(WeaponShootingPoint).AsSingle();
 
       Container.Bind<PlayerMover>().AsSingle().NonLazy();
-      _playerProvider.PlayerMover = Container.Resolve<PlayerMover>();
       _saveLoadServices.ProgressReaders.Add(Container.Resolve<PlayerMover>());
 
-      Container.Bind<PlayerRotator>().AsSingle().NonLazy();
-      _playerProvider.PlayerRotator = Container.Resolve<PlayerRotator>();
+      Container.BindInterfacesAndSelfTo<PlayerRotator>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerRotatorController>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerInputHandler>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponId>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerStandsOnSamePosition>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerToTargetAggro>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponRaiser>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerHenSpawner>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerBombDefuser>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerMoveSpeed>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerHealth>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerAttacker>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerTargetHolder>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerTargetLocator>().AsSingle().NonLazy();
     }
 
     public void Dispose()
     {
-      _saveLoadServices.ProgressReaders.Remove(_playerProvider.PlayerMover);
-      _playerProvider.PlayerMover = null;
+      _saveLoadServices.ProgressReaders.Remove(Container.Resolve<PlayerMover>());
       Container.Unbind<PlayerMover>();
-
-      _playerProvider.PlayerRotator = null;
     }
   }
 }

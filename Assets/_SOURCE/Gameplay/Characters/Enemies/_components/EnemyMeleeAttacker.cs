@@ -11,7 +11,7 @@ namespace Gameplay.Characters.Enemies
 
     public void Attack()
     {
-      _playerProvider.PlayerHealth.TakeDamage(_config.MeeleAttackDamage);
+      _playerProvider.Instance.Health.TakeDamage(_config.MeeleAttackDamage);
     }
   }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.Windows._Shops.HenShopWindows._components
+namespace UserInterface.HeadsUpDisplays.Windows.Shops.HenShopWindows
 {
   public class BuyHenButton : MonoBehaviour
   {
@@ -27,7 +27,7 @@ namespace UserInterface.HeadsUpDisplays.Windows._Shops.HenShopWindows._component
     
       _eggsInBankStorage.EggsInBank.Value -= eggCost;
     
-      _playerProvider.PlayerHenSpawner.Count++;
+      _playerProvider.Instance.HenSpawner.Count++;
     }
   }
 }

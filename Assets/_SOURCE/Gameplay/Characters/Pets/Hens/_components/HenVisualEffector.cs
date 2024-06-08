@@ -2,7 +2,7 @@ using UnityEngine;
 using VisualEffects;
 using Zenject;
 
-namespace Gameplay.Characters.Pets.Hens._components
+namespace Gameplay.Characters.Pets.Hens
 {
   public class HenVisualEffector : MonoBehaviour
   {

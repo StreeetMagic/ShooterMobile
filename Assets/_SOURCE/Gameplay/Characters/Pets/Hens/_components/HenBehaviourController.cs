@@ -2,7 +2,7 @@ using Gameplay.Characters.Players;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Pets.Hens._components
+namespace Gameplay.Characters.Pets.Hens
 {
   public class HenBehaviourController : MonoBehaviour
   {
@@ -13,7 +13,7 @@ namespace Gameplay.Characters.Pets.Hens._components
     [Inject] private HenDamageDealer _henDamageDealer;
     [Inject] private HenIdle _henIdle;
 
-    private bool HasTarget => _playerProvider.PlayerTargetHolder.HasTarget;
+    private bool HasTarget => _playerProvider.Instance.TargetHolder.HasTarget;
 
     private void Update()
     {
@@ -29,7 +29,7 @@ namespace Gameplay.Characters.Pets.Hens._components
       {
         _henDamageDealer.enabled = false;
         
-        float distanceToPlayer = Vector3.Distance(_playerProvider.Player.transform.position, transform.position); 
+        float distanceToPlayer = Vector3.Distance(_playerProvider.Instance.transform.position, transform.position); 
         
         if (distanceToPlayer > 4f)
         {

@@ -1,4 +1,3 @@
-using Gameplay.Characters.Pets.Hens._components;
 using Gameplay.Characters.Pets.Hens.MeshModels;
 using Gameplay.Characters.Players;
 using UnityEngine;
@@ -19,8 +18,8 @@ namespace Gameplay.Characters.Pets.Hens
     [Inject] private Hen _hen;
     [Inject] private HenAnimator _henAnimator;
 
-    private Transform Target => _playerProvider.PlayerTargetHolder.CurrentTarget.transform;
-    private bool HasTarget => _playerProvider.PlayerTargetHolder.HasTarget;
+    private Transform Target => _playerProvider.Instance.TargetHolder.CurrentTarget.transform;
+    private bool HasTarget => _playerProvider.Instance.TargetHolder.HasTarget;
 
     private void Update()
     {

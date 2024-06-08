@@ -22,14 +22,14 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.BasePointers
 
     private void Update()
     {
-      if (_playerProvider.Player == null)
+      if (_playerProvider.Instance == null)
         return;
 
       if (_mapProvider.Map == null)
         return;
 
       BaseTrigger baseTrigger = _mapProvider.Map.BaseTrigger;
-      Player player = _playerProvider.Player;
+      Player player = _playerProvider.Instance;
 
       float distance = Vector3.Distance(baseTrigger.transform.position, player.transform.position);
 

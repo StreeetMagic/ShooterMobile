@@ -13,7 +13,6 @@ namespace Gameplay.Characters.Players
     private readonly CharacterController _characterController;
     private readonly PlayerStatsProvider _playerStatsProvider;
     private readonly IStaticDataService _staticDataService;
-    private readonly PlayerProvider _playerProvider;
 
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
@@ -22,20 +21,17 @@ namespace Gameplay.Characters.Players
       PlayerAnimator playerAnimator,
       CharacterController characterController,
       PlayerStatsProvider playerStatsProvider,
-      IStaticDataService staticDataService,
-      PlayerProvider playerProvider)
+      IStaticDataService staticDataService)
     {
       _playerAnimator = playerAnimator;
       _characterController = characterController;
       _playerStatsProvider = playerStatsProvider;
       _staticDataService = staticDataService;
-      _playerProvider = playerProvider;
     }
 
     private PlayerConfig PlayerConfig => _staticDataService.GetPlayerConfig();
     private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;
     private float GravityScale => PlayerConfig.GravityScale;
-    private Transform Transform => _playerProvider.Transform;
 
     public void Move(Vector3 directionXYZ)
     {

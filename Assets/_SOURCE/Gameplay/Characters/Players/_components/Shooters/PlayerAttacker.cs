@@ -1,33 +1,41 @@
 ﻿using Gameplay.CurrencyRepositories.BackpackStorages;
 using Gameplay.Weapons;
-using UnityEngine;
 using Zenject;
 
 namespace Gameplay.Characters.Players.Shooters
 {
-  public class PlayerAttacker : MonoBehaviour
+  public class PlayerAttacker : ITickable
   {
-    [Inject] private PlayerProvider _playerProvider;
-    [Inject] private BackpackStorage _backpackStorage;
-    [Inject] private PlayerWeaponRaiser _playerWeaponRaiser;
-    [Inject] private WeaponAttacker _weaponAttacker;
+    private readonly PlayerProvider _playerProvider;
+    private readonly BackpackStorage _backpackStorage;
+    private readonly PlayerWeaponRaiser _playerWeaponRaiser;
+    private readonly WeaponAttacker _weaponAttacker;
+    private readonly PlayerTargetHolder _playerTargetHolder;
 
-    private PlayerTargetHolder PlayerTargetHolder => _playerProvider.PlayerTargetHolder;
+    public PlayerAttacker(PlayerProvider playerProvider, BackpackStorage backpackStorage,
+      PlayerWeaponRaiser playerWeaponRaiser, WeaponAttacker weaponAttacker, PlayerTargetHolder playerTargetHolder)
+    {
+      _playerProvider = playerProvider;
+      _backpackStorage = backpackStorage;
+      _playerWeaponRaiser = playerWeaponRaiser;
+      _weaponAttacker = weaponAttacker;
+      _playerTargetHolder = playerTargetHolder;
+    }
 
-    private void Update()
+    public void Tick()
     {
       if (_backpackStorage.IsFull)
         return;
 
-      if (_playerProvider.Player == null)
+      if (_playerProvider.Instance == null)
         return;
 
       if (_playerWeaponRaiser.IsRaised == false)
         return;
 
-      if (PlayerTargetHolder.HasTarget)
+      if (_playerTargetHolder.HasTarget)
         _weaponAttacker.Attack();
-      else 
+      else
         _weaponAttacker.ResetValues();
     }
   }

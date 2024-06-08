@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.Bars.HealthBars._components
+namespace UserInterface.HeadsUpDisplays.Bars.HealthBars
 {
   public class HealthBarText : MonoBehaviour
   {
@@ -15,11 +15,11 @@ namespace UserInterface.HeadsUpDisplays.Bars.HealthBars._components
 
     private void Update()
     {
-      if (_playerProvider.PlayerHealth == null)
+      if (_playerProvider.Instance.Health == null)
         return;
 
       float maxHealth = _playerStatsProvider.GetStat(StatId.Health).Value;
-      float currentHealth = _playerProvider.PlayerHealth.Current.Value;
+      float currentHealth = _playerProvider.Instance.Health.Current.Value;
 
       float healthPercentage = currentHealth / maxHealth * 100;
 

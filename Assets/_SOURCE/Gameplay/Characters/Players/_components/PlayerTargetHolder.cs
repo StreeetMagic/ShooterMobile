@@ -5,32 +5,27 @@ using Zenject;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerTargetHolder : MonoBehaviour
+  public class PlayerTargetHolder : ITickable
   {
-    private List<ITargetTrigger> _targets;
+    private readonly Transform _transform;
+    private readonly PlayerStatsProvider _playerStatsProvider;
 
-    [Inject] private PlayerProvider _playerProvider;
-    [Inject] private PlayerStatsProvider _playerStatsProvider;
+    private List<ITargetTrigger> _targets = new();
+
+    public PlayerTargetHolder(Transform transform, PlayerStatsProvider playerStatsProvider)
+    {
+      _transform = transform;
+      _playerStatsProvider = playerStatsProvider;
+    }
 
     public bool HasTarget { get; private set; }
     public ITargetTrigger CurrentTarget { get; private set; }
 
-    public Vector3 DirectionToTarget => CurrentTarget.transform.position - Transform.position;
-    public Vector3 LookDirectionToTarget => new Vector3(CurrentTarget.transform.position.x, Transform.position.y, CurrentTarget.transform.position.z) - Transform.position;
-    private float FireRange => _playerStatsProvider.GetStat(StatId.FireRange).Value;
+    public Vector3 DirectionToTarget => CurrentTarget.transform.position - _transform.position;
+    public Vector3 LookDirectionToTarget => new Vector3(CurrentTarget.transform.position.x, _transform.position.y, CurrentTarget.transform.position.z) - _transform.position;
 
-    private Transform Transform => _playerProvider.Player.transform;
-
-    private void OnEnable()
+    public void Tick()
     {
-      _targets = new List<ITargetTrigger>();
-    }
-
-    private void FixedUpdate()
-    {
-      if (_playerProvider.Player == null)
-        return;
-
       ManageCurrentTarget();
       RemoveFarTargets();
       RemoveDeadTargets();
@@ -39,6 +34,20 @@ namespace Gameplay.Characters.Players
       {
         CurrentTarget.IsTargeted = true;
       }
+    }
+
+    public void AddTargets(List<ITargetTrigger> targets)
+    {
+      if (targets == null || targets.Count == 0)
+        return;
+
+      foreach (ITargetTrigger target in targets)
+      {
+        if (!_targets.Contains(target))
+          _targets.Add(target);
+      }
+
+      _targets.RemoveAll(existingTarget => !targets.Contains(existingTarget));
     }
 
     private void RemoveDeadTargets()
@@ -65,7 +74,7 @@ namespace Gameplay.Characters.Players
 
       foreach (ITargetTrigger target in _targets)
       {
-        if (!(Vector3.Distance(Transform.position, target.transform.position) > FireRange))
+        if (!(Vector3.Distance(_transform.position, target.transform.position) > _playerStatsProvider.GetStat(StatId.FireRange).Value))
           continue;
 
         farTargets.Add(target);
@@ -103,7 +112,7 @@ namespace Gameplay.Characters.Players
 
       foreach (ITargetTrigger target in _targets)
       {
-        float distance = Vector3.Distance(Transform.position, target.transform.position);
+        float distance = Vector3.Distance(_transform.position, target.transform.position);
 
         if (distance < nearestDistance)
         {
@@ -123,20 +132,6 @@ namespace Gameplay.Characters.Players
       {
         CurrentTarget.IsTargeted = true;
       }
-    }
-
-    public void AddTargets(List<ITargetTrigger> targets)
-    {
-      if (targets == null || targets.Count == 0)
-        return;
-
-      foreach (ITargetTrigger target in targets)
-      {
-        if (!_targets.Contains(target))
-          _targets.Add(target);
-      }
-
-      _targets.RemoveAll(existingTarget => !targets.Contains(existingTarget));
     }
   }
 }

@@ -1,26 +1,30 @@
 using System;
 using UnityEngine;
 using Utilities;
+using Zenject;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerMoveSpeed : MonoBehaviour
+  public class PlayerMoveSpeed : ITickable
   {
+    private readonly Transform _transform;
+
     private Vector3 _previousPosition;
 
     public ReactiveProperty<float> CurrentMoveSpeed { get; } = new(0f);
     public bool IsMoving => CurrentMoveSpeed.Value > 0f;
 
-    private void OnEnable()
+    public PlayerMoveSpeed(Transform transform)
     {
-      _previousPosition = transform.position;
+      _transform = transform;
+      _previousPosition = _transform.position;
     }
 
-    private void Update()
+    public void Tick()
     {
-      if (_previousPosition != transform.position)
+      if (_previousPosition != _transform.position)
       {
-        float speed = (transform.position - _previousPosition).magnitude / Time.fixedDeltaTime;
+        float speed = (_transform.position - _previousPosition).magnitude / Time.fixedDeltaTime;
 
         if (Math.Abs(speed - CurrentMoveSpeed.Value) > .01f)
           CurrentMoveSpeed.Value = speed;
@@ -31,7 +35,7 @@ namespace Gameplay.Characters.Players
           CurrentMoveSpeed.Value = 0f;
       }
 
-      _previousPosition = transform.position;
+      _previousPosition = _transform.position;
     }
   }
 }

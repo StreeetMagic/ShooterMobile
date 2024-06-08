@@ -4,17 +4,23 @@ using Zenject;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerWeaponRaiser : MonoBehaviour
+  public class PlayerWeaponRaiser : ITickable
   {
-    [Inject] private PlayerMoveSpeed _playerMoveSpeed;
-    [Inject] private IStaticDataService _staticData;
+    private readonly PlayerMoveSpeed _playerMoveSpeed;
+    private readonly IStaticDataService _staticData;
 
     private float _timeLeft;
+
+    public PlayerWeaponRaiser(PlayerMoveSpeed playerMoveSpeed, IStaticDataService staticData)
+    {
+      _playerMoveSpeed = playerMoveSpeed;
+      _staticData = staticData;
+    }
 
     public bool IsRaised => _timeLeft <= 0;
     private float WeaponRaiseTime => _staticData.GetPlayerConfig().WeaponRaiseTime;
 
-    public void Update()
+    public void Tick()
     {
       if (_playerMoveSpeed.IsMoving)
       {

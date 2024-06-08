@@ -26,7 +26,7 @@ namespace Cameras
 
     public void Create(Transform parent)
     {
-      Player player = _playerFactory.Player;
+      Player player = _playerFactory.Instance;
 
       CreateCamera(parent, player, BotCamera, 11);
       CreateCamera(parent, player, TopCamera, 10);

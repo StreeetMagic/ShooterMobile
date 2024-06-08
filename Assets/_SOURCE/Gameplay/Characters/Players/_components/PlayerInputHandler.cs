@@ -9,19 +9,16 @@ namespace Gameplay.Characters.Players
   public class PlayerInputHandler : ITickable
   {
     private readonly IInputService _inputService;
-    private readonly PlayerProvider _playerProvider;
+    private readonly PlayerRotatorController _rotatorController;
+    private readonly PlayerMover _mover;
 
     public PlayerInputHandler(IInputService inputService,
-      PlayerProvider playerProvider, TickableManager tickableManager)
+      PlayerRotatorController rotatorController, PlayerMover mover)
     {
       _inputService = inputService;
-      _playerProvider = playerProvider;
-
-      tickableManager.Add(this);
+      _rotatorController = rotatorController;
+      _mover = mover;
     }
-
-    private PlayerRotatorController RotatorController => _playerProvider.PlayerRotatorController;
-    private PlayerMover Mover => _playerProvider.PlayerMover;
 
     public bool CanMove { get; private set; } = true;
     public bool IsMoving { get; private set; }
@@ -45,15 +42,15 @@ namespace Gameplay.Characters.Players
 
       IsMoving = moveDirection != Vector3.zero;
 
-      if (Mover == null)
+      if (_mover == null)
         return;
-      
-      if (RotatorController == null)
-        return;
-      
-      Mover.Move(moveDirection);
 
-      RotatorController.RotateTowardsDirection(moveDirection);
+      if (_rotatorController == null)
+        return;
+
+      _mover.Move(moveDirection);
+
+      _rotatorController.RotateTowardsDirection(moveDirection);
     }
 
     private Vector3 GetDirection()
