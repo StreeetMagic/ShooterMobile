@@ -61,17 +61,17 @@ namespace Gameplay.Characters.Players
 
     public void ReadProgress(ProjectProgress projectProgress)
     {
-      if (_characterController == null)
-        return;
-
-      _characterController.enabled = false;
-      Transform.position = projectProgress.PlayerPosition;
-      _characterController.enabled = true;
+      // if (_characterController == null)
+      //   return;
+      //
+      // _characterController.enabled = false;
+      // Transform.position = projectProgress.PlayerPosition;
+      // _characterController.enabled = true;
     }
 
     public void WriteProgress(ProjectProgress projectProgress)
     {
-      projectProgress.PlayerPosition = Transform.position;
+      // projectProgress.PlayerPosition = Transform.position;
     }
 
     private void ApplyGravity()

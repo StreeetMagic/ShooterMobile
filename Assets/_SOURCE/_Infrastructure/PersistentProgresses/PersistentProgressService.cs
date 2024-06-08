@@ -35,7 +35,7 @@ namespace PersistentProgresses
       {
         MoneyInBank = defaultProgress.MoneyInBank,
         EggsInBank = defaultProgress.EggsInBank, 
-        PlayerPosition = defaultProgress.PlayerPosition, 
+        //PlayerPosition = defaultProgress.PlayerPosition, 
         Expierience = defaultProgress.Expierience, 
         MusicMute = defaultProgress.MusicMute, 
         PlayerWeaponId = playerConfig.StartWeapon,

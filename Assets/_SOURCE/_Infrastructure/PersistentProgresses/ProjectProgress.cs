@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Gameplay.Quests;
 using Gameplay.Upgrades;
 using Gameplay.Weapons;
-using UnityEngine;
 
 namespace PersistentProgresses
 {
@@ -15,7 +14,7 @@ namespace PersistentProgresses
     public int Expierience;
     public int Level;
     public bool MusicMute;
-    public Vector3 PlayerPosition;
+   // public Vector3 PlayerPosition;
     public WeaponTypeId PlayerWeaponId;
 
     public List<UpgradeProgress> Upgrades;

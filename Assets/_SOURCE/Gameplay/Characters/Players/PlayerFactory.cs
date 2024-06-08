@@ -87,9 +87,11 @@ namespace Gameplay.Characters.Players
 
     private Vector3 SpawnPosition()
     {
-      return _progressService.ProjectProgress.PlayerPosition == Vector3.zero
-        ? _mapProvider.Map.PlayerSpawnMarker.transform.position
-        : _progressService.ProjectProgress.PlayerPosition;
+      // return _progressService.ProjectProgress.PlayerPosition == Vector3.zero
+      //   ? _mapProvider.Map.PlayerSpawnMarker.transform.position
+      //   : _progressService.ProjectProgress.PlayerPosition;
+      
+      return _mapProvider.Map.PlayerSpawnMarker.transform.position;
     }
   }
 }

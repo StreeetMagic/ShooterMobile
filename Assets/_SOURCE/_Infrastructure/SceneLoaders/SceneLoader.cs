@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using CoroutineRunners;
-using Projects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,14 +19,13 @@ namespace SceneLoaders
 
     public void Load(string name, Action onLoaded = null)
     {
-      //DOTween.KillAll();
       _coroutineRunner.StartCoroutine(LoadSceneAsync(name, onLoaded));
     }
 
-    public void Load(Action onLoaded = null)
-    {
-      _coroutineRunner.StartCoroutine(LoadSceneAsync(ProjectConstants.Scenes.Initial, onLoaded));
-    }
+    // public void Load(Action onLoaded = null)
+    // {
+    //   _coroutineRunner.StartCoroutine(LoadSceneAsync(ProjectConstants.Scenes.Initial, onLoaded));
+    // }
 
     private IEnumerator LoadSceneAsync(string nextScene, Action onLoaded)
     {
