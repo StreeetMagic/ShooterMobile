@@ -13,14 +13,14 @@ namespace Gameplay.Characters.Players
     private readonly PlayerMoveSpeed _playerMoveSpeed;
     private readonly IStaticDataService _staticDataService;
 
-    public List<Bomb> Bombs { get; } = new();
-
     public PlayerBombDefuser(PlayerHealth playerHealth, PlayerMoveSpeed playerMoveSpeed, IStaticDataService staticDataService)
     {
       _playerHealth = playerHealth;
       _playerMoveSpeed = playerMoveSpeed;
       _staticDataService = staticDataService;
     }
+
+    public List<Bomb> Bombs { get; } = new();
 
     public void Initialize()
     {
