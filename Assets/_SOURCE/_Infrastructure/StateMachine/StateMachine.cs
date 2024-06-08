@@ -30,9 +30,6 @@ namespace StateMachine
       {
         if (ActiveState is ITickable tickable)
           tickable.Tick();
-
-        Type activeStateType = ActiveState.GetType();
-        VladLogText.Instance.Text.text = activeStateType.Name;
       }
     }
 

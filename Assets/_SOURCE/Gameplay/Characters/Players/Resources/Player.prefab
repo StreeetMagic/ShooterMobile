@@ -1150,8 +1150,8 @@ GameObject:
   - component: {fileID: 4028849580647468112}
   - component: {fileID: 2526440168977208328}
   - component: {fileID: 8605282568791022659}
-  - component: {fileID: 891365242565039953}
   - component: {fileID: 2865720521955186985}
+  - component: {fileID: 891365242565039953}
   - component: {fileID: 7581658404683493182}
   - component: {fileID: 5138032039973769539}
   - component: {fileID: 7744638728074749813}
@@ -1256,6 +1256,18 @@ MonoBehaviour:
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
+--- !u!114 &2865720521955186985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166388366812776296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947f15f8502a81348a3985aeb6ce20a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &891365242565039953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,18 +1295,6 @@ MonoBehaviour:
   Weapon: {fileID: 3915996156472598876}
   WeaponShootingPoint: {fileID: 8600602526005673255}
   WeaponAttacker: {fileID: 7807183143991042828}
---- !u!114 &2865720521955186985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9166388366812776296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 947f15f8502a81348a3985aeb6ce20a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7581658404683493182
 MonoBehaviour:
   m_ObjectHideFlags: 0
