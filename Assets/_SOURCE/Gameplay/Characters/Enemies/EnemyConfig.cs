@@ -16,6 +16,9 @@ namespace Gameplay.Characters.Enemies
 
     [Tooltip("Скорость бега при преследовании игрока и возвращении на место")]
     public float RunSpeed = 10f;
+    
+    [Tooltip("Максимальное расстояние преследования игрока от центра спаунера")]
+    public float PatrolingRadius = 20;
 
     [Tooltip("Время после которого включится лечение при отстутствии входящего урона")]
     public float HealingDelay = 1f;
@@ -45,7 +48,7 @@ namespace Gameplay.Characters.Enemies
     
     /************************/
 
-    [Tooltip("Стреляющий")] 
+    [Tooltip("Стреляющий")] [Space]
     public bool IsShooter;
 
     [Tooltip("Радиус стрельбы")] 
@@ -62,9 +65,12 @@ namespace Gameplay.Characters.Enemies
     
     [Tooltip("Время перезарядки")]
     public float MagazineReloadTime = 2f;
-
-    [Tooltip("Максимальное расстояние преследования игрока от центра спаунера")]
-    public float PatrolingRadius = 20;
+    
+    [Tooltip("Пуль за один выстрел")]
+    public int BulletsPerShot = 1;    
+    
+    [Tooltip("Угол разброса пуль")]
+    public float BulletSpreadAngle = 1;
 
     /************************/
 

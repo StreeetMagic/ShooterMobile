@@ -16,28 +16,28 @@ namespace Gameplay.Characters.Enemies.States
     [Inject] private EnemyConfig _config;
     [Inject] private Enemy _enemy;
 
-    public bool TargetStandsOnSamePosition => _playerProvider.PlayerStandsOnSamePosition.TimeOnSamePosition >= _config.TargetStandsOnSamePositionTime;
-    public float GrenadeCooldownLeft { get; private set; }
-    public int GrenadesLeft { get; private set; }
-    
+    private float _grenadeCooldownLeft;
+    private int _grenadesLeft;
+
+    public bool ReadyToThrow => _grenadesLeft > 0 && _grenadeCooldownLeft <= 0 && TargetStandsOnSamePosition();
     public float RandomGrenadeDelay { get; private set; }
 
     private void Awake()
     {
       RandomGrenadeDelay = Random.Range(0, _config.GrenadeThrowRandomDelay);
-      GrenadesLeft = _config.MaxGrenadesCount;
-      GrenadeCooldownLeft = 0;
+      _grenadesLeft = _config.MaxGrenadesCount;
+      _grenadeCooldownLeft = 0;
     }
 
     private void Update()
     {
-      GrenadeCooldownLeft -= Time.deltaTime;
+      _grenadeCooldownLeft -= Time.deltaTime;
     }
 
     public void Lauch()
     {
-      GrenadesLeft--;
-      GrenadeCooldownLeft = _config.GrenadeThrowCooldown;
+      _grenadesLeft--;
+      _grenadeCooldownLeft = _config.GrenadeThrowCooldown;
 
       GrenadeTypeId grenadeTypeId = _config.GrenadeTypeId;
 
@@ -60,5 +60,8 @@ namespace Gameplay.Characters.Enemies.States
 
       mover.Throw();
     }
+
+    private bool TargetStandsOnSamePosition() =>
+      _playerProvider.PlayerStandsOnSamePosition.TimeOnSamePosition >= _config.TargetStandsOnSamePositionTime;
   }
 }

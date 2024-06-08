@@ -51,11 +51,7 @@ namespace Gameplay.Characters.Enemies.States
       {
         _stateMachine.Enter<EnemyMeleeAttackingState>();
       }
-      else if (
-        _grenadeThrower.TargetStandsOnSamePosition 
-        && _grenadeThrower.GrenadesLeft > 0 
-        && _grenadeThrower.GrenadeCooldownLeft <= 0
-        && _config.GrenadeThrower)
+      else if (_grenadeThrower.ReadyToThrow && _config.GrenadeThrower)
       {
         _stateMachine.Enter<EnemyThrowingGrenadeState>();
       }
