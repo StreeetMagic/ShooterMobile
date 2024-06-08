@@ -66,8 +66,8 @@ namespace Gameplay.Characters.Enemies
     {
       Container.Bind<EnemyBootstrapState>().AsSingle().NonLazy();
       Container.Bind<EnemyPatrolState>().AsSingle().NonLazy();
-      Container.Bind<EnemyChasePlayerState>().AsSingle().NonLazy();
-      Container.Bind<EnemyAttackPlayerState>().AsSingle().NonLazy();
+      Container.Bind<EnemyChasingPlayerState>().AsSingle().NonLazy();
+      Container.Bind<EnemyChooseAttackState>().AsSingle().NonLazy();
       Container.Bind<EnemyChooseCondiditionState>().AsSingle().NonLazy();
     }
 
@@ -75,8 +75,8 @@ namespace Gameplay.Characters.Enemies
     {
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyBootstrapState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyPatrolState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChasePlayerState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyAttackPlayerState>());
+      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChasingPlayerState>());
+      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChooseAttackState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChooseCondiditionState>());
     }
   }

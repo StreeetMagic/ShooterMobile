@@ -30,9 +30,9 @@ namespace Gameplay.Characters.Enemies.States
         float shootRange = _config.ShootRange;
 
         if (distanceToPlayer > shootRange)
-          _enemyStateMachine.Enter<EnemyChasePlayerState>();
+          _enemyStateMachine.Enter<EnemyChasingPlayerState>();
         else
-          _enemyStateMachine.Enter<EnemyAttackPlayerState>();
+          _enemyStateMachine.Enter<EnemyChooseAttackState>();
       }
       else
       {

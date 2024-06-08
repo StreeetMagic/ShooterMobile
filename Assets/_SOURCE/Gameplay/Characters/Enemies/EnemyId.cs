@@ -4,6 +4,7 @@
   {
     Unknown = 0,
     WhiteShirt = 1,
-    Builderman = 2
+    Builderman = 2,
+    KnifeMan = 3,
   }
 }

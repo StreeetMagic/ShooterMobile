@@ -1,16 +1,12 @@
-using System.Runtime.InteropServices;
-using AssetProviders;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players;
 using StateMachine;
-using StaticDataServices;
 using UnityEngine;
 using Zenject;
-using ZenjectFactories;
 
 namespace Gameplay.Characters.Enemies.States
 {
-  public class EnemyAttackPlayerState : IState, ITickable
+  public class EnemyChooseAttackState : IState, ITickable
   {
     private readonly EnemyShooter _shooter;
     private readonly PlayerProvider _playerProvider;
@@ -20,7 +16,6 @@ namespace Gameplay.Characters.Enemies.States
     private readonly Enemy _enemy;
     private readonly EnemyToPlayerRotator _toPlayerRotator;
     private readonly EnemyStateMachine _stateMachine;
-    private readonly EnemyMover _mover;
     private readonly EnemyGrenadeLauncher _grenadeLauncher;
 
     private float _cooldownLeft;
@@ -28,12 +23,11 @@ namespace Gameplay.Characters.Enemies.States
     private float _randomDelay;
     private float _randomDelayLeft;
     private int _grenadesLeft;
-
     private float _shootTimeLeft;
 
-    public EnemyAttackPlayerState(PlayerProvider playerProvider, EnemyShooter shooter,
+    public EnemyChooseAttackState(PlayerProvider playerProvider, EnemyShooter shooter,
       EnemyConfig config, EnemyShootingPoint shootingPoint, EnemyAnimatorProvider animatorProvider,
-      Enemy enemy, EnemyToPlayerRotator toPlayerRotator, EnemyStateMachine stateMachine, EnemyMover mover, EnemyGrenadeLauncher grenadeLauncher)
+      Enemy enemy, EnemyToPlayerRotator toPlayerRotator, EnemyStateMachine stateMachine, EnemyGrenadeLauncher grenadeLauncher)
     {
       _shooter = shooter;
       _playerProvider = playerProvider;
@@ -44,16 +38,11 @@ namespace Gameplay.Characters.Enemies.States
       _enemy = enemy;
       _toPlayerRotator = toPlayerRotator;
       _stateMachine = stateMachine;
-      _mover = mover;
       _grenadeLauncher = grenadeLauncher;
     }
 
     public void Enter()
     {
-      _animatorProvider.Instance.StopRunAnimation();
-      _animatorProvider.Instance.StopWalkAnimation();
-      _mover.Stop();
-
       _randomDelay = Random.Range(0, _config.GrenadeThrowRandomDelay);
       _randomDelayLeft = _randomDelay;
       _grenadesLeft = _config.MaxGrenadesCount;
@@ -71,7 +60,7 @@ namespace Gameplay.Characters.Enemies.States
       _toPlayerRotator.RotateToTargetPosition(playerTransform.position);
 
       if (Vector3.Distance(playerTransform.position, _enemy.transform.position) > _config.ShootRange)
-        _stateMachine.Enter<EnemyChasePlayerState>();
+        _stateMachine.Enter<EnemyChasingPlayerState>();
 
       Vector3 direction = new Vector3(playerTransform.position.x - _enemy.transform.position.x, 0, playerTransform.position.z - _enemy.transform.position.z).normalized;
 

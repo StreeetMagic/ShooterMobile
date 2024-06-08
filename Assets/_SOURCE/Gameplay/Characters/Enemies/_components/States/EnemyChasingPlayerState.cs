@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.States
 {
-  public class EnemyChasePlayerState : IState, ITickable
+  public class EnemyChasingPlayerState : IState, ITickable
   {
     private readonly EnemyStateMachine _enemyStateMachine;
     private readonly PlayerProvider _playerProvider;
@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Enemies.States
     private readonly Enemy _enemy;
     private readonly EnemyReturnToSpawnStatus _enemyReturnToSpawnStatus;
 
-    public EnemyChasePlayerState(PlayerProvider playerProvider, EnemyMover mover, EnemyAnimatorProvider animatorProvider,
+    public EnemyChasingPlayerState(PlayerProvider playerProvider, EnemyMover mover, EnemyAnimatorProvider animatorProvider,
       EnemyConfig config, Transform spawnerTransform, Enemy enemy, EnemyStateMachine enemyStateMachine,
       EnemyReturnToSpawnStatus enemyReturnToSpawnStatus)
     {
@@ -39,7 +39,7 @@ namespace Gameplay.Characters.Enemies.States
       float distance = Vector3.Distance(_playerProvider.Player.transform.position, _enemy.transform.position);
 
       if (distance < _config.ShootRange)
-        _enemyStateMachine.Enter<EnemyAttackPlayerState>();
+        _enemyStateMachine.Enter<EnemyChooseAttackState>();
       else
         Move();
     }
@@ -47,6 +47,8 @@ namespace Gameplay.Characters.Enemies.States
     public void Exit()
     {
       _mover.Stop();
+      _animatorProvider.Instance.StopWalkAnimation();
+      _animatorProvider.Instance.StopRunAnimation();
     }
 
     private void Move()

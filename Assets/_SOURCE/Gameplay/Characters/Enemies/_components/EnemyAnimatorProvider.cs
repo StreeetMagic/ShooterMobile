@@ -5,6 +5,6 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyAnimatorProvider : MonoBehaviour
   {
-    public EnemyAnimator Instance;
+    public EnemyAnimator Instance { get; set; }
   }
 }

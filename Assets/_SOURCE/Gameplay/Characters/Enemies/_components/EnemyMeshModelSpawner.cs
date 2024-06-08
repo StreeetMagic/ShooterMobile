@@ -14,7 +14,7 @@ namespace Gameplay.Characters.Enemies
     [Inject] private GameLoopZenjectFactory _factory;
     [Inject] private EnemyAnimatorProvider _animatorProvider;
 
-    private void OnEnable()
+    private void Awake()
     {
       EnemyMeshModel prefab = _assetProvider.GetEnemyMeshModel(_enemyId);
       EnemyMeshModel meshModel = _factory.InstantiateMono(prefab, transform.position, transform);
