@@ -6,20 +6,19 @@ namespace Gameplay.Characters.Enemies.States
 {
   public class EnemyPatrolState : IState, ITickable
   {
+    private const float DistanceToRoutePoint = 0.2f;
+
     private readonly EnemyMover _mover;
     private readonly EnemyRoutePointsManager _enemyRoutePointsManager;
     private readonly EnemyReturnToSpawnStatus _returnToSpawnStatus;
     private readonly EnemyAnimatorProvider _animatorProvider;
     private readonly EnemyConfig _config;
     private readonly Enemy _enemy;
+    private readonly HitStatus _hitStatus;
 
-    public EnemyPatrolState(
-      EnemyMover mover,
-      EnemyRoutePointsManager enemyRoutePointsManager,
+    public EnemyPatrolState(EnemyMover mover, EnemyRoutePointsManager enemyRoutePointsManager,
       EnemyReturnToSpawnStatus returnToSpawnStatus,
-      EnemyAnimatorProvider animatorProvider,
-      EnemyConfig config,
-      Enemy enemy)
+      EnemyAnimatorProvider animatorProvider, EnemyConfig config, Enemy enemy, HitStatus hitStatus)
     {
       _mover = mover;
       _enemyRoutePointsManager = enemyRoutePointsManager;
@@ -27,10 +26,12 @@ namespace Gameplay.Characters.Enemies.States
       _animatorProvider = animatorProvider;
       _config = config;
       _enemy = enemy;
+      _hitStatus = hitStatus;
     }
 
     public void Enter()
     {
+      _hitStatus.Disable();
     }
 
     public void Exit()
@@ -43,7 +44,7 @@ namespace Gameplay.Characters.Enemies.States
 
       float distance = Vector3.Distance(_enemyRoutePointsManager.NextRoutePointTransform.position, _enemy.transform.position);
 
-      if (distance < 0.1f)
+      if (distance < DistanceToRoutePoint)
       {
         _enemyRoutePointsManager.SetRandomRoute();
         _returnToSpawnStatus.IsReturn = false;

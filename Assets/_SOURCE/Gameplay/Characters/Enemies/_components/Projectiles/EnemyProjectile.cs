@@ -36,8 +36,6 @@ namespace Gameplay.Characters.Enemies.Projectiles
            // .GetComponentInChildren<PlayerTargetTrigger>()
             .TakeDamage(EnemyConfig.BulletDamage);
         }
-
-        Debug.Log(other.gameObject.name);
       }
 
       Destroy();

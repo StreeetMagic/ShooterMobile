@@ -18,10 +18,13 @@ namespace Gameplay.Characters
 
     public void Enable()
     {
+      if (IsHit)
+        return;
+      
       IsHit = true;
       
       if (_enemyReturnToSpawnStatus.IsReturn == false)
-        _enemyStateMachine.Enter<EnemyRunToPlayerState>();
+        _enemyStateMachine.Enter<EnemyChooseCondiditionState>();
     }
 
     public void Disable()

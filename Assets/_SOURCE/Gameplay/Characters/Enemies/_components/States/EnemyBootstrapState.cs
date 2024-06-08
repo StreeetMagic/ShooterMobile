@@ -13,7 +13,7 @@ namespace Gameplay.Characters.Enemies.States
 
     public void Enter()
     {
-      _enemyStateMachine.Enter<EnemyPatrolState>();
+      _enemyStateMachine.Enter<EnemyChooseCondiditionState>();
     }
 
     public void Exit()

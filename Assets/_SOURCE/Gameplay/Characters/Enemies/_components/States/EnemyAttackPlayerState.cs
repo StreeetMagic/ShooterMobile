@@ -1,7 +1,7 @@
+using System.Runtime.InteropServices;
 using AssetProviders;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players;
-using Gameplay.Grenades;
 using StateMachine;
 using StaticDataServices;
 using UnityEngine;
@@ -18,11 +18,10 @@ namespace Gameplay.Characters.Enemies.States
     private readonly EnemyShootingPoint _shootingPoint;
     private readonly EnemyAnimatorProvider _animatorProvider;
     private readonly Enemy _enemy;
-    private readonly EnemyToPlayerRotator _enemyToPlayerRotator;
-    private readonly EnemyStateMachine _enemyStateMachine;
+    private readonly EnemyToPlayerRotator _toPlayerRotator;
+    private readonly EnemyStateMachine _stateMachine;
     private readonly EnemyMover _mover;
-    private readonly IStaticDataService _staticDataService;
-    private readonly GameLoopZenjectFactory _gameLoopZenjectFactory;
+    private readonly EnemyGrenadeLauncher _grenadeLauncher;
 
     private float _cooldownLeft;
     private bool _readyToThrow;
@@ -34,8 +33,7 @@ namespace Gameplay.Characters.Enemies.States
 
     public EnemyAttackPlayerState(PlayerProvider playerProvider, EnemyShooter shooter,
       EnemyConfig config, EnemyShootingPoint shootingPoint, EnemyAnimatorProvider animatorProvider,
-      Enemy enemy, EnemyToPlayerRotator enemyToPlayerRotator, EnemyStateMachine enemyStateMachine, EnemyMover mover,
-      IStaticDataService staticDataService, GameLoopZenjectFactory gameLoopZenjectFactory)
+      Enemy enemy, EnemyToPlayerRotator toPlayerRotator, EnemyStateMachine stateMachine, EnemyMover mover, EnemyGrenadeLauncher grenadeLauncher)
     {
       _shooter = shooter;
       _playerProvider = playerProvider;
@@ -44,11 +42,10 @@ namespace Gameplay.Characters.Enemies.States
       _shootingPoint = shootingPoint;
       _animatorProvider = animatorProvider;
       _enemy = enemy;
-      _enemyToPlayerRotator = enemyToPlayerRotator;
-      _enemyStateMachine = enemyStateMachine;
+      _toPlayerRotator = toPlayerRotator;
+      _stateMachine = stateMachine;
       _mover = mover;
-      _staticDataService = staticDataService;
-      _gameLoopZenjectFactory = gameLoopZenjectFactory;
+      _grenadeLauncher = grenadeLauncher;
     }
 
     public void Enter()
@@ -71,10 +68,10 @@ namespace Gameplay.Characters.Enemies.States
 
       Transform playerTransform = _playerProvider.Player.transform;
 
-      _enemyToPlayerRotator.RotateToTargetPosition(playerTransform.position);
+      _toPlayerRotator.RotateToTargetPosition(playerTransform.position);
 
       if (Vector3.Distance(playerTransform.position, _enemy.transform.position) > _config.ShootRange)
-        _enemyStateMachine.Enter<EnemyRunToPlayerState>();
+        _stateMachine.Enter<EnemyChasePlayerState>();
 
       Vector3 direction = new Vector3(playerTransform.position.x - _enemy.transform.position.x, 0, playerTransform.position.z - _enemy.transform.position.z).normalized;
 
@@ -131,31 +128,7 @@ namespace Gameplay.Characters.Enemies.States
       _randomDelayLeft = _randomDelay;
       _grenadesLeft--;
 
-      LauchGrenade();
-    }
-
-    private void LauchGrenade()
-    {
-      GrenadeTypeId grenadeTypeId = _config.GrenadeTypeId;
-
-      var grenade = _gameLoopZenjectFactory.InstantiateMono<Grenade>();
-
-      Vector3 targetPosition = _playerProvider.Player.transform.position;
-
-      var offset = .6f;
-
-      float xOffset = Random.Range(-offset, offset);
-      float zOffset = Random.Range(-offset, offset);
-
-      Vector3 newPosition = new Vector3(targetPosition.x + xOffset, targetPosition.y, targetPosition.z + zOffset);
-
-      var mover = grenade.GetComponent<GrenadeMover>();
-      mover.Init(_staticDataService.GetGrenadeConfig(grenadeTypeId), _enemy.transform.position, newPosition);
-
-      var detonator = grenade.GetComponent<GrenadeDetonator>();
-      detonator.Init(_staticDataService.GetGrenadeConfig(grenadeTypeId));
-
-      mover.Throw();
+      _grenadeLauncher.Lauch();
     }
   }
 }

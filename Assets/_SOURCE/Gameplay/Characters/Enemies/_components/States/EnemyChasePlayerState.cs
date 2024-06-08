@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.States
 {
-  public class EnemyRunToPlayerState : IState, ITickable
+  public class EnemyChasePlayerState : IState, ITickable
   {
     private readonly EnemyStateMachine _enemyStateMachine;
     private readonly PlayerProvider _playerProvider;
@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Enemies.States
     private readonly Enemy _enemy;
     private readonly EnemyReturnToSpawnStatus _enemyReturnToSpawnStatus;
 
-    public EnemyRunToPlayerState(PlayerProvider playerProvider, EnemyMover mover, EnemyAnimatorProvider animatorProvider,
+    public EnemyChasePlayerState(PlayerProvider playerProvider, EnemyMover mover, EnemyAnimatorProvider animatorProvider,
       EnemyConfig config, Transform spawnerTransform, Enemy enemy, EnemyStateMachine enemyStateMachine,
       EnemyReturnToSpawnStatus enemyReturnToSpawnStatus)
     {
@@ -55,7 +55,7 @@ namespace Gameplay.Characters.Enemies.States
 
       if (distanceToSpawner < _config.PatrolingRadius)
       {
-        MoveToPlayer();
+        Chase();
       }
       else
       {
@@ -64,7 +64,7 @@ namespace Gameplay.Characters.Enemies.States
       }
     }
 
-    private void MoveToPlayer()
+    private void Chase()
     {
       _mover.Move(_playerProvider.Player.transform.position, _config.RunSpeed);
       _animatorProvider.Instance.PlayRunAnimation();

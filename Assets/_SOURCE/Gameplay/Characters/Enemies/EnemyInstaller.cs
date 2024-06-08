@@ -22,6 +22,7 @@ namespace Gameplay.Characters.Enemies
     public EnemyAnimatorProvider EnemyAnimatorProvider;
     public NavMeshAgent NavMeshAgent;
     public EnemyToPlayerRotator EnemyToPlayerRotator;
+    public EnemyGrenadeLauncher GrenadeLauncher;
 
     [Inject] private EnemyConfig _enemyConfig;
     [Inject] private List<SpawnPoint> _spawnPoints;
@@ -46,6 +47,7 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyShootingPoint>().FromInstance(ShootingPoint).AsSingle().NonLazy();
       Container.Bind<NavMeshAgent>().FromInstance(NavMeshAgent).AsSingle().NonLazy();
       Container.Bind<EnemyToPlayerRotator>().FromInstance(EnemyToPlayerRotator).AsSingle().NonLazy();
+      Container.Bind<EnemyGrenadeLauncher>().FromInstance(GrenadeLauncher).AsSingle().NonLazy();
 
       Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
       Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();
@@ -64,16 +66,18 @@ namespace Gameplay.Characters.Enemies
     {
       Container.Bind<EnemyBootstrapState>().AsSingle().NonLazy();
       Container.Bind<EnemyPatrolState>().AsSingle().NonLazy();
-      Container.Bind<EnemyRunToPlayerState>().AsSingle().NonLazy();
+      Container.Bind<EnemyChasePlayerState>().AsSingle().NonLazy();
       Container.Bind<EnemyAttackPlayerState>().AsSingle().NonLazy();
+      Container.Bind<EnemyChooseCondiditionState>().AsSingle().NonLazy();
     }
 
     private void RegisterStates()
     {
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyBootstrapState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyPatrolState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyRunToPlayerState>());
+      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChasePlayerState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyAttackPlayerState>());
+      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChooseCondiditionState>());
     }
   }
 }
