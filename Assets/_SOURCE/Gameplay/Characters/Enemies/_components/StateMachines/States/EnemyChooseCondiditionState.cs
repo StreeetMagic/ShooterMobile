@@ -36,13 +36,12 @@ namespace Gameplay.Characters.Enemies.States
       }
       else
       {
-        _enemyStateMachine.Enter<EnemyPatrolState>();
+        _enemyStateMachine.Enter<EnemyPatrolingState>();
       }
     }
 
     public void Exit()
     {
- 
     }
   }
 }

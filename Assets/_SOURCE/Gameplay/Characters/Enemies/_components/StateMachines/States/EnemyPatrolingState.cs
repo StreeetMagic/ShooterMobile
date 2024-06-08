@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.States
 {
-  public class EnemyPatrolState : IState, ITickable
+  public class EnemyPatrolingState : IState, ITickable
   {
     private const float DistanceToRoutePoint = 0.2f;
 
@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Enemies.States
     private readonly Enemy _enemy;
     private readonly HitStatus _hitStatus;
 
-    public EnemyPatrolState(EnemyMover mover, EnemyRoutePointsManager enemyRoutePointsManager,
+    public EnemyPatrolingState(EnemyMover mover, EnemyRoutePointsManager enemyRoutePointsManager,
       EnemyReturnToSpawnStatus returnToSpawnStatus,
       EnemyAnimatorProvider animatorProvider, EnemyConfig config, Enemy enemy, HitStatus hitStatus)
     {
@@ -31,11 +31,13 @@ namespace Gameplay.Characters.Enemies.States
 
     public void Enter()
     {
-      _hitStatus.Disable();
     }
 
     public void Exit()
     {
+      _mover.Stop();
+      _animatorProvider.Instance.StopWalkAnimation();
+      _animatorProvider.Instance.StopRunAnimation();
     }
 
     public void Tick()
@@ -48,6 +50,7 @@ namespace Gameplay.Characters.Enemies.States
       {
         _enemyRoutePointsManager.SetRandomRoute();
         _returnToSpawnStatus.IsReturn = false;
+        _hitStatus.Disable();
       }
     }
 

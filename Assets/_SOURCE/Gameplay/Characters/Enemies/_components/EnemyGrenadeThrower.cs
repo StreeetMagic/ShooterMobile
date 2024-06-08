@@ -4,10 +4,11 @@ using StaticDataServices;
 using UnityEngine;
 using Zenject;
 using ZenjectFactories;
+using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Enemies.States
 {
-  public class EnemyGrenadeLauncher : MonoBehaviour
+  public class EnemyGrenadeThrower : MonoBehaviour
   {
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private GameLoopZenjectFactory _gameLoopZenjectFactory;
@@ -15,8 +16,29 @@ namespace Gameplay.Characters.Enemies.States
     [Inject] private EnemyConfig _config;
     [Inject] private Enemy _enemy;
 
+    public bool TargetStandsOnSamePosition => _playerProvider.PlayerStandsOnSamePosition.TimeOnSamePosition >= _config.TargetStandsOnSamePositionTime;
+    public float GrenadeCooldownLeft { get; private set; }
+    public int GrenadesLeft { get; private set; }
+    
+    public float RandomGrenadeDelay { get; private set; }
+
+    private void Awake()
+    {
+      RandomGrenadeDelay = Random.Range(0, _config.GrenadeThrowRandomDelay);
+      GrenadesLeft = _config.MaxGrenadesCount;
+      GrenadeCooldownLeft = 0;
+    }
+
+    private void Update()
+    {
+      GrenadeCooldownLeft -= Time.deltaTime;
+    }
+
     public void Lauch()
     {
+      GrenadesLeft--;
+      GrenadeCooldownLeft = _config.GrenadeThrowCooldown;
+
       GrenadeTypeId grenadeTypeId = _config.GrenadeTypeId;
 
       var grenade = _gameLoopZenjectFactory.InstantiateMono<Grenade>();

@@ -6,25 +6,25 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_SOURCE/Scenes/Initial.unity
+    path: Assets/_SOURCE/Scenes/Infrastructure/Initial.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
   - enabled: 1
-    path: Assets/_SOURCE/Scenes/Empty.unity
+    path: Assets/_SOURCE/Scenes/Infrastructure/Empty.unity
     guid: 3c63283feba5b954c91e5fda40b17651
   - enabled: 1
     path: Assets/_SOURCE/Scenes/GameLoop.unity
     guid: 9ac78c6b83facc649ab15e311e511438
   - enabled: 1
-    path: Assets/_SOURCE/Scenes/LoadProgress.unity
+    path: Assets/_SOURCE/Scenes/Infrastructure/LoadProgress.unity
     guid: 16948bc28e5102a438ff73a32f44e1f4
   - enabled: 1
-    path: Assets/_SOURCE/Scenes/LoadConfigs.unity
+    path: Assets/_SOURCE/Scenes/Infrastructure/LoadConfigs.unity
     guid: b8f3d39cc1a33a5498a98a1c19144b3a
   - enabled: 1
-    path: Assets/_SOURCE/Scenes/VladTestScene.unity
+    path: Assets/_SOURCE/Vlad/Scenes/VladTestScene.unity
     guid: 832e43e8002b86b4da8e0199ae0b4aa5
   - enabled: 1
-    path: Assets/_SOURCE/Scenes/ChooseGameMode.unity
+    path: Assets/_SOURCE/Scenes/Infrastructure/ChooseGameMode.unity
     guid: 0bb11e69902148449b7e32ea1f13ac4e
   - enabled: 1
     path: Assets/_SOURCE/Scenes/SimeonTestScene.unity

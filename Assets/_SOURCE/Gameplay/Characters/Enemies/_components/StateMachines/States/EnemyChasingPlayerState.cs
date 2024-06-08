@@ -62,7 +62,7 @@ namespace Gameplay.Characters.Enemies.States
       else
       {
         _enemyReturnToSpawnStatus.IsReturn = true;
-        _enemyStateMachine.Enter<EnemyPatrolState>();
+        _enemyStateMachine.Enter<EnemyPatrolingState>();
       }
     }
 

@@ -29,6 +29,7 @@ namespace Gameplay.Characters
 
     public void Disable()
     {
+      IsHit = false;
     }
   }
 }

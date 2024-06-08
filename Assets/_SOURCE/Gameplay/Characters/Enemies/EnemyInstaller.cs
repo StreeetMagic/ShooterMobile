@@ -22,7 +22,9 @@ namespace Gameplay.Characters.Enemies
     public EnemyAnimatorProvider EnemyAnimatorProvider;
     public NavMeshAgent NavMeshAgent;
     public EnemyToPlayerRotator EnemyToPlayerRotator;
-    public EnemyGrenadeLauncher GrenadeLauncher;
+    public EnemyGrenadeThrower GrenadeThrower;
+    public EnemyMeleeAttacker MeleeAttacker;
+    public EnemyWeaponReloader WeaponReloader;
 
     [Inject] private EnemyConfig _enemyConfig;
     [Inject] private List<SpawnPoint> _spawnPoints;
@@ -47,7 +49,9 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyShootingPoint>().FromInstance(ShootingPoint).AsSingle().NonLazy();
       Container.Bind<NavMeshAgent>().FromInstance(NavMeshAgent).AsSingle().NonLazy();
       Container.Bind<EnemyToPlayerRotator>().FromInstance(EnemyToPlayerRotator).AsSingle().NonLazy();
-      Container.Bind<EnemyGrenadeLauncher>().FromInstance(GrenadeLauncher).AsSingle().NonLazy();
+      Container.Bind<EnemyGrenadeThrower>().FromInstance(GrenadeThrower).AsSingle().NonLazy();
+      Container.Bind<EnemyMeleeAttacker>().FromInstance(MeleeAttacker).AsSingle().NonLazy();
+      Container.Bind<EnemyWeaponReloader>().FromInstance(WeaponReloader).AsSingle().NonLazy();
 
       Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
       Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();
@@ -65,19 +69,27 @@ namespace Gameplay.Characters.Enemies
     private void BindStates()
     {
       Container.Bind<EnemyBootstrapState>().AsSingle().NonLazy();
-      Container.Bind<EnemyPatrolState>().AsSingle().NonLazy();
+      Container.Bind<EnemyPatrolingState>().AsSingle().NonLazy();
       Container.Bind<EnemyChasingPlayerState>().AsSingle().NonLazy();
       Container.Bind<EnemyChooseAttackState>().AsSingle().NonLazy();
       Container.Bind<EnemyChooseCondiditionState>().AsSingle().NonLazy();
+      Container.Bind<EnemyThrowingGrenadeState>().AsSingle().NonLazy();
+      Container.Bind<EnemyShootingState>().AsSingle().NonLazy();
+      Container.Bind<EnemyMeleeAttackingState>().AsSingle().NonLazy();
+      Container.Bind<EnemyReloadingWeaponState>().AsSingle().NonLazy();
     }
 
     private void RegisterStates()
     {
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyBootstrapState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyPatrolState>());
+      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyPatrolingState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChasingPlayerState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChooseAttackState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChooseCondiditionState>());
+      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyThrowingGrenadeState>());
+      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyShootingState>());
+      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyMeleeAttackingState>());
+      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyReloadingWeaponState>());
     }
   }
 }

@@ -18,7 +18,7 @@ namespace Gameplay.Characters.Enemies
     public float RunSpeed = 10f;
 
     [Tooltip("Время после которого включится лечение при отстутствии входящего урона")]
-    public float RunTime = 1f;
+    public float HealingDelay = 1f;
 
     [Tooltip("Время ожидания после достижения маршрутной точки")]
     public float WaitTimeAfterMove = .1f;
@@ -34,32 +34,41 @@ namespace Gameplay.Characters.Enemies
 
     [Tooltip("Набор наград при убийстве")] 
     public List<LootDrop> LootDrops;
-
-    [Tooltip("Радиус стрельбы")] 
-    public float ShootRange = 10f;
+    
+    [Tooltip("Награда за убийство")] 
+    public int Expirience = 100;
+    
+    /************************/
 
     [Tooltip("Радиус агра если рядом пробежал игрок")]
     public float AggroRadius = 3f;
+    
+    /************************/
+
+    [Tooltip("Стреляющий")] 
+    public bool IsShooter;
+
+    [Tooltip("Радиус стрельбы")] 
+    public float ShootRange = 10f;
 
     [Tooltip("Скорострельность: выстрелов в секунду")]
     public int FireRate = 10;
 
     [Tooltip("Урон пули")] 
     public float BulletDamage = 5;
+    
+    [Tooltip("Емкость магазина")]
+    public int MagazineCapacity = 10;
+    
+    [Tooltip("Время перезарядки")]
+    public float MagazineReloadTime = 2f;
 
     [Tooltip("Максимальное расстояние преследования игрока от центра спаунера")]
     public float PatrolingRadius = 20;
 
-    [Tooltip("Награда за убийство")] 
-    public int Expirience = 100;
+    /************************/
 
-    [Tooltip("Радиус толкания соседних врагов (нужно для исключения стака 3д моделей)")]
-    public float EnemyDetectionColliderRadius = 0.1f;
-
-    [Tooltip("Сила отталкивания соседних врагов в радиусе действия")]
-    public float ForceFromOtherEnemys = .3f;
-
-    [Tooltip("Способность бросать гранату")]
+    [Tooltip("Способность бросать гранату")] [Space]
     public bool GrenadeThrower = true;
 
     [Tooltip("ID гранаты")]
@@ -76,5 +85,19 @@ namespace Gameplay.Characters.Enemies
     
     [Tooltip("Доступно гранат")]
     public int MaxGrenadesCount = 3;
+
+    [Tooltip("Радиус броска гранат")]
+    public float GrenadeThrowRange = 5f;
+    
+    /************************/
+
+    [Tooltip("Радиус милишной атаки")] [Space]
+    public float MeleeRange = 2;
+    
+    [Tooltip("Время милишной атаки")]
+    public float MeeleAttackDuration = .2f; 
+    
+    [Tooltip("Урон милишной атаки")]
+    public float MeeleAttackDamage = 1000;
   }
 }

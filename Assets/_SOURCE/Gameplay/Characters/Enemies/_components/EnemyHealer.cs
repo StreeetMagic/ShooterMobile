@@ -42,7 +42,7 @@ namespace Gameplay.Characters.Enemies
 
       if (_heal >= 1)
       {
-        if (_timer >= _config.RunTime)
+        if (_timer >= _config.HealingDelay)
         {
           _enemyHealth.Current.Value++;
           _heal = 0;

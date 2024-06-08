@@ -27,6 +27,8 @@ GameObject:
   - component: {fileID: 4569622047740737737}
   - component: {fileID: -1592323885107638291}
   - component: {fileID: 8641629887335043138}
+  - component: {fileID: 7975322324499188179}
+  - component: {fileID: 6129972245861914696}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -126,7 +128,9 @@ MonoBehaviour:
   EnemyAnimatorProvider: {fileID: 989760437509561374}
   NavMeshAgent: {fileID: 8614070228018907347}
   EnemyToPlayerRotator: {fileID: -1592323885107638291}
-  GrenadeLauncher: {fileID: 8641629887335043138}
+  GrenadeThrower: {fileID: 8641629887335043138}
+  MeleeAttacker: {fileID: 7975322324499188179}
+  WeaponReloader: {fileID: 6129972245861914696}
 --- !u!114 &989760437509561374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107ef4f6c8909da46a47947171b9a06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Instance: {fileID: 0}
 --- !u!114 &1415787155292172916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +301,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f97511da04994426ba8fa7fdc2ac2651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7975322324499188179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342982923862884670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ef433e235a4c738650a8628b48c427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6129972245861914696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342982923862884670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47d92d9cefb4d25b5bf54db312ae82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3957916751689609866
