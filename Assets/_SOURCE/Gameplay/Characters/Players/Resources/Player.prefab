@@ -529,7 +529,7 @@ Transform:
   m_GameObject: {fileID: 4914755093200433772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.727, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1148,7 +1148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1874641531791036930}
   - component: {fileID: 4028849580647468112}
-  - component: {fileID: -1021130425178108236}
+  - component: {fileID: 2526440168977208328}
   - component: {fileID: 8605282568791022659}
   - component: {fileID: 891365242565039953}
   - component: {fileID: 2865720521955186985}
@@ -1216,7 +1216,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!195 &-1021130425178108236
+--- !u!195 &2526440168977208328
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1439,6 +1439,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MeshModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036077295475358459, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9062243674088626575, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
         type: 3}

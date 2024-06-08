@@ -1,6 +1,5 @@
 using System;
 using Gameplay.Characters.Enemies;
-using UnityEngine;
 using Vlad;
 using Zenject;
 
@@ -21,7 +20,7 @@ namespace StateMachine
     {
       var state = _enemyStatesProvider.GetState<T>();
       ChangeState(state);
-      Debug.Log("Entered : " + typeof(T).Name);
+    //  Debug.Log("Entered : " + typeof(T).Name);
       state.Enter();
     }
 

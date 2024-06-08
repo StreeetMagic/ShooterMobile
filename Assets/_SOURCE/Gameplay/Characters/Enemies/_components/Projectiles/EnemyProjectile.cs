@@ -26,16 +26,18 @@ namespace Gameplay.Characters.Enemies.Projectiles
 
     private void DamageTargetTrigger(Collider other)
     {
-      if (other.TryGetComponent(out Player player))
+      if (other.TryGetComponent(out PlayerTargetTrigger player))
       {
         if (_count == 0)
         {
           _count++;
 
           player
-            .GetComponentInChildren<PlayerTargetTrigger>()
+           // .GetComponentInChildren<PlayerTargetTrigger>()
             .TakeDamage(EnemyConfig.BulletDamage);
         }
+
+        Debug.Log(other.gameObject.name);
       }
 
       Destroy();

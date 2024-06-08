@@ -14,10 +14,11 @@ namespace Gameplay.Characters
     bool IsFull { get; }
     bool IsDead { get; }
     void TakeDamage(float damage);
-    // ReSharper disable once InconsistentNaming
-    Transform transform { get; }
     T GetComponent<T>();
     void Hit();
     void NotifyOtherEnemies();
+    
+    // ReSharper disable once InconsistentNaming
+    Transform transform { get; }
   }
 }

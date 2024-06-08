@@ -39,7 +39,7 @@ namespace Gameplay.Characters.Enemies.States
       float distance = Vector3.Distance(_playerProvider.Player.transform.position, _enemy.transform.position);
 
       if (distance < _config.ShootRange)
-        _enemyStateMachine.Enter<EnemyShootAtPlayerState>();
+        _enemyStateMachine.Enter<EnemyAttackPlayerState>();
       else
         Move();
     }

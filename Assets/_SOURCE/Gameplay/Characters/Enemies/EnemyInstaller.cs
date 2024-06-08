@@ -65,9 +65,7 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyBootstrapState>().AsSingle().NonLazy();
       Container.Bind<EnemyPatrolState>().AsSingle().NonLazy();
       Container.Bind<EnemyRunToPlayerState>().AsSingle().NonLazy();
-      Container.Bind<EnemyShootAtPlayerState>().AsSingle().NonLazy();
-      Container.Bind<EnemyThrowGrenadeState>().AsSingle().NonLazy();
-      Container.Bind<EnemyWaitState>().AsSingle().NonLazy();
+      Container.Bind<EnemyAttackPlayerState>().AsSingle().NonLazy();
     }
 
     private void RegisterStates()
@@ -75,9 +73,7 @@ namespace Gameplay.Characters.Enemies
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyBootstrapState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyPatrolState>());
       Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyRunToPlayerState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyShootAtPlayerState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyThrowGrenadeState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyWaitState>());
+      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyAttackPlayerState>());
     }
   }
 }
