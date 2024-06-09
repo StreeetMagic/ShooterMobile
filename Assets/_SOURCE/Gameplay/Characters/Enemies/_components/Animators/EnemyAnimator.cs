@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -38,12 +39,20 @@ namespace Gameplay.Characters.Enemies.Animators
             Animator.SetTrigger(_deaths[Random.Range(0, _deaths.Count)]);
         }
 
-        void PlayRandomKnifeHitAnimation()
+        public void OnHit()
+        {
+            
+        }
+        
+        public void PlayRandomKnifeHitAnimation(float duration)
         {
             string[] animations = new string[] { KnifeHit1, KnifeHit2, KnifeHit3 };
             int randomIndex = Random.Range(0, animations.Length);
             string selectedAnimation = animations[randomIndex];
+            
             Animator.Play(selectedAnimation);
+            float animationLength = Animator.runtimeAnimatorController.animationClips.First(clip => clip.name == selectedAnimation).length;
+            Animator.speed = animationLength / duration;
         }
 
         public void PlayRunAnimation()
