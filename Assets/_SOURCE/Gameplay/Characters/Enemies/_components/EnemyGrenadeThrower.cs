@@ -8,28 +8,38 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Enemies.States
 {
-  public class EnemyGrenadeThrower : MonoBehaviour
+  public class EnemyGrenadeThrower : IInitializable, ITickable
   {
-    [Inject] private PlayerProvider _playerProvider;
-    [Inject] private GameLoopZenjectFactory _gameLoopZenjectFactory;
-    [Inject] private IStaticDataService _staticDataService;
-    [Inject] private EnemyConfig _config;
-    [Inject] private Enemy _enemy;
+    private readonly PlayerProvider _playerProvider;
+    private readonly GameLoopZenjectFactory _gameLoopZenjectFactory;
+    private readonly IStaticDataService _staticDataService;
+    private readonly EnemyConfig _config;
+    private readonly Enemy _enemy;
 
     private float _grenadeCooldownLeft;
     private int _grenadesLeft;
 
+    public EnemyGrenadeThrower(PlayerProvider playerProvider, GameLoopZenjectFactory gameLoopZenjectFactory, IStaticDataService staticDataService,
+      EnemyConfig config, Enemy enemy)
+    {
+      _playerProvider = playerProvider;
+      _gameLoopZenjectFactory = gameLoopZenjectFactory;
+      _staticDataService = staticDataService;
+      _config = config;
+      _enemy = enemy;
+    }
+
     public bool ReadyToThrow => _grenadesLeft > 0 && _grenadeCooldownLeft <= 0 && TargetStandsOnSamePosition();
     public float RandomGrenadeDelay { get; private set; }
 
-    private void Awake()
+    public void Initialize()
     {
       RandomGrenadeDelay = Random.Range(0, _config.GrenadeThrowRandomDelay);
       _grenadesLeft = _config.MaxGrenadesCount;
       _grenadeCooldownLeft = 0;
     }
 
-    private void Update()
+    public void Tick()
     {
       _grenadeCooldownLeft -= Time.deltaTime;
     }

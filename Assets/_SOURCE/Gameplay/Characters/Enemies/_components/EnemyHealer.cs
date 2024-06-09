@@ -3,24 +3,25 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyHealer : MonoBehaviour
+  public class EnemyHealer : ITickable
   {
+    private readonly IHealth _enemyHealth;
+    private readonly HitStatus _hitStatus;
+    private readonly EnemyConfig _config;
+
     private float _heal;
     private float _timer;
 
-    [Inject] private IHealth _enemyHealth;
-    [Inject] private HitStatus _hitStatus;
-    [Inject] private EnemyConfig _config;
+    public EnemyHealer(IHealth enemyHealth, HitStatus hitStatus, EnemyConfig config)
+    {
+      _enemyHealth = enemyHealth;
+      _hitStatus = hitStatus;
+      _config = config;
+    }
 
     private float HealMultiplier => _config.HealMultiplier;
 
-    private void OnEnable()
-    {
-      _heal = 0;
-      _timer = 0;
-    }
-
-    private void Update()
+    public void Tick()
     {
       if (_enemyHealth.IsDead)
         return;

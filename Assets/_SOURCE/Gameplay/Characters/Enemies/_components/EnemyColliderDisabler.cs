@@ -1,19 +1,26 @@
+using System;
 using UnityEngine;
 using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyColliderDisabler : MonoBehaviour
+  public class EnemyColliderDisabler : IInitializable, IDisposable
   {
-    [Inject] private IHealth _health;
-    [Inject] private Enemy _enemy;
+    private readonly IHealth _health;
+    private readonly Enemy _enemy;
 
-    private void OnEnable()
+    public EnemyColliderDisabler(IHealth health, Enemy enemy)
+    {
+      _health = health;
+      _enemy = enemy;
+    }
+
+    public void Initialize()
     {
       _health.Died += DisableColliders;
     }
 
-    private void OnDisable()
+    public void Dispose()
     {
       _health.Died -= DisableColliders;
     }

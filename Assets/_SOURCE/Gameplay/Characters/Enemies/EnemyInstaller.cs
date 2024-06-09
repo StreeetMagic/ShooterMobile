@@ -14,12 +14,8 @@ namespace Gameplay.Characters.Enemies
   {
     public Enemy Enemy;
     public EnemyHealth EnemyHealth;
-    public EnemyRoutePointsManager enemyRoutePointsManager;
-    public EnemyHealer enemyHealer;
-    public EnemyToSpawnerDisance EnemyToSpawnerDisance;
     public EnemyTargetTrigger TargetTrigger;
     public NavMeshAgent NavMeshAgent;
-    public EnemyGrenadeThrower GrenadeThrower;
 
     [Inject] private EnemyConfig _enemyConfig;
     [Inject] private List<SpawnPoint> _spawnPoints;
@@ -48,14 +44,15 @@ namespace Gameplay.Characters.Enemies
       Container.BindInterfacesAndSelfTo<EnemyToPlayerRotator>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyShootingPointProvider>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyMeshModelSpawner>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyToSpawnerDistance>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyGrenadeThrower>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyColliderDisabler>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyHealer>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyRoutePointsManager>().AsSingle().NonLazy();
 
       Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
       Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();
-      Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
-      Container.Bind<EnemyRoutePointsManager>().FromInstance(enemyRoutePointsManager).AsSingle().NonLazy();
-      Container.Bind<EnemyToSpawnerDisance>().FromInstance(EnemyToSpawnerDisance).AsSingle().NonLazy();
       Container.Bind<NavMeshAgent>().FromInstance(NavMeshAgent).AsSingle().NonLazy();
-      Container.Bind<EnemyGrenadeThrower>().FromInstance(GrenadeThrower).AsSingle().NonLazy();
 
       BindStates();
       RegisterStates();

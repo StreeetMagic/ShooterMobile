@@ -1,20 +1,26 @@
+using System;
 using Gameplay.CurrencyRepositories.Expirience;
-using UnityEngine;
 using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyExpirience : MonoBehaviour
+  public class EnemyExpirience : IInitializable, IDisposable
   {
-    [Inject] private ExpierienceStorage _expierienceStorage;
-    [Inject] private IHealth _enemyHealth;
+    private readonly ExpierienceStorage _expierienceStorage;
+    private readonly IHealth _enemyHealth;
+    
+    public EnemyExpirience(ExpierienceStorage expierienceStorage, IHealth enemyHealth)
+    {
+      _expierienceStorage = expierienceStorage;
+      _enemyHealth = enemyHealth;
+    }
 
-    private void OnEnable()
+    public void Initialize()
     {
       _enemyHealth.Died += OnDied;
     }
 
-    private void OnDisable()
+    public void Dispose()
     {
       _enemyHealth.Died -= OnDied;
     }

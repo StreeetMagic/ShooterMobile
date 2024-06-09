@@ -14,7 +14,7 @@ namespace Gameplay.Characters.Enemies.States
     private readonly Enemy _enemy;
     private readonly EnemyStateMachine _stateMachine;
     private readonly EnemyGrenadeThrower _grenadeThrower;
-    private readonly EnemyToSpawnerDisance _toSpawnerDisance;
+    private readonly EnemyToSpawnerDistance _toSpawnerDistance;
     private readonly EnemyReturnToSpawnStatus _returnToSpawnStatus;
     private readonly EnemyWeaponReloader _reloader;
 
@@ -22,7 +22,7 @@ namespace Gameplay.Characters.Enemies.States
 
     public EnemyChooseAttackState(PlayerProvider playerProvider, EnemyConfig config,
       Enemy enemy, EnemyStateMachine stateMachine, EnemyGrenadeThrower grenadeThrower,
-      EnemyToSpawnerDisance toSpawnerDisance, EnemyReturnToSpawnStatus returnToSpawnStatus, EnemyWeaponReloader reloader)
+      EnemyToSpawnerDistance toSpawnerDistance, EnemyReturnToSpawnStatus returnToSpawnStatus, EnemyWeaponReloader reloader)
     {
       _playerProvider = playerProvider;
 
@@ -31,14 +31,14 @@ namespace Gameplay.Characters.Enemies.States
       _enemy = enemy;
       _stateMachine = stateMachine;
       _grenadeThrower = grenadeThrower;
-      _toSpawnerDisance = toSpawnerDisance;
+      _toSpawnerDistance = toSpawnerDistance;
       _returnToSpawnStatus = returnToSpawnStatus;
       _reloader = reloader;
     }
 
     public void Enter()
     {
-      if (_toSpawnerDisance.IsAway)
+      if (_toSpawnerDistance.IsAway)
       {
         _returnToSpawnStatus.IsReturn = true;
         _stateMachine.Enter<EnemyPatrolingState>();
