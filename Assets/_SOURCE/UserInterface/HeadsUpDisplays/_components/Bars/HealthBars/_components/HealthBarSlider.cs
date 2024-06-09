@@ -14,11 +14,9 @@ namespace UserInterface.HeadsUpDisplays.Bars.HealthBars
     [Inject] private PlayerStatsProvider _playerStatsProvider;
     [Inject] private PlayerProvider _playerProvider;
 
-    private PlayerHealth PlayerHealth => _playerProvider.Instance.Health;
-
     private void Update()
     {
-      if (PlayerHealth == null)
+      if (_playerProvider.Instance == null)
         return;
     
       UpdateSlider();
@@ -27,7 +25,7 @@ namespace UserInterface.HeadsUpDisplays.Bars.HealthBars
     private void UpdateSlider()
     {
       float max = _playerStatsProvider.GetStat(StatId.Health).Value;
-      float current = PlayerHealth.Current.Value;
+      float current = _playerProvider.Instance.Health.Current.Value;
       Slider.value = Mathf.MoveTowards(Slider.value, current / max, Time.deltaTime * SliderUpdateSpeed);
     }
   }

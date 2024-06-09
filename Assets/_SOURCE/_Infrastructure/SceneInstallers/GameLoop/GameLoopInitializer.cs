@@ -10,7 +10,6 @@ using Gameplay.Quests;
 using Gameplay.Spawners.SpawnerFactories;
 using Gameplay.Upgrades;
 using Maps;
-using Projects;
 using SaveLoadServices;
 using SceneLoaders;
 using Scenes;
@@ -62,12 +61,12 @@ namespace SceneInstallers.GameLoop
     public void Restart()
     {
       Destroy();
-      SceneLoader.Load(SceneId.ToString(), EnterScene);
+      SceneLoader.Load(SceneId.Empty.ToString(), EnterScene);
     }
 
     private void EnterScene()
     {
-      SceneLoader.Load(SceneId.CoreDust.ToString());
+      SceneLoader.Load(SceneId.ToString());
     }
 
     private void Destroy()

@@ -11,6 +11,9 @@ namespace Cameras
 
     private void Update()
     {
+      if (_playerProvider.Instance == null)
+        return;
+
       if (_playerProvider.Instance.InputHandler == null)
         return;
 

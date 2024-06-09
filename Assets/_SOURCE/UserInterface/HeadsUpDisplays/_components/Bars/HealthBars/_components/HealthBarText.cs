@@ -15,7 +15,7 @@ namespace UserInterface.HeadsUpDisplays.Bars.HealthBars
 
     private void Update()
     {
-      if (_playerProvider.Instance.Health == null)
+      if (_playerProvider.Instance == null)
         return;
 
       float maxHealth = _playerStatsProvider.GetStat(StatId.Health).Value;
