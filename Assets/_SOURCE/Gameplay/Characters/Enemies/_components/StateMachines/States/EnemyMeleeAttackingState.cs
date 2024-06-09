@@ -9,16 +9,19 @@ namespace Gameplay.Characters.Enemies.States
     private readonly EnemyConfig _config;
     private readonly EnemyMeleeAttacker _meleeAttacker;
     private readonly EnemyStateMachine _enemyStateMachine;
+    private readonly EnemyAnimatorProvider _animatorProvider;
 
     private float _wholeTimeleft;
-    private float _attackTimeleft;
+
     private bool _attacked;
 
-    public EnemyMeleeAttackingState(EnemyConfig config, EnemyMeleeAttacker meleeAttacker, EnemyStateMachine enemyStateMachine)
+    public EnemyMeleeAttackingState(EnemyConfig config, EnemyMeleeAttacker meleeAttacker,
+      EnemyStateMachine enemyStateMachine, EnemyAnimatorProvider animatorProvider)
     {
       _config = config;
       _meleeAttacker = meleeAttacker;
       _enemyStateMachine = enemyStateMachine;
+      _animatorProvider = animatorProvider;
     }
 
     public void Enter()
@@ -26,22 +29,17 @@ namespace Gameplay.Characters.Enemies.States
       _attacked = false;
 
       float wholeAttackTime = _config.MeeleAttackDuration;
-      float halfTime = wholeAttackTime / 2;
 
       _wholeTimeleft = wholeAttackTime;
-      _attackTimeleft = halfTime;
+
+      _animatorProvider.Instance.PlayRandomKnifeHitAnimation(wholeAttackTime);
+
+      _animatorProvider.Instance.KnifeHit += OnHitEventListener;
     }
 
     public void Tick()
     {
       _wholeTimeleft -= Time.deltaTime;
-      _attackTimeleft -= Time.deltaTime;
-
-      if (_attackTimeleft <= 0 && !_attacked)
-      {
-        _attacked = true;
-        _meleeAttacker.Attack();
-      }
 
       if (_wholeTimeleft <= 0)
       {
@@ -51,6 +49,15 @@ namespace Gameplay.Characters.Enemies.States
 
     public void Exit()
     {
+    }
+
+    private void OnHitEventListener()
+    {
+      if (!_attacked)
+      {
+        _attacked = true;
+        _meleeAttacker.Attack();
+      }
     }
   }
 }

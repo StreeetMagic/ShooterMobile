@@ -876,7 +876,17 @@ PrefabInstance:
     - target: {fileID: 1457781903533225741, guid: 4616f17e4dcd45146879ac13fe9603cd,
         type: 3}
       propertyPath: Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457781903533225741, guid: 4616f17e4dcd45146879ac13fe9603cd,
+        type: 3}
+      propertyPath: EnemyId
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457781903533225741, guid: 4616f17e4dcd45146879ac13fe9603cd,
+        type: 3}
+      propertyPath: RespawnTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1984060478506779779, guid: 4616f17e4dcd45146879ac13fe9603cd,
         type: 3}
@@ -1026,12 +1036,17 @@ PrefabInstance:
     - target: {fileID: 6728493324810457893, guid: 4616f17e4dcd45146879ac13fe9603cd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.88
+      value: 8.93
       objectReference: {fileID: 0}
     - target: {fileID: 6728493324810457893, guid: 4616f17e4dcd45146879ac13fe9603cd,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728493324810457893, guid: 4616f17e4dcd45146879ac13fe9603cd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.47
       objectReference: {fileID: 0}
     - target: {fileID: 7326628110138567690, guid: 4616f17e4dcd45146879ac13fe9603cd,
         type: 3}
