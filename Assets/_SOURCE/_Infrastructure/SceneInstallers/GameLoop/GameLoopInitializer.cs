@@ -1,4 +1,5 @@
 using Projects;
+using Scenes;
 
 namespace SceneInstallers.GameLoop
 {
@@ -6,7 +7,7 @@ namespace SceneInstallers.GameLoop
   {
     protected override void EnterScene()
     {
-      SceneLoader.Load(ProjectConstants.Scenes.GameLoop);
+      SceneLoader.Load(SceneId.CoreDust.ToString());
     }
   }
 }

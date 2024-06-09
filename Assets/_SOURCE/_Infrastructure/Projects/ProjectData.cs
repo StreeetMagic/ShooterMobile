@@ -1,7 +1,10 @@
+using Scenes;
+
 namespace Projects
 {
   public class ProjectData
   {
-    public GameMode GameMode { get; set; } = GameMode.Unknown;
+    public SceneId SceneId { get; set; }
+    public GameMode GameMode { get; set; }
   }
 }

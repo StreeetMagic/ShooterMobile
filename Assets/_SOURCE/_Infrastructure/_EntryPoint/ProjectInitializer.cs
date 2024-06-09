@@ -1,5 +1,6 @@
 using Projects;
 using SceneLoaders;
+using Scenes;
 using UnityEngine;
 using Zenject;
 
@@ -11,7 +12,7 @@ namespace _EntryPoint
 
     public void Initialize()
     {
-      _sceneLoader.Load(ProjectConstants.Scenes.ChooseGameMode);
+      _sceneLoader.Load(SceneId.ChooseGameMode.ToString());
     }
   }
 }

@@ -6,6 +6,7 @@ using Gameplay.Upgrades;
 using Projects;
 using SaveLoadServices;
 using SceneLoaders;
+using Scenes;
 using UnityEngine;
 using Zenject;
 
@@ -32,23 +33,23 @@ namespace SceneInstallers.LoadProgress
 
       _saveLoadService.LoadProgress();
 
-      switch (_projectData.GameMode)
+      switch (_projectData.SceneId)
       {
-        case GameMode.Unknown:
-          throw new Exception("Unknown game mode");
+        case SceneId.Unknown:
+          throw new Exception("Unknown scene id");
 
-        case GameMode.Default:
-          _sceneLoader.Load(ProjectConstants.Scenes.GameLoop);
+        case SceneId.CoreDust:
+          _sceneLoader.Load(SceneId.CoreDust.ToString());
           break;
 
-        case GameMode.SimeonTest:
-          _sceneLoader.Load(ProjectConstants.Scenes.SimeonTestScene);
+        case SceneId.VladTestScene:
+          _sceneLoader.Load(SceneId.VladTestScene.ToString());
           break;
 
-        case GameMode.VladTest:
-          _sceneLoader.Load(ProjectConstants.Scenes.VladTestScene);
+        case SceneId.SimeonTestScene:
+          _sceneLoader.Load(SceneId.SimeonTestScene.ToString());
           break;
-        
+
         default:
           throw new ArgumentOutOfRangeException();
       }

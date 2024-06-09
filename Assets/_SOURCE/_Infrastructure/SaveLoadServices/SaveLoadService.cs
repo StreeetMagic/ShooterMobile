@@ -40,9 +40,7 @@ namespace SaveLoadServices
     private void UpdateProgressReaders()
     {
       foreach (IProgressReader progressReader in ProgressReaders)
-      {
         progressReader.ReadProgress(_progressService.ProjectProgress);
-      }
     }
 
     private void UpdateProgressWriters() =>

@@ -1,5 +1,6 @@
 using Projects;
 using SceneInstallers.GameLoop;
+using Scenes;
 
 namespace SceneInstallers.SimeonTestScene
 {
@@ -7,7 +8,7 @@ namespace SceneInstallers.SimeonTestScene
   {
     protected override void EnterScene()
     {
-      SceneLoader.Load(ProjectConstants.Scenes.SimeonTestScene);
+      SceneLoader.Load(SceneId.SimeonTestScene.ToString());
     }
   }
 }

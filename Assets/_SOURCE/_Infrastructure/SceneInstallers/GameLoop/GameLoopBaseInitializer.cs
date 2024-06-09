@@ -13,6 +13,7 @@ using Maps;
 using Projects;
 using SaveLoadServices;
 using SceneLoaders;
+using Scenes;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using Zenject;
@@ -60,7 +61,7 @@ namespace SceneInstallers.GameLoop
     public void Restart()
     {
       Destroy();
-      SceneLoader.Load(ProjectConstants.Scenes.Empty, EnterScene);
+      SceneLoader.Load(SceneId.Empty.ToString(), EnterScene);
     }
 
     protected abstract void EnterScene();

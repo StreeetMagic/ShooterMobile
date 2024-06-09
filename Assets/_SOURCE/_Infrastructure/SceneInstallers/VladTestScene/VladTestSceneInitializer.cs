@@ -1,5 +1,6 @@
 using Projects;
 using SceneInstallers.GameLoop;
+using Scenes;
 
 namespace SceneInstallers.VladTestScene
 {
@@ -7,7 +8,7 @@ namespace SceneInstallers.VladTestScene
   {
     protected override void EnterScene()
     {
-      SceneLoader.Load(ProjectConstants.Scenes.VladTestScene);
+      SceneLoader.Load(SceneId.VladTestScene.ToString());
     }
   }
 }

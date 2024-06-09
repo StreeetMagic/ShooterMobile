@@ -1,5 +1,6 @@
 using Projects;
 using SceneLoaders;
+using Scenes;
 using StaticDataServices;
 using UnityEngine;
 using Zenject;
@@ -15,7 +16,7 @@ namespace SceneInstallers.LoadConfig
     {
       _staticDataService.LoadConfigs();
 
-      _sceneLoader.Load(ProjectConstants.Scenes.LoadProgress);
+      _sceneLoader.Load(SceneId.LoadProgress.ToString());
     }
   }
 }

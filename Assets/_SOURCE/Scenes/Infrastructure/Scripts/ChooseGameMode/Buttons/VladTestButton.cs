@@ -1,5 +1,6 @@
 using Projects;
 using SceneLoaders;
+using Scenes;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -18,7 +19,9 @@ namespace SceneInstallers.ChooseGameMode.Buttons
       Button.onClick.AddListener(() =>
       {
         _projectData.GameMode = GameMode.VladTest;
-        _sceneLoader.Load(ProjectConstants.Scenes.LoadConfigs);
+        _projectData.SceneId = SceneId.VladTestScene;
+        
+        _sceneLoader.Load(SceneId.LoadConfigs.ToString());
       });
     }
   }

@@ -1,5 +1,6 @@
 using Projects;
 using SceneLoaders;
+using Scenes;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -19,7 +20,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.DebugWindows
 
     private void ChangeGameMode()
     {
-      _sceneLoader.Load(ProjectConstants.Scenes.ChooseGameMode);
+      _sceneLoader.Load(SceneId.ChooseGameMode.ToString());
     }
   }
 }
