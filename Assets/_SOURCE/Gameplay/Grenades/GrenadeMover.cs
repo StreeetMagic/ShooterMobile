@@ -71,7 +71,7 @@ namespace Gameplay.Grenades
     {
       Vector3 result = _startPosition +
                        initialVelocity * t +
-                       0.5f * Physics.gravity * t * t;
+                       Physics.gravity * (0.5f * t * t);
 
       return result;
     }

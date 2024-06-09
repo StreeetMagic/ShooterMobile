@@ -7,19 +7,23 @@ using Zenject;
 
 namespace SceneInstallers.ChooseGameMode.Buttons
 {
-  public class ValeraTestButton : MonoBehaviour
+  public class ChooseGameModeButton : MonoBehaviour
   {
-    public Button Button;
+    public GameMode GameMode;
+    public SceneId SceneId;
 
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private ProjectData _projectData;
+    private Button _button;
 
     private void Start()
     {
-      Button.onClick.AddListener(() =>
+      _button = GetComponent<Button>();
+      
+      _button.onClick.AddListener(() =>
       {
-        _projectData.GameMode = GameMode.ValeraTest;
-        _projectData.SceneId = SceneId.ValeraTestScene;
+        _projectData.GameMode = GameMode; 
+        _projectData.SceneId = SceneId; 
         
         _sceneLoader.Load(SceneId.LoadConfigs.ToString());
       });
