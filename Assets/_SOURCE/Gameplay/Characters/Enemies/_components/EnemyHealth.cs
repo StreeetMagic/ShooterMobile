@@ -51,7 +51,7 @@ namespace Gameplay.Characters.Enemies
     public void NotifyOtherEnemies()
     {
       foreach (Enemy enemy in _spawner.Enemies)
-        enemy.Installer.EnemyHealth.Hit();
+        enemy.Health.Hit();
     }
 
     public void Hit()

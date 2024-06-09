@@ -1,16 +1,14 @@
-using UnityEngine;
-using Zenject;
-
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyWeaponReloader : MonoBehaviour
+  public class EnemyWeaponReloader
   {
-    [Inject] private EnemyConfig _config;
+    private readonly EnemyConfig _config;
 
     private int _bulletsInMagazine;
 
-    private void Awake()
+    private EnemyWeaponReloader(EnemyConfig config)
     {
+      _config = config;
       _bulletsInMagazine = _config.MagazineCapacity;
     }
 

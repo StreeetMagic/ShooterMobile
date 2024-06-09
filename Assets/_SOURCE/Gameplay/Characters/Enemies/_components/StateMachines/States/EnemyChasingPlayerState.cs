@@ -1,4 +1,5 @@
 using Gameplay.Characters.Players;
+using Gameplay.Spawners;
 using StateMachine;
 using UnityEngine;
 using Zenject;
@@ -12,19 +13,19 @@ namespace Gameplay.Characters.Enemies.States
     private readonly EnemyMover _mover;
     private readonly EnemyAnimatorProvider _animatorProvider;
     private readonly EnemyConfig _config;
-    private readonly Transform _spawnerTransform;
+    private readonly EnemySpawner _enemySpawner;
     private readonly Enemy _enemy;
     private readonly EnemyReturnToSpawnStatus _enemyReturnToSpawnStatus;
 
     public EnemyChasingPlayerState(PlayerProvider playerProvider, EnemyMover mover, EnemyAnimatorProvider animatorProvider,
-      EnemyConfig config, Transform spawnerTransform, Enemy enemy, EnemyStateMachine enemyStateMachine,
+      EnemyConfig config, EnemySpawner enemySpawner, Enemy enemy, EnemyStateMachine enemyStateMachine,
       EnemyReturnToSpawnStatus enemyReturnToSpawnStatus)
     {
       _playerProvider = playerProvider;
       _mover = mover;
       _animatorProvider = animatorProvider;
       _config = config;
-      _spawnerTransform = spawnerTransform;
+      _enemySpawner = enemySpawner;
       _enemy = enemy;
       _enemyStateMachine = enemyStateMachine;
       _enemyReturnToSpawnStatus = enemyReturnToSpawnStatus;
@@ -53,7 +54,7 @@ namespace Gameplay.Characters.Enemies.States
 
     private void Move()
     {
-      float distanceToSpawner = (_spawnerTransform.position - _enemy.transform.position).magnitude;
+      float distanceToSpawner = (_enemySpawner.transform.position - _enemy.transform.position).magnitude;
 
       if (distanceToSpawner < _config.PatrolingRadius)
       {

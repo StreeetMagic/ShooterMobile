@@ -1,13 +1,18 @@
 using Gameplay.Characters.Players;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Characters.Enemies.TargetTriggers
 {
-  public class EnemyToPlayerRotator : MonoBehaviour
+  public class EnemyToPlayerRotator
   {
-    [Inject] private Enemy _enemy;
-    [Inject] private PlayerProvider _playerProvider;
+    private readonly Enemy _enemy;
+    private readonly PlayerProvider _playerProvider;
+
+    public EnemyToPlayerRotator(Enemy enemy, PlayerProvider playerProvider)
+    {
+      _enemy = enemy;
+      _playerProvider = playerProvider;
+    }
 
     public void Rotate()
     {

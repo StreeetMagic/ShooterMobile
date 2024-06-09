@@ -1,13 +1,17 @@
 using Gameplay.Characters.Players;
-using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyMeleeAttacker : MonoBehaviour
+  public class EnemyMeleeAttacker
   {
-    [Inject] private PlayerProvider _playerProvider;
-    [Inject] private EnemyConfig _config;
+    private readonly PlayerProvider _playerProvider;
+    private readonly EnemyConfig _config;
+
+    public EnemyMeleeAttacker(PlayerProvider playerProvider, EnemyConfig config)
+    {
+      _playerProvider = playerProvider;
+      _config = config;
+    }
 
     public void Attack()
     {

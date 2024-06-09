@@ -1,9 +1,8 @@
 using Gameplay.Characters.Enemies.Animators;
-using UnityEngine;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyAnimatorProvider : MonoBehaviour
+  public class EnemyAnimatorProvider
   {
     public EnemyAnimator Instance { get; set; }
   }

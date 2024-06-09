@@ -80,7 +80,7 @@ namespace Gameplay.Spawners
 
       int randomSpawnPointNumber = Random.Range(0, _spawnPoints.Count - 1);
 
-      Enemy enemy = _enemyFactory.Create(_staticDataService.GetEnemyConfig(EnemyId), _spawnPoints, transform, this);
+      Enemy enemy = _enemyFactory.Create(_staticDataService.GetEnemyConfig(EnemyId), _spawnPoints, this);
       enemy.transform.position = _spawnPoints[randomSpawnPointNumber].transform.position;
       enemy.transform.SetParent(transform);
 
@@ -121,7 +121,7 @@ namespace Gameplay.Spawners
 
       if (gameObject == null)
         yield break;
-  
+
       Spawn();
     }
   }

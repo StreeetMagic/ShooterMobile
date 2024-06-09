@@ -82,7 +82,7 @@ namespace SceneInstallers.GameLoop
         .ByNewContextPrefab<SubQuestSlotInstaller>(_assetProvider.Get<SubQuestSlot>().GetComponent<SubQuestSlotInstaller>())
         .AsSingle();
 
-      Container.BindFactory<EnemyConfig, List<SpawnPoint>, Transform, EnemySpawner, Enemy, Enemy.Factory>()
+      Container.BindFactory<EnemyConfig, List<SpawnPoint>, EnemySpawner, Enemy, Enemy.Factory>()
         .FromSubContainerResolve()
         .ByNewContextPrefab<EnemyInstaller>(_assetProvider.Get<Enemy>().GetComponent<EnemyInstaller>())
         .AsSingle();

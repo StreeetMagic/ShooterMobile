@@ -1,25 +1,27 @@
 using AssetProviders;
 using Gameplay.Characters.Enemies.Animators;
 using UnityEngine;
-using Zenject;
 using ZenjectFactories;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyMeshModelSpawner : MonoBehaviour
+  public class EnemyMeshModelSpawner
   {
-    [Inject] private IAssetProvider _assetProvider;
-    [Inject] private EnemyId _enemyId;
-    [Inject] private EnemyShootingPoint _shootingPoint;
-    [Inject] private GameLoopZenjectFactory _factory;
-    [Inject] private EnemyAnimatorProvider _animatorProvider;
-
-    private void Awake()
+    private EnemyMeshModelSpawner(
+      IAssetProvider assetProvider, 
+      EnemyId enemyId, 
+      EnemyShootingPointProvider shootingPointProvider, 
+      GameLoopZenjectFactory factory, 
+      EnemyAnimatorProvider animatorProvider, 
+      Transform transform)
     {
-      EnemyMeshModel prefab = _assetProvider.GetEnemyMeshModel(_enemyId);
-      EnemyMeshModel meshModel = _factory.InstantiateMono(prefab, transform.position, transform);
-      _shootingPoint.PointTransform = meshModel.GetComponent<EnemyShootingPoint>().PointTransform;
-      _animatorProvider.Instance = meshModel.GetComponent<EnemyAnimator>();
+      EnemyMeshModel prefab = assetProvider.GetEnemyMeshModel(enemyId);
+      
+      EnemyMeshModel meshModel = factory.InstantiateMono(prefab, transform.position, transform);
+      
+      shootingPointProvider.PointTransform = meshModel.GetComponent<EnemyShootingPoint>().PointTransform;
+      
+      animatorProvider.Instance = meshModel.GetComponent<EnemyAnimator>();
     }
   }
 }

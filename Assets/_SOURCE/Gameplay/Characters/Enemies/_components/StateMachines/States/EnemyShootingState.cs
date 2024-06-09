@@ -13,14 +13,14 @@ namespace Gameplay.Characters.Enemies.States
     private readonly Enemy _enemy;
     private readonly EnemyAnimatorProvider _animatorProvider;
     private readonly EnemyShooter _shooter;
-    private readonly EnemyShootingPoint _shootingPoint;
+    private readonly EnemyShootingPointProvider _shootingPointProvider;
     private readonly EnemyStateMachine _stateMachine;
     private readonly EnemyToPlayerRotator _toPlayerRotator;
 
     private float _shootTimeLeft;
 
     public EnemyShootingState(PlayerProvider playerProvider, EnemyConfig config,
-      Enemy enemy, EnemyAnimatorProvider animatorProvider, EnemyShooter shooter, EnemyShootingPoint shootingPoint,
+      Enemy enemy, EnemyAnimatorProvider animatorProvider, EnemyShooter shooter, EnemyShootingPointProvider shootingPointProvider,
       EnemyStateMachine stateMachine, EnemyToPlayerRotator toPlayerRotator)
     {
       _playerProvider = playerProvider;
@@ -28,7 +28,7 @@ namespace Gameplay.Characters.Enemies.States
       _enemy = enemy;
       _animatorProvider = animatorProvider;
       _shooter = shooter;
-      _shootingPoint = shootingPoint;
+      _shootingPointProvider = shootingPointProvider;
       _stateMachine = stateMachine;
       _toPlayerRotator = toPlayerRotator;
     }
@@ -49,7 +49,7 @@ namespace Gameplay.Characters.Enemies.States
       if (_shootTimeLeft <= 0)
       {
         _animatorProvider.Instance.PlayShootAnimation();
-        _shooter.Shoot(_shootingPoint.PointTransform, _shootingPoint.PointTransform.position, direction, _config);
+        _shooter.Shoot(_shootingPointProvider.PointTransform, _shootingPointProvider.PointTransform.position, direction, _config);
         _stateMachine.Enter<EnemyChooseAttackState>();
       }
     }

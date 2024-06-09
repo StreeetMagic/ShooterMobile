@@ -2,7 +2,6 @@
 using Inputs;
 using UnityEngine;
 using Zenject;
-using Zenject.Source.Runtime;
 
 namespace Gameplay.Characters.Players
 {

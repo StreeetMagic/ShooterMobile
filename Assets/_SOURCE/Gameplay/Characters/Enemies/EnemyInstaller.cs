@@ -18,49 +18,44 @@ namespace Gameplay.Characters.Enemies
     public EnemyHealer enemyHealer;
     public EnemyToSpawnerDisance EnemyToSpawnerDisance;
     public EnemyTargetTrigger TargetTrigger;
-    public EnemyShootingPoint ShootingPoint;
-    public EnemyAnimatorProvider EnemyAnimatorProvider;
     public NavMeshAgent NavMeshAgent;
-    public EnemyToPlayerRotator EnemyToPlayerRotator;
     public EnemyGrenadeThrower GrenadeThrower;
-    public EnemyMeleeAttacker MeleeAttacker;
-    public EnemyWeaponReloader WeaponReloader;
 
     [Inject] private EnemyConfig _enemyConfig;
     [Inject] private List<SpawnPoint> _spawnPoints;
-    [Inject] private Transform _spawnPointsContainer;
     [Inject] private EnemySpawner _spawner;
 
     public override void InstallBindings()
     {
       Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();
-
-      Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyReturnToSpawnStatus>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<HitStatus>().AsSingle().NonLazy();
-
-      Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
-      Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();
-      Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
-      Container.Bind<EnemyRoutePointsManager>().FromInstance(enemyRoutePointsManager).AsSingle().NonLazy();
-      Container.Bind<EnemyAnimatorProvider>().FromInstance(EnemyAnimatorProvider).AsSingle().NonLazy();
-      Container.Bind<EnemyToSpawnerDisance>().FromInstance(EnemyToSpawnerDisance).AsSingle().NonLazy();
-      Container.Bind<EnemyShootingPoint>().FromInstance(ShootingPoint).AsSingle().NonLazy();
-      Container.Bind<NavMeshAgent>().FromInstance(NavMeshAgent).AsSingle().NonLazy();
-      Container.Bind<EnemyToPlayerRotator>().FromInstance(EnemyToPlayerRotator).AsSingle().NonLazy();
-      Container.Bind<EnemyGrenadeThrower>().FromInstance(GrenadeThrower).AsSingle().NonLazy();
-      Container.Bind<EnemyMeleeAttacker>().FromInstance(MeleeAttacker).AsSingle().NonLazy();
-      Container.Bind<EnemyWeaponReloader>().FromInstance(WeaponReloader).AsSingle().NonLazy();
+      Container.Bind<Transform>().FromInstance(transform).AsSingle().NonLazy();
 
       Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
       Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();
-      Container.Bind<Transform>().FromInstance(_spawnPointsContainer).AsSingle().NonLazy();
       Container.Bind<EnemySpawner>().FromInstance(_spawner).AsSingle().NonLazy();
       Container.Bind<EnemyId>().FromInstance(_enemyConfig.Id).AsSingle().NonLazy();
 
       Container.BindInterfacesAndSelfTo<EnemyStateMachine>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyStatesProvider>().AsSingle().NonLazy();
+
+      Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyReturnToSpawnStatus>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<HitStatus>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyWeaponReloader>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyMeleeAttacker>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyAnimatorProvider>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyToPlayerRotator>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyShootingPointProvider>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyMeshModelSpawner>().AsSingle().NonLazy();
+
+      Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
+      Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();
+      Container.Bind<EnemyHealer>().FromInstance(enemyHealer).AsSingle().NonLazy();
+      Container.Bind<EnemyRoutePointsManager>().FromInstance(enemyRoutePointsManager).AsSingle().NonLazy();
+      Container.Bind<EnemyToSpawnerDisance>().FromInstance(EnemyToSpawnerDisance).AsSingle().NonLazy();
+      Container.Bind<NavMeshAgent>().FromInstance(NavMeshAgent).AsSingle().NonLazy();
+      Container.Bind<EnemyGrenadeThrower>().FromInstance(GrenadeThrower).AsSingle().NonLazy();
 
       BindStates();
       RegisterStates();
