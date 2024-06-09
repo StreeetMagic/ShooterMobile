@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Gameplay.Grenades
 {
@@ -29,27 +29,28 @@ namespace Gameplay.Grenades
 
     public void Throw()
     {
-      StartCoroutine(MoveGrenade());
+      MoveGrenade();
     }
 
-    private IEnumerator MoveGrenade()
+    private void MoveGrenade()
     {
       Vector3 initialVelocity = CalculateInitialVelocity();
       float elapsedTime = 0f;
 
-      while (elapsedTime < FlightTime)
-      {
-        elapsedTime += Time.deltaTime;
-
-        float t = elapsedTime / FlightTime;
-        transform.position = CalculatePosition(t, initialVelocity);
-
-        yield return null;
-      }
-
-      transform.position = _targetPosition;
-      _detonator.Detonate();
-      _detonationRadius.gameObject.SetActive(true);
+      DOTween
+        .To(() => elapsedTime, x => elapsedTime = x, FlightTime, FlightTime)
+        .SetEase(Ease.OutQuart)
+        .OnUpdate(() =>
+        {
+          float t = elapsedTime / FlightTime;
+          transform.position = CalculatePosition(t, initialVelocity);
+        })
+        .OnComplete(() =>
+        {
+          transform.position = _targetPosition;
+          _detonator.Detonate();
+          _detonationRadius.gameObject.SetActive(true);
+        });
     }
 
     private Vector3 CalculateInitialVelocity()
