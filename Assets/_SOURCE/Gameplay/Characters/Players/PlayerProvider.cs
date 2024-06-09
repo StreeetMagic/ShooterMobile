@@ -2,6 +2,12 @@
 {
   public class PlayerProvider
   {
-    public Player Instance { get; set; }
+    private Player _instance;
+
+    public Player Instance
+    {
+      get => _instance;
+      set => _instance = value;
+    }
   }
 }

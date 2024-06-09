@@ -38,7 +38,7 @@ namespace SceneInstallers.GameLoop
 
     public override void InstallBindings()
     {
-      Container.Bind<IGameLoopInitializer>().FromInstance(GetComponent<IGameLoopInitializer>()).AsSingle().NonLazy();
+      Container.Bind<GameLoopInitializer>().FromInstance(GetComponent<GameLoopInitializer>()).AsSingle().NonLazy();
       Container.Bind<GameLoopInstaller>().FromInstance(this).AsSingle();
 
       Container.BindInterfacesAndSelfTo<DebugService>().AsSingle().NonLazy();

@@ -7,9 +7,9 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerHealth
   {
-    private readonly IGameLoopInitializer _gameLoopInitializer;
+    private readonly GameLoopInitializer _gameLoopInitializer;
 
-    public PlayerHealth(PlayerStatsProvider playerStatsProvider, IGameLoopInitializer gameLoopInitializer)
+    public PlayerHealth(PlayerStatsProvider playerStatsProvider, GameLoopInitializer gameLoopInitializer)
     {
       _gameLoopInitializer = gameLoopInitializer;
       Current.Value = playerStatsProvider.GetStat(StatId.Health).Value;
