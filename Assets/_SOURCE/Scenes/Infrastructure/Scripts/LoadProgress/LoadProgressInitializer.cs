@@ -49,6 +49,10 @@ namespace SceneInstallers.LoadProgress
         case SceneId.SimeonTestScene:
           _sceneLoader.Load(SceneId.SimeonTestScene.ToString());
           break;
+        
+        case SceneId.ValeraTestScene:
+          _sceneLoader.Load(SceneId.ValeraTestScene.ToString());
+          break;
 
         default:
           throw new ArgumentOutOfRangeException();

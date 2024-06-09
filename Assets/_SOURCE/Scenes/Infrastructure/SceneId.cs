@@ -20,5 +20,6 @@ namespace Scenes
 
     SimeonTestScene = 900,
     VladTestScene = 901,
+    ValeraTestScene = 902
   }
 }
