@@ -1,3 +1,4 @@
+using Gameplay.Characters.Enemies.TargetTriggers;
 using StateMachine;
 using UnityEngine;
 using Zenject;
@@ -10,18 +11,21 @@ namespace Gameplay.Characters.Enemies.States
     private readonly EnemyMeleeAttacker _meleeAttacker;
     private readonly EnemyStateMachine _enemyStateMachine;
     private readonly EnemyAnimatorProvider _animatorProvider;
+    private readonly EnemyToPlayerRotator _toPlayerRotator;
 
     private float _wholeTimeleft;
 
     private bool _attacked;
 
     public EnemyMeleeAttackingState(EnemyConfig config, EnemyMeleeAttacker meleeAttacker,
-      EnemyStateMachine enemyStateMachine, EnemyAnimatorProvider animatorProvider)
+      EnemyStateMachine enemyStateMachine, EnemyAnimatorProvider animatorProvider,
+      EnemyToPlayerRotator toPlayerRotator)
     {
       _config = config;
       _meleeAttacker = meleeAttacker;
       _enemyStateMachine = enemyStateMachine;
       _animatorProvider = animatorProvider;
+      _toPlayerRotator = toPlayerRotator;
     }
 
     public void Enter()
@@ -39,6 +43,8 @@ namespace Gameplay.Characters.Enemies.States
 
     public void Tick()
     {
+      _toPlayerRotator.Rotate();
+
       _wholeTimeleft -= Time.deltaTime;
 
       if (_wholeTimeleft <= 0)

@@ -17,8 +17,7 @@ namespace Gameplay.Characters.Enemies.Animators
     public const string IsWalk = nameof(IsWalk);
     public const string Shoot = nameof(Shoot);
 
-    [Header("Knife hit animations")] 
-    public string KnifeHit1 = "KnifeHit1";
+    [Header("Knife hit animations")] public string KnifeHit1 = "KnifeHit1";
     public string KnifeHit2 = "KnifeHit2";
     public string KnifeHit3 = "KnifeHit3";
 
@@ -55,20 +54,17 @@ namespace Gameplay.Characters.Enemies.Animators
       string[] animations = new string[] { KnifeHit1, KnifeHit2, KnifeHit3 };
       int randomIndex = Random.Range(0, animations.Length);
       string selectedAnimation = animations[randomIndex];
-        
+
       Animator.Play(selectedAnimation);
-        
-      var animationClip = Animator.runtimeAnimatorController.animationClips.FirstOrDefault(clip => clip.name == selectedAnimation);
-        
-      if (animationClip != null)
-      {
-        float animationLength = animationClip.length;
-        Animator.speed = animationLength / duration;
-      }
-      else
-      {
-        Debug.LogError($"Animation clip '{selectedAnimation}' not found in Animator Controller.");
-      }
+
+      AnimationClip animationClip = 
+        Animator
+          .runtimeAnimatorController
+          .animationClips
+          .FirstOrDefault(clip => clip.name == selectedAnimation);
+
+      float animationLength = animationClip.length;
+      Animator.speed = animationLength / duration;
     }
 
     public void PlayRunAnimation()
