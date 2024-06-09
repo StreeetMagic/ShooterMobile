@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -48,23 +49,26 @@ namespace Gameplay.Characters.Enemies.Animators
       KnifeHit?.Invoke();
     }
 
+    [Button]
     public void PlayRandomKnifeHitAnimation(float duration)
     {
-      string[] animations = new[] { KnifeHit1, KnifeHit2, KnifeHit3 };
-      
+      string[] animations = new string[] { KnifeHit1, KnifeHit2, KnifeHit3 };
       int randomIndex = Random.Range(0, animations.Length);
       string selectedAnimation = animations[randomIndex];
-
+        
       Animator.Play(selectedAnimation);
-
-      float animationLength =
-        Animator
-          .runtimeAnimatorController
-          .animationClips
-          .First(clip => clip.name == selectedAnimation)
-          .length;
-
-      Animator.speed = animationLength / duration;
+        
+      var animationClip = Animator.runtimeAnimatorController.animationClips.FirstOrDefault(clip => clip.name == selectedAnimation);
+        
+      if (animationClip != null)
+      {
+        float animationLength = animationClip.length;
+        Animator.speed = animationLength / duration;
+      }
+      else
+      {
+        Debug.LogError($"Animation clip '{selectedAnimation}' not found in Animator Controller.");
+      }
     }
 
     public void PlayRunAnimation()
