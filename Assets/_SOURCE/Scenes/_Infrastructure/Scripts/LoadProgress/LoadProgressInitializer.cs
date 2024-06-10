@@ -33,25 +33,25 @@ namespace SceneInstallers.LoadProgress
 
       _saveLoadService.LoadProgress();
 
-      switch (_projectData.SceneId)
+      switch (_projectData.InitialSceneId)
       {
         case SceneId.Unknown:
           throw new Exception("Unknown scene id");
 
         case SceneId.CoreDust:
-          _sceneLoader.Load(SceneId.CoreDust.ToString());
+          _sceneLoader.Load(SceneId.CoreDust);
           break;
 
         case SceneId.VladTestScene:
-          _sceneLoader.Load(SceneId.VladTestScene.ToString());
+          _sceneLoader.Load(SceneId.VladTestScene);
           break;
 
         case SceneId.SimeonTestScene:
-          _sceneLoader.Load(SceneId.SimeonTestScene.ToString());
+          _sceneLoader.Load(SceneId.SimeonTestScene);
           break;
         
         case SceneId.ValeraTestScene:
-          _sceneLoader.Load(SceneId.ValeraTestScene.ToString());
+          _sceneLoader.Load(SceneId.ValeraTestScene);
           break;
 
         default:

@@ -23,7 +23,7 @@ namespace SceneInstallers.GameLoop
   {
     public SceneId SceneId;
     
-    [Inject] protected SceneLoader SceneLoader;
+    [Inject] private SceneLoader _sceneLoader;
     [Inject] private SaveLoadService _saveLoadService;
     [Inject] private GameLoopInstaller _gameLoopInstaller;
     [Inject] private PlayerFactory _playerFactory;
@@ -38,11 +38,12 @@ namespace SceneInstallers.GameLoop
     [Inject] private ICoroutineRunner _runner;
     [Inject] private QuestStorage _questStorage;
     [Inject] private BackpackStorage _backpackStorage;
-
     [Inject] private HenSpawner _henSpawner;
 
     private void Start()
     {
+      LogScenes();
+      
       _saveLoadService.LoadProgress();
 
       Time.timeScale = 1f;
@@ -61,12 +62,12 @@ namespace SceneInstallers.GameLoop
     public void Restart()
     {
       Destroy();
-      SceneLoader.Load(SceneId.Empty.ToString(), EnterScene);
+      _sceneLoader.Load(SceneId.Empty, EnterScene);
     }
 
     private void EnterScene()
     {
-      SceneLoader.Load(SceneId.ToString());
+      _sceneLoader.Load(SceneId);
     }
 
     private void Destroy()
@@ -82,6 +83,20 @@ namespace SceneInstallers.GameLoop
       _enemySpawnerFactory.Destroy();
       _playerFactory.Destroy();
       _mapFactory.Destroy();
+    }
+
+    private void LogScenes()
+    {
+      var sceneList = _sceneLoader.LoadedScenes;
+
+      string scenes = "";
+      
+      foreach (var scene in sceneList)
+      {
+        scenes += scene + " "; 
+      }
+      
+      Debug.Log(scenes);
     }
   }
 }

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using CoroutineRunners;
+using Scenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,16 +12,22 @@ namespace SceneLoaders
   public class SceneLoader
   {
     private readonly ICoroutineRunner _coroutineRunner;
+    
+    private readonly List<SceneId> _loadedScenes = new();
 
     public SceneLoader(ICoroutineRunner coroutineRunner)
     {
       _coroutineRunner = coroutineRunner;
     }
 
-    public event Action<string> SceneLoaded;
+    public event Action<SceneId> SceneLoaded;
+    public List<SceneId> LoadedScenes => _loadedScenes.ToList();
 
-    public void Load(string name, Action onLoaded = null)
+    public void Load(SceneId name, Action onLoaded = null)
     {
+      if (name == SceneId.Unknown)
+        throw new ArgumentException(nameof(name));
+      
       _coroutineRunner.StartCoroutine(LoadSceneAsync(name, onLoaded));
     }
 
@@ -27,9 +36,9 @@ namespace SceneLoaders
     //   _coroutineRunner.StartCoroutine(LoadSceneAsync(ProjectConstants.Scenes.Initial, onLoaded));
     // }
 
-    private IEnumerator LoadSceneAsync(string nextScene, Action onLoaded)
+    private IEnumerator LoadSceneAsync(SceneId nextScene, Action onLoaded)
     {
-      AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextScene);
+      AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextScene.ToString());
 
       if (asyncOperation != null)
       {
@@ -41,6 +50,7 @@ namespace SceneLoaders
         }
       }
 
+      _loadedScenes.Add(nextScene);
       onLoaded?.Invoke();
       SceneLoaded?.Invoke(nextScene);
     }

@@ -16,7 +16,6 @@ using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnerFactories;
 using Gameplay.Spawners.SpawnPoints;
 using Maps;
-using UnityEngine;
 using UserIntefaces;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;

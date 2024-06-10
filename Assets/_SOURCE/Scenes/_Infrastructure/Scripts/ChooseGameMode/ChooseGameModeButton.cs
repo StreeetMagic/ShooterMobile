@@ -23,9 +23,9 @@ namespace SceneInstallers.ChooseGameMode.Buttons
       _button.onClick.AddListener(() =>
       {
         _projectData.GameMode = GameMode; 
-        _projectData.SceneId = SceneId; 
+        _projectData.InitialSceneId = SceneId; 
         
-        _sceneLoader.Load(SceneId.LoadConfigs.ToString());
+        _sceneLoader.Load(SceneId.LoadConfigs);
       });
     }
   }

@@ -15,8 +15,7 @@ namespace Scenes
     // CoreInferno = 102,
 
     ArenaSand = 200,
-    // ArenaDungeon = 201,
-    // ArenaGrass = 202,
+    ArenaSnow = 201,
 
     SimeonTestScene = 900,
     VladTestScene = 901,

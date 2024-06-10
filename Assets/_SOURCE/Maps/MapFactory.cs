@@ -11,7 +11,7 @@ namespace Maps
       _mapProvider = mapProvider;
     }
 
-    public void Create(Transform parent, string mapName = "default")
+    public void Create(Transform parent)
     {
       MoveToRootParent(_mapProvider.Map);
     }

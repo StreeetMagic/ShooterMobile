@@ -1,4 +1,3 @@
-using Projects;
 using SceneLoaders;
 using Scenes;
 using StaticDataServices;
@@ -16,7 +15,7 @@ namespace SceneInstallers.LoadConfig
     {
       _staticDataService.LoadConfigs();
 
-      _sceneLoader.Load(SceneId.LoadProgress.ToString());
+      _sceneLoader.Load(SceneId.LoadProgress);
     }
   }
 }

@@ -1,4 +1,3 @@
-using Projects;
 using SceneLoaders;
 using Scenes;
 using UnityEngine;
@@ -12,7 +11,7 @@ namespace _EntryPoint
 
     public void Initialize()
     {
-      _sceneLoader.Load(SceneId.ChooseGameMode.ToString());
+      _sceneLoader.Load(SceneId.ChooseGameMode);
     }
   }
 }
