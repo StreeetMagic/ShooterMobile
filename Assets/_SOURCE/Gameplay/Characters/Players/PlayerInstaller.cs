@@ -12,7 +12,7 @@ using Zenject.Source.Install;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerInstaller : MonoInstaller, IDisposable
+  public class PlayerInstaller : MonoInstaller, IInitializable, IDisposable
   {
     public Player Player;
     public PlayerAnimator PlayerAnimator;
@@ -43,9 +43,7 @@ namespace Gameplay.Characters.Players
       Container.Bind<WeaponAttacker>().FromInstance(WeaponAttacker).AsSingle();
       Container.Bind<WeaponShootingPoint>().FromInstance(WeaponShootingPoint).AsSingle();
 
-      Container.Bind<PlayerMover>().AsSingle().NonLazy();
-      _saveLoadServices.ProgressReaders.Add(Container.Resolve<PlayerMover>());
-
+      Container.BindInterfacesAndSelfTo<PlayerMover>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerRotator>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerRotatorController>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerInputHandler>().AsSingle().NonLazy();
@@ -62,10 +60,16 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerTargetLocator>().AsSingle().NonLazy();
     }
 
+    public void Initialize()
+    {
+      _saveLoadServices.ProgressReaders.Add(Container.Resolve<PlayerMover>());
+      _saveLoadServices.ProgressReaders.Add(Container.Resolve<PlayerWeaponId>());
+    }
+
     public void Dispose()
     {
       _saveLoadServices.ProgressReaders.Remove(Container.Resolve<PlayerMover>());
-      Container.Unbind<PlayerMover>();
+      _saveLoadServices.ProgressReaders.Remove(Container.Resolve<PlayerWeaponId>());
     }
   }
 }
