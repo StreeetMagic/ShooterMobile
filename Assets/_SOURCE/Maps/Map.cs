@@ -20,6 +20,7 @@ namespace Maps
     public List<Quester> Questers;
     public List<Shoper> Shopers;
     public BombSpawner BombSpawner;
+    public List<Portal> Portals;
 
     [Button]
     private void Resolve()
@@ -43,6 +44,8 @@ namespace Maps
       Shopers = GetComponentsInChildren<Shoper>().ToList();
 
       BombSpawner = GetComponentInChildren<BombSpawner>();
+      
+      Portals = GetComponentsInChildren<Portal>().ToList();
     }
   }
 }

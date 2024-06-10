@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AudioServices;
 using Cameras;
 using CoroutineRunners;
@@ -9,6 +10,7 @@ using Gameplay.CurrencyRepositories.BackpackStorages;
 using Gameplay.Quests;
 using Gameplay.Spawners.SpawnerFactories;
 using Gameplay.Upgrades;
+using Loggers;
 using Maps;
 using SaveLoadServices;
 using SceneLoaders;
@@ -22,7 +24,7 @@ namespace SceneInstallers.GameLoop
   public class GameLoopInitializer : MonoBehaviour
   {
     public SceneId SceneId;
-    
+
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private SaveLoadService _saveLoadService;
     [Inject] private GameLoopInstaller _gameLoopInstaller;
@@ -43,13 +45,13 @@ namespace SceneInstallers.GameLoop
     private void Start()
     {
       LogScenes();
-      
+
       _saveLoadService.LoadProgress();
 
       Time.timeScale = 1f;
 
       _playerStatsProvider.Start();
-
+      
       _mapFactory.Create(_gameLoopInstaller.transform);
       _playerFactory.Create(_gameLoopInstaller.transform);
       _cameraFactory.Create(_gameLoopInstaller.transform);
@@ -62,7 +64,8 @@ namespace SceneInstallers.GameLoop
     public void Restart()
     {
       Destroy();
-      _sceneLoader.Load(SceneId.Empty, EnterScene);
+      //_sceneLoader.Load(SceneId.Empty, EnterScene);
+      EnterScene();
     }
 
     private void EnterScene()
@@ -87,16 +90,12 @@ namespace SceneInstallers.GameLoop
 
     private void LogScenes()
     {
-      var sceneList = _sceneLoader.LoadedScenes;
+      List<SceneId> sceneList = _sceneLoader.LoadedScenes;
 
-      string scenes = "";
-      
-      foreach (var scene in sceneList)
-      {
-        scenes += scene + " "; 
-      }
-      
-      Debug.Log(scenes);
+      var scenes = "";
+
+      foreach (SceneId scene in sceneList)
+        scenes += scene + " ";
     }
   }
 }
