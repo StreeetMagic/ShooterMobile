@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Players
   {
     public Player Player;
     public PlayerAnimator PlayerAnimator;
-    public PetSpawnPointsContainer PetSpawnPointsContainer;
+    public PlayerPetSpawnPointsContainer PetSpawnPointsContainer;
 
     public WeaponContainer WeaponContainer;
     public WeaponSwitcher WeaponSwitcher;
@@ -32,7 +32,7 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerInstaller>().FromInstance(this).AsSingle().NonLazy();
 
       Container.Bind<PlayerAnimator>().FromInstance(PlayerAnimator).AsSingle();
-      Container.Bind<PetSpawnPointsContainer>().FromInstance(PetSpawnPointsContainer).AsSingle();
+      Container.Bind<PlayerPetSpawnPointsContainer>().FromInstance(PetSpawnPointsContainer).AsSingle();
       Container.Bind<CharacterController>().FromInstance(GetComponent<CharacterController>()).AsSingle();
 
       Container.Bind<Transform>().FromInstance(transform).AsSingle();

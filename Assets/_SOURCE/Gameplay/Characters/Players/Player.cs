@@ -13,7 +13,7 @@ namespace Gameplay.Characters.Players
     [Inject] public PlayerHenSpawner HenSpawner { get; }
     [Inject] public PlayerInputHandler InputHandler { get; }
     [Inject] public PlayerStandsOnSamePosition PlayerStandsOnSamePosition { get; }
-    [Inject] public PetSpawnPointsContainer PetSpawnPointsContainer { get; }
+    [Inject] public PlayerPetSpawnPointsContainer PetSpawnPointsContainer { get; }
     [Inject] public Transform Transform { get; }
   }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Gameplay.Characters.Players.PetSpawnPointsContainers
 {
-  public class PetSpawnPointsContainer : MonoBehaviour
+  public class PlayerPetSpawnPointsContainer : MonoBehaviour
   {
     public List<Transform> SpawnPoints;
   

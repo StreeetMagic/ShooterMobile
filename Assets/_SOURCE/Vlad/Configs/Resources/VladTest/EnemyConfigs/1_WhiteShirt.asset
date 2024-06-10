@@ -30,12 +30,12 @@ MonoBehaviour:
   AggroRadius: 2
   IsShooter: 1
   ShootRange: 5
-  FireRate: 10
+  FireRate: 3
   BulletDamage: 10
   MagazineCapacity: 10
-  MagazineReloadTime: 2
-  BulletsPerShot: 5
-  BulletSpreadAngle: 10
+  MagazineReloadTime: 1
+  BulletsPerShot: 1
+  BulletSpreadAngle: 3
   GrenadeThrower: 1
   GrenadeTypeId: 1
   GrenadeThrowCooldown: 3

@@ -555,6 +555,21 @@ PrefabInstance:
       propertyPath: ActivationDelay
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1457781903533225741, guid: 4616f17e4dcd45146879ac13fe9603cd,
+        type: 3}
+      propertyPath: Count
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457781903533225741, guid: 4616f17e4dcd45146879ac13fe9603cd,
+        type: 3}
+      propertyPath: EnemyId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457781903533225741, guid: 4616f17e4dcd45146879ac13fe9603cd,
+        type: 3}
+      propertyPath: RespawnTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2912069745698748524, guid: 4616f17e4dcd45146879ac13fe9603cd,
         type: 3}
       propertyPath: m_LocalPosition.x
