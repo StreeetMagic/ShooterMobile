@@ -73,15 +73,17 @@ namespace Gameplay.Characters.Enemies
 
     private void RegisterStates()
     {
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyBootstrapState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyPatrolingState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChasingPlayerState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChooseAttackState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyChooseCondiditionState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyThrowingGrenadeState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyShootingState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyMeleeAttackingState>());
-      Container.Resolve<EnemyStatesProvider>().AddState(Container.Resolve<EnemyReloadingWeaponState>());
+      var enemyStatesProvider = Container.Resolve<EnemyStatesProvider>();
+      
+      enemyStatesProvider.AddState(Container.Resolve<EnemyBootstrapState>());
+      enemyStatesProvider.AddState(Container.Resolve<EnemyPatrolingState>());
+      enemyStatesProvider.AddState(Container.Resolve<EnemyChasingPlayerState>());
+      enemyStatesProvider.AddState(Container.Resolve<EnemyChooseAttackState>());
+      enemyStatesProvider.AddState(Container.Resolve<EnemyChooseCondiditionState>());
+      enemyStatesProvider.AddState(Container.Resolve<EnemyThrowingGrenadeState>());
+      enemyStatesProvider.AddState(Container.Resolve<EnemyShootingState>());
+      enemyStatesProvider.AddState(Container.Resolve<EnemyMeleeAttackingState>());
+      enemyStatesProvider.AddState(Container.Resolve<EnemyReloadingWeaponState>());
     }
   }
 }
