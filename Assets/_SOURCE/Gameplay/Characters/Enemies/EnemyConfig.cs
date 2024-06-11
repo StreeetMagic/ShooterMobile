@@ -9,7 +9,7 @@ namespace Gameplay.Characters.Enemies
   public class EnemyConfig : ScriptableObject
   {
     [Tooltip("Идентификатор")]
-    public EnemyId Id;
+    public EnemyTypeId Id;
 
     [Tooltip("Скорость движения во время патрулирования")]
     public float MoveSpeed = 5f;

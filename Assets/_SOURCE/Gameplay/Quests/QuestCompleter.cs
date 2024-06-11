@@ -25,7 +25,7 @@ namespace Gameplay.Quests
       }
     }
 
-    public void OnEnemyKilled(EnemyId enemyId)
+    public void OnEnemyKilled(EnemyTypeId enemyId)
     {
       foreach (Quest quest in _storage.GetAllQuests())
       {
@@ -37,7 +37,7 @@ namespace Gameplay.Quests
           if (subQuest.Setup.Config.Type != SubQuestType.KillOrinaryPersons)
             continue;
 
-          if (enemyId == EnemyId.WhiteShirt)
+          if (enemyId == EnemyTypeId.TerKnife)
             subQuest.CompletedQuantity.Value++;
         }
       }

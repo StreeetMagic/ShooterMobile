@@ -47,7 +47,7 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
       // ReSharper disable once UnusedVariable
       ParticleImage particleImage = PlayerMoneyParticle(position);
 
-      int count = 5;
+      int count = 1;
       float cooldown = .1f;
       float duration = 1.7f;
 

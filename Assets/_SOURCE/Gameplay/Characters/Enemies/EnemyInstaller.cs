@@ -29,7 +29,7 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
       Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();
       Container.Bind<EnemySpawner>().FromInstance(_spawner).AsSingle().NonLazy();
-      Container.Bind<EnemyId>().FromInstance(_enemyConfig.Id).AsSingle().NonLazy();
+      Container.Bind<EnemyTypeId>().FromInstance(_enemyConfig.Id).AsSingle().NonLazy();
 
       Container.BindInterfacesAndSelfTo<EnemyStateMachine>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyStatesProvider>().AsSingle().NonLazy();

@@ -87,7 +87,7 @@ namespace Gameplay.Quests.Subquests
 
     private List<Transform> GetKillOrinaryPersonsTargetsOrNull()
     {
-      EnemyId enemyId = EnemyId.WhiteShirt;
+      EnemyTypeId enemyId = EnemyTypeId.TerKnife;
 
       List<EnemySpawner> spawners = _enemySpawnerFactory
         .Spawners

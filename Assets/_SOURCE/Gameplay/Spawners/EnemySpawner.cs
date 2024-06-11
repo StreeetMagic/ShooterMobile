@@ -31,7 +31,7 @@ namespace Gameplay.Spawners
 
     public event Action<IHealth> EnemyDied;
 
-    public EnemyId EnemyId { get; private set; }
+    public EnemyTypeId EnemyId { get; private set; }
     public List<Enemy> Enemies { get; } = new();
 
     private void OnDisable()
@@ -39,7 +39,7 @@ namespace Gameplay.Spawners
       Enemies.Clear();
     }
 
-    public void Init(EnemyId enemyId, List<SpawnPoint> spawnPoints, int respawnTime)
+    public void Init(EnemyTypeId enemyId, List<SpawnPoint> spawnPoints, int respawnTime)
     {
       EnemyId = enemyId;
       _spawnPoints = spawnPoints;

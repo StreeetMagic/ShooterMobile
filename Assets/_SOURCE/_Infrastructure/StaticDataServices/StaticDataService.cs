@@ -27,7 +27,7 @@ namespace StaticDataServices
     private PlayerConfig _playerConfig;
     private ExpirienceConfig _expirienceConfig;
     private Dictionary<StatId, float> _stats;
-    private Dictionary<EnemyId, EnemyConfig> _enemyConfigs;
+    private Dictionary<EnemyTypeId, EnemyConfig> _enemyConfigs;
     private Dictionary<StatId, UpgradeConfig> _upgradeConfigs;
     private Dictionary<CurrencyId, LootConfig> _lootConfigs;
     private Dictionary<MusicId, MusicConfig> _musicConfigs;
@@ -49,7 +49,7 @@ namespace StaticDataServices
 
     public PlayerConfig GetPlayerConfig() => _playerConfig;
     public DefaultProjectProgressConfig GetDefaultProjectProgressConfig() => _defaultProjectProgressConfig;
-    public EnemyConfig GetEnemyConfig(EnemyId enemyId) => _enemyConfigs[enemyId];
+    public EnemyConfig GetEnemyConfig(EnemyTypeId enemyId) => _enemyConfigs[enemyId];
     public UpgradeConfig GetUpgradeConfig(StatId id) => _upgradeConfigs[id];
     public LootConfig GetLootConfig(CurrencyId lootDropId) => _lootConfigs[lootDropId];
     public MusicConfig GetMusicConfig(MusicId musicId) => _musicConfigs[musicId];

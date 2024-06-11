@@ -10,33 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a87b00ad87c74a7a9452ce824abf0291, type: 3}
-  m_Name: 1_WhiteShirt
+  m_Name: 3_TerSniper
   m_EditorClassIdentifier: 
-  Id: 1
-  MoveSpeed: 3
-  RunSpeed: 5
-  PatrolingRadius: 8
+  Id: 3
+  MoveSpeed: 5
+  RunSpeed: 3
+  PatrolingRadius: 5
   HealingDelay: 1
   WaitTimeAfterMove: 0.1
-  InitialHealth: 5000
-  MoneyReward: 2
+  InitialHealth: 20000
+  MoneyReward: 3
   HealMultiplier: 1
   LootDrops:
   - Id: 1
-    Level: 1
+    Level: 2
   - Id: 2
     Level: 1
-  Expirience: 25
-  AggroRadius: 2
+  Expirience: 30
+  AggroRadius: 3
   IsShooter: 1
-  ShootRange: 5
-  FireRate: 3
-  BulletDamage: 10
+  ShootRange: 7
+  FireRate: 1
+  BulletDamage: 1
   MagazineCapacity: 10
-  MagazineReloadTime: 1
+  MagazineReloadTime: 2
   BulletsPerShot: 1
-  BulletSpreadAngle: 3
-  GrenadeThrower: 1
+  BulletSpreadAngle: 1
+  GrenadeThrower: 0
   GrenadeTypeId: 1
   GrenadeThrowCooldown: 3
   GrenadeThrowRandomDelay: 1
@@ -44,5 +44,5 @@ MonoBehaviour:
   MaxGrenadesCount: 3
   GrenadeThrowRange: 5
   MeleeRange: 2
-  MeeleAttackDuration: 0.2
-  MeeleAttackDamage: 1000
+  MeeleAttackDuration: 0.3
+  MeeleAttackDamage: 100

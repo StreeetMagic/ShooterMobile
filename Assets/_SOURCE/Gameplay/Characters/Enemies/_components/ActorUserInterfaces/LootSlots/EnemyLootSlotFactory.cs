@@ -23,7 +23,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
       _staticDataService = staticDataService;
     }
 
-    public void Create(Transform parent, EnemyId id)
+    public void Create(Transform parent, EnemyTypeId id)
     {
       var prefab = _assetProvider.Get<EnemyLootSlot>();
       EnemyConfig enemyConfig = _staticDataService.GetEnemyConfig(id);

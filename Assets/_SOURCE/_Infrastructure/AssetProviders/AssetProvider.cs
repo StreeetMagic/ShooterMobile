@@ -37,7 +37,7 @@ namespace AssetProviders
       return load;
     }
 
-    public EnemyMeshModel GetEnemyMeshModel(EnemyId enemyId) =>
+    public EnemyMeshModel GetEnemyMeshModel(EnemyTypeId enemyId) =>
       Resources.Load<EnemyMeshModel>(enemyId.ToString());
 
     public GameObject Get(string path)

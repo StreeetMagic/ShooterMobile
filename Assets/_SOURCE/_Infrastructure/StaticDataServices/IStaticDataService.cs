@@ -25,7 +25,7 @@ namespace StaticDataServices
     Dictionary<RewardId, RewardConfig> GetRewardConfigs();
     
     PlayerConfig GetPlayerConfig();
-    EnemyConfig GetEnemyConfig(EnemyId enemyId);
+    EnemyConfig GetEnemyConfig(EnemyTypeId enemyId);
     UpgradeConfig GetUpgradeConfig(StatId id);
     LootConfig GetLootConfig(CurrencyId lootDropId);
     MusicConfig GetMusicConfig(MusicId musicId);

@@ -1369,7 +1369,7 @@ MonoBehaviour:
     to: 1
   _textureSheetFPS: 25
   _textureSheetCycles: 1
-  _rate: 10
+  _rate: 3
   _rateOverLifetime: 0
   _rateOverDistance: 0
   _bursts: []
@@ -1563,8 +1563,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   moduleEmitterFoldout: 1
-  moduleParticleFoldout: 1
-  moduleMovementFoldout: 1
+  moduleParticleFoldout: 0
+  moduleMovementFoldout: 0
   moduleEventsFoldout: 0
   m_Texture: {fileID: 2800000, guid: b227706102845ea418319eff06bacbec, type: 3}
 --- !u!114 &764227823471529451
