@@ -14,7 +14,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
 
     public void Enter()
     {
-      new DebugLogger().Log("Dying");
       _animatorProvider.Instance.PlayDeathAnimation();
     }
 
