@@ -12,9 +12,6 @@ namespace Gameplay.Characters.Players
 
     public float GravityScale;
 
-    [Tooltip("Скорострельность. Выстрелов в секунду")]
-    public float FireRate = 10;
-
     [Tooltip("Скорость полета пули")]
     public int BulletSpeed = 10;
 

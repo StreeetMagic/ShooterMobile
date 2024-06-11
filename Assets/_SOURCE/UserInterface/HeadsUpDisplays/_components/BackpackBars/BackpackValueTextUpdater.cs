@@ -19,13 +19,12 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
     private void OnEnable()
     {
       DisplayText();
-      _playerStatsProvider.GetStat(StatId.BackpackCapacity).ValueChanged += OnBackpackCapacityChanged;
+
       _backpackStorage.LootDrops.Changed += OnLootDropsChanged;
     }
 
     private void OnDisable()
     {
-      _playerStatsProvider.GetStat(StatId.BackpackCapacity).ValueChanged -= OnBackpackCapacityChanged;
       _backpackStorage.LootDrops.Changed -= OnLootDropsChanged;
     }
 
@@ -41,7 +40,7 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
 
     private void DisplayText()
     {
-      float max = _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
+      float max = _playerStatsProvider.GetStat(StatId.BackpackCapacity);
       int current = _backpackStorage.Volume;
       Text.text = $"{current}/{max}";
     }

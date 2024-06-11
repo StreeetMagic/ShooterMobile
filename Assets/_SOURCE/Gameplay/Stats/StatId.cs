@@ -8,7 +8,7 @@ namespace Gameplay.Stats
     ChickenCount = 3,
     GroupAttack = 4,
     MoveSpeed = 5,
-    FireRange = 6,
+   // FireRange = 6,
     Health = 7,
   }
 }

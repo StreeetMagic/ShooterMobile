@@ -17,7 +17,7 @@ namespace Gameplay.Characters.Pets.Hens
     private float _timeLeft;
 
     private Transform Target => _playerProvider.Instance.TargetHolder.CurrentTarget.transform;
-    private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;
+    private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed);
 
     private void Awake()
     {

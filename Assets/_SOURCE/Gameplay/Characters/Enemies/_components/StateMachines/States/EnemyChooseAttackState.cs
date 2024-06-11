@@ -51,7 +51,7 @@ namespace Gameplay.Characters.Enemies.States
       {
         _stateMachine.Enter<EnemyMeleeAttackingState>();
       }
-      else if (_grenadeThrower.ReadyToThrow && _config.GrenadeThrower)
+      else if (_grenadeThrower.ReadyToThrow && _config.IsGrenadeThrower)
       {
         _stateMachine.Enter<EnemyThrowingGrenadeState>();
       }
@@ -80,7 +80,7 @@ namespace Gameplay.Characters.Enemies.States
       if (_config.IsShooter)
         distances.Add(_config.ShootRange);
 
-      if (_config.GrenadeThrower)
+      if (_config.IsGrenadeThrower)
         distances.Add(_config.GrenadeThrowRange);
 
       distances.Add(_config.MeleeRange);

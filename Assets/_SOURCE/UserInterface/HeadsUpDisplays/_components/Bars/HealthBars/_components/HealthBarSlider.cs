@@ -24,7 +24,7 @@ namespace UserInterface.HeadsUpDisplays.Bars.HealthBars
 
     private void UpdateSlider()
     {
-      float max = _playerStatsProvider.GetStat(StatId.Health).Value;
+      float max = _playerStatsProvider.GetStat(StatId.Health);
       float current = _playerProvider.Instance.Health.Current.Value;
       Slider.value = Mathf.MoveTowards(Slider.value, current / max, Time.deltaTime * SliderUpdateSpeed);
     }

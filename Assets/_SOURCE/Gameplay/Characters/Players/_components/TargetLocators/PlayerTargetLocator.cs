@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Gameplay.Stats;
+using StaticDataServices;
 using UnityEngine;
 using Zenject;
 
@@ -9,20 +10,23 @@ namespace Gameplay.Characters.Players.TargetLocators
   {
     private const int MaxTargets = 20;
 
-    private readonly PlayerStatsProvider _playerStatsProvider;
     private readonly PlayerTargetHolder _playerTargetHolder;
-    private readonly Collider[] _colliders = new Collider[MaxTargets];
     private readonly Transform _transform;
+    private readonly IStaticDataService _staticDataService;
+    private readonly PlayerWeaponIdProvider _playerWeaponIdProvider;
+      
+    private readonly Collider[] _colliders = new Collider[MaxTargets];
 
-    public PlayerTargetLocator(PlayerStatsProvider playerStatsProvider,
-      PlayerTargetHolder playerTargetHolder, Transform transform)
+    public PlayerTargetLocator(PlayerTargetHolder playerTargetHolder, Transform transform, 
+      IStaticDataService staticDataService, PlayerWeaponIdProvider playerWeaponIdProvider)
     {
-      _playerStatsProvider = playerStatsProvider;
       _playerTargetHolder = playerTargetHolder;
       _transform = transform;
+      _staticDataService = staticDataService;
+      _playerWeaponIdProvider = playerWeaponIdProvider;
     }
 
-    private float Radius => _playerStatsProvider.GetStat(StatId.FireRange).Value;
+    private float Radius => _staticDataService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange; 
 
     public void Tick()
     {

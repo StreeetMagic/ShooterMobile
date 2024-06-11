@@ -14,7 +14,7 @@ namespace Gameplay.Characters.Pets.Hens
     [Inject] private HenRotator _henRotator;
     [Inject] private HenAnimator _henAnimator;
 
-    private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed).Value;
+    private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed);
     private Transform Player => _playerProvider.Instance.transform;
 
     private void Awake()

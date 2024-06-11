@@ -9,17 +9,17 @@ namespace Gameplay.Weapons
     [Inject] private Weapon _weapon;
     [Inject] private WeaponContainer _weaponContainer;
     [Inject] private WeaponShootingPoint _shootingPoint;
-    [Inject] private PlayerWeaponId _playerWeaponId;
+    [Inject] private PlayerWeaponIdProvider _playerWeaponIdProvider;
 
     private void Start()
     {
-      if (_playerWeaponId.WeaponTypeId == WeaponTypeId.Unknown)
+      if (_playerWeaponIdProvider.WeaponTypeId == WeaponTypeId.Unknown)
         throw new System.Exception("У игрока не указан айдишник оружия");
 
       DisableAll();
       NullShootingPoint();
 
-      SwitchTo(_playerWeaponId.WeaponTypeId);
+      SwitchTo(_playerWeaponIdProvider.WeaponTypeId);
     }
 
     public void SwitchTo(WeaponTypeId weaponTypeId)

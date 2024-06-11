@@ -27,7 +27,7 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
 
     private void UpdateSlider()
     {
-      float max = _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
+      float max = _playerStatsProvider.GetStat(StatId.BackpackCapacity);
       float current = _backpackStorage.Volume;
       Slider.value = Mathf.MoveTowards(Slider.value, current / max, Time.deltaTime * SliderUpdateSpeed);
     }

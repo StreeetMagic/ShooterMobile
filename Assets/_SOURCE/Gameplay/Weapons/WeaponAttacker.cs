@@ -16,13 +16,13 @@ namespace Gameplay.Weapons
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private ProjectileFactory _projectileFactory;
     [Inject] private AudioService _audioService;
-    [Inject] private PlayerWeaponId _playerWeaponId;
+    [Inject] private PlayerWeaponIdProvider _playerWeaponIdProvider;
 
     private float _timeLeft;
     private float _burstPauseLeft;
     private int _burstShots;
 
-    private WeaponConfig WeaponConfig => _staticDataService.GetWeaponConfig(_playerWeaponId.WeaponTypeId);
+    private WeaponConfig WeaponConfig => _staticDataService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId);
     private float Cooldown => (float)1 / WeaponConfig.FireRate;
 
     private Transform Transform => _playerProvider.Instance.WeaponShootingPointPoint.Transform;

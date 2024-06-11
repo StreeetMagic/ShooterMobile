@@ -2,6 +2,7 @@
 using Gameplay.Grenades;
 using Gameplay.Loots;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Gameplay.Characters.Enemies
 {
@@ -23,14 +24,11 @@ namespace Gameplay.Characters.Enemies
     [Tooltip("Время после которого включится лечение при отстутствии входящего урона")]
     public float HealingDelay = 1f;
 
-    [Tooltip("Время ожидания после достижения маршрутной точки")]
-    public float WaitTimeAfterMove = .1f;
+    // [Tooltip("Время ожидания после достижения маршрутной точки")]
+    // public float WaitTimeAfterMove = .1f;
 
     [Tooltip("Начальное здоровье")] 
     public float InitialHealth = 100f;
-
-    [Tooltip("Награда за убийство")] 
-    public int MoneyReward = 10;
 
     [Tooltip("Множитель восстановления здоровья")]
     public float HealMultiplier = 1;
@@ -75,7 +73,7 @@ namespace Gameplay.Characters.Enemies
     /************************/
 
     [Tooltip("Способность бросать гранату")] [Space]
-    public bool GrenadeThrower = true;
+    public bool IsGrenadeThrower = true;
 
     [Tooltip("ID гранаты")]
     public GrenadeTypeId GrenadeTypeId = GrenadeTypeId.Frag1;

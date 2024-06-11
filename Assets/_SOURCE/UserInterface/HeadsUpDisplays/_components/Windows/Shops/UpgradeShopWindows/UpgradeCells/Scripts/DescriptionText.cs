@@ -49,8 +49,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
 
       float currentValue =
         _playerStatsProvider
-          .GetStat(Id)
-          .Value;
+          .GetStat(Id);
 
       int nextValue =
         _staticDataService

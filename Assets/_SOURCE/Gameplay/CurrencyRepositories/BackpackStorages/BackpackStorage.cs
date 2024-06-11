@@ -20,7 +20,7 @@ namespace Gameplay.CurrencyRepositories.BackpackStorages
       _playerStatsProvider = playerStatsProvider;
     }
 
-    public bool IsFull => Volume >= _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
+    public bool IsFull => Volume >= _playerStatsProvider.GetStat(StatId.BackpackCapacity);
     public ReactiveList<LootDrop> LootDrops { get; } = new();
 
     public int Volume =>

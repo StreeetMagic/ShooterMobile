@@ -18,7 +18,7 @@ namespace UserInterface.HeadsUpDisplays.Bars.HealthBars
       if (_playerProvider.Instance == null)
         return;
 
-      float maxHealth = _playerStatsProvider.GetStat(StatId.Health).Value;
+      float maxHealth = _playerStatsProvider.GetStat(StatId.Health);
       float currentHealth = _playerProvider.Instance.Health.Current.Value;
 
       float healthPercentage = currentHealth / maxHealth * 100;

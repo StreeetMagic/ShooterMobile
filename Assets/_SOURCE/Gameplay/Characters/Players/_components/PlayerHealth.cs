@@ -12,7 +12,7 @@ namespace Gameplay.Characters.Players
     public PlayerHealth(PlayerStatsProvider playerStatsProvider, GameLoopInitializer gameLoopInitializer)
     {
       _gameLoopInitializer = gameLoopInitializer;
-      Current.Value = playerStatsProvider.GetStat(StatId.Health).Value;
+      Current.Value = playerStatsProvider.GetStat(StatId.Health);
     }
 
     public event Action Died;

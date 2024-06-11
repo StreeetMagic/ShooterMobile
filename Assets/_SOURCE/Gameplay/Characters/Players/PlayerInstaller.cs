@@ -47,7 +47,7 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerRotator>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerRotatorController>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerInputHandler>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<PlayerWeaponId>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponIdProvider>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerStandsOnSamePosition>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerToTargetAggro>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponRaiser>().AsSingle().NonLazy();
@@ -63,13 +63,13 @@ namespace Gameplay.Characters.Players
     public void Initialize()
     {
       _saveLoadServices.ProgressReaders.Add(Container.Resolve<PlayerMover>());
-      _saveLoadServices.ProgressReaders.Add(Container.Resolve<PlayerWeaponId>());
+      _saveLoadServices.ProgressReaders.Add(Container.Resolve<PlayerWeaponIdProvider>());
     }
 
     public void Dispose()
     {
       _saveLoadServices.ProgressReaders.Remove(Container.Resolve<PlayerMover>());
-      _saveLoadServices.ProgressReaders.Remove(Container.Resolve<PlayerWeaponId>());
+      _saveLoadServices.ProgressReaders.Remove(Container.Resolve<PlayerWeaponIdProvider>());
     }
   }
 }

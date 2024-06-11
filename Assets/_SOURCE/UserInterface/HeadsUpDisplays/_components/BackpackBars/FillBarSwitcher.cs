@@ -21,7 +21,6 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
     {
       Setup();
 
-      _playerStatsProvider.GetStat(StatId.BackpackCapacity).ValueChanged += OnBackpackCapacityChanged;
       _backpackStorage.LootDrops.Changed += OnLootDropsChanged;
     }
 
@@ -37,7 +36,7 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
 
     private void Setup()
     {
-      bool isFull = _backpackStorage.Volume >= _playerStatsProvider.GetStat(StatId.BackpackCapacity).Value;
+      bool isFull = _backpackStorage.Volume >= _playerStatsProvider.GetStat(StatId.BackpackCapacity);
 
       if (FullBar == null || NotFullBar == null)
         return;

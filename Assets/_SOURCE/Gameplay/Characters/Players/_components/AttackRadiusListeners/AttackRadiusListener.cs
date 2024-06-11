@@ -1,4 +1,4 @@
-using Gameplay.Stats;
+using StaticDataServices;
 using UnityEngine;
 using Zenject;
 
@@ -8,7 +8,8 @@ namespace Gameplay.Characters.Players.AttackRadiusListeners
   {
     private RectTransform _rectTransform;
 
-    [Inject] private PlayerStatsProvider _playerStatsProvider;
+    [Inject] private PlayerWeaponIdProvider _playerWeaponIdProvider;
+    [Inject] private IStaticDataService _staticDataService;
 
     private void Awake()
     {
@@ -17,15 +18,9 @@ namespace Gameplay.Characters.Players.AttackRadiusListeners
 
     private void OnEnable()
     {
-      float fireRangeValue = _playerStatsProvider.GetStat(StatId.FireRange).Value;
+      float fireRangeValue = _staticDataService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange;
 
       OnUpgradeChanged(fireRangeValue);
-      _playerStatsProvider.GetStat(StatId.FireRange).ValueChanged += OnUpgradeChanged;
-    }
-
-    private void OnDisable()
-    {
-      _playerStatsProvider.GetStat(StatId.FireRange).ValueChanged -= OnUpgradeChanged;
     }
 
     private void OnUpgradeChanged(float value)

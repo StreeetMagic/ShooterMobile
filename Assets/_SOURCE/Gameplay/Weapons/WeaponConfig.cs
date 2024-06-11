@@ -9,18 +9,22 @@ namespace Gameplay.Weapons
 
     public WeaponAttackTypeId WeaponAttackTypeId;
 
+    [Tooltip("Разлет пуль в градусах")]
     public float BulletSpreadAngle;
 
     [Tooltip("Количество пуль на один выстрел")]
-    public int BulletsPerShot;
-  
+    public int BulletsPerShot = 1;
+
     [Tooltip("Количество выстрелов в бёрст")]
-    public int ShotsPerBurst;
+    public int ShotsPerBurst = 3;
 
     [Tooltip("Время между очередями у бёрст оружий")]
-    public float TimeBetweenBursts;
+    public float TimeBetweenBursts = 0.3f;
 
     [Tooltip("Скорострельность выстрелов в секунду")]
-    public int FireRate;
+    public int FireRate = 5;
+
+    [Tooltip("Прицельная дальность стрельбы")]
+    public float FireRange = 10;
   }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Gameplay.Stats;
+using StaticDataServices;
 using UnityEngine;
 using Zenject;
 
@@ -9,13 +10,18 @@ namespace Gameplay.Characters.Players
   {
     private readonly Transform _transform;
     private readonly PlayerStatsProvider _playerStatsProvider;
+    private readonly PlayerWeaponIdProvider _playerWeaponIdProvider;
+    private readonly IStaticDataService _staticDataService;
 
-    private List<ITargetTrigger> _targets = new();
+    private readonly List<ITargetTrigger> _targets = new();
 
-    public PlayerTargetHolder(Transform transform, PlayerStatsProvider playerStatsProvider)
+    public PlayerTargetHolder(Transform transform, PlayerStatsProvider playerStatsProvider,
+      PlayerWeaponIdProvider playerWeaponIdProvider, IStaticDataService staticDataService)
     {
       _transform = transform;
       _playerStatsProvider = playerStatsProvider;
+      _playerWeaponIdProvider = playerWeaponIdProvider;
+      _staticDataService = staticDataService;
     }
 
     public bool HasTarget { get; private set; }
@@ -74,7 +80,7 @@ namespace Gameplay.Characters.Players
 
       foreach (ITargetTrigger target in _targets)
       {
-        if (!(Vector3.Distance(_transform.position, target.transform.position) > _playerStatsProvider.GetStat(StatId.FireRange).Value))
+        if (!(Vector3.Distance(_transform.position, target.transform.position) > _staticDataService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange))
           continue;
 
         farTargets.Add(target);

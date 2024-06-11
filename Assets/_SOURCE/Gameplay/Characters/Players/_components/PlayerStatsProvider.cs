@@ -45,7 +45,7 @@ namespace Gameplay.Characters.Players
       }
     }
 
-    public ReactiveProperty<float> GetStat(StatId id)
+    public float GetStat(StatId id)
     {
       float value = 0;
 
@@ -57,7 +57,7 @@ namespace Gameplay.Characters.Players
       if (_questStats.TryGetValue(id, out ReactiveProperty<float> questStat))
         value += questStat.Value;
 
-      return new ReactiveProperty<float>(value);
+      return value; 
     }
 
     private void UpdateValues()

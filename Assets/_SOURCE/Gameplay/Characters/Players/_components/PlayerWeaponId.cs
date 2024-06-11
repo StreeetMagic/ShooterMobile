@@ -5,9 +5,9 @@ using StaticDataServices;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerWeaponId : IProgressWriter
+  public class PlayerWeaponIdProvider : IProgressWriter
   {
-    public PlayerWeaponId(IStaticDataService staticDataService)
+    public PlayerWeaponIdProvider(IStaticDataService staticDataService)
     {
       WeaponTypeId = staticDataService.GetPlayerConfig().StartWeapon;
     }
