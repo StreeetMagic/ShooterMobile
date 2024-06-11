@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using Gameplay.Characters.Players;
 using StateMachine;
 using UnityEngine;
@@ -17,12 +15,14 @@ namespace Gameplay.Characters.Enemies.States
     private readonly EnemyToSpawnerDistance _toSpawnerDistance;
     private readonly EnemyReturnToSpawnStatus _returnToSpawnStatus;
     private readonly EnemyWeaponReloader _reloader;
+    private readonly EnemyMaxAttakingRange _enemyMaxAttakingRange;
 
     private float _shootTimeLeft;
 
     public EnemyChooseAttackState(PlayerProvider playerProvider, EnemyConfig config,
       Enemy enemy, EnemyStateMachine stateMachine, EnemyGrenadeThrower grenadeThrower,
-      EnemyToSpawnerDistance toSpawnerDistance, EnemyReturnToSpawnStatus returnToSpawnStatus, EnemyWeaponReloader reloader)
+      EnemyToSpawnerDistance toSpawnerDistance, EnemyReturnToSpawnStatus returnToSpawnStatus, EnemyWeaponReloader reloader,
+      EnemyMaxAttakingRange enemyMaxAttakingRange)
     {
       _playerProvider = playerProvider;
 
@@ -34,6 +34,7 @@ namespace Gameplay.Characters.Enemies.States
       _toSpawnerDistance = toSpawnerDistance;
       _returnToSpawnStatus = returnToSpawnStatus;
       _reloader = reloader;
+      _enemyMaxAttakingRange = enemyMaxAttakingRange;
     }
 
     public void Enter()
@@ -75,21 +76,9 @@ namespace Gameplay.Characters.Enemies.States
 
     private bool Away()
     {
-      List<float> distances = new();
-
-      if (_config.IsShooter)
-        distances.Add(_config.ShootRange);
-
-      if (_config.IsGrenadeThrower)
-        distances.Add(_config.GrenadeThrowRange);
-
-      distances.Add(_config.MeleeRange);
-
-      float maxDistance = distances.Max();
-
       float distanceToPlayer = Vector3.Distance(_playerProvider.Instance.transform.position, _enemy.transform.position);
 
-      return distanceToPlayer > maxDistance;
+      return distanceToPlayer > _enemyMaxAttakingRange.Get();
     }
 
     private bool InMeleeRange()

@@ -26,5 +26,8 @@ namespace Gameplay.Weapons
 
     [Tooltip("Прицельная дальность стрельбы")]
     public float FireRange = 10;
+    
+    [Tooltip("Урон одного патрона")]
+    public float Damage = 10;
   }
 }

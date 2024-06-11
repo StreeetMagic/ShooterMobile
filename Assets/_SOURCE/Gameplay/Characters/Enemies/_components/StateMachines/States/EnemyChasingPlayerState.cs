@@ -16,10 +16,11 @@ namespace Gameplay.Characters.Enemies.States
     private readonly EnemySpawner _enemySpawner;
     private readonly Enemy _enemy;
     private readonly EnemyReturnToSpawnStatus _enemyReturnToSpawnStatus;
+    private readonly EnemyMaxAttakingRange _enemyMaxAttakingRange;
 
     public EnemyChasingPlayerState(PlayerProvider playerProvider, EnemyMover mover, EnemyAnimatorProvider animatorProvider,
       EnemyConfig config, EnemySpawner enemySpawner, Enemy enemy, EnemyStateMachine enemyStateMachine,
-      EnemyReturnToSpawnStatus enemyReturnToSpawnStatus)
+      EnemyReturnToSpawnStatus enemyReturnToSpawnStatus, EnemyMaxAttakingRange enemyMaxAttakingRange)
     {
       _playerProvider = playerProvider;
       _mover = mover;
@@ -29,6 +30,7 @@ namespace Gameplay.Characters.Enemies.States
       _enemy = enemy;
       _enemyStateMachine = enemyStateMachine;
       _enemyReturnToSpawnStatus = enemyReturnToSpawnStatus;
+      _enemyMaxAttakingRange = enemyMaxAttakingRange;
     }
 
     public void Enter()
@@ -39,7 +41,7 @@ namespace Gameplay.Characters.Enemies.States
     {
       float distance = Vector3.Distance(_playerProvider.Instance.transform.position, _enemy.transform.position);
 
-      if (distance < _config.ShootRange)
+      if (distance < _enemyMaxAttakingRange.Get())
         _enemyStateMachine.Enter<EnemyChooseAttackState>();
       else
         Move();

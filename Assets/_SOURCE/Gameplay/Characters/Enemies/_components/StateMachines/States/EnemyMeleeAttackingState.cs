@@ -14,7 +14,6 @@ namespace Gameplay.Characters.Enemies.States
     private readonly EnemyToPlayerRotator _toPlayerRotator;
 
     private float _wholeTimeleft;
-
     private bool _attacked;
 
     public EnemyMeleeAttackingState(EnemyConfig config, EnemyMeleeAttacker meleeAttacker,
@@ -33,24 +32,25 @@ namespace Gameplay.Characters.Enemies.States
       _attacked = false;
 
       float wholeAttackTime = _config.MeeleAttackDuration;
-
       _wholeTimeleft = wholeAttackTime;
 
-      _animatorProvider.Instance.PlayRandomKnifeHitAnimation(wholeAttackTime);
-
-      _animatorProvider.Instance.KnifeHit += OnHitEventListener;
+      // _animatorProvider.Instance.PlayRandomKnifeHitAnimation(wholeAttackTime);
+      // _animatorProvider.Instance.KnifeHit += OnHitEventListener;
     }
 
     public void Tick()
     {
       _toPlayerRotator.Rotate();
-
       _wholeTimeleft -= Time.deltaTime;
 
-      if (_wholeTimeleft <= 0)
+      if (_wholeTimeleft / _config.MeeleAttackDuration < 0.5f && !_attacked)
       {
-        _enemyStateMachine.Enter<EnemyChooseAttackState>();
+        _attacked = true;
+        _meleeAttacker.Attack();
       }
+
+      if (_wholeTimeleft <= 0)
+        _enemyStateMachine.Enter<EnemyChooseAttackState>();
     }
 
     public void Exit()

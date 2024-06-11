@@ -72,6 +72,6 @@ namespace Gameplay.Characters.Enemies.States
     }
 
     private bool TargetStandsOnSamePosition() =>
-      _playerProvider.Instance.PlayerStandsOnSamePosition.TimeOnSamePosition >= _config.TargetStandsOnSamePositionTime;
+      _playerProvider.Instance.StandsOnSamePosition.TimeOnSamePosition >= _config.TargetStandsOnSamePositionTime;
   }
 }
