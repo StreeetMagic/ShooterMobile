@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationSpeed: 10
   GravityScale: 0.1
-  FireRate: 3
   BulletSpeed: 25
   BombDefuseDuration: 5
   BombDefuseRadius: 5
-  WeaponRaiseTime: 1
+  WeaponRaiseTime: 0.12
   StartWeapon: 12
   Stats:
   - StatId: 1
