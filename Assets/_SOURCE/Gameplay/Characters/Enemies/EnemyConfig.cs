@@ -76,7 +76,7 @@ namespace Gameplay.Characters.Enemies
     public bool IsGrenadeThrower = true;
 
     [Tooltip("ID гранаты")]
-    public GrenadeTypeId GrenadeTypeId = GrenadeTypeId.Frag1;
+    public GrenadeTypeId GrenadeTypeId = GrenadeTypeId.Frag;
 
     [Tooltip("Кулдаун бросания гранаты")]
     public float GrenadeThrowCooldown = 10f;

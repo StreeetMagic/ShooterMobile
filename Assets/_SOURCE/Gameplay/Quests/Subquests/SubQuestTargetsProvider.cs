@@ -59,7 +59,7 @@ namespace Gameplay.Quests.Subquests
     {
       switch (subQuest.Setup.Config.Type)
       {
-        case SubQuestType.KillOrinaryPersons:
+        case SubQuestType.KillTerKnife:
         case SubQuestType.DefuseBomb:
           return GetSubQuestTargetsOrNull(subQuest);
 
@@ -73,7 +73,7 @@ namespace Gameplay.Quests.Subquests
     {
       switch (subQuest.Setup.Config.Type)
       {
-        case SubQuestType.KillOrinaryPersons:
+        case SubQuestType.KillTerKnife:
           return GetKillOrinaryPersonsTargetsOrNull();
 
         case SubQuestType.DefuseBomb:

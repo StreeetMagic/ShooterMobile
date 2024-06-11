@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponTypeId: 8
   WeaponAttackTypeId: 1
-  BulletSpreadAngle: 5
+  BulletSpreadAngle: 1
   BulletsPerShot: 1
-  FireRate: 2
+  ShotsPerBurst: 0
+  TimeBetweenBursts: 0
+  FireRate: 5
+  FireRange: 6

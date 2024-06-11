@@ -25,6 +25,7 @@ namespace Gameplay.Quests
       }
     }
 
+    //TODO: refactor
     public void OnEnemyKilled(EnemyTypeId enemyId)
     {
       foreach (Quest quest in _storage.GetAllQuests())
@@ -34,7 +35,7 @@ namespace Gameplay.Quests
           if (subQuest.State.Value != QuestState.Activated)
             continue;
 
-          if (subQuest.Setup.Config.Type != SubQuestType.KillOrinaryPersons)
+          if (subQuest.Setup.Config.Type != SubQuestType.KillTerKnife)
             continue;
 
           if (enemyId == EnemyTypeId.TerKnife)

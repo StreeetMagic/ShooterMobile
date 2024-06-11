@@ -16,6 +16,7 @@ namespace Scenes
 
     ArenaSand = 200,
     ArenaSnow = 201,
+    ArenaStone = 203,
 
     SimeonTestScene = 900,
     VladTestScene = 901,

@@ -17,6 +17,7 @@ namespace Projects
 
       { SceneId.ArenaSand, GameLoopSceneTypeId.Arena },
       { SceneId.ArenaSnow, GameLoopSceneTypeId.Arena },
+      { SceneId.ArenaStone, GameLoopSceneTypeId.Arena },
 
       { SceneId.Unknown, GameLoopSceneTypeId.Infrastructure },
       { SceneId.Initial, GameLoopSceneTypeId.Infrastructure },

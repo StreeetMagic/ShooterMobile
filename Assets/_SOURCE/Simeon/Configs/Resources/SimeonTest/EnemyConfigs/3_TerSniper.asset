@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87b00ad87c74a7a9452ce824abf0291, type: 3}
+  m_Name: 3_TerSniper
+  m_EditorClassIdentifier: 
+  Id: 3
+  MoveSpeed: 5
+  RunSpeed: 3
+  PatrolingRadius: 5
+  HealingDelay: 1
+  InitialHealth: 20000
+  HealMultiplier: 1
+  LootDrops:
+  - Id: 1
+    Level: 2
+  - Id: 2
+    Level: 1
+  Expirience: 30
+  AggroRadius: 3
+  IsShooter: 1
+  ShootRange: 7
+  FireRate: 1
+  BulletDamage: 1
+  MagazineCapacity: 10
+  MagazineReloadTime: 2
+  BulletsPerShot: 1
+  BulletSpreadAngle: 1
+  IsGrenadeThrower: 0
+  GrenadeTypeId: 3
+  GrenadeThrowCooldown: 3
+  GrenadeThrowRandomDelay: 1
+  TargetStandsOnSamePositionTime: 1
+  MaxGrenadesCount: 3
+  GrenadeThrowRange: 5
+  MeleeRange: 2
+  MeeleAttackDuration: 0.3
+  MeeleAttackDamage: 100
