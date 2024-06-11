@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class SpawnObjects : MonoBehaviour
+public class SpawnDecor : MonoBehaviour
 {
 	public GameObject[] objects;
 	public Transform[] spawnPoints;

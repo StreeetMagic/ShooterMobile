@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class SecondSpawnManager2 : MonoBehaviour
+public class SecondSpawnManager : MonoBehaviour
 {
 	[System.Serializable]
 	public struct Spawnable
