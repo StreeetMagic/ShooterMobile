@@ -1,3 +1,4 @@
+using Gameplay.Characters.Enemies.StateMachines.States;
 using Gameplay.Characters.Players;
 using StateMachine;
 using UnityEngine;
@@ -24,7 +25,11 @@ namespace Gameplay.Characters.Enemies.States
 
     public void Enter()
     {
-      if (_hitStatus.IsHit)
+      if (_enemy.Health.IsDead)
+      {
+        _enemyStateMachine.Enter<EnemyDyingState>();
+      }
+      else if (_hitStatus.IsHit)
       {
         float distanceToPlayer = Vector3.Distance(_playerProvider.Instance.transform.position, _enemy.transform.position);
         float shootRange = _config.ShootRange;

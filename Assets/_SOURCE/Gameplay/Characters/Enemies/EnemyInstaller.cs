@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.Characters.Enemies.StateMachines.States;
 using Gameplay.Characters.Enemies.States;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Spawners;
@@ -69,6 +70,7 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<EnemyShootingState>().AsSingle().NonLazy();
       Container.Bind<EnemyMeleeAttackingState>().AsSingle().NonLazy();
       Container.Bind<EnemyReloadingWeaponState>().AsSingle().NonLazy();
+      Container.Bind<EnemyDyingState>().AsSingle().NonLazy();
     }
 
     private void RegisterStates()
@@ -84,6 +86,7 @@ namespace Gameplay.Characters.Enemies
       enemyStatesProvider.AddState(Container.Resolve<EnemyShootingState>());
       enemyStatesProvider.AddState(Container.Resolve<EnemyMeleeAttackingState>());
       enemyStatesProvider.AddState(Container.Resolve<EnemyReloadingWeaponState>());
+      enemyStatesProvider.AddState(Container.Resolve<EnemyDyingState>());
     }
   }
 }

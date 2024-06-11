@@ -1,4 +1,5 @@
 using System;
+using Gameplay.Characters.Enemies.States;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using Gameplay.Spawners;
@@ -10,12 +11,12 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyHealth : MonoBehaviour, IHealth
   {
-    [Inject] private EnemyAnimatorProvider _animatorProvider;
     [Inject] private RewardService _rewardService;
     [Inject] private CorpseRemover _corpseRemover;
     [Inject] private HitStatus _hitStatus;
     [Inject] private EnemyConfig _config;
     [Inject] private EnemySpawner _spawner;
+    [Inject] private EnemyStateMachine _enemyStateMachine;
 
     public event Action<EnemyConfig, IHealth> Died;
     public event Action<float> Damaged;
@@ -64,9 +65,9 @@ namespace Gameplay.Characters.Enemies
       if (IsDead)
         return;
 
-      _animatorProvider.Instance.PlayDeathAnimation();
-
       IsDead = true;
+      
+      _enemyStateMachine.Enter<EnemyChooseCondiditionState>();
 
       Died?.Invoke(_config, this);
     }
