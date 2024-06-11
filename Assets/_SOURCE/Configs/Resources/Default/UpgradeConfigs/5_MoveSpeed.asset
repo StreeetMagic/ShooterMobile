@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49de1085b16c7c14fa1204eb6fe507c2, type: 3}
   m_Name: 5_MoveSpeed
   m_EditorClassIdentifier: 
-  SortingOrder: 5
   Id: 5
   Title: Move Speed
   Description: Increase move speed
@@ -23,17 +22,17 @@ MonoBehaviour:
     Value: 0
     Cost: 0
   - Level: 1
-    Value: 20
-    Cost: 16
+    Value: 1
+    Cost: 22
   - Level: 2
-    Value: 30
-    Cost: 24
+    Value: 1
+    Cost: 33
   - Level: 3
-    Value: 40
-    Cost: 32
+    Value: 1
+    Cost: 44
   - Level: 4
-    Value: 50
-    Cost: 40
+    Value: 1
+    Cost: 55
   - Level: 5
-    Value: 60
-    Cost: 48
+    Value: 1
+    Cost: 66
