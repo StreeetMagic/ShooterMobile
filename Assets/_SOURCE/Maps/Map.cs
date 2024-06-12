@@ -23,7 +23,7 @@ namespace Maps
     public List<Portal> Portals;
 
     [Button]
-    private void Resolve()
+    public void Setup()
     {
       PlayerSpawnMarker = GetComponentInChildren<PlayerSpawnMarker>();
 

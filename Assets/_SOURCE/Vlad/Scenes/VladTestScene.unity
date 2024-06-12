@@ -1649,18 +1649,6 @@ PrefabInstance:
       addedObject: {fileID: 8831562220649594510}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e49a87bd9897d46916f597a9ed8e2c, type: 3}
---- !u!114 &3034183087731603044 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4476720535849828510, guid: 13e49a87bd9897d46916f597a9ed8e2c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3034183087731603043}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd64540d2659c04398f55a9ff7a9cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &3034183087731603045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7251877282694936901, guid: 13e49a87bd9897d46916f597a9ed8e2c,
@@ -2343,18 +2331,6 @@ PrefabInstance:
       addedObject: {fileID: 6010063278778371601}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e49a87bd9897d46916f597a9ed8e2c, type: 3}
---- !u!114 &4555340208121989422 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4476720535849828510, guid: 13e49a87bd9897d46916f597a9ed8e2c,
-    type: 3}
-  m_PrefabInstance: {fileID: 4555340208121989421}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd64540d2659c04398f55a9ff7a9cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4555340208121989423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7251877282694936901, guid: 13e49a87bd9897d46916f597a9ed8e2c,
@@ -2389,10 +2365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpawnMarker: {fileID: 3666837914712153197}
   EnemySpawnersContainer: {fileID: 249163562838812693}
-  EnemySpawnMarkers:
-  - {fileID: 3034183087731603044}
-  - {fileID: 8147596196965716115}
-  - {fileID: 4555340208121989422}
+  EnemySpawnMarkers: []
   BaseTrigger: {fileID: 8517650819026572270}
   Questers:
   - {fileID: 8056118181934720025}
@@ -4158,18 +4131,6 @@ PrefabInstance:
       addedObject: {fileID: 7352780138847362847}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e49a87bd9897d46916f597a9ed8e2c, type: 3}
---- !u!114 &8147596196965716115 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4476720535849828510, guid: 13e49a87bd9897d46916f597a9ed8e2c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8147596196965716114}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd64540d2659c04398f55a9ff7a9cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8147596196965716116 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7251877282694936901, guid: 13e49a87bd9897d46916f597a9ed8e2c,
@@ -4497,7 +4458,7 @@ GameObject:
   - component: {fileID: 2912069745608358300}
   - component: {fileID: 4582759686168007551}
   m_Layer: 0
-  m_Name: VladMap
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

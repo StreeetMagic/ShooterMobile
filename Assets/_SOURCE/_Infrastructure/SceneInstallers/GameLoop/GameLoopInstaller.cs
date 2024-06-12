@@ -61,6 +61,7 @@ namespace SceneInstallers.GameLoop
 
       Container.BindInterfacesAndSelfTo<MapProvider>().AsSingle();
       Container.Resolve<MapProvider>().Map = Map;
+      Map.Setup();
 
       Container.BindInterfacesAndSelfTo<VisualEffectFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<ParticleImageFactory>().AsSingle();
