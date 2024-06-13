@@ -15,12 +15,16 @@ namespace Gameplay.Characters.Enemies.Animators
     public const string Death4 = nameof(Death4);
     public const string IsRun = nameof(IsRun);
     public const string IsWalk = nameof(IsWalk);
-    public const string Shoot = nameof(Shoot);
-
-    [Header("Knife hit animations")] public string KnifeHit1 = "KnifeHit1";
+    
+    [Header("Knife hit animations")] 
+    public string KnifeHit1 = "KnifeHit1";
     public string KnifeHit2 = "KnifeHit2";
     public string KnifeHit3 = "KnifeHit3";
 
+    [Header("Shoot animations")]
+    public const string Shoot = nameof(Shoot);
+    public const string RifleShoot = nameof(RifleShoot);
+    
     private readonly List<string> _deaths = new()
     {
       Death1,
@@ -32,6 +36,7 @@ namespace Gameplay.Characters.Enemies.Animators
     public Animator Animator;
 
     private static readonly int s_shoot = Animator.StringToHash(Shoot);
+    private static readonly int s_rifleShoot = Animator.StringToHash(RifleShoot);
     private static readonly int s_isWalk = Animator.StringToHash(IsWalk);
     private static readonly int s_isRun = Animator.StringToHash(IsRun);
 
@@ -92,6 +97,11 @@ namespace Gameplay.Characters.Enemies.Animators
     public void PlayShootAnimation()
     {
       Animator.SetTrigger(s_shoot);
+    }
+    
+    public void PlayRifleShootAnimation()
+    {
+      Animator.SetTrigger(s_rifleShoot);
     }
   }
 }
