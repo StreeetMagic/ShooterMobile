@@ -8,12 +8,10 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
   {
     public UpgradeCell UpgradeCell;
     public TextMeshProUGUI Title;
-
-    private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
-
+    
     private void Start()
     {
-      Title.text = Config.Title;
+      Title.text = UpgradeCell.UpgradeContentSetup.Title;
     }
   }
 }

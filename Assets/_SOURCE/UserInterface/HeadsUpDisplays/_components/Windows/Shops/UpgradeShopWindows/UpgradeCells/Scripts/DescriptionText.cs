@@ -1,6 +1,7 @@
 using Gameplay.Characters.Players;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.ConfigServices;
 using TMPro;
 using UnityEngine;
@@ -15,11 +16,13 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
 
     [Inject] private UpgradeService _upgradeService;
     [Inject] private ConfigService _configService;
+    [Inject] private ArtConfigService _artConfigService;
     [Inject] private PlayerStatsProvider _playerStatsProvider;
 
     private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
     private StatId Id => Config.Id;
     private Upgrade Upgrade => _upgradeService.GetUpgrade(Id);
+    private UpgradeContentSetup UpgradeContentSetup => _artConfigService.GetUpgradeContentSetup(Id);
 
     private void Start()
     {
@@ -37,7 +40,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
     {
       if (Upgrade.IsMaxLevel)
       {
-        DescriptionTextUI.text = $"{Config.Description} MAX";
+        DescriptionTextUI.text = $"{UpgradeContentSetup.Description} MAX";
         return;
       }
 
@@ -57,7 +60,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
           .Values[currentLevel + 1]
           .Value;
 
-      string description = Config.Description;
+      string description = UpgradeContentSetup.Description;
 
       DescriptionTextUI.text = $"{description} from {currentValue} to {currentValue + nextValue}";
     }

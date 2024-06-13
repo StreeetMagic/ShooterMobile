@@ -5,6 +5,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
 {
   public class UpgradeCell : MonoBehaviour
   {
-    public UpgradeConfig UpgradeConfig;
+    public UpgradeConfig UpgradeConfig { get; set; }
+    public UpgradeContentSetup UpgradeContentSetup { get; set; } 
   }
 }

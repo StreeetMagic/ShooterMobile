@@ -12,17 +12,8 @@ namespace Gameplay.Upgrades
     [Space] [Tooltip("Идентификатор апгрейда")]
     public StatId Id;
 
-    [Space] [Tooltip("Название апгрейда")] 
-    public string Title;
-
-    [Space] [Tooltip("Описание апгрейда")] 
-    public string Description;
-
     [Space] [Tooltip("Значения апгрейда")] 
     public CurrencyId CurrencyId;
-
-    [Space] [Tooltip("Иконка")] 
-    public Sprite Icon;
     
     [Space] [Tooltip("Значения апгрейда")] 
     public List<UpgradeValue> Values;
