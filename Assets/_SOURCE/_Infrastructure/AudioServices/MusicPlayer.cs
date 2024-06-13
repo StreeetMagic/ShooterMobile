@@ -10,9 +10,9 @@ namespace AudioServices
       audioSource.gameObject.SetActive(true);
       audioSource.loop = true;
       
-      audioSource.clip = musicConfig.AudioClip;
-      audioSource.volume = musicConfig.Volume;
-      audioSource.Play();
+      // audioSource.clip = musicConfig.AudioClip;
+      // audioSource.volume = musicConfig.Volume;
+      // audioSource.Play();
     }
   }
 }

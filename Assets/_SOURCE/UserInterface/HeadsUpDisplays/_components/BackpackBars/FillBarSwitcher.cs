@@ -29,11 +29,6 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
       Setup();
     }
 
-    private void OnBackpackCapacityChanged(float obj)
-    {
-      Setup();
-    }
-
     private void Setup()
     {
       bool isFull = _backpackStorage.Volume >= _playerStatsProvider.GetStat(StatId.BackpackCapacity);

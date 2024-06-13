@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 namespace Sounds
 {
-  [CreateAssetMenu(fileName = "SoundConfig", menuName = "Configs/SoundConfig")]
-  public class SoundConfig : ScriptableObject
+  [Serializable]
+  public class SoundSetup
   {
     public SoundId Id;
     public AudioClip AudioClip;

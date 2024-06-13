@@ -2,7 +2,6 @@ using Musics;
 using PersistentProgresses;
 using SaveLoadServices;
 using Sounds;
-using StaticDataServices;
 using UnityEngine;
 using Zenject;
 using ZenjectFactories;
@@ -12,7 +11,6 @@ namespace AudioServices
   public class AudioService : IInitializable, IProgressWriter
   {
     private readonly ProjectZenjectFactory _factory;
-    private readonly IStaticDataService _staticDataService;
 
     private AudioSourceContainer _container;
     private MusicPlayer _musicPlayer;
@@ -20,10 +18,9 @@ namespace AudioServices
     // ReSharper disable once NotAccessedField.Local
     private SoundPlayer _soundPlayer;
 
-    public AudioService(ProjectZenjectFactory factory, IStaticDataService staticDataService)
+    public AudioService(ProjectZenjectFactory factory)
     {
       _factory = factory;
-      _staticDataService = staticDataService;
     }
 
     public bool IsWorking { get; private set; } = true;
@@ -40,7 +37,7 @@ namespace AudioServices
 
     public void PlayMusic(MusicId id)
     {
-      MusicConfig config = _staticDataService.GetMusicConfig(id);
+      MusicConfig config = null;
       AudioSource audioSource = _container.MusicSources[0];
 
       _musicPlayer.Play(config, audioSource);

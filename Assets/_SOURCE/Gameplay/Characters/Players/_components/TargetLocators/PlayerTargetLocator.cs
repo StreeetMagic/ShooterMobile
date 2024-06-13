@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Gameplay.Stats;
 using StaticDataServices;
 using UnityEngine;
 using Zenject;

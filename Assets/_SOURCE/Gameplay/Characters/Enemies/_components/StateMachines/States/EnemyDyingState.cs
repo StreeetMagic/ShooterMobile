@@ -1,4 +1,3 @@
-using Loggers;
 using StateMachine;
 
 namespace Gameplay.Characters.Enemies.StateMachines.States 

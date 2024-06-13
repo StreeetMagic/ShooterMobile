@@ -33,11 +33,6 @@ namespace UserInterface.HeadsUpDisplays.BackpackBars
       DisplayText();
     }
 
-    private void OnBackpackCapacityChanged(float obj)
-    {
-      DisplayText();
-    }
-
     private void DisplayText()
     {
       float max = _playerStatsProvider.GetStat(StatId.BackpackCapacity);

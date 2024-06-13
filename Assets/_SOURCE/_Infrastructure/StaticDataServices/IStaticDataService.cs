@@ -10,9 +10,7 @@ using Gameplay.Rewards;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
 using Gameplay.Weapons;
-using Musics;
 using PersistentProgresses;
-using Sounds;
 
 namespace StaticDataServices
 {
@@ -28,8 +26,6 @@ namespace StaticDataServices
     EnemyConfig GetEnemyConfig(EnemyTypeId enemyId);
     UpgradeConfig GetUpgradeConfig(StatId id);
     LootConfig GetLootConfig(CurrencyId lootDropId);
-    MusicConfig GetMusicConfig(MusicId musicId);
-    SoundConfig GetSoundConfig(SoundId soundId);
     float GetInitialStat(StatId id);
     QuestConfig GetQuestConfig(QuestId questId);
     ExpirienceConfig GetExpirienceConfig();

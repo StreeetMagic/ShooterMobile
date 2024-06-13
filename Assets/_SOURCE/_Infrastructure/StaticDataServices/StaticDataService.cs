@@ -11,10 +11,8 @@ using Gameplay.Rewards;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
 using Gameplay.Weapons;
-using Musics;
 using PersistentProgresses;
 using Projects;
-using Sounds;
 using UnityEngine;
 
 namespace StaticDataServices
@@ -30,8 +28,6 @@ namespace StaticDataServices
     private Dictionary<EnemyTypeId, EnemyConfig> _enemyConfigs;
     private Dictionary<StatId, UpgradeConfig> _upgradeConfigs;
     private Dictionary<CurrencyId, LootConfig> _lootConfigs;
-    private Dictionary<MusicId, MusicConfig> _musicConfigs;
-    private Dictionary<SoundId, SoundConfig> _soundConfigs;
     private Dictionary<QuestId, QuestConfig> _questConfigs;
     private Dictionary<RewardId, RewardConfig> _rewardConfigs;
     private Dictionary<WeaponTypeId, WeaponConfig> _weaponConfigs;
@@ -52,8 +48,6 @@ namespace StaticDataServices
     public EnemyConfig GetEnemyConfig(EnemyTypeId enemyId) => _enemyConfigs[enemyId];
     public UpgradeConfig GetUpgradeConfig(StatId id) => _upgradeConfigs[id];
     public LootConfig GetLootConfig(CurrencyId lootDropId) => _lootConfigs[lootDropId];
-    public MusicConfig GetMusicConfig(MusicId musicId) => _musicConfigs[musicId];
-    public SoundConfig GetSoundConfig(SoundId soundId) => _soundConfigs[soundId];
     public float GetInitialStat(StatId id) => _stats[id];
     public QuestConfig GetQuestConfig(QuestId questId) => _questConfigs[questId];
     public ExpirienceConfig GetExpirienceConfig() => _expirienceConfig;
@@ -68,8 +62,6 @@ namespace StaticDataServices
       _enemyConfigs = Resources.LoadAll<EnemyConfig>(startPath + "EnemyConfigs").ToDictionary(x => x.Id, x => x);
       _upgradeConfigs = Resources.LoadAll<UpgradeConfig>(startPath + "UpgradeConfigs").ToDictionary(x => x.Id, x => x);
       _lootConfigs = Resources.LoadAll<LootConfig>(startPath + "LootConfigs").ToDictionary(x => x.Id, x => x);
-      _musicConfigs = Resources.LoadAll<MusicConfig>(startPath + "MusicConfigs").ToDictionary(x => x.Id, x => x);
-      _soundConfigs = Resources.LoadAll<SoundConfig>(startPath + "SoundConfigs").ToDictionary(x => x.Id, x => x);
       _questConfigs = Resources.LoadAll<QuestConfig>(startPath + "QuestConfigs").ToDictionary(x => x.Id, x => x);
       _expirienceConfig = Resources.Load<ExpirienceConfig>(startPath + "ExpirienceConfigs/ExpirienceConfig");
       _rewardConfigs = Resources.LoadAll<RewardConfig>(startPath + "RewardConfigs").ToDictionary(x => x.Id, x => x);

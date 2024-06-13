@@ -43,8 +43,6 @@ namespace SceneInstallers.GameLoop
 
     private void Start()
     {
-      LogScenes();
-
       _saveLoadService.LoadProgress();
 
       Time.timeScale = 1f;
@@ -95,6 +93,8 @@ namespace SceneInstallers.GameLoop
 
       foreach (SceneId scene in sceneList)
         scenes += scene + " ";
+      
+      Debug.Log(scenes);
     }
   }
 }

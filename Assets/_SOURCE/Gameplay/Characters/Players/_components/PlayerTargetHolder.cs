@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Gameplay.Stats;
 using StaticDataServices;
 using UnityEngine;
 using Zenject;
@@ -9,17 +8,15 @@ namespace Gameplay.Characters.Players
   public class PlayerTargetHolder : ITickable
   {
     private readonly Transform _transform;
-    private readonly PlayerStatsProvider _playerStatsProvider;
     private readonly PlayerWeaponIdProvider _playerWeaponIdProvider;
     private readonly IStaticDataService _staticDataService;
 
     private readonly List<ITargetTrigger> _targets = new();
 
-    public PlayerTargetHolder(Transform transform, PlayerStatsProvider playerStatsProvider,
+    public PlayerTargetHolder(Transform transform,
       PlayerWeaponIdProvider playerWeaponIdProvider, IStaticDataService staticDataService)
     {
       _transform = transform;
-      _playerStatsProvider = playerStatsProvider;
       _playerWeaponIdProvider = playerWeaponIdProvider;
       _staticDataService = staticDataService;
     }

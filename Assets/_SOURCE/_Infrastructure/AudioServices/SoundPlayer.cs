@@ -8,7 +8,7 @@ namespace AudioServices
     public void Play(SoundConfig config, AudioSource source, Vector3 at)
     {
       source.transform.position = at;
-      source.PlayOneShot(config.AudioClip, config.Volume);
+     // source.PlayOneShot(config.AudioClip, config.Volume);
     }
   }
 }

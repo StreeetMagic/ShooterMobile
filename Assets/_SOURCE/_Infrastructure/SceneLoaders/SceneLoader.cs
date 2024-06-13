@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using CoroutineRunners;
-using Loggers;
 using Scenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;

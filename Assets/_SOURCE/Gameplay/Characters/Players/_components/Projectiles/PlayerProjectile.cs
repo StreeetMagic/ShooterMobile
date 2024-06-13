@@ -1,5 +1,4 @@
 using Gameplay.Projectiles.Raycasters;
-using Gameplay.Stats;
 using StaticDataServices;
 using UnityEngine;
 using VisualEffects;
