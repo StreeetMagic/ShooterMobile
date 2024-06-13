@@ -24,7 +24,6 @@ namespace Gameplay.Characters.Enemies
         if (_enemies[i].TryGetComponent(out EnemyTargetTrigger enemyTargetTrigger))
         {
           enemyTargetTrigger.transform.parent.GetComponent<Enemy>().Health.Hit();
-          Debug.Log("Вызвал хит");
         }
       }
     }

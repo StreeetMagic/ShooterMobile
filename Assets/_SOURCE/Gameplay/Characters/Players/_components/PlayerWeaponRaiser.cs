@@ -34,7 +34,6 @@ namespace Gameplay.Characters.Players
         if (_isRising)
         {
           _isRising = false;
-          new DebugLogger().Log("Надо выключить анимацию поднятия оружия игроком");
         }
 
         return;
@@ -42,7 +41,6 @@ namespace Gameplay.Characters.Players
 
       if (_isRising == false)
       {
-        new DebugLogger().Log("Надо включить анимацию поднятия оружия игроком");
         _isRising = true;
       }
 
