@@ -1,4 +1,5 @@
-﻿using AssetProviders;
+﻿using Infrastructure.AssetProviders;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.BackpackBars;
 using UserInterface.HeadsUpDisplays.Buttons.OpenQuestButtons;
@@ -6,7 +7,6 @@ using UserInterface.HeadsUpDisplays.Buttons.OpenShopButtons;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
 using UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows;
-using ZenjectFactories;
 
 namespace UserInterface.HeadsUpDisplays
 {

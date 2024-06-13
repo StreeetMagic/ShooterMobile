@@ -1,15 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using CoroutineRunners;
 using Gameplay.Characters;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
 using Gameplay.Quests;
 using Gameplay.Spawners.SpawnPoints;
-using StaticDataServices;
+using Infrastructure.CoroutineRunners;
+using Infrastructure.StaticDataServices;
+using Infrastructure.Utilities;
 using UnityEngine;
-using Utilities;
 using Zenject;
 using Random = UnityEngine.Random;
 

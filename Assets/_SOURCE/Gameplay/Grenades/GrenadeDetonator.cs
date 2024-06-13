@@ -1,7 +1,7 @@
 using System.Collections;
 using Gameplay.Characters.Players;
+using Infrastructure.VisualEffects;
 using UnityEngine;
-using VisualEffects;
 using Zenject;
 
 namespace Gameplay.Grenades

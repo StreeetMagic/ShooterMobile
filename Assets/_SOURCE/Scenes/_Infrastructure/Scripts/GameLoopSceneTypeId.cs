@@ -1,4 +1,4 @@
-namespace Scenes
+namespace Scenes._Infrastructure.Scripts
 {
   public enum GameLoopSceneTypeId
   {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Gameplay.Stats;
-using StaticDataServices;
+using Infrastructure.StaticDataServices;
+using Infrastructure.UserIntefaces;
 using UnityEngine;
-using UserIntefaces;
 using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows

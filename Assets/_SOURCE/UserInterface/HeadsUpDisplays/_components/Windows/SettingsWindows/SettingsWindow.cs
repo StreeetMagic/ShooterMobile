@@ -1,4 +1,4 @@
-using UserIntefaces;
+using Infrastructure.UserIntefaces;
 
 namespace UserInterface.HeadsUpDisplays.Windows.SettingsWindows
 {

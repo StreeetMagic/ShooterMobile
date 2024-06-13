@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Gameplay.Quests.Subquests;
 using Gameplay.RewardServices;
-using Utilities;
+using Infrastructure.Utilities;
 
 namespace Gameplay.Quests
 {

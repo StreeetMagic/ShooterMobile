@@ -1,9 +1,8 @@
-using Gameplay.Characters.Enemies.StateMachines.States;
 using Gameplay.Characters.Players;
-using StateMachine;
+using Infrastructure.StateMachine;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.States
+namespace Gameplay.Characters.Enemies.StateMachines.States
 {
   public class EnemyChooseCondiditionState : IState
   {

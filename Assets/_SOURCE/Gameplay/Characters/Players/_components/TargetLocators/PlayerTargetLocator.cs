@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using StaticDataServices;
+using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 

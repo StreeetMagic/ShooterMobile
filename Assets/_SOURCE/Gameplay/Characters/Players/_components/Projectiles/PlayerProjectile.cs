@@ -1,7 +1,7 @@
 using Gameplay.Projectiles.Raycasters;
-using StaticDataServices;
+using Infrastructure.StaticDataServices;
+using Infrastructure.VisualEffects;
 using UnityEngine;
-using VisualEffects;
 using Zenject;
 
 namespace Gameplay.Characters.Players.Projectiles

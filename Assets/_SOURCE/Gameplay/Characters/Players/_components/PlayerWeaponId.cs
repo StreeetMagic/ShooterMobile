@@ -1,7 +1,7 @@
 using Gameplay.Weapons;
-using PersistentProgresses;
-using SaveLoadServices;
-using StaticDataServices;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.StaticDataServices;
 
 namespace Gameplay.Characters.Players
 {

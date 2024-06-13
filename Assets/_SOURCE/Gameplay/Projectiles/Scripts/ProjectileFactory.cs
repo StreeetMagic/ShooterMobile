@@ -1,11 +1,11 @@
-using AssetProviders;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Projectiles;
 using Gameplay.Characters.Players.Projectiles;
-using RandomServices;
+using Infrastructure.AssetProviders;
+using Infrastructure.RandomServices;
+using Infrastructure.VisualEffects;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
-using VisualEffects;
-using ZenjectFactories;
 
 namespace Gameplay.Projectiles.Scripts
 {

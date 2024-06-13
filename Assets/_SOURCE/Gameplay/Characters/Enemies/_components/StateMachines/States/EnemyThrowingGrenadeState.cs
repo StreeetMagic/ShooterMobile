@@ -1,9 +1,8 @@
-using Gameplay.Characters.Enemies.TargetTriggers;
-using StateMachine;
+using Infrastructure.StateMachine;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.States
+namespace Gameplay.Characters.Enemies.StateMachines.States
 {
   public class EnemyThrowingGrenadeState : IState, ITickable
   {

@@ -1,7 +1,7 @@
 using System;
 using Gameplay.Stats;
-using SceneInstallers.GameLoop;
-using Utilities;
+using Infrastructure.SceneInstallers.GameLoop;
+using Infrastructure.Utilities;
 
 namespace Gameplay.Characters.Players
 {

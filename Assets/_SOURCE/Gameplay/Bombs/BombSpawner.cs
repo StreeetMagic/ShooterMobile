@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Zenject;
-using ZenjectFactories;
 
 namespace Gameplay.Bombs
 {

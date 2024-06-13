@@ -1,5 +1,6 @@
 using Gameplay.Characters.Enemies;
-using Gameplay.Characters.Enemies.States;
+using Gameplay.Characters.Enemies.StateMachines;
+using Gameplay.Characters.Enemies.StateMachines.States;
 
 namespace Gameplay.Characters
 {

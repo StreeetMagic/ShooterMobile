@@ -1,6 +1,8 @@
-namespace Gameplay.Characters.Enemies
+using Infrastructure.StateMachine;
+
+namespace Gameplay.Characters.Enemies.StateMachines
 {
-  public class EnemyStateMachine : StateMachine.StateMachine
+  public class EnemyStateMachine : StateMachine
   {
     public EnemyStateMachine(EnemyStatesProvider enemyStatesProvider) : base(enemyStatesProvider)
     {

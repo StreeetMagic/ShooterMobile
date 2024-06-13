@@ -1,4 +1,3 @@
-using Gameplay.Characters.Players.PetSpawnPointsContainers;
 using Gameplay.Weapons;
 using UnityEngine;
 using Zenject;

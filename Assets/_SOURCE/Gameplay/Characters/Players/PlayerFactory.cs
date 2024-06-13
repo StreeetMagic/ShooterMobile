@@ -1,8 +1,8 @@
-using AssetProviders;
+using Infrastructure.AssetProviders;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.ZenjectFactories;
 using Maps;
-using SaveLoadServices;
 using UnityEngine;
-using ZenjectFactories;
 
 namespace Gameplay.Characters.Players
 {

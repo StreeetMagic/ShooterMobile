@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Stats;
-using PersistentProgresses;
-using SaveLoadServices;
-using StaticDataServices;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.StaticDataServices;
 
 namespace Gameplay.Upgrades
 {

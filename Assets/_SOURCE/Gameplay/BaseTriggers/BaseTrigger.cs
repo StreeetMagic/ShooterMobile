@@ -3,10 +3,10 @@ using Cameras;
 using Gameplay.Characters.Players;
 using Gameplay.CurrencyRepositories;
 using Gameplay.CurrencyRepositories.BackpackStorages;
-using SaveLoadServices;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.VisualEffects;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
-using VisualEffects;
 using Zenject;
 
 namespace Gameplay.BaseTriggers

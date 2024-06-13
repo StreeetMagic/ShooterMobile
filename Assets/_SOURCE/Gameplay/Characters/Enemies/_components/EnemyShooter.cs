@@ -1,6 +1,6 @@
-using AudioServices;
 using Gameplay.Projectiles.Scripts;
-using Sounds;
+using Infrastructure.AudioServices;
+using Infrastructure.AudioServices.Sounds;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies

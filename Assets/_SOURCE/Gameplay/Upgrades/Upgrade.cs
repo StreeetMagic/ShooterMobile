@@ -1,4 +1,4 @@
-using Utilities;
+using Infrastructure.Utilities;
 
 namespace Gameplay.Upgrades
 {

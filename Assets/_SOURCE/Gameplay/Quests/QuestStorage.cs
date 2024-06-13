@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Quests.Subquests;
-using PersistentProgresses;
-using SaveLoadServices;
-using StaticDataServices;
-using ZenjectFactories;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.StaticDataServices;
+using Infrastructure.ZenjectFactories;
 
 namespace Gameplay.Quests
 {

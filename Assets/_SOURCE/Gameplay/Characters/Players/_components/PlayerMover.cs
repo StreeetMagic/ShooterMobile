@@ -1,8 +1,8 @@
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Stats;
-using PersistentProgresses;
-using SaveLoadServices;
-using StaticDataServices;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.StaticDataServices;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players

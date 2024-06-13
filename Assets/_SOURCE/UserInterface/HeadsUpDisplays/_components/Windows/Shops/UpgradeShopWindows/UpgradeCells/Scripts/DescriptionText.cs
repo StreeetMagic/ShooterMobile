@@ -1,7 +1,7 @@
 using Gameplay.Characters.Players;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
-using StaticDataServices;
+using Infrastructure.StaticDataServices;
 using TMPro;
 using UnityEngine;
 using Zenject;

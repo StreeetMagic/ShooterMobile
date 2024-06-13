@@ -1,6 +1,6 @@
-using AssetProviders;
+using Infrastructure.AssetProviders;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
-using ZenjectFactories;
 
 namespace Gameplay.BaseTriggers
 {

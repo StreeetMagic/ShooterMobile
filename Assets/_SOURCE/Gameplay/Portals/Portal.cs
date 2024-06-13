@@ -1,154 +1,157 @@
 using System;
 using Gameplay.Characters.Players;
-using Gameplay.Portals;
-using Projects;
-using SceneLoaders;
+using Infrastructure.Projects;
+using Infrastructure.SceneLoaders;
 using Scenes;
+using Scenes._Infrastructure.Scripts;
 using UnityEngine;
 using Zenject;
 
-public class Portal : MonoBehaviour
+namespace Gameplay.Portals
 {
-  public PortalTypeId TypeId;
-  public SceneId ToScene;
-
-  [Tooltip("Время в секудах до активации после завершения арены")]
-  public float ActivationDelay = 10f;
-
-  [Tooltip("Время в секудах до активации при входа в триггер")]
-  public float EnterDelay = 1f;
-
-  [Inject] private SceneLoader _sceneLoader;
-  [Inject] private ProjectData _projectData;
-
-  private MeshRenderer _meshRenderer;
-
-  private bool _playerInTrigger;
-  private bool _isActive;
-  private float _timeLeftForActivation;
-  private float _timeLeftForEnter;
-
-  private void Awake()
+  public class Portal : MonoBehaviour
   {
-    _meshRenderer = GetComponent<MeshRenderer>();
-    Validate();
+    public PortalTypeId TypeId;
+    public SceneId ToScene;
 
-    Activate();
-  }
+    [Tooltip("Время в секудах до активации после завершения арены")]
+    public float ActivationDelay = 10f;
 
-  private void Update()
-  {
-    if (_isActive == false)
+    [Tooltip("Время в секудах до активации при входа в триггер")]
+    public float EnterDelay = 1f;
+
+    [Inject] private SceneLoader _sceneLoader;
+    [Inject] private ProjectData _projectData;
+
+    private MeshRenderer _meshRenderer;
+
+    private bool _playerInTrigger;
+    private bool _isActive;
+    private float _timeLeftForActivation;
+    private float _timeLeftForEnter;
+
+    private void Awake()
     {
-      if (_timeLeftForActivation > 0)
-        _timeLeftForActivation -= Time.deltaTime;
+      _meshRenderer = GetComponent<MeshRenderer>();
+      Validate();
+
+      Activate();
+    }
+
+    private void Update()
+    {
+      if (_isActive == false)
+      {
+        if (_timeLeftForActivation > 0)
+          _timeLeftForActivation -= Time.deltaTime;
+        else
+          Activate();
+      }
+
+      if (_playerInTrigger)
+      {
+        if (_timeLeftForEnter > 0)
+          _timeLeftForEnter -= Time.deltaTime;
+        else
+          LoadScene();
+      }
       else
-        Activate();
+      {
+        _timeLeftForEnter = EnterDelay;
+      }
     }
 
-    if (_playerInTrigger)
+    private void OnTriggerEnter(Collider other)
     {
-      if (_timeLeftForEnter > 0)
-        _timeLeftForEnter -= Time.deltaTime;
-      else
-        LoadScene();
+      if (_isActive == false)
+        return;
+
+      if (_playerInTrigger)
+        return;
+
+      if (other.TryGetComponent(out PlayerTargetTrigger _))
+      {
+        _playerInTrigger = true;
+      }
     }
-    else
+
+    private void OnTriggerExit(Collider other)
     {
-      _timeLeftForEnter = EnterDelay;
+      if (_isActive == false)
+        return;
+
+      if (!_playerInTrigger)
+        return;
+
+      if (other.TryGetComponent(out PlayerTargetTrigger _))
+      {
+        Debug.Log("Игрок вышел");
+
+        _playerInTrigger = false;
+      }
     }
-  }
 
-  private void OnTriggerEnter(Collider other)
-  {
-    if (_isActive == false)
-      return;
-
-    if (_playerInTrigger)
-      return;
-
-    if (other.TryGetComponent(out PlayerTargetTrigger _))
+    public void Activate()
     {
-      _playerInTrigger = true;
+      _isActive = true;
+      _meshRenderer.enabled = true;
     }
-  }
 
-  private void OnTriggerExit(Collider other)
-  {
-    if (_isActive == false)
-      return;
-
-    if (!_playerInTrigger)
-      return;
-
-    if (other.TryGetComponent(out PlayerTargetTrigger _))
+    public void Deactivate()
     {
-      Debug.Log("Игрок вышел");
-
-      _playerInTrigger = false;
+      _isActive = false;
+      _meshRenderer.enabled = false;
+      _timeLeftForActivation = ActivationDelay;
     }
-  }
 
-  public void Activate()
-  {
-    _isActive = true;
-    _meshRenderer.enabled = true;
-  }
-
-  public void Deactivate()
-  {
-    _isActive = false;
-    _meshRenderer.enabled = false;
-    _timeLeftForActivation = ActivationDelay;
-  }
-
-  private void LoadScene()
-  {
-    switch (TypeId)
+    private void LoadScene()
     {
-      case PortalTypeId.Unknown:
-        throw new ArgumentOutOfRangeException();
+      switch (TypeId)
+      {
+        case PortalTypeId.Unknown:
+          throw new ArgumentOutOfRangeException();
 
-      case PortalTypeId.CoreToArena:
-        _sceneLoader.Load(ToScene);
-        break;
+        case PortalTypeId.CoreToArena:
+          _sceneLoader.Load(ToScene);
+          break;
 
-      case PortalTypeId.ArenaToCore:
-        switch (_projectData.GameMode)
-        {
-          case GameMode.Unknown:
-            throw new ArgumentOutOfRangeException();
+        case PortalTypeId.ArenaToCore:
+          switch (_projectData.GameMode)
+          {
+            case GameMode.Unknown:
+              throw new ArgumentOutOfRangeException();
 
-          case GameMode.Default:
-            _sceneLoader.Load(ToScene);
-            break;
+            case GameMode.Default:
+              _sceneLoader.Load(ToScene);
+              break;
 
-          case GameMode.VladTest:
-            _sceneLoader.Load(SceneId.VladTestScene);
-            break;
+            case GameMode.VladTest:
+              _sceneLoader.Load(SceneId.VladTestScene);
+              break;
 
-          case GameMode.SimeonTest:
-            _sceneLoader.Load(SceneId.SimeonTestScene);
-            break;
+            case GameMode.SimeonTest:
+              _sceneLoader.Load(SceneId.SimeonTestScene);
+              break;
 
-          case GameMode.ValeraTest:
-            _sceneLoader.Load(SceneId.ValeraTestScene);
-            break;
+            case GameMode.ValeraTest:
+              _sceneLoader.Load(SceneId.ValeraTestScene);
+              break;
 
-          default:
-            throw new ArgumentOutOfRangeException();
-        }
+            default:
+              throw new ArgumentOutOfRangeException();
+          }
 
-        break;
+          break;
 
-      default:
-        throw new ArgumentOutOfRangeException();
+        default:
+          throw new ArgumentOutOfRangeException();
+      }
     }
-  }
 
-  private void Validate()
-  {
-    if (TypeId == PortalTypeId.Unknown || ToScene == SceneId.Unknown)
-      throw new Exception("PortalTypeId or ToScene is unknown");
+    private void Validate()
+    {
+      if (TypeId == PortalTypeId.Unknown || ToScene == SceneId.Unknown)
+        throw new Exception("PortalTypeId or ToScene is unknown");
+    }
   }
 }

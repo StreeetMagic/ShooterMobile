@@ -1,7 +1,7 @@
 using Gameplay.Characters.Players;
 using Gameplay.Projectiles.Raycasters;
+using Infrastructure.VisualEffects;
 using UnityEngine;
-using VisualEffects;
 using Zenject;
 
 namespace Gameplay.Characters.Enemies.Projectiles

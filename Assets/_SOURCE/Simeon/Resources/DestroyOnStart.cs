@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class DestroyOnStart : MonoBehaviour
+namespace Simeon.Resources
 {
-    void Start()
+    public class DestroyOnStart : MonoBehaviour
     {
-        Destroy(gameObject);
+        void Start()
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -1,6 +1,6 @@
-using StateMachine;
+using Infrastructure.StateMachine;
 
-namespace Gameplay.Characters.Enemies.States
+namespace Gameplay.Characters.Enemies.StateMachines.States
 {
   public class EnemyBootstrapState : IState
   {

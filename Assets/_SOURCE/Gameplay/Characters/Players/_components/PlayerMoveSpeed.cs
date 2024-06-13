@@ -1,6 +1,6 @@
 using System;
+using Infrastructure.Utilities;
 using UnityEngine;
-using Utilities;
 using Zenject;
 
 namespace Gameplay.Characters.Players

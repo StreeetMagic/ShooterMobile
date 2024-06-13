@@ -1,6 +1,6 @@
-﻿using PersistentProgresses;
-using SaveLoadServices;
-using Utilities;
+﻿using Infrastructure.PersistentProgresses;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.Utilities;
 
 namespace Gameplay.CurrencyRepositories
 {

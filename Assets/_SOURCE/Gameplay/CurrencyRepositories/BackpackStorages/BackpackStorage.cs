@@ -3,8 +3,8 @@ using System.Linq;
 using Gameplay.Characters.Players;
 using Gameplay.Loots;
 using Gameplay.Stats;
-using StaticDataServices;
-using Utilities;
+using Infrastructure.StaticDataServices;
+using Infrastructure.Utilities;
 
 namespace Gameplay.CurrencyRepositories.BackpackStorages
 {

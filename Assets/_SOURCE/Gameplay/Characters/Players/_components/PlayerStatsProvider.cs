@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
-using StaticDataServices;
-using Utilities;
+using Infrastructure.StaticDataServices;
+using Infrastructure.Utilities;
 
 namespace Gameplay.Characters.Players
 {

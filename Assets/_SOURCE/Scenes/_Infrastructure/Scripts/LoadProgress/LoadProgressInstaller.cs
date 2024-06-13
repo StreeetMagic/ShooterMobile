@@ -1,6 +1,6 @@
 using Zenject.Source.Install;
 
-namespace SceneInstallers.LoadProgress
+namespace Scenes._Infrastructure.Scripts.LoadProgress
 {
   public class LoadProgressInstaller : MonoInstaller
   {

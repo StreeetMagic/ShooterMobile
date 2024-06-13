@@ -1,7 +1,7 @@
 using System;
 using Gameplay.RewardServices;
-using SaveLoadServices;
-using Utilities;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.Utilities;
 
 namespace Gameplay.Quests.Subquests
 {

@@ -2,7 +2,7 @@
 using Gameplay.Weapons;
 using Zenject;
 
-namespace Gameplay.Characters.Players.Shooters
+namespace Gameplay.Characters.Players
 {
   public class PlayerAttacker : ITickable
   {

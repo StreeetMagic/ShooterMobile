@@ -1,6 +1,6 @@
 using Zenject.Source.Install;
 
-namespace SceneInstallers.LoadConfig
+namespace Scenes._Infrastructure.Scripts.LoadConfig
 {
   public class LoadConfigsInstaller : MonoInstaller
   {

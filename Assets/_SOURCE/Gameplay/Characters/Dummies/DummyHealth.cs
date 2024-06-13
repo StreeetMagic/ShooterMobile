@@ -1,7 +1,7 @@
 using System;
 using Gameplay.Characters.Enemies;
+using Infrastructure.Utilities;
 using UnityEngine;
-using Utilities;
 
 namespace Gameplay.Characters.Dummies
 {

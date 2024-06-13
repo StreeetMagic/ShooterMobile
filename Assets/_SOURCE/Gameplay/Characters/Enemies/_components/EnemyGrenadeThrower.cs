@@ -1,12 +1,12 @@
 using Gameplay.Characters.Players;
 using Gameplay.Grenades;
-using StaticDataServices;
+using Infrastructure.StaticDataServices;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Zenject;
-using ZenjectFactories;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Characters.Enemies.States
+namespace Gameplay.Characters.Enemies
 {
   public class EnemyGrenadeThrower : IInitializable, ITickable
   {

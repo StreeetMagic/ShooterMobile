@@ -1,6 +1,6 @@
 using Gameplay.Characters.Players;
+using Infrastructure.ZenjectFactories;
 using UnityEngine;
-using ZenjectFactories;
 
 namespace Gameplay.Characters.Pets.Hens
 {

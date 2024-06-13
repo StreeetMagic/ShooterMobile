@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using PersistentProgresses;
-using SaveLoadServices;
-using StaticDataServices;
-using Utilities;
+using Infrastructure.PersistentProgresses;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.StaticDataServices;
+using Infrastructure.Utilities;
 
 namespace Gameplay.CurrencyRepositories.Expirience
 {

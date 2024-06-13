@@ -1,5 +1,5 @@
 using Gameplay.CurrencyRepositories.Expirience;
-using StaticDataServices;
+using Infrastructure.StaticDataServices;
 using TMPro;
 using UnityEngine;
 using Zenject;

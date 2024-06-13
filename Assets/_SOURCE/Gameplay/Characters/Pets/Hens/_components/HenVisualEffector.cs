@@ -1,5 +1,5 @@
+using Infrastructure.VisualEffects;
 using UnityEngine;
-using VisualEffects;
 using Zenject;
 
 namespace Gameplay.Characters.Pets.Hens

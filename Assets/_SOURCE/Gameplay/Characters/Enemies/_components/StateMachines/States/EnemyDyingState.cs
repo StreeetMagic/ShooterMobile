@@ -1,4 +1,4 @@
-using StateMachine;
+using Infrastructure.StateMachine;
 
 namespace Gameplay.Characters.Enemies.StateMachines.States 
 {

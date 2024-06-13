@@ -1,16 +1,15 @@
 using System;
-using AudioServices;
 using Gameplay.CurrencyRepositories;
 using Gameplay.Quests;
 using Gameplay.Upgrades;
-using Projects;
-using SaveLoadServices;
-using SceneLoaders;
-using Scenes;
+using Infrastructure.AudioServices;
+using Infrastructure.Projects;
+using Infrastructure.SaveLoadServices;
+using Infrastructure.SceneLoaders;
 using UnityEngine;
 using Zenject;
 
-namespace SceneInstallers.LoadProgress
+namespace Scenes._Infrastructure.Scripts.LoadProgress
 {
   public class LoadProgressInitializer : MonoBehaviour, IInitializable
   {

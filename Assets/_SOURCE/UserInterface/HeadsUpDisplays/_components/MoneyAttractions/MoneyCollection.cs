@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using Gameplay.Characters;
 using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnerFactories;
+using Infrastructure.VisualEffects;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.BackpackBars;
-using VisualEffects;
 using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.MoneyAttractions

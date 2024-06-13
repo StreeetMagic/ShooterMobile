@@ -1,10 +1,10 @@
 using Gameplay.Characters.Players;
 using Gameplay.Spawners;
-using StateMachine;
+using Infrastructure.StateMachine;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.States
+namespace Gameplay.Characters.Enemies.StateMachines.States
 {
   public class EnemyChasingPlayerState : IState, ITickable
   {

@@ -1,10 +1,9 @@
-using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.Players;
-using StateMachine;
+using Infrastructure.StateMachine;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.States
+namespace Gameplay.Characters.Enemies.StateMachines.States
 {
   public class EnemyShootingState : IState, ITickable
   {

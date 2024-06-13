@@ -1,5 +1,6 @@
-using SceneLoaders;
+using Infrastructure.SceneLoaders;
 using Scenes;
+using Scenes._Infrastructure.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

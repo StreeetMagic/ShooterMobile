@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Gameplay.Bombs;
-using StaticDataServices;
+using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 

@@ -1,11 +1,10 @@
-using Projects;
-using SceneLoaders;
-using Scenes;
+using Infrastructure.Projects;
+using Infrastructure.SceneLoaders;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace SceneInstallers.ChooseGameMode.Buttons
+namespace Scenes._Infrastructure.Scripts.ChooseGameMode
 {
   public class ChooseGameModeButton : MonoBehaviour
   {

@@ -1,7 +1,7 @@
 using Gameplay.Characters.Players;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.TargetTriggers
+namespace Gameplay.Characters.Enemies
 {
   public class EnemyToPlayerRotator
   {

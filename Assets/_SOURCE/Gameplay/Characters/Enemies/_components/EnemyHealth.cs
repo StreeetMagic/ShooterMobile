@@ -1,10 +1,11 @@
 using System;
-using Gameplay.Characters.Enemies.States;
+using Gameplay.Characters.Enemies.StateMachines;
+using Gameplay.Characters.Enemies.StateMachines.States;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using Gameplay.Spawners;
+using Infrastructure.Utilities;
 using UnityEngine;
-using Utilities;
 using Zenject;
 
 namespace Gameplay.Characters.Enemies

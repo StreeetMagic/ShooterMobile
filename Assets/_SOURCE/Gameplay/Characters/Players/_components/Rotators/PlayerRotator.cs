@@ -1,4 +1,4 @@
-﻿using StaticDataServices;
+﻿using Infrastructure.StaticDataServices;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players.Rotators

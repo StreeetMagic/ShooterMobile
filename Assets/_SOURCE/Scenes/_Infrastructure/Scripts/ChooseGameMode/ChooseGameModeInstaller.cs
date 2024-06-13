@@ -1,6 +1,6 @@
 using Zenject.Source.Install;
 
-namespace SceneInstallers.ChooseGameMode
+namespace Scenes._Infrastructure.Scripts.ChooseGameMode
 {
   public class ChooseGameModeInstaller : MonoInstaller
   {

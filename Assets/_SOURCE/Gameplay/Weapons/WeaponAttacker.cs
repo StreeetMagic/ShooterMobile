@@ -1,9 +1,9 @@
 using System;
-using AudioServices;
 using Gameplay.Characters.Players;
 using Gameplay.Projectiles.Scripts;
-using Sounds;
-using StaticDataServices;
+using Infrastructure.AudioServices;
+using Infrastructure.AudioServices.Sounds;
+using Infrastructure.StaticDataServices;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;

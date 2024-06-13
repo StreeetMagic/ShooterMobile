@@ -1,5 +1,5 @@
+using Infrastructure.StaticDataServices;
 using Loggers;
-using StaticDataServices;
 using UnityEngine;
 using Zenject;
 
