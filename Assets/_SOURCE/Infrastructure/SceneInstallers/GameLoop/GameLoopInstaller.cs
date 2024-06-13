@@ -72,7 +72,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
 
       Container.BindInterfacesAndSelfTo<QuestCompleter>().AsSingle();
 
-      Container.BindFactory<Quest, QuestConfig, QuestWindow, QuestWindow.Factory>()
+      Container.BindFactory<Quest, QuestId, QuestWindow, QuestWindow.Factory>()
         .FromSubContainerResolve()
         .ByNewContextPrefab<QuestWindowInstaller>(_assetProvider.Get<QuestWindow>().GetComponent<QuestWindowInstaller>())
         .AsSingle();

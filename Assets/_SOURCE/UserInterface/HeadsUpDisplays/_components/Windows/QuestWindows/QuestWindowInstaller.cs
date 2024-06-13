@@ -7,12 +7,12 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows
   public class QuestWindowInstaller : MonoInstaller
   {
     [Inject] private Quest _quest;
-    [Inject] private QuestConfig _config;
+    [Inject] private QuestId _id;
 
     public override void InstallBindings()
     {
       Container.Bind<Quest>().FromInstance(_quest).AsSingle();
-      Container.Bind<QuestConfig>().FromInstance(_config).AsSingle();
+      Container.Bind<QuestId>().FromInstance(_id).AsSingle(); 
       Container.Bind<QuestWindow>().FromInstance(GetComponent<QuestWindow>()).AsSingle();
     }
   }

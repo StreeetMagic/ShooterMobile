@@ -1,4 +1,5 @@
 using Gameplay.Quests;
+using Infrastructure.ArtConfigServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -9,11 +10,12 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components
   {
     public Image Image;
 
-    [Inject] private QuestConfig _config;
+    [Inject] private QuestId _id;
+    [Inject] private ArtConfigService _artConfig;
 
     private void OnEnable()
     {
-      Image.sprite = _config.Icon;
+      Image.sprite = _artConfig.GetQuestContentSetup(_id).Icon;
     }
   }
 }

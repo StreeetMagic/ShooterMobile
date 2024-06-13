@@ -6,7 +6,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows
 {
   public class QuestWindow : Window
   {
-    public class Factory : PlaceholderFactory<Quest, QuestConfig, QuestWindow>
+    public class Factory : PlaceholderFactory<Quest, QuestId, QuestWindow>
     {
     }
   }

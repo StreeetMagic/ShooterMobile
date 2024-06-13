@@ -1,6 +1,7 @@
 using System;
 using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 using Zenject;
 
@@ -10,7 +11,8 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQues
   {
     [Inject] private SubQuestSlot.Factory _factory;
     [Inject] private Quest _quest;
-    [Inject] private QuestConfig _config;
+    [Inject] private QuestId _id;
+    [Inject] private ConfigService _configService;
 
     private void OnEnable()
     {
@@ -40,7 +42,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQues
 
     private void CreateSubQuests()
     {
-      for (var i = 0; i < _config.SubQuests.Count; i++)
+      for (var i = 0; i < _configService.GetQuestConfig(_id).SubQuests.Count; i++)
       {
         SubQuest subQuest = _quest.SubQuests[i];
 

@@ -1,4 +1,5 @@
 using Gameplay.Quests;
+using Infrastructure.ArtConfigServices;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -9,11 +10,12 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components
   {
     public TextMeshProUGUI Text;
 
-    [Inject] private QuestConfig _config;
+    [Inject] private QuestId _id;
+    [Inject] private ArtConfigService _artConfig;
 
     private void OnEnable()
     {
-      Text.text = "Quest: " + _config.Name;
+      Text.text = "Quest: " + _artConfig.GetQuestContentSetup(_id).Name;
     }
   }
 }
