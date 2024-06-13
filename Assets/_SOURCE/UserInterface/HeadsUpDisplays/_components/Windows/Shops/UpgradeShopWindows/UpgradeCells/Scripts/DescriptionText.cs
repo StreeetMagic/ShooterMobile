@@ -1,7 +1,7 @@
 using Gameplay.Characters.Players;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -14,7 +14,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
     public TextMeshProUGUI DescriptionTextUI;
 
     [Inject] private UpgradeService _upgradeService;
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
     [Inject] private PlayerStatsProvider _playerStatsProvider;
 
     private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
@@ -52,7 +52,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
           .GetStat(Id);
 
       int nextValue =
-        _staticDataService
+        _configService
           .GetUpgradeConfig(Config.Id)
           .Values[currentLevel + 1]
           .Value;

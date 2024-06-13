@@ -8,10 +8,10 @@ namespace Infrastructure.VisualEffects
 {
   public class VisualEffectFactory
   {
-    private readonly IAssetProvider _assetProvider;
+    private readonly AssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _zenjectFactory;
 
-    public VisualEffectFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory)
+    public VisualEffectFactory(AssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory)
     {
       _assetProvider = assetProvider;
       _zenjectFactory = zenjectFactory;

@@ -1,4 +1,4 @@
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using Loggers;
 using UnityEngine;
 using Zenject;
@@ -8,22 +8,22 @@ namespace Gameplay.Characters.Players
   public class PlayerWeaponRaiser : ITickable
   {
     private readonly PlayerMoveSpeed _playerMoveSpeed;
-    private readonly IStaticDataService _staticData;
+    private readonly ConfigService _config;
     private readonly PlayerTargetHolder _playerTargetHolder;
 
     private float _timeLeft;
     private bool _isRising;
 
-    public PlayerWeaponRaiser(PlayerMoveSpeed playerMoveSpeed, IStaticDataService staticData,
+    public PlayerWeaponRaiser(PlayerMoveSpeed playerMoveSpeed, ConfigService config,
       PlayerTargetHolder playerTargetHolder)
     {
       _playerMoveSpeed = playerMoveSpeed;
-      _staticData = staticData;
+      _config = config;
       _playerTargetHolder = playerTargetHolder;
     }
 
     public bool IsRaised => _timeLeft <= 0;
-    private float WeaponRaiseTime => _staticData.GetPlayerConfig().WeaponRaiseTime;
+    private float WeaponRaiseTime => _config.PlayerConfig.WeaponRaiseTime;
 
     public void Tick()
     {

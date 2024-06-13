@@ -5,7 +5,7 @@ namespace Infrastructure.ZenjectFactories
 {
   public class GameLoopZenjectFactory : ZenjectFactory
   {
-    public GameLoopZenjectFactory(IAssetProvider assetProvider, IInstantiator instantiator) : base(assetProvider, instantiator)
+    public GameLoopZenjectFactory(AssetProvider assetProvider, IInstantiator instantiator) : base(assetProvider, instantiator)
     {
     }
   }

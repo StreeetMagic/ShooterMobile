@@ -1,5 +1,5 @@
 using Gameplay.Projectiles.Raycasters;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using Infrastructure.VisualEffects;
 using UnityEngine;
 using Zenject;
@@ -14,7 +14,7 @@ namespace Gameplay.Characters.Players.Projectiles
 
     [Inject] private VisualEffectFactory _visualEffectFactory;
     [Inject] private PlayerProvider _playerProvider;
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
 
     public string Guid { get; set; }
 
@@ -35,7 +35,7 @@ namespace Gameplay.Characters.Players.Projectiles
         if (_count == 0)
         {
           _count++;
-          enemyTargetTrigger.TakeDamage(_staticDataService.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.WeaponTypeId).Damage);
+          enemyTargetTrigger.TakeDamage(_configService.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.WeaponTypeId).Damage);
         }
       }
 

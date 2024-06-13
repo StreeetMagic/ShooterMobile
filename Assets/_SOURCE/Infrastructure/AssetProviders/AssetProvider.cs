@@ -6,7 +6,7 @@ using Object = UnityEngine.Object;
 
 namespace Infrastructure.AssetProviders
 {
-  public class AssetProvider : IAssetProvider
+  public class AssetProvider
   {
     public T Get<T>() where T : MonoBehaviour
     {
@@ -35,6 +35,21 @@ namespace Infrastructure.AssetProviders
         throw new Exception("Asset not found: " + path);
 
       return load;
+    }
+
+    public T GetConfig<T>() where T : ScriptableObject
+    {
+      if (Resources.Load(typeof(T).Name) == null)
+        throw new Exception("Asset not found: " + typeof(T).Name);
+
+      var load =
+        Resources
+          .Load(typeof(T).Name);
+
+      if (load == null)
+        throw new Exception("Asset not found: " + typeof(T).Name);
+
+      return load as T;
     }
 
     public EnemyMeshModel GetEnemyMeshModel(EnemyTypeId enemyId) =>

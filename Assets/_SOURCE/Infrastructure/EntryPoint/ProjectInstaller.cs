@@ -5,8 +5,10 @@ using Gameplay.CurrencyRepositories.Expirience;
 using Gameplay.Quests;
 using Gameplay.RewardServices;
 using Gameplay.Upgrades;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.AudioServices;
+using Infrastructure.ConfigServices;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.LoadingCurtains;
 using Infrastructure.PersistentProgresses;
@@ -14,7 +16,6 @@ using Infrastructure.Projects;
 using Infrastructure.RandomServices;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.SceneLoaders;
-using Infrastructure.StaticDataServices;
 using Infrastructure.ZenjectFactories;
 using Inputs;
 using Loggers;
@@ -32,9 +33,10 @@ namespace Infrastructure.EntryPoint
 
       Container.Bind<ICoroutineRunner>().To<CoroutineRunner>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.CoroutineRunner).AsSingle();
 
-      Container.Bind<IInputService>().To<InputService>().AsSingle();
-      Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
-      Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
+      Container.Bind<InputService>().AsSingle();
+      Container.Bind<AssetProvider>().AsSingle();
+      Container.Bind<ConfigService>().AsSingle();
+      Container.Bind<ArtConfigService>().AsSingle();
       Container.Bind<SaveLoadService>().AsSingle();
 
       Container.Bind<PersistentProgressService>().AsSingle();

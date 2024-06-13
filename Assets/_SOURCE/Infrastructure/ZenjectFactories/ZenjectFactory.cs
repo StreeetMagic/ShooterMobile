@@ -6,10 +6,10 @@ namespace Infrastructure.ZenjectFactories
 {
   public abstract class ZenjectFactory
   {
-    private readonly IAssetProvider _assetProvider;
+    private readonly AssetProvider _assetProvider;
     private readonly IInstantiator _instantiator;
 
-    public ZenjectFactory(IAssetProvider assetProvider, IInstantiator instantiator)
+    public ZenjectFactory(AssetProvider assetProvider, IInstantiator instantiator)
     {
       _instantiator = instantiator;
       _assetProvider = assetProvider;

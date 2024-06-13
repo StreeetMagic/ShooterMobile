@@ -1,23 +1,23 @@
 using System.Collections.Generic;
+using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.StaticDataServices;
 using Infrastructure.Utilities;
 
 namespace Gameplay.CurrencyRepositories.Expirience
 {
   public class ExpierienceStorage : IProgressWriter
   {
-    private readonly IStaticDataService _staticDataService;
+    private readonly ConfigService _configService;
 
-    public ExpierienceStorage(IStaticDataService staticDataService)
+    public ExpierienceStorage(ConfigService configService)
     {
-      _staticDataService = staticDataService;
+      _configService = configService;
     }
 
     public ReactiveProperty<int> AllPoints { get; } = new();
 
-    private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
+    private ExpirienceConfig Config => _configService.ExpirienceConfig;
 
     public void ReadProgress(ProjectProgress projectProgress)
     {

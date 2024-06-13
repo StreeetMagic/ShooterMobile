@@ -1,6 +1,6 @@
 ﻿using System;
 using Gameplay.Quests;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using Infrastructure.ZenjectFactories;
 using Loggers;
 using UnityEngine;
@@ -23,17 +23,17 @@ namespace Infrastructure.UserIntefaces
     private readonly QuestStorage _storage;
     private readonly DebugLogger _logger;
     private readonly QuestWindow.Factory _questWindowFactory;
-    private readonly IStaticDataService _staticDataService;
+    private readonly ConfigService _configService;
 
     public WindowService(GameLoopZenjectFactory factory,
       HeadsUpDisplayProvider headsUpDisplayProvider, QuestStorage storage,
-      QuestWindow.Factory questWindowFactory, IStaticDataService staticDataService)
+      QuestWindow.Factory questWindowFactory, ConfigService configService)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;
       _storage = storage;
       _questWindowFactory = questWindowFactory;
-      _staticDataService = staticDataService;
+      _configService = configService;
     }
 
     private Transform HudTransform => _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
@@ -67,7 +67,7 @@ namespace Infrastructure.UserIntefaces
             throw new ArgumentOutOfRangeException(nameof(questId), questId, null);
 
           Quest quest = _storage.GetQuest(questId);
-          QuestConfig config = _staticDataService.GetQuestConfig(questId);
+          QuestConfig config = _configService.GetQuestConfig(questId);
 
           QuestWindow questWindow = _questWindowFactory.Create(quest, config);
 

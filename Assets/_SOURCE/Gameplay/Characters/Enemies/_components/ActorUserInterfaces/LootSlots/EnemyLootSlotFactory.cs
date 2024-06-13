@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using Gameplay.CurrencyRepositories;
 using Gameplay.CurrencyRepositories.BackpackStorages;
 using Gameplay.Loots;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
 
@@ -11,22 +12,23 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
 {
   public class EnemyLootSlotFactory
   {
-    private readonly IAssetProvider _assetProvider;
+    private readonly AssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _factory;
-    private readonly IStaticDataService _staticDataService;
+    private readonly ArtConfigService _artConfigService;
+    private readonly ConfigService _configService;
 
-    public EnemyLootSlotFactory(IAssetProvider assetProvider, GameLoopZenjectFactory factory,
-      IStaticDataService staticDataService)
+    public EnemyLootSlotFactory(AssetProvider assetProvider, GameLoopZenjectFactory factory, ArtConfigService artConfigService, ConfigService configService)
     {
       _assetProvider = assetProvider;
       _factory = factory;
-      _staticDataService = staticDataService;
+      _configService = configService;
+      _artConfigService = artConfigService;
     }
 
     public void Create(Transform parent, EnemyTypeId id)
     {
       var prefab = _assetProvider.Get<EnemyLootSlot>();
-      EnemyConfig enemyConfig = _staticDataService.GetEnemyConfig(id);
+      EnemyConfig enemyConfig = _configService.GetEnemyConfig(id);
 
       Dictionary<CurrencyId, int> lootData = new();
 
@@ -34,7 +36,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
 
       foreach (LootDrop item in list)
       {
-        List<Loot> loots = _staticDataService.GetLootConfig(item.Id).Loots;
+        List<Loot> loots = _configService.GetLootConfig(item.Id).Loots;
         int itemLevel = item.Level - 1;
 
         int count = loots[itemLevel].Value;
@@ -44,7 +46,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
       foreach (KeyValuePair<CurrencyId, int> item in lootData)
       {
         EnemyLootSlot slot = _factory.InstantiateMono(prefab, parent);
-        Sprite sprite = _staticDataService.GetLootConfig(item.Key).Icon;
+        Sprite sprite = _artConfigService.GetLootSprite(item.Key);
 
         slot.Init(sprite, item.Value);
       }

@@ -1,5 +1,5 @@
 using Gameplay.Characters.Players;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 using Zenject;
 
@@ -10,13 +10,13 @@ namespace Gameplay.Bombs
     public Bomb Bomb;
     public SphereCollider SphereCollider;
     
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
 
     public bool IsPlayerDetected { get; private set; }
 
     private void Awake()
     {
-      SphereCollider.radius = _staticDataService.GetPlayerConfig().BombDefuseRadius;
+      SphereCollider.radius = _configService.PlayerConfig.BombDefuseRadius;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,5 +1,5 @@
 using Gameplay.Upgrades;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -12,7 +12,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
     public TextMeshProUGUI CostTextUI;
 
     [Inject] private UpgradeService _upgradeService;
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
 
     private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
     private Upgrade Upgrade => _upgradeService.GetUpgrade(Config.Id);
@@ -47,14 +47,14 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
     {
       if (Upgrade.IsMaxLevel)
       {
-        return _staticDataService
+        return _configService
           .GetUpgradeConfig(Config.Id)
           .Values[nextLevel - 1]
           .Cost;
       }
       else
       {
-        return _staticDataService
+        return _configService
           .GetUpgradeConfig(Config.Id)
           .Values[nextLevel]
           .Cost;

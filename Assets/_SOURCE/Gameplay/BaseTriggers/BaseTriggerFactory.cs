@@ -7,9 +7,9 @@ namespace Gameplay.BaseTriggers
   public class BaseTriggerFactory
   {
     private readonly GameLoopZenjectFactory _factory;
-    private readonly IAssetProvider _assetProvider;
+    private readonly AssetProvider _assetProvider;
 
-    public BaseTriggerFactory(GameLoopZenjectFactory factory, IAssetProvider assetProvider)
+    public BaseTriggerFactory(GameLoopZenjectFactory factory, AssetProvider assetProvider)
     {
       _factory = factory;
       _assetProvider = assetProvider;

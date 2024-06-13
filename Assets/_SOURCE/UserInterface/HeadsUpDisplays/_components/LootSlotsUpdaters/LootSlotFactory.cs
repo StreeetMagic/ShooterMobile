@@ -1,5 +1,5 @@
 using Gameplay.CurrencyRepositories;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters.LootSlots;
@@ -11,15 +11,15 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
   {
     private GameLoopZenjectFactory _factory;
     private HeadsUpDisplayProvider _headsUpDisplayProvider;
-    private IStaticDataService _staticDataService;
+    private ArtConfigService _artConfigService;
 
     [Inject]
     public void Construct(GameLoopZenjectFactory factory,
-      HeadsUpDisplayProvider headsUpDisplayProvider, IStaticDataService staticDataService)
+      HeadsUpDisplayProvider headsUpDisplayProvider, ArtConfigService configService)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;
-      _staticDataService = staticDataService;
+      _artConfigService = configService;
     }
 
     private LootSlotsUpdater LootSlotsUpdater => _headsUpDisplayProvider.LootSlotsUpdater;
@@ -29,7 +29,7 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
       var slot = _factory.InstantiateMono(prefab, parent);
       LootSlotsUpdater.LootSlots.Add(slot);
 
-      Sprite icon = _staticDataService.GetLootConfig(id).Icon;
+      Sprite icon = _artConfigService.GetLootSprite(id);
 
       slot.Init(icon, lootValue);
     }

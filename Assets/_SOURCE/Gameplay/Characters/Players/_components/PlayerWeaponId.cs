@@ -1,15 +1,15 @@
 using Gameplay.Weapons;
+using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.StaticDataServices;
 
 namespace Gameplay.Characters.Players
 {
   public class PlayerWeaponIdProvider : IProgressWriter
   {
-    public PlayerWeaponIdProvider(IStaticDataService staticDataService)
+    public PlayerWeaponIdProvider(ConfigService configService)
     {
-      WeaponTypeId = staticDataService.GetPlayerConfig().StartWeapon;
+      WeaponTypeId = configService.PlayerConfig.StartWeapon;
     }
 
     public WeaponTypeId WeaponTypeId { get; set; }

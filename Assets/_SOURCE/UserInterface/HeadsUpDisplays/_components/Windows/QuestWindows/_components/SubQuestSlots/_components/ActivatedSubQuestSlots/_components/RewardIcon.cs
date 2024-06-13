@@ -1,6 +1,6 @@
 using Gameplay.Quests.Subquests;
 using Gameplay.Rewards;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -12,11 +12,11 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQues
     public Image Image;
 
     [Inject] private SubQuest _subQuest;
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
 
     private void OnEnable()
     {
-      RewardConfig rewardConfig = _staticDataService.GetRewardConfigs()[_subQuest.Setup.Reward.RewardId];
+      RewardConfig rewardConfig = _configService.RewardConfigs[_subQuest.Setup.Reward.RewardId];
 
       Image.sprite = rewardConfig.Icon;
     }

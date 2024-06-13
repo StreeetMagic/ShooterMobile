@@ -1,5 +1,5 @@
 using Gameplay.CurrencyRepositories.Expirience;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -11,16 +11,16 @@ namespace UserInterface.HeadsUpDisplays.Bars.ExpirienceBars._components
     public TextMeshProUGUI Text;
 
     private ExpierienceStorage _expierienceStorage;
-    private IStaticDataService _staticDataService;
+    private ConfigService _configService;
 
     [Inject]
-    public void Construct(ExpierienceStorage expierienceStorage, IStaticDataService staticDataService)
+    public void Construct(ExpierienceStorage expierienceStorage, ConfigService configService)
     {
       _expierienceStorage = expierienceStorage;
-      _staticDataService = staticDataService;
+      _configService = configService;
     }
 
-    private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
+    private ExpirienceConfig Config => _configService.ExpirienceConfig;
 
     private void OnEnable()
     {

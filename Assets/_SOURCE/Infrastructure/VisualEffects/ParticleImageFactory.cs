@@ -7,10 +7,10 @@ namespace Infrastructure.VisualEffects
 {
   public class ParticleImageFactory
   {
-    private readonly IAssetProvider _assetProvider;
+    private readonly AssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _zenjectFactory;
 
-    public ParticleImageFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory)
+    public ParticleImageFactory(AssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory)
     {
       _assetProvider = assetProvider;
       _zenjectFactory = zenjectFactory;

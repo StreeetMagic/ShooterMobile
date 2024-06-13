@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using Infrastructure.Utilities;
 
 namespace Gameplay.Characters.Players
@@ -10,15 +10,15 @@ namespace Gameplay.Characters.Players
   public class PlayerStatsProvider
   {
     private readonly UpgradeService _upgradeService;
-    private readonly IStaticDataService _staticDataService;
+    private readonly ConfigService _configService;
 
     private readonly Dictionary<StatId, ReactiveProperty<float>> _upgradeStats = new();
     private readonly Dictionary<StatId, ReactiveProperty<float>> _questStats = new();
 
-    public PlayerStatsProvider(UpgradeService upgradeService, IStaticDataService staticDataService)
+    public PlayerStatsProvider(UpgradeService upgradeService, ConfigService configService)
     {
       _upgradeService = upgradeService;
-      _staticDataService = staticDataService;
+      _configService = configService;
     }
 
     public void Start()
@@ -49,7 +49,7 @@ namespace Gameplay.Characters.Players
     {
       float value = 0;
 
-      value += _staticDataService.GetInitialStat(id);
+      value += _configService.GetInitialStat(id);
       
       if (_upgradeStats.TryGetValue(id, out ReactiveProperty<float> stat))
         value += stat.Value;

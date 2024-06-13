@@ -8,13 +8,13 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerFactory
   {
-    private readonly IAssetProvider _assetProvider;
+    private readonly AssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _factory;
     private readonly PlayerProvider _playerProvider;
     private readonly SaveLoadService _saveLoadService;
     private readonly MapProvider _mapProvider;
 
-    public PlayerFactory(GameLoopZenjectFactory factory, IAssetProvider assetProvider,
+    public PlayerFactory(GameLoopZenjectFactory factory, AssetProvider assetProvider,
       PlayerProvider playerProvider, SaveLoadService saveLoadService,
       MapProvider mapProvider)
     {

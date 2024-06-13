@@ -1,5 +1,5 @@
 using Gameplay.CurrencyRepositories.Expirience;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,9 +11,9 @@ namespace UserInterface.HeadsUpDisplays.Bars.ExpirienceBars._components
     public Image Image;
 
     [Inject] private ExpierienceStorage _expierienceStorage;
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
 
-    private ExpirienceConfig Config => _staticDataService.GetExpirienceConfig();
+    private ExpirienceConfig Config => _configService.ExpirienceConfig;
 
     private void Update()
     {

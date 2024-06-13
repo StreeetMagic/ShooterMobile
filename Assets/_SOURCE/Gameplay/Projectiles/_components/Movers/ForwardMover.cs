@@ -1,4 +1,4 @@
-﻿using Infrastructure.StaticDataServices;
+﻿using Infrastructure.ConfigServices;
 using UnityEngine;
 using Zenject;
 
@@ -9,9 +9,9 @@ namespace Gameplay.Projectiles.Movers
   {
     private Rigidbody _rigidbody;
 
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
 
-    private float BulletSpeed => _staticDataService.GetPlayerConfig().BulletSpeed;
+    private float BulletSpeed => _configService.PlayerConfig.BulletSpeed;
 
     private void Start()
     {

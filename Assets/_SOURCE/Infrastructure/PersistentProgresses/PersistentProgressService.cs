@@ -4,18 +4,18 @@ using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 
 namespace Infrastructure.PersistentProgresses
 {
   public class PersistentProgressService
   {
-    private readonly IStaticDataService _staticDataService;
+    private readonly ConfigService _configService;
 
-    public PersistentProgressService(IStaticDataService staticDataService)
+    public PersistentProgressService(ConfigService configService)
     {
-      _staticDataService = staticDataService;
+      _configService = configService;
     }
 
     public ProjectProgress ProjectProgress { get; private set; }
@@ -27,9 +27,9 @@ namespace Infrastructure.PersistentProgresses
 
     public void SetDefault()
     {
-      DefaultProjectProgressConfig defaultProgress = _staticDataService.GetDefaultProjectProgressConfig();
+      DefaultProjectProgressConfig defaultProgress = _configService.DefaultProjectProgressConfig;
       
-      PlayerConfig playerConfig = _staticDataService.GetPlayerConfig();
+      PlayerConfig playerConfig = _configService.PlayerConfig;
       
       ProjectProgress = new ProjectProgress
       {
@@ -50,8 +50,8 @@ namespace Infrastructure.PersistentProgresses
       ProjectProgress.Upgrades = new List<UpgradeProgress>();
 
       Dictionary<StatId, UpgradeConfig> upgrades =
-        _staticDataService
-          .GetUpgradeConfigs();
+        _configService
+          .UpgradeConfigs;
 
       foreach (KeyValuePair<StatId, UpgradeConfig> upgrade in upgrades)
         ProjectProgress
@@ -64,8 +64,8 @@ namespace Infrastructure.PersistentProgresses
       ProjectProgress.Quests = new List<QuestProgress>();
 
       Dictionary<QuestId, QuestConfig> quests =
-        _staticDataService
-          .GetQuestConfigs();
+        _configService
+          .QuestConfigs;
 
       foreach (KeyValuePair<QuestId, QuestConfig> quest in quests)
       {

@@ -1,4 +1,4 @@
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 using Zenject;
 
@@ -9,7 +9,7 @@ namespace Gameplay.Bombs
   {
     private RectTransform _rectTransform;
     
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ namespace Gameplay.Bombs
 
     private void OnEnable()
     {
-      float value = _staticDataService.GetPlayerConfig().BombDefuseRadius * 2f;
+      float value = _configService.PlayerConfig.BombDefuseRadius * 2f;
 
       _rectTransform.localScale = new Vector3(value, value, value);
     }

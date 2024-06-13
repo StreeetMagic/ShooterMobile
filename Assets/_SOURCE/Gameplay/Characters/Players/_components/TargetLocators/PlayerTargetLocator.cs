@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 using Zenject;
 
@@ -11,21 +11,21 @@ namespace Gameplay.Characters.Players.TargetLocators
 
     private readonly PlayerTargetHolder _playerTargetHolder;
     private readonly Transform _transform;
-    private readonly IStaticDataService _staticDataService;
+    private readonly ConfigService _configService;
     private readonly PlayerWeaponIdProvider _playerWeaponIdProvider;
       
     private readonly Collider[] _colliders = new Collider[MaxTargets];
 
     public PlayerTargetLocator(PlayerTargetHolder playerTargetHolder, Transform transform, 
-      IStaticDataService staticDataService, PlayerWeaponIdProvider playerWeaponIdProvider)
+      ConfigService configService, PlayerWeaponIdProvider playerWeaponIdProvider)
     {
       _playerTargetHolder = playerTargetHolder;
       _transform = transform;
-      _staticDataService = staticDataService;
+      _configService = configService;
       _playerWeaponIdProvider = playerWeaponIdProvider;
     }
 
-    private float Radius => _staticDataService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange; 
+    private float Radius => _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange; 
 
     public void Tick()
     {

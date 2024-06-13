@@ -4,16 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Inputs
 {
-  public interface IInputService
-  {
-    Vector2 MoveDirection { get; }
-    Vector2 MoveDirectionFloatingJoystick { get; set; }
-    event Action Restart;
-    event Action DeleteSaves;
-    event Action OpenQuestWindow;
-  }
-
-  public class InputService : IInputService
+  public class InputService
   {
     private readonly InputAction _move;
     private readonly InputAction _restart;

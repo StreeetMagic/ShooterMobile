@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Gameplay.CurrencyRepositories;
-using Gameplay.CurrencyRepositories.BackpackStorages;
 using UnityEngine;
 
 namespace Gameplay.Loots
@@ -9,7 +8,6 @@ namespace Gameplay.Loots
   public class LootConfig : ScriptableObject
   {
     public CurrencyId Id;
-    public Sprite Icon;
 
     public List<Loot> Loots;
   }

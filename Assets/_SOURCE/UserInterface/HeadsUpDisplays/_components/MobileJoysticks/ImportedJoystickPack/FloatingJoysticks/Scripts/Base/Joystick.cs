@@ -5,13 +5,6 @@ using Zenject;
 
 namespace UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Base
 {
-  public enum AxisOptions
-  {
-    Both,
-    Horizontal,
-    Vertical
-  }
-
   public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
   {
     [SerializeField] private float handleRange = 1;
@@ -27,7 +20,7 @@ namespace UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.Flo
     private Camera _cam;
     private Vector2 _input = Vector2.zero;
 
-    [Inject] private IInputService _inputService;
+    [Inject] private InputService _inputService;
 
     private void Update()
     {

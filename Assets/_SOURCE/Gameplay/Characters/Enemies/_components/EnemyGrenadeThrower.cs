@@ -1,6 +1,6 @@
 using Gameplay.Characters.Players;
 using Gameplay.Grenades;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using Infrastructure.ZenjectFactories;
 using UnityEngine;
 using Zenject;
@@ -12,19 +12,19 @@ namespace Gameplay.Characters.Enemies
   {
     private readonly PlayerProvider _playerProvider;
     private readonly GameLoopZenjectFactory _gameLoopZenjectFactory;
-    private readonly IStaticDataService _staticDataService;
+    private readonly ConfigService _configService;
     private readonly EnemyConfig _config;
     private readonly Enemy _enemy;
 
     private float _grenadeCooldownLeft;
     private int _grenadesLeft;
 
-    public EnemyGrenadeThrower(PlayerProvider playerProvider, GameLoopZenjectFactory gameLoopZenjectFactory, IStaticDataService staticDataService,
+    public EnemyGrenadeThrower(PlayerProvider playerProvider, GameLoopZenjectFactory gameLoopZenjectFactory, ConfigService configService,
       EnemyConfig config, Enemy enemy)
     {
       _playerProvider = playerProvider;
       _gameLoopZenjectFactory = gameLoopZenjectFactory;
-      _staticDataService = staticDataService;
+      _configService = configService;
       _config = config;
       _enemy = enemy;
     }
@@ -63,10 +63,10 @@ namespace Gameplay.Characters.Enemies
       Vector3 newPosition = new Vector3(targetPosition.x + xOffset, targetPosition.y, targetPosition.z + zOffset);
 
       var mover = grenade.GetComponent<GrenadeMover>();
-      mover.Init(_staticDataService.GetGrenadeConfig(grenadeTypeId), _enemy.transform.position, newPosition);
+      mover.Init(_configService.GetGrenadeConfig(grenadeTypeId), _enemy.transform.position, newPosition);
 
       var detonator = grenade.GetComponent<GrenadeDetonator>();
-      detonator.Init(_staticDataService.GetGrenadeConfig(grenadeTypeId));
+      detonator.Init(_configService.GetGrenadeConfig(grenadeTypeId));
 
       mover.Throw();
     }

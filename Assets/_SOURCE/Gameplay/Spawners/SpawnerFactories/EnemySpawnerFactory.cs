@@ -17,7 +17,7 @@ namespace Gameplay.Spawners.SpawnerFactories
     private readonly MapProvider _mapProvider;
     private readonly IInstantiator _instantiator;
 
-    public EnemySpawnerFactory(IAssetProvider assetProvider,
+    public EnemySpawnerFactory(AssetProvider assetProvider,
       GameLoopZenjectFactory zenjectFactory, MapProvider mapProvider, IInstantiator instantiator)
     {
       _zenjectFactory = zenjectFactory;

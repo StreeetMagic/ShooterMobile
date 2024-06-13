@@ -11,12 +11,12 @@ namespace Gameplay.Projectiles.Scripts
 {
   public class ProjectileFactory
   {
-    private readonly IAssetProvider _assetProvider;
+    private readonly AssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _zenjectFactory;
     private readonly RandomService _randomService;
     private readonly VisualEffectFactory _visualEffectFactory;
 
-    public ProjectileFactory(IAssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory,
+    public ProjectileFactory(AssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory,
       RandomService randomService, VisualEffectFactory visualEffectFactory)
     {
       _assetProvider = assetProvider;

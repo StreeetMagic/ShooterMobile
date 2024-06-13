@@ -15,7 +15,7 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
 
     [Inject] private LootSlotFactory _lootSlotFactory;
     [Inject] private BackpackStorage _backpackStorage;
-    [Inject] private IAssetProvider _assetProvider;
+    [Inject] private AssetProvider _assetProvider;
 
     private LootSlot Prefab => _assetProvider.Get<LootSlot>();
 

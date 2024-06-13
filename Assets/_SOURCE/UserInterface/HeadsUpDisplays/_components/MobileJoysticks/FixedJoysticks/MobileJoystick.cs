@@ -9,6 +9,6 @@ namespace UserInterface.HeadsUpDisplays.MobileJoysticks.FixedJoysticks
         [SerializeField] private Image _image;
         [SerializeField] private Button _jumpButton;
 
-        private IInputService _inputService;
+        private InputService _inputService;
     }
 }

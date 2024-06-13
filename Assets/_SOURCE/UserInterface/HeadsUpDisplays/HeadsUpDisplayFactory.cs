@@ -15,11 +15,11 @@ namespace UserInterface.HeadsUpDisplays
     private HeadsUpDisplay _instance;
 
     private readonly GameLoopZenjectFactory _factory;
-    private readonly IAssetProvider _assetProvider;
+    private readonly AssetProvider _assetProvider;
     private readonly HeadsUpDisplayProvider _provider;
 
     public HeadsUpDisplayFactory(GameLoopZenjectFactory factory,
-      IAssetProvider assetProvider,
+      AssetProvider assetProvider,
       HeadsUpDisplayProvider provider)
     {
       _factory = factory;

@@ -1,20 +1,20 @@
-﻿using Infrastructure.StaticDataServices;
+﻿using Infrastructure.ConfigServices;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players.Rotators
 {
   public class PlayerRotator
   {
-    private readonly IStaticDataService _static;
+    private readonly ConfigService _static;
     private readonly PlayerProvider _playerProvider;
 
-    public PlayerRotator(IStaticDataService staticDataService, PlayerProvider playerProvider)
+    public PlayerRotator(ConfigService configService, PlayerProvider playerProvider)
     {
-      _static = staticDataService;
+      _static = configService;
       _playerProvider = playerProvider;
     }
 
-    private float RotationSpeed => _static.GetPlayerConfig().RotationSpeed;
+    private float RotationSpeed => _static.PlayerConfig.RotationSpeed;
     private Transform Transform => _playerProvider.Instance.transform;
 
     public void RotateTowardsDirection(Vector3 direction)

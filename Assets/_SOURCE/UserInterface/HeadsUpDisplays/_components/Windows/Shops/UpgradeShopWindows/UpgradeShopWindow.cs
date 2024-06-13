@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Gameplay.Stats;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using Infrastructure.UserIntefaces;
 using UnityEngine;
 using Zenject;
@@ -13,7 +13,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows
 
     private readonly List<GameObject> _otherStuff = new();
 
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
     [Inject] private UpgradeCellFactory _upgradeCellFactory;
     [Inject] private HeadsUpDisplayProvider _headsUpDisplayProvider;
 
@@ -45,9 +45,9 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows
 
     private void CreateUpgradeCells()
     {
-      int upgradesCount = _staticDataService.GetUpgradeConfigs().Count;
+      int upgradesCount = _configService.UpgradeConfigs.Count;
 
-      List<StatId> keys = new List<StatId>(_staticDataService.GetUpgradeConfigs().Keys);
+      List<StatId> keys = new List<StatId>(_configService.UpgradeConfigs.Keys);
 
       for (int i = 0; i < upgradesCount; i++)
         _upgradeCellFactory.Create(keys[i], _container);

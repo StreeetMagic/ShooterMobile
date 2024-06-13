@@ -8,7 +8,7 @@ namespace Gameplay.Characters.Enemies
   public class EnemyMeshModelSpawner
   {
     private EnemyMeshModelSpawner(
-      IAssetProvider assetProvider, 
+      AssetProvider assetProvider, 
       EnemyTypeId enemyId, 
       EnemyShootingPointProvider shootingPointProvider, 
       GameLoopZenjectFactory factory, 

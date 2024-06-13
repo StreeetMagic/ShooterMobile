@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Infrastructure.AudioServices.Music
 {
-  [CreateAssetMenu(fileName = "MusicConfig", menuName = "Configs/MusicConfig")]
+  [CreateAssetMenu(fileName = "MusicConfig", menuName = "ArtConfigs/MusicConfig")]
   public class MusicConfig : ScriptableObject
   {
     public List<MusicSetup> Musics;

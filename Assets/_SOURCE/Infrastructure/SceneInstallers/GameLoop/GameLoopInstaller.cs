@@ -33,7 +33,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
   {
     public Map Map;
 
-    [Inject] private IAssetProvider _assetProvider;
+    [Inject] private AssetProvider _assetProvider;
 
     public override void InstallBindings()
     {

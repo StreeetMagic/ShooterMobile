@@ -1,4 +1,4 @@
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 using Zenject;
 
@@ -9,7 +9,7 @@ namespace Gameplay.Characters.Players.AttackRadiusListeners
     private RectTransform _rectTransform;
 
     [Inject] private PlayerWeaponIdProvider _playerWeaponIdProvider;
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ namespace Gameplay.Characters.Players.AttackRadiusListeners
 
     private void OnEnable()
     {
-      float fireRangeValue = _staticDataService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange;
+      float fireRangeValue = _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange;
 
       OnUpgradeChanged(fireRangeValue);
     }

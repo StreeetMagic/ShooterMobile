@@ -1,8 +1,8 @@
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Stats;
+using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.StaticDataServices;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players
@@ -12,7 +12,7 @@ namespace Gameplay.Characters.Players
     private readonly PlayerAnimator _playerAnimator;
     private readonly CharacterController _characterController;
     private readonly PlayerStatsProvider _playerStatsProvider;
-    private readonly IStaticDataService _staticDataService;
+    private readonly ConfigService _configService;
 
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
@@ -21,15 +21,15 @@ namespace Gameplay.Characters.Players
       PlayerAnimator playerAnimator,
       CharacterController characterController,
       PlayerStatsProvider playerStatsProvider,
-      IStaticDataService staticDataService)
+      ConfigService configService)
     {
       _playerAnimator = playerAnimator;
       _characterController = characterController;
       _playerStatsProvider = playerStatsProvider;
-      _staticDataService = staticDataService;
+      _configService = configService;
     }
 
-    private PlayerConfig PlayerConfig => _staticDataService.GetPlayerConfig();
+    private PlayerConfig PlayerConfig => _configService.PlayerConfig;
     private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed);
     private float GravityScale => PlayerConfig.GravityScale;
 

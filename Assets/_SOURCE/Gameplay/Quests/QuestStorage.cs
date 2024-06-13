@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Quests.Subquests;
+using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.StaticDataServices;
 using Infrastructure.ZenjectFactories;
 
 namespace Gameplay.Quests
@@ -12,13 +12,13 @@ namespace Gameplay.Quests
   {
     private Dictionary<QuestId, Quest> _quests;
 
-    private readonly IStaticDataService _staticDataService;
+    private readonly ConfigService _configService;
     private readonly ProjectZenjectFactory _gameLoopZenjectFactory;
 
-    public QuestStorage(IStaticDataService staticDataService,
+    public QuestStorage(ConfigService configService,
       ProjectZenjectFactory gameLoopZenjectFactory)
     {
-      _staticDataService = staticDataService;
+      _configService = configService;
       _gameLoopZenjectFactory = gameLoopZenjectFactory;
     }
 
@@ -30,7 +30,7 @@ namespace Gameplay.Quests
 
     public void ReadProgress(ProjectProgress projectProgress)
     {
-      Dictionary<QuestId, QuestConfig> configs = _staticDataService.GetQuestConfigs();
+      Dictionary<QuestId, QuestConfig> configs = _configService.QuestConfigs;
 
       _quests = new Dictionary<QuestId, Quest>();
 

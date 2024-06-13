@@ -7,11 +7,11 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerInputHandler : ITickable
   {
-    private readonly IInputService _inputService;
+    private readonly InputService _inputService;
     private readonly PlayerRotatorController _rotatorController;
     private readonly PlayerMover _mover;
 
-    public PlayerInputHandler(IInputService inputService,
+    public PlayerInputHandler(InputService inputService,
       PlayerRotatorController rotatorController, PlayerMover mover)
     {
       _inputService = inputService;

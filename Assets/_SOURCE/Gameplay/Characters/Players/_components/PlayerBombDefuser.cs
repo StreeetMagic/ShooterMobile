@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Gameplay.Bombs;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 using Zenject;
 
@@ -11,13 +11,13 @@ namespace Gameplay.Characters.Players
   {
     private readonly PlayerHealth _playerHealth;
     private readonly PlayerMoveSpeed _playerMoveSpeed;
-    private readonly IStaticDataService _staticDataService;
+    private readonly ConfigService _configService;
 
-    public PlayerBombDefuser(PlayerHealth playerHealth, PlayerMoveSpeed playerMoveSpeed, IStaticDataService staticDataService)
+    public PlayerBombDefuser(PlayerHealth playerHealth, PlayerMoveSpeed playerMoveSpeed, ConfigService configService)
     {
       _playerHealth = playerHealth;
       _playerMoveSpeed = playerMoveSpeed;
-      _staticDataService = staticDataService;
+      _configService = configService;
     }
 
     public List<Bomb> Bombs { get; } = new();
@@ -31,7 +31,7 @@ namespace Gameplay.Characters.Players
     {
       if (_playerMoveSpeed.CurrentMoveSpeed.Value == 0)
       {
-        float progressPerFrame = (Time.deltaTime / _staticDataService.GetPlayerConfig().BombDefuseDuration);
+        float progressPerFrame = (Time.deltaTime / _configService.PlayerConfig.BombDefuseDuration);
 
         if (Bombs.Count <= 0)
           return;

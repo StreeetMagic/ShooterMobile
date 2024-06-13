@@ -3,7 +3,7 @@ using Gameplay.Characters.Players;
 using Gameplay.Projectiles.Scripts;
 using Infrastructure.AudioServices;
 using Infrastructure.AudioServices.Sounds;
-using Infrastructure.StaticDataServices;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -12,7 +12,7 @@ namespace Gameplay.Weapons
 {
   public class WeaponAttacker : MonoBehaviour
   {
-    [Inject] private IStaticDataService _staticDataService;
+    [Inject] private ConfigService _configService;
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private ProjectileFactory _projectileFactory;
     [Inject] private AudioService _audioService;
@@ -22,7 +22,7 @@ namespace Gameplay.Weapons
     private float _burstPauseLeft;
     private int _burstShots;
 
-    private WeaponConfig WeaponConfig => _staticDataService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId);
+    private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId);
     private float Cooldown => (float)1 / WeaponConfig.FireRate;
 
     private Transform Transform => _playerProvider.Instance.WeaponShootingPointPoint.Transform;

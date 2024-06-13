@@ -2,21 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Stats;
+using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.StaticDataServices;
 
 namespace Gameplay.Upgrades
 {
   public class UpgradeService : IProgressWriter
   {
-    private readonly IStaticDataService _staticDataService;
+    private readonly ConfigService _configService;
 
     private Dictionary<StatId, Upgrade> _upgrades;
 
-    public UpgradeService(IStaticDataService staticDataService)
+    public UpgradeService(ConfigService configService)
     {
-      _staticDataService = staticDataService;
+      _configService = configService;
     }
 
     public event Action Changed;
@@ -36,20 +36,20 @@ namespace Gameplay.Upgrades
     }
 
     public int GetCurrentUpgradeValue(StatId statId) =>
-      _staticDataService
+      _configService
         .GetUpgradeConfig(statId)
         .Values[GetUpgrade(statId).Level.Value]
         .Value;
 
     public int GetNextUpgradeCost(StatId statId) =>
-      _staticDataService
+      _configService
         .GetUpgradeConfig(statId)
         .Values[GetUpgrade(statId).Level.Value + 1]
         .Cost;
 
     public void ReadProgress(ProjectProgress projectProgress)
     {
-      Dictionary<StatId, UpgradeConfig> upgrades = _staticDataService.GetUpgradeConfigs();
+      Dictionary<StatId, UpgradeConfig> upgrades = _configService.UpgradeConfigs;
       _upgrades = new Dictionary<StatId, Upgrade>();
 
       foreach (StatId upgradeId in upgrades.Keys)

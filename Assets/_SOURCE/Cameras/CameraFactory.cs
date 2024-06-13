@@ -11,12 +11,12 @@ namespace Cameras
     private const string BotCamera = nameof(BotCamera);
     private const string TopCamera = nameof(TopCamera);
 
-    private readonly IAssetProvider _assetProvider;
+    private readonly AssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _factory;
     private readonly PlayerProvider _playerFactory;
     private readonly CameraProvider _cameraProvider;
 
-    public CameraFactory(GameLoopZenjectFactory factory, IAssetProvider assetProvider, PlayerProvider playerFactory, CameraProvider cameraProvider)
+    public CameraFactory(GameLoopZenjectFactory factory, AssetProvider assetProvider, PlayerProvider playerFactory, CameraProvider cameraProvider)
     {
       _factory = factory;
       _assetProvider = assetProvider;
