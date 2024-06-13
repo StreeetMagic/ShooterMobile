@@ -24,7 +24,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows
       DisableOtherStuff();
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
       EnableOtherStuff();
     }
