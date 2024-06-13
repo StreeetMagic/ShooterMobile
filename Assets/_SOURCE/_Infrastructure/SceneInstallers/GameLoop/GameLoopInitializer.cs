@@ -10,7 +10,6 @@ using Gameplay.CurrencyRepositories.BackpackStorages;
 using Gameplay.Quests;
 using Gameplay.Spawners.SpawnerFactories;
 using Gameplay.Upgrades;
-using Loggers;
 using Maps;
 using SaveLoadServices;
 using SceneLoaders;

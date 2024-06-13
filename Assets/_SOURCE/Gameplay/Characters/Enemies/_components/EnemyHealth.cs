@@ -17,7 +17,8 @@ namespace Gameplay.Characters.Enemies
     [Inject] private EnemyConfig _config;
     [Inject] private EnemySpawner _spawner;
     [Inject] private EnemyStateMachine _enemyStateMachine;
-
+    [Inject] private EnemyAssistCall _assistCall;
+    
     public event Action<EnemyConfig, IHealth> Died;
     public event Action<float> Damaged;
 
@@ -53,6 +54,8 @@ namespace Gameplay.Characters.Enemies
     {
       foreach (Enemy enemy in _spawner.Enemies)
         enemy.Health.Hit();
+      
+      _assistCall.Call();
     }
 
     public void Hit()
