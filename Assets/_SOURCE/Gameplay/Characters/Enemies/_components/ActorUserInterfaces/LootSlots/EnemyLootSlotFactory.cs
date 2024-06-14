@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Gameplay.CurrencyRepositories;
-using Gameplay.CurrencyRepositories.BackpackStorages;
 using Gameplay.Loots;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
@@ -46,7 +45,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
       foreach (KeyValuePair<CurrencyId, int> item in lootData)
       {
         EnemyLootSlot slot = _factory.InstantiateMono(prefab, parent);
-        Sprite sprite = _artConfigService.GetLootSprite(item.Key);
+        Sprite sprite = _artConfigService.GetLootContentSetup(item.Key).Sprite;
 
         slot.Init(sprite, item.Value);
       }

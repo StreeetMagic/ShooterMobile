@@ -5,12 +5,12 @@ using UnityEngine;
 namespace Gameplay.Loots
 {
   [Serializable]
-  public class LootSpriteSetup
+  public class LootContentSetup
   {
     public CurrencyId Id;
     public Sprite Sprite;
     
-    public LootSpriteSetup(CurrencyId id, Sprite sprite)
+    public LootContentSetup(CurrencyId id, Sprite sprite)
     {
       Id = id;
       Sprite = sprite;

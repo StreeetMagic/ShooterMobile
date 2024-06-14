@@ -29,7 +29,7 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
       var slot = _factory.InstantiateMono(prefab, parent);
       LootSlotsUpdater.LootSlots.Add(slot);
 
-      Sprite icon = _artConfigService.GetLootSprite(id);
+      Sprite icon = _artConfigService.GetLootContentSetup(id).Sprite;
 
       slot.Init(icon, lootValue);
     }

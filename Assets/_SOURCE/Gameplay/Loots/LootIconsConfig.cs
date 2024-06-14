@@ -6,6 +6,6 @@ namespace Gameplay.Loots
   [CreateAssetMenu(fileName = "LootIconsConfig", menuName = "ArtConfigs/LootIconsConfig")]
   public class LootIconsConfig : ScriptableObject
   {
-    public List<LootSpriteSetup> Setups;
+    public List<LootContentSetup> Setups;
   }
 }

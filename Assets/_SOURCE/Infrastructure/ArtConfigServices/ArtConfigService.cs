@@ -20,22 +20,22 @@ namespace Infrastructure.ArtConfigServices
       _assetProvider = assetProvider;
     }
 
-    private Dictionary<CurrencyId, LootSpriteSetup> _lootSprites;
-    private Dictionary<StatId, UpgradeContentSetup> _upgradeContentConfigs;
-    private Dictionary<QuestId, QuestContentSetup> _questContentConfigs;
-    private Dictionary<SubQuestId, SubQuestContentSetup> _subQuestContentConfigs;
+    private Dictionary<CurrencyId, LootContentSetup> _loots;
+    private Dictionary<StatId, UpgradeContentSetup> _upgrades;
+    private Dictionary<QuestId, QuestContentSetup> _quests;
+    private Dictionary<SubQuestId, SubQuestContentSetup> _subQuests;
 
-    public Sprite GetLootSprite(CurrencyId id) => _lootSprites[id].Sprite;
-    public UpgradeContentSetup GetUpgradeContentSetup(StatId id) => _upgradeContentConfigs[id];
-    public QuestContentSetup GetQuestContentSetup(QuestId questId) => _questContentConfigs[questId];
-    public SubQuestContentSetup GetSubQuestContentSetup(SubQuestId id) => _subQuestContentConfigs[id];
+    public LootContentSetup GetLootContentSetup(CurrencyId id) => _loots[id];
+    public UpgradeContentSetup GetUpgradeContentSetup(StatId id) => _upgrades[id];
+    public QuestContentSetup GetQuestContentSetup(QuestId questId) => _quests[questId];
+    public SubQuestContentSetup GetSubQuestContentSetup(SubQuestId id) => _subQuests[id];
 
     public void LoadConfigs()
     {
-      _lootSprites = _assetProvider.GetConfig<LootIconsConfig>().Setups.ToDictionary(x => x.Id, x => new LootSpriteSetup(x.Id, x.Sprite));
-      _upgradeContentConfigs = _assetProvider.GetConfig<UpgradeContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _questContentConfigs = _assetProvider.GetConfig<QuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _subQuestContentConfigs = _assetProvider.GetConfig<SubQuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _loots = _assetProvider.GetConfig<LootIconsConfig>().Setups.ToDictionary(x => x.Id, x => x); 
+      _upgrades = _assetProvider.GetConfig<UpgradeContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _quests = _assetProvider.GetConfig<QuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _subQuests = _assetProvider.GetConfig<SubQuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
     }
   }
 }
