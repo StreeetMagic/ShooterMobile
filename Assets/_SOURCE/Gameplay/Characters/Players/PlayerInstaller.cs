@@ -1,5 +1,6 @@
 using System;
 using Gameplay.Characters.Players.Animators;
+using Gameplay.Characters.Players.MeshModels;
 using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.TargetLocators;
 using Gameplay.Weapons;
@@ -16,11 +17,7 @@ namespace Gameplay.Characters.Players
     public PlayerAnimator PlayerAnimator;
     public PlayerPetSpawnPointsContainer PetSpawnPointsContainer;
 
-    public WeaponContainer WeaponContainer;
-    public WeaponSwitcher WeaponSwitcher;
-    public Weapon Weapon;
-    public WeaponShootingPoint WeaponShootingPoint;
-    public WeaponAttacker WeaponAttacker;
+    public PlayerWeaponContainer WeaponContainer;
 
     [Inject] private SaveLoadService _saveLoadServices;
 
@@ -35,11 +32,7 @@ namespace Gameplay.Characters.Players
 
       Container.Bind<Transform>().FromInstance(transform).AsSingle();
 
-      Container.Bind<WeaponContainer>().FromInstance(WeaponContainer).AsSingle();
-      Container.Bind<WeaponSwitcher>().FromInstance(WeaponSwitcher).AsSingle();
-      Container.Bind<Weapon>().FromInstance(Weapon).AsSingle();
-      Container.Bind<WeaponAttacker>().FromInstance(WeaponAttacker).AsSingle();
-      Container.Bind<WeaponShootingPoint>().FromInstance(WeaponShootingPoint).AsSingle();
+      Container.Bind<PlayerWeaponContainer>().FromInstance(WeaponContainer).AsSingle();
 
       Container.BindInterfacesAndSelfTo<PlayerMover>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerRotator>().AsSingle().NonLazy();
@@ -56,6 +49,9 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerAttacker>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerTargetHolder>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerTargetLocator>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponAttacker>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponSwitcher>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponShootingPoint>().AsSingle().NonLazy();
     }
 
     public void Initialize()

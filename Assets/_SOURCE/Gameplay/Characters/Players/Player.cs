@@ -8,7 +8,7 @@ namespace Gameplay.Characters.Players
   {
     [Inject] public Transform Transform { get; }
     
-    [Inject] public WeaponShootingPoint WeaponShootingPointPoint { get; }
+    [Inject] public PlayerWeaponShootingPoint WeaponShootingPointPoint { get; }
     
     [Inject] public PlayerTargetHolder TargetHolder { get; }
     [Inject] public PlayerHealth Health { get; }

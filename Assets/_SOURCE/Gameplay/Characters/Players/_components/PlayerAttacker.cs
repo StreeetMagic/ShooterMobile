@@ -9,11 +9,11 @@ namespace Gameplay.Characters.Players
     private readonly PlayerProvider _playerProvider;
     private readonly BackpackStorage _backpackStorage;
     private readonly PlayerWeaponRaiser _playerWeaponRaiser;
-    private readonly WeaponAttacker _weaponAttacker;
+    private readonly PlayerWeaponAttacker _weaponAttacker;
     private readonly PlayerTargetHolder _playerTargetHolder;
 
     public PlayerAttacker(PlayerProvider playerProvider, BackpackStorage backpackStorage,
-      PlayerWeaponRaiser playerWeaponRaiser, WeaponAttacker weaponAttacker, PlayerTargetHolder playerTargetHolder)
+      PlayerWeaponRaiser playerWeaponRaiser, PlayerWeaponAttacker weaponAttacker, PlayerTargetHolder playerTargetHolder)
     {
       _playerProvider = playerProvider;
       _backpackStorage = backpackStorage;

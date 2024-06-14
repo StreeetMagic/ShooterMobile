@@ -1,25 +1,27 @@
-using Gameplay.Characters.Players;
+using Gameplay.Characters.Players.MeshModels;
+using Gameplay.Weapons;
 using UnityEngine;
-using Zenject;
 
-namespace Gameplay.Weapons
+namespace Gameplay.Characters.Players
 {
-  public class WeaponSwitcher : MonoBehaviour
+  public class PlayerWeaponSwitcher
   {
-    [Inject] private Weapon _weapon;
-    [Inject] private WeaponContainer _weaponContainer;
-    [Inject] private WeaponShootingPoint _shootingPoint;
-    [Inject] private PlayerWeaponIdProvider _playerWeaponIdProvider;
+    private readonly PlayerWeaponContainer _weaponContainer;
+    private readonly PlayerWeaponShootingPoint _shootingPoint;
 
-    private void Start()
+    public PlayerWeaponSwitcher(PlayerWeaponContainer weaponContainer,
+      PlayerWeaponShootingPoint shootingPoint, PlayerWeaponIdProvider playerWeaponIdProvider)
     {
-      if (_playerWeaponIdProvider.WeaponTypeId == WeaponTypeId.Unknown)
+      _weaponContainer = weaponContainer;
+      _shootingPoint = shootingPoint;
+
+      if (playerWeaponIdProvider.WeaponTypeId == WeaponTypeId.Unknown)
         throw new System.Exception("У игрока не указан айдишник оружия");
 
       DisableAll();
       NullShootingPoint();
 
-      SwitchTo(_playerWeaponIdProvider.WeaponTypeId);
+      SwitchTo(playerWeaponIdProvider.WeaponTypeId);
     }
 
     public void SwitchTo(WeaponTypeId weaponTypeId)

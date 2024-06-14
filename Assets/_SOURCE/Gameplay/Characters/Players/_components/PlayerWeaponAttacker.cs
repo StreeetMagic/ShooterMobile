@@ -1,26 +1,35 @@
 using System;
-using Gameplay.Characters.Players;
 using Gameplay.Projectiles.Scripts;
 using Gameplay.Utilities;
+using Gameplay.Weapons;
 using Infrastructure.AudioServices;
 using Infrastructure.AudioServices.Sounds;
 using Infrastructure.ConfigServices;
 using UnityEngine;
-using Zenject;
 
-namespace Gameplay.Weapons
+namespace Gameplay.Characters.Players
 {
-  public class WeaponAttacker : MonoBehaviour
+  public class PlayerWeaponAttacker
   {
-    [Inject] private ConfigService _configService;
-    [Inject] private PlayerProvider _playerProvider;
-    [Inject] private ProjectileFactory _projectileFactory;
-    [Inject] private AudioService _audioService;
-    [Inject] private PlayerWeaponIdProvider _playerWeaponIdProvider;
+    private readonly ConfigService _configService;
+    private readonly PlayerProvider _playerProvider;
+    private readonly ProjectileFactory _projectileFactory;
+    private readonly AudioService _audioService;
+    private readonly PlayerWeaponIdProvider _playerWeaponIdProvider;
 
     private float _timeLeft;
     private float _burstPauseLeft;
     private int _burstShots;
+
+    public PlayerWeaponAttacker(ConfigService configService, PlayerProvider playerProvider, 
+      ProjectileFactory projectileFactory, AudioService audioService, PlayerWeaponIdProvider playerWeaponIdProvider)
+    {
+      _configService = configService;
+      _playerProvider = playerProvider;
+      _projectileFactory = projectileFactory;
+      _audioService = audioService;
+      _playerWeaponIdProvider = playerWeaponIdProvider;
+    }
 
     private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId);
     private float Cooldown => (float)1 / WeaponConfig.FireRate;

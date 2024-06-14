@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Gameplay.Quests;
 using Gameplay.Upgrades;
 using Gameplay.Weapons;
-using UnityEngine.Serialization;
 
 namespace Infrastructure.PersistentProgresses
 {

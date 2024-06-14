@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gameplay.Weapons
 {
-  public class WeaponShootingPoint : MonoBehaviour
+  public class PlayerWeaponShootingPoint
   {
     public Transform Transform { get; set; }
   }
