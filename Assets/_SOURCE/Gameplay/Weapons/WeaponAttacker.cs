@@ -1,6 +1,7 @@
 using System;
 using Gameplay.Characters.Players;
 using Gameplay.Projectiles.Scripts;
+using Gameplay.Utilities;
 using Infrastructure.AudioServices;
 using Infrastructure.AudioServices.Sounds;
 using Infrastructure.ConfigServices;
@@ -98,7 +99,7 @@ namespace Gameplay.Weapons
       {
         Vector3 directionToTarget = _playerProvider.Instance.TargetHolder.DirectionToTarget;
 
-        directionToTarget = AddAngle(directionToTarget, WeaponConfig.BulletSpreadAngle);
+        directionToTarget = AngleChanger.AddAngle(directionToTarget, WeaponConfig.BulletSpreadAngle);
 
         _projectileFactory.CreatePlayerProjectile(_playerProvider.Instance.WeaponShootingPointPoint.Transform, directionToTarget);
         _audioService.PlaySound(SoundId.Shoot);
@@ -108,20 +109,6 @@ namespace Gameplay.Weapons
     private void Strike()
     {
       _playerProvider.Instance.TargetHolder.CurrentTarget.TakeDamage(WeaponConfig.Damage);
-    }
-
-    private Vector3 AddAngle(Vector3 directionToTarget, float angle)
-    {
-      float randomHorizontalAngle = Random.Range(-angle, angle);
-      float randomVerticalAngle = Random.Range(-angle, angle);
-
-      Quaternion horizontalRotation = Quaternion.AngleAxis(randomHorizontalAngle, Vector3.up);
-      Quaternion verticalRotation = Quaternion.AngleAxis(randomVerticalAngle, Vector3.right);
-
-      directionToTarget = horizontalRotation * directionToTarget;
-      directionToTarget = verticalRotation * directionToTarget;
-
-      return directionToTarget.normalized;
     }
   }
 }
