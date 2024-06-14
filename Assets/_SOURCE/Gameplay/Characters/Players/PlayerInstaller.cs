@@ -13,25 +13,32 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerInstaller : MonoInstaller, IInitializable, IDisposable
   {
-    public Player Player;
-    public PlayerAnimator PlayerAnimator;
-    public PlayerPetSpawnPointsContainer PetSpawnPointsContainer;
-
-    public PlayerWeaponContainer WeaponContainer;
+    [SerializeField] private PlayerAnimator PlayerAnimator;
+    [SerializeField] private PlayerPetSpawnPointsContainer _petSpawnPointsContainer;
+    [SerializeField] private PlayerWeaponContainer WeaponContainer;
 
     [Inject] private SaveLoadService _saveLoadServices;
 
+    public Transform Transform { get; private set; }
+    public PlayerWeaponShootingPoint WeaponShootingPointPoint { get; private set; }
+    public PlayerTargetHolder TargetHolder { get; private set; }
+    public PlayerHealth Health { get; private set; }
+    public PlayerHenSpawner HenSpawner { get; private set; }
+    public PlayerInputHandler InputHandler { get; private set; }
+    public PlayerStandsOnSamePosition StandsOnSamePosition { get; private set; }
+    public PlayerPetSpawnPointsContainer PetSpawnPointsContainer { get; private set; }
+    public PlayerWeaponIdProvider WeaponIdProvider { get; private set; }
+    public PlayerBombDefuser BombDefuser { get; private set; }
+
     public override void InstallBindings()
     {
-      Container.Bind<Player>().FromInstance(Player).AsSingle();
       Container.BindInterfacesAndSelfTo<PlayerInstaller>().FromInstance(this).AsSingle().NonLazy();
 
       Container.Bind<PlayerAnimator>().FromInstance(PlayerAnimator).AsSingle();
-      Container.Bind<PlayerPetSpawnPointsContainer>().FromInstance(PetSpawnPointsContainer).AsSingle();
+      Container.Bind<PlayerPetSpawnPointsContainer>().FromInstance(_petSpawnPointsContainer).AsSingle();
       Container.Bind<CharacterController>().FromInstance(GetComponent<CharacterController>()).AsSingle();
 
       Container.Bind<Transform>().FromInstance(transform).AsSingle();
-
       Container.Bind<PlayerWeaponContainer>().FromInstance(WeaponContainer).AsSingle();
 
       Container.BindInterfacesAndSelfTo<PlayerMover>().AsSingle().NonLazy();
@@ -52,6 +59,17 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerWeaponAttacker>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponSwitcher>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponShootingPoint>().AsSingle().NonLazy();
+
+      Transform = Container.Resolve<Transform>();
+      WeaponShootingPointPoint = Container.Resolve<PlayerWeaponShootingPoint>();
+      TargetHolder = Container.Resolve<PlayerTargetHolder>();
+      Health = Container.Resolve<PlayerHealth>();
+      HenSpawner = Container.Resolve<PlayerHenSpawner>();
+      InputHandler = Container.Resolve<PlayerInputHandler>();
+      StandsOnSamePosition = Container.Resolve<PlayerStandsOnSamePosition>();
+      PetSpawnPointsContainer = Container.Resolve<PlayerPetSpawnPointsContainer>();
+      WeaponIdProvider = Container.Resolve<PlayerWeaponIdProvider>();
+      BombDefuser = Container.Resolve<PlayerBombDefuser>();
     }
 
     public void Initialize()

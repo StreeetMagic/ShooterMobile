@@ -32,7 +32,7 @@ namespace Gameplay.Characters.Players
       Player player = _factory.InstantiateMono(prefab, SpawnPosition(), parent);
 
       player.transform.SetParent(null);
-      _playerProvider.Instance = player;
+      _playerProvider.Instance = player.GetComponent<PlayerInstaller>();
 
       foreach (IProgressReader progressReader in player.GetComponentsInChildren<IProgressReader>())
         _saveLoadService.ProgressReaders.Add(progressReader);
@@ -40,7 +40,7 @@ namespace Gameplay.Characters.Players
 
     public void Destroy()
     {
-      Player player = _playerProvider.Instance;
+      var player = _playerProvider.Instance;
 
       if (player != null)
       {

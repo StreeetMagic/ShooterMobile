@@ -21,7 +21,7 @@ namespace Gameplay.Bombs
 
     private void OnTriggerEnter(Collider other)
     {
-      if (other.TryGetComponent(out Player player))
+      if (other.TryGetComponent(out PlayerInstaller player))
       {
         IsPlayerDetected = true;
 
@@ -36,7 +36,7 @@ namespace Gameplay.Bombs
 
     private void OnTriggerExit(Collider other)
     {
-      if (other.TryGetComponent(out Player player))
+      if (other.TryGetComponent(out PlayerInstaller player))
       {
         IsPlayerDetected = false;
         GetComponent<BombDefuser>().DefuseProgress = 0;

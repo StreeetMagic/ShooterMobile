@@ -1143,9 +1143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a39ccb5eaa1b2f4d924bb48f95ea8e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 2865720521955186985}
   PlayerAnimator: {fileID: 2860814150951373908}
-  PetSpawnPointsContainer: {fileID: 4737300267756779004}
+  _petSpawnPointsContainer: {fileID: 4737300267756779004}
   WeaponContainer: {fileID: 375312727060438388}
 --- !u!114 &2865720521955186985
 MonoBehaviour:

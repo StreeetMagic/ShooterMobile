@@ -2,9 +2,9 @@
 {
   public class PlayerProvider
   {
-    private Player _instance;
+    private PlayerInstaller _instance;
 
-    public Player Instance
+    public PlayerInstaller Instance
     {
       get => _instance;
       set => _instance = value;

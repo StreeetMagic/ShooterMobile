@@ -26,15 +26,15 @@ namespace Cameras
 
     public void Create(Transform parent)
     {
-      Player player = _playerFactory.Instance;
+      var player = _playerFactory.Instance;
 
-      CreateCamera(parent, player, BotCamera, 11);
-      CreateCamera(parent, player, TopCamera, 10);
+      CreateCamera(parent, player.Transform, BotCamera, 11);
+      CreateCamera(parent, player.Transform, TopCamera, 10);
 
       _cameraProvider.MainCamera = Object.FindObjectOfType<Camera>();
     }
 
-    private void CreateCamera(Transform parent, Player player, string cameraType, int priority)
+    private void CreateCamera(Transform parent, Transform player, string cameraType, int priority)
     {
       var prefab = _assetProvider.Get<TopDownCamera>(cameraType);
       TopDownCamera camera = _factory.InstantiateMono(prefab, parent);

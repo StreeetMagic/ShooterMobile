@@ -29,7 +29,7 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.BasePointers
         return;
 
       BaseTrigger baseTrigger = _mapProvider.Map.BaseTrigger;
-      Player player = _playerProvider.Instance;
+      PlayerInstaller player = _playerProvider.Instance;
 
       float distance = Vector3.Distance(baseTrigger.transform.position, player.transform.position);
 
