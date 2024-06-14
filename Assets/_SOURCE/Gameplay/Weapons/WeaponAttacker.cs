@@ -5,10 +5,8 @@ using Gameplay.Utilities;
 using Infrastructure.AudioServices;
 using Infrastructure.AudioServices.Sounds;
 using Infrastructure.ConfigServices;
-using Loggers;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 namespace Gameplay.Weapons
 {

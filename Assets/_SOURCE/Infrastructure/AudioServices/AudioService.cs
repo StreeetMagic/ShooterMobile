@@ -13,7 +13,7 @@ namespace Infrastructure.AudioServices
     private readonly ProjectZenjectFactory _factory;
 
     private AudioSourceContainer _container;
-    private MusicPlayer _musicPlayer;
+   // private MusicPlayer _musicPlayer;
 
     // ReSharper disable once NotAccessedField.Local
     private SoundPlayer _soundPlayer;
@@ -23,7 +23,7 @@ namespace Infrastructure.AudioServices
       _factory = factory;
     }
 
-    public bool IsWorking { get; private set; } = true;
+   // public bool IsWorking { get; private set; } = true;
     public bool IsMusicMuted { get; private set; }
 
     public void Initialize()
@@ -31,17 +31,17 @@ namespace Infrastructure.AudioServices
       _container = _factory.InstantiateMono<AudioSourceContainer>();
       _container.transform.SetParent(null);
 
-      _musicPlayer = _factory.InstantiateNative<MusicPlayer>();
+    //  _musicPlayer = _factory.InstantiateNative<MusicPlayer>();
       _soundPlayer = new SoundPlayer();
     }
 
-    public void PlayMusic(MusicId id)
-    {
-      MusicConfig config = null;
-      AudioSource audioSource = _container.MusicSources[0];
-
-      _musicPlayer.Play(config, audioSource);
-    }
+    // public void PlayMusic(MusicId id)
+    // {
+    //   MusicConfig config = null;
+    //   AudioSource audioSource = _container.MusicSources[0];
+    //
+    //   _musicPlayer.Play(config, audioSource);
+    // }
 
     public void PlaySound(SoundId id, Vector3 at = default)
     {

@@ -85,16 +85,16 @@ namespace Infrastructure.SceneInstallers.GameLoop
       _mapFactory.Destroy();
     }
 
-    private void LogScenes()
-    {
-      List<SceneId> sceneList = _sceneLoader.LoadedScenes;
-
-      var scenes = "";
-
-      foreach (SceneId scene in sceneList)
-        scenes += scene + " ";
-      
-      Debug.Log(scenes);
-    }
+    // private void LogScenes()
+    // {
+    //   List<SceneId> sceneList = _sceneLoader.LoadedScenes;
+    //
+    //   var scenes = "";
+    //
+    //   foreach (SceneId scene in sceneList)
+    //     scenes += scene + " ";
+    //   
+    //   Debug.Log(scenes);
+    // }
   }
 }

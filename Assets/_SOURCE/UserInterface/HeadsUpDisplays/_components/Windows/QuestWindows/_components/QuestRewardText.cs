@@ -15,7 +15,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components
 
     private void Start()
     {
-      Text.text = "+ " + _configService.GetQuestConfig(_id).Reward.Quantity + " " + _configService.GetQuestConfig(_id) .Reward.RewardId;
+      Text.text = "+ " + _configService.GetQuestConfig(_id).Reward.Quantity + " " + _configService.GetQuestConfig(_id).Reward.RewardId;
     }
   }
 }

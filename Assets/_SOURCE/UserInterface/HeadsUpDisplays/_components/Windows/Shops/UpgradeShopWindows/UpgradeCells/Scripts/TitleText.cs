@@ -1,4 +1,3 @@
-using Gameplay.Upgrades;
 using TMPro;
 using UnityEngine;
 

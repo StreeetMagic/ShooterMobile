@@ -9,7 +9,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private readonly EnemyConfig _config;
     private readonly EnemyMeleeAttacker _meleeAttacker;
     private readonly EnemyStateMachine _enemyStateMachine;
-    private readonly EnemyAnimatorProvider _animatorProvider;
+  //  private readonly EnemyAnimatorProvider _animatorProvider;
     private readonly EnemyToPlayerRotator _toPlayerRotator;
 
     private float _wholeTimeleft;
@@ -22,7 +22,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
       _config = config;
       _meleeAttacker = meleeAttacker;
       _enemyStateMachine = enemyStateMachine;
-      _animatorProvider = animatorProvider;
+    //  _animatorProvider = animatorProvider;
       _toPlayerRotator = toPlayerRotator;
     }
 
@@ -56,13 +56,13 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     {
     }
 
-    private void OnHitEventListener()
-    {
-      if (!_attacked)
-      {
-        _attacked = true;
-        _meleeAttacker.Attack();
-      }
-    }
+    // private void OnHitEventListener()
+    // {
+    //   if (!_attacked)
+    //   {
+    //     _attacked = true;
+    //     _meleeAttacker.Attack();
+    //   }
+    // }
   }
 }

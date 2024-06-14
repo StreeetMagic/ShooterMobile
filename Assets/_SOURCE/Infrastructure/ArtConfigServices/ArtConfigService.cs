@@ -7,7 +7,6 @@ using Gameplay.Quests.Subquests;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
 using Infrastructure.AssetProviders;
-using UnityEngine;
 
 namespace Infrastructure.ArtConfigServices
 {

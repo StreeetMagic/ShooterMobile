@@ -24,19 +24,15 @@ namespace Infrastructure.UserIntefaces
     private readonly QuestStorage _storage;
     private readonly DebugLogger _logger;
     private readonly QuestWindow.Factory _questWindowFactory;
-    private readonly ConfigService _configService;
-    private readonly ArtConfigService _configServiceArt;
 
     public WindowService(GameLoopZenjectFactory factory,
       HeadsUpDisplayProvider headsUpDisplayProvider, QuestStorage storage,
-      QuestWindow.Factory questWindowFactory, ConfigService configService, ArtConfigService configServiceArt)
+      QuestWindow.Factory questWindowFactory)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;
       _storage = storage;
       _questWindowFactory = questWindowFactory;
-      _configService = configService;
-      _configServiceArt = configServiceArt;
     }
 
     private Transform HudTransform => _headsUpDisplayProvider.HeadsUpDisplay.GetComponentInChildren<Canvas>().transform;
