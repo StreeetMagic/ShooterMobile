@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Cameras;
 using DG.Tweening;
 using Gameplay.Characters.Pets.Hens;
@@ -47,7 +48,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
       Time.timeScale = 1f;
 
       _playerStatsProvider.Start();
-      
+
       _mapFactory.Create(_gameLoopInstaller.transform);
       _playerFactory.Create(_gameLoopInstaller.transform);
       _cameraFactory.Create(_gameLoopInstaller.transform);
@@ -60,7 +61,6 @@ namespace Infrastructure.SceneInstallers.GameLoop
     public void Restart()
     {
       Destroy();
-      //_sceneLoader.Load(SceneId.Empty, EnterScene);
       EnterScene();
     }
 
@@ -92,7 +92,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
     //
     //   foreach (SceneId scene in sceneList)
     //     scenes += scene + " ";
-    //   
+    //
     //   Debug.Log(scenes);
     // }
   }

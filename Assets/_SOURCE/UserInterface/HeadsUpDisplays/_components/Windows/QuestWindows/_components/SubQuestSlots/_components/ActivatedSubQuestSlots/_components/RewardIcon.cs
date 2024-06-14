@@ -1,7 +1,6 @@
 using Gameplay.Quests.Subquests;
 using Gameplay.Rewards;
 using Infrastructure.ArtConfigServices;
-using Infrastructure.ConfigServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

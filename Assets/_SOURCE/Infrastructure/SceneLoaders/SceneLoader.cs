@@ -8,8 +8,8 @@ namespace Infrastructure.SceneLoaders
 {
   public class SceneLoader
   {
-   // private readonly ICoroutineRunner _coroutineRunner;
-    
+    // private readonly ICoroutineRunner _coroutineRunner;
+
     private readonly List<SceneId> _loadedScenes = new();
 
     // public SceneLoader(ICoroutineRunner coroutineRunner)
@@ -25,10 +25,10 @@ namespace Infrastructure.SceneLoaders
     {
       if (name == SceneId.Unknown)
         throw new ArgumentException(nameof(name));
-      
+
       //_coroutineRunner.StartCoroutine(LoadSceneAsync(name, onLoaded));
 
-      LoadScene(name, onLoaded);
+      LoadScene(SceneId.Empty, () => LoadScene(name, onLoaded));
     }
 
     // private IEnumerator LoadSceneAsync(SceneId nextScene, Action onLoaded)
@@ -53,12 +53,12 @@ namespace Infrastructure.SceneLoaders
     //   SceneLoaded?.Invoke(nextScene);
     //   CurrentScene = nextScene;
     // }
-    
+
     private void LoadScene(SceneId nextScene, Action onLoaded)
     {
       SceneManager.LoadScene(nextScene.ToString());
       _loadedScenes.Add(nextScene);
-      
+
       onLoaded?.Invoke();
       SceneLoaded?.Invoke(nextScene);
       CurrentScene = nextScene;
