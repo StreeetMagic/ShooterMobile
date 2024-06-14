@@ -9,6 +9,7 @@ namespace Gameplay.Characters.Players
     private readonly PlayerMoveSpeed _playerMoveSpeed;
     private readonly ConfigService _config;
     private readonly PlayerTargetHolder _playerTargetHolder;
+    private readonly PlayerProvider _playerProvider;
 
     private float _timeLeft;
     private bool _isRising;
@@ -22,13 +23,12 @@ namespace Gameplay.Characters.Players
     }
 
     public bool IsRaised => _timeLeft <= 0;
-    private float WeaponRaiseTime => _config.PlayerConfig.WeaponRaiseTime;
 
     public void Tick()
     {
       if (_playerMoveSpeed.IsMoving || _playerTargetHolder.HasTarget == false)
       {
-        _timeLeft = WeaponRaiseTime;
+        _timeLeft = _config.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.WeaponTypeId).RaiseTime;
 
         if (_isRising)
         {

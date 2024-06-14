@@ -5,8 +5,10 @@ namespace Gameplay.Weapons
   [CreateAssetMenu(fileName = nameof(WeaponConfig), menuName = "Configs/WeaponConfig")]
   public class WeaponConfig : ScriptableObject
   {
+    [Tooltip("Тип оружия")]
     public WeaponTypeId WeaponTypeId;
 
+    [Tooltip("Тип атаки")]
     public WeaponAttackTypeId WeaponAttackTypeId;
 
     [Tooltip("Разлет пуль в градусах")]
@@ -28,6 +30,9 @@ namespace Gameplay.Weapons
     public float FireRange = 10;
     
     [Tooltip("Урон одного патрона")]
-    public float Damage = 10;
+    public float Damage = 10;    
+    
+    [Tooltip("Время на подготовку к выстрелу")]
+    public float RaiseTime = .2f;
   }
 }

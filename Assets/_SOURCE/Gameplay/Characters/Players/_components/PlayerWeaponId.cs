@@ -9,19 +9,19 @@ namespace Gameplay.Characters.Players
   {
     public PlayerWeaponIdProvider(ConfigService configService)
     {
-      WeaponTypeId = configService.PlayerConfig.StartWeapon;
+      WeaponTypeId = configService.PlayerConfig.StartWeapons[0];
     }
 
     public WeaponTypeId WeaponTypeId { get; set; }
 
     public void ReadProgress(ProjectProgress projectProgress)
     {
-      WeaponTypeId = projectProgress.PlayerWeaponId;
+      WeaponTypeId = projectProgress.CurrentPlayerWeaponId;
     }
 
     public void WriteProgress(ProjectProgress projectProgress)
     {
-      projectProgress.PlayerWeaponId = WeaponTypeId;
+      projectProgress.CurrentPlayerWeaponId = WeaponTypeId;
     }
   }
 }

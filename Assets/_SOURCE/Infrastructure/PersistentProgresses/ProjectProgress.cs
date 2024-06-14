@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Gameplay.Quests;
 using Gameplay.Upgrades;
 using Gameplay.Weapons;
+using UnityEngine.Serialization;
 
 namespace Infrastructure.PersistentProgresses
 {
@@ -12,9 +13,8 @@ namespace Infrastructure.PersistentProgresses
     public int MoneyInBank;
     public int EggsInBank;
     public int Expierience;
-    public int Level;
     public bool MusicMute;
-    public WeaponTypeId PlayerWeaponId;
+    public WeaponTypeId CurrentPlayerWeaponId;
 
     public List<UpgradeProgress> Upgrades;
     public List<QuestProgress> Quests;

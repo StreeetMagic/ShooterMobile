@@ -38,7 +38,7 @@ namespace Infrastructure.PersistentProgresses
         //PlayerPosition = defaultProgress.PlayerPosition, 
         Expierience = defaultProgress.Expierience, 
         MusicMute = defaultProgress.MusicMute, 
-        PlayerWeaponId = playerConfig.StartWeapon,
+        CurrentPlayerWeaponId = playerConfig.StartWeapons[0],
       };
 
       Upgrades();

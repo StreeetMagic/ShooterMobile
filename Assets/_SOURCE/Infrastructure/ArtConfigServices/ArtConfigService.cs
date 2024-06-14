@@ -6,6 +6,7 @@ using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
+using Gameplay.Weapons;
 using Infrastructure.AssetProviders;
 
 namespace Infrastructure.ArtConfigServices
@@ -23,11 +24,13 @@ namespace Infrastructure.ArtConfigServices
     private Dictionary<StatId, UpgradeContentSetup> _upgrades;
     private Dictionary<QuestId, QuestContentSetup> _quests;
     private Dictionary<SubQuestId, SubQuestContentSetup> _subQuests;
+    private Dictionary<WeaponTypeId, WeaponContentSetup> _weapons;
 
     public LootContentSetup GetLootContentSetup(CurrencyId id) => _loots[id];
     public UpgradeContentSetup GetUpgradeContentSetup(StatId id) => _upgrades[id];
     public QuestContentSetup GetQuestContentSetup(QuestId questId) => _quests[questId];
     public SubQuestContentSetup GetSubQuestContentSetup(SubQuestId id) => _subQuests[id];
+    public WeaponContentSetup GetWeaponContentSetup(WeaponTypeId id) => _weapons[id];
 
     public void LoadConfigs()
     {
@@ -35,6 +38,7 @@ namespace Infrastructure.ArtConfigServices
       _upgrades = _assetProvider.GetConfig<UpgradeContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
       _quests = _assetProvider.GetConfig<QuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
       _subQuests = _assetProvider.GetConfig<SubQuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _weapons = _assetProvider.GetConfig<WeaponContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
     }
   }
 }
