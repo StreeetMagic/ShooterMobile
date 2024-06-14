@@ -15,11 +15,12 @@ namespace Gameplay.Characters.Players
     private bool _isRising;
 
     public PlayerWeaponRaiser(PlayerMoveSpeed playerMoveSpeed, ConfigService config,
-      PlayerTargetHolder playerTargetHolder)
+      PlayerTargetHolder playerTargetHolder, PlayerProvider playerProvider)
     {
       _playerMoveSpeed = playerMoveSpeed;
       _config = config;
       _playerTargetHolder = playerTargetHolder;
+      _playerProvider = playerProvider;
     }
 
     public bool IsRaised => _timeLeft <= 0;

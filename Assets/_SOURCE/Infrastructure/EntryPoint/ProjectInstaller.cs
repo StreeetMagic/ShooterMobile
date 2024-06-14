@@ -28,36 +28,36 @@ namespace Infrastructure.EntryPoint
     public override void InstallBindings()
     {
       Container.BindInterfacesAndSelfTo<ProjectInitializer>().FromInstance(GetComponent<ProjectInitializer>()).AsSingle().NonLazy();
-      Container.Bind<ProjectZenjectFactory>().AsSingle();
-      Container.Bind<LoadingCurtain>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
+      Container.BindInterfacesAndSelfTo<ProjectZenjectFactory>().AsSingle();
+      Container.BindInterfacesAndSelfTo<LoadingCurtain>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.LoadingCurtain).AsSingle();
 
       Container.Bind<ICoroutineRunner>().To<CoroutineRunner>().FromComponentInNewPrefabResource(ProjectConstants.AssetsPath.Prefabs.CoroutineRunner).AsSingle();
 
-      Container.Bind<InputService>().AsSingle();
-      Container.Bind<AssetProvider>().AsSingle();
-      Container.Bind<ConfigService>().AsSingle();
-      Container.Bind<ArtConfigService>().AsSingle();
-      Container.Bind<SaveLoadService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<RandomService>().AsSingle();
 
-      Container.Bind<PersistentProgressService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<ProjectData>().AsSingle();
+
+      Container.BindInterfacesAndSelfTo<InputService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<ConfigService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<ArtConfigService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<PersistentProgressService>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<EggsInBankStorage>().AsSingle();
-      Container.Bind<MoneyInBankStorage>().AsSingle();
-      Container.Bind<ExpierienceStorage>().AsSingle().NonLazy();
-      Container.Bind<QuestStorage>().AsSingle();
+      Container.BindInterfacesAndSelfTo<MoneyInBankStorage>().AsSingle();
+      Container.BindInterfacesAndSelfTo<ExpierienceStorage>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<QuestStorage>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<RewardService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
 
-      Container.Bind<RandomService>().AsSingle();
-
-      Container.Bind<SceneLoader>().AsSingle();
+      Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle();
       Container.BindInterfacesAndSelfTo<AudioService>().AsSingle().NonLazy();
-      Container.Bind<DebugLogger>().AsSingle();
+      Container.BindInterfacesAndSelfTo<DebugLogger>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<BackpackStorage>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerStatsProvider>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
-      Container.BindInterfacesAndSelfTo<ProjectData>().AsSingle();
     }
   }
 }
