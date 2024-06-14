@@ -13,6 +13,7 @@ using Gameplay.Quests.Subquests;
 using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnerFactories;
 using Gameplay.Spawners.SpawnPoints;
+using Gameplay.WeaponStorages;
 using Infrastructure.AssetProviders;
 using Infrastructure.DebugServices;
 using Infrastructure.UserIntefaces;
@@ -58,6 +59,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
       Container.BindInterfacesAndSelfTo<ProjectileFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<CameraProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<PlayerProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<WeaponShop>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<MapProvider>().AsSingle();
       Container.Resolve<MapProvider>().Map = Map;

@@ -49,7 +49,6 @@ namespace Infrastructure.EntryPoint
       Container.BindInterfacesAndSelfTo<MoneyInBankStorage>().AsSingle();
       Container.BindInterfacesAndSelfTo<ExpierienceStorage>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<QuestStorage>().AsSingle();
-      Container.BindInterfacesAndSelfTo<WeaponShop>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<RewardService>().AsSingle();
       Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
