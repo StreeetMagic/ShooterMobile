@@ -68,6 +68,9 @@ namespace Gameplay.Characters.Enemies.Animators
           .animationClips
           .FirstOrDefault(clip => clip.name == selectedAnimation);
 
+      if (animationClip == null)
+        return;
+      
       float animationLength = animationClip.length;
       Animator.speed = animationLength / duration;
     }

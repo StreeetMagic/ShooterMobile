@@ -73,13 +73,15 @@ namespace Gameplay.Quests.Subquests
     {
       switch (subQuest.ContentSetup.Id)
       {
+        case SubQuestId.Unknown:
+          throw new ArgumentOutOfRangeException();
+        
         case SubQuestId.KillTerKnife:
           return GetKillOrinaryPersonsTargetsOrNull();
 
         case SubQuestId.DefuseBomb:
-          return GetDefuseBombTargetsOrNull(subQuest);
+          return GetDefuseBombTargetsOrNull();
 
-        case SubQuestId.Unknown:
         default:
           throw new ArgumentOutOfRangeException();
       }
@@ -121,7 +123,7 @@ namespace Gameplay.Quests.Subquests
       return new List<Transform> { nearestEnemy.transform };
     }
 
-    private List<Transform> GetDefuseBombTargetsOrNull(SubQuest subQuest)
+    private List<Transform> GetDefuseBombTargetsOrNull()
     {
       BombSpawner spawner = _mapProvider.Map.BombSpawner;
 

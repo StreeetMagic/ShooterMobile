@@ -2,7 +2,6 @@ using System;
 using Gameplay.Characters.Players;
 using Infrastructure.Projects;
 using Infrastructure.SceneLoaders;
-using Scenes;
 using Scenes._Infrastructure.Scripts;
 using UnityEngine;
 using Zenject;

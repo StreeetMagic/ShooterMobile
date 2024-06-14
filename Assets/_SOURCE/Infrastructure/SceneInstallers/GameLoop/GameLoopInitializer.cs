@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Cameras;
 using DG.Tweening;
 using Gameplay.Characters.Pets.Hens;

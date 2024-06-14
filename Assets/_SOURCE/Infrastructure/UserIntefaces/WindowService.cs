@@ -1,7 +1,5 @@
 ﻿using System;
 using Gameplay.Quests;
-using Infrastructure.ArtConfigServices;
-using Infrastructure.ConfigServices;
 using Infrastructure.ZenjectFactories;
 using Loggers;
 using UnityEngine;

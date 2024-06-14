@@ -1,29 +1,16 @@
 using System;
 using Gameplay.Characters.Enemies;
 using Gameplay.Quests.Subquests;
-using Maps;
 
 namespace Gameplay.Quests
 {
   public class QuestCompleter
   {
     private readonly QuestStorage _storage;
-    private readonly MapProvider _mapProvider;
 
-    public QuestCompleter(QuestStorage storage, MapProvider mapProvider)
+    public QuestCompleter(QuestStorage storage)
     {
       _storage = storage;
-      _mapProvider = mapProvider;
-
-      foreach (Quest quest in _storage.GetAllQuests())
-      {
-        foreach (SubQuest subQuest in quest.SubQuests)
-        {
-          subQuest.State.ValueChanged += state => OnSubQuestStateChanged(state, subQuest);
-
-          OnSubQuestStateChanged(subQuest.State.Value, subQuest);
-        }
-      }
     }
 
     //TODO: refactor
@@ -55,17 +42,6 @@ namespace Gameplay.Quests
           }
         }
       }
-    }
-
-    private void OnSubQuestStateChanged(QuestState state, SubQuest subQuest)
-    {
-      switch (state)
-      {
-      }
-    }
-
-    private void OnSubQuestActivated(SubQuest subQuest)
-    {
     }
   }
 }

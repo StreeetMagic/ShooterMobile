@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private bool _attacked;
 
     public EnemyMeleeAttackingState(EnemyConfig config, EnemyMeleeAttacker meleeAttacker,
-      EnemyStateMachine enemyStateMachine, EnemyAnimatorProvider animatorProvider,
+      EnemyStateMachine enemyStateMachine,
       EnemyToPlayerRotator toPlayerRotator)
     {
       _config = config;
