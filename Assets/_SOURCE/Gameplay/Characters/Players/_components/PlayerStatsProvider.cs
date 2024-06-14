@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
 using Infrastructure.ConfigServices;
@@ -49,7 +50,7 @@ namespace Gameplay.Characters.Players
     {
       float value = 0;
 
-      value += _configService.GetInitialStat(id);
+      value += _configService.PlayerConfig.Stats.First(x => x.StatId == id).Value;
       
       if (_upgradeStats.TryGetValue(id, out ReactiveProperty<float> stat))
         value += stat.Value;

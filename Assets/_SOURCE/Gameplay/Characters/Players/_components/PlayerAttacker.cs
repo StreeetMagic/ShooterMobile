@@ -1,5 +1,4 @@
 ﻿using Gameplay.CurrencyRepositories.BackpackStorages;
-using Gameplay.Weapons;
 using Zenject;
 
 namespace Gameplay.Characters.Players

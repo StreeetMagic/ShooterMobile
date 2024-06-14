@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Weapons
+namespace Gameplay.Characters.Players
 {
   public class PlayerWeaponShootingPoint
   {
