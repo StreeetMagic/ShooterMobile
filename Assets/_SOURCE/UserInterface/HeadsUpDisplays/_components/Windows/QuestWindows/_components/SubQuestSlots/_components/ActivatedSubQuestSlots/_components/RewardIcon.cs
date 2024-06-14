@@ -1,5 +1,6 @@
 using Gameplay.Quests.Subquests;
 using Gameplay.Rewards;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.ConfigServices;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,13 +13,13 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQues
     public Image Image;
 
     [Inject] private SubQuest _subQuest;
-    [Inject] private ConfigService _configService;
+    [Inject] private ArtConfigService _artConfigService;
 
     private void OnEnable()
     {
-      RewardConfig rewardConfig = _configService.RewardConfigs[_subQuest.Setup.Reward.RewardId];
+      RewardContentSetup contentSetup = _artConfigService.GetRewardContentSetup(_subQuest.Setup.Reward.RewardId);
 
-      Image.sprite = rewardConfig.Icon;
+      Image.sprite = contentSetup.Icon;
     }
   }
 }

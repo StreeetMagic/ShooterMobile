@@ -6,6 +6,5 @@ namespace Gameplay.Rewards
   public class RewardConfig : ScriptableObject
   {
     public RewardId Id;
-    public Sprite Icon;
   }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20515e12c94882148b11a8c7649ecafd, type: 3}
+  m_Name: RewardContentConfig
+  m_EditorClassIdentifier: 
+  Setups:
+  - Id: 1
+    Icon: {fileID: 21300000, guid: 74ac16302f2994b898e17f225c303437, type: 3}
+    Name: ExpReward
+    Description: ExpReward
+  - Id: 2
+    Icon: {fileID: 21300000, guid: e3f92cd5365c14a22b1c3319c5581aa5, type: 3}
+    Name: BackpackReward
+    Description: BackpackReward
