@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Infrastructure.Projects;
 using Infrastructure.SceneLoaders;
-using Scenes;
 using Scenes._Infrastructure.Scripts;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -27,6 +26,7 @@ namespace Maps
     {
       MoveToRootParent(_mapProvider.Map);
       DisablePortalsToArenas();
+      _mapProvider.Map.BombSpawner.SpawnBombs();
     }
 
     public void Destroy()

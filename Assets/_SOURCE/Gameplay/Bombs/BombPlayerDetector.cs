@@ -25,7 +25,7 @@ namespace Gameplay.Bombs
       {
         IsPlayerDetected = true;
 
-        var playerBombDefuser = player.GetComponent<PlayerBombDefuser>();
+        PlayerBombDefuser playerBombDefuser = player.BombDefuser;
 
         if (playerBombDefuser.Bombs.Contains(Bomb) == false)
         {
@@ -41,7 +41,7 @@ namespace Gameplay.Bombs
         IsPlayerDetected = false;
         GetComponent<BombDefuser>().DefuseProgress = 0;
 
-        var playerBombDefuser = player.GetComponent<PlayerBombDefuser>();
+        PlayerBombDefuser playerBombDefuser = player.BombDefuser; 
 
         if (playerBombDefuser.Bombs.Contains(Bomb))
         {

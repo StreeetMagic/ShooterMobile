@@ -37,7 +37,7 @@ namespace Gameplay.Characters.Players
           return;
 
         if (Bombs[0] != null)
-          Bombs[0].GetComponent<BombDefuser>().DefuseProgress += progressPerFrame;
+          Bombs[0].Defuser.DefuseProgress += progressPerFrame;
       }
       else
       {
@@ -45,7 +45,7 @@ namespace Gameplay.Characters.Players
           return;
 
         if (Bombs[0] != null)
-          Bombs[0].GetComponent<BombDefuser>().DefuseProgress = 0;
+          Bombs[0].Defuser.DefuseProgress = 0;
       }
     }
 
@@ -60,7 +60,7 @@ namespace Gameplay.Characters.Players
         return;
 
       if (Bombs[0] != null)
-        Bombs[0].GetComponent<BombDefuser>().DefuseProgress = 0;
+        Bombs[0].Defuser.DefuseProgress = 0;
     }
   }
 }

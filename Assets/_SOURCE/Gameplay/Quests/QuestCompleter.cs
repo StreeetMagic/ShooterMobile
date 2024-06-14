@@ -1,3 +1,4 @@
+using System;
 using Gameplay.Characters.Enemies;
 using Gameplay.Quests.Subquests;
 using Maps;
@@ -35,31 +36,36 @@ namespace Gameplay.Quests
           if (subQuest.State.Value != QuestState.Activated)
             continue;
 
-          if (subQuest.ContentSetup.Id != SubQuestId.KillTerKnife)
-            continue;
+          switch (subQuest.ContentSetup.Id)
+          {
+            case SubQuestId.Unknown:
+              throw new Exception("Unknown sub quest");
 
-          if (enemyId == EnemyTypeId.TerKnife)
-            subQuest.CompletedQuantity.Value++;
+            case SubQuestId.DefuseBomb:
+              continue;
+
+            default:
+
+              if (enemyId == EnemyTypeId.Unknown)
+                throw new ArgumentOutOfRangeException(nameof(enemyId), enemyId, null);
+
+              subQuest.CompletedQuantity.Value++;
+
+              break;
+          }
         }
       }
     }
 
-    public void OnSubQuestStateChanged(QuestState state, SubQuest subQuest)
+    private void OnSubQuestStateChanged(QuestState state, SubQuest subQuest)
     {
       switch (state)
       {
-        case QuestState.Activated:
-          OnSubQuestActivated(subQuest);
-          break;
       }
     }
 
     private void OnSubQuestActivated(SubQuest subQuest)
     {
-      if (subQuest.ContentSetup.Id == SubQuestId.DefuseBomb)
-      {
-        _mapProvider.Map.BombSpawner.SpawnBombs(subQuest.Index);
-      }
     }
   }
 }

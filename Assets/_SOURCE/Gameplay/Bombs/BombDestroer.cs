@@ -26,20 +26,20 @@ namespace Gameplay.Bombs
 
     private void OnDefused(BombDefuser defuser)
     {
-      PlayerBombDefuser playerBombDefuser = _playerProvider.Instance.GetComponent<PlayerBombDefuser>();
+      PlayerBombDefuser playerBombDefuser = _playerProvider.Instance.BombDefuser;
 
-      if (playerBombDefuser.Bombs.Contains(defuser.GetComponent<Bomb>()))
+      if (playerBombDefuser.Bombs.Contains(defuser.Bomb))
       {
-        playerBombDefuser.Bombs.Remove(defuser.GetComponent<Bomb>());
+        playerBombDefuser.Bombs.Remove(defuser.Bomb);
       }
 
       List<Quest> allQuests = _storage.GetAllQuests();
 
-      foreach (var quest in allQuests)
+      foreach (Quest quest in allQuests)
       {
         if (quest.State.Value == QuestState.Activated)
         {
-          foreach (var subQuest in quest.SubQuests)
+          foreach (SubQuest subQuest in quest.SubQuests)
           {
             if (subQuest.State.Value == QuestState.Activated)
             {

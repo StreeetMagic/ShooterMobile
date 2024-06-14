@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394bc400456fcd54c8f97ea32239c608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuestType: 2
+  subQuestId: 2
   Outline: {fileID: 6689191243187773179}
 --- !u!114 &8860851653816548588
 MonoBehaviour:
@@ -955,6 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af61bb65022494d4d9545d5181f6c4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bomb: {fileID: -7734432830699455308}
 --- !u!114 &-248857009247790476
 MonoBehaviour:
   m_ObjectHideFlags: 0

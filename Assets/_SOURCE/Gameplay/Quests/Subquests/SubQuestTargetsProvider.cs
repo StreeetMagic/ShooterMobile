@@ -123,14 +123,13 @@ namespace Gameplay.Quests.Subquests
 
     private List<Transform> GetDefuseBombTargetsOrNull(SubQuest subQuest)
     {
-      int index = subQuest.Index;
       BombSpawner spawner = _mapProvider.Map.BombSpawner;
 
-      List<Bomb> bombs = spawner.Bombs[index];
+      List<Bomb> bombs = spawner.Bombs;
 
       List<Bomb> activeBombs = bombs
-          .Where(bomb => bomb.Defuser.IsDefused == false)
-          .ToList();
+        .Where(bomb => bomb.Defuser.IsDefused == false)
+        .ToList();
 
       return activeBombs
         .Select(bomb => bomb.transform)

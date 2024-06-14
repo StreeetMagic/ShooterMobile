@@ -7,6 +7,7 @@ using Gameplay.Characters.Shopers;
 using Gameplay.Portals;
 using Maps.Markers.EnemySpawnMarkers;
 using Maps.Markers.PlayerSpawnMarkers;
+using Maps.Markers.SubQuestMarkers.BombDefuse;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -22,31 +23,20 @@ namespace Maps
     public List<Shoper> Shopers;
     public BombSpawner BombSpawner;
     public List<Portal> Portals;
+    public List<BombDefuseMarker> BombDefuseMarkers;
 
     [Button]
     public void Setup()
     {
       PlayerSpawnMarker = GetComponentInChildren<PlayerSpawnMarker>();
-
-      EnemySpawnMarkers =
-        GetComponentsInChildren<EnemySpawnMarker>()
-          .ToList();
-
-      EnemySpawnersContainer =
-        GetComponentInChildren<EnemySpawnMarker>()
-          .transform
-          .parent
-          .transform;
-
+      EnemySpawnMarkers = GetComponentsInChildren<EnemySpawnMarker>().ToList();
+      EnemySpawnersContainer = GetComponentInChildren<EnemySpawnMarker>().transform.parent.transform;
       BaseTrigger = GetComponentInChildren<BaseTrigger>();
-
       Questers = GetComponentsInChildren<Quester>().ToList();
-
       Shopers = GetComponentsInChildren<Shoper>().ToList();
-
       BombSpawner = GetComponentInChildren<BombSpawner>();
-      
       Portals = GetComponentsInChildren<Portal>().ToList();
+      BombDefuseMarkers = GetComponentsInChildren<BombDefuseMarker>().ToList();
     }
   }
 }
