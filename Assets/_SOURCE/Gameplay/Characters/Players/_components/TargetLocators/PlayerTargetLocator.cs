@@ -25,11 +25,9 @@ namespace Gameplay.Characters.Players.TargetLocators
       _playerWeaponIdProvider = playerWeaponIdProvider;
     }
 
-    private float Radius => _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange; 
-
     public void Tick()
     {
-      int count = Physics.OverlapSphereNonAlloc(_transform.position, Radius, _colliders);
+      int count = Physics.OverlapSphereNonAlloc(_transform.position, _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange, _colliders);
 
       var list = new List<ITargetTrigger>();
 

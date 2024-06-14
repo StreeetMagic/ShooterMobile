@@ -4,6 +4,7 @@ using Gameplay.Projectiles.Scripts;
 using Infrastructure.AudioServices;
 using Infrastructure.AudioServices.Sounds;
 using Infrastructure.ConfigServices;
+using Loggers;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -25,12 +26,6 @@ namespace Gameplay.Weapons
     private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId);
     private float Cooldown => (float)1 / WeaponConfig.FireRate;
 
-    private Transform Transform => _playerProvider.Instance.WeaponShootingPointPoint.Transform;
-    private PlayerTargetHolder PlayerTargetHolder => _playerProvider.Instance.TargetHolder;
-    private int BulletsPerShot => WeaponConfig.BulletsPerShot;
-    private float BulletSpreadAngle => WeaponConfig.BulletSpreadAngle;
-    private WeaponAttackTypeId WeaponAttackTypeId => WeaponConfig.WeaponAttackTypeId;
-
     public void Attack()
     {
       if (_timeLeft > 0)
@@ -39,7 +34,7 @@ namespace Gameplay.Weapons
         return;
       }
 
-      switch (WeaponAttackTypeId)
+      switch (WeaponConfig.WeaponAttackTypeId)
       {
         case WeaponAttackTypeId.Single:
           Shoot();
@@ -56,7 +51,9 @@ namespace Gameplay.Weapons
           break;
 
         case WeaponAttackTypeId.Melee:
-          throw new NotImplementedException();
+          Strike();
+          _timeLeft = Cooldown;
+          break;
 
         case WeaponAttackTypeId.Throw:
           throw new NotImplementedException();
@@ -97,15 +94,20 @@ namespace Gameplay.Weapons
 
     private void Shoot()
     {
-      for (int i = 0; i < BulletsPerShot; i++)
+      for (int i = 0; i < WeaponConfig.BulletsPerShot; i++)
       {
-        Vector3 directionToTarget = PlayerTargetHolder.DirectionToTarget;
+        Vector3 directionToTarget = _playerProvider.Instance.TargetHolder.DirectionToTarget;
 
-        directionToTarget = AddAngle(directionToTarget, BulletSpreadAngle);
+        directionToTarget = AddAngle(directionToTarget, WeaponConfig.BulletSpreadAngle);
 
-        _projectileFactory.CreatePlayerProjectile(Transform, directionToTarget);
+        _projectileFactory.CreatePlayerProjectile(_playerProvider.Instance.WeaponShootingPointPoint.Transform, directionToTarget);
         _audioService.PlaySound(SoundId.Shoot);
       }
+    }
+
+    private void Strike()
+    {
+      _playerProvider.Instance.TargetHolder.CurrentTarget.TakeDamage(WeaponConfig.Damage);
     }
 
     private Vector3 AddAngle(Vector3 directionToTarget, float angle)

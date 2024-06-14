@@ -85,13 +85,11 @@ namespace Gameplay.Portals
 
       if (other.TryGetComponent(out PlayerTargetTrigger _))
       {
-        Debug.Log("Игрок вышел");
-
         _playerInTrigger = false;
       }
     }
 
-    public void Activate()
+    private void Activate()
     {
       _isActive = true;
       _meshRenderer.enabled = true;

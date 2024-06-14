@@ -24,10 +24,10 @@ namespace Gameplay.Characters.Players
 
     public void Tick()
     {
-      if (_backpackStorage.IsFull)
+      if (_playerProvider.Instance == null)
         return;
 
-      if (_playerProvider.Instance == null)
+      if (_backpackStorage.IsFull)
         return;
 
       if (_playerWeaponRaiser.IsRaised == false)
