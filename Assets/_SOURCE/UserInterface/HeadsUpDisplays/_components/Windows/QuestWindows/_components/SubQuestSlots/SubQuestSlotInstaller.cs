@@ -16,7 +16,6 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQues
       Container.Bind<SubQuestSlot>().FromInstance(SubQuestSlot).AsSingle();
       
       Container.Bind<SubQuest>().FromInstance(_subQuest).AsSingle();
-      Container.Bind<SubQuestConfig>().FromInstance(_subQuest.Setup.Config).AsSingle();
       Container.Bind<SubQuestSetup>().FromInstance(_subQuest.Setup).AsSingle();
     }
   }

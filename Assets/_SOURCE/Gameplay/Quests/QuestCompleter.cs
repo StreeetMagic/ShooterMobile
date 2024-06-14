@@ -35,7 +35,7 @@ namespace Gameplay.Quests
           if (subQuest.State.Value != QuestState.Activated)
             continue;
 
-          if (subQuest.Setup.Config.Type != SubQuestType.KillTerKnife)
+          if (subQuest.ContentSetup.Id != SubQuestId.KillTerKnife)
             continue;
 
           if (enemyId == EnemyTypeId.TerKnife)
@@ -56,7 +56,7 @@ namespace Gameplay.Quests
 
     private void OnSubQuestActivated(SubQuest subQuest)
     {
-      if (subQuest.Setup.Config.Type == SubQuestType.DefuseBomb)
+      if (subQuest.ContentSetup.Id == SubQuestId.DefuseBomb)
       {
         _mapProvider.Map.BombSpawner.SpawnBombs(subQuest.Index);
       }

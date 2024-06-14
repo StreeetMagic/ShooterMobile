@@ -1,12 +1,13 @@
 using Gameplay.Quests.Subquests;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Gameplay.Quests
 {
   public class QuestOutline : MonoBehaviour
   {
-    public SubQuestType SubQuestType;
+    [FormerlySerializedAs("subQuestTypeId")] [FormerlySerializedAs("SubQuestType")] public SubQuestId subQuestId;
     public GameObject Outline;
 
     private QuestStorage _storage;
@@ -36,7 +37,7 @@ namespace Gameplay.Quests
           if (subQuest.State.Value != QuestState.Activated)
             continue;
 
-          if (subQuest.Setup.Config.Type == SubQuestType)
+          if (subQuest.ContentSetup.Id == subQuestId)
           {
             return true;
           }

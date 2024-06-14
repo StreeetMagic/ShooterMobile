@@ -63,23 +63,23 @@ namespace Infrastructure.PersistentProgresses
     {
       ProjectProgress.Quests = new List<QuestProgress>();
 
-      Dictionary<QuestId, QuestConfig> quests =
+      Dictionary<QuestId, QuestConfig> questConfigs =
         _configService
           .QuestConfigs;
 
-      foreach (KeyValuePair<QuestId, QuestConfig> quest in quests)
+      foreach (KeyValuePair<QuestId, QuestConfig> questConfig in questConfigs)
       {
         List<SubQuestProgress> subQuests = new List<SubQuestProgress>();
 
-        for (var i = 0; i < quest.Value.SubQuests.Count; i++)
+        for (var i = 0; i < questConfig.Value.SubQuests.Count; i++)
         {
-          SubQuestProgress progressSubQuest = new SubQuestProgress(quest.Value.SubQuests[i].Config.Type, 0, QuestState.UnActivated);
-          subQuests.Add(progressSubQuest);
+          SubQuestProgress subQuestProgress = new(questConfig.Value.SubQuests[i].Id, 0, QuestState.UnActivated);
+          subQuests.Add(subQuestProgress);
         }
 
         ProjectProgress
           .Quests
-          .Add(new QuestProgress(quest.Key, QuestState.UnActivated, subQuests));
+          .Add(new QuestProgress(questConfig.Key, QuestState.UnActivated, subQuests));
       }
     }
   }

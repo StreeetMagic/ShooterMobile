@@ -17,7 +17,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQues
 
     private void SetupText()
     {
-      Text.text = _subQuestSlot.SubQuest.Setup.Config.Name;
+      Text.text = _subQuestSlot.SubQuest.ContentSetup.Name;
     }
   }
 }

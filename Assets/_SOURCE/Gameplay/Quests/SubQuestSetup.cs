@@ -7,7 +7,7 @@ namespace Gameplay.Quests
   [Serializable]
   public class SubQuestSetup
   {
-    public SubQuestConfig Config;
+    public SubQuestId Id;
     public int Quantity;
     public Reward Reward;
   }

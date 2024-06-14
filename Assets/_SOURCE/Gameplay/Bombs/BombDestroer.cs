@@ -43,7 +43,7 @@ namespace Gameplay.Bombs
           {
             if (subQuest.State.Value == QuestState.Activated)
             {
-              if (subQuest.Setup.Config.Type == SubQuestType.DefuseBomb)
+              if (subQuest.ContentSetup.Id == SubQuestId.DefuseBomb)
               {
                 subQuest.CompletedQuantity.Value++;
               }

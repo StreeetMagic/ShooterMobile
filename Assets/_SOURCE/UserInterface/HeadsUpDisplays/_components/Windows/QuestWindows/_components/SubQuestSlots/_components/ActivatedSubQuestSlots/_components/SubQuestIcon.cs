@@ -17,7 +17,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQues
 
     private void SetupIcon()
     {
-      Image.sprite = _subQuestSlot.SubQuest.Setup.Config.Icon;
+      Image.sprite = _subQuestSlot.SubQuest.ContentSetup.Icon;
     }
   }
 }

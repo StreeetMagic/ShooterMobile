@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Quests.Subquests;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
@@ -14,12 +15,14 @@ namespace Gameplay.Quests
 
     private readonly ConfigService _configService;
     private readonly ProjectZenjectFactory _gameLoopZenjectFactory;
+    private readonly ArtConfigService _artConfigService;
 
     public QuestStorage(ConfigService configService,
-      ProjectZenjectFactory gameLoopZenjectFactory)
+      ProjectZenjectFactory gameLoopZenjectFactory, ArtConfigService artConfigService)
     {
       _configService = configService;
       _gameLoopZenjectFactory = gameLoopZenjectFactory;
+      _artConfigService = artConfigService;
     }
 
     public Quest GetQuest(QuestId questId)
@@ -56,7 +59,7 @@ namespace Gameplay.Quests
 
         foreach (SubQuest subQuest in quest.Value.SubQuests)
         {
-          subQuests.Add(new SubQuestProgress(subQuest.Setup.Config.Type, subQuest.CompletedQuantity.Value, subQuest.State.Value));
+          subQuests.Add(new SubQuestProgress(subQuest.Setup.Id, subQuest.CompletedQuantity.Value, subQuest.State.Value));
         }
 
         projectProgress.Quests.Add(new QuestProgress(quest.Key, quest.Value.State.Value, subQuests));
@@ -80,23 +83,24 @@ namespace Gameplay.Quests
         .State;
     }
 
-    private List<SubQuest> SubQuest(QuestConfig config, ProjectProgress projectProgress)
+    private List<SubQuest> SubQuest(QuestConfig questConfig, ProjectProgress projectProgress)
     {
       List<SubQuest> subQuests = new List<SubQuest>();
 
-      for (var i = 0; i < config.SubQuests.Count; i++)
+      for (var i = 0; i < questConfig.SubQuests.Count; i++)
       {
         SubQuestProgress progressSubQuest =
           projectProgress
             .Quests
-            .Find(x => x.Id == config.Id)
+            .Find(x => x.Id == questConfig.Id)
             .SubQuests[i];
 
-        SubQuestSetup setup = config.SubQuests[i];
+        SubQuestSetup subQuestSetup = questConfig.SubQuests[i];
+        SubQuestContentSetup subQuestContentSetup = _artConfigService.GetSubQuestContentSetup(subQuestSetup.Id);
 
         var subQuest =
           _gameLoopZenjectFactory
-            .InstantiateNative<SubQuest>(setup, progressSubQuest.CompletedQuantity, progressSubQuest.State, i);
+            .InstantiateNative<SubQuest>(subQuestSetup, progressSubQuest.CompletedQuantity, progressSubQuest.State, i, subQuestContentSetup);
 
         subQuests.Add(subQuest);
       }

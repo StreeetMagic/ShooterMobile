@@ -1,6 +1,6 @@
 namespace Gameplay.Quests.Subquests
 {
-  public enum SubQuestType
+  public enum SubQuestId
   {
     Unknown = 0,
     

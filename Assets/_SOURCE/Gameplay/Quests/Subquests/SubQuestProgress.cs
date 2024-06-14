@@ -1,17 +1,18 @@
 using System;
+using UnityEngine.Serialization;
 
 namespace Gameplay.Quests.Subquests
 {
   [Serializable]
   public class SubQuestProgress
   {
-    public SubQuestType Type;
+    [FormerlySerializedAs("typeId")] [FormerlySerializedAs("Type")] public SubQuestId id;
     public int CompletedQuantity;
     public QuestState State;
 
-    public SubQuestProgress(SubQuestType type, int completedQuantity, QuestState state)
+    public SubQuestProgress(SubQuestId id, int completedQuantity, QuestState state)
     {
-      Type = type;
+      this.id = id;
       CompletedQuantity = completedQuantity;
       State = state;
     }

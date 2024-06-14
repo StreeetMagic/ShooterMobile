@@ -57,13 +57,13 @@ namespace Gameplay.Quests.Subquests
 
     private List<Transform> GetActivatedSubQuestTargetsOrNull(SubQuest subQuest)
     {
-      switch (subQuest.Setup.Config.Type)
+      switch (subQuest.ContentSetup.Id)
       {
-        case SubQuestType.KillTerKnife:
-        case SubQuestType.DefuseBomb:
+        case SubQuestId.KillTerKnife:
+        case SubQuestId.DefuseBomb:
           return GetSubQuestTargetsOrNull(subQuest);
 
-        case SubQuestType.Unknown:
+        case SubQuestId.Unknown:
         default:
           throw new ArgumentOutOfRangeException();
       }
@@ -71,15 +71,15 @@ namespace Gameplay.Quests.Subquests
 
     private List<Transform> GetSubQuestTargetsOrNull(SubQuest subQuest)
     {
-      switch (subQuest.Setup.Config.Type)
+      switch (subQuest.ContentSetup.Id)
       {
-        case SubQuestType.KillTerKnife:
+        case SubQuestId.KillTerKnife:
           return GetKillOrinaryPersonsTargetsOrNull();
 
-        case SubQuestType.DefuseBomb:
+        case SubQuestId.DefuseBomb:
           return GetDefuseBombTargetsOrNull(subQuest);
 
-        case SubQuestType.Unknown:
+        case SubQuestId.Unknown:
         default:
           throw new ArgumentOutOfRangeException();
       }

@@ -14,7 +14,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQues
     private void Update()
     {
       int setupQuantity = _subQuest.Setup.Quantity;
-      string description = _subQuest.Setup.Config.Description;
+      string description = _subQuest.ContentSetup.Description;
 
       Text.text = description + "(" + setupQuantity + ")";
     }

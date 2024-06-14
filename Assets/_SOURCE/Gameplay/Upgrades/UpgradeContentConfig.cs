@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Gameplay.Stats;
 using UnityEngine;
 
-
 namespace Gameplay.Upgrades
 {
   [CreateAssetMenu(fileName = "UpgradeContentConfig", menuName = "ArtConfigs/UpgradeContentConfig")]

@@ -10,13 +10,15 @@ namespace Gameplay.Quests.Subquests
     private readonly SaveLoadService _saveLoadService;
     private readonly RewardService _rewardService;
 
-    public SubQuest(SubQuestSetup setup, int completedQuantity, QuestState state, int index,
-      SaveLoadService saveLoadService, RewardService rewardService)
+    public SubQuest(int completedQuantity, QuestState state, int index,
+      SaveLoadService saveLoadService, RewardService rewardService, SubQuestSetup setup, SubQuestContentSetup contentSetup)
     {
-      Setup = setup;
       CompletedQuantity = new ReactiveProperty<int>(completedQuantity);
       State = new ReactiveProperty<QuestState>(state);
       Index = index;
+      Setup = setup;
+      ContentSetup = contentSetup;
+      
       _saveLoadService = saveLoadService;
       _rewardService = rewardService;
 
@@ -27,9 +29,10 @@ namespace Gameplay.Quests.Subquests
     public event Action<int> Completed;
 
     public int Index { get; }
-    public SubQuestSetup Setup { get; }
     public ReactiveProperty<int> CompletedQuantity { get; }
     public ReactiveProperty<QuestState> State { get; }
+    public SubQuestSetup Setup { get; }
+    public SubQuestContentSetup ContentSetup { get; }
 
     private void OnCompletedQuantityChanged(int count)
     {

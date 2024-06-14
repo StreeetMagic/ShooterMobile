@@ -21,7 +21,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components
       {
         if (subQuest.State.Value is QuestState.Activated or QuestState.RewardReady)
         {
-          SetText(subQuest.Setup.Config.Description + "(" + subQuest.Setup.Quantity + ")");
+          SetText(subQuest.ContentSetup.Description + "(" + subQuest.Setup.Quantity + ")");
           return;
         }
 
