@@ -42,19 +42,16 @@ namespace Infrastructure.SceneInstallers.GameLoop
 
     private void Start()
     {
-      _saveLoadService.LoadProgress();
-
       Time.timeScale = 1f;
-
-      _playerStatsProvider.Start();
 
       _mapFactory.Create(_gameLoopInstaller.transform);
       _playerFactory.Create(_gameLoopInstaller.transform);
       _cameraFactory.Create(_gameLoopInstaller.transform);
       _enemySpawnerFactory.Create();
       _headsUpDisplayFactory.Create(_gameLoopInstaller.transform);
+      _playerStatsProvider.Start();
 
-      _backpackStorage.Clean();
+      _saveLoadService.LoadProgress();
     }
 
     public void Restart()

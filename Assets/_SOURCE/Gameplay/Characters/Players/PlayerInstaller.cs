@@ -3,7 +3,6 @@ using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.MeshModels;
 using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.TargetLocators;
-using Gameplay.Weapons;
 using Infrastructure.SaveLoadServices;
 using UnityEngine;
 using Zenject;
@@ -29,6 +28,8 @@ namespace Gameplay.Characters.Players
     public PlayerPetSpawnPointsContainer PetSpawnPointsContainer { get; private set; }
     public PlayerWeaponIdProvider WeaponIdProvider { get; private set; }
     public PlayerBombDefuser BombDefuser { get; private set; }
+    public PlayerMover Mover { get; private set; }
+    public PlayerWeaponStorage WeaponStorage { get; private set; }
 
     public override void InstallBindings()
     {
@@ -59,6 +60,7 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerWeaponAttacker>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponSwitcher>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponShootingPoint>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponStorage>().AsSingle().NonLazy();
 
       Transform = Container.Resolve<Transform>();
       WeaponShootingPointPoint = Container.Resolve<PlayerWeaponShootingPoint>();
@@ -70,18 +72,22 @@ namespace Gameplay.Characters.Players
       PetSpawnPointsContainer = Container.Resolve<PlayerPetSpawnPointsContainer>();
       WeaponIdProvider = Container.Resolve<PlayerWeaponIdProvider>();
       BombDefuser = Container.Resolve<PlayerBombDefuser>();
+      Mover = Container.Resolve<PlayerMover>();
+      WeaponStorage = Container.Resolve<PlayerWeaponStorage>();
     }
 
     public void Initialize()
     {
-      _saveLoadServices.ProgressReaders.Add(Container.Resolve<PlayerMover>());
-      _saveLoadServices.ProgressReaders.Add(Container.Resolve<PlayerWeaponIdProvider>());
+      _saveLoadServices.ProgressReaders.Add(Mover);
+      _saveLoadServices.ProgressReaders.Add(WeaponIdProvider);
+      _saveLoadServices.ProgressReaders.Add(WeaponStorage);
     }
 
     public void Dispose()
     {
-      _saveLoadServices.ProgressReaders.Remove(Container.Resolve<PlayerMover>());
-      _saveLoadServices.ProgressReaders.Remove(Container.Resolve<PlayerWeaponIdProvider>());
+      _saveLoadServices.ProgressReaders.Remove(Mover);
+      _saveLoadServices.ProgressReaders.Remove(WeaponIdProvider);
+      _saveLoadServices.ProgressReaders.Remove(WeaponStorage);
     }
   }
 }

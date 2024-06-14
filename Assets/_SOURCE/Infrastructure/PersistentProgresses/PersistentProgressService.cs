@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Gameplay.Characters.Players;
 using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
@@ -27,41 +28,22 @@ namespace Infrastructure.PersistentProgresses
 
     public void SetDefault()
     {
-      DefaultProjectProgressConfig defaultProgress = _configService.DefaultProjectProgressConfig;
-      
+      DefaultProjectProgressConfig defConfig = _configService.DefaultProjectProgressConfig;
       PlayerConfig playerConfig = _configService.PlayerConfig;
-      
-      ProjectProgress = new ProjectProgress
-      {
-        MoneyInBank = defaultProgress.MoneyInBank,
-        EggsInBank = defaultProgress.EggsInBank, 
-        //PlayerPosition = defaultProgress.PlayerPosition, 
-        Expierience = defaultProgress.Expierience, 
-        MusicMute = defaultProgress.MusicMute, 
-        CurrentPlayerWeaponId = playerConfig.StartWeapons[0],
-      };
 
-      Upgrades();
-      Quests();
+      ProjectProgress = new ProjectProgress(defConfig.MoneyInBank, defConfig.EggsInBank, defConfig.Expierience, defConfig.MusicMute, playerConfig.StartWeapons[0],
+        Upgrades(), Quests(), playerConfig.StartWeapons);
     }
 
-    private void Upgrades()
+    private List<UpgradeProgress> Upgrades() =>
+      _configService
+        .UpgradeConfigs
+        .Select(upgrade => new UpgradeProgress(upgrade.Key, 0))
+        .ToList();
+
+    private List<QuestProgress> Quests()
     {
-      ProjectProgress.Upgrades = new List<UpgradeProgress>();
-
-      Dictionary<StatId, UpgradeConfig> upgrades =
-        _configService
-          .UpgradeConfigs;
-
-      foreach (KeyValuePair<StatId, UpgradeConfig> upgrade in upgrades)
-        ProjectProgress
-          .Upgrades
-          .Add(new UpgradeProgress(upgrade.Key, 0));
-    }
-
-    private void Quests()
-    {
-      ProjectProgress.Quests = new List<QuestProgress>();
+      var questProgresses = new List<QuestProgress>();
 
       Dictionary<QuestId, QuestConfig> questConfigs =
         _configService
@@ -77,10 +59,10 @@ namespace Infrastructure.PersistentProgresses
           subQuests.Add(subQuestProgress);
         }
 
-        ProjectProgress
-          .Quests
-          .Add(new QuestProgress(questConfig.Key, QuestState.UnActivated, subQuests));
+        questProgresses.Add(new QuestProgress(questConfig.Key, QuestState.UnActivated, subQuests));
       }
+
+      return questProgresses;
     }
   }
 }
