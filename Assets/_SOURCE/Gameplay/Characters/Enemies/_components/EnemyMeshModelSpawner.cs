@@ -1,26 +1,24 @@
 using Gameplay.Characters.Enemies.Animators;
 using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies
 {
   public class EnemyMeshModelSpawner
   {
-    private EnemyMeshModelSpawner(
-      AssetProvider assetProvider, 
-      EnemyTypeId enemyId, 
-      EnemyShootingPointProvider shootingPointProvider, 
-      GameLoopZenjectFactory factory, 
-      EnemyAnimatorProvider animatorProvider, 
-      Transform transform)
+    private EnemyMeshModelSpawner(AssetProvider assetProvider, EnemyTypeId enemyId,
+      EnemyShootingPointProvider shootingPointProvider, EnemyZenjectFactory factory, EnemyAnimatorProvider animatorProvider,
+      Transform transform, EnemyMeshMaterialChanger _materialChanger)
+
     {
       EnemyMeshModel prefab = assetProvider.GetEnemyMeshModel(enemyId);
-      
+
       EnemyMeshModel meshModel = factory.InstantiateMono(prefab, transform.position, transform);
-      
+      _materialChanger.EnemyMeshModel = meshModel;
+
       shootingPointProvider.PointTransform = meshModel.GetComponent<EnemyShootingPoint>().PointTransform;
-      
+
       animatorProvider.Instance = meshModel.GetComponent<EnemyAnimator>();
     }
   }

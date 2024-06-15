@@ -4,6 +4,7 @@ using Gameplay.Characters.Enemies.StateMachines.States;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnPoints;
+using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -26,6 +27,8 @@ namespace Gameplay.Characters.Enemies
     {
       Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();
       Container.Bind<Transform>().FromInstance(transform).AsSingle().NonLazy();
+
+      Container.Bind<EnemyZenjectFactory>().AsSingle().NonLazy();
 
       Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
       Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();
@@ -52,6 +55,7 @@ namespace Gameplay.Characters.Enemies
       Container.BindInterfacesAndSelfTo<EnemyRoutePointsManager>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyMaxAttakingRange>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyAssistCall>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyMeshMaterialChanger>().AsSingle().NonLazy();
 
       Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
       Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();

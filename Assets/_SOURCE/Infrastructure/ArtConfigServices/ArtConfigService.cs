@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Gameplay.Characters.Enemies;
 using Gameplay.CurrencyRepositories;
 using Gameplay.Loots;
 using Gameplay.Quests;
@@ -28,6 +29,8 @@ namespace Infrastructure.ArtConfigServices
     private Dictionary<WeaponTypeId, WeaponContentSetup> _weapons;
     private Dictionary<RewardId, RewardContentSetup> _rewards;
 
+    public EnemyCommonVisualsConfig EnemyCommonVisualsConfig { get; private set; }
+
     public LootContentSetup GetLootContentSetup(CurrencyId id) => _loots[id];
     public UpgradeContentSetup GetUpgradeContentSetup(StatId id) => _upgrades[id];
     public QuestContentSetup GetQuestContentSetup(QuestId questId) => _quests[questId];
@@ -37,6 +40,8 @@ namespace Infrastructure.ArtConfigServices
 
     public void LoadConfigs()
     {
+      EnemyCommonVisualsConfig = _assetProvider.GetConfig<EnemyCommonVisualsConfig>();
+
       _loots = _assetProvider.GetConfig<LootIconsConfig>().Setups.ToDictionary(x => x.Id, x => x);
       _upgrades = _assetProvider.GetConfig<UpgradeContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
       _quests = _assetProvider.GetConfig<QuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
