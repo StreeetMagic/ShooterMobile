@@ -15,7 +15,10 @@ namespace Gameplay.Characters.Enemies.Animators
     public const string Death4 = nameof(Death4);
     public const string IsRun = nameof(IsRun);
     public const string IsWalk = nameof(IsWalk);
+    private const string GrenadeThrow = "GrenadeThrow";
     
+    private static readonly int s_granadeThrow = Animator.StringToHash(GrenadeThrow);
+
     [Header("Knife hit animations")] 
     public string KnifeHit1 = "KnifeHit1";
     public string KnifeHit2 = "KnifeHit2";
@@ -71,6 +74,8 @@ namespace Gameplay.Characters.Enemies.Animators
       float animationLength = animationClip.length;
       Animator.speed = animationLength / duration;
     }
+    
+    public void PlayGrenadeThrow() => Animator.SetTrigger(s_granadeThrow);
 
     public void PlayRunAnimation()
     {
