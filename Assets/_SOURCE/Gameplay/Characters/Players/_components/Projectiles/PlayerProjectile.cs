@@ -25,7 +25,7 @@ namespace Gameplay.Characters.Players.Projectiles
 
     private void PlayerVisualEffect()
     {
-      _visualEffectFactory.Create(ParticleEffectId.PlayerBulletImpact, transform.position, transform);
+      _visualEffectFactory.Create(VisualEffectId.PlayerBulletImpact, transform.position, transform);
     }
 
     private void DamageTargetTrigger(Collider other)

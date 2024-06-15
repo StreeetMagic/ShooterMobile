@@ -17,14 +17,14 @@ namespace Infrastructure.VisualEffects
       _zenjectFactory = zenjectFactory;
     }
 
-    public void Create(ParticleEffectId visualEffectId, Vector3 position, Transform parent, Transform target = null)
+    public void Create(VisualEffectId visualEffectId, Vector3 position, Transform parent, Transform target = null)
     {
       switch (visualEffectId)
       {
-        case ParticleEffectId.Unknown:
+        case VisualEffectId.Unknown:
           throw new ArgumentOutOfRangeException(nameof(visualEffectId), visualEffectId, null);
 
-        case ParticleEffectId.PlayerMuzzleFlash:
+        case VisualEffectId.PlayerMuzzleFlash:
           GameObject muzzlePrefab1 = _assetProvider.Get("PlayerMuzzleFlash");
           GameObject muzzleFlash1 = _zenjectFactory.InstantiateGameObject(muzzlePrefab1, position, Quaternion.identity, parent);
           muzzleFlash1.transform.SetParent(null);
@@ -32,7 +32,7 @@ namespace Infrastructure.VisualEffects
           Object.Destroy(muzzleFlash1, duration1);
           break;
 
-        case ParticleEffectId.PlayerBulletImpact:
+        case VisualEffectId.PlayerBulletImpact:
           GameObject impactPrefab2 = _assetProvider.Get("PlayerBulletImpact");
           GameObject impact2 = _zenjectFactory.InstantiateGameObject(impactPrefab2, position, Quaternion.identity, parent);
           impact2.transform.SetParent(null);
@@ -40,7 +40,7 @@ namespace Infrastructure.VisualEffects
           Object.Destroy(impact2, impactDuration2);
           break;
         
-        case ParticleEffectId.EnemyMuzzleFlash:
+        case VisualEffectId.EnemyMuzzleFlash:
           GameObject muzzlePrefab = _assetProvider.Get("EnemyMuzzleFlash");
           GameObject muzzleFlash = _zenjectFactory.InstantiateGameObject(muzzlePrefab, position, Quaternion.identity, parent);
           muzzleFlash.transform.SetParent(null);
@@ -48,7 +48,7 @@ namespace Infrastructure.VisualEffects
           Object.Destroy(muzzleFlash, duration);
           break;
         
-        case ParticleEffectId.EnemyBulletImpact:
+        case VisualEffectId.EnemyBulletImpact:
           GameObject impactPrefab = _assetProvider.Get("EnemyBulletImpact");
           GameObject impact = _zenjectFactory.InstantiateGameObject(impactPrefab, position, Quaternion.identity, parent);
           impact.transform.SetParent(null);
@@ -56,7 +56,7 @@ namespace Infrastructure.VisualEffects
           Object.Destroy(impact, impactDuration);
           break;
         
-        case ParticleEffectId.HenExplosion:
+        case VisualEffectId.HenExplosion:
           GameObject explosionPrefab = _assetProvider.Get("HenExplosion");
           GameObject explosion = _zenjectFactory.InstantiateGameObject(explosionPrefab, position, Quaternion.identity, parent);
           explosion.transform.SetParent(null);

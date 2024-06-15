@@ -10,7 +10,7 @@ namespace Gameplay.Characters.Pets.Hens
 
     public void PlayExplosion()
     {
-      _visualEffectFactory.Create(ParticleEffectId.HenExplosion, transform.position, null);
+      _visualEffectFactory.Create(VisualEffectId.HenExplosion, transform.position, null);
     }
   }
 }
