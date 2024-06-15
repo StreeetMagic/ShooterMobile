@@ -21,8 +21,9 @@ namespace Infrastructure.StateMachine
     {
       var state = _enemyStatesProvider.GetState<T>();
       ChangeState(state);
-      _logger.Log("Entered : " + typeof(T).Name);
       state.Enter();
+    
+      //_logger.Log("Entered : " + typeof(T).Name);
     }
 
     public void Tick()

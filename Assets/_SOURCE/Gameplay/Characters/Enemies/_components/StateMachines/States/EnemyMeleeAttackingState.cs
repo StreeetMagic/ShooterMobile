@@ -9,20 +9,19 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private readonly EnemyConfig _config;
     private readonly EnemyMeleeAttacker _meleeAttacker;
     private readonly EnemyStateMachine _enemyStateMachine;
-  //  private readonly EnemyAnimatorProvider _animatorProvider;
+    private readonly EnemyAnimatorProvider _animatorProvider;
     private readonly EnemyToPlayerRotator _toPlayerRotator;
 
     private float _wholeTimeleft;
     private bool _attacked;
 
     public EnemyMeleeAttackingState(EnemyConfig config, EnemyMeleeAttacker meleeAttacker,
-      EnemyStateMachine enemyStateMachine,
-      EnemyToPlayerRotator toPlayerRotator)
+      EnemyStateMachine enemyStateMachine, EnemyToPlayerRotator toPlayerRotator, EnemyAnimatorProvider animatorProvider)
     {
       _config = config;
       _meleeAttacker = meleeAttacker;
       _enemyStateMachine = enemyStateMachine;
-    //  _animatorProvider = animatorProvider;
+      _animatorProvider = animatorProvider;
       _toPlayerRotator = toPlayerRotator;
     }
 
@@ -33,8 +32,8 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
       float wholeAttackTime = _config.MeeleAttackDuration;
       _wholeTimeleft = wholeAttackTime;
 
-      // _animatorProvider.Instance.PlayRandomKnifeHitAnimation(wholeAttackTime);
-      // _animatorProvider.Instance.KnifeHit += OnHitEventListener;
+      _animatorProvider.Instance.PlayRandomKnifeHitAnimation(wholeAttackTime);
+      _animatorProvider.Instance.KnifeHit += OnHitEventListener;
     }
 
     public void Tick()
@@ -42,11 +41,11 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
       _toPlayerRotator.Rotate();
       _wholeTimeleft -= Time.deltaTime;
 
-      if (_wholeTimeleft / _config.MeeleAttackDuration < 0.5f && !_attacked)
-      {
-        _attacked = true;
-        _meleeAttacker.Attack();
-      }
+      // if (_wholeTimeleft / _config.MeeleAttackDuration < 0.5f && !_attacked)
+      // {
+      //   _attacked = true;
+      //   _meleeAttacker.Attack();
+      // }
 
       if (_wholeTimeleft <= 0)
         _enemyStateMachine.Enter<EnemyChooseAttackState>();
@@ -56,13 +55,13 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     {
     }
 
-    // private void OnHitEventListener()
-    // {
-    //   if (!_attacked)
-    //   {
-    //     _attacked = true;
-    //     _meleeAttacker.Attack();
-    //   }
-    // }
+    private void OnHitEventListener()
+    {
+      if (!_attacked)
+      {
+        _attacked = true;
+        _meleeAttacker.Attack();
+      }
+    }
   }
 }
