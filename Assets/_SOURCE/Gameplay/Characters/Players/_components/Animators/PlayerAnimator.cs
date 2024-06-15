@@ -126,7 +126,7 @@ namespace Gameplay.Characters.Players.Animators
 
     private void SetWeaponDown()
     {
-      print("Ствол попущен");
+      //print("Ствол попущен");
       Animator.SetBool(s_weaponUp, false);
     }
     
