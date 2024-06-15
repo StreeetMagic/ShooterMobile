@@ -69,5 +69,15 @@ namespace Gameplay.Characters.Players.Animators
     {
       Animator.SetBool(s_isShoot, false);
     }
+
+    private void ReloadFinished()
+    {
+      print("Анимация перезарядки окончена");
+    }
+    
+    private void GrenadeThrew()
+    {
+      print("Полет гранаты");
+    }
   }
 }

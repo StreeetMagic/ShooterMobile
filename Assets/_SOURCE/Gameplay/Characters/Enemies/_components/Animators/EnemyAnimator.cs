@@ -18,8 +18,10 @@ namespace Gameplay.Characters.Enemies.Animators
     public const string IsWalk = nameof(IsWalk);
     private const string GrenadeThrow = "GrenadeThrow";
     private const string Panic = "Panic";
+    private const string Reload = "Reload";
     
     private static readonly int s_granadeThrow = Animator.StringToHash(GrenadeThrow);
+    private static readonly int s_reload = Animator.StringToHash(Reload);
 
     [Header("Knife hit animations")] 
     public string KnifeHit1 = "KnifeHit1";
@@ -112,10 +114,25 @@ namespace Gameplay.Characters.Enemies.Animators
     {
       Animator.SetTrigger(s_rifleShoot);
     }
+    
+    public void PlayReload()
+    {
+      Animator.SetTrigger(s_reload);
+    }
 
+    private void ReloadFinished()
+    {
+      print("Анимация перезарядки окончена");
+    }
+    
     private void PlayPanicEffect()
     {
       _panicEffect.Play();
+    }
+
+    private void GrenadeThrew()
+    {
+      print("Полет гранаты");
     }
   }
 }
