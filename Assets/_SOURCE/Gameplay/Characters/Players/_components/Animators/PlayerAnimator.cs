@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -25,10 +26,26 @@ namespace Gameplay.Characters.Players.Animators
     private const string ShotgunShoot = "ShotgunShoot";
     private const string GrenadeThrow = "GrenadeThrow";
     private const string Reload = "Reload";
+    private const string WeaponUp = "WeaponUp";
+    private const string StartShooting = "StartShooting";
+    public const string Death1 = nameof(Death1);
+    public const string Death2 = nameof(Death2);
+    public const string Death3 = nameof(Death3);
+    public const string Death4 = nameof(Death4);
     
 
     public Animator Animator;
     private static readonly int s_isShoot = Animator.StringToHash("isShoot");
+    private static readonly int s_startShooting = Animator.StringToHash(StartShooting);
+    private static readonly int s_weaponUp = Animator.StringToHash(WeaponUp);
+    
+    private readonly List<string> _deaths = new()
+    {
+      Death1,
+      Death2,
+      Death3,
+      Death4
+    };
 
     public void PlayRunAnimation()
     {
@@ -65,9 +82,25 @@ namespace Gameplay.Characters.Players.Animators
     public void PlayGrenadeThrow() => Animator.SetTrigger(s_granadeThrow);
     public void PlayReload() => Animator.SetTrigger(s_reload);
 
+    public void PlayDeathAnimation()
+    {
+      Animator.SetTrigger(_deaths[Random.Range(0, _deaths.Count)]);
+    }
+    
     public void StopShoot()
     {
       Animator.SetBool(s_isShoot, false);
+    }
+    
+    public void OnStateShooting()
+    {
+      Animator.SetBool(s_startShooting, true);
+    }
+
+    public void OffStateShooting()
+    {
+      SetWeaponDown();
+      Animator.SetBool(s_startShooting, false);
     }
 
     private void ReloadFinished()
@@ -78,6 +111,18 @@ namespace Gameplay.Characters.Players.Animators
     private void GrenadeThrew()
     {
       print("Полет гранаты");
+    }
+    
+    private void SetWeaponUp()
+    {
+      print("Ствол поднят");
+      Animator.SetBool(s_weaponUp, true);
+    }
+    
+    private void SetWeaponDown()
+    {
+      print("Ствол попущен");
+      Animator.SetBool(s_weaponUp, false);
     }
   }
 }
