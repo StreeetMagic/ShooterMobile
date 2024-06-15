@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -27,6 +28,10 @@ namespace Gameplay.Characters.Players.Animators
     private const string Reload = "Reload";
     private const string WeaponUp = "WeaponUp";
     private const string StartShooting = "StartShooting";
+    public const string Death1 = nameof(Death1);
+    public const string Death2 = nameof(Death2);
+    public const string Death3 = nameof(Death3);
+    public const string Death4 = nameof(Death4);
     
 
     public Animator Animator;
@@ -34,6 +39,13 @@ namespace Gameplay.Characters.Players.Animators
     private static readonly int s_startShooting = Animator.StringToHash(StartShooting);
     private static readonly int s_weaponUp = Animator.StringToHash(WeaponUp);
     
+    private readonly List<string> _deaths = new()
+    {
+      Death1,
+      Death2,
+      Death3,
+      Death4
+    };
 
     public void PlayRunAnimation()
     {
@@ -70,6 +82,11 @@ namespace Gameplay.Characters.Players.Animators
     public void PlayGrenadeThrow() => Animator.SetTrigger(s_granadeThrow);
     public void PlayReload() => Animator.SetTrigger(s_reload);
 
+    public void PlayDeathAnimation()
+    {
+      Animator.SetTrigger(_deaths[Random.Range(0, _deaths.Count)]);
+    }
+    
     public void StopShoot()
     {
       Animator.SetBool(s_isShoot, false);
