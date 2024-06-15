@@ -9,6 +9,7 @@ namespace Gameplay.Characters.Enemies.Animators
 {
   public class EnemyAnimator : MonoBehaviour
   {
+    [SerializeField] private ParticleSystem _panicEffect;
     public const string Death1 = nameof(Death1);
     public const string Death2 = nameof(Death2);
     public const string Death3 = nameof(Death3);
@@ -16,8 +17,11 @@ namespace Gameplay.Characters.Enemies.Animators
     public const string IsRun = nameof(IsRun);
     public const string IsWalk = nameof(IsWalk);
     private const string GrenadeThrow = "GrenadeThrow";
+    private const string Panic = "Panic";
+    private const string Reload = "Reload";
     
     private static readonly int s_granadeThrow = Animator.StringToHash(GrenadeThrow);
+    private static readonly int s_reload = Animator.StringToHash(Reload);
 
     [Header("Knife hit animations")] 
     public string KnifeHit1 = "KnifeHit1";
@@ -42,6 +46,7 @@ namespace Gameplay.Characters.Enemies.Animators
     private static readonly int s_rifleShoot = Animator.StringToHash(RifleShoot);
     private static readonly int s_isWalk = Animator.StringToHash(IsWalk);
     private static readonly int s_isRun = Animator.StringToHash(IsRun);
+    private static readonly int s_panic = Animator.StringToHash(Panic);
 
     public event Action KnifeHit;
 
@@ -79,6 +84,7 @@ namespace Gameplay.Characters.Enemies.Animators
     }
     
     public void PlayGrenadeThrow() => Animator.SetTrigger(s_granadeThrow);
+    public void PlayPanic() => Animator.SetTrigger(s_panic);
 
     public void PlayRunAnimation()
     {
@@ -110,6 +116,26 @@ namespace Gameplay.Characters.Enemies.Animators
     public void PlayRifleShootAnimation()
     {
       Animator.SetTrigger(s_rifleShoot);
+    }
+    
+    public void PlayReload()
+    {
+      Animator.SetTrigger(s_reload);
+    }
+
+    private void ReloadFinished()
+    {
+      print("Анимация перезарядки окончена");
+    }
+    
+    private void PlayPanicEffect()
+    {
+      _panicEffect.Play();
+    }
+
+    private void GrenadeThrew()
+    {
+      print("Полет гранаты");
     }
   }
 }
