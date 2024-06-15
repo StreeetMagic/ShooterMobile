@@ -43,7 +43,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
     private void Start()
     {
       Time.timeScale = 1f;
-      
+
       _mapFactory.Create(_gameLoopInstaller.transform);
       _playerFactory.Create(_gameLoopInstaller.transform);
       _cameraFactory.Create(_gameLoopInstaller.transform);

@@ -26,8 +26,7 @@ namespace Gameplay.Characters.Players
 
     public void ReadProgress(ProjectProgress projectProgress)
     {
-      Debug.Log("ReadProgress" + projectProgress.PlayerWeapons.Count);
-      Weapons.Value = projectProgress.PlayerWeapons;
+      Weapons.Value = projectProgress.PlayerWeapons; 
     }
 
     public void WriteProgress(ProjectProgress projectProgress)

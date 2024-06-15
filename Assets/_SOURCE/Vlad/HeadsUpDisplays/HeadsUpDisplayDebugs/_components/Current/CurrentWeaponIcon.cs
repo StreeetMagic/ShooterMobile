@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs._components.Current
+namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Current
 {
   public class CurrentWeaponIcon : MonoBehaviour
   {

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs._components.Current
+namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Current
 {
   public class CurrentWeaponText : MonoBehaviour
   {

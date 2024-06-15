@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Gameplay.Weapons;
 using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
@@ -31,15 +32,22 @@ namespace Gameplay.Characters.Players
       OnCurrentIdChanged(CurrentId.Value);
 
       CurrentId.ValueChanged += OnCurrentIdChanged;
+      
+      _playerWeaponStorage.Weapons.Changed += OnWeaponsChanged;
     }
+
+    private void OnWeaponsChanged(List<WeaponTypeId> weapons)
+    {
+      OnCurrentIdChanged(CurrentId.Value); 
+    }
+
+    public ReactiveProperty<WeaponTypeId> PrevId { get; }
+    public ReactiveProperty<WeaponTypeId> CurrentId { get; }
+    public ReactiveProperty<WeaponTypeId> NextId { get; }
 
     private void OnCurrentIdChanged(WeaponTypeId currentId)
     {
-      _debugLogger.LogPlayerWeapons(_playerWeaponStorage);
-
       int weapontCount = _playerWeaponStorage.Weapons.Value.Count;
-      
-      Debug.Log(weapontCount);
 
       int currentIdIndex = _playerWeaponStorage.Weapons.IndexOf(currentId);
 
@@ -55,10 +63,6 @@ namespace Gameplay.Characters.Players
       if (currentIdIndex < weapontCount - 1)
         NextId.Value = _playerWeaponStorage.Weapons.Value[currentIdIndex + 1];
     }
-
-    public ReactiveProperty<WeaponTypeId> PrevId { get; }
-    public ReactiveProperty<WeaponTypeId> CurrentId { get; }
-    public ReactiveProperty<WeaponTypeId> NextId { get; }
 
     public void ReadProgress(ProjectProgress projectProgress)
     {

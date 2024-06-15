@@ -1,22 +1,22 @@
 using Gameplay.Characters.Players;
 using Gameplay.Weapons;
 using Infrastructure.ArtConfigServices;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Next
 {
-  public class NextWeaponIcon : MonoBehaviour
+  public class NextWeaponText : MonoBehaviour
   {
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private ArtConfigService _artConfigService;
 
-    private Image _icon;
+    private TextMeshProUGUI _text;
 
     private void Awake()
     {
-      _icon = GetComponent<Image>();
+      _text = GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
@@ -24,9 +24,9 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Next
       WeaponTypeId weaponTypeId = _playerProvider.Instance.WeaponIdProvider.NextId.Value;
 
       if (weaponTypeId == WeaponTypeId.Unknown)
-        _icon.sprite = null;
+        _text.text = "";
       else
-        _icon.sprite = _artConfigService.GetWeaponContentSetup(weaponTypeId).Icon;
+        _text.text = _artConfigService.GetWeaponContentSetup(weaponTypeId).Name;
     }
   }
 }

@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 5812388573529411210}
   - component: {fileID: 8233288643768159427}
   - component: {fileID: 1425135438708898100}
+  - component: {fileID: 4903603379532593113}
   m_Layer: 5
   m_Name: PrevWeaponText
   m_TagString: Untagged
@@ -521,6 +522,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4903603379532593113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834602328492352825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812cfb302f0042649fb50b08bb1afd8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3195074093668708407
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +795,7 @@ GameObject:
   - component: {fileID: 781967500010802558}
   - component: {fileID: 7498256072054678123}
   - component: {fileID: 1089266467728722957}
+  - component: {fileID: 7274544147756843626}
   m_Layer: 5
   m_Name: PreviousWeaponButton
   m_TagString: Untagged
@@ -890,6 +904,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7274544147756843626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425841294324586881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cceb0ae5f1094fae8ecd86d969b4abd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8180082177625541177
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +1010,7 @@ GameObject:
   - component: {fileID: 8873879423116808057}
   - component: {fileID: 178406262278170089}
   - component: {fileID: 8434412025761145770}
+  - component: {fileID: 1254803783589524}
   m_Layer: 5
   m_Name: NextWeaponText
   m_TagString: Untagged
@@ -1107,6 +1134,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1254803783589524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8209129312591459232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4029ffd6038c4b8da11a405d5e0dc3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8903100035870362513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1158,7 @@ GameObject:
   - component: {fileID: 7522980550998357204}
   - component: {fileID: 3386054048384116156}
   - component: {fileID: 828681369970185625}
+  - component: {fileID: 1055350814782498557}
   m_Layer: 5
   m_Name: NextWeaponButton
   m_TagString: Untagged
@@ -1227,6 +1267,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1055350814782498557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903100035870362513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70928b95a0254aa5b394a956372e7e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8955015252914734362
 GameObject:
   m_ObjectHideFlags: 0

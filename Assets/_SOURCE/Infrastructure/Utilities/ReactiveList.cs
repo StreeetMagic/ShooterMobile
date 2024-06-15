@@ -46,12 +46,6 @@ namespace Infrastructure.Utilities
       _list.Clear();
       Changed?.Invoke(_list);
     }
-
-    public void Set(List<T> list)
-    {
-      _list = list;
-      Changed?.Invoke(_list);
-    }
     
     public int IndexOf(T value)
     {

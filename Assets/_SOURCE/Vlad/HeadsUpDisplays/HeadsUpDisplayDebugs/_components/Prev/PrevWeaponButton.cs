@@ -7,16 +7,16 @@ using Zenject;
 
 namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Prev
 {
-  public class PrevWeaponIcon : MonoBehaviour
+  public class PrevWeaponButton : MonoBehaviour
   {
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private ArtConfigService _artConfigService;
 
-    private Image _icon;
+    private Button _button;
 
     private void Awake()
     {
-      _icon = GetComponent<Image>();
+      _button = GetComponent<Button>();
     }
 
     private void Update()
@@ -24,9 +24,9 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Prev
       WeaponTypeId weaponTypeId = _playerProvider.Instance.WeaponIdProvider.PrevId.Value;
 
       if (weaponTypeId == WeaponTypeId.Unknown)
-        _icon.sprite = null;
+        _button.onClick.RemoveAllListeners();
       else
-        _icon.sprite = _artConfigService.GetWeaponContentSetup(weaponTypeId).Icon;
+        _button.onClick.AddListener(() => _playerProvider.Instance.WeaponIdProvider.CurrentId.Value = weaponTypeId);
     }
   }
 }

@@ -131,7 +131,7 @@ namespace Gameplay.Characters.Players
           throw new ArgumentOutOfRangeException(nameof(id), id, null);
         
         case WeaponTypeId.Knife:
-          throw new ArgumentOutOfRangeException(nameof(id), id, null);
+//          throw new ArgumentOutOfRangeException(nameof(id), id, null);
         
         case WeaponTypeId.DesertEagle:
           _playerAnimator.PlayPistolShoot();
@@ -144,7 +144,6 @@ namespace Gameplay.Characters.Players
         
         case WeaponTypeId.Xm1014:
           _playerAnimator.PlayShotgunShoot();
-          Debug.Log("shotgun");
           break;
         
         default:
