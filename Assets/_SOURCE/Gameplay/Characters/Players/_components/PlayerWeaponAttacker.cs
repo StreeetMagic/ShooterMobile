@@ -131,7 +131,8 @@ namespace Gameplay.Characters.Players
           throw new ArgumentOutOfRangeException(nameof(id), id, null);
         
         case WeaponTypeId.Knife:
-//          throw new ArgumentOutOfRangeException(nameof(id), id, null);
+          _playerAnimator.PlayRandomKnifeHitAnimation(WeaponConfig.MeeleAttackDuration);
+          break;
         
         case WeaponTypeId.DesertEagle:
           _playerAnimator.PlayPistolShoot();

@@ -34,5 +34,8 @@ namespace Gameplay.Weapons
     
     [Tooltip("Время на подготовку к выстрелу")]
     public float RaiseTime = .2f;
+        
+    [Tooltip("Длительность милишной атаки")]
+    public float MeeleAttackDuration = .7f;
   }
 }
