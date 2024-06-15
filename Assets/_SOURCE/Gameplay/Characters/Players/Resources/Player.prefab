@@ -1171,6 +1171,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeshModel
       objectReference: {fileID: 0}
+    - target: {fileID: 3640486782794773416, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+        type: 3}
+      propertyPath: Animator
+      value: 
+      objectReference: {fileID: 520288466522093192}
     - target: {fileID: 9062243674088626575, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1239,6 +1244,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef83432dcce4ad1b39475ada6e4e25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &520288466522093192 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1301069402596870516, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1528475235872063484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2860814150951373908 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3640486782794773416, guid: 3d1a422bd73ae5d478e46a49cbe8fb8b,
