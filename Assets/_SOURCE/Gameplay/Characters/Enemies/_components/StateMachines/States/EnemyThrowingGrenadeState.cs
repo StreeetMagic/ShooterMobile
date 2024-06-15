@@ -30,6 +30,9 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
       _toPlayerRotator.Rotate();
       _randomGrenadeDelayLeft -= Time.deltaTime;
 
+      if (_grenadeThrower.ReadyToThrow == false)
+        _stateMachine.Enter<EnemyChooseAttackState>();
+
       if (_randomGrenadeDelayLeft <= 0)
       {
         _grenadeThrower.Lauch();

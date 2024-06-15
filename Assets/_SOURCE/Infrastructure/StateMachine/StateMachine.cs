@@ -1,15 +1,18 @@
 using Gameplay.Characters.Enemies;
+using Loggers;
 using Zenject;
 
 namespace Infrastructure.StateMachine
 {
   public abstract class StateMachine : ITickable
   {
-    private EnemyStatesProvider _enemyStatesProvider;
+    private readonly EnemyStatesProvider _enemyStatesProvider;
+    private readonly DebugLogger _logger;
 
-    protected StateMachine(EnemyStatesProvider enemyStatesProvider)
+    protected StateMachine(EnemyStatesProvider enemyStatesProvider, DebugLogger logger)
     {
       _enemyStatesProvider = enemyStatesProvider;
+      _logger = logger;
     }
 
     public IExitableState ActiveState { get; protected set; }
@@ -18,7 +21,7 @@ namespace Infrastructure.StateMachine
     {
       var state = _enemyStatesProvider.GetState<T>();
       ChangeState(state);
-      //  Debug.Log("Entered : " + typeof(T).Name);
+      _logger.Log("Entered : " + typeof(T).Name);
       state.Enter();
     }
 

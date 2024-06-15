@@ -5,27 +5,32 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyMaxAttakingRange
   {
-    private readonly float _maxAttackingRange;
+    private readonly EnemyConfig _config;
+    private readonly EnemyGrenadeThrower _grenadeThrower;
 
-    public EnemyMaxAttakingRange(EnemyConfig config)
+    public EnemyMaxAttakingRange(EnemyConfig config, EnemyGrenadeThrower grenadeThrower)
     {
-      EnemyConfig config1 = config;
-      List<float> distances = new();
-
-      if (config1.IsShooter)
-        distances.Add(config1.ShootRange);
-
-      if (config1.IsGrenadeThrower)
-        distances.Add(config1.GrenadeThrowRange);
-
-      distances.Add(config1.MeleeRange);
-
-      _maxAttackingRange = distances.Max();
+      _config = config;
+      _grenadeThrower = grenadeThrower;
     }
 
     public float Get()
     {
-      return _maxAttackingRange;
+      float maxAttackingRange;
+
+      List<float> distances = new();
+
+      if (_config.IsShooter)
+        distances.Add(_config.ShootRange);
+
+      if (_config.IsGrenadeThrower && _grenadeThrower.ReadyToThrow)
+        distances.Add(_config.GrenadeThrowRange);
+
+      distances.Add(_config.MeleeRange);
+
+      maxAttackingRange = distances.Max();
+
+      return maxAttackingRange;
     }
   }
 }

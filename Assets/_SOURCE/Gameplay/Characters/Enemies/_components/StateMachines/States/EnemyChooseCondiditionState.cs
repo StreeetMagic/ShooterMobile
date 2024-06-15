@@ -31,9 +31,15 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
       else if (_hitStatus.IsHit)
       {
         float distanceToPlayer = Vector3.Distance(_playerProvider.Instance.transform.position, _enemy.transform.position);
-        float shootRange = _config.ShootRange;
+        
+        float attackRange;
 
-        if (distanceToPlayer > shootRange)
+        if (_config.IsShooter)
+          attackRange = _config.ShootRange;
+        else
+          attackRange = _config.MeleeRange;
+
+        if (distanceToPlayer > attackRange)
           _enemyStateMachine.Enter<EnemyChasingPlayerState>();
         else
           _enemyStateMachine.Enter<EnemyChooseAttackState>();

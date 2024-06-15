@@ -53,8 +53,6 @@ namespace Gameplay.Characters.Players
         
         if (_timeLeft < 0)
           _timeLeft = 0;
-        
-        _logger.Log( $"Raise time left {_timeLeft}");
       }
     }
   }

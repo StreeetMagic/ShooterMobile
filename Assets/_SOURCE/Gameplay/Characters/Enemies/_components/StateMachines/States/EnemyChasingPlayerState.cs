@@ -17,10 +17,11 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private readonly Enemy _enemy;
     private readonly EnemyReturnToSpawnStatus _enemyReturnToSpawnStatus;
     private readonly EnemyMaxAttakingRange _enemyMaxAttakingRange;
+    private readonly EnemyGrenadeThrower _grenadeThrower;
 
     public EnemyChasingPlayerState(PlayerProvider playerProvider, EnemyMover mover, EnemyAnimatorProvider animatorProvider,
       EnemyConfig config, EnemySpawner enemySpawner, Enemy enemy, EnemyStateMachine enemyStateMachine,
-      EnemyReturnToSpawnStatus enemyReturnToSpawnStatus, EnemyMaxAttakingRange enemyMaxAttakingRange)
+      EnemyReturnToSpawnStatus enemyReturnToSpawnStatus, EnemyMaxAttakingRange enemyMaxAttakingRange, EnemyGrenadeThrower grenadeThrower)
     {
       _playerProvider = playerProvider;
       _mover = mover;
@@ -31,6 +32,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
       _enemyStateMachine = enemyStateMachine;
       _enemyReturnToSpawnStatus = enemyReturnToSpawnStatus;
       _enemyMaxAttakingRange = enemyMaxAttakingRange;
+      _grenadeThrower = grenadeThrower;
     }
 
     public void Enter()

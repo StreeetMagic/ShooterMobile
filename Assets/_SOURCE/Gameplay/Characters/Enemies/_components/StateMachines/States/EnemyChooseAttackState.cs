@@ -1,5 +1,6 @@
 using Gameplay.Characters.Players;
 using Infrastructure.StateMachine;
+using Loggers;
 using UnityEngine;
 using Zenject;
 
@@ -16,13 +17,14 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private readonly EnemyReturnToSpawnStatus _returnToSpawnStatus;
     private readonly EnemyWeaponReloader _reloader;
     private readonly EnemyMaxAttakingRange _enemyMaxAttakingRange;
+    private readonly DebugLogger _logger;
 
     private float _shootTimeLeft;
 
     public EnemyChooseAttackState(PlayerProvider playerProvider, EnemyConfig config,
       Enemy enemy, EnemyStateMachine stateMachine, EnemyGrenadeThrower grenadeThrower,
       EnemyToSpawnerDistance toSpawnerDistance, EnemyReturnToSpawnStatus returnToSpawnStatus, EnemyWeaponReloader reloader,
-      EnemyMaxAttakingRange enemyMaxAttakingRange)
+      EnemyMaxAttakingRange enemyMaxAttakingRange, DebugLogger logger)
     {
       _playerProvider = playerProvider;
 
@@ -35,9 +37,14 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
       _returnToSpawnStatus = returnToSpawnStatus;
       _reloader = reloader;
       _enemyMaxAttakingRange = enemyMaxAttakingRange;
+      _logger = logger;
     }
 
     public void Enter()
+    {
+    }
+
+    public void Tick()
     {
       if (_toSpawnerDistance.IsAway)
       {
@@ -64,10 +71,10 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
       {
         _stateMachine.Enter<EnemyShootingState>();
       }
-    }
-
-    public void Tick()
-    {
+      else
+      {
+        _logger.Log("никуда не попали");
+      }
     }
 
     public void Exit()
