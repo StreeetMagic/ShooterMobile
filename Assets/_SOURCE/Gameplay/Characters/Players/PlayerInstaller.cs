@@ -58,7 +58,7 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerTargetHolder>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerTargetLocator>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponAttacker>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<PlayerWeaponSwitcher>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponMeshSwitcher>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponShootingPoint>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponStorage>().AsSingle().NonLazy();
 

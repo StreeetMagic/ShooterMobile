@@ -1,5 +1,5 @@
 using Gameplay.Characters.Players;
-using Gameplay.WeaponStorages;
+using Gameplay.WeaponShops;
 using UnityEngine;
 
 namespace Loggers

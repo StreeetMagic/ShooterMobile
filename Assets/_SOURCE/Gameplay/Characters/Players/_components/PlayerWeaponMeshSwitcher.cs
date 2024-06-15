@@ -4,33 +4,38 @@ using UnityEngine;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerWeaponSwitcher
+  public class PlayerWeaponMeshSwitcher
   {
     private readonly PlayerWeaponContainer _weaponContainer;
     private readonly PlayerWeaponShootingPoint _shootingPoint;
 
-    public PlayerWeaponSwitcher(PlayerWeaponContainer weaponContainer,
+    public PlayerWeaponMeshSwitcher(PlayerWeaponContainer weaponContainer,
       PlayerWeaponShootingPoint shootingPoint, PlayerWeaponIdProvider playerWeaponIdProvider)
     {
       _weaponContainer = weaponContainer;
       _shootingPoint = shootingPoint;
 
-      if (playerWeaponIdProvider.Id == WeaponTypeId.Unknown)
+      if (playerWeaponIdProvider.CurrentId.Value == WeaponTypeId.Unknown)
         throw new System.Exception("У игрока не указан айдишник оружия");
 
       DisableAll();
       NullShootingPoint();
 
-      SwitchTo(playerWeaponIdProvider.Id);
+      SwitchTo(playerWeaponIdProvider.CurrentId.Value);
+      
+      playerWeaponIdProvider.CurrentId.ValueChanged += SwitchTo;
     }
 
-    public void SwitchTo(WeaponTypeId weaponTypeId)
+    private void SwitchTo(WeaponTypeId weaponTypeId)
     {
       GameObject weapon =
         _weaponContainer
           .Weapons
           .Find(x => x.WeaponTypeId == weaponTypeId)
           .GameObject;
+
+      DisableAll();
+      NullShootingPoint();
 
       EnableGameObject(weapon);
       SetShootingPoint(weaponTypeId);

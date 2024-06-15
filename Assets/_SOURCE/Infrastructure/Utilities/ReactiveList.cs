@@ -24,7 +24,7 @@ namespace Infrastructure.Utilities
       get => _list;
       set
       {
-        _list = value as List<T>;
+        _list = new List<T>(value); 
         Changed?.Invoke(_list);
       }
     }
@@ -51,6 +51,11 @@ namespace Infrastructure.Utilities
     {
       _list = list;
       Changed?.Invoke(_list);
+    }
+    
+    public int IndexOf(T value)
+    {
+      return _list.IndexOf(value);
     }
   }
 }

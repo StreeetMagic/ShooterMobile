@@ -34,7 +34,7 @@ namespace Gameplay.Characters.Players
       _playerAnimator = playerAnimator;
     }
 
-    private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.Id);
+    private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value);
     private float Cooldown => (float)1 / WeaponConfig.FireRate;
 
     public void Attack()

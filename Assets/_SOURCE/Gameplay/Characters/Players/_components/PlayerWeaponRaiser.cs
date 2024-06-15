@@ -29,7 +29,7 @@ namespace Gameplay.Characters.Players
     {
       if (_playerMoveSpeed.IsMoving || _playerTargetHolder.HasTarget == false)
       {
-        _timeLeft = _config.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.Id).RaiseTime;
+        _timeLeft = _config.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).RaiseTime;
 
         if (_isRising)
         {

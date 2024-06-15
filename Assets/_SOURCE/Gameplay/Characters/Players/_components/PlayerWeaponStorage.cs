@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Gameplay.Weapons;
-using Gameplay.WeaponStorages;
+using Gameplay.WeaponShops;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
 using Loggers;
+using UnityEngine;
 using Zenject;
 
 namespace Gameplay.Characters.Players
@@ -25,6 +26,7 @@ namespace Gameplay.Characters.Players
 
     public void ReadProgress(ProjectProgress projectProgress)
     {
+      Debug.Log("ReadProgress" + projectProgress.PlayerWeapons.Count);
       Weapons.Value = projectProgress.PlayerWeapons;
     }
 
@@ -47,7 +49,6 @@ namespace Gameplay.Characters.Players
     {
       _weaponShop.SetAllWeapons();
       _weaponShop.RemoveWeapons(Weapons.Value);
-      _debugLogger.LogPlayerWeapons(this);
     }
   }
 }

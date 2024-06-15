@@ -6,7 +6,7 @@ using Infrastructure.Utilities;
 using Loggers;
 using Zenject;
 
-namespace Gameplay.WeaponStorages
+namespace Gameplay.WeaponShops
 {
   public class WeaponShop : IInitializable, IDisposable
   {
@@ -51,7 +51,7 @@ namespace Gameplay.WeaponStorages
 
     private void OnWeaponsChanged(List<WeaponTypeId> weapons)
     {
-      _debugLogger.LogShopWeapons(this);
+       
     }
   }
 }
