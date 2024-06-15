@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponTypeId: 12
   WeaponAttackTypeId: 3
-  BulletSpreadAngle: 4
+  BulletSpreadAngle: 2
   BulletsPerShot: 1
   ShotsPerBurst: 3
   TimeBetweenBursts: 0.4
-  FireRate: 1
+  FireRate: 10
   FireRange: 6
   Damage: 60
+  RaiseTime: 0.3
