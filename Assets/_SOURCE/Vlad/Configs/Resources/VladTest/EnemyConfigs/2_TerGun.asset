@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 2_TerGun
   m_EditorClassIdentifier: 
   Id: 2
-  MoveSpeed: 5
-  RunSpeed: 10
+  MoveSpeed: 3
+  RunSpeed: 5
   PatrolingRadius: 12
   HealingDelay: 1
-  InitialHealth: 200
+  InitialHealth: 50
   HealMultiplier: 1
   LootDrops:
   - Id: 1

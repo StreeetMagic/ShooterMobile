@@ -2,7 +2,6 @@
 using Gameplay.Grenades;
 using Gameplay.Loots;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Gameplay.Characters.Enemies
 {
@@ -24,8 +23,8 @@ namespace Gameplay.Characters.Enemies
     [Tooltip("Время после которого включится лечение при отстутствии входящего урона")]
     public float HealingDelay = 1f;
 
-    // [Tooltip("Время ожидания после достижения маршрутной точки")]
-    // public float WaitTimeAfterMove = .1f;
+    [Tooltip("Длительность ошеломления после получения урона и перехода в состояние атаки")]
+    public float AlertStateDuration = .2f;
 
     [Tooltip("Начальное здоровье")] 
     public float InitialHealth = 100f;
@@ -68,7 +67,10 @@ namespace Gameplay.Characters.Enemies
     public int BulletsPerShot = 1;    
     
     [Tooltip("Угол разброса пуль")]
-    public float BulletSpreadAngle = 1;
+    public float BulletSpreadAngle = 1;    
+    
+    [Tooltip("Длительность подъема оружия")]
+    public float WeaponRisingTime = .2f;
 
     /************************/
 
