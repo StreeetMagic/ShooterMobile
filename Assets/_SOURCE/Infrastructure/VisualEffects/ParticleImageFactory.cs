@@ -1,5 +1,5 @@
 using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.SceneContext;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 

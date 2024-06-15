@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 7498256072054678123}
   - component: {fileID: 1089266467728722957}
   m_Layer: 5
-  m_Name: SetPreviousWeapon
+  m_Name: PreviousWeaponButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 3386054048384116156}
   - component: {fileID: 828681369970185625}
   m_Layer: 5
-  m_Name: SetNextWeapon
+  m_Name: NextWeaponButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1199,6 +1199,7 @@ GameObject:
   - component: {fileID: 4064259423188158343}
   - component: {fileID: 7964890417023693701}
   - component: {fileID: 3509032325139051481}
+  - component: {fileID: 4017367566436138426}
   m_Layer: 5
   m_Name: CurrentWeaponIcon
   m_TagString: Untagged
@@ -1253,7 +1254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ef957ddb3b004127bc24457da886047, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a7216808812ef048aec4f21c0e588bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1263,3 +1264,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4017367566436138426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8955015252914734362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce231f0ffe10e848a51320cbb8f1317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

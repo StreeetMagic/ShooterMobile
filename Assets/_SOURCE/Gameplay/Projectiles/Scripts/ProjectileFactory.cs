@@ -4,7 +4,7 @@ using Gameplay.Characters.Players.Projectiles;
 using Infrastructure.AssetProviders;
 using Infrastructure.RandomServices;
 using Infrastructure.VisualEffects;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 
 namespace Gameplay.Projectiles.Scripts

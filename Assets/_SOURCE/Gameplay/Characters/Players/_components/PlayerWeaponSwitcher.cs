@@ -15,13 +15,13 @@ namespace Gameplay.Characters.Players
       _weaponContainer = weaponContainer;
       _shootingPoint = shootingPoint;
 
-      if (playerWeaponIdProvider.WeaponTypeId == WeaponTypeId.Unknown)
+      if (playerWeaponIdProvider.Id == WeaponTypeId.Unknown)
         throw new System.Exception("У игрока не указан айдишник оружия");
 
       DisableAll();
       NullShootingPoint();
 
-      SwitchTo(playerWeaponIdProvider.WeaponTypeId);
+      SwitchTo(playerWeaponIdProvider.Id);
     }
 
     public void SwitchTo(WeaponTypeId weaponTypeId)

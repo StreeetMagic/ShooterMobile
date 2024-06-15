@@ -1,7 +1,7 @@
 using Gameplay.Characters.Players;
 using Gameplay.Grenades;
 using Infrastructure.ConfigServices;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;

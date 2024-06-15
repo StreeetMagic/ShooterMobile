@@ -2,7 +2,7 @@
 using System.Linq;
 using Gameplay.Spawners.SpawnPoints;
 using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.SceneContext;
 using Maps;
 using Maps.Markers.EnemySpawnMarkers;
 using UnityEngine;

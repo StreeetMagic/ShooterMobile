@@ -35,7 +35,7 @@ namespace Gameplay.Characters.Players.Projectiles
         if (_count == 0)
         {
           _count++;
-          enemyTargetTrigger.TakeDamage(_configService.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.WeaponTypeId).Damage);
+          enemyTargetTrigger.TakeDamage(_configService.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.Id).Damage);
         }
       }
 

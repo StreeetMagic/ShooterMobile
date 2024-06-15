@@ -1,7 +1,6 @@
 using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Gameplay.Characters.Players.Animators
 {
@@ -51,6 +50,12 @@ namespace Gameplay.Characters.Players.Animators
           .runtimeAnimatorController
           .animationClips
           .FirstOrDefault(clip => clip.name == selectedAnimation);
+      
+      if (animationClip == null)
+      {
+        Debug.LogError("AnimationClip not found: " + selectedAnimation);
+        return;
+      }
 
       float animationLength = animationClip.length;
       Animator.speed = animationLength / duration;

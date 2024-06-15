@@ -4,7 +4,7 @@ using Gameplay.Loots;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.ConfigServices;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots

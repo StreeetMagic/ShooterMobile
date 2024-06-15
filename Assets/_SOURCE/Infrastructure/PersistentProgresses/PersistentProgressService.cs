@@ -3,7 +3,6 @@ using System.Linq;
 using Gameplay.Characters.Players;
 using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
-using Gameplay.Stats;
 using Gameplay.Upgrades;
 using Infrastructure.ConfigServices;
 using UnityEngine;

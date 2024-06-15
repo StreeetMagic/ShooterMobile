@@ -5,7 +5,7 @@ using Infrastructure.ArtConfigServices;
 using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.ProjectContext;
 
 namespace Gameplay.Quests
 {

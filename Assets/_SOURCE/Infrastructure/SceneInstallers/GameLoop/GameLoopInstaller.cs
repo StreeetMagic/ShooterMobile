@@ -18,7 +18,7 @@ using Infrastructure.AssetProviders;
 using Infrastructure.DebugServices;
 using Infrastructure.UserIntefaces;
 using Infrastructure.VisualEffects;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.SceneContext;
 using Maps;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;

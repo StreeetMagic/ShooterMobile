@@ -1,7 +1,7 @@
 using Gameplay.Stats;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.ConfigServices;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.UpgradeCells;
 using UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.UpgradeCells.Scripts;

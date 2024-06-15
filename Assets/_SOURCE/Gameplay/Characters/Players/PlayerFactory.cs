@@ -1,6 +1,6 @@
 using Infrastructure.AssetProviders;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.SceneContext;
 using Maps;
 using UnityEngine;
 

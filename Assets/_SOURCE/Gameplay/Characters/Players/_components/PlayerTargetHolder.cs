@@ -77,7 +77,7 @@ namespace Gameplay.Characters.Players
 
       foreach (ITargetTrigger target in _targets)
       {
-        if (!(Vector3.Distance(_transform.position, target.transform.position) > _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange))
+        if (!(Vector3.Distance(_transform.position, target.transform.position) > _configService.GetWeaponConfig(_playerWeaponIdProvider.Id).FireRange))
           continue;
 
         farTargets.Add(target);

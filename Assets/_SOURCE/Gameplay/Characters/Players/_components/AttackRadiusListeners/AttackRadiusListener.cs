@@ -18,7 +18,7 @@ namespace Gameplay.Characters.Players.AttackRadiusListeners
 
     private void OnEnable()
     {
-      float fireRangeValue = _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange;
+      float fireRangeValue = _configService.GetWeaponConfig(_playerWeaponIdProvider.Id).FireRange;
 
       OnUpgradeChanged(fireRangeValue);
     }

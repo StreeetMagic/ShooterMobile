@@ -27,7 +27,7 @@ namespace Gameplay.Characters.Players.TargetLocators
 
     public void Tick()
     {
-      int count = Physics.OverlapSphereNonAlloc(_transform.position, _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId).FireRange, _colliders);
+      int count = Physics.OverlapSphereNonAlloc(_transform.position, _configService.GetWeaponConfig(_playerWeaponIdProvider.Id).FireRange, _colliders);
 
       var list = new List<ITargetTrigger>();
 

@@ -45,8 +45,6 @@ namespace Infrastructure.ZenjectFactories
       var monoBehaviour = _instantiator
         .InstantiatePrefab(_assetProvider.Get<T>())
         .GetComponent<T>();
-      
-
 
       monoBehaviour.transform.position = position;
 

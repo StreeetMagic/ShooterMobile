@@ -1,5 +1,5 @@
 ﻿using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.BackpackBars;
 using UserInterface.HeadsUpDisplays.Buttons.OpenQuestButtons;

@@ -34,7 +34,7 @@ namespace Gameplay.Characters.Players
       _playerAnimator = playerAnimator;
     }
 
-    private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId);
+    private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.Id);
     private float Cooldown => (float)1 / WeaponConfig.FireRate;
 
     public void Attack()
@@ -76,7 +76,7 @@ namespace Gameplay.Characters.Players
           throw new Exception("Unknown WeaponAttackTypeId");
       }
       
-      PlayWeaponAnimation( WeaponConfig.WeaponTypeId);
+      PlayWeaponAnimation(WeaponConfig.WeaponTypeId);
     }
 
     public void ResetValues()
@@ -132,7 +132,6 @@ namespace Gameplay.Characters.Players
         
         case WeaponTypeId.Knife:
           throw new ArgumentOutOfRangeException(nameof(id), id, null);
-          break;
         
         case WeaponTypeId.DesertEagle:
           _playerAnimator.PlayPistolShoot();

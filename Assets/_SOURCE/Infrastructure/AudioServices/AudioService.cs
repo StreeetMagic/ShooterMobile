@@ -1,7 +1,7 @@
 using Infrastructure.AudioServices.Sounds;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.ProjectContext;
 using UnityEngine;
 using Zenject;
 
