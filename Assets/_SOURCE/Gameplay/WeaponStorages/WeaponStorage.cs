@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Weapons;
 using Infrastructure.Utilities;
+using Loggers;
+using Zenject;
 
 namespace Gameplay.WeaponStorages
 {
-  public class WeaponShop
+  public class WeaponShop : IInitializable, IDisposable
   {
+    private readonly DebugLogger _debugLogger;
+
+    public WeaponShop(DebugLogger debugLogger)
+    {
+      _debugLogger = debugLogger;
+    }
+
     public ReactiveList<WeaponTypeId> Weapons { get; } = new();
 
     public void SetAllWeapons()
@@ -26,8 +35,23 @@ namespace Gameplay.WeaponStorages
         if (!Weapons.Value.Contains(weapon))
           continue;
 
-        Weapons.Value.Remove(weapon);
+        Weapons.Remove(weapon);
       }
+    }
+
+    public void Initialize()
+    {
+      Weapons.Changed += OnWeaponsChanged;
+    }
+
+    public void Dispose()
+    {
+      Weapons.Changed -= OnWeaponsChanged;
+    }
+
+    private void OnWeaponsChanged(List<WeaponTypeId> weapons)
+    {
+      _debugLogger.LogShopWeapons(this);
     }
   }
 }

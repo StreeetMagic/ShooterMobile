@@ -19,12 +19,12 @@ namespace Infrastructure.Utilities
 
     public event Action<List<T>> Changed;
 
-    public List<T> Value
+    public IReadOnlyList<T> Value
     {
       get => _list;
       set
       {
-        _list = value;
+        _list = value as List<T>;
         Changed?.Invoke(_list);
       }
     }
@@ -44,6 +44,12 @@ namespace Infrastructure.Utilities
     public void Clear()
     {
       _list.Clear();
+      Changed?.Invoke(_list);
+    }
+
+    public void Set(List<T> list)
+    {
+      _list = list;
       Changed?.Invoke(_list);
     }
   }

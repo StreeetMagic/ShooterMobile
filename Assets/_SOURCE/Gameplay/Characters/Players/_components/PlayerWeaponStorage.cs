@@ -5,7 +5,7 @@ using Gameplay.WeaponStorages;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
-using UnityEngine;
+using Loggers;
 using Zenject;
 
 namespace Gameplay.Characters.Players
@@ -13,10 +13,12 @@ namespace Gameplay.Characters.Players
   public class PlayerWeaponStorage : IProgressWriter, IInitializable, IDisposable
   {
     private readonly WeaponShop _weaponShop;
+    private readonly DebugLogger _debugLogger;
 
-    public PlayerWeaponStorage(WeaponShop weaponShop)
+    public PlayerWeaponStorage(WeaponShop weaponShop, DebugLogger debugLogger)
     {
       _weaponShop = weaponShop;
+      _debugLogger = debugLogger;
     }
 
     public ReactiveList<WeaponTypeId> Weapons { get; } = new();
@@ -24,40 +26,11 @@ namespace Gameplay.Characters.Players
     public void ReadProgress(ProjectProgress projectProgress)
     {
       Weapons.Value = projectProgress.PlayerWeapons;
-
-      LogPlayerWeapons();
-      LogShopWeapons();
-    }
-
-    private void LogPlayerWeapons()
-    {
-      string weapons = string.Empty;
-
-      foreach (var weapon in Weapons.Value)
-      {
-        weapons += weapon.ToString();
-        weapons += ",";
-      }
-
-      Debug.Log( "Player weapons: " + weapons);
-    }
-
-    private void LogShopWeapons()
-    {
-      string weapons = string.Empty;
-
-      foreach (var weapon in _weaponShop.Weapons.Value)
-      {
-        weapons += weapon.ToString();
-        weapons += ",";
-      }
-
-      Debug.Log( "Shop weapons: " + weapons);
     }
 
     public void WriteProgress(ProjectProgress projectProgress)
     {
-      projectProgress.PlayerWeapons = Weapons.Value;
+      projectProgress.PlayerWeapons = new List<WeaponTypeId>(Weapons.Value);
     }
 
     public void Initialize()
@@ -74,6 +47,7 @@ namespace Gameplay.Characters.Players
     {
       _weaponShop.SetAllWeapons();
       _weaponShop.RemoveWeapons(Weapons.Value);
+      _debugLogger.LogPlayerWeapons(this);
     }
   }
 }
