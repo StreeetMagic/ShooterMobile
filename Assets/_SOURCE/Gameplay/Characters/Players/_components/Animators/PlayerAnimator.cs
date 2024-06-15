@@ -25,10 +25,15 @@ namespace Gameplay.Characters.Players.Animators
     private const string ShotgunShoot = "ShotgunShoot";
     private const string GrenadeThrow = "GrenadeThrow";
     private const string Reload = "Reload";
+    private const string WeaponUp = "WeaponUp";
+    private const string StartShooting = "StartShooting";
     
 
     public Animator Animator;
     private static readonly int s_isShoot = Animator.StringToHash("isShoot");
+    private static readonly int s_startShooting = Animator.StringToHash(StartShooting);
+    private static readonly int s_weaponUp = Animator.StringToHash(WeaponUp);
+    
 
     public void PlayRunAnimation()
     {
@@ -69,6 +74,17 @@ namespace Gameplay.Characters.Players.Animators
     {
       Animator.SetBool(s_isShoot, false);
     }
+    
+    public void OnStateShooting()
+    {
+      Animator.SetBool(s_startShooting, true);
+    }
+
+    public void OffStateShooting()
+    {
+      SetWeaponDown();
+      Animator.SetBool(s_startShooting, false);
+    }
 
     private void ReloadFinished()
     {
@@ -78,6 +94,18 @@ namespace Gameplay.Characters.Players.Animators
     private void GrenadeThrew()
     {
       print("Полет гранаты");
+    }
+    
+    private void SetWeaponUp()
+    {
+      print("Ствол поднят");
+      Animator.SetBool(s_weaponUp, true);
+    }
+    
+    private void SetWeaponDown()
+    {
+      print("Ствол попущен");
+      Animator.SetBool(s_weaponUp, false);
     }
   }
 }

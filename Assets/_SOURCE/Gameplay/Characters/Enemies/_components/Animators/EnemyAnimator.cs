@@ -19,9 +19,13 @@ namespace Gameplay.Characters.Enemies.Animators
     private const string GrenadeThrow = "GrenadeThrow";
     private const string Panic = "Panic";
     private const string Reload = "Reload";
+    private const string WeaponUp = "WeaponUp";
+    private const string StartShooting = "StartShooting";
     
     private static readonly int s_granadeThrow = Animator.StringToHash(GrenadeThrow);
     private static readonly int s_reload = Animator.StringToHash(Reload);
+    private static readonly int s_startShooting = Animator.StringToHash(StartShooting);
+    private static readonly int s_weaponUp = Animator.StringToHash(WeaponUp);
 
     [Header("Knife hit animations")] 
     public string KnifeHit1 = "KnifeHit1";
@@ -123,6 +127,17 @@ namespace Gameplay.Characters.Enemies.Animators
       Animator.SetTrigger(s_reload);
     }
 
+    public void OnStateShooting()
+    {
+      Animator.SetBool(s_startShooting, true);
+    }
+
+    public void OffStateShooting()
+    {
+      SetWeaponDown();
+      Animator.SetBool(s_startShooting, false);
+    }
+    
     private void ReloadFinished()
     {
       print("Анимация перезарядки окончена");
@@ -136,6 +151,18 @@ namespace Gameplay.Characters.Enemies.Animators
     private void GrenadeThrew()
     {
       print("Полет гранаты");
+    }
+
+    private void SetWeaponUp()
+    {
+      print("Ствол поднят");
+      Animator.SetBool(s_weaponUp, true);
+    }
+    
+    private void SetWeaponDown()
+    {
+      print("Ствол попущен");
+      Animator.SetBool(s_weaponUp, false);
     }
   }
 }
