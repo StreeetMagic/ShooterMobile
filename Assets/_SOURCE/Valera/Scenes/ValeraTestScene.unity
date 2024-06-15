@@ -938,12 +938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc621c512c505ce4fb994d8065d827bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubQuest1:
-  - {fileID: 933417499}
-  SubQuest2:
-  - {fileID: 1539700087}
-  SubQuest3:
-  - {fileID: 1650251938}
 --- !u!114 &222255287134737476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1723,7 +1717,7 @@ PrefabInstance:
     - target: {fileID: 4476720535849828510, guid: 13e49a87bd9897d46916f597a9ed8e2c,
         type: 3}
       propertyPath: Count
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4476720535849828510, guid: 13e49a87bd9897d46916f597a9ed8e2c,
         type: 3}
@@ -2388,6 +2382,7 @@ MonoBehaviour:
   - {fileID: 1000396856}
   BombSpawner: {fileID: 177528042475737110}
   Portals: []
+  BombDefuseMarkers: []
 --- !u!65 &4678799058359308995
 BoxCollider:
   m_ObjectHideFlags: 0
