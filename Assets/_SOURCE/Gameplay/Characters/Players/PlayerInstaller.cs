@@ -2,8 +2,10 @@ using System;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.MeshModels;
 using Gameplay.Characters.Players.Rotators;
+using Gameplay.Characters.Players.StateMachines;
 using Gameplay.Characters.Players.TargetLocators;
 using Infrastructure.SaveLoadServices;
+using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
 using Zenject;
 using Zenject.Source.Install;
@@ -61,6 +63,8 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerWeaponMeshSwitcher>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponShootingPoint>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponStorage>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerZenjectFactory>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerFiniteStateMachine>().AsSingle().NonLazy();
 
       Transform = Container.Resolve<Transform>();
       WeaponShootingPointPoint = Container.Resolve<PlayerWeaponShootingPoint>();
