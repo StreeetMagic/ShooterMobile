@@ -1,4 +1,5 @@
 using Infrastructure.ConfigServices;
+using Loggers;
 using UnityEngine;
 using Zenject;
 
@@ -10,17 +11,19 @@ namespace Gameplay.Characters.Players
     private readonly ConfigService _config;
     private readonly PlayerTargetHolder _playerTargetHolder;
     private readonly PlayerProvider _playerProvider;
+    private readonly DebugLogger _logger;
 
     private float _timeLeft;
     private bool _isRising;
 
     public PlayerWeaponRaiser(PlayerMoveSpeed playerMoveSpeed, ConfigService config,
-      PlayerTargetHolder playerTargetHolder, PlayerProvider playerProvider)
+      PlayerTargetHolder playerTargetHolder, PlayerProvider playerProvider, DebugLogger logger)
     {
       _playerMoveSpeed = playerMoveSpeed;
       _config = config;
       _playerTargetHolder = playerTargetHolder;
       _playerProvider = playerProvider;
+      _logger = logger;
     }
 
     public bool IsRaised => _timeLeft <= 0;
@@ -47,6 +50,11 @@ namespace Gameplay.Characters.Players
       if (_timeLeft > 0)
       {
         _timeLeft -= Time.deltaTime;
+        
+        if (_timeLeft < 0)
+          _timeLeft = 0;
+        
+        _logger.Log( $"Raise time left {_timeLeft}");
       }
     }
   }
