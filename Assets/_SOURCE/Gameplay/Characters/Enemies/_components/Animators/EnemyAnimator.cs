@@ -82,8 +82,14 @@ namespace Gameplay.Characters.Enemies.Animators
             Animator.SetTrigger(selectedAnimation);
         }
 
-        public void PlayGrenadeThrow()
+        public void PlayGrenadeThrow(float duration)
         {
+            float animationLength = Animator.runtimeAnimatorController.animationClips
+                .First(clip => clip.name == GrenadeThrow).length;
+
+            float speed = animationLength / duration;
+
+            Animator.speed = speed;
             Animator.SetTrigger(s_granadeThrow);
         }
 
@@ -152,6 +158,7 @@ namespace Gameplay.Characters.Enemies.Animators
 
         private void GrenadeThrew()
         {
+            print("Бросаю гранату");
         }
 
         private void SetWeaponUp()
