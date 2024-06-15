@@ -1,4 +1,5 @@
 using System;
+using Gameplay.Characters.Players.Animators;
 using Gameplay.Projectiles.Scripts;
 using Gameplay.Utilities;
 using Gameplay.Weapons;
@@ -16,19 +17,21 @@ namespace Gameplay.Characters.Players
     private readonly ProjectileFactory _projectileFactory;
     private readonly AudioService _audioService;
     private readonly PlayerWeaponIdProvider _playerWeaponIdProvider;
+    private readonly PlayerAnimator _playerAnimator;
 
     private float _timeLeft;
     private float _burstPauseLeft;
     private int _burstShots;
 
     public PlayerWeaponAttacker(ConfigService configService, PlayerProvider playerProvider, 
-      ProjectileFactory projectileFactory, AudioService audioService, PlayerWeaponIdProvider playerWeaponIdProvider)
+      ProjectileFactory projectileFactory, AudioService audioService, PlayerWeaponIdProvider playerWeaponIdProvider, PlayerAnimator playerAnimator)
     {
       _configService = configService;
       _playerProvider = playerProvider;
       _projectileFactory = projectileFactory;
       _audioService = audioService;
       _playerWeaponIdProvider = playerWeaponIdProvider;
+      _playerAnimator = playerAnimator;
     }
 
     private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.WeaponTypeId);
@@ -72,6 +75,8 @@ namespace Gameplay.Characters.Players
         default:
           throw new Exception("Unknown WeaponAttackTypeId");
       }
+      
+      PlayWeaponAnimation( WeaponConfig.WeaponTypeId);
     }
 
     public void ResetValues()
@@ -116,6 +121,36 @@ namespace Gameplay.Characters.Players
     private void Strike()
     {
       _playerProvider.Instance.TargetHolder.CurrentTarget.TakeDamage(WeaponConfig.Damage);
+    }
+
+    private void PlayWeaponAnimation(WeaponTypeId id)
+    {
+      switch (id)
+      {
+        case WeaponTypeId.Unknown:
+          throw new ArgumentOutOfRangeException(nameof(id), id, null);
+        
+        case WeaponTypeId.Knife:
+          throw new ArgumentOutOfRangeException(nameof(id), id, null);
+          break;
+        
+        case WeaponTypeId.DesertEagle:
+          _playerAnimator.PlayPistolShoot();
+          break;
+        
+        case WeaponTypeId.Famas:
+        case WeaponTypeId.Ak47:
+          _playerAnimator.PlayRifleShoot();
+          break;
+        
+        case WeaponTypeId.Xm1014:
+          _playerAnimator.PlayShotgunShoot();
+          Debug.Log("shotgun");
+          break;
+        
+        default:
+          throw new ArgumentOutOfRangeException(nameof(id), id, null);
+      }
     }
   }
 }

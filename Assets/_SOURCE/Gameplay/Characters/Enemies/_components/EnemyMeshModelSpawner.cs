@@ -9,13 +9,13 @@ namespace Gameplay.Characters.Enemies
   {
     private EnemyMeshModelSpawner(AssetProvider assetProvider, EnemyTypeId enemyId,
       EnemyShootingPointProvider shootingPointProvider, EnemyZenjectFactory factory, EnemyAnimatorProvider animatorProvider,
-      Transform transform, EnemyMeshMaterialChanger _materialChanger)
+      Transform transform, EnemyMeshMaterialChanger materialChanger)
 
     {
       EnemyMeshModel prefab = assetProvider.GetEnemyMeshModel(enemyId);
 
       EnemyMeshModel meshModel = factory.InstantiateMono(prefab, transform.position, transform);
-      _materialChanger.EnemyMeshModel = meshModel;
+      materialChanger.EnemyMeshModel = meshModel;
 
       shootingPointProvider.PointTransform = meshModel.GetComponent<EnemyShootingPoint>().PointTransform;
 

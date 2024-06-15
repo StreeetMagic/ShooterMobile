@@ -6405,7 +6405,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089b07846c52d0a4ebd782937a91695f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 1301069402596870516}
+  Animator: {fileID: 0}
+  KnifeHit1: KnifeHit1
+  KnifeHit2: KnifeHit2
+  KnifeHit3: KnifeHit3
 --- !u!114 &1153867974373565064
 MonoBehaviour:
   m_ObjectHideFlags: 0
