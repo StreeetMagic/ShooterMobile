@@ -34,9 +34,7 @@ namespace Gameplay.Characters.Players
       RemoveDeadTargets();
 
       if (CurrentTarget != null)
-      {
         CurrentTarget.IsTargeted = true;
-      }
     }
 
     public void AddTargets(List<ITargetTrigger> targets)

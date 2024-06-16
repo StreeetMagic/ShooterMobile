@@ -7,7 +7,6 @@ namespace Gameplay.Characters.Players.StateMachines.States.IdleState
   {
     public override void Tick()
     {
-      throw new NotImplementedException();
     }
   }
 }

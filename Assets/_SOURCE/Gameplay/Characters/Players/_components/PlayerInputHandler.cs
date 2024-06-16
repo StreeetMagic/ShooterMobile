@@ -1,11 +1,10 @@
 ﻿using Gameplay.Characters.Players.Rotators;
 using Inputs;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerInputHandler : ITickable
+  public class PlayerInputHandler
   {
     private readonly InputService _inputService;
     private readonly PlayerRotatorController _rotatorController;
@@ -19,27 +18,9 @@ namespace Gameplay.Characters.Players
       _mover = mover;
     }
 
-    public bool CanMove { get; private set; } = true;
-    public bool IsMoving { get; private set; }
-
-    public void EnableMove()
+    public void ReadInput()
     {
-      CanMove = true;
-    }
-
-    public void DisableMove()
-    {
-      CanMove = false;
-    }
-
-    public void Tick()
-    {
-      if (CanMove == false)
-        return;
-
       Vector3 moveDirection = GetDirection();
-
-      IsMoving = moveDirection != Vector3.zero;
 
       if (_mover == null)
         return;

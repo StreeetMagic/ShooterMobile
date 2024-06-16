@@ -110,29 +110,24 @@ namespace Gameplay.Characters.Players.Animators
 
     private void ReloadFinished()
     {
-      print("Анимация перезарядки окончена");
     }
 
     private void GrenadeThrew()
     {
-      print("Полет гранаты");
     }
 
     private void SetWeaponUp()
     {
-      print("Ствол поднят");
       Animator.SetBool(s_weaponUp, true);
     }
 
     private void SetWeaponDown()
     {
-      //print("Ствол попущен");
       Animator.SetBool(s_weaponUp, false);
     }
     
     public void OnHit()
     {
-      Debug.Log(" OnHit");
       KnifeHit?.Invoke();
     }
   }

@@ -1,10 +1,11 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace Inputs
 {
-  public class InputService
+  public class InputService : ITickable
   {
     private readonly InputAction _move;
     private readonly InputAction _restart;
@@ -35,11 +36,30 @@ namespace Inputs
     public event Action DeleteSaves;
     public event Action OpenQuestWindow;
 
-    public Vector2 MoveDirection =>
-      MoveDirectionFloatingJoystick != Vector2.zero
-        ? MoveDirectionFloatingJoystick
-        : _move.ReadValue<Vector2>();
+    public bool HasMoveInput
+    {
+      get
+      {
+        return _move.ReadValue<Vector2>() != Vector2.zero
+               || MoveDirectionFloatingJoystick != Vector2.zero;
+      }
+    }
+
+    public Vector2 MoveDirection
+    {
+      get
+      {
+        if (MoveDirectionFloatingJoystick != Vector2.zero)
+          return MoveDirectionFloatingJoystick;
+        else
+          return _move.ReadValue<Vector2>();
+      }
+    }
 
     public Vector2 MoveDirectionFloatingJoystick { get; set; }
+
+    public void Tick()
+    {
+    }
   }
 }

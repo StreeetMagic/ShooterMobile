@@ -29,13 +29,9 @@ namespace Gameplay.Characters.Players
       _configService = configService;
     }
 
-    private PlayerConfig PlayerConfig => _configService.PlayerConfig;
-    private float MoveSpeed => _playerStatsProvider.GetStat(StatId.MoveSpeed);
-    private float GravityScale => PlayerConfig.GravityScale;
-
     public void Move(Vector3 directionXYZ)
     {
-      Vector3 playerSpeed = directionXYZ * (MoveSpeed * Time.deltaTime);
+      Vector3 playerSpeed = directionXYZ * (_playerStatsProvider.GetStat(StatId.MoveSpeed) * Time.deltaTime);
 
       if (directionXYZ.magnitude > 0.01)
         _playerAnimator.PlayRunAnimation();
@@ -72,7 +68,7 @@ namespace Gameplay.Characters.Players
 
     private void ApplyGravity()
     {
-      _gravitySpeed += Physics.gravity * GravityScale * Time.deltaTime;
+      _gravitySpeed += Physics.gravity * _configService.PlayerConfig.GravityScale * Time.deltaTime;
     }
   }
 }

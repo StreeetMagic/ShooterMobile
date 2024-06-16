@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Gameplay.Characters.Players.StateMachines.AnyStateTransitions;
 using Gameplay.Characters.Players.StateMachines.Infrastructure;
 using Gameplay.Characters.Players.StateMachines.States.AttackState;
 using Gameplay.Characters.Players.StateMachines.States.BoostrapState;
@@ -18,6 +19,7 @@ namespace Gameplay.Characters.Players.StateMachines
   public class PlayerFiniteStateMachine : ITickable
   {
     private readonly Dictionary<Type, PlayerState> _states;
+    private readonly Dictionary<Type, PlayerTransition> _anyStateTransitions;
 
     private PlayerState _activeState;
 
@@ -83,7 +85,7 @@ namespace Gameplay.Characters.Players.StateMachines
             }
           )
         },
-        
+
         {
           typeof(PlayerInterractState),
           factory.InstantiateNative<PlayerInterractState>
@@ -94,8 +96,8 @@ namespace Gameplay.Characters.Players.StateMachines
               factory.InstantiateNative<PlayerInterractToRiseWeaponTransition>(),
             }
           )
-        },  
-        
+        },
+
         {
           typeof(PlayerMoveState),
           factory.InstantiateNative<PlayerMoveState>
@@ -107,8 +109,8 @@ namespace Gameplay.Characters.Players.StateMachines
               factory.InstantiateNative<PlayerMoveToInterractTransition>(),
             }
           )
-        },       
-        
+        },
+
         {
           typeof(PlayerDieState),
           factory.InstantiateNative<PlayerDieState>()
@@ -120,21 +122,39 @@ namespace Gameplay.Characters.Players.StateMachines
 
       foreach (PlayerState state in _states.Values)
         state.Processed += OnProcessed;
+
+      _anyStateTransitions = new Dictionary<Type, PlayerTransition>
+      {
+        {
+          typeof(PlayerAnyStateToMoveTransition),
+          factory.InstantiateNative<PlayerAnyStateToMoveTransition>()
+        },
+        {
+          typeof(PlayerAnyStateToDieTransition),
+          factory.InstantiateNative<PlayerAnyStateToDieTransition>()
+        },
+      };
+
+      foreach (PlayerTransition transition in _anyStateTransitions.Values)
+        transition.Processed += OnProcessed;
     }
 
     public void Tick()
     {
+      foreach (PlayerTransition transition in _anyStateTransitions.Values)
+        transition.Tick();
+
       _activeState.Tick();
-
-      AnyState();
-    }
-
-    private void AnyState()
-    {
     }
 
     private void OnProcessed(Type type)
     {
+      if (_states.TryGetValue(type, out PlayerState state) == false)
+        throw new Exception($"State {type} not found");
+
+      if (state == _activeState)
+        return;
+
       _activeState.Exit();
       _activeState = _states[type];
       _activeState.Enter();

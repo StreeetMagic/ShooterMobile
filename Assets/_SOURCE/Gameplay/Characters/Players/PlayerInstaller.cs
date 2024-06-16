@@ -30,6 +30,7 @@ namespace Gameplay.Characters.Players
     public PlayerPetSpawnPointsContainer PetSpawnPointsContainer { get; private set; }
     public PlayerWeaponIdProvider WeaponIdProvider { get; private set; }
     public PlayerBombDefuser BombDefuser { get; private set; }
+    public PlayerMoveSpeed MoveSpeed { get; private set; }
     public PlayerMover Mover { get; private set; }
     public PlayerWeaponStorage WeaponStorage { get; private set; }
 
@@ -56,7 +57,6 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerBombDefuser>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerMoveSpeed>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerHealth>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<PlayerAttacker>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerTargetHolder>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerTargetLocator>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponAttacker>().AsSingle().NonLazy();
@@ -78,6 +78,7 @@ namespace Gameplay.Characters.Players
       BombDefuser = Container.Resolve<PlayerBombDefuser>();
       Mover = Container.Resolve<PlayerMover>();
       WeaponStorage = Container.Resolve<PlayerWeaponStorage>();
+      MoveSpeed = Container.Resolve<PlayerMoveSpeed>();
     }
 
     public void Initialize()

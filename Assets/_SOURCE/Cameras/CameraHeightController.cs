@@ -17,7 +17,7 @@ namespace Cameras
       if (_playerProvider.Instance.InputHandler == null)
         return;
 
-      if (_playerProvider.Instance.InputHandler.IsMoving)
+      if (_playerProvider.Instance.MoveSpeed.IsMoving)
         RaiseCamera();
       else
         DownCamera();

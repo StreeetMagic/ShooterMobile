@@ -1,27 +1,33 @@
 using System.Collections.Generic;
 using Gameplay.Characters.Players.StateMachines.Infrastructure;
+using UnityEngine;
 
 namespace Gameplay.Characters.Players.StateMachines.States.MoveState
 {
   public class PlayerMoveState : PlayerState
   {
-    public PlayerMoveState(List<PlayerTransition> transitions) : base(transitions)
-    {
-    }
+    private readonly PlayerInputHandler _inputHandler;
 
-    public override void Tick()
+    public PlayerMoveState(List<PlayerTransition> transitions, PlayerInputHandler inputHandler)
+      : base(transitions)
     {
-      throw new System.NotImplementedException();
+      _inputHandler = inputHandler;
     }
 
     public override void Enter()
     {
-      throw new System.NotImplementedException();
+      Debug.Log("Enter Move State");
+    }
+
+    public override void Tick()
+    {
+      base.Tick();
+      _inputHandler.ReadInput();
     }
 
     public override void Exit()
     {
-      throw new System.NotImplementedException();
+      Debug.Log("Exit Move State");
     }
   }
 }
