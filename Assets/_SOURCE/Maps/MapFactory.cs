@@ -63,13 +63,15 @@ namespace Maps
         return;
       }
 
-      var lastLoadedArena = arenas.Last();
+      SceneId prelastLoadedArena = arenas[^2]; 
+      
+      Debug.Log(prelastLoadedArena);
 
       int count = 0;
       
       foreach (var portal in _mapProvider.Map.Portals)
       {
-        if (portal.ToScene == lastLoadedArena)
+        if (portal.ToScene == prelastLoadedArena)
         {
           portal.Deactivate();
           _mapProvider.Map.PlayerSpawnMarker.transform.position = portal.transform.position;
