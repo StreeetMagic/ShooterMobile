@@ -11,6 +11,7 @@ using Gameplay.Rewards;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
 using Gameplay.Weapons;
+using Infrastructure.AssetProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.Projects;
 using UnityEngine;
@@ -20,15 +21,17 @@ namespace Infrastructure.ConfigServices
   public class ConfigService
   {
     private readonly ProjectData _projectData;
+    private readonly AssetProvider _assetProvider;
 
     private Dictionary<EnemyTypeId, EnemyConfig> _enemyConfigs;
     private Dictionary<CurrencyId, LootConfig> _lootConfigs;
     private Dictionary<WeaponTypeId, WeaponConfig> _weaponConfigs;
     private Dictionary<GrenadeTypeId, GrenadeConfig> _grenadeConfigs;
 
-    public ConfigService(ProjectData projectData)
+    public ConfigService(ProjectData projectData, AssetProvider assetProvider)
     {
       _projectData = projectData;
+      _assetProvider = assetProvider;
     }
     
     public PlayerConfig PlayerConfig { get; private set; }
@@ -50,18 +53,18 @@ namespace Infrastructure.ConfigServices
     {
       string startPath = _projectData.GameMode + "/";
 
-      _enemyConfigs = Resources.LoadAll<EnemyConfig>(startPath + "EnemyConfigs").ToDictionary(x => x.Id, x => x);
-      _lootConfigs = Resources.LoadAll<LootConfig>(startPath + "LootConfigs").ToDictionary(x => x.Id, x => x);
-      _weaponConfigs = Resources.LoadAll<WeaponConfig>(startPath + "WeaponConfigs").ToDictionary(x => x.WeaponTypeId, x => x);
-      _grenadeConfigs = Resources.LoadAll<GrenadeConfig>(startPath + "GrenadeConfigs").ToDictionary(x => x.TypeId, x => x);
+      _enemyConfigs = _assetProvider.GetAllScriptable<EnemyConfig>(startPath + "EnemyConfigs").ToDictionary(x => x.Id, x => x);
+      _lootConfigs = _assetProvider.GetAllScriptable<LootConfig>(startPath + "LootConfigs").ToDictionary(x => x.Id, x => x);
+      _weaponConfigs = _assetProvider.GetAllScriptable<WeaponConfig>(startPath + "WeaponConfigs").ToDictionary(x => x.WeaponTypeId, x => x);
+      _grenadeConfigs = _assetProvider.GetAllScriptable<GrenadeConfig>(startPath + "GrenadeConfigs").ToDictionary(x => x.TypeId, x => x);
      
-      PlayerConfig = Resources.Load<PlayerConfig>(startPath + "PlayerConfigs/PlayerConfig");
-      ExpirienceConfig = Resources.Load<ExpirienceConfig>(startPath + "ExpirienceConfigs/ExpirienceConfig");
-      DefaultProjectProgressConfig = Resources.Load<DefaultProjectProgressConfig>(startPath + "DefaultProjectProgressConfig/DefaultProjectProgressConfig");
+      PlayerConfig = _assetProvider.GetScriptable<PlayerConfig>(startPath + "PlayerConfigs/PlayerConfig");
+      ExpirienceConfig = _assetProvider.GetScriptable<ExpirienceConfig>(startPath + "ExpirienceConfigs/ExpirienceConfig");
+      DefaultProjectProgressConfig = _assetProvider.GetScriptable<DefaultProjectProgressConfig>(startPath + "DefaultProjectProgressConfig/DefaultProjectProgressConfig");
       
-      UpgradeConfigs = Resources.LoadAll<UpgradeConfig>(startPath + "UpgradeConfigs").ToDictionary(x => x.Id, x => x);
-      QuestConfigs = Resources.LoadAll<QuestConfig>(startPath + "QuestConfigs").ToDictionary(x => x.Id, x => x);
-      RewardConfigs = Resources.LoadAll<RewardConfig>(startPath + "RewardConfigs").ToDictionary(x => x.Id, x => x);
+      UpgradeConfigs = _assetProvider.GetAllScriptable<UpgradeConfig>(startPath + "UpgradeConfigs").ToDictionary(x => x.Id, x => x);
+      QuestConfigs = _assetProvider.GetAllScriptable<QuestConfig>(startPath + "QuestConfigs").ToDictionary(x => x.Id, x => x);
+      RewardConfigs = _assetProvider.GetAllScriptable<RewardConfig>(startPath + "RewardConfigs").ToDictionary(x => x.Id, x => x);
     }
   }
 }

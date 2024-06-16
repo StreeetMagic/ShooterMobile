@@ -40,14 +40,14 @@ namespace Infrastructure.ArtConfigServices
 
     public void LoadConfigs()
     {
-      EnemyCommonVisualsConfig = _assetProvider.GetConfig<EnemyCommonVisualsConfig>();
+      EnemyCommonVisualsConfig = _assetProvider.GetScriptable<EnemyCommonVisualsConfig>();
 
-      _loots = _assetProvider.GetConfig<LootIconsConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _upgrades = _assetProvider.GetConfig<UpgradeContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _quests = _assetProvider.GetConfig<QuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _subQuests = _assetProvider.GetConfig<SubQuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _weapons = _assetProvider.GetConfig<WeaponContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _rewards = _assetProvider.GetConfig<RewardContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _loots = _assetProvider.GetScriptable<LootIconsConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _upgrades = _assetProvider.GetScriptable<UpgradeContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _quests = _assetProvider.GetScriptable<QuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _subQuests = _assetProvider.GetScriptable<SubQuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _weapons = _assetProvider.GetScriptable<WeaponContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _rewards = _assetProvider.GetScriptable<RewardContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
     }
   }
 }
