@@ -33,10 +33,7 @@ namespace Infrastructure.AssetProviders
 
     public T GetConfig<T>() where T : ScriptableObject
     {
-      if (Resources.Load(typeof(T).Name) == null)
-        throw new Exception("Asset not found: " + typeof(T).Name);
-
-      var load = Resources.Load(typeof(T).Name);
+      Object load = Resources.Load(typeof(T).Name);
 
       if (load == null)
         throw new Exception("Asset not found: " + typeof(T).Name);
