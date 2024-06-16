@@ -16,6 +16,7 @@ using Infrastructure.Projects;
 using Infrastructure.RandomServices;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.SceneLoaders;
+using Infrastructure.VisualEffects;
 using Infrastructure.ZenjectFactories.ProjectContext;
 using Inputs;
 using Loggers;
@@ -39,8 +40,13 @@ namespace Infrastructure.EntryPoint
 
       Container.BindInterfacesAndSelfTo<InputService>().AsSingle();
       Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle();
+      
       Container.BindInterfacesAndSelfTo<ConfigService>().AsSingle();
       Container.BindInterfacesAndSelfTo<ArtConfigService>().AsSingle();
+      
+      Container.BindInterfacesAndSelfTo<VisualEffectService>().AsSingle();
+      
+      
       Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
       Container.BindInterfacesAndSelfTo<PersistentProgressService>().AsSingle();
 
