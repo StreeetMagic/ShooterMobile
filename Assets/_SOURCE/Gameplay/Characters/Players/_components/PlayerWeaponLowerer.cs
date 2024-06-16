@@ -3,22 +3,22 @@ using UnityEngine;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerWeaponRaiser
+  public class PlayerWeaponLowerer
   {
     private readonly ConfigService _config;
     private readonly PlayerProvider _playerProvider;
-
+    
     private float _timeLeft;
-    private bool _isRising;
-
-    public PlayerWeaponRaiser(ConfigService config, PlayerProvider playerProvider)
+    private bool _isLowering;
+    
+    public PlayerWeaponLowerer(ConfigService config, PlayerProvider playerProvider)
     {
       _config = config;
       _playerProvider = playerProvider;
     }
-
-    public bool IsRaised => _timeLeft <= 0;
-
+    
+    public bool IsLowered => _timeLeft <= 0;
+    
     public void ResetTime()
     {
       _timeLeft = _config.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).RaiseTime;

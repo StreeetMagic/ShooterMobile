@@ -1,8 +1,7 @@
-﻿using Gameplay.CurrencyRepositories.BackpackStorages;
-using Infrastructure.ConfigServices;
+﻿using Infrastructure.ConfigServices;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players.Rotators
+namespace Gameplay.Characters.Players
 {
   public class PlayerRotator
   {

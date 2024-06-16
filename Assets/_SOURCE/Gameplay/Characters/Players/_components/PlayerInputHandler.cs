@@ -1,5 +1,4 @@
-﻿using Gameplay.Characters.Players.Rotators;
-using Inputs;
+﻿using Inputs;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players

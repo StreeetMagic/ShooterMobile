@@ -14,7 +14,6 @@ using Gameplay.Weapons;
 using Infrastructure.AssetProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.Projects;
-using UnityEngine;
 
 namespace Infrastructure.ConfigServices
 {

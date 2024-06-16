@@ -1,6 +1,5 @@
-using System;
 using Gameplay.Characters.Players.StateMachines.Infrastructure;
-using Gameplay.Characters.Players.StateMachines.States.HideWeaponState;
+using Gameplay.Characters.Players.StateMachines.States.LowWeaponState;
 
 namespace Gameplay.Characters.Players.StateMachines.States.AttackState
 {
@@ -16,7 +15,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.AttackState
     public override void Tick()
     {
       if (_targetHolder.HasTarget == false)
-        Process<PlayerHideWeaponState>();
+        Process<PlayerLowWeaponState>();
     }
   }
 }

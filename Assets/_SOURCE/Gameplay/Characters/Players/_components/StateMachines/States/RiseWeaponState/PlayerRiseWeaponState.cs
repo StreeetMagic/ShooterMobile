@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.StateMachines.Infrastructure;
 
 namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState

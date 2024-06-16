@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Gameplay.Characters.Players.StateMachines.Infrastructure;
-using UnityEngine;
 
 namespace Gameplay.Characters.Players.StateMachines.States.IdleState
 {

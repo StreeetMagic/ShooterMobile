@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Gameplay.Characters.Players.StateMachines.AnyStateTransitions;
 using Gameplay.Characters.Players.StateMachines.Infrastructure;
 using Gameplay.Characters.Players.StateMachines.States.AttackState;
 using Gameplay.Characters.Players.StateMachines.States.BoostrapState;
 using Gameplay.Characters.Players.StateMachines.States.DieState;
-using Gameplay.Characters.Players.StateMachines.States.HideWeaponState;
 using Gameplay.Characters.Players.StateMachines.States.IdleState;
 using Gameplay.Characters.Players.StateMachines.States.InterractState;
+using Gameplay.Characters.Players.StateMachines.States.LowWeaponState;
 using Gameplay.Characters.Players.StateMachines.States.MoveState;
 using Gameplay.Characters.Players.StateMachines.States.RiseWeaponState;
 using Infrastructure.ZenjectFactories.GameobjectContext;
@@ -75,12 +74,12 @@ namespace Gameplay.Characters.Players.StateMachines
         },
 
         {
-          typeof(PlayerHideWeaponState),
-          factory.InstantiateNative<PlayerHideWeaponState>
+          typeof(PlayerLowWeaponState),
+          factory.InstantiateNative<PlayerLowWeaponState>
           (
             new List<PlayerTransition>
             {
-              factory.InstantiateNative<PlayerHideWeaponToIdleTransition>(),
+              factory.InstantiateNative<PlayerLowWeaponToIdleTransition>(),
             }
           )
         },

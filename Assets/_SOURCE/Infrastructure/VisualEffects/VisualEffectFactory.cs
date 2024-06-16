@@ -1,4 +1,3 @@
-using System;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 using Object = UnityEngine.Object;

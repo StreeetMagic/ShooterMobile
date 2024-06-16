@@ -1,7 +1,6 @@
 using System;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.MeshModels;
-using Gameplay.Characters.Players.Rotators;
 using Gameplay.Characters.Players.StateMachines;
 using Gameplay.Characters.Players.TargetLocators;
 using Infrastructure.SaveLoadServices;
@@ -52,6 +51,7 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerStandsOnSamePosition>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerToTargetAggro>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponRaiser>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponLowerer>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerHenSpawner>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerBombDefuser>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerMoveSpeed>().AsSingle().NonLazy();

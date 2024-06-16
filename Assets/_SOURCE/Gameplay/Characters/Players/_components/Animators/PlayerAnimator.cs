@@ -9,16 +9,10 @@ namespace Gameplay.Characters.Players.Animators
 {
   public class PlayerAnimator : MonoBehaviour
   {
-    private static readonly int s_isRun = Animator.StringToHash(Run);
-    private static readonly int s_pistolShoot = Animator.StringToHash(PistolShoot);
-    private static readonly int s_rifleShoot = Animator.StringToHash(RifleShoot);
-    private static readonly int s_shotgunShoot = Animator.StringToHash(ShotgunShoot);
-    private static readonly int s_granadeThrow = Animator.StringToHash(GrenadeThrow);
-    private static readonly int s_reload = Animator.StringToHash(Reload);
-
-    [Header("Knife hit animations")] public string KnifeHit1 = "KnifeHit1";
-    public string KnifeHit2 = "KnifeHit2";
-    public string KnifeHit3 = "KnifeHit3";
+    public const string Death1 = nameof(Death1);
+    public const string Death2 = nameof(Death2);
+    public const string Death3 = nameof(Death3);
+    public const string Death4 = nameof(Death4);
 
     private const string Run = "isRun";
     private const string PistolShoot = "PistolShoot";
@@ -28,23 +22,27 @@ namespace Gameplay.Characters.Players.Animators
     private const string Reload = "Reload";
     private const string WeaponUp = "WeaponUp";
     private const string StartShooting = "StartShooting";
-    public const string Death1 = nameof(Death1);
-    public const string Death2 = nameof(Death2);
-    public const string Death3 = nameof(Death3);
-    public const string Death4 = nameof(Death4);
 
     public Animator Animator;
+
+    [Header("Knife hit animations")] public string KnifeHit1 = "KnifeHit1";
+    public string KnifeHit2 = "KnifeHit2";
+    public string KnifeHit3 = "KnifeHit3";
+
+    private static readonly int s_isRun = Animator.StringToHash(Run);
+    private static readonly int s_pistolShoot = Animator.StringToHash(PistolShoot);
+    private static readonly int s_rifleShoot = Animator.StringToHash(RifleShoot);
+    private static readonly int s_shotgunShoot = Animator.StringToHash(ShotgunShoot);
+    private static readonly int s_granadeThrow = Animator.StringToHash(GrenadeThrow);
+    private static readonly int s_reload = Animator.StringToHash(Reload);
+
     private static readonly int s_isShoot = Animator.StringToHash("isShoot");
     private static readonly int s_startShooting = Animator.StringToHash(StartShooting);
     private static readonly int s_weaponUp = Animator.StringToHash(WeaponUp);
 
-    private readonly List<string> _deaths = new()
-    {
-      Death1,
-      Death2,
-      Death3,
-      Death4
-    };
+    private readonly List<string> _deaths = new() { Death1, Death2, Death3, Death4 };
+
+    public event Action KnifeHit;
 
     public void PlayRunAnimation()
     {
@@ -55,8 +53,6 @@ namespace Gameplay.Characters.Players.Animators
     {
       Animator.SetBool(s_isRun, false);
     }
-    
-    public event Action KnifeHit;
 
     [Button]
     public void PlayRandomKnifeHitAnimation(float duration)
@@ -107,6 +103,11 @@ namespace Gameplay.Characters.Players.Animators
       Animator.SetBool(s_startShooting, false);
     }
 
+    public void OnHit()
+    {
+      KnifeHit?.Invoke();
+    }
+
     private void ReloadFinished()
     {
     }
@@ -123,11 +124,6 @@ namespace Gameplay.Characters.Players.Animators
     private void SetWeaponDown()
     {
       Animator.SetBool(s_weaponUp, false);
-    }
-    
-    public void OnHit()
-    {
-      KnifeHit?.Invoke();
     }
   }
 }

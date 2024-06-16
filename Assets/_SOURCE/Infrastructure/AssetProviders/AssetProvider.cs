@@ -1,8 +1,5 @@
 using System;
-using Gameplay.Characters.Enemies;
-using Infrastructure.VisualEffects.ParticleImages;
 using Unity.VisualScripting;
-using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
