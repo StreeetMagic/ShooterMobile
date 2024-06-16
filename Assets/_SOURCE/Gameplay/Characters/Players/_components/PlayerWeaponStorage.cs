@@ -5,8 +5,6 @@ using Gameplay.WeaponShops;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
-using Loggers;
-using UnityEngine;
 using Zenject;
 
 namespace Gameplay.Characters.Players
@@ -14,12 +12,10 @@ namespace Gameplay.Characters.Players
   public class PlayerWeaponStorage : IProgressWriter, IInitializable, IDisposable
   {
     private readonly WeaponShop _weaponShop;
-    private readonly DebugLogger _debugLogger;
 
-    public PlayerWeaponStorage(WeaponShop weaponShop, DebugLogger debugLogger)
+    public PlayerWeaponStorage(WeaponShop weaponShop)
     {
       _weaponShop = weaponShop;
-      _debugLogger = debugLogger;
     }
 
     public ReactiveList<WeaponTypeId> Weapons { get; } = new();

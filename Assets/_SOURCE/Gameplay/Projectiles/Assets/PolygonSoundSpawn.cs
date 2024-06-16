@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace PolygonArsenal
+namespace Gameplay.Projectiles.Assets
 {
     public class PolygonSoundSpawn : MonoBehaviour
     {

@@ -1,5 +1,4 @@
 using Gameplay.Characters.Enemies;
-using Loggers;
 using Zenject;
 
 namespace Infrastructure.StateMachine
@@ -7,12 +6,10 @@ namespace Infrastructure.StateMachine
   public abstract class StateMachine : ITickable
   {
     private readonly EnemyStatesProvider _enemyStatesProvider;
-    private readonly DebugLogger _logger;
 
-    protected StateMachine(EnemyStatesProvider enemyStatesProvider, DebugLogger logger)
+    protected StateMachine(EnemyStatesProvider enemyStatesProvider)
     {
       _enemyStatesProvider = enemyStatesProvider;
-      _logger = logger;
     }
 
     public IExitableState ActiveState { get; protected set; }

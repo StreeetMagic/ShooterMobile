@@ -1,6 +1,5 @@
 using Gameplay.Characters.Players.Animators;
 using Infrastructure.ConfigServices;
-using Loggers;
 using UnityEngine;
 using Zenject;
 
@@ -12,20 +11,18 @@ namespace Gameplay.Characters.Players
     private readonly ConfigService _config;
     private readonly PlayerTargetHolder _playerTargetHolder;
     private readonly PlayerProvider _playerProvider;
-    private readonly DebugLogger _logger;
     private readonly PlayerAnimator _playerAnimator;
 
     private float _timeLeft;
     private bool _isRising;
 
     public PlayerWeaponRaiser(PlayerMoveSpeed playerMoveSpeed, ConfigService config,
-      PlayerTargetHolder playerTargetHolder, PlayerProvider playerProvider, DebugLogger logger, PlayerAnimator playerAnimator)
+      PlayerTargetHolder playerTargetHolder, PlayerProvider playerProvider, PlayerAnimator playerAnimator)
     {
       _playerMoveSpeed = playerMoveSpeed;
       _config = config;
       _playerTargetHolder = playerTargetHolder;
       _playerProvider = playerProvider;
-      _logger = logger;
       _playerAnimator = playerAnimator;
     }
 

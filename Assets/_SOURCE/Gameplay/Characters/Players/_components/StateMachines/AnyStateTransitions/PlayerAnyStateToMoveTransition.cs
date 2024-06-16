@@ -1,4 +1,3 @@
-using System;
 using Gameplay.Characters.Players.StateMachines.Infrastructure;
 using Gameplay.Characters.Players.StateMachines.States.MoveState;
 using Inputs;

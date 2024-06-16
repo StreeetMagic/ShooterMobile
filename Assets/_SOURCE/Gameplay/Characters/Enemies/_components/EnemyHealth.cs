@@ -1,6 +1,6 @@
 using System;
 using Gameplay.Characters.Enemies.StateMachines;
-using Gameplay.Characters.Enemies.StateMachines.States;
+using Gameplay.Characters.Enemies.StateMachines.States.Switchers;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using Gameplay.Spawners;

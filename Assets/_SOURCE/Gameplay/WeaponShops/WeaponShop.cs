@@ -3,20 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Weapons;
 using Infrastructure.Utilities;
-using Loggers;
 using Zenject;
 
 namespace Gameplay.WeaponShops
 {
   public class WeaponShop : IInitializable, IDisposable
   {
-    private readonly DebugLogger _debugLogger;
-
-    public WeaponShop(DebugLogger debugLogger)
-    {
-      _debugLogger = debugLogger;
-    }
-
     public ReactiveList<WeaponTypeId> Weapons { get; } = new();
 
     public void SetAllWeapons()
@@ -51,7 +43,6 @@ namespace Gameplay.WeaponShops
 
     private void OnWeaponsChanged(List<WeaponTypeId> weapons)
     {
-       
     }
   }
 }

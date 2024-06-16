@@ -1,6 +1,6 @@
 using Infrastructure.StateMachine;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States 
+namespace Gameplay.Characters.Enemies.StateMachines.States.Tickables 
 {
   public class EnemyDyingState : IState
   {

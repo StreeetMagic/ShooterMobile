@@ -4,7 +4,7 @@ using Gameplay.Characters.Players;
 using Gameplay.CurrencyRepositories;
 using Gameplay.CurrencyRepositories.BackpackStorages;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.VisualEffects;
+using Infrastructure.VisualEffects.ParticleImages;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using Zenject;

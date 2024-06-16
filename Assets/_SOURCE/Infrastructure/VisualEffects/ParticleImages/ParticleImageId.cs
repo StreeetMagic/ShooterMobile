@@ -1,4 +1,4 @@
-namespace Infrastructure.VisualEffects
+namespace Infrastructure.VisualEffects.ParticleImages
 {
   public enum ParticleImageId
   {

@@ -22,7 +22,7 @@ namespace Gameplay.Portals
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private ProjectData _projectData;
 
-    private MeshRenderer _meshRenderer;
+    private ParticleSystem _particleSystem;
 
     private bool _playerInTrigger;
     private bool _isActive;
@@ -31,7 +31,7 @@ namespace Gameplay.Portals
 
     private void Awake()
     {
-      _meshRenderer = GetComponent<MeshRenderer>();
+      _particleSystem = GetComponentInChildren<ParticleSystem>();
       Validate();
 
       Activate();
@@ -91,13 +91,13 @@ namespace Gameplay.Portals
     private void Activate()
     {
       _isActive = true;
-      _meshRenderer.enabled = true;
+      _particleSystem.gameObject.SetActive(true);
     }
 
     public void Deactivate()
     {
       _isActive = false;
-      _meshRenderer.enabled = false;
+      _particleSystem.gameObject.SetActive(false); 
       _timeLeftForActivation = ActivationDelay;
     }
 

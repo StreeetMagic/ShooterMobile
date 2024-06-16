@@ -1,4 +1,3 @@
-using System;
 using Gameplay.Characters.Players.StateMachines.Infrastructure;
 
 namespace Gameplay.Characters.Players.StateMachines.AnyStateTransitions
@@ -7,7 +6,6 @@ namespace Gameplay.Characters.Players.StateMachines.AnyStateTransitions
   {
     public override void Tick()
     {
-       
     }
   }
 }

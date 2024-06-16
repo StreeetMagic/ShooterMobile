@@ -1,8 +1,9 @@
+using Gameplay.Characters.Enemies.StateMachines.States.Tickables;
 using Gameplay.Characters.Players;
 using Infrastructure.StateMachine;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States
+namespace Gameplay.Characters.Enemies.StateMachines.States.Switchers
 {
   public class EnemyChooseCondiditionState : IState
   {

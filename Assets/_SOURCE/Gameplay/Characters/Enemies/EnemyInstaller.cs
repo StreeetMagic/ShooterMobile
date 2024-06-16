@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Gameplay.Characters.Enemies.StateMachines;
-using Gameplay.Characters.Enemies.StateMachines.States;
+using Gameplay.Characters.Enemies.StateMachines.States.Switchers;
+using Gameplay.Characters.Enemies.StateMachines.States.Tickables;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnPoints;

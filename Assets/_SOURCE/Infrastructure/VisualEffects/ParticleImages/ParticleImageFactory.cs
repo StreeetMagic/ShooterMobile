@@ -3,7 +3,7 @@ using Infrastructure.ZenjectFactories.SceneContext;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 
-namespace Infrastructure.VisualEffects
+namespace Infrastructure.VisualEffects.ParticleImages
 {
   public class ParticleImageFactory
   {

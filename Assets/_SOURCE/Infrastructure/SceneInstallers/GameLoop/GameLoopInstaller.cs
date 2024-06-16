@@ -18,6 +18,7 @@ using Infrastructure.AssetProviders;
 using Infrastructure.DebugServices;
 using Infrastructure.UserIntefaces;
 using Infrastructure.VisualEffects;
+using Infrastructure.VisualEffects.ParticleImages;
 using Infrastructure.ZenjectFactories.SceneContext;
 using Maps;
 using UserInterface.HeadsUpDisplays;

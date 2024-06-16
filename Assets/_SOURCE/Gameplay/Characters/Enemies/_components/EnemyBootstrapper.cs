@@ -1,5 +1,5 @@
 using Gameplay.Characters.Enemies.StateMachines;
-using Gameplay.Characters.Enemies.StateMachines.States;
+using Gameplay.Characters.Enemies.StateMachines.States.Switchers;
 using UnityEngine;
 using Zenject;
 

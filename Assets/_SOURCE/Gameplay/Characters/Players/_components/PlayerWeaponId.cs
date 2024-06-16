@@ -4,21 +4,16 @@ using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
-using Loggers;
-using UnityEngine;
 
 namespace Gameplay.Characters.Players
 {
   public class PlayerWeaponIdProvider : IProgressWriter
   {
     private readonly PlayerWeaponStorage _playerWeaponStorage;
-    private readonly DebugLogger _debugLogger;
 
-    public PlayerWeaponIdProvider(ConfigService configService, PlayerWeaponStorage playerWeaponStorage,
-      DebugLogger debugLogger)
+    public PlayerWeaponIdProvider(ConfigService configService, PlayerWeaponStorage playerWeaponStorage)
     {
       _playerWeaponStorage = playerWeaponStorage;
-      _debugLogger = debugLogger;
 
       PrevId = new ReactiveProperty<WeaponTypeId>(0);
 

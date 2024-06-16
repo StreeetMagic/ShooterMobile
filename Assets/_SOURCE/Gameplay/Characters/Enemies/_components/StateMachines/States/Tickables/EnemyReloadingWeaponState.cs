@@ -1,8 +1,9 @@
+using Gameplay.Characters.Enemies.StateMachines.States.Switchers;
 using Infrastructure.StateMachine;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States
+namespace Gameplay.Characters.Enemies.StateMachines.States.Tickables
 {
   public class EnemyReloadingWeaponState : IState, ITickable
   {

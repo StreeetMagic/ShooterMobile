@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Gameplay.Characters;
 using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnerFactories;
-using Infrastructure.VisualEffects;
+using Infrastructure.VisualEffects.ParticleImages;
 using UnityAssetsTools.ParticleImage.Runtime;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.BackpackBars;

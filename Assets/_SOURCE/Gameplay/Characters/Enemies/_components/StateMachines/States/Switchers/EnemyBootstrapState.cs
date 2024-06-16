@@ -1,6 +1,6 @@
 using Infrastructure.StateMachine;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States
+namespace Gameplay.Characters.Enemies.StateMachines.States.Switchers
 {
   public class EnemyBootstrapState : IState
   {

@@ -1,10 +1,11 @@
+using Gameplay.Characters.Enemies.StateMachines.States.Switchers;
 using Gameplay.Characters.Players;
 using Gameplay.Spawners;
 using Infrastructure.StateMachine;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States
+namespace Gameplay.Characters.Enemies.StateMachines.States.Tickables
 {
   public class EnemyChasingPlayerState : IState, ITickable
   {
@@ -17,11 +18,10 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
     private readonly Enemy _enemy;
     private readonly EnemyReturnToSpawnStatus _enemyReturnToSpawnStatus;
     private readonly EnemyMaxAttakingRange _enemyMaxAttakingRange;
-    private readonly EnemyGrenadeThrower _grenadeThrower;
 
     public EnemyChasingPlayerState(PlayerProvider playerProvider, EnemyMover mover, EnemyAnimatorProvider animatorProvider,
       EnemyConfig config, EnemySpawner enemySpawner, Enemy enemy, EnemyStateMachine enemyStateMachine,
-      EnemyReturnToSpawnStatus enemyReturnToSpawnStatus, EnemyMaxAttakingRange enemyMaxAttakingRange, EnemyGrenadeThrower grenadeThrower)
+      EnemyReturnToSpawnStatus enemyReturnToSpawnStatus, EnemyMaxAttakingRange enemyMaxAttakingRange)
     {
       _playerProvider = playerProvider;
       _mover = mover;
@@ -32,7 +32,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States
       _enemyStateMachine = enemyStateMachine;
       _enemyReturnToSpawnStatus = enemyReturnToSpawnStatus;
       _enemyMaxAttakingRange = enemyMaxAttakingRange;
-      _grenadeThrower = grenadeThrower;
     }
 
     public void Enter()
