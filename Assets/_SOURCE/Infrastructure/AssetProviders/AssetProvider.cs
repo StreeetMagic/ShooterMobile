@@ -31,7 +31,7 @@ namespace Infrastructure.AssetProviders
       return load;
     }
 
-    public T GetConfig<T>() where T : ScriptableObject
+    public T GetScriptable<T>() where T : ScriptableObject
     {
       Object load = Resources.Load(typeof(T).Name);
 
@@ -39,6 +39,26 @@ namespace Infrastructure.AssetProviders
         throw new Exception("Asset not found: " + typeof(T).Name);
 
       return load as T;
+    }
+
+    public T GetScriptable<T>(string path) where T : ScriptableObject
+    {
+      Object load = Resources.Load(path);
+
+      if (load == null)
+        throw new Exception("Asset not found: " + typeof(T).Name);
+
+      return load as T;
+    }
+
+    public T[] GetAllScriptable<T>(string path) where T : ScriptableObject
+    {
+      T[] scriptableObjects = Resources.LoadAll<T>(path);
+
+      if (scriptableObjects == null)
+        throw new Exception("Assets not found: " + typeof(T).Name);
+
+      return scriptableObjects;
     }
 
     public GameObject Get(string path)
