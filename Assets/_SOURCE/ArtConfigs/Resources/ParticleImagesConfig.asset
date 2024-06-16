@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758b7acf616544d380eed13880dda22a, type: 3}
+  m_Name: ParticleImagesConfig
+  m_EditorClassIdentifier: 
+  Setups:
+  - Id: 1
+    Prefabs:
+    - {fileID: 2162582121499164258, guid: 23e4580b5e2449443a4ec754f572b6c6, type: 3}
+  - Id: 2
+    Prefabs:
+    - {fileID: 2162582121499164258, guid: 320fa5cb3fe07dc40be87fa1c2e0ba64, type: 3}
+  - Id: 3
+    Prefabs:
+    - {fileID: 2162582121499164258, guid: f17237eb9a2c50649bdb879780d0e50c, type: 3}
+  - Id: 4
+    Prefabs:
+    - {fileID: 2162582121499164258, guid: 5e842729b11eea742b9997851ec9a8a0, type: 3}
+  - Id: 5
+    Prefabs:
+    - {fileID: 3229013087896915734, guid: 9bc89adc865884e4a978761f548fbe43, type: 3}
+  - Id: 6
+    Prefabs:
+    - {fileID: 4393732480200381118, guid: eadfafaa953bf4448a6be0cb550bd1a3, type: 3}
