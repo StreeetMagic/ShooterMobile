@@ -1,4 +1,5 @@
-﻿using Infrastructure.ConfigServices;
+﻿using Gameplay.CurrencyRepositories.BackpackStorages;
+using Infrastructure.ConfigServices;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players.Rotators
@@ -8,14 +9,12 @@ namespace Gameplay.Characters.Players.Rotators
     private readonly ConfigService _static;
     private readonly PlayerProvider _playerProvider;
 
-    public PlayerRotator(ConfigService configService, PlayerProvider playerProvider)
+    public PlayerRotator(ConfigService configService, PlayerProvider playerProvider
+    )
     {
       _static = configService;
       _playerProvider = playerProvider;
     }
-
-    private float RotationSpeed => _static.PlayerConfig.RotationSpeed;
-    private Transform Transform => _playerProvider.Instance.transform;
 
     public void RotateTowardsDirection(Vector3 direction)
     {
@@ -28,7 +27,7 @@ namespace Gameplay.Characters.Players.Rotators
         return;
 
       Quaternion targetRotation = Quaternion.LookRotation(direction);
-      Transform.rotation = Quaternion.Slerp(Transform.rotation, targetRotation, Time.deltaTime * RotationSpeed);
+      _playerProvider.Instance.transform.rotation = Quaternion.Slerp(_playerProvider.Instance.transform.rotation, targetRotation, Time.deltaTime * _static.PlayerConfig.RotationSpeed);
     }
   }
 }

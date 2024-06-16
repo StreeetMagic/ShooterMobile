@@ -47,7 +47,6 @@ namespace Gameplay.Characters.Players
 
       Container.BindInterfacesAndSelfTo<PlayerMover>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerRotator>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<PlayerRotatorController>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerInputHandler>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponIdProvider>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerStandsOnSamePosition>().AsSingle().NonLazy();

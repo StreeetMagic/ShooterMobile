@@ -6,21 +6,21 @@ namespace Gameplay.Characters.Players.StateMachines.Infrastructure
 {
   public abstract class PlayerTransition : ITickable
   {
-    private Type _activeState;
+    protected PlayerState ActiveState;
     private int _processCount;
 
     public event Action<Type> Processed;
 
     public abstract void Tick();
 
-    public void SetActiveState(Type type)
+    public void SetActiveState(PlayerState state)
     {
-      _activeState = type;
+      ActiveState = state;
     }
 
-    protected void Process(Type toState)
+    protected void Process<T>() where T : class
     {
-      if (_activeState == toState)
+      if (ActiveState.GetType() == typeof(T))
         return;
 
       string message = GetType().Name;
@@ -29,7 +29,7 @@ namespace Gameplay.Characters.Players.StateMachines.Infrastructure
       message = message.Replace("State", "");
       new DebugLogger().Log($"<color=yellow>#{message}</color>");
 
-      Processed?.Invoke(toState);
+      Processed?.Invoke(typeof(T));
     }
   }
 }

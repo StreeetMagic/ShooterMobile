@@ -7,7 +7,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.BoostrapState
   {
     public override void Tick()
     {
-      Process(typeof(PlayerIdleState));
+      Process<PlayerIdleState>();
     }
   }
 }

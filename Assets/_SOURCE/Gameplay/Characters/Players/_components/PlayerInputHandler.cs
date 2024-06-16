@@ -7,14 +7,12 @@ namespace Gameplay.Characters.Players
   public class PlayerInputHandler
   {
     private readonly InputService _inputService;
-    private readonly PlayerRotatorController _rotatorController;
     private readonly PlayerMover _mover;
 
     public PlayerInputHandler(InputService inputService,
-      PlayerRotatorController rotatorController, PlayerMover mover)
+      PlayerMover mover)
     {
       _inputService = inputService;
-      _rotatorController = rotatorController;
       _mover = mover;
     }
 
@@ -25,15 +23,10 @@ namespace Gameplay.Characters.Players
       if (_mover == null)
         return;
 
-      if (_rotatorController == null)
-        return;
-
       _mover.Move(moveDirection);
-
-      _rotatorController.RotateTowardsDirection(moveDirection);
     }
 
-    private Vector3 GetDirection()
+    public Vector3 GetDirection()
     {
       Vector2 directionXY = _inputService.MoveDirection;
 

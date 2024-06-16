@@ -140,11 +140,11 @@ namespace Gameplay.Characters.Players.StateMachines
     {
       foreach (PlayerTransition transition in _anyStateTransitions.Values)
       {
-        transition.SetActiveState(_activeState.GetType());
+        transition.SetActiveState(_activeState);
         transition.Tick();
       }
 
-      _activeState.SetActiveState(_activeState.GetType());
+      _activeState.SetActiveState(_activeState);
       _activeState.Tick();
     }
 

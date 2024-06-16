@@ -37,7 +37,7 @@ namespace Gameplay.Characters.Players
     private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value);
     private float Cooldown => (float)1 / WeaponConfig.FireRate;
 
-    public void Attack()
+    public void Tick()
     {
       if (_timeLeft > 0)
       {

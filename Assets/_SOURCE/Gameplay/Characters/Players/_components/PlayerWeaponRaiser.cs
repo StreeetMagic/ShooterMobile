@@ -1,11 +1,10 @@
 using Gameplay.Characters.Players.Animators;
 using Infrastructure.ConfigServices;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerWeaponRaiser : ITickable
+  public class PlayerWeaponRaiser
   {
     private readonly PlayerMoveSpeed _playerMoveSpeed;
     private readonly ConfigService _config;
@@ -28,7 +27,21 @@ namespace Gameplay.Characters.Players
 
     public bool IsRaised => _timeLeft <= 0;
 
+    public void ResetTime()
+    {
+      _timeLeft = _config.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).RaiseTime;
+    }
+    
     public void Tick()
+    {
+      if (_timeLeft > 0)
+        _timeLeft -= Time.deltaTime;
+      
+      if (_timeLeft < 0)
+        _timeLeft = 0;
+    }
+
+    public void OldTick()
     {
       if (_playerMoveSpeed.IsMoving || _playerTargetHolder.HasTarget == false)
       {

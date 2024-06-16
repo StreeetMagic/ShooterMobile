@@ -9,9 +9,10 @@ namespace Infrastructure.VisualEffects.ParticleImages
     private readonly GameLoopZenjectFactory _zenjectFactory;
     private readonly ParticleImageService _particleImageService;
 
-    public ParticleImageFactory(GameLoopZenjectFactory zenjectFactory)
+    public ParticleImageFactory(GameLoopZenjectFactory zenjectFactory, ParticleImageService particleImageService)
     {
       _zenjectFactory = zenjectFactory;
+      _particleImageService = particleImageService;
     }
 
     public ParticleImage Create(ParticleImageId visualEffectId, Vector3 position, Transform parent, Transform target = null, int amount = 0)
@@ -20,11 +21,13 @@ namespace Infrastructure.VisualEffects.ParticleImages
       GameObject moneyObject = _zenjectFactory.InstantiateGameObject(prefab.gameObject, position, Quaternion.identity, parent);
 
       moneyObject.transform.SetParent(parent);
+      
+      var partImage = moneyObject.GetComponent<ParticleImage>();
 
-      prefab.main.attractorTarget = target;
-      prefab.Play();
+      partImage.main.attractorTarget = target;
+      partImage.Play();
 
-      return prefab;
+      return partImage;
     }
   }
 }

@@ -6,7 +6,8 @@ namespace Gameplay.Characters.Players.StateMachines.Infrastructure
 {
   public abstract class PlayerState : ITickable
   {
-    private Type _activeState;
+    private Type _activeStateType;
+    private PlayerState _activeState;
       
     private readonly List<PlayerTransition> _transitions;
 
@@ -34,9 +35,10 @@ namespace Gameplay.Characters.Players.StateMachines.Infrastructure
     public abstract void Enter();
     public abstract void Exit();
 
-    public void SetActiveState(Type type)
+    public void SetActiveState(PlayerState state)
     {
-      _activeState = type;
+      _activeState = state;
+      _activeStateType = _activeState.GetType();
     }
 
     private void Process(Type type)
