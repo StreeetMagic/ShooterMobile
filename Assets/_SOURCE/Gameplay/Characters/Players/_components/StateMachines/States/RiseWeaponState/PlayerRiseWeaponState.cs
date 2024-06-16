@@ -12,12 +12,12 @@ namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
 
     public override void Enter()
     {
-      throw new NotImplementedException();
+       
     }
 
     public override void Exit()
     {
-      throw new NotImplementedException();
+       
     }
   }
 }

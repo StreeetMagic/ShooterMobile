@@ -20,9 +20,6 @@ namespace Gameplay.Characters.Players.StateMachines.States.MoveState
        if (_inputService.HasMoveInput)
         return;
        
-       if (_targetHolder.HasTarget)
-         return;
-       
        Process(typeof(PlayerIdleState));
     }
   }

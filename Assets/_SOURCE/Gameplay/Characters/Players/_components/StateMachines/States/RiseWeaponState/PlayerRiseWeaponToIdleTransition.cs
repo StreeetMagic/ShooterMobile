@@ -7,7 +7,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
   {
     public override void Tick()
     {
-      throw new NotImplementedException();
+       
     }
   }
 }

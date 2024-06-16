@@ -106,8 +106,6 @@ namespace Gameplay.Characters.Players.StateMachines
             new List<PlayerTransition>
             {
               factory.InstantiateNative<PlayerMoveToIdleTransition>(),
-              factory.InstantiateNative<PlayerMoveToRiseWeaponTransition>(),
-              factory.InstantiateNative<PlayerMoveToInterractTransition>(),
             }
           )
         },
