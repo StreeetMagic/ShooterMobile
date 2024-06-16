@@ -6,6 +6,8 @@ namespace Gameplay.Characters.Players.StateMachines.Infrastructure
 {
   public abstract class PlayerState : ITickable
   {
+    private Type _activeState;
+      
     private readonly List<PlayerTransition> _transitions;
 
     protected PlayerState(List<PlayerTransition> transitions)
@@ -23,11 +25,19 @@ namespace Gameplay.Characters.Players.StateMachines.Infrastructure
     public virtual void Tick()
     {
       foreach (PlayerTransition transition in _transitions)
+      {
+        transition.SetActiveState(_activeState);
         transition.Tick();
+      }
     }
 
     public abstract void Enter();
     public abstract void Exit();
+
+    public void SetActiveState(Type type)
+    {
+      _activeState = type;
+    }
 
     private void Process(Type type)
     {

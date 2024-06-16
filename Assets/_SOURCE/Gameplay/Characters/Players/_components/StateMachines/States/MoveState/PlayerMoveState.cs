@@ -16,7 +16,6 @@ namespace Gameplay.Characters.Players.StateMachines.States.MoveState
 
     public override void Enter()
     {
-      Debug.Log("Enter Move State");
     }
 
     public override void Tick()
@@ -27,7 +26,6 @@ namespace Gameplay.Characters.Players.StateMachines.States.MoveState
 
     public override void Exit()
     {
-      Debug.Log("Exit Move State");
     }
   }
 }

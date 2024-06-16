@@ -12,12 +12,10 @@ namespace Gameplay.Characters.Players.StateMachines.States.IdleState
 
     public override void Enter()
     {
-      Debug.Log("Вошли в PlayerIdleState");
     }
 
     public override void Exit()
     {
-      Debug.Log("Вышли из PlayerIdleState");
     }
   }
 }

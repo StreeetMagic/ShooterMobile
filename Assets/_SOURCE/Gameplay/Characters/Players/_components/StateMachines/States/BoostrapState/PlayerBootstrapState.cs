@@ -12,12 +12,10 @@ namespace Gameplay.Characters.Players.StateMachines.States.BoostrapState
 
     public override void Enter()
     {
-      Debug.Log("Зашли в PlayerBootstrapState");
     }
 
     public override void Exit()
     {
-      Debug.Log("Вышли из PlayerBootstrapState");
     }
   }
 }

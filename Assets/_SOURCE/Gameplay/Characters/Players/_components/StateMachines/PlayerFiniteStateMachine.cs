@@ -12,6 +12,7 @@ using Gameplay.Characters.Players.StateMachines.States.InterractState;
 using Gameplay.Characters.Players.StateMachines.States.MoveState;
 using Gameplay.Characters.Players.StateMachines.States.RiseWeaponState;
 using Infrastructure.ZenjectFactories.GameobjectContext;
+using Loggers;
 using Zenject;
 
 namespace Gameplay.Characters.Players.StateMachines
@@ -117,8 +118,8 @@ namespace Gameplay.Characters.Players.StateMachines
         },
       };
 
-      _activeState = _states.Values.First();
-      _activeState.Enter();
+      _activeState = _states[typeof(PlayerBootstrapState)];
+      EnterActiveState();
 
       foreach (PlayerState state in _states.Values)
         state.Processed += OnProcessed;
@@ -136,28 +137,52 @@ namespace Gameplay.Characters.Players.StateMachines
       };
 
       foreach (PlayerTransition transition in _anyStateTransitions.Values)
-        transition.Processed += OnProcessed;
+        transition.Processed += OnProcessed; 
     }
 
     public void Tick()
     {
       foreach (PlayerTransition transition in _anyStateTransitions.Values)
+      {
+        transition.SetActiveState(_activeState.GetType());
         transition.Tick();
+      }
 
+      _activeState.SetActiveState(_activeState.GetType());
       _activeState.Tick();
     }
 
-    private void OnProcessed(Type type)
+    private void OnProcessed(Type toState)
     {
-      if (_states.TryGetValue(type, out PlayerState state) == false)
-        throw new Exception($"State {type} not found");
+      if (_states.TryGetValue(toState, out PlayerState state) == false)
+        throw new Exception($"State {toState} not found");
 
       if (state == _activeState)
         return;
 
-      _activeState.Exit();
-      _activeState = _states[type];
+      ExitActiveState();
+      _activeState = _states[toState];
+      EnterActiveState();
+    }
+
+    private void EnterActiveState()
+    {
       _activeState.Enter();
+
+      string name = _activeState.GetType().Name;
+      name = name.Replace("Player", "");
+      name = name.Replace("State", "");
+      new DebugLogger().Log($"<color=green>>{name}</color>");
+    }
+
+    private void ExitActiveState()
+    {
+      _activeState.Exit();
+
+      string name = _activeState.GetType().Name;
+      name = name.Replace("Player", "");
+      name = name.Replace("State", "");
+      new DebugLogger().Log($"<color=red><{name}</color>");
     }
   }
 }
