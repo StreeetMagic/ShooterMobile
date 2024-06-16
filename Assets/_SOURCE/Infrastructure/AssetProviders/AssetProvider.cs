@@ -13,10 +13,7 @@ namespace Infrastructure.AssetProviders
       if (Resources.Load(typeof(T).Name) == null)
         throw new Exception("Asset not found: " + typeof(T).Name);
 
-      var load =
-        Resources
-          .Load(typeof(T).Name)
-          .GetComponent<T>();
+      var load = Resources.Load(typeof(T).Name).GetComponent<T>();
 
       if (load == null)
         throw new Exception("Asset not found: " + typeof(T).Name);
@@ -26,10 +23,7 @@ namespace Infrastructure.AssetProviders
 
     public T Get<T>(string path) where T : MonoBehaviour
     {
-      var load =
-        Resources
-          .Load(path)
-          .GetComponent<T>();
+      var load = Resources.Load(path).GetComponent<T>();
 
       if (load == null)
         throw new Exception("Asset not found: " + path);
@@ -42,9 +36,7 @@ namespace Infrastructure.AssetProviders
       if (Resources.Load(typeof(T).Name) == null)
         throw new Exception("Asset not found: " + typeof(T).Name);
 
-      var load =
-        Resources
-          .Load(typeof(T).Name);
+      var load = Resources.Load(typeof(T).Name);
 
       if (load == null)
         throw new Exception("Asset not found: " + typeof(T).Name);
@@ -52,14 +44,9 @@ namespace Infrastructure.AssetProviders
       return load as T;
     }
 
-    public EnemyMeshModel GetEnemyMeshModel(EnemyTypeId enemyId) =>
-      Resources.Load<EnemyMeshModel>(enemyId.ToString());
-
     public GameObject Get(string path)
     {
-      Object load =
-        Resources
-          .Load(path);
+      Object load = Resources.Load(path);
 
       if (load == null)
         throw new Exception("Asset not found: " + path);

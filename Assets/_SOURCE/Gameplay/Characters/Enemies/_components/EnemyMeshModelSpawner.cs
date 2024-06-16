@@ -12,7 +12,7 @@ namespace Gameplay.Characters.Enemies
       Transform transform, EnemyMeshMaterialChanger materialChanger)
 
     {
-      EnemyMeshModel prefab = assetProvider.GetEnemyMeshModel(enemyId);
+      EnemyMeshModel prefab = assetProvider.Get<EnemyMeshModel>(enemyId.ToString());
 
       EnemyMeshModel meshModel = factory.InstantiateMono(prefab, transform.position, transform);
       materialChanger.EnemyMeshModel = meshModel;
