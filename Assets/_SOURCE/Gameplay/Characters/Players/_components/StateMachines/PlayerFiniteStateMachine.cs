@@ -59,7 +59,6 @@ namespace Gameplay.Characters.Players.StateMachines
             {
               factory.InstantiateNative<PlayerRiseWeaponToIdleTransition>(),
               factory.InstantiateNative<PlayerRiseWeaponToAttackTransition>(),
-              factory.InstantiateNative<PlayerRiseWeaponToInterractTransition>()
             }
           )
         },
@@ -82,7 +81,6 @@ namespace Gameplay.Characters.Players.StateMachines
             new List<PlayerTransition>
             {
               factory.InstantiateNative<PlayerHideWeaponToIdleTransition>(),
-              factory.InstantiateNative<PlayerHideWeaponToInterractTransition>(),
             }
           )
         },
