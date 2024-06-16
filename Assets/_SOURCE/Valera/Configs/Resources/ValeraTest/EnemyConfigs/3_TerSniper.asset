@@ -17,6 +17,7 @@ MonoBehaviour:
   RunSpeed: 5
   PatrolingRadius: 5
   HealingDelay: 1
+  AlertStateDuration: 0.2
   InitialHealth: 100
   HealMultiplier: 1
   LootDrops:
@@ -28,13 +29,14 @@ MonoBehaviour:
   AggroRadius: 3
   IsShooter: 1
   ShootRange: 7
-  FireRate: 1
+  FireRate: 30
   BulletDamage: 1
   MagazineCapacity: 3
   MagazineReloadTime: 1
   BulletsPerShot: 1
   BulletSpreadAngle: 1
-  IsGrenadeThrower: 0
+  WeaponRisingTime: 0.2
+  IsGrenadeThrower: 1
   GrenadeTypeId: 3
   GrenadeThrowCooldown: 3
   GrenadeThrowRandomDelay: 1
@@ -42,5 +44,5 @@ MonoBehaviour:
   MaxGrenadesCount: 3
   GrenadeThrowRange: 5
   MeleeRange: 2
-  MeeleAttackDuration: 0.3
+  MeeleAttackDuration: 1
   MeeleAttackDamage: 100
