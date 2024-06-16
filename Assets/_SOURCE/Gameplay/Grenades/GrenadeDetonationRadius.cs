@@ -14,7 +14,7 @@ namespace Gameplay.Grenades
 
       transform.localScale = new Vector3(localRaius, localRaius, localRaius);
       
-      StartDetonationDuration(radius, config.DetonationTime);
+      StartDetonationDuration(localRaius, config.DetonationTime);
     }
 
     private void StartDetonationDuration(float targetScale, float duration)
@@ -22,6 +22,5 @@ namespace Gameplay.Grenades
       _detonationRadius.DOScale(new Vector3(targetScale, targetScale, targetScale), duration)
           .SetEase(Ease.InOutQuad);
     }
-    
   }
 }
