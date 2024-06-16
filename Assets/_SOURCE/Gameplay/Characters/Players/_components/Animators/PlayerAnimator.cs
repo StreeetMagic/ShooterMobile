@@ -25,7 +25,8 @@ namespace Gameplay.Characters.Players.Animators
 
     public Animator Animator;
 
-    [Header("Knife hit animations")] public string KnifeHit1 = "KnifeHit1";
+    [Header("Knife hit animations")] 
+    public string KnifeHit1 = "KnifeHit1";
     public string KnifeHit2 = "KnifeHit2";
     public string KnifeHit3 = "KnifeHit3";
 

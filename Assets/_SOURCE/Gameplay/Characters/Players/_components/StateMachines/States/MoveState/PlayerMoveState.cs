@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.StateMachines.Infrastructure;
 
 namespace Gameplay.Characters.Players.StateMachines.States.MoveState
@@ -8,18 +9,21 @@ namespace Gameplay.Characters.Players.StateMachines.States.MoveState
     private readonly PlayerInputHandler _inputHandler;
     private readonly PlayerRotator _rotator;
     private readonly PlayerTargetHolder _targetHolder;
+    private readonly PlayerAnimator _animator;
 
     public PlayerMoveState(List<PlayerTransition> transitions, PlayerInputHandler inputHandler, 
-      PlayerRotator rotator, PlayerTargetHolder targetHolder)
+      PlayerRotator rotator, PlayerTargetHolder targetHolder, PlayerAnimator animator)
       : base(transitions)
     {
       _inputHandler = inputHandler;
       _rotator = rotator;
       _targetHolder = targetHolder;
+      _animator = animator;
     }
 
     public override void Enter()
     {
+      _animator.PlayRunAnimation();
     }
 
     public override void Tick()
@@ -35,6 +39,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.MoveState
 
     public override void Exit()
     {
+      _animator.Stop();
     }
   }
 }

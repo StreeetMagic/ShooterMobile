@@ -33,10 +33,10 @@ namespace Gameplay.Characters.Players
     {
       Vector3 playerSpeed = directionXYZ * (_playerStatsProvider.GetStat(StatId.MoveSpeed) * Time.deltaTime);
 
-      if (directionXYZ.magnitude > 0.01)
-        _playerAnimator.PlayRunAnimation();
-      else
-        _playerAnimator.Stop();
+      // if (directionXYZ.magnitude > 0.01)
+      //   _playerAnimator.PlayRunAnimation();
+      // else
+      //   _playerAnimator.Stop();
 
       if (_characterController.isGrounded)
       {
