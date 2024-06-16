@@ -7,5 +7,9 @@ namespace Infrastructure.AudioServices.AudioMixers
   public class AudioMixerConfig : ScriptableObject
   {
     public AudioMixerGroup Master;
+    public AudioMixerGroup Music;
+    public AudioMixerGroup Enviroment;
+    public AudioMixerGroup UIUX;
+    public AudioMixerGroup Combat;
   }
 }
