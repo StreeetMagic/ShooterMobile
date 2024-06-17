@@ -1,14 +1,14 @@
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
+using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players.StateMachines.States.IdleState;
 using Inputs;
 
 namespace Gameplay.Characters.Players.StateMachines.States.MoveState
 {
-  public class PlayerMoveToIdleTransition : PlayerTransition
+  public class MoveToIdleTransition : Transition
   {
     private readonly InputService _inputService;
 
-    public PlayerMoveToIdleTransition(InputService inputService)
+    public MoveToIdleTransition(IStateMachineFactory stateMachineFactory, InputService inputService) : base(stateMachineFactory)
     {
       _inputService = inputService;
     }

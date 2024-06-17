@@ -1,10 +1,10 @@
 using System.Collections.Generic;
+using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
 
 namespace Gameplay.Characters.Players.StateMachines.States.MoveState
 {
-  public class PlayerMoveState : PlayerState
+  public class PlayerMoveState : State
   {
     private readonly PlayerInputHandler _inputHandler;
     private readonly PlayerRotator _rotator;
@@ -12,7 +12,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.MoveState
     private readonly PlayerAnimator _animator;
     private readonly PlayerWeaponMagazineReloader _playerWeaponMagazineReloader;
 
-    public PlayerMoveState(List<PlayerTransition> transitions, PlayerInputHandler inputHandler,
+    public PlayerMoveState(List<Transition> transitions, PlayerInputHandler inputHandler,
       PlayerRotator rotator, PlayerTargetHolder targetHolder, PlayerAnimator animator,
       PlayerWeaponMagazineReloader playerWeaponMagazineReloader)
       : base(transitions)

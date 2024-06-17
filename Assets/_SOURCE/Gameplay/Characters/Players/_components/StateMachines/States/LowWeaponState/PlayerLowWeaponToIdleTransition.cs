@@ -1,13 +1,13 @@
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
+using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players.StateMachines.States.IdleState;
 
 namespace Gameplay.Characters.Players.StateMachines.States.LowWeaponState
 {
-  public class PlayerLowWeaponToIdleTransition : PlayerTransition
+  public class LowWeaponToIdleTransition : Transition
   {
     private readonly PlayerWeaponLowerer _playerWeaponLowerer;
 
-    public PlayerLowWeaponToIdleTransition(PlayerWeaponLowerer playerWeaponLowerer)
+    public LowWeaponToIdleTransition(IStateMachineFactory stateMachineFactory, PlayerWeaponLowerer playerWeaponLowerer) : base(stateMachineFactory)
     {
       _playerWeaponLowerer = playerWeaponLowerer;
     }

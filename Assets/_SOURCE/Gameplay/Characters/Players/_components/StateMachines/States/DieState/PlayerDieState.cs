@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
+using Gameplay.Characters.FiniteStateMachines;
 
 namespace Gameplay.Characters.Players.StateMachines.States.DieState
 {
-  public class PlayerDieState : PlayerState
+  public class PlayerDieState : State
   {
-    public PlayerDieState(List<PlayerTransition> transitions) : base(transitions)
+    public PlayerDieState(List<Transition> transitions) : base(transitions)
     {
     }
 

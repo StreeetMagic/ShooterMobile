@@ -1,4 +1,5 @@
 using System;
+using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.MeshModels;
 using Gameplay.Characters.Players.StateMachines;
@@ -64,9 +65,11 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerWeaponMeshSwitcher>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponShootingPoint>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerZenjectFactory>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<PlayerFiniteStateMachine>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<FiniteStateMachine>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponAmmo>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponMagazineReloader>().AsSingle().NonLazy();
+     
+      Container.Bind<IStateMachineFactory>().To<PlayerStateMachineFactory>().AsSingle().NonLazy();
 
       Transform = Container.Resolve<Transform>();
       WeaponShootingPointPoint = Container.Resolve<PlayerWeaponShootingPoint>();

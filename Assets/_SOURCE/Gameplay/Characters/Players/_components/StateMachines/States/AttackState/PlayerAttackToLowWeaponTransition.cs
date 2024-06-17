@@ -1,10 +1,10 @@
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
+using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players.StateMachines.States.LowWeaponState;
 using Gameplay.Weapons;
 
 namespace Gameplay.Characters.Players.StateMachines.States.AttackState
 {
-  public class PlayerAttackToLowWeaponTransition : PlayerTransition
+  public class AttackToLowWeaponTransition : Transition
   {
     private readonly PlayerTargetHolder _targetHolder;
     private readonly PlayerWeaponMagazineReloader _playerWeaponMagazineReloader;
@@ -13,8 +13,8 @@ namespace Gameplay.Characters.Players.StateMachines.States.AttackState
     private WeaponTypeId _prevWeaponId = WeaponTypeId.Unknown;
     private WeaponTypeId _currentWeaponId = WeaponTypeId.Unknown;
 
-    public PlayerAttackToLowWeaponTransition(PlayerTargetHolder targetHolder, PlayerWeaponMagazineReloader playerWeaponMagazineReloader,
-      PlayerWeaponIdProvider playerWeaponIdProvider)
+    public AttackToLowWeaponTransition(PlayerTargetHolder targetHolder, PlayerWeaponMagazineReloader playerWeaponMagazineReloader,
+      PlayerWeaponIdProvider playerWeaponIdProvider, IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
     {
       _targetHolder = targetHolder;
       _playerWeaponMagazineReloader = playerWeaponMagazineReloader;

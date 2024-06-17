@@ -1,17 +1,17 @@
 using System.Collections.Generic;
+using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
 
 namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
 {
-  public class PlayerRiseWeaponState : PlayerState
+  public class PlayerRiseWeaponState : State
   {
     private readonly PlayerWeaponRaiser _weaponRaiser;
     private readonly PlayerAnimator _animator;
     private readonly PlayerRotator _rotator;
     private readonly PlayerTargetHolder _targetHolder;
 
-    public PlayerRiseWeaponState(List<PlayerTransition> transitions,
+    public PlayerRiseWeaponState(List<Transition> transitions,
       PlayerWeaponRaiser playerWeaponRaiser, PlayerAnimator playerAnimator, PlayerRotator rotator,
       PlayerTargetHolder targetHolder)
       : base(transitions)

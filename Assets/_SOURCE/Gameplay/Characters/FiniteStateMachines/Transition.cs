@@ -2,29 +2,36 @@ using System;
 using Loggers;
 using Zenject;
 
-namespace Gameplay.Characters.Players.StateMachines.Infrastructure
+namespace Gameplay.Characters.FiniteStateMachines
 {
-  public abstract class PlayerTransition : ITickable
+  public abstract class Transition : ITickable
   {
-    protected PlayerState ActiveState;
+    private readonly string _ownerName;
+
+    private State _activeState;
     private int _processCount;
+
+    protected Transition(IStateMachineFactory stateMachineFactory)
+    {
+      _ownerName = stateMachineFactory.GetName();
+    }
 
     public event Action<Type> Processed;
 
     public abstract void Tick();
 
-    public void SetActiveState(PlayerState state)
+    public void SetActiveState(State state)
     {
-      ActiveState = state;
+      _activeState = state;
     }
 
     protected void Process<T>() where T : class
     {
-      if (ActiveState.GetType() == typeof(T))
+      if (_activeState.GetType() == typeof(T))
         return;
 
       string message = GetType().Name;
-      message = message.Replace("Player", "");
+      message = message.Replace(_ownerName, "");
       message = message.Replace("Transition", "");
       message = message.Replace("State", "");
       new DebugLogger().Log($"<color=yellow>#{message}</color>");

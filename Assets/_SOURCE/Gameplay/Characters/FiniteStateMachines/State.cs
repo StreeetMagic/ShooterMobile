@@ -2,19 +2,19 @@ using System;
 using System.Collections.Generic;
 using Zenject;
 
-namespace Gameplay.Characters.Players.StateMachines.Infrastructure
+namespace Gameplay.Characters.FiniteStateMachines
 {
-  public abstract class PlayerState : ITickable
+  public abstract class State : ITickable
   {
-    private PlayerState _activeState;
+    private State _activeState;
       
-    private readonly List<PlayerTransition> _transitions;
+    private readonly List<Transition> _transitions;
 
-    protected PlayerState(List<PlayerTransition> transitions)
+    protected State(List<Transition> transitions)
     {
       _transitions = transitions;
 
-      foreach (PlayerTransition transition in _transitions)
+      foreach (Transition transition in _transitions)
       {
         transition.Processed += Process;
       }
@@ -24,7 +24,7 @@ namespace Gameplay.Characters.Players.StateMachines.Infrastructure
 
     public virtual void Tick()
     {
-      foreach (PlayerTransition transition in _transitions)
+      foreach (Transition transition in _transitions)
       {
         transition.SetActiveState(_activeState);
         transition.Tick();
@@ -34,7 +34,7 @@ namespace Gameplay.Characters.Players.StateMachines.Infrastructure
     public abstract void Enter();
     public abstract void Exit();
 
-    public void SetActiveState(PlayerState state)
+    public void SetActiveState(State state)
     {
       _activeState = state;
     }

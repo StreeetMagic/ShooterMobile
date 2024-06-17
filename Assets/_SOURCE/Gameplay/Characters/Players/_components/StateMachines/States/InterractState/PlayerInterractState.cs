@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
+using Gameplay.Characters.FiniteStateMachines;
 
 namespace Gameplay.Characters.Players.StateMachines.States.InterractState
 {
-  public class PlayerInterractState : PlayerState
+  public class PlayerInterractState : State
   {
-    public PlayerInterractState(List<PlayerTransition> transitions) : base(transitions)
+    public PlayerInterractState(List<Transition> transitions) : base(transitions)
     {
     }
 

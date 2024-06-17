@@ -1,14 +1,14 @@
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
+using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players.StateMachines.States.RiseWeaponState;
 
 namespace Gameplay.Characters.Players.StateMachines.States.IdleState
 {
-  public class PlayerIdleToRiseWeaponTransition : PlayerTransition
+  public class IdleToRiseWeaponTransition : Transition
   {
     private readonly PlayerTargetHolder _playerTargetHolder;
     private readonly PlayerWeaponMagazineReloader _playerWeaponMagazineReloader;
 
-    public PlayerIdleToRiseWeaponTransition(PlayerTargetHolder playerTargetHolder, PlayerWeaponMagazineReloader playerWeaponMagazineReloader)
+    public IdleToRiseWeaponTransition(IStateMachineFactory stateMachineFactory, PlayerTargetHolder playerTargetHolder, PlayerWeaponMagazineReloader playerWeaponMagazineReloader) : base(stateMachineFactory)
     {
       _playerTargetHolder = playerTargetHolder;
       _playerWeaponMagazineReloader = playerWeaponMagazineReloader;

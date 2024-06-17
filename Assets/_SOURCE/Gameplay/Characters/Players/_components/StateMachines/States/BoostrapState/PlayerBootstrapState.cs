@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
+using Gameplay.Characters.FiniteStateMachines;
 
 namespace Gameplay.Characters.Players.StateMachines.States.BoostrapState
 {
-  public class PlayerBootstrapState : PlayerState
+  public class PlayerBootstrapState : State
   {
-    public PlayerBootstrapState(List<PlayerTransition> transitions) : base(transitions)
+    public PlayerBootstrapState(List<Transition> transitions) : base(transitions)
     {
     }
 

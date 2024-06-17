@@ -1,13 +1,13 @@
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
+using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players.StateMachines.States.IdleState;
 
 namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
 {
-  public class PlayerRiseWeaponToIdleTransition : PlayerTransition
+  public class RiseWeaponToIdleTransition : Transition
   {
     private readonly PlayerTargetHolder _playerTargetHolder;
 
-    public PlayerRiseWeaponToIdleTransition(PlayerTargetHolder playerTargetHolder)
+    public RiseWeaponToIdleTransition(IStateMachineFactory stateMachineFactory, PlayerTargetHolder playerTargetHolder) : base(stateMachineFactory)
     {
       _playerTargetHolder = playerTargetHolder;
     }

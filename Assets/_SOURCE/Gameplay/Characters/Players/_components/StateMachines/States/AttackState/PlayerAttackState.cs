@@ -1,15 +1,15 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
+using Gameplay.Characters.FiniteStateMachines;
 
 namespace Gameplay.Characters.Players.StateMachines.States.AttackState
 {
-  public class PlayerAttackState : PlayerState
+  public class PlayerAttackState : State
   {
     private readonly PlayerWeaponAttacker _playerWeaponAttacker;
     private readonly PlayerTargetHolder _targetHolder;
     private readonly PlayerRotator _rotator;
 
-    public PlayerAttackState(List<PlayerTransition> transitions, PlayerWeaponAttacker playerWeaponAttacker,
+    public PlayerAttackState(List<Transition> transitions, PlayerWeaponAttacker playerWeaponAttacker,
       PlayerTargetHolder targetHolder, PlayerRotator rotator)
       : base(transitions)
     {

@@ -1,15 +1,15 @@
 using System.Collections.Generic;
+using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.StateMachines.Infrastructure;
 
 namespace Gameplay.Characters.Players.StateMachines.States.LowWeaponState
 {
-  public class PlayerLowWeaponState : PlayerState
+  public class PlayerLowWeaponState : State
   {
     private readonly PlayerAnimator _playerAnimator;
     private readonly PlayerWeaponLowerer _playerWeaponLowerer;
 
-    public PlayerLowWeaponState(List<PlayerTransition> transitions, PlayerAnimator playerAnimator, 
+    public PlayerLowWeaponState(List<Transition> transitions, PlayerAnimator playerAnimator, 
       PlayerWeaponLowerer playerWeaponLowerer) : base(transitions)
     {
       _playerAnimator = playerAnimator;
