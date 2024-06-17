@@ -2,13 +2,13 @@ using Gameplay.Characters.FiniteStateMachines;
 
 namespace Gameplay.Characters.Players.StateMachines.AnyStateTransitions
 {
-  public class AnyStateToDieTransition : Transition
+  public class PlayerAnyStateToDieTransition : Transition
   {
     public override void Tick()
     {
     }
 
-    public AnyStateToDieTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
+    public PlayerAnyStateToDieTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
     {
     }
   }

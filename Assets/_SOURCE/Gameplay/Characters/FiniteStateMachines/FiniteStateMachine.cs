@@ -30,12 +30,12 @@ namespace Gameplay.Characters.FiniteStateMachines
       _anyStateTransitions = new Dictionary<Type, Transition>
       {
         {
-          typeof(AnyStateToMoveTransition),
-          zenjectFactory.InstantiateNative<AnyStateToMoveTransition>()
+          typeof(PlayerAnyStateToMoveTransition),
+          zenjectFactory.InstantiateNative<PlayerAnyStateToMoveTransition>()
         },
         {
-          typeof(AnyStateToDieTransition),
-          zenjectFactory.InstantiateNative<AnyStateToDieTransition>()
+          typeof(PlayerAnyStateToDieTransition),
+          zenjectFactory.InstantiateNative<PlayerAnyStateToDieTransition>()
         },
       };
 

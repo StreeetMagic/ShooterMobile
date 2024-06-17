@@ -1,6 +1,4 @@
 using System;
-using Gameplay.Characters.Enemies.StateMachines;
-using Gameplay.Characters.Enemies.StateMachines.States.Switchers;
 using Gameplay.CorpseRemovers;
 using Gameplay.RewardServices;
 using Gameplay.Spawners;
@@ -17,7 +15,6 @@ namespace Gameplay.Characters.Enemies
     [Inject] private HitStatus _hitStatus;
     [Inject] private EnemyConfig _config;
     [Inject] private EnemySpawner _spawner;
-    [Inject] private EnemyStateMachine _enemyStateMachine;
     [Inject] private EnemyAssistCall _assistCall;
     
     public event Action<EnemyConfig, IHealth> Died;
@@ -71,7 +68,8 @@ namespace Gameplay.Characters.Enemies
 
       IsDead = true;
       
-      _enemyStateMachine.Enter<EnemyChooseCondiditionState>();
+      throw new NotImplementedException();
+      //_oldEnemyStateMachine.Enter<EnemyChooseCondiditionState>();
 
       Died?.Invoke(_config, this);
     }

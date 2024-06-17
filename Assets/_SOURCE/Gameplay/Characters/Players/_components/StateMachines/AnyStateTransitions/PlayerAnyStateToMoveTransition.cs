@@ -5,12 +5,12 @@ using Inputs;
 
 namespace Gameplay.Characters.Players.StateMachines.AnyStateTransitions
 {
-  public class AnyStateToMoveTransition : Transition
+  public class PlayerAnyStateToMoveTransition : Transition
   {
     private readonly InputService _inputService;
     private readonly PlayerAnimator _playerAnimator;
 
-    public AnyStateToMoveTransition(InputService inputService, PlayerAnimator playerAnimator, IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
+    public PlayerAnyStateToMoveTransition(InputService inputService, PlayerAnimator playerAnimator, IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
     {
       _inputService = inputService;
       _playerAnimator = playerAnimator;

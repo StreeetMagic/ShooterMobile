@@ -1,17 +1,13 @@
 using Gameplay.Characters.Enemies;
-using Gameplay.Characters.Enemies.StateMachines;
-using Gameplay.Characters.Enemies.StateMachines.States.Switchers;
 
 namespace Gameplay.Characters
 {
   public class HitStatus
   {
-    private readonly EnemyStateMachine _enemyStateMachine;
     private readonly EnemyReturnToSpawnStatus _enemyReturnToSpawnStatus;
 
-    public HitStatus(EnemyStateMachine enemyStateMachine, EnemyReturnToSpawnStatus enemyReturnToSpawnStatus)
+    public HitStatus(EnemyReturnToSpawnStatus enemyReturnToSpawnStatus)
     {
-      _enemyStateMachine = enemyStateMachine;
       _enemyReturnToSpawnStatus = enemyReturnToSpawnStatus;
     }
 
@@ -21,11 +17,8 @@ namespace Gameplay.Characters
     {
       if (IsHit)
         return;
-      
+
       IsHit = true;
-      
-      if (_enemyReturnToSpawnStatus.IsReturn == false)
-        _enemyStateMachine.Enter<EnemyChooseCondiditionState>();
     }
 
     public void Disable()
