@@ -16,6 +16,9 @@ namespace Gameplay.Characters.Enemies
 
     [Tooltip("Скорость бега при преследовании игрока и возвращении на место")]
     public float RunSpeed = 10f;
+
+    [Tooltip("Время простоя в состоянии покоя")]
+    public float IdleDuration = .5f;
     
     [Tooltip("Максимальное расстояние преследования игрока от центра спаунера")]
     public float PatrolingRadius = 20;
