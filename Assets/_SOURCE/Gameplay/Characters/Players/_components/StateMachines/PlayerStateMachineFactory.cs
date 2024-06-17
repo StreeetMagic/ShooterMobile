@@ -9,15 +9,15 @@ using Gameplay.Characters.Players.StateMachines.States.InterractState;
 using Gameplay.Characters.Players.StateMachines.States.LowWeaponState;
 using Gameplay.Characters.Players.StateMachines.States.MoveState;
 using Gameplay.Characters.Players.StateMachines.States.RiseWeaponState;
-using Infrastructure.ZenjectFactories.GameobjectContext;
+using Infrastructure.ZenjectFactories;
 
 namespace Gameplay.Characters.Players.StateMachines
 {
   public class PlayerStateMachineFactory : IStateMachineFactory
   {
-    private readonly PlayerZenjectFactory _factory;
+    private readonly IGameObjectZenjectFactory _factory;
 
-    public PlayerStateMachineFactory(PlayerZenjectFactory factory)
+    public PlayerStateMachineFactory(IGameObjectZenjectFactory factory)
     {
       _factory = factory;
     }

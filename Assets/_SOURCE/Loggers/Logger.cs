@@ -39,16 +39,25 @@ namespace Loggers
 
     public void LogTransition(string message)
     {
+      if (message.Contains("Player"))
+        return;
+      
       Log(message);
     }
 
     public void LogStateEnter(string message)
     {
+      if (message.Contains("Player"))
+        return;
+      
       Log(message);
     }
 
     public void LogStateExit(string message)
     {
+      if (message.Contains("Player"))
+        return;
+      
       Log(message);
     }
   }

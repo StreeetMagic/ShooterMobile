@@ -4,7 +4,7 @@ using Zenject.Source.Main;
 
 namespace Infrastructure.ZenjectFactories
 {
-  public abstract class ZenjectFactory
+  public abstract class ZenjectFactory : IZenjectFactory
   {
     private readonly AssetProvider _assetProvider;
     private readonly IInstantiator _instantiator;

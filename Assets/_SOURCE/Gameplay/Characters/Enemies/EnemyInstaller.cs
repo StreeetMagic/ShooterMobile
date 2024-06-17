@@ -4,6 +4,7 @@ using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnPoints;
+using Infrastructure.ZenjectFactories;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
 using UnityEngine.AI;
@@ -28,7 +29,7 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();
       Container.Bind<Transform>().FromInstance(transform).AsSingle().NonLazy();
 
-      Container.Bind<EnemyZenjectFactory>().AsSingle().NonLazy();
+      Container.Bind<IGameObjectZenjectFactory>().To<EnemyZenjectFactory>().AsSingle().NonLazy();
 
       Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
       Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();

@@ -6,6 +6,7 @@ using Gameplay.Characters.Players.StateMachines;
 using Gameplay.Characters.Players.TargetLocators;
 using Gameplay.Weapons;
 using Infrastructure.SaveLoadServices;
+using Infrastructure.ZenjectFactories;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
 using Zenject;
@@ -64,11 +65,11 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerWeaponAttacker>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponMeshSwitcher>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponShootingPoint>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<PlayerZenjectFactory>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<FiniteStateMachine>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponAmmo>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponMagazineReloader>().AsSingle().NonLazy();
      
+      Container.Bind<IGameObjectZenjectFactory>().To<PlayerZenjectFactory>().AsSingle().NonLazy();
       Container.Bind<IStateMachineFactory>().To<PlayerStateMachineFactory>().AsSingle().NonLazy();
 
       Transform = Container.Resolve<Transform>();

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Gameplay.Characters.Players.StateMachines.AnyStateTransitions;
 using Gameplay.Characters.Players.StateMachines.States.BoostrapState;
+using Infrastructure.ZenjectFactories;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 using Loggers;
 using Zenject;
@@ -16,12 +18,12 @@ namespace Gameplay.Characters.FiniteStateMachines
 
     private State _activeState;
 
-    public FiniteStateMachine(PlayerZenjectFactory zenjectFactory, IStateMachineFactory stateMachineFactory)
+    public FiniteStateMachine(IGameObjectZenjectFactory zenjectFactory, IStateMachineFactory stateMachineFactory)
     {
       _ownerName = stateMachineFactory.GetName();
       _states = stateMachineFactory.GetStates();
 
-      _activeState = _states[typeof(PlayerBootstrapState)];
+      _activeState = _states.Values.First();
       EnterActiveState();
 
       foreach (State state in _states.Values)

@@ -1,15 +1,32 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.StateMachines;
-using Gameplay.Characters.Enemies.StateMachines._old.States.Switchers;
+using Gameplay.Characters.Enemies.StateMachines.States.Alert;
+using Gameplay.Characters.Enemies.StateMachines.States.Bootstrap;
+using Gameplay.Characters.Enemies.StateMachines.States.Chase;
+using Gameplay.Characters.Enemies.StateMachines.States.Die;
+using Gameplay.Characters.Enemies.StateMachines.States.Idle;
+using Gameplay.Characters.Enemies.StateMachines.States.LowWeapon;
+using Gameplay.Characters.Enemies.StateMachines.States.MeleeAttack;
+using Gameplay.Characters.Enemies.StateMachines.States.Patrol;
+using Gameplay.Characters.Enemies.StateMachines.States.RaiseWeapon;
+using Gameplay.Characters.Enemies.StateMachines.States.Reload;
+using Gameplay.Characters.Enemies.StateMachines.States.Return;
+using Gameplay.Characters.Enemies.StateMachines.States.Shoot;
+using Gameplay.Characters.Enemies.StateMachines.States.ThrowGrenade;
 using Gameplay.Characters.FiniteStateMachines;
+using Infrastructure.ZenjectFactories;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 
-namespace Gameplay.Characters.Enemies.TargetTriggers
+namespace Gameplay.Characters.Enemies.StateMachines
 {
   public class EnemyStateMachineFactory : IStateMachineFactory
   {
-    private readonly EnemyZenjectFactory _factory;
+    private readonly IGameObjectZenjectFactory _factory;
+
+    public EnemyStateMachineFactory(IGameObjectZenjectFactory factory)
+    {
+      _factory = factory;
+    }
 
     public string GetName() =>
       "Enemy";
@@ -167,252 +184,6 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
           )
         },
       };
-    }
-  }
-
-  public class EnemyThrowGrenadeToChaseTransition : Transition
-  {
-    public EnemyThrowGrenadeToChaseTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyThrowGrenadeState : State
-  {
-    public EnemyThrowGrenadeState(List<Transition> transitions) : base(transitions)
-    {
-    }
-
-    public override void Enter()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override void Exit()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyMeleeAttackToChaseTransition : Transition
-  {
-    public EnemyMeleeAttackToChaseTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyMeleeAttackState : State
-  {
-    public EnemyMeleeAttackState(List<Transition> transitions) : base(transitions)
-    {
-    }
-
-    public override void Enter()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override void Exit()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyPatrolToAlertTransition : Transition
-  {
-    public EnemyPatrolToAlertTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyPatrolToIdleTransition : Transition
-  {
-    public EnemyPatrolToIdleTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyPatrolState : State
-  {
-    public EnemyPatrolState(List<Transition> transitions) : base(transitions)
-    {
-    }
-
-    public override void Enter()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override void Exit()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyChaseToMeleeAttackTransition : Transition
-  {
-    public EnemyChaseToMeleeAttackTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyChaseToThrowGrenadeTransition : Transition
-  {
-    public EnemyChaseToThrowGrenadeTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyChaseToRaiseWeaponTransition : Transition
-  {
-    public EnemyChaseToRaiseWeaponTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyChaseToReturnTransition : Transition
-  {
-    public EnemyChaseToReturnTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyChaseState : State
-  {
-    public EnemyChaseState(List<Transition> transitions) : base(transitions)
-    {
-    }
-
-    public override void Enter()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override void Exit()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyAlertToChaseTransition : Transition
-  {
-    public EnemyAlertToChaseTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyAlertState : State
-  {
-    public EnemyAlertState(List<Transition> transitions) : base(transitions)
-    {
-    }
-
-    public override void Enter()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override void Exit()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyIdleToAlertTransition : Transition
-  {
-    public EnemyIdleToAlertTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyIdleToPatrolTransition : Transition
-  {
-    public EnemyIdleToPatrolTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
-  public class EnemyIdleState : State
-  {
-    public EnemyIdleState(List<Transition> transitions) : base(transitions)
-    {
-    }
-
-    public override void Enter()
-    {
-      throw new NotImplementedException();
-    }
-
-    public override void Exit()
-    {
-      throw new NotImplementedException();
-    }
-  }
-  
-  public class EnemyReloadToChaseTransition : Transition
-  {
-    public EnemyReloadToChaseTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
-    public override void Tick()
-    {
-      throw new NotImplementedException();
     }
   }
 }
