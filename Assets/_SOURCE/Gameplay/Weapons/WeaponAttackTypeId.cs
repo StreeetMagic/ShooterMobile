@@ -8,6 +8,5 @@ namespace Gameplay.Weapons
     Auto = 3,
     Melee = 4,
     Throw = 5,
-    SingleShotAndRoundLoad = 6,
   }
 }

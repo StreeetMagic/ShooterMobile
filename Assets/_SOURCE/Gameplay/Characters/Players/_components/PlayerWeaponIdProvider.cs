@@ -66,7 +66,7 @@ namespace Gameplay.Characters.Players
 
     public void WriteProgress(ProjectProgress projectProgress)
     {
-      //projectProgress.CurrentPlayerWeaponId = WeaponTypeId;
+      projectProgress.CurrentPlayerWeaponId = CurrentId.Value; 
     }
   }
 }
