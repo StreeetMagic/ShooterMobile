@@ -5,13 +5,13 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerRotator
   {
-    private readonly ConfigService _static;
+    private readonly ConfigProvider _static;
     private readonly PlayerProvider _playerProvider;
 
-    public PlayerRotator(ConfigService configService, PlayerProvider playerProvider
+    public PlayerRotator(ConfigProvider configProvider, PlayerProvider playerProvider
     )
     {
-      _static = configService;
+      _static = configProvider;
       _playerProvider = playerProvider;
     }
 

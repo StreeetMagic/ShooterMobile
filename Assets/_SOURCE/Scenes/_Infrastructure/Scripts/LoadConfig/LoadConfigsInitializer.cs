@@ -12,19 +12,19 @@ namespace Scenes._Infrastructure.Scripts.LoadConfig
   {
     [Inject] private SceneLoader _sceneLoader;
 
-    [Inject] private ConfigService _configService;
-    [Inject] private ArtConfigService _artConfigService;
+    [Inject] private ConfigProvider _configProvider;
+    [Inject] private ArtConfigProvider _artConfigProvider;
 
-    [Inject] private VisualEffectService _visualEffectService;
-    [Inject] private ParticleImageService _particleImageService;
+    [Inject] private VisualEffectProvider _visualEffectProvider;
+    [Inject] private ParticleImageProvider _particleImageProvider;
 
     public void Initialize()
     {
-      _configService.LoadConfigs();
-      _artConfigService.LoadConfigs();
+      _configProvider.LoadConfigs();
+      _artConfigProvider.LoadConfigs();
 
-      _visualEffectService.LoadPrefabs();
-      _particleImageService.LoadPrefabs();
+      _visualEffectProvider.LoadPrefabs();
+      _particleImageProvider.LoadPrefabs();
 
       _sceneLoader.Load(SceneId.LoadProgress);
     }

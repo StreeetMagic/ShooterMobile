@@ -10,18 +10,18 @@ namespace Gameplay.Characters.Players
   {
     private readonly CharacterController _characterController;
     private readonly PlayerStatsProvider _playerStatsProvider;
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
 
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
 
     public PlayerMover(CharacterController characterController,
       PlayerStatsProvider playerStatsProvider,
-      ConfigService configService)
+      ConfigProvider configProvider)
     {
       _characterController = characterController;
       _playerStatsProvider = playerStatsProvider;
-      _configService = configService;
+      _configProvider = configProvider;
     }
 
     public void Move(Vector3 directionXYZ)
@@ -63,7 +63,7 @@ namespace Gameplay.Characters.Players
 
     private void ApplyGravity()
     {
-      _gravitySpeed += Physics.gravity * _configService.PlayerConfig.GravityScale * Time.deltaTime;
+      _gravitySpeed += Physics.gravity * _configProvider.PlayerConfig.GravityScale * Time.deltaTime;
     }
   }
 }

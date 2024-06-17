@@ -11,11 +11,11 @@ namespace Infrastructure.PersistentProgresses
 {
   public class PersistentProgressService
   {
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
 
-    public PersistentProgressService(ConfigService configService)
+    public PersistentProgressService(ConfigProvider configProvider)
     {
-      _configService = configService;
+      _configProvider = configProvider;
     }
 
     public ProjectProgress ProjectProgress { get; private set; }
@@ -27,15 +27,15 @@ namespace Infrastructure.PersistentProgresses
 
     public void SetDefault()
     {
-      DefaultProjectProgressConfig defConfig = _configService.DefaultProjectProgressConfig;
-      PlayerConfig playerConfig = _configService.PlayerConfig;
+      DefaultProjectProgressConfig defConfig = _configProvider.DefaultProjectProgressConfig;
+      PlayerConfig playerConfig = _configProvider.PlayerConfig;
 
       ProjectProgress = new ProjectProgress(defConfig.MoneyInBank, defConfig.EggsInBank, defConfig.Expierience, defConfig.MusicMute, playerConfig.StartWeapons[0],
         Upgrades(), Quests(), playerConfig.StartWeapons);
     }
 
     private List<UpgradeProgress> Upgrades() =>
-      _configService
+      _configProvider
         .UpgradeConfigs
         .Select(upgrade => new UpgradeProgress(upgrade.Key, 0))
         .ToList();
@@ -45,7 +45,7 @@ namespace Infrastructure.PersistentProgresses
       var questProgresses = new List<QuestProgress>();
 
       Dictionary<QuestId, QuestConfig> questConfigs =
-        _configService
+        _configProvider
           .QuestConfigs;
 
       foreach (KeyValuePair<QuestId, QuestConfig> questConfig in questConfigs)

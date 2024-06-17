@@ -11,9 +11,9 @@ namespace UserInterface.HeadsUpDisplays.Bars.ExpirienceBars
     public Image Image;
 
     [Inject] private ExpierienceStorage _expierienceStorage;
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
-    private ExpirienceConfig Config => _configService.ExpirienceConfig;
+    private ExpirienceConfig Config => _configProvider.ExpirienceConfig;
 
     private void Update()
     {

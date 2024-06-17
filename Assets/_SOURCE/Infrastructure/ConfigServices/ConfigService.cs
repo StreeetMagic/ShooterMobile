@@ -17,7 +17,7 @@ using Infrastructure.Projects;
 
 namespace Infrastructure.ConfigServices
 {
-  public class ConfigService
+  public class ConfigProvider
   {
     private readonly ProjectData _projectData;
     private readonly AssetProvider _assetProvider;
@@ -27,7 +27,7 @@ namespace Infrastructure.ConfigServices
     private Dictionary<WeaponTypeId, WeaponConfig> _weaponConfigs;
     private Dictionary<GrenadeTypeId, GrenadeConfig> _grenadeConfigs;
 
-    public ConfigService(ProjectData projectData, AssetProvider assetProvider)
+    public ConfigProvider(ProjectData projectData, AssetProvider assetProvider)
     {
       _projectData = projectData;
       _assetProvider = assetProvider;

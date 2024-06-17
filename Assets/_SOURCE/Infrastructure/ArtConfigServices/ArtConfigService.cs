@@ -13,11 +13,11 @@ using Infrastructure.AssetProviders;
 
 namespace Infrastructure.ArtConfigServices
 {
-  public class ArtConfigService
+  public class ArtConfigProvider
   {
     private readonly AssetProvider _assetProvider;
 
-    public ArtConfigService(AssetProvider assetProvider)
+    public ArtConfigProvider(AssetProvider assetProvider)
     {
       _assetProvider = assetProvider;
     }

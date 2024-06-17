@@ -11,15 +11,15 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
   {
     private GameLoopZenjectFactory _factory;
     private HeadsUpDisplayProvider _headsUpDisplayProvider;
-    private ArtConfigService _artConfigService;
+    private ArtConfigProvider _artConfigProvider;
 
     [Inject]
     public void Construct(GameLoopZenjectFactory factory,
-      HeadsUpDisplayProvider headsUpDisplayProvider, ArtConfigService configService)
+      HeadsUpDisplayProvider headsUpDisplayProvider, ArtConfigProvider configProvider)
     {
       _factory = factory;
       _headsUpDisplayProvider = headsUpDisplayProvider;
-      _artConfigService = configService;
+      _artConfigProvider = configProvider;
     }
 
     private LootSlotsUpdater LootSlotsUpdater => _headsUpDisplayProvider.LootSlotsUpdater;
@@ -29,7 +29,7 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
       var slot = _factory.InstantiateMono(prefab, parent);
       LootSlotsUpdater.LootSlots.Add(slot);
 
-      Sprite icon = _artConfigService.GetLootContentSetup(id).Sprite;
+      Sprite icon = _artConfigProvider.GetLootContentSetup(id).Sprite;
 
       slot.Init(icon, lootValue);
     }

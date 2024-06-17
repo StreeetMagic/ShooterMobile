@@ -6,13 +6,13 @@ using Random = UnityEngine.Random;
 
 namespace Infrastructure.VisualEffects.ParticleImages
 {
-  public class ParticleImageService
+  public class ParticleImageProvider
   {
     private readonly AssetProvider _assetProvider;
     
     private Dictionary<ParticleImageId, List<ParticleImage>> _prefabs;
 
-    public ParticleImageService(AssetProvider assetProvider)
+    public ParticleImageProvider(AssetProvider assetProvider)
     {
       _assetProvider = assetProvider;
     }

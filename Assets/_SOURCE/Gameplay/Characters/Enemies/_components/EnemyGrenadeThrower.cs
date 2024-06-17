@@ -12,19 +12,19 @@ namespace Gameplay.Characters.Enemies
   {
     private readonly PlayerProvider _playerProvider;
     private readonly GameLoopZenjectFactory _gameLoopZenjectFactory;
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
     private readonly EnemyConfig _config;
     private readonly Enemy _enemy;
 
     private float _grenadeCooldownLeft;
     private int _grenadesLeft;
 
-    public EnemyGrenadeThrower(PlayerProvider playerProvider, GameLoopZenjectFactory gameLoopZenjectFactory, ConfigService configService,
+    public EnemyGrenadeThrower(PlayerProvider playerProvider, GameLoopZenjectFactory gameLoopZenjectFactory, ConfigProvider configProvider,
       EnemyConfig config, Enemy enemy)
     {
       _playerProvider = playerProvider;
       _gameLoopZenjectFactory = gameLoopZenjectFactory;
-      _configService = configService;
+      _configProvider = configProvider;
       _config = config;
       _enemy = enemy;
     }
@@ -63,10 +63,10 @@ namespace Gameplay.Characters.Enemies
       Vector3 newPosition = new Vector3(targetPosition.x + xOffset, targetPosition.y, targetPosition.z + zOffset);
 
       var mover = grenade.GetComponent<GrenadeMover>();
-      mover.Init(_configService.GetGrenadeConfig(grenadeTypeId), _enemy.transform.position, newPosition);
+      mover.Init(_configProvider.GetGrenadeConfig(grenadeTypeId), _enemy.transform.position, newPosition);
 
       var detonator = grenade.GetComponent<GrenadeDetonator>();
-      detonator.Init(_configService.GetGrenadeConfig(grenadeTypeId));
+      detonator.Init(_configProvider.GetGrenadeConfig(grenadeTypeId));
 
       mover.Throw();
     }

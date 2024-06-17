@@ -9,9 +9,9 @@ namespace Gameplay.Projectiles.Movers
   {
     private Rigidbody _rigidbody;
 
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
-    private float BulletSpeed => _configService.PlayerConfig.BulletSpeed;
+    private float BulletSpeed => _configProvider.PlayerConfig.BulletSpeed;
 
     private void Start()
     {

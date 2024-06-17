@@ -13,7 +13,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows
 
     private readonly List<GameObject> _otherStuff = new();
 
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
     [Inject] private UpgradeCellFactory _upgradeCellFactory;
     [Inject] private HeadsUpDisplayProvider _headsUpDisplayProvider;
 
@@ -45,9 +45,9 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows
 
     private void CreateUpgradeCells()
     {
-      int upgradesCount = _configService.UpgradeConfigs.Count;
+      int upgradesCount = _configProvider.UpgradeConfigs.Count;
 
-      List<StatId> keys = new List<StatId>(_configService.UpgradeConfigs.Keys);
+      List<StatId> keys = new List<StatId>(_configProvider.UpgradeConfigs.Keys);
 
       for (int i = 0; i < upgradesCount; i++)
         _upgradeCellFactory.Create(keys[i], _container);

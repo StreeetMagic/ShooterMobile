@@ -9,7 +9,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Current
   public class CurrentWeaponText : MonoBehaviour
   {
     [Inject] private PlayerProvider _playerProvider;
-    [Inject] private ArtConfigService _artConfigService;
+    [Inject] private ArtConfigProvider _artConfigProvider;
 
     private TextMeshProUGUI _text;
 
@@ -20,7 +20,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Current
 
     private void Update()
     {
-      _text.text = _artConfigService.GetWeaponContentSetup(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Name;
+      _text.text = _artConfigProvider.GetWeaponContentSetup(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Name;
     }
   }
 }

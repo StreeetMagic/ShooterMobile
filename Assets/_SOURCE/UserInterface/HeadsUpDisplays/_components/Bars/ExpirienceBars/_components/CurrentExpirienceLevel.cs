@@ -11,16 +11,16 @@ namespace UserInterface.HeadsUpDisplays.Bars.ExpirienceBars
     public TextMeshProUGUI Text;
 
     private ExpierienceStorage _expierienceStorage;
-    private ConfigService _configService;
+    private ConfigProvider _configProvider;
 
     [Inject]
-    public void Construct(ExpierienceStorage expierienceStorage, ConfigService configService)
+    public void Construct(ExpierienceStorage expierienceStorage, ConfigProvider configProvider)
     {
       _expierienceStorage = expierienceStorage;
-      _configService = configService;
+      _configProvider = configProvider;
     }
   
-    private ExpirienceConfig Config => _configService.ExpirienceConfig;
+    private ExpirienceConfig Config => _configProvider.ExpirienceConfig;
 
     private void OnEnable()
     {

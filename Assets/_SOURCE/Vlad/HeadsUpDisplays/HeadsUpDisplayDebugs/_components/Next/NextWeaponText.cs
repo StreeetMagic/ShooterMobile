@@ -10,7 +10,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Next
   public class NextWeaponText : MonoBehaviour
   {
     [Inject] private PlayerProvider _playerProvider;
-    [Inject] private ArtConfigService _artConfigService;
+    [Inject] private ArtConfigProvider _artConfigProvider;
 
     private TextMeshProUGUI _text;
 
@@ -26,7 +26,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Next
       if (weaponTypeId == WeaponTypeId.Unknown)
         _text.text = "";
       else
-        _text.text = _artConfigService.GetWeaponContentSetup(weaponTypeId).Name;
+        _text.text = _artConfigProvider.GetWeaponContentSetup(weaponTypeId).Name;
     }
   }
 }

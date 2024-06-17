@@ -5,11 +5,11 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Idle
 {
   public class EnemyIdleToPatrolTransition : Transition
   {
-    private ConfigService _configService;
+    private ConfigProvider _configProvider;
 
-    public EnemyIdleToPatrolTransition(ConfigService configService)
+    public EnemyIdleToPatrolTransition(ConfigProvider configProvider)
     {
-      _configService = configService;
+      _configProvider = configProvider;
     }
 
     public override void Tick()

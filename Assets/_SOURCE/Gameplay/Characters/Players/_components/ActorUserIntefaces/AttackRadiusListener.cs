@@ -10,7 +10,7 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces
     private RectTransform _rectTransform;
 
     [Inject] private PlayerWeaponIdProvider _playerWeaponIdProvider;
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
     private void Awake()
     {
@@ -36,6 +36,6 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces
     }
 
     private float FireRangeValue() =>
-      _configService.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).FireRange;
+      _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).FireRange;
   }
 }

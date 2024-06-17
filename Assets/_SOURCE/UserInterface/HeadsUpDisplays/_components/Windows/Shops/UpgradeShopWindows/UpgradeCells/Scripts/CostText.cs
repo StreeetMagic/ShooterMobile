@@ -12,7 +12,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
     public TextMeshProUGUI CostTextUI;
 
     [Inject] private UpgradeService _upgradeService;
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
     private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
     private Upgrade Upgrade => _upgradeService.GetUpgrade(Config.Id);
@@ -47,14 +47,14 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
     {
       if (Upgrade.IsMaxLevel)
       {
-        return _configService
+        return _configProvider
           .GetUpgradeConfig(Config.Id)
           .Values[nextLevel - 1]
           .Cost;
       }
       else
       {
-        return _configService
+        return _configProvider
           .GetUpgradeConfig(Config.Id)
           .Values[nextLevel]
           .Cost;

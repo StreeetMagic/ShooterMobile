@@ -6,13 +6,13 @@ using Random = UnityEngine.Random;
 
 namespace Infrastructure.VisualEffects
 {
-  public class VisualEffectService
+  public class VisualEffectProvider
   {
     private readonly AssetProvider _assetProvider;
 
     private Dictionary<VisualEffectId, List<ParticleSystem>> _prefabs;
 
-    public VisualEffectService(AssetProvider assetProvider)
+    public VisualEffectProvider(AssetProvider assetProvider)
     {
       _assetProvider = assetProvider;
     }

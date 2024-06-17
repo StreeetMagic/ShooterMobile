@@ -10,7 +10,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Prev
   public class PrevWeaponIcon : MonoBehaviour
   {
     [Inject] private PlayerProvider _playerProvider;
-    [Inject] private ArtConfigService _artConfigService;
+    [Inject] private ArtConfigProvider _artConfigProvider;
 
     private Image _icon;
 
@@ -26,7 +26,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Prev
       if (weaponTypeId == WeaponTypeId.Unknown)
         _icon.sprite = null;
       else
-        _icon.sprite = _artConfigService.GetWeaponContentSetup(weaponTypeId).Icon;
+        _icon.sprite = _artConfigProvider.GetWeaponContentSetup(weaponTypeId).Icon;
     }
   }
 }

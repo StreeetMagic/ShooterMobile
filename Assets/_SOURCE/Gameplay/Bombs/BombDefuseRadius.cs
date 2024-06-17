@@ -9,7 +9,7 @@ namespace Gameplay.Bombs
   {
     private RectTransform _rectTransform;
     
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ namespace Gameplay.Bombs
 
     private void OnEnable()
     {
-      float value = _configService.PlayerConfig.BombDefuseRadius * 2f;
+      float value = _configProvider.PlayerConfig.BombDefuseRadius * 2f;
 
       _rectTransform.localScale = new Vector3(value, value, value);
     }

@@ -11,15 +11,15 @@ namespace Gameplay.Characters.Players
   public class PlayerStatsProvider
   {
     private readonly UpgradeService _upgradeService;
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
 
     private readonly Dictionary<StatId, ReactiveProperty<float>> _upgradeStats = new();
     private readonly Dictionary<StatId, ReactiveProperty<float>> _questStats = new();
 
-    public PlayerStatsProvider(UpgradeService upgradeService, ConfigService configService)
+    public PlayerStatsProvider(UpgradeService upgradeService, ConfigProvider configProvider)
     {
       _upgradeService = upgradeService;
-      _configService = configService;
+      _configProvider = configProvider;
     }
 
     public void Start()
@@ -50,7 +50,7 @@ namespace Gameplay.Characters.Players
     {
       float value = 0;
 
-      value += _configService.PlayerConfig.Stats.First(x => x.StatId == id).Value;
+      value += _configProvider.PlayerConfig.Stats.First(x => x.StatId == id).Value;
       
       if (_upgradeStats.TryGetValue(id, out ReactiveProperty<float> stat))
         value += stat.Value;

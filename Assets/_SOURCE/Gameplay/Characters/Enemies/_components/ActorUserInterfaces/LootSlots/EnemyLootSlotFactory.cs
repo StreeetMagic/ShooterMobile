@@ -13,21 +13,21 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
   {
     private readonly AssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _factory;
-    private readonly ArtConfigService _artConfigService;
-    private readonly ConfigService _configService;
+    private readonly ArtConfigProvider _artConfigProvider;
+    private readonly ConfigProvider _configProvider;
 
-    public EnemyLootSlotFactory(AssetProvider assetProvider, GameLoopZenjectFactory factory, ArtConfigService artConfigService, ConfigService configService)
+    public EnemyLootSlotFactory(AssetProvider assetProvider, GameLoopZenjectFactory factory, ArtConfigProvider artConfigProvider, ConfigProvider configProvider)
     {
       _assetProvider = assetProvider;
       _factory = factory;
-      _configService = configService;
-      _artConfigService = artConfigService;
+      _configProvider = configProvider;
+      _artConfigProvider = artConfigProvider;
     }
 
     public void Create(Transform parent, EnemyTypeId id)
     {
       var prefab = _assetProvider.Get<EnemyLootSlot>();
-      EnemyConfig enemyConfig = _configService.GetEnemyConfig(id);
+      EnemyConfig enemyConfig = _configProvider.GetEnemyConfig(id);
 
       Dictionary<CurrencyId, int> lootData = new();
 
@@ -35,7 +35,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
 
       foreach (LootDrop item in list)
       {
-        List<Loot> loots = _configService.GetLootConfig(item.Id).Loots;
+        List<Loot> loots = _configProvider.GetLootConfig(item.Id).Loots;
         int itemLevel = item.Level - 1;
 
         int count = loots[itemLevel].Value;
@@ -45,7 +45,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
       foreach (KeyValuePair<CurrencyId, int> item in lootData)
       {
         EnemyLootSlot slot = _factory.InstantiateMono(prefab, parent);
-        Sprite sprite = _artConfigService.GetLootContentSetup(item.Key).Sprite;
+        Sprite sprite = _artConfigProvider.GetLootContentSetup(item.Key).Sprite;
 
         slot.Init(sprite, item.Value);
       }

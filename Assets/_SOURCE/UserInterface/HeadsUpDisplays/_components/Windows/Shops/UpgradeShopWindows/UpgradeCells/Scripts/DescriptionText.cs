@@ -15,14 +15,14 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
     public TextMeshProUGUI DescriptionTextUI;
 
     [Inject] private UpgradeService _upgradeService;
-    [Inject] private ConfigService _configService;
-    [Inject] private ArtConfigService _artConfigService;
+    [Inject] private ConfigProvider _configProvider;
+    [Inject] private ArtConfigProvider _artConfigProvider;
     [Inject] private PlayerStatsProvider _playerStatsProvider;
 
     private UpgradeConfig Config => UpgradeCell.UpgradeConfig;
     private StatId Id => Config.Id;
     private Upgrade Upgrade => _upgradeService.GetUpgrade(Id);
-    private UpgradeContentSetup UpgradeContentSetup => _artConfigService.GetUpgradeContentSetup(Id);
+    private UpgradeContentSetup UpgradeContentSetup => _artConfigProvider.GetUpgradeContentSetup(Id);
 
     private void Start()
     {
@@ -55,7 +55,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.Upgrade
           .GetStat(Id);
 
       int nextValue =
-        _configService
+        _configProvider
           .GetUpgradeConfig(Config.Id)
           .Values[currentLevel + 1]
           .Value;

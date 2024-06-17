@@ -10,14 +10,14 @@ namespace Gameplay.Characters.Players
   public class PlayerWeaponAmmo : IInitializable, IDisposable
   {
     private readonly WeaponStorage _weaponStorage;
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
 
     private readonly Dictionary<WeaponTypeId, ReactiveProperty<int>> _ammo = new();
 
-    public PlayerWeaponAmmo(WeaponStorage weaponStorage, ConfigService configService)
+    public PlayerWeaponAmmo(WeaponStorage weaponStorage, ConfigProvider configProvider)
     {
       _weaponStorage = weaponStorage;
-      _configService = configService;
+      _configProvider = configProvider;
     }
 
     public ReactiveProperty<int> GetAmmo(WeaponTypeId weaponTypeId)
@@ -46,10 +46,10 @@ namespace Gameplay.Characters.Players
 
     public void Reload(WeaponTypeId weaponTypeId)
     {
-      if (_ammo[weaponTypeId].Value == _configService.GetWeaponConfig(weaponTypeId).MagazineCapacity)
+      if (_ammo[weaponTypeId].Value == _configProvider.GetWeaponConfig(weaponTypeId).MagazineCapacity)
         return;
 
-      _ammo[weaponTypeId].Value = _configService.GetWeaponConfig(weaponTypeId).MagazineCapacity;
+      _ammo[weaponTypeId].Value = _configProvider.GetWeaponConfig(weaponTypeId).MagazineCapacity;
     }
 
     public void Dispose()
@@ -64,7 +64,7 @@ namespace Gameplay.Characters.Players
         if (_ammo.ContainsKey(weapon))
           continue;
 
-        _ammo.Add(weapon, new ReactiveProperty<int>(_configService.GetWeaponConfig(weapon).MagazineCapacity));
+        _ammo.Add(weapon, new ReactiveProperty<int>(_configProvider.GetWeaponConfig(weapon).MagazineCapacity));
       }
     }
   }

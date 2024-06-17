@@ -12,7 +12,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows.SubQuestSlots
     [Inject] private SubQuestSlot.Factory _factory;
     [Inject] private Quest _quest;
     [Inject] private QuestId _id;
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
     private void OnEnable()
     {
@@ -42,7 +42,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows.SubQuestSlots
 
     private void CreateSubQuests()
     {
-      for (var i = 0; i < _configService.GetQuestConfig(_id).SubQuests.Count; i++)
+      for (var i = 0; i < _configProvider.GetQuestConfig(_id).SubQuests.Count; i++)
       {
         SubQuest subQuest = _quest.SubQuests[i];
 

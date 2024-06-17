@@ -13,16 +13,16 @@ namespace Gameplay.Quests
   {
     private Dictionary<QuestId, Quest> _quests;
 
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
     private readonly ProjectZenjectFactory _gameLoopZenjectFactory;
-    private readonly ArtConfigService _artConfigService;
+    private readonly ArtConfigProvider _artConfigProvider;
 
-    public QuestStorage(ConfigService configService,
-      ProjectZenjectFactory gameLoopZenjectFactory, ArtConfigService artConfigService)
+    public QuestStorage(ConfigProvider configProvider,
+      ProjectZenjectFactory gameLoopZenjectFactory, ArtConfigProvider artConfigProvider)
     {
-      _configService = configService;
+      _configProvider = configProvider;
       _gameLoopZenjectFactory = gameLoopZenjectFactory;
-      _artConfigService = artConfigService;
+      _artConfigProvider = artConfigProvider;
     }
 
     public Quest GetQuest(QuestId questId)
@@ -33,7 +33,7 @@ namespace Gameplay.Quests
 
     public void ReadProgress(ProjectProgress projectProgress)
     {
-      Dictionary<QuestId, QuestConfig> configs = _configService.QuestConfigs;
+      Dictionary<QuestId, QuestConfig> configs = _configProvider.QuestConfigs;
 
       _quests = new Dictionary<QuestId, Quest>();
 
@@ -96,7 +96,7 @@ namespace Gameplay.Quests
             .SubQuests[i];
 
         SubQuestSetup subQuestSetup = questConfig.SubQuests[i];
-        SubQuestContentSetup subQuestContentSetup = _artConfigService.GetSubQuestContentSetup(subQuestSetup.Id);
+        SubQuestContentSetup subQuestContentSetup = _artConfigProvider.GetSubQuestContentSetup(subQuestSetup.Id);
 
         var subQuest =
           _gameLoopZenjectFactory

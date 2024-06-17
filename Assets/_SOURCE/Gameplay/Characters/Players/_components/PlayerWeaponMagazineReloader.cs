@@ -7,15 +7,15 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerWeaponMagazineReloader
   {
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
     private readonly PlayerProvider _playerProvider;
 
     private WeaponTypeId _weaponId;
     private float _timeLeft;
 
-    public PlayerWeaponMagazineReloader(ConfigService configService, PlayerProvider playerProvider)
+    public PlayerWeaponMagazineReloader(ConfigProvider configProvider, PlayerProvider playerProvider)
     {
-      _configService = configService;
+      _configProvider = configProvider;
       _playerProvider = playerProvider;
     }
 
@@ -28,7 +28,7 @@ namespace Gameplay.Characters.Players
 
       IsActive = true;
       _weaponId = weaponId;
-      _timeLeft = _configService.GetWeaponConfig(weaponId).ReloadTime;
+      _timeLeft = _configProvider.GetWeaponConfig(weaponId).ReloadTime;
     }
 
     public void Tick()

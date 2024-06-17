@@ -14,7 +14,7 @@ namespace Gameplay.Characters.Players.Projectiles
 
     [Inject] private VisualEffectFactory _visualEffectFactory;
     [Inject] private PlayerProvider _playerProvider;
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
     public string Guid { get; set; }
 
@@ -35,7 +35,7 @@ namespace Gameplay.Characters.Players.Projectiles
         if (_count == 0)
         {
           _count++;
-          enemyTargetTrigger.TakeDamage(_configService.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Damage);
+          enemyTargetTrigger.TakeDamage(_configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Damage);
         }
       }
 

@@ -10,7 +10,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Current
   public class CurrentWeaponAmmoText : MonoBehaviour
   {
     [Inject] private PlayerProvider _playerProvider;
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
     private TextMeshProUGUI _text;
 
@@ -22,7 +22,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Current
     private void Update()
     {
       WeaponTypeId playerCurrentWeaponId = _playerProvider.Instance.WeaponIdProvider.CurrentId.Value;
-      WeaponConfig weaponConfig = _configService.GetWeaponConfig(playerCurrentWeaponId);
+      WeaponConfig weaponConfig = _configProvider.GetWeaponConfig(playerCurrentWeaponId);
       int currentAmmo = _playerProvider.Instance.WeaponAmmo.GetAmmo(playerCurrentWeaponId).Value;
 
       _text.text = currentAmmo + "/" + weaponConfig.MagazineCapacity;

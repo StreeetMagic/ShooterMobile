@@ -10,13 +10,13 @@ namespace Gameplay.CurrencyRepositories.BackpackStorages
 {
   public class BackpackStorage
   {
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
     private readonly PlayerStatsProvider _playerStatsProvider;
 
-    public BackpackStorage(ConfigService configService,
+    public BackpackStorage(ConfigProvider configProvider,
       PlayerStatsProvider playerStatsProvider)
     {
-      _configService = configService;
+      _configProvider = configProvider;
       _playerStatsProvider = playerStatsProvider;
     }
 
@@ -26,7 +26,7 @@ namespace Gameplay.CurrencyRepositories.BackpackStorages
     public int Volume =>
       LootDrops
         .Value
-        .Select(lootDrop => _configService.GetLootConfig(lootDrop.Id).Loots[lootDrop.Level - 1].Volume)
+        .Select(lootDrop => _configProvider.GetLootConfig(lootDrop.Id).Loots[lootDrop.Level - 1].Volume)
         .Sum();
 
     public void AddLoot(List<LootDrop> enemyConfigLootDrops)
@@ -46,7 +46,7 @@ namespace Gameplay.CurrencyRepositories.BackpackStorages
 
       foreach (LootDrop lootDrop in LootDrops.Value)
       {
-        LootConfig lootConfig = _configService.GetLootConfig(lootDrop.Id);
+        LootConfig lootConfig = _configProvider.GetLootConfig(lootDrop.Id);
         int value = lootConfig.Loots[lootDrop.Level - 1].Value;
 
         if (loot.ContainsKey(lootDrop.Id))

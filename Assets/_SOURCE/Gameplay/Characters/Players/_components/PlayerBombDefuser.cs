@@ -11,13 +11,13 @@ namespace Gameplay.Characters.Players
   {
     private readonly PlayerHealth _playerHealth;
     private readonly PlayerMoveSpeed _playerMoveSpeed;
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
 
-    public PlayerBombDefuser(PlayerHealth playerHealth, PlayerMoveSpeed playerMoveSpeed, ConfigService configService)
+    public PlayerBombDefuser(PlayerHealth playerHealth, PlayerMoveSpeed playerMoveSpeed, ConfigProvider configProvider)
     {
       _playerHealth = playerHealth;
       _playerMoveSpeed = playerMoveSpeed;
-      _configService = configService;
+      _configProvider = configProvider;
     }
 
     public List<Bomb> Bombs { get; } = new();
@@ -31,7 +31,7 @@ namespace Gameplay.Characters.Players
     {
       if (_playerMoveSpeed.CurrentMoveSpeed.Value == 0)
       {
-        float progressPerFrame = (Time.deltaTime / _configService.PlayerConfig.BombDefuseDuration);
+        float progressPerFrame = (Time.deltaTime / _configProvider.PlayerConfig.BombDefuseDuration);
 
         if (Bombs.Count <= 0)
           return;

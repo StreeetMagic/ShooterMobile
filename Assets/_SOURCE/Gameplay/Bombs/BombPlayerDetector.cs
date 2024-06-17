@@ -10,13 +10,13 @@ namespace Gameplay.Bombs
     public Bomb Bomb;
     public SphereCollider SphereCollider;
     
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
     public bool IsPlayerDetected { get; private set; }
 
     private void Awake()
     {
-      SphereCollider.radius = _configService.PlayerConfig.BombDefuseRadius;
+      SphereCollider.radius = _configProvider.PlayerConfig.BombDefuseRadius;
     }
 
     private void OnTriggerEnter(Collider other)

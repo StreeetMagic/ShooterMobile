@@ -7,17 +7,17 @@ namespace Infrastructure.VisualEffects.ParticleImages
   public class ParticleImageFactory
   {
     private readonly GameLoopZenjectFactory _zenjectFactory;
-    private readonly ParticleImageService _particleImageService;
+    private readonly ParticleImageProvider _particleImageProvider;
 
-    public ParticleImageFactory(GameLoopZenjectFactory zenjectFactory, ParticleImageService particleImageService)
+    public ParticleImageFactory(GameLoopZenjectFactory zenjectFactory, ParticleImageProvider particleImageProvider)
     {
       _zenjectFactory = zenjectFactory;
-      _particleImageService = particleImageService;
+      _particleImageProvider = particleImageProvider;
     }
 
     public ParticleImage Create(ParticleImageId visualEffectId, Vector3 position, Transform parent, Transform target = null, int amount = 0)
     {
-      ParticleImage prefab = _particleImageService.GetPrefab(visualEffectId);
+      ParticleImage prefab = _particleImageProvider.GetPrefab(visualEffectId);
       GameObject moneyObject = _zenjectFactory.InstantiateGameObject(prefab.gameObject, position, Quaternion.identity, parent);
 
       moneyObject.transform.SetParent(parent);

@@ -9,16 +9,16 @@ namespace Gameplay.Characters.Players
   {
     private readonly Transform _transform;
     private readonly PlayerWeaponIdProvider _playerWeaponIdProvider;
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
 
     private readonly List<ITargetTrigger> _targets = new();
 
     public PlayerTargetHolder(Transform transform,
-      PlayerWeaponIdProvider playerWeaponIdProvider, ConfigService configService)
+      PlayerWeaponIdProvider playerWeaponIdProvider, ConfigProvider configProvider)
     {
       _transform = transform;
       _playerWeaponIdProvider = playerWeaponIdProvider;
-      _configService = configService;
+      _configProvider = configProvider;
     }
 
     public bool HasTarget { get; private set; }
@@ -75,7 +75,7 @@ namespace Gameplay.Characters.Players
 
       foreach (ITargetTrigger target in _targets)
       {
-        if (!(Vector3.Distance(_transform.position, target.transform.position) > _configService.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).FireRange))
+        if (!(Vector3.Distance(_transform.position, target.transform.position) > _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).FireRange))
           continue;
 
         farTargets.Add(target);

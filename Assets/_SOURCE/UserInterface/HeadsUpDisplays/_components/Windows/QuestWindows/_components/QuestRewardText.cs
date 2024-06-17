@@ -11,11 +11,11 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows
     public TextMeshProUGUI Text;
 
     [Inject] private QuestId _id;
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
     private void Start()
     {
-      Text.text = "+ " + _configService.GetQuestConfig(_id).Reward.Quantity + " " + _configService.GetQuestConfig(_id).Reward.RewardId;
+      Text.text = "+ " + _configProvider.GetQuestConfig(_id).Reward.Quantity + " " + _configProvider.GetQuestConfig(_id).Reward.RewardId;
     }
   }
 }

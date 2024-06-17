@@ -10,25 +10,25 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows
 {
   public class UpgradeCellFactory
   {
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
     private readonly GameLoopZenjectFactory _factory;
-    private readonly ArtConfigService _artConfigService;
+    private readonly ArtConfigProvider _artConfigProvider;
 
-    public UpgradeCellFactory(ConfigService configService,
-      GameLoopZenjectFactory shopWindowFactory, ArtConfigService artConfigService)
+    public UpgradeCellFactory(ConfigProvider configProvider,
+      GameLoopZenjectFactory shopWindowFactory, ArtConfigProvider artConfigProvider)
     {
-      _configService = configService;
+      _configProvider = configProvider;
       _factory = shopWindowFactory;
-      _artConfigService = artConfigService;
+      _artConfigProvider = artConfigProvider;
     }
 
     public void Create(StatId id, Transform parent)
     {
       var cell = _factory.InstantiateMono<UpgradeCell>(parent);
-      cell.UpgradeConfig = _configService.GetUpgradeConfig(id);
-      cell.UpgradeContentSetup = _artConfigService.GetUpgradeContentSetup(id);
+      cell.UpgradeConfig = _configProvider.GetUpgradeConfig(id);
+      cell.UpgradeContentSetup = _artConfigProvider.GetUpgradeContentSetup(id);
 
-      cell.GetComponentInChildren<Icon>().SetIcon(_artConfigService.GetUpgradeContentSetup(id).Icon);
+      cell.GetComponentInChildren<Icon>().SetIcon(_artConfigProvider.GetUpgradeContentSetup(id).Icon);
     }
   }
 }

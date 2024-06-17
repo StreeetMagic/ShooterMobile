@@ -8,16 +8,16 @@ namespace Gameplay.CurrencyRepositories.Expirience
 {
   public class ExpierienceStorage : IProgressWriter
   {
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
 
-    public ExpierienceStorage(ConfigService configService)
+    public ExpierienceStorage(ConfigProvider configProvider)
     {
-      _configService = configService;
+      _configProvider = configProvider;
     }
 
     public ReactiveProperty<int> AllPoints { get; } = new();
 
-    private ExpirienceConfig Config => _configService.ExpirienceConfig;
+    private ExpirienceConfig Config => _configProvider.ExpirienceConfig;
 
     public void ReadProgress(ProjectProgress projectProgress)
     {

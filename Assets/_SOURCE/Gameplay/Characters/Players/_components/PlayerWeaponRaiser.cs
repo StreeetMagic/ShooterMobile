@@ -5,13 +5,13 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerWeaponRaiser
   {
-    private readonly ConfigService _config;
+    private readonly ConfigProvider _config;
     private readonly PlayerProvider _playerProvider;
 
     private float _timeLeft;
     private bool _isRising;
 
-    public PlayerWeaponRaiser(ConfigService config, PlayerProvider playerProvider)
+    public PlayerWeaponRaiser(ConfigProvider config, PlayerProvider playerProvider)
     {
       _config = config;
       _playerProvider = playerProvider;

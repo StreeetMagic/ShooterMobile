@@ -20,15 +20,15 @@ namespace Gameplay.Characters.Enemies
     private List<SkinnedMeshRenderer> _skinnedMeshRenderers;
     private Tween _tween;
 
-    public EnemyMeshMaterialChanger(IHealth health, ArtConfigService artConfigService)
+    public EnemyMeshMaterialChanger(IHealth health, ArtConfigProvider artConfigProvider)
     {
       _health = health;
 
-      _newMaterial = artConfigService.EnemyCommonVisualsConfig.NewMaterial;
-      _transitionMaterial = artConfigService.EnemyCommonVisualsConfig.TransitionMaterial;
-      _durationFirstMaterial = artConfigService.EnemyCommonVisualsConfig.DurationFirstMaterial;
-      _transitionDuration = artConfigService.EnemyCommonVisualsConfig.TransitionDuration;
-      _durationSecondMaterial = artConfigService.EnemyCommonVisualsConfig.DurationSecondMaterial;
+      _newMaterial = artConfigProvider.EnemyCommonVisualsConfig.NewMaterial;
+      _transitionMaterial = artConfigProvider.EnemyCommonVisualsConfig.TransitionMaterial;
+      _durationFirstMaterial = artConfigProvider.EnemyCommonVisualsConfig.DurationFirstMaterial;
+      _transitionDuration = artConfigProvider.EnemyCommonVisualsConfig.TransitionDuration;
+      _durationSecondMaterial = artConfigProvider.EnemyCommonVisualsConfig.DurationSecondMaterial;
     }
 
     public EnemyMeshModel EnemyMeshModel { get; set; }

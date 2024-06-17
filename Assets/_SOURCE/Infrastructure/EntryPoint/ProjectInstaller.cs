@@ -38,36 +38,32 @@ namespace Infrastructure.EntryPoint
 
       Container.BindInterfacesAndSelfTo<RandomService>().AsSingle();
 
-      Container.BindInterfacesAndSelfTo<ProjectData>().AsSingle();
-
       Container.BindInterfacesAndSelfTo<InputService>().AsSingle();
-      Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle();
-
-      Container.BindInterfacesAndSelfTo<ConfigService>().AsSingle();
-      Container.BindInterfacesAndSelfTo<ArtConfigService>().AsSingle();
-
-      Container.BindInterfacesAndSelfTo<VisualEffectService>().AsSingle();
-      Container.BindInterfacesAndSelfTo<ParticleImageService>().AsSingle();
-
       Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
       Container.BindInterfacesAndSelfTo<PersistentProgressService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle();
+      Container.BindInterfacesAndSelfTo<AudioService>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<DebugLogger>().AsSingle();
 
+      Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<ConfigProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<ArtConfigProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<VisualEffectProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<ParticleImageProvider>().AsSingle();
+
+      Container.BindInterfacesAndSelfTo<RewardService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
+
+      Container.BindInterfacesAndSelfTo<ProjectData>().AsSingle();
       Container.BindInterfacesAndSelfTo<EggsInBankStorage>().AsSingle();
       Container.BindInterfacesAndSelfTo<MoneyInBankStorage>().AsSingle();
       Container.BindInterfacesAndSelfTo<ExpierienceStorage>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<QuestStorage>().AsSingle();
       Container.BindInterfacesAndSelfTo<WeaponStorage>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<BackpackStorage>().AsSingle().NonLazy();
 
       Container.BindInterfacesAndSelfTo<WeaponShop>().AsSingle();
 
-      Container.BindInterfacesAndSelfTo<RewardService>().AsSingle();
-      Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();
-
-      Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle();
-      Container.BindInterfacesAndSelfTo<AudioService>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<DebugLogger>().AsSingle();
-
-      Container.BindInterfacesAndSelfTo<BackpackStorage>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerStatsProvider>().AsSingle().NonLazy();
     }
   }

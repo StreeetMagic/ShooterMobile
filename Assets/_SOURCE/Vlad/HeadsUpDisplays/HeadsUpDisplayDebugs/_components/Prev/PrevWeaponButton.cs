@@ -10,7 +10,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Prev
   public class PrevWeaponButton : MonoBehaviour
   {
     [Inject] private PlayerProvider _playerProvider;
-    [Inject] private ArtConfigService _artConfigService;
+    [Inject] private ArtConfigProvider _artConfigProvider;
 
     private Button _button;
 

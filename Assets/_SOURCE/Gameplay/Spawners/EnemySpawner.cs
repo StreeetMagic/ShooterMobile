@@ -27,7 +27,7 @@ namespace Gameplay.Spawners
     [Inject] private QuestCompleter _questCompleter;
     [Inject] private EnemyLootSlotFactory _enemyLootSlotFactory;
     [Inject] private Enemy.Factory _enemyFactory;
-    [Inject] private ConfigService _configService;
+    [Inject] private ConfigProvider _configProvider;
 
     public event Action<IHealth> EnemyDied;
 
@@ -80,7 +80,7 @@ namespace Gameplay.Spawners
 
       int randomSpawnPointNumber = Random.Range(0, _spawnPoints.Count - 1);
 
-      Enemy enemy = _enemyFactory.Create(_configService.GetEnemyConfig(EnemyId), _spawnPoints, this);
+      Enemy enemy = _enemyFactory.Create(_configProvider.GetEnemyConfig(EnemyId), _spawnPoints, this);
       enemy.transform.position = _spawnPoints[randomSpawnPointNumber].transform.position;
       enemy.transform.SetParent(transform);
 

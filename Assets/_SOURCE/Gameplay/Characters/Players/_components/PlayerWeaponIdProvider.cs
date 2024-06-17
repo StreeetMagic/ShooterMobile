@@ -11,7 +11,7 @@ namespace Gameplay.Characters.Players
   {
     private readonly WeaponStorage _weaponStorage;
 
-    public PlayerWeaponIdProvider(ConfigService configService, WeaponStorage weaponStorage)
+    public PlayerWeaponIdProvider(ConfigProvider configProvider, WeaponStorage weaponStorage)
     {
       _weaponStorage = weaponStorage;
 
@@ -19,7 +19,7 @@ namespace Gameplay.Characters.Players
 
       CurrentId = new ReactiveProperty<WeaponTypeId>
       {
-        Value = configService.PlayerConfig.StartWeapons[0]
+        Value = configProvider.PlayerConfig.StartWeapons[0]
       };
 
       NextId = new ReactiveProperty<WeaponTypeId>(0);

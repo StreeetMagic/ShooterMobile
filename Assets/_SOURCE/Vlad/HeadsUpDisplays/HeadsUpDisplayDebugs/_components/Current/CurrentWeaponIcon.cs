@@ -9,7 +9,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Current
   public class CurrentWeaponIcon : MonoBehaviour
   {
     [Inject] private PlayerProvider _playerProvider;
-    [Inject] private ArtConfigService _artConfigService;
+    [Inject] private ArtConfigProvider _artConfigProvider;
 
     private Image _icon;
 
@@ -20,7 +20,7 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Current
 
     private void Update()
     {
-      _icon.sprite = _artConfigService.GetWeaponContentSetup(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Icon;
+      _icon.sprite = _artConfigProvider.GetWeaponContentSetup(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Icon;
     }
   }
 }

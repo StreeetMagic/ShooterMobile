@@ -11,7 +11,7 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows
     public Image Image;
 
     [Inject] private QuestId _id;
-    [Inject] private ArtConfigService _artConfig;
+    [Inject] private ArtConfigProvider _artConfig;
 
     private void OnEnable()
     {

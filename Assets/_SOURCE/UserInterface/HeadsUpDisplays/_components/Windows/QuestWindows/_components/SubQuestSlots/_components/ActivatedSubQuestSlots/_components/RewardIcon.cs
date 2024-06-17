@@ -12,11 +12,11 @@ namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows.SubQuestSlots.Activ
     public Image Image;
 
     [Inject] private SubQuest _subQuest;
-    [Inject] private ArtConfigService _artConfigService;
+    [Inject] private ArtConfigProvider _artConfigProvider;
 
     private void OnEnable()
     {
-      RewardContentSetup contentSetup = _artConfigService.GetRewardContentSetup(_subQuest.Setup.Reward.RewardId);
+      RewardContentSetup contentSetup = _artConfigProvider.GetRewardContentSetup(_subQuest.Setup.Reward.RewardId);
 
       Image.sprite = contentSetup.Icon;
     }

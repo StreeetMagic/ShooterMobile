@@ -10,13 +10,13 @@ namespace Gameplay.Upgrades
 {
   public class UpgradeService : IProgressWriter
   {
-    private readonly ConfigService _configService;
+    private readonly ConfigProvider _configProvider;
 
     private Dictionary<StatId, Upgrade> _upgrades;
 
-    public UpgradeService(ConfigService configService)
+    public UpgradeService(ConfigProvider configProvider)
     {
-      _configService = configService;
+      _configProvider = configProvider;
     }
 
     public event Action Changed;
@@ -36,20 +36,20 @@ namespace Gameplay.Upgrades
     }
 
     public int GetCurrentUpgradeValue(StatId statId) =>
-      _configService
+      _configProvider
         .GetUpgradeConfig(statId)
         .Values[GetUpgrade(statId).Level.Value]
         .Value;
 
     public int GetNextUpgradeCost(StatId statId) =>
-      _configService
+      _configProvider
         .GetUpgradeConfig(statId)
         .Values[GetUpgrade(statId).Level.Value + 1]
         .Cost;
 
     public void ReadProgress(ProjectProgress projectProgress)
     {
-      Dictionary<StatId, UpgradeConfig> upgrades = _configService.UpgradeConfigs;
+      Dictionary<StatId, UpgradeConfig> upgrades = _configProvider.UpgradeConfigs;
       _upgrades = new Dictionary<StatId, Upgrade>();
 
       foreach (StatId upgradeId in upgrades.Keys)
