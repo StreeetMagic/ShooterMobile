@@ -10,7 +10,7 @@ namespace Gameplay.Characters.Players.StateMachines.AnyStateTransitions
     private readonly InputService _inputService;
     private readonly PlayerAnimator _playerAnimator;
 
-    public PlayerAnyStateToMoveTransition(InputService inputService, PlayerAnimator playerAnimator, IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
+    public PlayerAnyStateToMoveTransition(InputService inputService, PlayerAnimator playerAnimator)
     {
       _inputService = inputService;
       _playerAnimator = playerAnimator;

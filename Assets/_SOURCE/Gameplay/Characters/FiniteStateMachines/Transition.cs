@@ -6,16 +6,9 @@ namespace Gameplay.Characters.FiniteStateMachines
 {
   public abstract class Transition : ITickable
   {
-    private readonly string _ownerName;
-
     private State _activeState;
     private int _processCount;
-
-    protected Transition(IStateMachineFactory stateMachineFactory)
-    {
-      _ownerName = stateMachineFactory.GetName();
-    }
-
+    
     public event Action<Type> Processed;
 
     public abstract void Tick();

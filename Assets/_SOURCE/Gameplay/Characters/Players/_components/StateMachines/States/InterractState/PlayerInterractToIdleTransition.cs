@@ -9,9 +9,5 @@ namespace Gameplay.Characters.Players.StateMachines.States.InterractState
     {
       throw new NotImplementedException();
     }
-
-    public PlayerInterractToIdleTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
   }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Gameplay.Characters.Enemies.StateMachines.AnyStatesTransitions;
 using Gameplay.Characters.Enemies.StateMachines.States.Alert;
 using Gameplay.Characters.Enemies.StateMachines.States.Bootstrap;
 using Gameplay.Characters.Enemies.StateMachines.States.Chase;
@@ -15,7 +16,6 @@ using Gameplay.Characters.Enemies.StateMachines.States.Shoot;
 using Gameplay.Characters.Enemies.StateMachines.States.ThrowGrenade;
 using Gameplay.Characters.FiniteStateMachines;
 using Infrastructure.ZenjectFactories;
-using Infrastructure.ZenjectFactories.GameobjectContext;
 
 namespace Gameplay.Characters.Enemies.StateMachines
 {
@@ -178,10 +178,19 @@ namespace Gameplay.Characters.Enemies.StateMachines
           typeof(EnemyDieState),
           _factory.InstantiateNative<EnemyDieState>
           (
-            new List<Transition>
-            {
-            }
+            new List<Transition>() 
           )
+        },
+      };
+    }
+
+    public Dictionary<Type, Transition> GetAnyStateTransitions()
+    {
+      return new Dictionary<Type, Transition>
+      {
+        {
+          typeof(EnemyAnyStateToDie),
+          _factory.InstantiateNative<EnemyAnyStateToDie>()
         },
       };
     }

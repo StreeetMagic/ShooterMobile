@@ -7,5 +7,6 @@ namespace Gameplay.Characters.FiniteStateMachines
   {
     string GetName();
     Dictionary<Type, State> GetStates();
+    Dictionary<Type, Transition> GetAnyStateTransitions();
   }
 }

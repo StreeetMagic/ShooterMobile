@@ -5,7 +5,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.IdleState
 {
   public class PlayerIdleState : State
   {
-    private PlayerWeaponMagazineReloader _playerWeaponMagazineReloader;
+    private readonly PlayerWeaponMagazineReloader _playerWeaponMagazineReloader;
     
     public PlayerIdleState(List<Transition> transitions, PlayerWeaponMagazineReloader playerWeaponMagazineReloader) : base(transitions)
     {

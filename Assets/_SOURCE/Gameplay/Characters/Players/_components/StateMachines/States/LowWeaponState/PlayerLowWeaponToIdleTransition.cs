@@ -7,7 +7,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.LowWeaponState
   {
     private readonly PlayerWeaponLowerer _playerWeaponLowerer;
 
-    public PlayerLowWeaponToIdleTransition(IStateMachineFactory stateMachineFactory, PlayerWeaponLowerer playerWeaponLowerer) : base(stateMachineFactory)
+    public PlayerLowWeaponToIdleTransition(PlayerWeaponLowerer playerWeaponLowerer)
     {
       _playerWeaponLowerer = playerWeaponLowerer;
     }

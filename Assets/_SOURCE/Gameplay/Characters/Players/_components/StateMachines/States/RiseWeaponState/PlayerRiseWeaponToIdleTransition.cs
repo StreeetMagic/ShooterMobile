@@ -7,7 +7,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
   {
     private readonly PlayerTargetHolder _playerTargetHolder;
 
-    public PlayerRiseWeaponToIdleTransition(IStateMachineFactory stateMachineFactory, PlayerTargetHolder playerTargetHolder) : base(stateMachineFactory)
+    public PlayerRiseWeaponToIdleTransition(PlayerTargetHolder playerTargetHolder)
     {
       _playerTargetHolder = playerTargetHolder;
     }

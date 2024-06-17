@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Gameplay.Characters.FiniteStateMachines;
+using Gameplay.Characters.Players.StateMachines.AnyStateTransitions;
 using Gameplay.Characters.Players.StateMachines.States.AttackState;
 using Gameplay.Characters.Players.StateMachines.States.BoostrapState;
 using Gameplay.Characters.Players.StateMachines.States.DieState;
@@ -114,6 +115,21 @@ namespace Gameplay.Characters.Players.StateMachines
         {
           typeof(PlayerDieState),
           _factory.InstantiateNative<PlayerDieState>()
+        },
+      };
+    }
+
+    public Dictionary<Type, Transition> GetAnyStateTransitions()
+    {
+      return new Dictionary<Type, Transition>
+      {
+        {
+          typeof(PlayerAnyStateToMoveTransition),
+          _factory.InstantiateNative<PlayerAnyStateToMoveTransition>()
+        },
+        {
+          typeof(PlayerAnyStateToDieTransition),
+          _factory.InstantiateNative<PlayerAnyStateToDieTransition>()
         },
       };
     }

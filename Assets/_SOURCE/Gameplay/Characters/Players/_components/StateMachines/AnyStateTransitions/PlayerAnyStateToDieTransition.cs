@@ -7,9 +7,5 @@ namespace Gameplay.Characters.Players.StateMachines.AnyStateTransitions
     public override void Tick()
     {
     }
-
-    public PlayerAnyStateToDieTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
   }
 }

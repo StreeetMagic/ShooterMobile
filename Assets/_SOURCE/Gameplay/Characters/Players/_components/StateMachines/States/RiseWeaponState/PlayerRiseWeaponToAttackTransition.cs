@@ -7,7 +7,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
   {
     private readonly PlayerWeaponRaiser _playerWeaponRaiser;
 
-    public PlayerRiseWeaponToAttackTransition(IStateMachineFactory stateMachineFactory, PlayerWeaponRaiser playerWeaponRaiser) : base(stateMachineFactory)
+    public PlayerRiseWeaponToAttackTransition(PlayerWeaponRaiser playerWeaponRaiser)
     {
       _playerWeaponRaiser = playerWeaponRaiser;
     }

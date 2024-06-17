@@ -14,7 +14,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.AttackState
     private WeaponTypeId _currentWeaponId = WeaponTypeId.Unknown;
 
     public PlayerAttackToLowWeaponTransition(PlayerTargetHolder targetHolder, PlayerWeaponMagazineReloader playerWeaponMagazineReloader,
-      PlayerWeaponIdProvider playerWeaponIdProvider, IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
+      PlayerWeaponIdProvider playerWeaponIdProvider)
     {
       _targetHolder = targetHolder;
       _playerWeaponMagazineReloader = playerWeaponMagazineReloader;

@@ -8,7 +8,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.MoveState
   {
     private readonly InputService _inputService;
 
-    public PlayerMoveToIdleTransition(IStateMachineFactory stateMachineFactory, InputService inputService) : base(stateMachineFactory)
+    public PlayerMoveToIdleTransition(InputService inputService)
     {
       _inputService = inputService;
     }

@@ -5,10 +5,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Shoot
 {
   public class EnemyShootToLowWeaponTransition : Transition
   {
-    public EnemyShootToLowWeaponTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
-
     public override void Tick()
     {
       throw new NotImplementedException();

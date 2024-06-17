@@ -1,10 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Gameplay.Characters.Players.StateMachines.AnyStateTransitions;
-using Gameplay.Characters.Players.StateMachines.States.BoostrapState;
-using Infrastructure.ZenjectFactories;
-using Infrastructure.ZenjectFactories.GameobjectContext;
 using Loggers;
 using Zenject;
 
@@ -13,33 +9,20 @@ namespace Gameplay.Characters.FiniteStateMachines
   public class FiniteStateMachine : ITickable
   {
     private readonly Dictionary<Type, Transition> _anyStateTransitions;
-    private readonly string _ownerName;
     private readonly Dictionary<Type, State> _states;
 
     private State _activeState;
 
-    public FiniteStateMachine(IGameObjectZenjectFactory zenjectFactory, IStateMachineFactory stateMachineFactory)
+    public FiniteStateMachine(IStateMachineFactory stateMachineFactory)
     {
-      _ownerName = stateMachineFactory.GetName();
       _states = stateMachineFactory.GetStates();
+      _anyStateTransitions = stateMachineFactory.GetAnyStateTransitions();
 
       _activeState = _states.Values.First();
       EnterActiveState();
 
       foreach (State state in _states.Values)
         state.Processed += OnProcessed;
-
-      _anyStateTransitions = new Dictionary<Type, Transition>
-      {
-        {
-          typeof(PlayerAnyStateToMoveTransition),
-          zenjectFactory.InstantiateNative<PlayerAnyStateToMoveTransition>()
-        },
-        {
-          typeof(PlayerAnyStateToDieTransition),
-          zenjectFactory.InstantiateNative<PlayerAnyStateToDieTransition>()
-        },
-      };
 
       foreach (Transition transition in _anyStateTransitions.Values)
         transition.Processed += OnProcessed;

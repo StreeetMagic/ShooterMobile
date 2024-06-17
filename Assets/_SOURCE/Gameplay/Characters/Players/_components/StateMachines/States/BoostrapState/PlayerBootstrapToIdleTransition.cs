@@ -9,9 +9,5 @@ namespace Gameplay.Characters.Players.StateMachines.States.BoostrapState
     {
       Process<PlayerIdleState>();
     }
-
-    public PlayerBootstrapToIdleTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
   }
 }

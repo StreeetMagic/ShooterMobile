@@ -7,9 +7,5 @@ namespace Gameplay.Characters.Players.StateMachines.States.IdleState
     public override void Tick()
     {
     }
-
-    public PlayerIdleToInterractTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
-    {
-    }
   }
 }
