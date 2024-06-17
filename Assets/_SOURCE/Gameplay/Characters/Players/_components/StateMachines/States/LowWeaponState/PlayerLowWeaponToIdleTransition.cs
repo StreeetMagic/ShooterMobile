@@ -3,11 +3,11 @@ using Gameplay.Characters.Players.StateMachines.States.IdleState;
 
 namespace Gameplay.Characters.Players.StateMachines.States.LowWeaponState
 {
-  public class LowWeaponToIdleTransition : Transition
+  public class PlayerLowWeaponToIdleTransition : Transition
   {
     private readonly PlayerWeaponLowerer _playerWeaponLowerer;
 
-    public LowWeaponToIdleTransition(IStateMachineFactory stateMachineFactory, PlayerWeaponLowerer playerWeaponLowerer) : base(stateMachineFactory)
+    public PlayerLowWeaponToIdleTransition(IStateMachineFactory stateMachineFactory, PlayerWeaponLowerer playerWeaponLowerer) : base(stateMachineFactory)
     {
       _playerWeaponLowerer = playerWeaponLowerer;
     }

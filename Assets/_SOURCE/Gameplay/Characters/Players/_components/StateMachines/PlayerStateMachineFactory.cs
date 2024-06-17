@@ -37,7 +37,7 @@ namespace Gameplay.Characters.Players.StateMachines
           (
             new List<Transition>
             {
-              _factory.InstantiateNative<BootstrapToIdleTransition>()
+              _factory.InstantiateNative<PlayerBootstrapToIdleTransition>()
             }
           )
         },
@@ -48,8 +48,8 @@ namespace Gameplay.Characters.Players.StateMachines
           (
             new List<Transition>
             {
-              _factory.InstantiateNative<IdleToRiseWeaponTransition>(),
-              _factory.InstantiateNative<IdleToInterractTransition>()
+              _factory.InstantiateNative<PlayerIdleToRiseWeaponTransition>(),
+              _factory.InstantiateNative<PlayerIdleToInterractTransition>()
             }
           )
         },
@@ -60,8 +60,8 @@ namespace Gameplay.Characters.Players.StateMachines
           (
             new List<Transition>
             {
-              _factory.InstantiateNative<RiseWeaponToIdleTransition>(),
-              _factory.InstantiateNative<RiseWeaponToAttackTransition>(),
+              _factory.InstantiateNative<PlayerRiseWeaponToIdleTransition>(),
+              _factory.InstantiateNative<PlayerRiseWeaponToAttackTransition>(),
             }
           )
         },
@@ -72,7 +72,7 @@ namespace Gameplay.Characters.Players.StateMachines
           (
             new List<Transition>
             {
-              _factory.InstantiateNative<AttackToLowWeaponTransition>(),
+              _factory.InstantiateNative<PlayerAttackToLowWeaponTransition>(),
             }
           )
         },
@@ -83,7 +83,7 @@ namespace Gameplay.Characters.Players.StateMachines
           (
             new List<Transition>
             {
-              _factory.InstantiateNative<LowWeaponToIdleTransition>(),
+              _factory.InstantiateNative<PlayerLowWeaponToIdleTransition>(),
             }
           )
         },
@@ -94,8 +94,8 @@ namespace Gameplay.Characters.Players.StateMachines
           (
             new List<Transition>
             {
-              _factory.InstantiateNative<InterractToIdleTransition>(),
-              _factory.InstantiateNative<InterractToRiseWeaponTransition>(),
+              _factory.InstantiateNative<PlayerInterractToIdleTransition>(),
+              _factory.InstantiateNative<PlayerInterractToRiseWeaponTransition>(),
             }
           )
         },
@@ -106,7 +106,7 @@ namespace Gameplay.Characters.Players.StateMachines
           (
             new List<Transition>
             {
-              _factory.InstantiateNative<MoveToIdleTransition>(),
+              _factory.InstantiateNative<PlayerMoveToIdleTransition>(),
             }
           )
         },

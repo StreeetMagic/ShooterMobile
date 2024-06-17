@@ -4,11 +4,11 @@ using Inputs;
 
 namespace Gameplay.Characters.Players.StateMachines.States.MoveState
 {
-  public class MoveToIdleTransition : Transition
+  public class PlayerMoveToIdleTransition : Transition
   {
     private readonly InputService _inputService;
 
-    public MoveToIdleTransition(IStateMachineFactory stateMachineFactory, InputService inputService) : base(stateMachineFactory)
+    public PlayerMoveToIdleTransition(IStateMachineFactory stateMachineFactory, InputService inputService) : base(stateMachineFactory)
     {
       _inputService = inputService;
     }

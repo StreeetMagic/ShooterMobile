@@ -2,13 +2,13 @@ using Gameplay.Characters.FiniteStateMachines;
 
 namespace Gameplay.Characters.Players.StateMachines.States.IdleState
 {
-  public class IdleToInterractTransition : Transition
+  public class PlayerIdleToInterractTransition : Transition
   {
     public override void Tick()
     {
     }
 
-    public IdleToInterractTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
+    public PlayerIdleToInterractTransition(IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
     {
     }
   }

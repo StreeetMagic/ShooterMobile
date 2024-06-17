@@ -3,12 +3,12 @@ using Gameplay.Characters.Players.StateMachines.States.RiseWeaponState;
 
 namespace Gameplay.Characters.Players.StateMachines.States.IdleState
 {
-  public class IdleToRiseWeaponTransition : Transition
+  public class PlayerIdleToRiseWeaponTransition : Transition
   {
     private readonly PlayerTargetHolder _playerTargetHolder;
     private readonly PlayerWeaponMagazineReloader _playerWeaponMagazineReloader;
 
-    public IdleToRiseWeaponTransition(IStateMachineFactory stateMachineFactory, PlayerTargetHolder playerTargetHolder, PlayerWeaponMagazineReloader playerWeaponMagazineReloader) : base(stateMachineFactory)
+    public PlayerIdleToRiseWeaponTransition(IStateMachineFactory stateMachineFactory, PlayerTargetHolder playerTargetHolder, PlayerWeaponMagazineReloader playerWeaponMagazineReloader) : base(stateMachineFactory)
     {
       _playerTargetHolder = playerTargetHolder;
       _playerWeaponMagazineReloader = playerWeaponMagazineReloader;

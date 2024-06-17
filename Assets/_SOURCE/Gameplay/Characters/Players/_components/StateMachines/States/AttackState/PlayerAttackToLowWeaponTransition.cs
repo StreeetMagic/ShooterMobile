@@ -4,7 +4,7 @@ using Gameplay.Weapons;
 
 namespace Gameplay.Characters.Players.StateMachines.States.AttackState
 {
-  public class AttackToLowWeaponTransition : Transition
+  public class PlayerAttackToLowWeaponTransition : Transition
   {
     private readonly PlayerTargetHolder _targetHolder;
     private readonly PlayerWeaponMagazineReloader _playerWeaponMagazineReloader;
@@ -13,7 +13,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.AttackState
     private WeaponTypeId _prevWeaponId = WeaponTypeId.Unknown;
     private WeaponTypeId _currentWeaponId = WeaponTypeId.Unknown;
 
-    public AttackToLowWeaponTransition(PlayerTargetHolder targetHolder, PlayerWeaponMagazineReloader playerWeaponMagazineReloader,
+    public PlayerAttackToLowWeaponTransition(PlayerTargetHolder targetHolder, PlayerWeaponMagazineReloader playerWeaponMagazineReloader,
       PlayerWeaponIdProvider playerWeaponIdProvider, IStateMachineFactory stateMachineFactory) : base(stateMachineFactory)
     {
       _targetHolder = targetHolder;

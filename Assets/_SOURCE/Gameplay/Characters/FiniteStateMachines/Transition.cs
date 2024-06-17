@@ -31,10 +31,9 @@ namespace Gameplay.Characters.FiniteStateMachines
         return;
 
       string message = GetType().Name;
-      message = message.Replace(_ownerName, "");
       message = message.Replace("Transition", "");
       message = message.Replace("State", "");
-      new DebugLogger().Log($"<color=yellow>#{message}</color>");
+      new DebugLogger().LogTransition($"<color=yellow>#{message}</color>");
 
       Processed?.Invoke(typeof(T));
     }

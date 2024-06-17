@@ -3,11 +3,11 @@ using Gameplay.Characters.Players.StateMachines.States.AttackState;
 
 namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
 {
-  public class RiseWeaponToAttackTransition : Transition
+  public class PlayerRiseWeaponToAttackTransition : Transition
   {
     private readonly PlayerWeaponRaiser _playerWeaponRaiser;
 
-    public RiseWeaponToAttackTransition(IStateMachineFactory stateMachineFactory, PlayerWeaponRaiser playerWeaponRaiser) : base(stateMachineFactory)
+    public PlayerRiseWeaponToAttackTransition(IStateMachineFactory stateMachineFactory, PlayerWeaponRaiser playerWeaponRaiser) : base(stateMachineFactory)
     {
       _playerWeaponRaiser = playerWeaponRaiser;
     }

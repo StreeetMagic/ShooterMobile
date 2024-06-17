@@ -36,5 +36,20 @@ namespace Loggers
 
       Log("Player weapons: " + weapons);
     }
+
+    public void LogTransition(string message)
+    {
+      Log(message);
+    }
+
+    public void LogStateEnter(string message)
+    {
+      Log(message);
+    }
+
+    public void LogStateExit(string message)
+    {
+      Log(message);
+    }
   }
 }

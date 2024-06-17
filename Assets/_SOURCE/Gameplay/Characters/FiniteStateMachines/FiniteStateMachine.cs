@@ -73,9 +73,8 @@ namespace Gameplay.Characters.FiniteStateMachines
       _activeState.Enter();
 
       string name = _activeState.GetType().Name;
-      name = name.Replace(_ownerName, "");
       name = name.Replace("State", "");
-      new DebugLogger().Log($"<color=green>>{name}</color>");
+      new DebugLogger().LogStateEnter($"<color=green>>{name}</color>");
     }
 
     private void ExitActiveState()
@@ -83,9 +82,8 @@ namespace Gameplay.Characters.FiniteStateMachines
       _activeState.Exit();
 
       string name = _activeState.GetType().Name;
-      name = name.Replace(_ownerName, "");
       name = name.Replace("State", "");
-      new DebugLogger().Log($"<color=red><{name}</color>");
+      new DebugLogger().LogStateExit($"<color=red><{name}</color>");
     }
   }
 }
