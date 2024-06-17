@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Players
 {
-  public class PlayerWeaponAmmo 
+  public class PlayerWeaponAmmo : IInitializable, IDisposable
   {
     private readonly WeaponStorage _weaponStorage;
     private readonly ConfigService _configService;
@@ -22,8 +22,6 @@ namespace Gameplay.Characters.Players
 
     public ReactiveProperty<int> GetAmmo(WeaponTypeId weaponTypeId)
     {
-      Initialize();
-      
       if (_ammo.TryGetValue(weaponTypeId, out ReactiveProperty<int> ammo))
         return ammo;
 
@@ -32,13 +30,9 @@ namespace Gameplay.Characters.Players
 
     public void Initialize()
     {
-      foreach (WeaponTypeId weapon in _weaponStorage.Weapons.Value)
-      {
-        if (_ammo.ContainsKey(weapon))
-          continue;
-        
-        _ammo.Add(weapon, new ReactiveProperty<int>(_configService.GetWeaponConfig(weapon).MagazineCapacity));
-      }
+      AddAmmos(_weaponStorage.Weapons.Value);
+
+      _weaponStorage.Weapons.Changed += AddAmmos;
     }
 
     public bool TryGetAmmo(WeaponTypeId weaponTypeId, int count)
@@ -60,6 +54,18 @@ namespace Gameplay.Characters.Players
 
     public void Dispose()
     {
+      _weaponStorage.Weapons.Changed -= AddAmmos;
+    }
+
+    private void AddAmmos(IReadOnlyList<WeaponTypeId> weapons)
+    {
+      foreach (WeaponTypeId weapon in weapons)
+      {
+        if (_ammo.ContainsKey(weapon))
+          continue;
+
+        _ammo.Add(weapon, new ReactiveProperty<int>(_configService.GetWeaponConfig(weapon).MagazineCapacity));
+      }
     }
   }
 }

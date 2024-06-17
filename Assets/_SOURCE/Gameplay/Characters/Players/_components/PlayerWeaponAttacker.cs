@@ -13,30 +13,33 @@ namespace Gameplay.Characters.Players
   public class PlayerWeaponAttacker
   {
     private readonly ConfigService _configService;
-    private readonly PlayerProvider _playerProvider;
     private readonly ProjectileFactory _projectileFactory;
     private readonly AudioService _audioService;
     private readonly PlayerWeaponIdProvider _playerWeaponIdProvider;
     private readonly PlayerAnimator _playerAnimator;
     private readonly PlayerWeaponAmmo _playerWeaponAmmo;
     private readonly PlayerWeaponMagazineReloader _playerWeaponMagazineReloader;
+    private readonly PlayerTargetHolder _playerTargetHolder;
+    private readonly PlayerWeaponShootingPoint _playerWeaponShootingPoint;
 
     private float _timeLeft;
     private float _burstPauseLeft;
     private int _burstShots;
 
-    public PlayerWeaponAttacker(ConfigService configService, PlayerProvider playerProvider,
+    public PlayerWeaponAttacker(ConfigService configService,
       ProjectileFactory projectileFactory, AudioService audioService, PlayerWeaponIdProvider playerWeaponIdProvider,
-      PlayerAnimator playerAnimator, PlayerWeaponAmmo playerWeaponAmmo, PlayerWeaponMagazineReloader playerWeaponMagazineReloader)
+      PlayerAnimator playerAnimator, PlayerWeaponAmmo playerWeaponAmmo, PlayerWeaponMagazineReloader playerWeaponMagazineReloader, 
+      PlayerTargetHolder playerTargetHolder, PlayerWeaponShootingPoint playerWeaponShootingPoint)
     {
       _configService = configService;
-      _playerProvider = playerProvider;
       _projectileFactory = projectileFactory;
       _audioService = audioService;
       _playerWeaponIdProvider = playerWeaponIdProvider;
       _playerAnimator = playerAnimator;
       _playerWeaponAmmo = playerWeaponAmmo;
       _playerWeaponMagazineReloader = playerWeaponMagazineReloader;
+      _playerTargetHolder = playerTargetHolder;
+      _playerWeaponShootingPoint = playerWeaponShootingPoint;
     }
 
     private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value);
@@ -124,11 +127,11 @@ namespace Gameplay.Characters.Players
 
       for (int i = 0; i < WeaponConfig.BulletsPerShot; i++)
       {
-        Vector3 directionToTarget = _playerProvider.Instance.TargetHolder.DirectionToTarget;
+        Vector3 directionToTarget = _playerTargetHolder.DirectionToTarget;
 
         directionToTarget = AngleChanger.AddAngle(directionToTarget, WeaponConfig.BulletSpreadAngle);
 
-        _projectileFactory.CreatePlayerProjectile(_playerProvider.Instance.WeaponShootingPointPoint.Transform, directionToTarget);
+        _projectileFactory.CreatePlayerProjectile(_playerWeaponShootingPoint.Transform, directionToTarget);
       }
 
       _audioService.PlaySound(SoundId.Shoot);
@@ -136,7 +139,7 @@ namespace Gameplay.Characters.Players
 
     private void Strike()
     {
-      _playerProvider.Instance.TargetHolder.CurrentTarget.TakeDamage(WeaponConfig.Damage);
+      _playerTargetHolder.CurrentTarget.TakeDamage(WeaponConfig.Damage);
     }
 
     private void PlayWeaponAnimation(WeaponTypeId id)
