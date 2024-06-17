@@ -3,7 +3,7 @@ using Maps;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays
+namespace UserInterface.HeadsUpDisplays.ResourcesSenders
 {
   public class BaseTriggerTarget : MonoBehaviour
   {

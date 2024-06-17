@@ -6,7 +6,7 @@ using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.Buttons.OpenShopButtons;
 using Zenject;
 
-namespace Gameplay.Characters.Shopers._components
+namespace Gameplay.Characters.Shopers
 {
   public class OpenShopButtonEnabler : MonoBehaviour
   {

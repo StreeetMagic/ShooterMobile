@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows
 {
   public class TakeRewardButton : MonoBehaviour
   {

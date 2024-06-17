@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.QuestPointers._components
+namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.QuestPointers
 {
   public class QuestDistanceText : MonoBehaviour
   {

@@ -5,7 +5,7 @@ using UnityEngine;
 using Zenject;
 using Zenject.Source.Factories;
 
-namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows.SubQuestSlots
 {
   public class SubQuestSlot : MonoBehaviour
   {

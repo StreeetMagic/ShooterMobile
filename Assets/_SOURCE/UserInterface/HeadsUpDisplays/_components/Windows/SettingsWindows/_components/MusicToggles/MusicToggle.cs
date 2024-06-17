@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.Windows.SettingsWindows._components.MusicToggles
+namespace UserInterface.HeadsUpDisplays.Windows.SettingsWindows.MusicToggles
 {
   public class MusicToggle : MonoBehaviour
   {

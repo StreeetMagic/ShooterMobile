@@ -3,7 +3,7 @@ using Gameplay.Quests.Subquests;
 using Zenject;
 using Zenject.Source.Install;
 
-namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows.SubQuestSlots
 {
   public class SubQuestSlotInstaller : MonoInstaller
   {

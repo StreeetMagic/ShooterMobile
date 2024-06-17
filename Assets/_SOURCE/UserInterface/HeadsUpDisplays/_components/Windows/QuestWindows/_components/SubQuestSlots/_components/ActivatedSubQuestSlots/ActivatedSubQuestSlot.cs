@@ -3,7 +3,7 @@ using Gameplay.Quests;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots._components.ActivatedSubQuestSlots
+namespace UserInterface.HeadsUpDisplays.Windows.QuestWindows.SubQuestSlots.ActivatedSubQuestSlots
 {
   public class ActivatedSubQuestSlot : MonoBehaviour
   {

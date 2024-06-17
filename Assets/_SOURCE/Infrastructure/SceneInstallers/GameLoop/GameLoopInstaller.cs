@@ -24,7 +24,7 @@ using Maps;
 using UserInterface.HeadsUpDisplays;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.Windows.QuestWindows;
-using UserInterface.HeadsUpDisplays.Windows.QuestWindows._components.SubQuestSlots;
+using UserInterface.HeadsUpDisplays.Windows.QuestWindows.SubQuestSlots;
 using UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows;
 using Zenject;
 using Zenject.Source.Install;

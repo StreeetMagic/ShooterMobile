@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UserInterface.HeadsUpDisplays.Bars.ExpirienceBars._components
+namespace UserInterface.HeadsUpDisplays.Bars.ExpirienceBars
 {
   public class CurrentExpirienceLevel : MonoBehaviour
   {

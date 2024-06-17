@@ -1,4 +1,3 @@
-using Gameplay.Characters.Players.Animators;
 using Gameplay.Stats;
 using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
@@ -9,7 +8,6 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerMover : IProgressWriter
   {
-    private readonly PlayerAnimator _playerAnimator;
     private readonly CharacterController _characterController;
     private readonly PlayerStatsProvider _playerStatsProvider;
     private readonly ConfigService _configService;
@@ -17,13 +15,10 @@ namespace Gameplay.Characters.Players
     private Vector3 _cachedVelocity;
     private Vector3 _gravitySpeed;
 
-    public PlayerMover(
-      PlayerAnimator playerAnimator,
-      CharacterController characterController,
+    public PlayerMover(CharacterController characterController,
       PlayerStatsProvider playerStatsProvider,
       ConfigService configService)
     {
-      _playerAnimator = playerAnimator;
       _characterController = characterController;
       _playerStatsProvider = playerStatsProvider;
       _configService = configService;

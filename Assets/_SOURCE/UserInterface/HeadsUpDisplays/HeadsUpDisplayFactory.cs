@@ -6,6 +6,7 @@ using UserInterface.HeadsUpDisplays.Buttons.OpenQuestButtons;
 using UserInterface.HeadsUpDisplays.Buttons.OpenShopButtons;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters;
 using UserInterface.HeadsUpDisplays.MobileJoysticks.ImportedJoystickPack.FloatingJoysticks.Scripts.Joysticks;
+using UserInterface.HeadsUpDisplays.ResourcesSenders;
 using UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows;
 
 namespace UserInterface.HeadsUpDisplays
