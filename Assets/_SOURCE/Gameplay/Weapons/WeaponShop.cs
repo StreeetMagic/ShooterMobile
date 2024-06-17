@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Gameplay.Weapons;
 using Infrastructure.Utilities;
 using Zenject;
 
-namespace Gameplay.WeaponShops
+namespace Gameplay.Weapons
 {
   public class WeaponShop : IInitializable, IDisposable
   {

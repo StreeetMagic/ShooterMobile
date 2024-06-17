@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: Xm1014
   m_EditorClassIdentifier: 
   WeaponTypeId: 16
-  WeaponAttackTypeId: 1
+  WeaponAttackTypeId: 6
   BulletSpreadAngle: 20
   BulletsPerShot: 10
+  ShotsPerBurst: 3
+  TimeBetweenBursts: 0.3
   FireRate: 1
+  FireRange: 10
+  Damage: 10
+  RaiseTime: 0.2
+  MeeleAttackDuration: 0.7
+  MagazineCapacity: 30
+  ReloadTime: 1.5

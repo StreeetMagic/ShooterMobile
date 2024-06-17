@@ -2,12 +2,6 @@
 {
   public class PlayerProvider
   {
-    private PlayerInstaller _instance;
-
-    public PlayerInstaller Instance
-    {
-      get => _instance;
-      set => _instance = value;
-    }
+    public PlayerInstaller Instance { get; set; }
   }
 }

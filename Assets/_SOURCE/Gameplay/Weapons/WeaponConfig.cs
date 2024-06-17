@@ -36,6 +36,12 @@ namespace Gameplay.Weapons
     public float RaiseTime = .2f;
         
     [Tooltip("Длительность милишной атаки")]
-    public float MeeleAttackDuration = .7f;
+    public float MeeleAttackDuration = .7f;    
+    
+    [Tooltip("Емкость одного магазина")]
+    public int MagazineCapacity = 30;    
+    
+    [Tooltip("Длительность перезарядки одного магазина")]
+    public float ReloadTime = 1.5f;
   }
 }

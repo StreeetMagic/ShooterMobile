@@ -18,13 +18,16 @@ namespace Gameplay.Characters.Players
     private readonly AudioService _audioService;
     private readonly PlayerWeaponIdProvider _playerWeaponIdProvider;
     private readonly PlayerAnimator _playerAnimator;
+    private readonly PlayerWeaponAmmo _playerWeaponAmmo;
+    private readonly PlayerWeaponMagazineReloader _playerWeaponMagazineReloader;
 
     private float _timeLeft;
     private float _burstPauseLeft;
     private int _burstShots;
 
-    public PlayerWeaponAttacker(ConfigService configService, PlayerProvider playerProvider, 
-      ProjectileFactory projectileFactory, AudioService audioService, PlayerWeaponIdProvider playerWeaponIdProvider, PlayerAnimator playerAnimator)
+    public PlayerWeaponAttacker(ConfigService configService, PlayerProvider playerProvider,
+      ProjectileFactory projectileFactory, AudioService audioService, PlayerWeaponIdProvider playerWeaponIdProvider,
+      PlayerAnimator playerAnimator, PlayerWeaponAmmo playerWeaponAmmo, PlayerWeaponMagazineReloader playerWeaponMagazineReloader)
     {
       _configService = configService;
       _playerProvider = playerProvider;
@@ -32,6 +35,8 @@ namespace Gameplay.Characters.Players
       _audioService = audioService;
       _playerWeaponIdProvider = playerWeaponIdProvider;
       _playerAnimator = playerAnimator;
+      _playerWeaponAmmo = playerWeaponAmmo;
+      _playerWeaponMagazineReloader = playerWeaponMagazineReloader;
     }
 
     private WeaponConfig WeaponConfig => _configService.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value);
@@ -47,7 +52,10 @@ namespace Gameplay.Characters.Players
 
       switch (WeaponConfig.WeaponAttackTypeId)
       {
-        case WeaponAttackTypeId.Single:
+        case WeaponAttackTypeId.Unknown:
+          throw new Exception("WeaponAttackTypeId.Unknown");
+
+        case WeaponAttackTypeId.SingleShotAndRoundLoad:
           Shoot();
           _timeLeft = Cooldown;
           break;
@@ -66,16 +74,17 @@ namespace Gameplay.Characters.Players
           _timeLeft = Cooldown;
           break;
 
+        case WeaponAttackTypeId.СмениНаДругой:
+          Debug.Log("СМЕНИ ТИП ОРУЖИЯ В КОНФИГЕ");
+          break;
+
         case WeaponAttackTypeId.Throw:
           throw new NotImplementedException();
-
-        case WeaponAttackTypeId.Unknown:
-          throw new Exception("WeaponAttackTypeId.Unknown");
 
         default:
           throw new Exception("Unknown WeaponAttackTypeId");
       }
-      
+
       PlayWeaponAnimation(WeaponConfig.WeaponTypeId);
     }
 
@@ -107,6 +116,12 @@ namespace Gameplay.Characters.Players
 
     private void Shoot()
     {
+      if (_playerWeaponAmmo.TryGetAmmo(WeaponConfig.WeaponTypeId, 1) == false)
+      {
+        _playerWeaponMagazineReloader.Activate(WeaponConfig.WeaponTypeId);
+        return;
+      }
+
       for (int i = 0; i < WeaponConfig.BulletsPerShot; i++)
       {
         Vector3 directionToTarget = _playerProvider.Instance.TargetHolder.DirectionToTarget;
@@ -114,8 +129,9 @@ namespace Gameplay.Characters.Players
         directionToTarget = AngleChanger.AddAngle(directionToTarget, WeaponConfig.BulletSpreadAngle);
 
         _projectileFactory.CreatePlayerProjectile(_playerProvider.Instance.WeaponShootingPointPoint.Transform, directionToTarget);
-        _audioService.PlaySound(SoundId.Shoot);
       }
+
+      _audioService.PlaySound(SoundId.Shoot);
     }
 
     private void Strike()
@@ -129,24 +145,24 @@ namespace Gameplay.Characters.Players
       {
         case WeaponTypeId.Unknown:
           throw new ArgumentOutOfRangeException(nameof(id), id, null);
-        
+
         case WeaponTypeId.Knife:
           _playerAnimator.PlayRandomKnifeHitAnimation(WeaponConfig.MeeleAttackDuration);
           break;
-        
+
         case WeaponTypeId.DesertEagle:
           _playerAnimator.PlayPistolShoot();
           break;
-        
+
         case WeaponTypeId.Famas:
         case WeaponTypeId.Ak47:
           _playerAnimator.PlayRifleShoot();
           break;
-        
+
         case WeaponTypeId.Xm1014:
           _playerAnimator.PlayShotgunShoot();
           break;
-        
+
         default:
           throw new ArgumentOutOfRangeException(nameof(id), id, null);
       }

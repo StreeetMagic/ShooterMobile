@@ -3,6 +3,7 @@ using Gameplay.Characters.Players.Animators;
 using Gameplay.Characters.Players.MeshModels;
 using Gameplay.Characters.Players.StateMachines;
 using Gameplay.Characters.Players.TargetLocators;
+using Gameplay.Weapons;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
@@ -30,8 +31,9 @@ namespace Gameplay.Characters.Players
     public PlayerWeaponIdProvider WeaponIdProvider { get; private set; }
     public PlayerBombDefuser BombDefuser { get; private set; }
     public PlayerMoveSpeed MoveSpeed { get; private set; }
+    public PlayerWeaponAmmo WeaponAmmo { get; private set; }
     public PlayerMover Mover { get; private set; }
-    public PlayerWeaponStorage WeaponStorage { get; private set; }
+    public WeaponStorage WeaponStorage { get; private set; }
 
     public override void InstallBindings()
     {
@@ -61,9 +63,10 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerWeaponAttacker>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponMeshSwitcher>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponShootingPoint>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<PlayerWeaponStorage>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerZenjectFactory>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerFiniteStateMachine>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponAmmo>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerWeaponMagazineReloader>().AsSingle().NonLazy();
 
       Transform = Container.Resolve<Transform>();
       WeaponShootingPointPoint = Container.Resolve<PlayerWeaponShootingPoint>();
@@ -76,8 +79,9 @@ namespace Gameplay.Characters.Players
       WeaponIdProvider = Container.Resolve<PlayerWeaponIdProvider>();
       BombDefuser = Container.Resolve<PlayerBombDefuser>();
       Mover = Container.Resolve<PlayerMover>();
-      WeaponStorage = Container.Resolve<PlayerWeaponStorage>();
+      WeaponStorage = Container.Resolve<WeaponStorage>();
       MoveSpeed = Container.Resolve<PlayerMoveSpeed>();
+      WeaponAmmo = Container.Resolve<PlayerWeaponAmmo>();
     }
 
     public void Initialize()

@@ -9,11 +9,11 @@ namespace Gameplay.Characters.Players
 {
   public class PlayerWeaponIdProvider : IProgressWriter
   {
-    private readonly PlayerWeaponStorage _playerWeaponStorage;
+    private readonly WeaponStorage _weaponStorage;
 
-    public PlayerWeaponIdProvider(ConfigService configService, PlayerWeaponStorage playerWeaponStorage)
+    public PlayerWeaponIdProvider(ConfigService configService, WeaponStorage weaponStorage)
     {
-      _playerWeaponStorage = playerWeaponStorage;
+      _weaponStorage = weaponStorage;
 
       PrevId = new ReactiveProperty<WeaponTypeId>(0);
 
@@ -28,7 +28,7 @@ namespace Gameplay.Characters.Players
 
       CurrentId.ValueChanged += OnCurrentIdChanged;
       
-      _playerWeaponStorage.Weapons.Changed += OnWeaponsChanged;
+      _weaponStorage.Weapons.Changed += OnWeaponsChanged;
     }
 
     private void OnWeaponsChanged(List<WeaponTypeId> weapons)
@@ -42,9 +42,9 @@ namespace Gameplay.Characters.Players
 
     private void OnCurrentIdChanged(WeaponTypeId currentId)
     {
-      int weapontCount = _playerWeaponStorage.Weapons.Value.Count;
+      int weapontCount = _weaponStorage.Weapons.Value.Count;
 
-      int currentIdIndex = _playerWeaponStorage.Weapons.IndexOf(currentId);
+      int currentIdIndex = _weaponStorage.Weapons.IndexOf(currentId);
 
       if (currentIdIndex == 0)
         PrevId.Value = WeaponTypeId.Unknown;
@@ -53,10 +53,10 @@ namespace Gameplay.Characters.Players
         NextId.Value = WeaponTypeId.Unknown;
 
       if (currentIdIndex > 0)
-        PrevId.Value = _playerWeaponStorage.Weapons.Value[currentIdIndex - 1];
+        PrevId.Value = _weaponStorage.Weapons.Value[currentIdIndex - 1];
 
       if (currentIdIndex < weapontCount - 1)
-        NextId.Value = _playerWeaponStorage.Weapons.Value[currentIdIndex + 1];
+        NextId.Value = _weaponStorage.Weapons.Value[currentIdIndex + 1];
     }
 
     public void ReadProgress(ProjectProgress projectProgress)

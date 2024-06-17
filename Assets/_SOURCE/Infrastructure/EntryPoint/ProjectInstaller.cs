@@ -5,6 +5,7 @@ using Gameplay.CurrencyRepositories.Expirience;
 using Gameplay.Quests;
 using Gameplay.RewardServices;
 using Gameplay.Upgrades;
+using Gameplay.Weapons;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.AudioServices;
@@ -41,13 +42,13 @@ namespace Infrastructure.EntryPoint
 
       Container.BindInterfacesAndSelfTo<InputService>().AsSingle();
       Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle();
-      
+
       Container.BindInterfacesAndSelfTo<ConfigService>().AsSingle();
       Container.BindInterfacesAndSelfTo<ArtConfigService>().AsSingle();
-      
+
       Container.BindInterfacesAndSelfTo<VisualEffectService>().AsSingle();
       Container.BindInterfacesAndSelfTo<ParticleImageService>().AsSingle();
-      
+
       Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
       Container.BindInterfacesAndSelfTo<PersistentProgressService>().AsSingle();
 
@@ -55,6 +56,9 @@ namespace Infrastructure.EntryPoint
       Container.BindInterfacesAndSelfTo<MoneyInBankStorage>().AsSingle();
       Container.BindInterfacesAndSelfTo<ExpierienceStorage>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<QuestStorage>().AsSingle();
+      Container.BindInterfacesAndSelfTo<WeaponStorage>().AsSingle().NonLazy();
+
+      Container.BindInterfacesAndSelfTo<WeaponShop>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<RewardService>().AsSingle();
       Container.BindInterfacesAndSelfTo<UpgradeService>().AsSingle();

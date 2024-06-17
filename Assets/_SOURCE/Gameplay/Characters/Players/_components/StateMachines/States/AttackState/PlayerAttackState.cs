@@ -20,6 +20,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.AttackState
 
     public override void Enter()
     {
+      _playerWeaponAttacker.ResetValues();
     }
 
     public override void Tick()

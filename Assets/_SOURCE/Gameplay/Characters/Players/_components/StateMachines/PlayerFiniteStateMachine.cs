@@ -68,7 +68,7 @@ namespace Gameplay.Characters.Players.StateMachines
           (
             new List<PlayerTransition>
             {
-              factory.InstantiateNative<PlayerAttackToHideWeaponTransition>(),
+              factory.InstantiateNative<PlayerAttackToLowWeaponTransition>(),
             }
           )
         },

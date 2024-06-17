@@ -1,19 +1,17 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Weapons;
-using Gameplay.WeaponShops;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
 using Zenject;
 
-namespace Gameplay.Characters.Players
+namespace Gameplay.Weapons
 {
-  public class PlayerWeaponStorage : IProgressWriter, IInitializable, IDisposable
+  public class WeaponStorage : IProgressWriter, IInitializable, IDisposable
   {
     private readonly WeaponShop _weaponShop;
 
-    public PlayerWeaponStorage(WeaponShop weaponShop)
+    public WeaponStorage(WeaponShop weaponShop)
     {
       _weaponShop = weaponShop;
     }

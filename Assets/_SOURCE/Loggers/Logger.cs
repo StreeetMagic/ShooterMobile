@@ -1,5 +1,5 @@
 using Gameplay.Characters.Players;
-using Gameplay.WeaponShops;
+using Gameplay.Weapons;
 using UnityEngine;
 
 namespace Loggers
@@ -24,11 +24,11 @@ namespace Loggers
       Log("Shop weapons: " + weapons);
     }
 
-    public void LogPlayerWeapons(PlayerWeaponStorage playerWeaponStorage)
+    public void LogPlayerWeapons(WeaponStorage weaponStorage)
     {
       string weapons = string.Empty;
 
-      foreach (var weapon in playerWeaponStorage.Weapons.Value)
+      foreach (var weapon in weaponStorage.Weapons.Value)
       {
         weapons += weapon.ToString();
         weapons += ",";
