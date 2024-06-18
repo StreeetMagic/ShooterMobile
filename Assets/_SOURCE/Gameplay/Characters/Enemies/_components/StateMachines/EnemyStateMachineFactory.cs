@@ -75,10 +75,10 @@ namespace Gameplay.Characters.Enemies.StateMachines
           (
             new List<Transition>
             {
+              _factory.InstantiateNative<EnemyChaseToReturnTransition>(),
               _factory.InstantiateNative<EnemyChaseToMeleeAttackTransition>(),
               _factory.InstantiateNative<EnemyChaseToThrowGrenadeTransition>(),
               _factory.InstantiateNative<EnemyChaseToRaiseWeaponTransition>(),
-              _factory.InstantiateNative<EnemyChaseToReturnTransition>(),
             }
           )
         },

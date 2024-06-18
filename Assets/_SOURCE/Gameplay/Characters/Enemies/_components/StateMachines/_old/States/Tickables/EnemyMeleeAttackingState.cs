@@ -39,15 +39,6 @@ namespace Gameplay.Characters.Enemies.StateMachines._old.States.Tickables
     {
       _toPlayerRotator.Rotate();
       _wholeTimeleft -= Time.deltaTime;
-
-      // if (_wholeTimeleft / _config.MeeleAttackDuration < 0.5f && !_attacked)
-      // {
-      //   _attacked = true;
-      //   _meleeAttacker.Attack();
-      // }
-
-      // if (_wholeTimeleft <= 0)
-      //   _oldEnemyStateMachine.Enter<EnemyChooseAttackState>();
     }
 
     public void Exit()
