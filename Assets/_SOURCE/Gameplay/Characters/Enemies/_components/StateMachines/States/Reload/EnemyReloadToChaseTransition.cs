@@ -7,7 +7,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Reload
   {
     public override void Tick()
     {
-      throw new NotImplementedException();
     }
   }
 }

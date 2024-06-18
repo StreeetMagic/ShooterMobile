@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Gameplay.Characters.Enemies.StateMachines._old.States.Tickables
 {
-  public class EnemyPatrolingState :  ITickable
+  public class EnemyPatrolingState : ITickable
   {
     private const float DistanceToRoutePoint = 0.2f;
 

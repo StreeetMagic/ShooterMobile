@@ -7,7 +7,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Shoot
   {
     public override void Tick()
     {
-      throw new NotImplementedException();
     }
   }
 }

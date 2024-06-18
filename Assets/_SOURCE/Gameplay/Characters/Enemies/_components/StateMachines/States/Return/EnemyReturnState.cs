@@ -12,12 +12,10 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Return
 
     public override void Enter()
     {
-      throw new NotImplementedException();
     }
 
     public override void Exit()
     {
-      throw new NotImplementedException();
     }
   }
 }

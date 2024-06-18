@@ -1,19 +1,22 @@
+using Gameplay.Characters.Enemies.StateMachines.States.Patrol;
+using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.FiniteStateMachines;
-using Infrastructure.ConfigServices;
 
 namespace Gameplay.Characters.Enemies.StateMachines.States.Idle
 {
   public class EnemyIdleToPatrolTransition : Transition
   {
-    private ConfigProvider _configProvider;
+    private readonly EnemyIdleTimer _idleTimer;
 
-    public EnemyIdleToPatrolTransition(ConfigProvider configProvider)
+    public EnemyIdleToPatrolTransition(EnemyIdleTimer idleTimer)
     {
-      _configProvider = configProvider;
+      _idleTimer = idleTimer;
     }
 
     public override void Tick()
     {
+      if (_idleTimer.IsDone)
+        Process<EnemyPatrolState>();
     }
   }
 }

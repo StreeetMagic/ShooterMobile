@@ -35,6 +35,8 @@ namespace Gameplay.Characters.Enemies
       Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();
       Container.Bind<EnemySpawner>().FromInstance(_spawner).AsSingle().NonLazy();
       Container.Bind<EnemyTypeId>().FromInstance(_enemyConfig.Id).AsSingle().NonLazy();
+      
+      Container.Bind<IStateMachineFactory>().To<EnemyStateMachineFactory>().AsSingle().NonLazy();
 
       Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyReturnToSpawnStatus>().AsSingle().NonLazy();
@@ -55,7 +57,7 @@ namespace Gameplay.Characters.Enemies
       Container.BindInterfacesAndSelfTo<EnemyAssistCall>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyMeshMaterialChanger>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<FiniteStateMachine>().AsSingle().NonLazy();
-      Container.Bind<IStateMachineFactory>().To<EnemyStateMachineFactory>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyIdleTimer>().AsSingle().NonLazy();
 
       Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
       Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();
