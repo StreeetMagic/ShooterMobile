@@ -7,7 +7,7 @@ namespace Gameplay.Characters.FiniteStateMachines
   public abstract class State : ITickable
   {
     private State _activeState;
-      
+
     private readonly List<Transition> _transitions;
 
     protected State(List<Transition> transitions)
@@ -22,8 +22,10 @@ namespace Gameplay.Characters.FiniteStateMachines
 
     public event Action<Type> Processed;
 
-    public virtual void Tick()
+    public void Tick()
     {
+      OnTick();
+      
       foreach (Transition transition in _transitions)
       {
         transition.SetActiveState(_activeState);
@@ -43,5 +45,7 @@ namespace Gameplay.Characters.FiniteStateMachines
     {
       Processed?.Invoke(type);
     }
+
+    protected virtual void OnTick() { }
   }
 }

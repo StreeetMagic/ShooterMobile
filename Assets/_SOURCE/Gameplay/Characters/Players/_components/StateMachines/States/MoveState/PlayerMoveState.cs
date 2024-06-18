@@ -29,9 +29,8 @@ namespace Gameplay.Characters.Players.StateMachines.States.MoveState
       _animator.PlayRunAnimation();
     }
 
-    public override void Tick()
+    protected override void OnTick() 
     {
-      base.Tick();
       _inputHandler.ReadInput();
 
       if (_targetHolder.HasTarget)

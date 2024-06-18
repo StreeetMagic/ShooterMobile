@@ -28,10 +28,8 @@ namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
       _animator.OnStateShooting();
     }
 
-    public override void Tick()
+    protected override void OnTick() 
     {
-      base.Tick();
-
       if (_targetHolder.HasTarget)
         _rotator.RotateTowardsDirection(_targetHolder.LookDirectionToTarget);
     }

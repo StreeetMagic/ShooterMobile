@@ -29,10 +29,8 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.MeleeAttack
       _timeLeft = 0;
     }
 
-    public override void Tick()
+    protected override void OnTick()
     {
-      base.Tick();
-
       _toPlayerRotator.Rotate();
 
       if (_timeLeft <= 0)

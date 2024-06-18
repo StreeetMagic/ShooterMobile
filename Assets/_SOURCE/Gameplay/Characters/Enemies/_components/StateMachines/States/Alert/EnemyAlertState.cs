@@ -19,9 +19,8 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Alert
       _alertTimer.Reset();
     }
     
-    public override void Tick()
+    protected override void OnTick() 
     {
-      base.Tick();
       _alertTimer.Tick();
     }
 

@@ -37,9 +37,7 @@ namespace Gameplay.Characters.FiniteStateMachines
       }
 
       _activeState.SetActiveState(_activeState);
-     new DebugLogger().Log("До тика");
       _activeState.Tick();
-     new DebugLogger().Log("После тика");
     }
 
     private void OnEntered(Type toState)

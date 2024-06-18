@@ -30,9 +30,8 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.ThrowGrenade
       _thrown = false;
     }
 
-    public override void Tick()
+    protected override void OnTick() 
     {
-      base.Tick();
       _rotator.Rotate();
 
       if (_thrown)

@@ -23,9 +23,8 @@ namespace Gameplay.Characters.Players.StateMachines.States.AttackState
       _playerWeaponAttacker.ResetValues();
     }
 
-    public override void Tick()
+    protected override void OnTick()
     {
-      base.Tick();
       _playerWeaponAttacker.Tick();
 
       if (_targetHolder.HasTarget)

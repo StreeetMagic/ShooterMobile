@@ -16,10 +16,8 @@ namespace Gameplay.Characters.Players.StateMachines.States.IdleState
     {
     }
     
-    public override void Tick()
+    protected override void OnTick() 
     {
-      base.Tick();
-      
       if (_playerWeaponMagazineReloader.IsActive)
         _playerWeaponMagazineReloader.Tick();
     }

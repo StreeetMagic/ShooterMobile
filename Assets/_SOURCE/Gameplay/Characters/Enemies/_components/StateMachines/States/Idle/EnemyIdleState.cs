@@ -18,9 +18,8 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Idle
        _idleTimer.Reset();
     }
 
-    public override void Tick()
+    protected override void OnTick()
     {
-      base.Tick();
       _idleTimer.Tick();
     }
 

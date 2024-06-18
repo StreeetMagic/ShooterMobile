@@ -32,14 +32,12 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
       _exited = false;
     }
 
-    public override void Tick()
+    protected override void OnTick()
     {
       // if (_exited)
       //   return;
 
       _mover.Move(_playerProvider.Instance.transform.position, _config.RunSpeed);
-      Debug.Log("Тикаю");
-      base.Tick();
     }
 
     public override void Exit()
