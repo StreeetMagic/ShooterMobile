@@ -20,6 +20,9 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Current
 
     private void Update()
     {
+      if (!_playerProvider.Instance)
+        return;
+
       _text.text = _artConfigProvider.GetWeaponContentSetup(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Name;
     }
   }

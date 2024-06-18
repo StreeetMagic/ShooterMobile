@@ -21,6 +21,9 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Next
 
     private void Update()
     {
+      if (!_playerProvider.Instance)
+        return;
+      
       WeaponTypeId weaponTypeId = _playerProvider.Instance.WeaponIdProvider.NextId.Value;
 
       if (weaponTypeId == WeaponTypeId.Unknown)

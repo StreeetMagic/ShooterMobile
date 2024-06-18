@@ -21,6 +21,9 @@ namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Current
 
     private void Update()
     {
+      if (!_playerProvider.Instance)
+        return;
+      
       WeaponTypeId playerCurrentWeaponId = _playerProvider.Instance.WeaponIdProvider.CurrentId.Value;
       WeaponConfig weaponConfig = _configProvider.GetWeaponConfig(playerCurrentWeaponId);
       int currentAmmo = _playerProvider.Instance.WeaponAmmo.GetAmmo(playerCurrentWeaponId).Value;

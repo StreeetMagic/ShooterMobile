@@ -58,6 +58,8 @@ namespace Gameplay.Characters.Enemies
       Container.BindInterfacesAndSelfTo<FiniteStateMachine>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyIdleTimer>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyAlertTimer>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyGrenadeStorage>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyGrenadeThrowTimer>().AsSingle().NonLazy();
 
       Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
       Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();

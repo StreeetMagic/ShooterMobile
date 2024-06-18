@@ -51,6 +51,7 @@ namespace Gameplay.Characters.Enemies.Animators
         private static readonly int s_panic = Animator.StringToHash(Panic);
 
         public event Action KnifeHit;
+        public event Action GrenadeThrown;
 
         public void PlayDeathAnimation()
         {
@@ -157,7 +158,7 @@ namespace Gameplay.Characters.Enemies.Animators
 
         private void GrenadeThrew()
         {
-            print("Бросаю гранату");
+            GrenadeThrown?.Invoke();
         }
 
         private void SetWeaponUp()

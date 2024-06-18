@@ -23,7 +23,7 @@ namespace Gameplay.Characters.Enemies
       if (_config.IsShooter)
         distances.Add(_config.ShootRange);
 
-      if (_config.IsGrenadeThrower && _grenadeThrower.ReadyToThrow)
+      if (_config.IsGrenadeThrower)
         distances.Add(_config.GrenadeThrowRange);
 
       distances.Add(_config.MeleeRange);

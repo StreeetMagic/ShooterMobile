@@ -26,6 +26,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.MeleeAttack
     public override void Enter()
     {
       _animatorProvider.Instance.KnifeHit += OnHitEventListener;
+      _timeLeft = 0;
     }
 
     public override void Tick()

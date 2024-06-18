@@ -8,46 +8,33 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay.Characters.Enemies
 {
-  public class EnemyGrenadeThrower : IInitializable, ITickable
+  public class EnemyGrenadeThrower : IInitializable
   {
     private readonly PlayerProvider _playerProvider;
     private readonly GameLoopZenjectFactory _gameLoopZenjectFactory;
     private readonly ConfigProvider _configProvider;
     private readonly EnemyConfig _config;
-    private readonly Enemy _enemy;
+    private readonly Transform _transform;
+    private readonly EnemyGrenadeStorage _grenadeStorage;
 
-    private float _grenadeCooldownLeft;
-    private int _grenadesLeft;
-
-    public EnemyGrenadeThrower(PlayerProvider playerProvider, GameLoopZenjectFactory gameLoopZenjectFactory, ConfigProvider configProvider,
-      EnemyConfig config, Enemy enemy)
+    public EnemyGrenadeThrower(PlayerProvider playerProvider, GameLoopZenjectFactory gameLoopZenjectFactory,
+      ConfigProvider configProvider, EnemyConfig config, EnemyGrenadeStorage grenadeStorage, Transform transform)
     {
       _playerProvider = playerProvider;
       _gameLoopZenjectFactory = gameLoopZenjectFactory;
       _configProvider = configProvider;
       _config = config;
-      _enemy = enemy;
+      _grenadeStorage = grenadeStorage;
+      _transform = transform;
     }
-
-    public bool ReadyToThrow => _grenadesLeft > 0 && _grenadeCooldownLeft <= 0 && TargetStandsOnSamePosition();
-    public float RandomGrenadeDelay { get; private set; }
 
     public void Initialize()
     {
-      RandomGrenadeDelay = Random.Range(0, _config.GrenadeThrowRandomDelay);
-      _grenadesLeft = _config.MaxGrenadesCount;
-      _grenadeCooldownLeft = 0;
-    }
-
-    public void Tick()
-    {
-      _grenadeCooldownLeft -= Time.deltaTime;
     }
 
     public void Lauch()
     {
-      _grenadesLeft--;
-      _grenadeCooldownLeft = _config.GrenadeThrowCooldown;
+      _grenadeStorage.SpendGrenade();
 
       GrenadeTypeId grenadeTypeId = _config.GrenadeTypeId;
 
@@ -63,15 +50,12 @@ namespace Gameplay.Characters.Enemies
       Vector3 newPosition = new Vector3(targetPosition.x + xOffset, targetPosition.y, targetPosition.z + zOffset);
 
       var mover = grenade.GetComponent<GrenadeMover>();
-      mover.Init(_configProvider.GetGrenadeConfig(grenadeTypeId), _enemy.transform.position, newPosition);
+      mover.Init(_configProvider.GetGrenadeConfig(grenadeTypeId), _transform.position, newPosition);
 
       var detonator = grenade.GetComponent<GrenadeDetonator>();
       detonator.Init(_configProvider.GetGrenadeConfig(grenadeTypeId));
 
       mover.Throw();
     }
-
-    private bool TargetStandsOnSamePosition() =>
-      _playerProvider.Instance.StandsOnSamePosition.TimeOnSamePosition >= _config.TargetStandsOnSamePositionTime;
   }
 }

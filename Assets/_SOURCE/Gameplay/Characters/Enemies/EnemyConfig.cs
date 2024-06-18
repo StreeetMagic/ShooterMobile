@@ -89,6 +89,9 @@ namespace Gameplay.Characters.Enemies
     [Tooltip("Случайная задержка перед броском гранаты. От нуля и до текущего значения")]
     public float GrenadeThrowRandomDelay = 1f;
     
+    [Tooltip("Длительность броска гранаты")]
+    public float GrenadeThrowDuration = 1f;
+    
     [Tooltip("Время, после которого в неподвижную цель полетит граната")]
     public float TargetStandsOnSamePositionTime = 1f;
     

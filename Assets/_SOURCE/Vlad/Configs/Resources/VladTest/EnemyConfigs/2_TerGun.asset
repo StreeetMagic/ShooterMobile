@@ -39,8 +39,9 @@ MonoBehaviour:
   WeaponRisingTime: 0.2
   IsGrenadeThrower: 1
   GrenadeTypeId: 3
-  GrenadeThrowCooldown: 3
-  GrenadeThrowRandomDelay: 1
+  GrenadeThrowCooldown: 2
+  GrenadeThrowRandomDelay: 3
+  GrenadeThrowDuration: 1
   TargetStandsOnSamePositionTime: 1
   MaxGrenadesCount: 3
   GrenadeThrowRange: 5
