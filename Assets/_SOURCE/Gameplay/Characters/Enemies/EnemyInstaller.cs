@@ -4,7 +4,6 @@ using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnPoints;
-using Infrastructure.ZenjectFactories;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
 using UnityEngine.AI;
@@ -58,6 +57,7 @@ namespace Gameplay.Characters.Enemies
       Container.BindInterfacesAndSelfTo<EnemyMeshMaterialChanger>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<FiniteStateMachine>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyIdleTimer>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyAlertTimer>().AsSingle().NonLazy();
 
       Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
       Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();

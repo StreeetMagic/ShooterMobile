@@ -97,7 +97,7 @@ namespace Gameplay.Characters.Enemies.Animators
             Animator.SetTrigger(s_panic);
         }
 
-        public void PlayRunAnimation()
+        public void PlayRun()
         {
             Animator.SetBool(s_isWalk, false);
             Animator.SetBool(s_isRun, true);
@@ -109,7 +109,7 @@ namespace Gameplay.Characters.Enemies.Animators
             Animator.SetBool(s_isWalk, true);
         }
 
-        public void StopRunAnimation()
+        public void StopRun()
         {
             Animator.SetBool(s_isRun, false);
         }

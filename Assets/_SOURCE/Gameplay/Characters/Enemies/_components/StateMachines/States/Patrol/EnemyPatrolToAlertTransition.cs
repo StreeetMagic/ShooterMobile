@@ -1,4 +1,3 @@
-using System;
 using Gameplay.Characters.Enemies.StateMachines.States.Alert;
 using Gameplay.Characters.FiniteStateMachines;
 

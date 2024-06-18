@@ -10,7 +10,7 @@ using Gameplay.Characters.Players.StateMachines.States.InterractState;
 using Gameplay.Characters.Players.StateMachines.States.LowWeaponState;
 using Gameplay.Characters.Players.StateMachines.States.MoveState;
 using Gameplay.Characters.Players.StateMachines.States.RiseWeaponState;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.GameobjectContext;
 
 namespace Gameplay.Characters.Players.StateMachines
 {

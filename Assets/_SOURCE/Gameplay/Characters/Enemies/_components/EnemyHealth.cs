@@ -68,9 +68,6 @@ namespace Gameplay.Characters.Enemies
 
       IsDead = true;
       
-      throw new NotImplementedException();
-      //_oldEnemyStateMachine.Enter<EnemyChooseCondiditionState>();
-
       Died?.Invoke(_config, this);
     }
 

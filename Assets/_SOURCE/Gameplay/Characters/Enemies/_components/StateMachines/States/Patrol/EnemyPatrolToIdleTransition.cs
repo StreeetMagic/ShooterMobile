@@ -1,7 +1,5 @@
-using System;
 using Gameplay.Characters.Enemies.StateMachines.States.Idle;
 using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.StateMachines.States.IdleState;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies.StateMachines.States.Patrol

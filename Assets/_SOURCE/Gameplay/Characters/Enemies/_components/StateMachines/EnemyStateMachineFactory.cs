@@ -15,7 +15,7 @@ using Gameplay.Characters.Enemies.StateMachines.States.Return;
 using Gameplay.Characters.Enemies.StateMachines.States.Shoot;
 using Gameplay.Characters.Enemies.StateMachines.States.ThrowGrenade;
 using Gameplay.Characters.FiniteStateMachines;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.GameobjectContext;
 
 namespace Gameplay.Characters.Enemies.StateMachines
 {

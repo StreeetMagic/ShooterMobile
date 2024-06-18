@@ -1,4 +1,3 @@
-using Gameplay.Characters.Players;
 using Gameplay.Weapons;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ namespace Loggers
     {
       string weapons = string.Empty;
 
-      foreach (var weapon in weaponShop.Weapons.Value)
+      foreach (WeaponTypeId weapon in weaponShop.Weapons.Value)
       {
         weapons += weapon.ToString();
         weapons += ",";
@@ -28,7 +27,7 @@ namespace Loggers
     {
       string weapons = string.Empty;
 
-      foreach (var weapon in weaponStorage.Weapons.Value)
+      foreach (WeaponTypeId weapon in weaponStorage.Weapons.Value)
       {
         weapons += weapon.ToString();
         weapons += ",";

@@ -13,7 +13,6 @@ using Gameplay.Quests.Subquests;
 using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnerFactories;
 using Gameplay.Spawners.SpawnPoints;
-using Gameplay.Weapons;
 using Infrastructure.AssetProviders;
 using Infrastructure.DebugServices;
 using Infrastructure.UserIntefaces;

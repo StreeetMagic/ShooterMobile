@@ -27,7 +27,7 @@ namespace Gameplay.Characters.Enemies
     public float HealingDelay = 1f;
 
     [Tooltip("Длительность ошеломления после получения урона и перехода в состояние атаки")]
-    public float AlertStateDuration = .2f;
+    public float AlertDuration = .2f;
 
     [Tooltip("Начальное здоровье")] 
     public float InitialHealth = 100f;

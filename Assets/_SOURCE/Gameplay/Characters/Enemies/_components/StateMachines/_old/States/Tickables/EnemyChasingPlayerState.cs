@@ -49,7 +49,7 @@ namespace Gameplay.Characters.Enemies.StateMachines._old.States.Tickables
     {
       _mover.Stop();
       _animatorProvider.Instance.StopWalk();
-      _animatorProvider.Instance.StopRunAnimation();
+      _animatorProvider.Instance.StopRun();
     }
 
     private void Move()
@@ -69,8 +69,7 @@ namespace Gameplay.Characters.Enemies.StateMachines._old.States.Tickables
 
     private void Chase()
     {
-      _mover.Move(_playerProvider.Instance.transform.position, _config.RunSpeed);
-      _animatorProvider.Instance.PlayRunAnimation();
+
     }
   }
 }

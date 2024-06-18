@@ -6,7 +6,6 @@ using Gameplay.Characters.Players.StateMachines;
 using Gameplay.Characters.Players.TargetLocators;
 using Gameplay.Weapons;
 using Infrastructure.SaveLoadServices;
-using Infrastructure.ZenjectFactories;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
 using Zenject;

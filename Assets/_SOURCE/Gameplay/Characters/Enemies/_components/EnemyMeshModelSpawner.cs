@@ -1,6 +1,6 @@
 using Gameplay.Characters.Enemies.Animators;
 using Infrastructure.AssetProviders;
-using Infrastructure.ZenjectFactories;
+using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies
