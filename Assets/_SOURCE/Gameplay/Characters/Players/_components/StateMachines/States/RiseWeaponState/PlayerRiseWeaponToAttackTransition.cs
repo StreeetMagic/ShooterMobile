@@ -15,7 +15,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
     public override void Tick()
     {
       if (_playerWeaponRaiser.IsRaised)
-        Process<PlayerAttackState>();
+        Enter<PlayerAttackState>();
       
       _playerWeaponRaiser.Tick();
     }

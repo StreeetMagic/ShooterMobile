@@ -22,10 +22,10 @@ namespace Gameplay.Characters.FiniteStateMachines
       EnterActiveState();
 
       foreach (State state in _states.Values)
-        state.Processed += OnProcessed;
+        state.Processed += OnEntered;
 
       foreach (Transition transition in _anyStateTransitions.Values)
-        transition.Processed += OnProcessed;
+        transition.Entered += OnEntered;
     }
 
     public void Tick()
@@ -40,7 +40,7 @@ namespace Gameplay.Characters.FiniteStateMachines
       _activeState.Tick();
     }
 
-    private void OnProcessed(Type toState)
+    private void OnEntered(Type toState)
     {
       if (_states.TryGetValue(toState, out State state) == false)
         throw new Exception($"State {toState} not found");

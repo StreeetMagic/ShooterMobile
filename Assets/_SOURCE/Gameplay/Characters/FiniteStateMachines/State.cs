@@ -16,7 +16,7 @@ namespace Gameplay.Characters.FiniteStateMachines
 
       foreach (Transition transition in _transitions)
       {
-        transition.Processed += Process;
+        transition.Entered += Process;
       }
     }
 

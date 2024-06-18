@@ -20,7 +20,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.IdleState
         return;
 
       if (_playerTargetHolder.HasTarget)
-        Process<PlayerRiseWeaponState>();
+        Enter<PlayerRiseWeaponState>();
     }
   }
 }

@@ -15,7 +15,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.LowWeaponState
     public override void Tick()
     {
       if (!_playerWeaponLowerer.IsLowered)
-        Process<PlayerIdleState>();
+        Enter<PlayerIdleState>();
 
       _playerWeaponLowerer.Tick();
     }

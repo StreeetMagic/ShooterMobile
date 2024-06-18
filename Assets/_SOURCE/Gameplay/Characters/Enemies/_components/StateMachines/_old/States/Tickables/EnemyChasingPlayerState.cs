@@ -7,7 +7,6 @@ namespace Gameplay.Characters.Enemies.StateMachines._old.States.Tickables
 {
   public class EnemyChasingPlayerState : ITickable
   {
-
     private readonly PlayerProvider _playerProvider;
     private readonly EnemyMover _mover;
     private readonly EnemyAnimatorProvider _animatorProvider;
@@ -49,7 +48,7 @@ namespace Gameplay.Characters.Enemies.StateMachines._old.States.Tickables
     public void Exit()
     {
       _mover.Stop();
-      _animatorProvider.Instance.StopWalkAnimation();
+      _animatorProvider.Instance.StopWalk();
       _animatorProvider.Instance.StopRunAnimation();
     }
 

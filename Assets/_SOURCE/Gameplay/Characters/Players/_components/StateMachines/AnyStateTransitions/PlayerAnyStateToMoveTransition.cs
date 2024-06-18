@@ -21,7 +21,7 @@ namespace Gameplay.Characters.Players.StateMachines.AnyStateTransitions
       if (_inputService.HasMoveInput)
       {
         _playerAnimator.OffStateShooting();
-        Process<PlayerMoveState>();
+        Enter<PlayerMoveState>();
       }
     }
   }

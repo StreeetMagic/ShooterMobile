@@ -9,7 +9,7 @@ namespace Gameplay.Characters.FiniteStateMachines
     private State _activeState;
     private int _processCount;
     
-    public event Action<Type> Processed;
+    public event Action<Type> Entered;
 
     public abstract void Tick();
 
@@ -18,7 +18,7 @@ namespace Gameplay.Characters.FiniteStateMachines
       _activeState = state;
     }
 
-    protected void Process<T>() where T : class
+    protected void Enter<T>() where T : class
     {
       if (_activeState.GetType() == typeof(T))
         return;
@@ -28,7 +28,7 @@ namespace Gameplay.Characters.FiniteStateMachines
       message = message.Replace("State", "");
       new DebugLogger().LogTransition($"<color=yellow>#{message}</color>");
 
-      Processed?.Invoke(typeof(T));
+      Entered?.Invoke(typeof(T));
     }
   }
 }

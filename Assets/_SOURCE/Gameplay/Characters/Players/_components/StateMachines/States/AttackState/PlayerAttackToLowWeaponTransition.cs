@@ -24,10 +24,10 @@ namespace Gameplay.Characters.Players.StateMachines.States.AttackState
     public override void Tick()
     {
       if (_targetHolder.HasTarget == false)
-        Process<PlayerLowWeaponState>();
+        Enter<PlayerLowWeaponState>();
 
       if (_playerWeaponMagazineReloader.IsActive)
-        Process<PlayerLowWeaponState>();
+        Enter<PlayerLowWeaponState>();
 
       if (_currentWeaponId == WeaponTypeId.Unknown)
       {
@@ -42,7 +42,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.AttackState
         {
           _prevWeaponId = WeaponTypeId.Unknown;
           _currentWeaponId = WeaponTypeId.Unknown;
-          Process<PlayerLowWeaponState>();
+          Enter<PlayerLowWeaponState>();
         }
       }
     }

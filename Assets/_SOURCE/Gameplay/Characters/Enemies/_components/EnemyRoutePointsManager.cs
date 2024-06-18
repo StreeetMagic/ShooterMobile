@@ -11,7 +11,7 @@ namespace Gameplay.Characters.Enemies
 
     private int _currentRouteIndex;
 
-    public Transform NextRoutePointTransform => _spawnPoints[_currentRouteIndex].transform;
+    public Transform Next => _spawnPoints[_currentRouteIndex].transform;
 
     private EnemyRoutePointsManager(List<SpawnPoint> initialSpawnPoints)
     {

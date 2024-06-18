@@ -7,7 +7,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Bootstrap
   {
     public override void Tick()
     {
-      Process<EnemyIdleState>();
+      Enter<EnemyIdleState>();
     }
   }
 }

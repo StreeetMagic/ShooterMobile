@@ -16,7 +16,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Idle
     public override void Tick()
     {
       if (_idleTimer.IsDone)
-        Process<EnemyPatrolState>();
+        Enter<EnemyPatrolState>();
     }
   }
 }

@@ -58,7 +58,7 @@ namespace Gameplay.Characters.Enemies
 
     public void Hit()
     {
-      _hitStatus.Enable();
+      _hitStatus.IsHit = true;
     }
 
     private void Die()

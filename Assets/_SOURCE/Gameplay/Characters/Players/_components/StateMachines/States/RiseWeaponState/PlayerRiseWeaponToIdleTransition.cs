@@ -15,7 +15,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
     public override void Tick()
     {
       if (_playerTargetHolder.HasTarget == false)
-        Process<PlayerIdleState>();
+        Enter<PlayerIdleState>();
     }
   }
 }

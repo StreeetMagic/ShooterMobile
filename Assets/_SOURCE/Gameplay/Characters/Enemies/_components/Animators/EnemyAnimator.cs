@@ -103,7 +103,7 @@ namespace Gameplay.Characters.Enemies.Animators
             Animator.SetBool(s_isRun, true);
         }
 
-        public void PlayWalkAnimation()
+        public void PlayWalk()
         {
             Animator.SetBool(s_isRun, false);
             Animator.SetBool(s_isWalk, true);
@@ -114,7 +114,7 @@ namespace Gameplay.Characters.Enemies.Animators
             Animator.SetBool(s_isRun, false);
         }
 
-        public void StopWalkAnimation()
+        public void StopWalk()
         {
             Animator.SetBool(s_isWalk, false);
         }

@@ -18,7 +18,7 @@ namespace Gameplay.Characters.Players.StateMachines.States.MoveState
       if (_inputService.HasMoveInput)
         return;
 
-      Process<PlayerIdleState>();
+      Enter<PlayerIdleState>();
     }
   }
 }

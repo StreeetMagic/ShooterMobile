@@ -4,6 +4,19 @@ namespace Gameplay.Characters.Enemies
 {
   public class EnemyAnimatorProvider
   {
-    public EnemyAnimator Instance { get; set; }
+    private EnemyAnimator _instance;
+
+    public EnemyAnimator Instance
+    {
+      get
+      {
+        if (!_instance)
+           throw new System.NullReferenceException(); 
+        
+        return _instance;
+      }
+      
+      set => _instance = value;
+    }
   }
 }
