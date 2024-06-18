@@ -74,6 +74,9 @@ namespace Gameplay.Characters.Enemies
     
     [Tooltip("Длительность подъема оружия")]
     public float WeaponRisingTime = .2f;
+    
+    [Tooltip("Длительность опускания оружия")]
+    public float WeaponLoweringTime = .2f;
 
     /************************/
 

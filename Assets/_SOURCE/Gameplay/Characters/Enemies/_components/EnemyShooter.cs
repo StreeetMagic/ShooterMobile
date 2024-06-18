@@ -22,12 +22,13 @@ namespace Gameplay.Characters.Enemies
       _enemyConfig = enemyConfig;
     }
 
-    public void Shoot(Transform parentTransform, Vector3 startPosition, Vector3 directionToTarget, EnemyConfig enemyConfig)
+    public void Shoot(Transform parent, Vector3 startPosition,
+      Vector3 directionToTarget, EnemyConfig enemyConfig)
     {
       for (int i = 0; i < enemyConfig.BulletsPerShot; i++)
       {
         Vector3 angledDirection = AngleChanger.AddAngle(directionToTarget, _enemyConfig.BulletSpreadAngle);
-        _projectileFactory.CreateEnemyProjectile(parentTransform, startPosition, angledDirection, enemyConfig);
+        _projectileFactory.CreateEnemyProjectile(parent, startPosition, angledDirection, enemyConfig);
       }
 
       _audioService.PlaySound(SoundId.Shoot);

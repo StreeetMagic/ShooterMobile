@@ -13,8 +13,6 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
     private readonly EnemyConfig _config;
     private readonly HitStatus _hitStatus;
 
-    private bool _exited;
-
     public EnemyChaseState(List<Transition> transitions,
       EnemyMover mover, EnemyAnimatorProvider animatorProvider,
       PlayerProvider playerProvider, EnemyConfig config, HitStatus hitStatus) : base(transitions)
@@ -29,22 +27,15 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
     public override void Enter()
     {
       _animatorProvider.Instance.PlayRun();
-      _exited = false;
     }
 
     protected override void OnTick()
     {
-      // if (_exited)
-      //   return;
-
       _mover.Move(_playerProvider.Instance.transform.position, _config.RunSpeed);
     }
 
     public override void Exit()
     {
-      Debug.Log("Вышел");
-
-      _exited = true;
       _mover.Stop();
       _animatorProvider.Instance.StopRun();
       _hitStatus.IsHit = false;

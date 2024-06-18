@@ -4,13 +4,13 @@ namespace Infrastructure.RandomServices
 {
   public class RandomService
   {
-    private static Random _random = new Random();
+    private static readonly Random s_random = new Random();
 
     public int GetRandomInt(int min, int max) =>
-      _random.Next(min, max);
+      s_random.Next(min, max);
 
     public float GetRandomFloat(float max) =>
-      (float)_random.NextDouble() * max;
+      (float)s_random.NextDouble() * max;
 
     public string GetRandomUniqueId() =>
       Guid

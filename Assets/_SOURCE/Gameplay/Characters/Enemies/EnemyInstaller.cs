@@ -52,7 +52,6 @@ namespace Gameplay.Characters.Enemies
       Container.BindInterfacesAndSelfTo<EnemyColliderDisabler>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyHealer>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyRoutePointsManager>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyMaxAttakingRange>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyAssistCall>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyMeshMaterialChanger>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<FiniteStateMachine>().AsSingle().NonLazy();
@@ -60,6 +59,9 @@ namespace Gameplay.Characters.Enemies
       Container.BindInterfacesAndSelfTo<EnemyAlertTimer>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyGrenadeStorage>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyGrenadeThrowTimer>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyWeaponRaiser>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyWeaponLowerer>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyWeaponMagazine>().AsSingle().NonLazy();
 
       Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
       Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();

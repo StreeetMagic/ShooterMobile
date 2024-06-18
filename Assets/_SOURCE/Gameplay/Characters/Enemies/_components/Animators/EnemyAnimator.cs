@@ -60,7 +60,6 @@ namespace Gameplay.Characters.Enemies.Animators
 
         public void OnHit()
         {
-            Debug.Log(" OnHit");
             KnifeHit?.Invoke();
         }
 

@@ -22,7 +22,7 @@ namespace Gameplay.Characters.FiniteStateMachines
       EnterActiveState();
 
       foreach (State state in _states.Values)
-        state.Processed += OnEntered;
+        state.Entered += OnEntered;
 
       foreach (Transition transition in _anyStateTransitions.Values)
         transition.Entered += OnEntered;

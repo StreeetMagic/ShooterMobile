@@ -16,11 +16,11 @@ namespace Gameplay.Characters.FiniteStateMachines
 
       foreach (Transition transition in _transitions)
       {
-        transition.Entered += Process;
+        transition.Entered += Enter;
       }
     }
 
-    public event Action<Type> Processed;
+    public event Action<Type> Entered;
 
     public void Tick()
     {
@@ -41,9 +41,9 @@ namespace Gameplay.Characters.FiniteStateMachines
       _activeState = state;
     }
 
-    private void Process(Type type)
+    private void Enter(Type type)
     {
-      Processed?.Invoke(type);
+      Entered?.Invoke(type);
     }
 
     protected virtual void OnTick() { }
