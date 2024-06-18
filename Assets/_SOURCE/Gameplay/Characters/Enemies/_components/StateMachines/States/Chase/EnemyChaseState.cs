@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players;
+using UnityEngine;
 
 namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
 {
@@ -11,8 +12,10 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
     private readonly PlayerProvider _playerProvider;
     private readonly EnemyConfig _config;
 
-    public EnemyChaseState(List<Transition> transitions, 
-      EnemyMover mover, EnemyAnimatorProvider animatorProvider, 
+    private bool _exited;
+
+    public EnemyChaseState(List<Transition> transitions,
+      EnemyMover mover, EnemyAnimatorProvider animatorProvider,
       PlayerProvider playerProvider, EnemyConfig config) : base(transitions)
     {
       _mover = mover;
@@ -23,12 +26,23 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
 
     public override void Enter()
     {
-      _mover.Move(_playerProvider.Instance.transform.position, _config.RunSpeed);
       _animatorProvider.Instance.PlayRun();
+    }
+
+    public override void Tick()
+    {
+      base.Tick();
+
+      if (_exited)
+        return;
+      
+      _mover.Move(_playerProvider.Instance.transform.position, _config.RunSpeed);
     }
 
     public override void Exit()
     {
+      _exited = true;
+      _mover.Stop();
       _animatorProvider.Instance.StopRun();
     }
   }
