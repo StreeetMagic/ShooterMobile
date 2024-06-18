@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players;
+using UnityEngine;
 
 namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
 {
@@ -33,16 +34,18 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
 
     public override void Tick()
     {
-      base.Tick();
+      // if (_exited)
+      //   return;
 
-      if (_exited)
-        return;
-      
       _mover.Move(_playerProvider.Instance.transform.position, _config.RunSpeed);
+      Debug.Log("Тикаю");
+      base.Tick();
     }
 
     public override void Exit()
     {
+      Debug.Log("Вышел");
+
       _exited = true;
       _mover.Stop();
       _animatorProvider.Instance.StopRun();
