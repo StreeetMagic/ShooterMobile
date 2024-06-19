@@ -157,9 +157,7 @@ namespace Gameplay.Characters.Enemies.StateMachines
           (
             new List<Transition>
             {
-              _factory.InstantiateNative<EnemyLowWeaponToReloadTransition>(),
               _factory.InstantiateNative<EnemyLowWeaponToChaseTransition>(),
-              _factory.InstantiateNative<EnemyLowWeaponToReturnTransition>(),
             }
           )
         },
