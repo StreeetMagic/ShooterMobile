@@ -24,12 +24,21 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.BasePointers
 
     private void LateUpdate()
     {
-      if (_mapProvider.Map == null)
+      if (!_mapProvider.Map)
+      {
+        Hide();
         return;
-      
+      }
+
+      if (!_mapProvider.Map.BaseTrigger)
+      {
+        Hide();
+        return;
+      }
+
       RotateToBase();
 
-      Hide();
+      HideIfClose();
     }
 
     private void RotateToBase()
@@ -41,7 +50,7 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.BasePointers
       transform.rotation = new Quaternion(0, cachedRotation.y, 0, cachedRotation.w);
     }
 
-    private void Hide()
+    private void HideIfClose()
     {
       if (_backpackStorage.IsFull == false)
       {
@@ -54,6 +63,11 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.BasePointers
       var distance = Vector3.Distance(transform.position, BaseTrigger.transform.position);
 
       Pointer.gameObject.SetActive(!(distance < MinDistance));
+    }
+
+    private void Hide()
+    {
+      Pointer.gameObject.SetActive(false);
     }
   }
 }

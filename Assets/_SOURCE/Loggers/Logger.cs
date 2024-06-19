@@ -70,5 +70,10 @@ namespace Loggers
 
       Log(message);
     }
+
+    public void LogWarning(string text)
+    {
+      Debug.LogWarning(text); 
+    }
   }
 }

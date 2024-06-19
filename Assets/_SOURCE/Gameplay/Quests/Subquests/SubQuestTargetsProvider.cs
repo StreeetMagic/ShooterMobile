@@ -28,6 +28,9 @@ namespace Gameplay.Quests.Subquests
 
     public List<Transform> GetQuester(QuestId questId)
     {
+      if (_mapProvider.Map.Questers.Count == 0)
+        return null;
+      
       Quester quester =
         _mapProvider.Map
           .Questers
