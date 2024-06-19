@@ -66,6 +66,7 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerWeaponShootingPoint>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<FiniteStateMachine>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponAmmo>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<PlayerReloadAnimationController>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponMagazineReloader>().AsSingle().NonLazy();
      
       Container.Bind<IGameObjectZenjectFactory>().To<PlayerZenjectFactory>().AsSingle().NonLazy();
