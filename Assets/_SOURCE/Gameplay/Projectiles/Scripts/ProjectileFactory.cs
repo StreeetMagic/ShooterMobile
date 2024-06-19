@@ -1,6 +1,8 @@
+using System;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Projectiles;
 using Gameplay.Characters.Players.Projectiles;
+using Gameplay.Weapons;
 using Infrastructure.AssetProviders;
 using Infrastructure.RandomServices;
 using Infrastructure.VisualEffects;
@@ -25,7 +27,7 @@ namespace Gameplay.Projectiles.Scripts
       _visualEffectFactory = visualEffectFactory;
     }
 
-    public void CreatePlayerProjectile(Transform parent, Vector3 rotation)
+    public void CreatePlayerProjectile(Transform parent, Vector3 rotation, WeaponTypeId weaponTypeId)
     {
       string guid = _randomService.GetRandomUniqueId();
       PlayerProjectile prefab = _assetProvider.Get<PlayerProjectile>();
@@ -33,7 +35,27 @@ namespace Gameplay.Projectiles.Scripts
       playerProjectile.transform.SetParent(null);
       playerProjectile.Guid = guid;
 
-      _visualEffectFactory.Create(VisualEffectId.PlayerMuzzleFlash, parent.position, parent);
+      switch (weaponTypeId)
+      {
+        case WeaponTypeId.Unknown:
+          throw new ArgumentOutOfRangeException(nameof(weaponTypeId), weaponTypeId, null);
+
+        case WeaponTypeId.DesertEagle:
+          _visualEffectFactory.Create(VisualEffectId.PistolBullet, parent.position, parent);
+          break;
+
+        case WeaponTypeId.Famas:
+        case WeaponTypeId.Ak47:
+          _visualEffectFactory.Create(VisualEffectId.RiffleBullet, parent.position, parent);
+          break;
+
+        case WeaponTypeId.Xm1014:
+          _visualEffectFactory.Create(VisualEffectId.ShotgunBullet, parent.position, parent);
+          break;
+
+        default:
+          throw new ArgumentOutOfRangeException(nameof(weaponTypeId), weaponTypeId, null);
+      }
     }
 
     public void CreateEnemyProjectile(Transform parent, Vector3 position, Vector3 rotation, EnemyConfig enemyConfig)

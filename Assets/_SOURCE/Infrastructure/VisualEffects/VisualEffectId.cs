@@ -5,7 +5,7 @@ namespace Infrastructure.VisualEffects
     Unknown = 0,
 
     PlayerBulletImpact = 1, //надо удалить
-    PlayerMuzzleFlash = 2, //надо удалить
+   // PlayerMuzzleFlash = 2, //надо удалить
 
     // AssaultRifleBulletImpact = 100,
     // PistolBulletImpact = 101,

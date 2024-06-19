@@ -8,8 +8,8 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.RaiseWeapon
   {
     private readonly EnemyAnimatorProvider _enemyAnimatorProvider;
     private readonly EnemyWeaponRaiser _weaponRaiser;
-    
-    public EnemyRaiseWeaponState(List<Transition> transitions, 
+
+    public EnemyRaiseWeaponState(List<Transition> transitions,
       EnemyWeaponRaiser weaponRaiser, EnemyAnimatorProvider enemyAnimatorProvider) : base(transitions)
     {
       _weaponRaiser = weaponRaiser;

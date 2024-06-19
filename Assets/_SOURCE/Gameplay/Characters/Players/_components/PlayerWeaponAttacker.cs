@@ -28,7 +28,7 @@ namespace Gameplay.Characters.Players
 
     public PlayerWeaponAttacker(ConfigProvider configProvider,
       ProjectileFactory projectileFactory, AudioService audioService, PlayerWeaponIdProvider playerWeaponIdProvider,
-      PlayerAnimator playerAnimator, PlayerWeaponAmmo playerWeaponAmmo, PlayerWeaponMagazineReloader playerWeaponMagazineReloader, 
+      PlayerAnimator playerAnimator, PlayerWeaponAmmo playerWeaponAmmo, PlayerWeaponMagazineReloader playerWeaponMagazineReloader,
       PlayerTargetHolder playerTargetHolder, PlayerWeaponShootingPoint playerWeaponShootingPoint)
     {
       _configProvider = configProvider;
@@ -125,7 +125,7 @@ namespace Gameplay.Characters.Players
 
         directionToTarget = AngleChanger.AddAngle(directionToTarget, _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).BulletSpreadAngle);
 
-        _projectileFactory.CreatePlayerProjectile(_playerWeaponShootingPoint.Transform, directionToTarget);
+        _projectileFactory.CreatePlayerProjectile(_playerWeaponShootingPoint.Transform, directionToTarget, _playerWeaponIdProvider.CurrentId.Value);
       }
 
       _audioService.PlaySound(SoundId.Shoot);

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players;
-using UnityEngine;
 
 namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
 {
