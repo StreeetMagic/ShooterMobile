@@ -50,7 +50,8 @@ namespace Gameplay.Projectiles.Scripts
           break;
 
         case WeaponTypeId.Xm1014:
-          _visualEffectFactory.Create(VisualEffectId.ShotgunBullet, parent.position, parent);
+          Debug.Log("костыль");
+          _visualEffectFactory.Create(VisualEffectId.PlayerBulletImpact, parent.position, parent);
           break;
 
         default:

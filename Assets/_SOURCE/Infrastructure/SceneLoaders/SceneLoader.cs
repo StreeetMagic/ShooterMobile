@@ -64,8 +64,6 @@ namespace Infrastructure.SceneLoaders
       onLoaded?.Invoke();
       SceneLoaded?.Invoke(nextScene);
       CurrentScene = nextScene;
-      
-      Debug.Log("Закончил грузить сцену: " + CurrentScene);
     }
   }
 }

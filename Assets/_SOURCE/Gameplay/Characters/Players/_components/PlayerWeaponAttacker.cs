@@ -18,9 +18,9 @@ namespace Gameplay.Characters.Players
     private readonly PlayerWeaponIdProvider _playerWeaponIdProvider;
     private readonly PlayerAnimator _playerAnimator;
     private readonly PlayerWeaponAmmo _playerWeaponAmmo;
-    private readonly PlayerWeaponMagazineReloader _playerWeaponMagazineReloader;
+    private readonly PlayerWeaponMagazineReloader _reloader;
     private readonly PlayerTargetHolder _playerTargetHolder;
-    private readonly PlayerWeaponShootingPoint _playerWeaponShootingPoint;
+    private readonly PlayerWeaponShootingPoint _shootingPoint;
 
     private float _timeLeft;
     private float _burstPauseLeft;
@@ -28,8 +28,8 @@ namespace Gameplay.Characters.Players
 
     public PlayerWeaponAttacker(ConfigProvider configProvider,
       ProjectileFactory projectileFactory, AudioService audioService, PlayerWeaponIdProvider playerWeaponIdProvider,
-      PlayerAnimator playerAnimator, PlayerWeaponAmmo playerWeaponAmmo, PlayerWeaponMagazineReloader playerWeaponMagazineReloader,
-      PlayerTargetHolder playerTargetHolder, PlayerWeaponShootingPoint playerWeaponShootingPoint)
+      PlayerAnimator playerAnimator, PlayerWeaponAmmo playerWeaponAmmo, PlayerWeaponMagazineReloader reloader,
+      PlayerTargetHolder playerTargetHolder, PlayerWeaponShootingPoint shootingPoint)
     {
       _configProvider = configProvider;
       _projectileFactory = projectileFactory;
@@ -37,12 +37,12 @@ namespace Gameplay.Characters.Players
       _playerWeaponIdProvider = playerWeaponIdProvider;
       _playerAnimator = playerAnimator;
       _playerWeaponAmmo = playerWeaponAmmo;
-      _playerWeaponMagazineReloader = playerWeaponMagazineReloader;
+      _reloader = reloader;
       _playerTargetHolder = playerTargetHolder;
-      _playerWeaponShootingPoint = playerWeaponShootingPoint;
+      _shootingPoint = shootingPoint;
     }
 
-    private float Cooldown => (float)1 / _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).FireRate;
+    private float Cooldown => (float)1 / GetWeaponConfig().FireRate;
 
     public void Tick()
     {
@@ -52,7 +52,7 @@ namespace Gameplay.Characters.Players
         return;
       }
 
-      switch (_configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).WeaponAttackTypeId)
+      switch (GetWeaponConfig().WeaponAttackTypeId)
       {
         case WeaponAttackTypeId.Unknown:
           throw new Exception("WeaponAttackTypeId.Unknown");
@@ -82,13 +82,13 @@ namespace Gameplay.Characters.Players
           throw new Exception("Unknown WeaponAttackTypeId");
       }
 
-      PlayWeaponAnimation(_configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).WeaponTypeId);
+      PlayWeaponAnimation(GetWeaponConfig().WeaponTypeId);
     }
 
     public void ResetValues()
     {
       _timeLeft = Cooldown;
-      _burstPauseLeft = _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).TimeBetweenBursts;
+      _burstPauseLeft = GetWeaponConfig().TimeBetweenBursts;
       _burstShots = 0;
     }
 
@@ -104,28 +104,28 @@ namespace Gameplay.Characters.Players
       _burstShots++;
       _timeLeft = Cooldown;
 
-      if (_burstShots >= _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).ShotsPerBurst)
+      if (_burstShots >= GetWeaponConfig().ShotsPerBurst)
       {
-        _burstPauseLeft = _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).TimeBetweenBursts;
+        _burstPauseLeft = GetWeaponConfig().TimeBetweenBursts;
         _burstShots = 0;
       }
     }
 
     private void Shoot()
     {
-      if (_playerWeaponAmmo.TryGetAmmo(_configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).WeaponTypeId, 1) == false)
+      if (_playerWeaponAmmo.TryGetAmmo(GetWeaponConfig().WeaponTypeId, 1) == false)
       {
-        _playerWeaponMagazineReloader.Activate(_configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).WeaponTypeId);
+        _reloader.Activate(GetWeaponConfig().WeaponTypeId);
         return;
       }
 
-      for (int i = 0; i < _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).BulletsPerShot; i++)
+      for (int i = 0; i < GetWeaponConfig().BulletsPerShot; i++)
       {
         Vector3 directionToTarget = _playerTargetHolder.DirectionToTarget;
 
-        directionToTarget = AngleChanger.AddAngle(directionToTarget, _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).BulletSpreadAngle);
+        directionToTarget = AngleChanger.AddAngle(directionToTarget, GetWeaponConfig().BulletSpreadAngle);
 
-        _projectileFactory.CreatePlayerProjectile(_playerWeaponShootingPoint.Transform, directionToTarget, _playerWeaponIdProvider.CurrentId.Value);
+        _projectileFactory.CreatePlayerProjectile(_shootingPoint.Transform, directionToTarget, _playerWeaponIdProvider.CurrentId.Value);
       }
 
       _audioService.PlaySound(SoundId.Shoot);
@@ -133,7 +133,7 @@ namespace Gameplay.Characters.Players
 
     private void Strike()
     {
-      _playerTargetHolder.CurrentTarget.TakeDamage(_configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).Damage);
+      _playerTargetHolder.CurrentTarget.TakeDamage(GetWeaponConfig().Damage);
     }
 
     private void PlayWeaponAnimation(WeaponTypeId id)
@@ -144,7 +144,7 @@ namespace Gameplay.Characters.Players
           throw new ArgumentOutOfRangeException(nameof(id), id, null);
 
         case WeaponTypeId.Knife:
-          _playerAnimator.PlayRandomKnifeHitAnimation(_configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value).MeeleAttackDuration);
+          _playerAnimator.PlayRandomKnifeHitAnimation(GetWeaponConfig().MeeleAttackDuration);
           break;
 
         case WeaponTypeId.DesertEagle:
@@ -164,5 +164,8 @@ namespace Gameplay.Characters.Players
           throw new ArgumentOutOfRangeException(nameof(id), id, null);
       }
     }
+
+    private WeaponConfig GetWeaponConfig() =>
+      _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value);
   }
 }
