@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Scenes._Infrastructure.Scripts;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure.SceneLoaders
@@ -28,7 +29,8 @@ namespace Infrastructure.SceneLoaders
 
       //_coroutineRunner.StartCoroutine(LoadSceneAsync(name, onLoaded));
 
-      LoadScene(SceneId.Empty, () => LoadScene(name, onLoaded));
+      LoadScene(SceneId.Empty);
+      LoadScene(name, onLoaded);
     }
 
     // private IEnumerator LoadSceneAsync(SceneId nextScene, Action onLoaded)
@@ -54,7 +56,7 @@ namespace Infrastructure.SceneLoaders
     //   CurrentScene = nextScene;
     // }
 
-    private void LoadScene(SceneId nextScene, Action onLoaded)
+    private void LoadScene(SceneId nextScene, Action onLoaded = null)
     {
       SceneManager.LoadScene(nextScene.ToString());
       _loadedScenes.Add(nextScene);
@@ -62,6 +64,8 @@ namespace Infrastructure.SceneLoaders
       onLoaded?.Invoke();
       SceneLoaded?.Invoke(nextScene);
       CurrentScene = nextScene;
+      
+      Debug.Log("Закончил грузить сцену: " + CurrentScene);
     }
   }
 }

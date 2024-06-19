@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Gameplay.Portals;
 using Infrastructure.Projects;
 using Infrastructure.SceneLoaders;
 using Scenes._Infrastructure.Scripts;
@@ -44,6 +46,8 @@ namespace Maps
     {
       GameLoopSceneTypeId type = _projectData.GetGameLoopSceneTypeId(_sceneLoader.CurrentScene);
 
+      Debug.Log("Текущая сцена: " + type);
+      
       if (type != GameLoopSceneTypeId.Core)
       {
         return;
@@ -62,25 +66,25 @@ namespace Maps
         return;
       }
 
-      SceneId prelastLoadedArena = arenas[^2]; 
+      SceneId lastLoadedArena = arenas.Last();
       
-      Debug.Log(prelastLoadedArena);
+      Debug.Log(lastLoadedArena + " last arena");
 
       int count = 0;
-      
-      foreach (var portal in _mapProvider.Map.Portals)
+
+      foreach (Portal portal in _mapProvider.Map.Portals)
       {
-        if (portal.ToScene == prelastLoadedArena)
+        if (portal.ToScene == lastLoadedArena)
         {
           portal.Deactivate();
           _mapProvider.Map.PlayerSpawnMarker.transform.position = portal.transform.position;
           count++;
         }
       }
-      
+
       if (count > 1)
       {
-         throw new Exception($"На кор сцене более одного одинакового портала");
+        throw new Exception($"На кор сцене более одного одинакового портала");
       }
     }
   }

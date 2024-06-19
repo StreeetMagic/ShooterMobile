@@ -5,6 +5,8 @@ namespace Loggers
 {
   public class DebugLogger
   {
+    private bool _stateMachines = false;
+    
     public void Log(string message)
     {
       Debug.Log(message);
@@ -38,25 +40,34 @@ namespace Loggers
 
     public void LogTransition(string message)
     {
-      if (message.Contains("Player"))
+      if (_stateMachines == false)
         return;
       
+      if (message.Contains("Player"))
+        return;
+
       Log(message);
     }
 
     public void LogStateEnter(string message)
     {
-      if (message.Contains("Player"))
+      if (_stateMachines == false)
         return;
       
+      if (message.Contains("Player"))
+        return;
+
       Log(message);
     }
 
     public void LogStateExit(string message)
     {
+      if (_stateMachines == false)
+        return;
+        
       if (message.Contains("Player"))
         return;
-      
+
       Log(message);
     }
   }
