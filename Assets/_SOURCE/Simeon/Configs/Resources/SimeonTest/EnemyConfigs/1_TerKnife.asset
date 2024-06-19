@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 1_TerKnife
   m_EditorClassIdentifier: 
   Id: 1
-  MoveSpeed: 3
-  RunSpeed: 5
-  PatrolingRadius: 8
+  MoveSpeed: 4
+  RunSpeed: 6
+  PatrolingRadius: 50
   HealingDelay: 1
   InitialHealth: 100
   HealMultiplier: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
   - Id: 2
     Level: 1
   Expirience: 25
-  AggroRadius: 2
+  AggroRadius: 5
   IsShooter: 0
   ShootRange: 5
   FireRate: 3
