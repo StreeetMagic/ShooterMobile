@@ -41,7 +41,6 @@ namespace Gameplay.Characters.Enemies
       Container.BindInterfacesAndSelfTo<EnemyReturnToSpawnStatus>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<HitStatus>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyWeaponReloader>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyMeleeAttacker>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyAnimatorProvider>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyToPlayerRotator>().AsSingle().NonLazy();
@@ -62,6 +61,7 @@ namespace Gameplay.Characters.Enemies
       Container.BindInterfacesAndSelfTo<EnemyWeaponRaiser>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyWeaponLowerer>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<EnemyWeaponMagazine>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyWeaponMagazineReloaderTimer>().AsSingle().NonLazy();
 
       Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
       Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();

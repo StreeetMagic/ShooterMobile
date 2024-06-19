@@ -10,15 +10,13 @@ namespace Gameplay.Characters.Enemies
   {
     private readonly ProjectileFactory _projectileFactory;
     private readonly AudioService _audioService;
-    private readonly EnemyWeaponReloader _reloader;
     private readonly EnemyConfig _enemyConfig;
 
     public EnemyShooter(ProjectileFactory zenjectFactory,
-      AudioService audioService, EnemyWeaponReloader reloader, EnemyConfig enemyConfig)
+      AudioService audioService, EnemyConfig enemyConfig)
     {
       _projectileFactory = zenjectFactory;
       _audioService = audioService;
-      _reloader = reloader;
       _enemyConfig = enemyConfig;
     }
 
@@ -32,7 +30,6 @@ namespace Gameplay.Characters.Enemies
       }
 
       _audioService.PlaySound(SoundId.Shoot);
-      _reloader.SpendBullet();
     }
   }
 }

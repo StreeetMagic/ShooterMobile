@@ -58,6 +58,8 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Shoot
       _animatorProvider.Instance.PlayShootAnimation();
       Transform parentTransform = _shootingPointProvider.PointTransform;
       _shooter.Shoot(parentTransform, parentTransform.position, direction, _config);
+      
+      _shootTimeLeft = 1 / (float)_config.FireRate;
     }
 
     public override void Exit()

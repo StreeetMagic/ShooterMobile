@@ -30,7 +30,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Shoot
         return;
       }
 
-      if (Vector3.Distance(_playerProvider.Instance.transform.position, _transform.position) > _config.ShootRange)
+      if (Vector3.Distance(_transform.position, _playerProvider.Instance.transform.position) - 1 > _config.ShootRange)
       {
         Enter<EnemyLowWeaponState>();
       }
