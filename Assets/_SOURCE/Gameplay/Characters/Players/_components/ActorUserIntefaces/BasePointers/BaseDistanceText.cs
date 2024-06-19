@@ -22,10 +22,13 @@ namespace Gameplay.Characters.Players.ActorUserIntefaces.BasePointers
 
     private void Update()
     {
-      if (_playerProvider.Instance == null)
+      if (!_playerProvider.Instance)
         return;
 
-      if (_mapProvider.Map == null)
+      if (!_mapProvider.Map)
+        return;
+      
+      if (!_mapProvider.Map.BaseTrigger)
         return;
 
       BaseTrigger baseTrigger = _mapProvider.Map.BaseTrigger;

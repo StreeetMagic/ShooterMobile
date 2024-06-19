@@ -3,6 +3,8 @@ using Infrastructure.ConfigServices;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
+using Loggers;
+using UnityEngine;
 
 namespace Gameplay.CurrencyRepositories.Expirience
 {
@@ -13,11 +15,17 @@ namespace Gameplay.CurrencyRepositories.Expirience
     public ExpierienceStorage(ConfigProvider configProvider)
     {
       _configProvider = configProvider;
+      AllPoints.ValueChanged += OnValueChanged;
     }
 
     public ReactiveProperty<int> AllPoints { get; } = new();
 
     private ExpirienceConfig Config => _configProvider.ExpirienceConfig;
+
+    private void OnValueChanged(int obj)
+    {
+      new DebugLogger().Log($"AllPoints: {obj}");
+    }
 
     public void ReadProgress(ProjectProgress projectProgress)
     {

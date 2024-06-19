@@ -27,7 +27,9 @@ namespace Maps
     {
       MoveToRootParent(_mapProvider.Map);
       DisablePortalsToArenas();
-      _mapProvider.Map.BombSpawner.SpawnBombs();
+
+      if (_mapProvider.Map.BombSpawner)
+        _mapProvider.Map.BombSpawner.SpawnBombs();
     }
 
     public void Destroy()
@@ -47,7 +49,7 @@ namespace Maps
       GameLoopSceneTypeId type = _projectData.GetGameLoopSceneTypeId(_sceneLoader.CurrentScene);
 
       Debug.Log("Текущая сцена: " + type);
-      
+
       if (type != GameLoopSceneTypeId.Core)
       {
         return;
@@ -67,7 +69,7 @@ namespace Maps
       }
 
       SceneId lastLoadedArena = arenas.Last();
-      
+
       Debug.Log(lastLoadedArena + " last arena");
 
       int count = 0;

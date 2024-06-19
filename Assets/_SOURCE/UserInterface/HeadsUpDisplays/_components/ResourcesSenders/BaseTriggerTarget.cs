@@ -14,10 +14,13 @@ namespace UserInterface.HeadsUpDisplays.ResourcesSenders
 
     private void Update()
     {
-      if (_cameraProvider.MainCamera == null)
+      if (!_cameraProvider.MainCamera)
         return;
 
-      if (_mapProvider.Map == null)
+      if (!_mapProvider.Map)
+        return;
+      
+      if (!_mapProvider.Map.BaseTrigger)
         return;
 
       var screenPosition = _cameraProvider.MainCamera.WorldToScreenPoint(_mapProvider.Map.BaseTrigger.transform.position);
