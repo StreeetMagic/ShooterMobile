@@ -21,6 +21,7 @@ namespace Gameplay.Characters.Players.TargetLocators
     {
       if (_reloader.IsActive && _isReloading == false)
       {
+        _playerAnimator.OffStateShooting();
         _playerAnimator.PlayReload();
         Debug.Log("Reloading");
         _isReloading = true;
