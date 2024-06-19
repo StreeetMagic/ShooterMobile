@@ -15,26 +15,32 @@ MonoBehaviour:
   Id: 2
   MoveSpeed: 5
   RunSpeed: 10
-  RunTime: 2
-  WaitTimeAfterMove: 0.1
+  PatrolingRadius: 12
+  HealingDelay: 1
   InitialHealth: 200
-  MoneyReward: 3
   HealMultiplier: 1
   LootDrops:
   - Id: 1
     Level: 2
   - Id: 2
     Level: 1
-  ShootRange: 0
-  AggroRadius: 3
-  FireRate: 2
-  BulletDamage: 0
-  PatrolingRadius: 12
   Expirience: 30
-  EnemyDetectionColliderRadius: 0.09
-  ForceFromOtherEnemys: 0.3
-  GrenadeThrower: 1
+  AggroRadius: 3
+  IsShooter: 1
+  ShootRange: 6
+  FireRate: 2
+  BulletDamage: 1
+  MagazineCapacity: 10
+  MagazineReloadTime: 2
+  BulletsPerShot: 1
+  BulletSpreadAngle: 1
+  IsGrenadeThrower: 1
+  GrenadeTypeId: 3
   GrenadeThrowCooldown: 3
   GrenadeThrowRandomDelay: 1
   TargetStandsOnSamePositionTime: 1
   MaxGrenadesCount: 3
+  GrenadeThrowRange: 5
+  MeleeRange: 2
+  MeeleAttackDuration: 0.2
+  MeeleAttackDamage: 1000

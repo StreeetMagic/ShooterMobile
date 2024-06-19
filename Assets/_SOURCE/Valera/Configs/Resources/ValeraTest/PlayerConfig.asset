@@ -17,11 +17,10 @@ MonoBehaviour:
   BulletSpeed: 25
   BombDefuseDuration: 5
   BombDefuseRadius: 5
-  WeaponRaiseTime: 0.12
-  StartWeapon: 12
+  StartWeapons: 100000000c00000002000000080000000a000000
   Stats:
   - StatId: 2
-    Value: 40
+    Value: 400
   - StatId: 3
     Value: 1
   - StatId: 4
@@ -29,4 +28,4 @@ MonoBehaviour:
   - StatId: 5
     Value: 9
   - StatId: 7
-    Value: 100
+    Value: 10000

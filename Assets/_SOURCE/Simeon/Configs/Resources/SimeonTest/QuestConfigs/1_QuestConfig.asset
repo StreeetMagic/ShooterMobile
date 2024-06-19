@@ -13,23 +13,21 @@ MonoBehaviour:
   m_Name: 1_QuestConfig
   m_EditorClassIdentifier: 
   Id: 1
-  Name: Liquidation
-  Icon: {fileID: 21300000, guid: 8e11b7750a74aae428626af4f64f81a8, type: 3}
   Reward:
     RewardId: 2
     Quantity: 25
   SubQuests:
-  - Config: {fileID: 11400000, guid: f31dabcc9a3b5b146be6bc779867b2c8, type: 2}
+  - Id: 1
     Quantity: 2
     Reward:
       RewardId: 1
       Quantity: 350
-  - Config: {fileID: 11400000, guid: f31dabcc9a3b5b146be6bc779867b2c8, type: 2}
+  - Id: 1
     Quantity: 3
     Reward:
       RewardId: 1
       Quantity: 350
-  - Config: {fileID: 11400000, guid: f31dabcc9a3b5b146be6bc779867b2c8, type: 2}
+  - Id: 1
     Quantity: 4
     Reward:
       RewardId: 2

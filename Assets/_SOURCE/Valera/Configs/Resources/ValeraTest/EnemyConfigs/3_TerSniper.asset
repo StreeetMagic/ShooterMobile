@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 3_TerSniper
   m_EditorClassIdentifier: 
   Id: 3
-  MoveSpeed: 3
-  RunSpeed: 5
+  MoveSpeed: 5
+  RunSpeed: 3
   PatrolingRadius: 5
   HealingDelay: 1
-  InitialHealth: 100
+  InitialHealth: 20000
   HealMultiplier: 1
   LootDrops:
   - Id: 1
@@ -30,11 +30,11 @@ MonoBehaviour:
   ShootRange: 7
   FireRate: 1
   BulletDamage: 1
-  MagazineCapacity: 3
-  MagazineReloadTime: 1
+  MagazineCapacity: 10
+  MagazineReloadTime: 2
   BulletsPerShot: 1
   BulletSpreadAngle: 1
-  IsGrenadeThrower: 1
+  IsGrenadeThrower: 0
   GrenadeTypeId: 3
   GrenadeThrowCooldown: 3
   GrenadeThrowRandomDelay: 1

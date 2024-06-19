@@ -57,9 +57,9 @@ namespace Infrastructure.ConfigServices
       _weaponConfigs = _assetProvider.GetAllScriptable<WeaponConfig>(startPath + "WeaponConfigs").ToDictionary(x => x.WeaponTypeId, x => x);
       _grenadeConfigs = _assetProvider.GetAllScriptable<GrenadeConfig>(startPath + "GrenadeConfigs").ToDictionary(x => x.TypeId, x => x);
      
-      PlayerConfig = _assetProvider.GetScriptable<PlayerConfig>(startPath + "PlayerConfigs/PlayerConfig");
-      ExpirienceConfig = _assetProvider.GetScriptable<ExpirienceConfig>(startPath + "ExpirienceConfigs/ExpirienceConfig");
-      DefaultProjectProgressConfig = _assetProvider.GetScriptable<DefaultProjectProgressConfig>(startPath + "DefaultProjectProgressConfig/DefaultProjectProgressConfig");
+      PlayerConfig = _assetProvider.GetScriptable<PlayerConfig>(startPath + "PlayerConfig");
+      ExpirienceConfig = _assetProvider.GetScriptable<ExpirienceConfig>(startPath + "ExpirienceConfig");
+      DefaultProjectProgressConfig = _assetProvider.GetScriptable<DefaultProjectProgressConfig>(startPath + "DefaultProjectProgressConfig");
       
       UpgradeConfigs = _assetProvider.GetAllScriptable<UpgradeConfig>(startPath + "UpgradeConfigs").ToDictionary(x => x.Id, x => x);
       QuestConfigs = _assetProvider.GetAllScriptable<QuestConfig>(startPath + "QuestConfigs").ToDictionary(x => x.Id, x => x);

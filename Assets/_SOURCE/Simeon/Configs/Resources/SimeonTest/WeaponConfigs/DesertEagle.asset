@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: DesertEagle
   m_EditorClassIdentifier: 
   WeaponTypeId: 8
-  WeaponAttackTypeId: 1
+  WeaponAttackTypeId: 3
   BulletSpreadAngle: 1
   BulletsPerShot: 1
   ShotsPerBurst: 0
   TimeBetweenBursts: 0
   FireRate: 5
   FireRange: 6
+  Damage: 10
+  RaiseTime: 0.2
+  MeeleAttackDuration: 0.7
+  MagazineCapacity: 30
+  ReloadTime: 1.5
