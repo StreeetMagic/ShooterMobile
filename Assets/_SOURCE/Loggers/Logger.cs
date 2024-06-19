@@ -5,7 +5,7 @@ namespace Loggers
 {
   public class DebugLogger
   {
-    private bool _stateMachines = false;
+    private readonly bool _stateMachines = false;
     
     public void Log(string message)
     {

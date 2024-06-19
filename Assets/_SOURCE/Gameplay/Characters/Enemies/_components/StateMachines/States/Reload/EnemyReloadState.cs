@@ -8,18 +8,20 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Reload
   {
     private readonly EnemyWeaponMagazine _magazine;
     private readonly EnemyWeaponMagazineReloaderTimer _timer;
+    private readonly EnemyAnimatorProvider _animator;
 
     public EnemyReloadState(List<Transition> transitions,
       EnemyWeaponMagazine magazine,
-      EnemyWeaponMagazineReloaderTimer timer) : base(transitions)
+      EnemyWeaponMagazineReloaderTimer timer, EnemyAnimatorProvider animator) : base(transitions)
     {
       _magazine = magazine;
       _timer = timer;
+      _animator = animator;
     }
 
     public override void Enter()
     {
-      new DebugLogger().Log("Включаем анимацию перезарядки у противника");
+      _animator.Instance.PlayReload();
       _timer.Reset();
     }
 

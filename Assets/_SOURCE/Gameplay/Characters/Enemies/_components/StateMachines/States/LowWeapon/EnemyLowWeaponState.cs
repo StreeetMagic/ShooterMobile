@@ -7,16 +7,18 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.LowWeapon
   public class EnemyLowWeaponState : State
   {
      private readonly EnemyWeaponLowerer _lowerer;
+     private readonly EnemyAnimatorProvider _enemyAnimatorProvider;
       
-    public EnemyLowWeaponState(List<Transition> transitions, EnemyWeaponLowerer lowerer) : base(transitions)
+    public EnemyLowWeaponState(List<Transition> transitions, EnemyWeaponLowerer lowerer, EnemyAnimatorProvider enemyAnimatorProvider) : base(transitions)
     {
       _lowerer = lowerer;
+      _enemyAnimatorProvider = enemyAnimatorProvider;
     }
 
     public override void Enter()
     {
       _lowerer.Reset();
-      new DebugLogger().Log("Опускаем оружие анимация у ENEMY");
+      _enemyAnimatorProvider.Instance.OffStateShooting();
     }
 
     public override void Exit()

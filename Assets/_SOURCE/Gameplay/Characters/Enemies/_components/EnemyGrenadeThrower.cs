@@ -39,6 +39,7 @@ namespace Gameplay.Characters.Enemies
       GrenadeTypeId grenadeTypeId = _config.GrenadeTypeId;
 
       var grenade = _gameLoopZenjectFactory.InstantiateMono<Grenade>();
+      grenade.transform.position = _transform.position;
 
       Vector3 targetPosition = _playerProvider.Instance.transform.position;
 

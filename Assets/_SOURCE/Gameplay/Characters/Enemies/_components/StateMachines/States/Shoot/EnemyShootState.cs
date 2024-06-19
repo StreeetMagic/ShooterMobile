@@ -55,7 +55,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Shoot
       if (_magazine.TryGetBullet() == false)
         return;
 
-      _animatorProvider.Instance.PlayShootAnimation();
+      _animatorProvider.Instance.PlayRifleShootAnimation();
       Transform parentTransform = _shootingPointProvider.PointTransform;
       _shooter.Shoot(parentTransform, parentTransform.position, direction, _config);
       

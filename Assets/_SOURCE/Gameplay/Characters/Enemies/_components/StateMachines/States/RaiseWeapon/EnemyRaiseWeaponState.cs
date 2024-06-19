@@ -19,7 +19,7 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.RaiseWeapon
     public override void Enter()
     {
       _weaponRaiser.Reset();
-      new DebugLogger().Log("Анимация поднятия оружия у ENEMY");
+      _enemyAnimatorProvider.Instance.OnStateShooting();
     }
 
     public override void Exit()

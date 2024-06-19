@@ -351,17 +351,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrenadeRed
       objectReference: {fileID: 0}
-    - target: {fileID: 4839497505716528, guid: d00a2ef7510c0e3419942543dd07c8a8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4839497505716528, guid: d00a2ef7510c0e3419942543dd07c8a8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4839497505716528, guid: d00a2ef7510c0e3419942543dd07c8a8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
+    - target: {fileID: 1834515177923798, guid: d00a2ef7510c0e3419942543dd07c8a8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4839497505716528, guid: d00a2ef7510c0e3419942543dd07c8a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -403,9 +395,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4839497505716528, guid: d00a2ef7510c0e3419942543dd07c8a8, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
+    - target: {fileID: 198840184448754470, guid: d00a2ef7510c0e3419942543dd07c8a8,
+        type: 3}
+      propertyPath: emitterVelocityMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

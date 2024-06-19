@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: 2_TerGun
   m_EditorClassIdentifier: 
   Id: 2
-  MoveSpeed: 5
-  RunSpeed: 10
+  MoveSpeed: 3
+  RunSpeed: 5
+  IdleDuration: 0.5
   PatrolingRadius: 12
   HealingDelay: 1
+  AlertDuration: 0.63
   InitialHealth: 200
   HealMultiplier: 1
   LootDrops:
@@ -28,16 +30,19 @@ MonoBehaviour:
   AggroRadius: 3
   IsShooter: 1
   ShootRange: 6
-  FireRate: 2
+  FireRate: 3
   BulletDamage: 1
-  MagazineCapacity: 10
+  MagazineCapacity: 5
   MagazineReloadTime: 2
   BulletsPerShot: 1
   BulletSpreadAngle: 1
-  IsGrenadeThrower: 1
+  WeaponRisingTime: 0.2
+  WeaponLoweringTime: 0.2
+  IsGrenadeThrower: 0
   GrenadeTypeId: 3
   GrenadeThrowCooldown: 3
   GrenadeThrowRandomDelay: 1
+  GrenadeThrowDuration: 1
   TargetStandsOnSamePositionTime: 1
   MaxGrenadesCount: 3
   GrenadeThrowRange: 5

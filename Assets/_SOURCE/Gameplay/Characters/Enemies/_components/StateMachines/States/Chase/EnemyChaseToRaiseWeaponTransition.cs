@@ -23,6 +23,9 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
 
     public override void Tick()
     {
+      if (_config.IsShooter == false)
+        return;
+      
       if (_magazine.IsEmpty)
         return;
       

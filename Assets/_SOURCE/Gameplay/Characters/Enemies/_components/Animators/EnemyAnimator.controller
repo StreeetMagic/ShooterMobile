@@ -256,11 +256,11 @@ AnimatorStateMachine:
     m_Position: {x: 220, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1360959849799869845}
-    m_Position: {x: 690, y: 300, z: 0}
+    m_Position: {x: 700, y: 310, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: -263711991596836970}
-    m_Position: {x: 690, y: 240, z: 0}
+    m_Position: {x: 700, y: 230, z: 0}
   m_AnyStateTransitions:
   - {fileID: 2626695771129446705}
   - {fileID: -7332455895748887957}
@@ -330,7 +330,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_jump_A_start
+  m_Name: Panic
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
