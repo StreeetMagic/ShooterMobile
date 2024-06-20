@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players;
 

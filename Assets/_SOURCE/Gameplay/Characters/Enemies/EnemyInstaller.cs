@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Enemies.StateMachines;
 using Gameplay.Characters.Enemies.TargetTriggers;
 using Gameplay.Characters.FiniteStateMachines;

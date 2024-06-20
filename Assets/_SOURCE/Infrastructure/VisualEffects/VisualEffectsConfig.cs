@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,13 +7,5 @@ namespace Infrastructure.VisualEffects
   public class VisualEffectsConfig : ScriptableObject
   {
     public List<VisualEffectSetup> Setups;
-  }
-
-  [Serializable]
-  public class VisualEffectSetup
-  {
-    public VisualEffectId Id;
-
-    public List<ParticleSystem> Prefabs;
   }
 }

@@ -1,4 +1,5 @@
 using System;
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.CurrencyRepositories.Expirience;
 using Zenject;
 

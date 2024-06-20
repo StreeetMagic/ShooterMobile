@@ -1,3 +1,5 @@
+using Gameplay.Characters.Enemies.Configs;
+
 namespace Gameplay.Characters.Enemies
 {
   public class EnemyGrenadeStorage

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Gameplay.Characters;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Quests;
 using Gameplay.Spawners.SpawnPoints;
 using Infrastructure.ConfigServices;

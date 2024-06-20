@@ -1,3 +1,4 @@
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Enemies.StateMachines.States.RaiseWeapon;
 using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Characters.Players;

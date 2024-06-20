@@ -1,3 +1,4 @@
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Spawners;
 using UnityEngine;
 

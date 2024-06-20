@@ -3,6 +3,7 @@ using Cameras;
 using Gameplay.BaseTriggers;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Pets.Hens;
 using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.QuestPointers;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.CurrencyRepositories;
 using Gameplay.Loots;
 using Infrastructure.ArtConfigServices;

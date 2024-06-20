@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.FiniteStateMachines;
 
 namespace Gameplay.Characters.Enemies.StateMachines.States.ThrowGrenade

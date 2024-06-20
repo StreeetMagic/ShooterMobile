@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Characters.Enemies;
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.CurrencyRepositories;
 using Gameplay.Loots;
 using Gameplay.Quests;

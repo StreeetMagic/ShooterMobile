@@ -1,5 +1,6 @@
 ﻿using Gameplay.Characters;
 using Gameplay.Characters.Enemies;
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
 using Gameplay.CurrencyRepositories.BackpackStorages;
 using Gameplay.CurrencyRepositories.Expirience;

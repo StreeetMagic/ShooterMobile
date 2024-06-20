@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Gameplay.Characters;
 using Gameplay.Characters.Enemies;
+using Gameplay.Characters.Enemies.Configs;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.Utilities;
 using UnityEngine;

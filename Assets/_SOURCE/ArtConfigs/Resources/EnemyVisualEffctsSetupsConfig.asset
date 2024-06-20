@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16badd13ec44ce29ea46b52b9d2f426, type: 3}
+  m_Name: EnemyVisualEffctsSetupsConfig
+  m_EditorClassIdentifier: 
+  VisualEffectsSetups:
+  - SetupId: 100
+    MuzzleFlashId: 201
+    Bullet: 202
+    Impact: 203
+    Panic: 200
+  - SetupId: 101
+    MuzzleFlashId: 204
+    Bullet: 4
+    Impact: 206
+    Panic: 200
+  - SetupId: 102
+    MuzzleFlashId: 207
+    Bullet: 208
+    Impact: 209
+    Panic: 200
+  - SetupId: 103
+    MuzzleFlashId: 0
+    Bullet: 0
+    Impact: 0
+    Panic: 200
+  - SetupId: 104
+    MuzzleFlashId: 210
+    Bullet: 211
+    Impact: 212
+    Panic: 200

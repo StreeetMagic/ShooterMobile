@@ -43,7 +43,7 @@ namespace Infrastructure.VisualEffects
     SniperImpactExplosion = 112,
     
     //Партиклы на враге
-    AgroPanicEffect = 200,
+    PanicEffect = 200,
     
     //Партиклы пистолетной стрельбы для врагов
     EnemyPistolMuzzleFlash = 201,

@@ -1,3 +1,4 @@
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
 
 namespace Gameplay.Characters.Enemies

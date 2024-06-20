@@ -1,3 +1,4 @@
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
 using Gameplay.Grenades;
 using Infrastructure.ConfigServices;

@@ -1,5 +1,6 @@
 using System;
 using Gameplay.Characters.Enemies;
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Enemies.Projectiles;
 using Gameplay.Characters.Players.Projectiles;
 using Gameplay.Weapons;

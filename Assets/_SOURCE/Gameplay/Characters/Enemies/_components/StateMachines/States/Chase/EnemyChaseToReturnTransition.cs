@@ -1,3 +1,4 @@
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Enemies.StateMachines.States.Return;
 using Gameplay.Characters.FiniteStateMachines;
 using Gameplay.Spawners;

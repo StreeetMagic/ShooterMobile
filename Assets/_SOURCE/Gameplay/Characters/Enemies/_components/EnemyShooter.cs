@@ -1,3 +1,4 @@
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Projectiles.Scripts;
 using Gameplay.Utilities;
 using Infrastructure.AudioServices;
