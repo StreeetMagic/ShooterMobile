@@ -1,4 +1,6 @@
+using System;
 using Gameplay.Projectiles.Raycasters;
+using Gameplay.Weapons;
 using Infrastructure.ConfigServices;
 using Infrastructure.VisualEffects;
 using UnityEngine;
@@ -23,9 +25,34 @@ namespace Gameplay.Characters.Players.Projectiles
       DamageTargetTrigger(otherCollider);
     }
 
-    private void PlayerVisualEffect()
+    private void ImpactEffect()
     {
-      _visualEffectFactory.Create(VisualEffectId.PlayerBulletImpact, transform.position, transform);
+      VisualEffectId id;
+
+      switch (_playerProvider.Instance.WeaponIdProvider.CurrentId.Value)
+      {
+        case WeaponTypeId.Unknown:
+        case WeaponTypeId.Knife:
+          throw new ArgumentOutOfRangeException(); 
+
+        case WeaponTypeId.DesertEagle:
+          id = VisualEffectId.PistolImpactExplosion;
+          break;
+        
+        case WeaponTypeId.Famas:
+        case WeaponTypeId.Ak47:
+          id = VisualEffectId.RiffleImpactExplosion;
+          break;
+        
+        case WeaponTypeId.Xm1014:
+          id = VisualEffectId.ShotgunImpactExplosion;
+          break;
+
+        default:
+          throw new ArgumentOutOfRangeException(); 
+      }
+
+      _visualEffectFactory.Create(id, transform.position, transform);
     }
 
     private void DamageTargetTrigger(Collider other)
@@ -44,9 +71,9 @@ namespace Gameplay.Characters.Players.Projectiles
 
     private void Destroy()
     {
-     // transform.position = CollisionPointRayCaster.HitPosition;
-     
-      PlayerVisualEffect();
+      // transform.position = CollisionPointRayCaster.HitPosition;
+
+      ImpactEffect();
       Destroy(gameObject);
     }
   }

@@ -1,6 +1,7 @@
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
 using Gameplay.Projectiles.Raycasters;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.VisualEffects;
 using UnityEngine;
 using Zenject;
@@ -14,6 +15,7 @@ namespace Gameplay.Characters.Enemies.Projectiles
     private int _count;
 
     [Inject] private VisualEffectFactory _visualEffectFactory;
+    [Inject] private ArtConfigProvider _configProvider;
 
     public EnemyConfig EnemyConfig { get; set; }
 
@@ -22,8 +24,12 @@ namespace Gameplay.Characters.Enemies.Projectiles
       DamageTargetTrigger(otherCollider);
     }
 
-    private void PlayerVisualEffect() =>
-      _visualEffectFactory.Create(VisualEffectId.EnemyBulletImpact, transform.position, transform);
+    private void ImpactEffect()
+    {
+      VisualEffectId id = _configProvider.GetImpactEffectId(EnemyConfig.Id);
+
+      _visualEffectFactory.Create(id, transform.position, transform);
+    }
 
     private void DamageTargetTrigger(Collider other)
     {
@@ -34,7 +40,7 @@ namespace Gameplay.Characters.Enemies.Projectiles
           _count++;
 
           player
-           // .GetComponentInChildren<PlayerTargetTrigger>()
+            // .GetComponentInChildren<PlayerTargetTrigger>()
             .TakeDamage(EnemyConfig.BulletDamage);
         }
       }
@@ -45,7 +51,7 @@ namespace Gameplay.Characters.Enemies.Projectiles
     private void Destroy()
     {
       //transform.position = CollisionPointRayCaster.HitPosition;
-      PlayerVisualEffect();
+      ImpactEffect();
       Destroy(gameObject);
     }
   }

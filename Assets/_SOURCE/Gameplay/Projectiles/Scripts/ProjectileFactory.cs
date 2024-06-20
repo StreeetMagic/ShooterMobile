@@ -36,34 +36,37 @@ namespace Gameplay.Projectiles.Scripts
       playerProjectile.transform.SetParent(null);
       playerProjectile.Guid = guid;
 
+      VisualEffectId id;
+
       switch (weaponTypeId)
       {
         case WeaponTypeId.Unknown:
           throw new ArgumentOutOfRangeException(nameof(weaponTypeId), weaponTypeId, null);
 
         case WeaponTypeId.DesertEagle:
-          _visualEffectFactory.Create(VisualEffectId.PistolBullet, parent.position, parent);
+          id = VisualEffectId.PistolMuzzleFlash;
           break;
 
         case WeaponTypeId.Famas:
         case WeaponTypeId.Ak47:
-          _visualEffectFactory.Create(VisualEffectId.RiffleBullet, parent.position, parent);
+          id = VisualEffectId.RiffleMuzzleFlash;
           break;
 
         case WeaponTypeId.Xm1014:
-          Debug.Log("костыль");
-          _visualEffectFactory.Create(VisualEffectId.PlayerBulletImpact, parent.position, parent);
+          id = VisualEffectId.ShotgunMuzzleFlash;
           break;
 
         default:
           throw new ArgumentOutOfRangeException(nameof(weaponTypeId), weaponTypeId, null);
       }
+
+      _visualEffectFactory.Create(id, parent.position, parent);
     }
 
     public void CreateEnemyProjectile(Transform parent, Vector3 position, Vector3 rotation, EnemyConfig enemyConfig)
     {
       EnemyProjectile prefab = _assetProvider.Get<EnemyProjectile>();
-      EnemyProjectile enemyProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation), parent);
+      EnemyProjectile enemyProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation), null);
       enemyProjectile.EnemyConfig = enemyConfig;
       enemyProjectile.transform.SetParent(null);
 

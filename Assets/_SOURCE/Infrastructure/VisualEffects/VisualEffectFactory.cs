@@ -18,7 +18,8 @@ namespace Infrastructure.VisualEffects
     public void Create(VisualEffectId visualEffectId, Vector3 position, Transform parent, Transform target = null)
     {
       ParticleSystem prefab = _visualEffectProvider.GetPrefab(visualEffectId);
-      GameObject instance = _zenjectFactory.InstantiateGameObject(prefab.gameObject, position, Quaternion.identity, parent);
+      GameObject instance = _zenjectFactory.InstantiateGameObject(prefab.gameObject, position, Quaternion.identity, null);
+
       float duration = prefab.main.duration;
       Object.Destroy(instance, duration);
     }

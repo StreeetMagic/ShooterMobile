@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Loggers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -9,8 +10,6 @@ namespace Gameplay.Characters.Enemies.Animators
 {
   public class EnemyAnimator : MonoBehaviour
   {
-    [SerializeField] private ParticleSystem _panicEffect;
-
     public const string Death1 = nameof(Death1);
     public const string Death2 = nameof(Death2);
     public const string Death3 = nameof(Death3);
@@ -157,7 +156,7 @@ namespace Gameplay.Characters.Enemies.Animators
 
     private void PlayPanicEffect()
     {
-      _panicEffect.Play();
+      new DebugLogger().Log("Мир вашему дому");
     }
 
     private void GrenadeThrew()
