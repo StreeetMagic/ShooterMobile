@@ -11,6 +11,7 @@ using Gameplay.Stats;
 using Gameplay.Upgrades;
 using Gameplay.Weapons;
 using Infrastructure.AssetProviders;
+using Infrastructure.VisualEffects;
 
 namespace Infrastructure.ArtConfigServices
 {
@@ -29,6 +30,8 @@ namespace Infrastructure.ArtConfigServices
     private Dictionary<SubQuestId, SubQuestContentSetup> _subQuests;
     private Dictionary<WeaponTypeId, WeaponContentSetup> _weapons;
     private Dictionary<RewardId, RewardContentSetup> _rewards;
+    private Dictionary<EnemyTypeId, EnemyVisualEffectsSetupId> _enemyTypeVisualEffectsSetups;
+    private Dictionary<EnemyVisualEffectsSetupId, EnemyVisualEffectsSetup> _enemyVisualEffectsSetups;
 
     public EnemyCommonVisualsConfig EnemyCommonVisualsConfig { get; private set; }
 
@@ -38,17 +41,68 @@ namespace Infrastructure.ArtConfigServices
     public SubQuestContentSetup GetSubQuestContentSetup(SubQuestId id) => _subQuests[id];
     public WeaponContentSetup GetWeaponContentSetup(WeaponTypeId id) => _weapons[id];
     public RewardContentSetup GetRewardContentSetup(RewardId id) => _rewards[id];
+    
+    public VisualEffectId GetMuzzleFlashEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).MuzzleFlashId;
+    public VisualEffectId GetBulletEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Bullet;
+    public VisualEffectId GetImpactEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Impact;
+    public VisualEffectId GetPanicEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Panic;
+    
+    private EnemyVisualEffectsSetupId GetEnemyVisualEffectsSetupId(EnemyTypeId id) => _enemyTypeVisualEffectsSetups[id];
+    private EnemyVisualEffectsSetup GetEnemyVisualEffectsSetup(EnemyVisualEffectsSetupId id) => _enemyVisualEffectsSetups[id];
 
     public void LoadConfigs()
     {
-      EnemyCommonVisualsConfig = _assetProvider.GetScriptable<EnemyCommonVisualsConfig>();
+      EnemyCommonVisualsConfig =
+        _assetProvider
+          .GetScriptable<EnemyCommonVisualsConfig>();
 
-      _loots = _assetProvider.GetScriptable<LootIconsConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _upgrades = _assetProvider.GetScriptable<UpgradeContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _quests = _assetProvider.GetScriptable<QuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _subQuests = _assetProvider.GetScriptable<SubQuestContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _weapons = _assetProvider.GetScriptable<WeaponContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
-      _rewards = _assetProvider.GetScriptable<RewardContentConfig>().Setups.ToDictionary(x => x.Id, x => x);
+      _loots =
+        _assetProvider
+          .GetScriptable<LootIconsConfig>()
+          .Setups
+          .ToDictionary(lootContentSetup => lootContentSetup.Id, lootContentSetup => lootContentSetup);
+
+      _upgrades =
+        _assetProvider
+          .GetScriptable<UpgradeContentConfig>()
+          .Setups
+          .ToDictionary(upgradeContentSetup => upgradeContentSetup.Id, upgradeContentSetup => upgradeContentSetup);
+
+      _quests =
+        _assetProvider
+          .GetScriptable<QuestContentConfig>()
+          .Setups
+          .ToDictionary(questContentSetup => questContentSetup.Id, questContentSetup => questContentSetup);
+
+      _subQuests =
+        _assetProvider
+          .GetScriptable<SubQuestContentConfig>()
+          .Setups
+          .ToDictionary(subQuestContentSetup => subQuestContentSetup.Id, subQuestContentSetup => subQuestContentSetup);
+
+      _weapons =
+        _assetProvider
+          .GetScriptable<WeaponContentConfig>()
+          .Setups
+          .ToDictionary(weaponContentSetup => weaponContentSetup.Id, weaponContentSetup => weaponContentSetup);
+
+      _rewards =
+        _assetProvider
+          .GetScriptable<RewardContentConfig>()
+          .Setups
+          .ToDictionary(rewardContentSetup => rewardContentSetup.Id, rewardContentSetup => rewardContentSetup);
+
+      _enemyTypeVisualEffectsSetups =
+        _assetProvider
+          .GetScriptable<EnemyTypeVisualEffectsConfig>()
+          .VisualEffectsSetups
+          .ToDictionary(enemyTypeVisualEffectsSetup => enemyTypeVisualEffectsSetup.EnemyId, enemyTypeVisualEffectsSetup => enemyTypeVisualEffectsSetup.VisualEffectsSetupId);
+
+      _enemyVisualEffectsSetups =
+        _assetProvider
+          .GetScriptable<EnemyVisualEffctsSetupsConfig>()
+          .VisualEffectsSetups
+          .ToDictionary(enemyVisualEffectsSetup => enemyVisualEffectsSetup.SetupId, enemyVisualEffectsSetup => enemyVisualEffectsSetup);
     }
   }
 }
