@@ -11,7 +11,7 @@ namespace Infrastructure.VisualEffects
     // PistolBulletImpact = 101,
     // SniperBulletImpact = 102,
     
-    HenExplosion = 3, 
+    HenExplosion = 3, // Поменять гранута на GrenadeExplosion
     EnemyBulletImpact = 4, //надо удалить
     EnemyMuzzleFlash = 5, //надо удалить
     
@@ -41,5 +41,29 @@ namespace Infrastructure.VisualEffects
     SniperMuzzleFlash = 110,
     SniperBullet = 111,
     SniperImpactExplosion = 112,
+    
+    //Партиклы на враге
+    AgroPanicEffect = 200,
+    
+    //Партиклы пистолетной стрельбы для врагов
+    EnemyPistolMuzzleFlash = 201,
+    EnemyPistolBullet = 202,
+    EnemyPistolImpactExplosion = 203,
+    
+    //Партиклы винтовочной стрельбы
+    EnemyRiffleMuzzleFlash = 204,
+    EnemyRiffleBullet = 205,
+    EnemyRiffleImpactExplosion = 206,
+    
+    //Партиклы дробовикочной стрельбы
+    EnemyShotgunMuzzleFlash = 207,
+    EnemyShotgunBullet = 208,
+    EnemyShotgunImpactExplosion = 209,
+    
+    //Партиклы снайперской стрельбы
+    EnemySniperMuzzleFlash = 210,
+    EnemySniperBullet = 211,
+    EnemySniperImpactExplosion = 212,
+    
   }
 }
