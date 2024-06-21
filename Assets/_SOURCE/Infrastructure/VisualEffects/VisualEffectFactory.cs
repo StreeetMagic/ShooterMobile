@@ -15,13 +15,20 @@ namespace Infrastructure.VisualEffects
       _visualEffectProvider = visualEffectProvider;
     }
 
-    public void Create(VisualEffectId visualEffectId, Vector3 position, Transform parent, Transform target = null)
+    public void CreateAndDestroy(VisualEffectId visualEffectId, Vector3 position, Transform parent, Transform target = null)
     {
       ParticleSystem prefab = _visualEffectProvider.GetPrefab(visualEffectId);
       GameObject instance = _zenjectFactory.InstantiateGameObject(prefab.gameObject, position, Quaternion.identity, null);
 
       float duration = prefab.main.duration;
+
       Object.Destroy(instance, duration);
+    }
+
+    public GameObject Create(VisualEffectId visualEffectId, Vector3 position, Transform parent, Transform target = null)
+    {
+      ParticleSystem prefab = _visualEffectProvider.GetPrefab(visualEffectId);
+      return _zenjectFactory.InstantiateGameObject(prefab.gameObject, position, Quaternion.identity, null);
     }
   }
 }

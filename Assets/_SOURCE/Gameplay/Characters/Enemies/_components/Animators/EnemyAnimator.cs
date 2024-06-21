@@ -151,12 +151,12 @@ namespace Gameplay.Characters.Enemies.Animators
 
     private void ReloadFinished()
     {
-      print("Анимация перезарядки окончена");
+      new DebugLogger().Log("ReloadFinished");
     }
 
     private void PlayPanicEffect()
     {
-      new DebugLogger().Log("Мир вашему дому");
+      new DebugLogger().Log("PlayPanicEffect");
     }
 
     private void GrenadeThrew()
@@ -166,13 +166,13 @@ namespace Gameplay.Characters.Enemies.Animators
 
     private void SetWeaponUp()
     {
-      print("Ствол поднят");
+      new DebugLogger().Log("SetWeaponUp");
       Animator.SetBool(s_weaponUp, true);
     }
 
     private void SetWeaponDown()
     {
-      print("Ствол попущен");
+      new DebugLogger().Log("SetWeaponDown");
       Animator.SetBool(s_weaponUp, false);
     }
   }

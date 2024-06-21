@@ -23,7 +23,6 @@ namespace Gameplay.Characters.Players.TargetLocators
       {
         _playerAnimator.OffStateShooting();
         _playerAnimator.PlayReload();
-        Debug.Log("Reloading");
         _isReloading = true;
       }
       else if (_reloader.IsActive == false && _isReloading)

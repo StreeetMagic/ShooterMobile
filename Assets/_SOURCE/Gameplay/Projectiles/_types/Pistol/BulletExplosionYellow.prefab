@@ -9874,7 +9874,6 @@ GameObject:
   - component: {fileID: 4147295500811040}
   - component: {fileID: 198805632700201286}
   - component: {fileID: 199160674262618720}
-  - component: {fileID: 406233464551825336}
   m_Layer: 0
   m_Name: BulletExplosionYellow
   m_TagString: Untagged
@@ -14767,18 +14766,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &406233464551825336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1469201857544070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28cfb340adaf9ce49bd1920481bec177, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1584094840985044
 GameObject:
   m_ObjectHideFlags: 0

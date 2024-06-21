@@ -13,7 +13,7 @@ namespace Infrastructure.VisualEffects
 
     HenExplosion = 3, 
     //EnemyBulletImpact = 4, //надо удалить
-    EnemyMuzzleFlash = 5, //надо удалить
+   // EnemyMuzzleFlash = 5, //надо удалить
 
     //Партиклы грейдов персонажа
     PlayerSmallGradeReward = 10,

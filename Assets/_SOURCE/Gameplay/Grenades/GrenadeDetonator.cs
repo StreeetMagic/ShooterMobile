@@ -35,7 +35,7 @@ namespace Gameplay.Grenades
         yield return null;
       }
 
-      _visualEffectFactory.Create(VisualEffectId.GrenadeExplosion, transform.position, null);
+      _visualEffectFactory.CreateAndDestroy(VisualEffectId.GrenadeExplosion, transform.position, null);
 
       DamagePlayer();
 

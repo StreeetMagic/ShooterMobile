@@ -52,7 +52,7 @@ namespace Gameplay.Characters.Players.Projectiles
           throw new ArgumentOutOfRangeException(); 
       }
 
-      _visualEffectFactory.Create(id, transform.position, transform);
+      _visualEffectFactory.CreateAndDestroy(id, transform.position, transform);
     }
 
     private void DamageTargetTrigger(Collider other)

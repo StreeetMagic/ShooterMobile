@@ -42,10 +42,10 @@ namespace Infrastructure.ArtConfigServices
     public WeaponContentSetup GetWeaponContentSetup(WeaponTypeId id) => _weapons[id];
     public RewardContentSetup GetRewardContentSetup(RewardId id) => _rewards[id];
     
-    public VisualEffectId GetMuzzleFlashEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).MuzzleFlashId;
-    public VisualEffectId GetBulletEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Bullet;
-    public VisualEffectId GetImpactEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Impact;
-    public VisualEffectId GetPanicEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Panic;
+    public VisualEffectId GetEnemyMuzzleFlashEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).MuzzleFlashId;
+    public VisualEffectId GetEnemyBulletEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Bullet;
+    public VisualEffectId GetEnemyImpactEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Impact;
+    public VisualEffectId GetEnemyPanicEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Panic;
     
     private EnemyVisualEffectsSetupId GetEnemyVisualEffectsSetupId(EnemyTypeId id) => _enemyTypeVisualEffectsSetups[id];
     private EnemyVisualEffectsSetup GetEnemyVisualEffectsSetup(EnemyVisualEffectsSetupId id) => _enemyVisualEffectsSetups[id];
