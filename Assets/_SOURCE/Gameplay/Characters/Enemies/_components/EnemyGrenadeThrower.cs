@@ -55,7 +55,7 @@ namespace Gameplay.Characters.Enemies
       mover.Init(_configProvider.GetGrenadeConfig(grenadeTypeId), _transform.position, newPosition);
 
       var detonator = grenade.GetComponent<GrenadeDetonator>();
-      detonator.Init(_configProvider.GetGrenadeConfig(grenadeTypeId));
+      detonator.Init(_configProvider.GetGrenadeConfig(grenadeTypeId), _configProvider.GetGrenadeConfig(_config.GrenadeTypeId).DetonationRadius);
 
       mover.Throw();
     }

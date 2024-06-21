@@ -25,7 +25,7 @@ namespace Gameplay.Characters.Players.Projectiles
 
     private void ImpactEffect()
     {
-      VisualEffectId id;
+      VisualEffectId bulletImpactId;
 
       switch (_playerProvider.Instance.WeaponIdProvider.CurrentId.Value)
       {
@@ -34,23 +34,23 @@ namespace Gameplay.Characters.Players.Projectiles
           throw new ArgumentOutOfRangeException(); 
 
         case WeaponTypeId.DesertEagle:
-          id = VisualEffectId.PistolImpactExplosion;
+          bulletImpactId = VisualEffectId.PistolImpactExplosion;
           break;
         
         case WeaponTypeId.Famas:
         case WeaponTypeId.Ak47:
-          id = VisualEffectId.RiffleImpactExplosion;
+          bulletImpactId = VisualEffectId.RiffleImpactExplosion;
           break;
         
         case WeaponTypeId.Xm1014:
-          id = VisualEffectId.ShotgunImpactExplosion;
+          bulletImpactId = VisualEffectId.ShotgunImpactExplosion;
           break;
 
         default:
           throw new ArgumentOutOfRangeException(); 
       }
 
-      _visualEffectFactory.CreateAndDestroy(id, transform.position, transform);
+      _visualEffectFactory.CreateAndDestroy(bulletImpactId, transform.position, Quaternion.identity);
     }
 
     private void DamageTargetTrigger(Collider other)

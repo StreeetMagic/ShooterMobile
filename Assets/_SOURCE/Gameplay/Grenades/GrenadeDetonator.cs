@@ -14,12 +14,16 @@ namespace Gameplay.Grenades
     private GrenadeConfig _config;
 
     private float _timeLeft;
+    private float _scale;
 
-    public void Init(GrenadeConfig config)
+    public void Init(GrenadeConfig grenadeConfig, float scale)
     {
-      _config = config;
-
+      _config = grenadeConfig;
       _timeLeft = _config.DetonationTime;
+      _scale = scale;
+      
+      if (scale == 0)
+        throw new System.Exception("Scale can't be zero");
     }
 
     public void Detonate()
@@ -35,7 +39,7 @@ namespace Gameplay.Grenades
         yield return null;
       }
 
-      _visualEffectFactory.CreateAndDestroy(VisualEffectId.GrenadeExplosion, transform.position, null);
+      _visualEffectFactory.CreateAndDestroy(VisualEffectId.GrenadeExplosion, transform.position, Quaternion.identity, _scale);
 
       DamagePlayer();
 

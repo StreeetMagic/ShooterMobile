@@ -1,14 +1,10 @@
 using System;
-using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Enemies.Projectiles;
-using Gameplay.Characters.Players;
 using Gameplay.Characters.Players.Projectiles;
 using Gameplay.Weapons;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
-using Infrastructure.ConfigServices;
-using Infrastructure.RandomServices;
 using Infrastructure.VisualEffects;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
@@ -20,22 +16,15 @@ namespace Gameplay.Projectiles.Scripts
     private readonly AssetProvider _assetProvider;
     private readonly GameLoopZenjectFactory _zenjectFactory;
     private readonly VisualEffectFactory _visualEffectFactory;
-    private readonly ConfigProvider _configProvider;
-    private readonly PlayerProvider _playerProvider;
     private readonly ArtConfigProvider _artConfigProvider;
-    private readonly VisualEffectProvider _visualEffectProvider;
 
     public ProjectileFactory(AssetProvider assetProvider, GameLoopZenjectFactory zenjectFactory,
-      VisualEffectFactory visualEffectFactory, ConfigProvider configProvider, PlayerProvider playerProvider,
-      ArtConfigProvider artConfigProvider, VisualEffectProvider visualEffectProvider)
+      VisualEffectFactory visualEffectFactory, ArtConfigProvider artConfigProvider)
     {
       _assetProvider = assetProvider;
       _zenjectFactory = zenjectFactory;
       _visualEffectFactory = visualEffectFactory;
-      _configProvider = configProvider;
-      _playerProvider = playerProvider;
       _artConfigProvider = artConfigProvider;
-      _visualEffectProvider = visualEffectProvider;
     }
 
     public void CreatePlayerProjectile(Transform parent, Vector3 rotation, WeaponTypeId weaponTypeId)
@@ -45,7 +34,7 @@ namespace Gameplay.Projectiles.Scripts
 
       VisualEffectId bulletEffectId;
 
-      switch (_playerProvider.Instance.WeaponIdProvider.CurrentId.Value)
+      switch (weaponTypeId)
       {
         case WeaponTypeId.Unknown:
         case WeaponTypeId.Knife:
@@ -72,7 +61,6 @@ namespace Gameplay.Projectiles.Scripts
       bulletEffectObject.transform.SetParent(playerProjectile.transform);
 
       playerProjectile.transform.SetParent(null);
-      CreatePlayerMuzzleFlashEffect(parent, weaponTypeId);
     }
 
     public void CreateEnemyProjectile(Transform parent, Vector3 position, Vector3 rotation, EnemyConfig enemyConfig)
@@ -82,8 +70,6 @@ namespace Gameplay.Projectiles.Scripts
       enemyProjectile.EnemyConfig = enemyConfig;
       enemyProjectile.transform.SetParent(null);
       CreateEnemyBulletEffect(enemyProjectile.transform, enemyConfig);
-
-      _visualEffectFactory.CreateAndDestroy(_artConfigProvider.GetEnemyMuzzleFlashEffectId(enemyConfig.Id), position, parent);
     }
 
     private void CreateEnemyBulletEffect(Transform parent, EnemyConfig enemyConfig)
@@ -93,35 +79,6 @@ namespace Gameplay.Projectiles.Scripts
       GameObject muzzleEffectObject = _visualEffectFactory.Create(id, parent.position, parent);
 
       muzzleEffectObject.transform.SetParent(parent);
-    }
-
-    private void CreatePlayerMuzzleFlashEffect(Transform parent, WeaponTypeId weaponTypeId)
-    {
-      VisualEffectId id;
-
-      switch (weaponTypeId)
-      {
-        case WeaponTypeId.Unknown:
-          throw new ArgumentOutOfRangeException(nameof(weaponTypeId), weaponTypeId, null);
-
-        case WeaponTypeId.DesertEagle:
-          id = VisualEffectId.PistolMuzzleFlash;
-          break;
-
-        case WeaponTypeId.Famas:
-        case WeaponTypeId.Ak47:
-          id = VisualEffectId.RiffleMuzzleFlash;
-          break;
-
-        case WeaponTypeId.Xm1014:
-          id = VisualEffectId.ShotgunMuzzleFlash;
-          break;
-
-        default:
-          throw new ArgumentOutOfRangeException(nameof(weaponTypeId), weaponTypeId, null);
-      }
-
-      _visualEffectFactory.CreateAndDestroy(id, parent.position, parent);
     }
   }
 }

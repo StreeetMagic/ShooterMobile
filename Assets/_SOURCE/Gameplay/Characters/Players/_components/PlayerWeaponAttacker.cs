@@ -6,6 +6,7 @@ using Gameplay.Weapons;
 using Infrastructure.AudioServices;
 using Infrastructure.AudioServices.Sounds;
 using Infrastructure.ConfigServices;
+using Infrastructure.VisualEffects;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players
@@ -21,6 +22,7 @@ namespace Gameplay.Characters.Players
     private readonly PlayerWeaponMagazineReloader _reloader;
     private readonly PlayerTargetHolder _playerTargetHolder;
     private readonly PlayerWeaponShootingPoint _shootingPoint;
+    private readonly VisualEffectFactory _visualEffectFactory;
 
     private float _timeLeft;
     private float _burstPauseLeft;
@@ -29,7 +31,7 @@ namespace Gameplay.Characters.Players
     public PlayerWeaponAttacker(ConfigProvider configProvider,
       ProjectileFactory projectileFactory, AudioService audioService, PlayerWeaponIdProvider playerWeaponIdProvider,
       PlayerAnimator playerAnimator, PlayerWeaponAmmo playerWeaponAmmo, PlayerWeaponMagazineReloader reloader,
-      PlayerTargetHolder playerTargetHolder, PlayerWeaponShootingPoint shootingPoint)
+      PlayerTargetHolder playerTargetHolder, PlayerWeaponShootingPoint shootingPoint, VisualEffectFactory visualEffectFactory)
     {
       _configProvider = configProvider;
       _projectileFactory = projectileFactory;
@@ -40,6 +42,7 @@ namespace Gameplay.Characters.Players
       _reloader = reloader;
       _playerTargetHolder = playerTargetHolder;
       _shootingPoint = shootingPoint;
+      _visualEffectFactory = visualEffectFactory;
     }
 
     private float Cooldown => (float)1 / GetWeaponConfig().FireRate;
@@ -128,6 +131,7 @@ namespace Gameplay.Characters.Players
         _projectileFactory.CreatePlayerProjectile(_shootingPoint.Transform, directionToTarget, _playerWeaponIdProvider.CurrentId.Value);
       }
 
+      CreatePlayerMuzzleFlashEffect(_shootingPoint.Transform, _playerWeaponIdProvider.CurrentId.Value);
       _audioService.PlaySound(SoundId.Shoot);
     }
 
@@ -167,5 +171,34 @@ namespace Gameplay.Characters.Players
 
     private WeaponConfig GetWeaponConfig() =>
       _configProvider.GetWeaponConfig(_playerWeaponIdProvider.CurrentId.Value);
+
+    private void CreatePlayerMuzzleFlashEffect(Transform parent, WeaponTypeId weaponTypeId)
+    {
+      VisualEffectId id;
+
+      switch (weaponTypeId)
+      {
+        case WeaponTypeId.Unknown:
+          throw new ArgumentOutOfRangeException(nameof(weaponTypeId), weaponTypeId, null);
+
+        case WeaponTypeId.DesertEagle:
+          id = VisualEffectId.PistolMuzzleFlash;
+          break;
+
+        case WeaponTypeId.Famas:
+        case WeaponTypeId.Ak47:
+          id = VisualEffectId.RiffleMuzzleFlash;
+          break;
+
+        case WeaponTypeId.Xm1014:
+          id = VisualEffectId.ShotgunMuzzleFlash;
+          break;
+
+        default:
+          throw new ArgumentOutOfRangeException(nameof(weaponTypeId), weaponTypeId, null);
+      }
+
+      _visualEffectFactory.CreateAndDestroy(id, parent.position, parent.rotation);
+    }
   }
 }

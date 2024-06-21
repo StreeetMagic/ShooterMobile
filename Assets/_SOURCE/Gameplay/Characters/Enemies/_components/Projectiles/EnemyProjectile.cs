@@ -28,7 +28,7 @@ namespace Gameplay.Characters.Enemies.Projectiles
     {
       VisualEffectId id = _configProvider.GetEnemyImpactEffectId(EnemyConfig.Id);
 
-      _visualEffectFactory.CreateAndDestroy(id, transform.position, transform);
+      _visualEffectFactory.CreateAndDestroy(id, transform.position, transform.rotation);
     }
 
     private void DamageTargetTrigger(Collider other)
