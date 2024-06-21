@@ -1,5 +1,4 @@
 using System;
-using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Configs;
 using Infrastructure.Utilities;
 using UnityEngine;

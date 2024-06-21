@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Gameplay.Characters.FiniteStateMachines;
-using Loggers;
 
 namespace Gameplay.Characters.Enemies.StateMachines.States.LowWeapon
 {

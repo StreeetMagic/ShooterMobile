@@ -4,7 +4,6 @@ using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
 using Loggers;
-using UnityEngine;
 
 namespace Gameplay.CurrencyRepositories.Expirience
 {

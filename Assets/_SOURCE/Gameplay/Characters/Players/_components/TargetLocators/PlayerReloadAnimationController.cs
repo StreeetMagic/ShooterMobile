@@ -1,5 +1,4 @@
 using Gameplay.Characters.Players.Animators;
-using UnityEngine;
 using Zenject;
 
 namespace Gameplay.Characters.Players.TargetLocators

@@ -18,8 +18,6 @@ namespace Gameplay.Characters.Players.Projectiles
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private ConfigProvider _configProvider;
 
-    public string Guid { get; set; }
-
     private void OnTriggerEnter(Collider otherCollider)
     {
       DamageTargetTrigger(otherCollider);

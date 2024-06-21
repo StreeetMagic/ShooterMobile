@@ -10,16 +10,18 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Patrol
     private readonly EnemyRoutePointsManager _points;
     private readonly EnemyAnimatorProvider _animatorProvider;
     private readonly EnemyConfig _config;
+    private readonly EnemyHealer _healer;
 
     public EnemyPatrolState(List<Transition> transitions, EnemyMover mover,
       EnemyAnimatorProvider animatorProvider, EnemyConfig config, 
-      EnemyRoutePointsManager points)
+      EnemyRoutePointsManager points, EnemyHealer healer)
       : base(transitions)
     {
       _mover = mover;
       _animatorProvider = animatorProvider;
       _config = config;
       _points = points;
+      _healer = healer;
     }
 
     public override void Enter()
@@ -28,11 +30,17 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Patrol
       _points.SetRandomRoute();
       _mover.Move(_points.Next.position, _config.MoveSpeed);
     }
+    
+    protected override void OnTick()
+    {
+      _healer.Heal();
+    }
 
     public override void Exit()
     {
       _mover.Stop();
       _animatorProvider.Instance.StopWalk();
+      _healer.Heal();
     }
   }
 }
