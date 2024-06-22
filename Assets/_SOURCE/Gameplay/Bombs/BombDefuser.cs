@@ -21,8 +21,6 @@ namespace Gameplay.Bombs
       {
         IsDefused = true;
         Defused?.Invoke(this);
-
-        Destroy(gameObject);
       }
     }
   }
