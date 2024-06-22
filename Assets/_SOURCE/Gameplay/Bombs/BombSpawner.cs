@@ -70,7 +70,7 @@ namespace Gameplay.Bombs
       Bombs.Remove(defusedBomb);
 
       _bombDefuseSetups.Add(new BombDefuseSetup(defusedBomb.transform.position, defuser.RespawnTime, defusedBomb.LootDrops));
-      _rewardServices.OnBombDefused(defuser);
+      _rewardServices.OnLootDroped(defusedBomb.LootDrops);
 
       Destroy(defusedBomb.gameObject);
     }

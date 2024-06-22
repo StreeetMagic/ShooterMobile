@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Gameplay.Loots;
-using Gameplay.Rewards;
 using UnityEngine;
 
 namespace Maps.Markers.SubQuestMarkers.BombDefuse

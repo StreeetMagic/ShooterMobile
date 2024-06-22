@@ -1,9 +1,8 @@
-﻿using Gameplay.Bombs;
-using Gameplay.Characters;
-using Gameplay.Characters.Enemies.Configs;
+﻿using System.Collections.Generic;
 using Gameplay.Characters.Players;
 using Gameplay.CurrencyRepositories.BackpackStorages;
 using Gameplay.CurrencyRepositories.Expirience;
+using Gameplay.Loots;
 using Gameplay.Rewards;
 using Gameplay.Stats;
 
@@ -23,19 +22,9 @@ namespace Gameplay.RewardServices
       _playerStatsProvider = playerStatsProvider;
     }
 
-    public void AddEnemy(IHealth enemyHealth)
+    public void OnLootDroped(List<LootDrop> loots)
     {
-      enemyHealth.Died += OnEnemyDied;
-    }
-
-    private void OnEnemyDied(EnemyConfig enemyConfig, IHealth enemyHealth)
-    {
-      _backpackStorage.AddLoot(enemyConfig.LootDrops);
-    }
-
-    public void OnBombDefused(BombDefuser defuser)
-    {
-      _backpackStorage.AddLoot(defuser.Bomb.LootDrops);
+      _backpackStorage.AddLoot(loots);
     }
 
     public void OnRewardGain(Reward reward)

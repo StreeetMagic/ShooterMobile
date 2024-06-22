@@ -17,7 +17,7 @@ namespace Gameplay.Characters.Enemies
     [Inject] private EnemyConfig _config;
     [Inject] private EnemySpawner _spawner;
     [Inject] private EnemyAssistCall _assistCall;
-    
+
     public event Action<EnemyConfig, IHealth> Died;
     public event Action<float> Damaged;
 
@@ -32,7 +32,6 @@ namespace Gameplay.Characters.Enemies
       SetCurrentHealth(Initial);
 
       _corpseRemover.Add(this);
-      _rewardService.AddEnemy(this);
     }
 
     public void TakeDamage(float damage)
@@ -53,7 +52,7 @@ namespace Gameplay.Characters.Enemies
     {
       foreach (Enemy enemy in _spawner.Enemies)
         enemy.Health.Hit();
-      
+
       _assistCall.Call();
     }
 
@@ -68,7 +67,8 @@ namespace Gameplay.Characters.Enemies
         return;
 
       IsDead = true;
-      
+      _rewardService.OnLootDroped(_config.LootDrops);
+
       Died?.Invoke(_config, this);
     }
 
