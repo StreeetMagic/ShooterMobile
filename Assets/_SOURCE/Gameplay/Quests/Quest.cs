@@ -33,7 +33,7 @@ namespace Gameplay.Quests
     public void GainReward()
     {
       State.Value = QuestState.RewardTaken;
-      _rewardService.OnQuestCompleted(Config.Reward);
+      _rewardService.OnRewardGain(Config.Reward);
     }
 
     private void OnSubQuestCompleted(int index)

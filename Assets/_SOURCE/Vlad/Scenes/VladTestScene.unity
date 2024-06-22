@@ -210,6 +210,21 @@ PrefabInstance:
       propertyPath: SubQuestNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Level
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8178330484162559635, guid: b79807285e5aff3428f0d34217ac0db8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -305,6 +320,21 @@ PrefabInstance:
         type: 3}
       propertyPath: SubQuestNumber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Level
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8178330484162559635, guid: b79807285e5aff3428f0d34217ac0db8,
         type: 3}
@@ -636,6 +666,21 @@ PrefabInstance:
       propertyPath: SubQuestNumber
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Level
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8178330484162559635, guid: b79807285e5aff3428f0d34217ac0db8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -878,6 +923,21 @@ PrefabInstance:
         type: 3}
       propertyPath: SubQuestNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Level
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8178330484162559635, guid: b79807285e5aff3428f0d34217ac0db8,
         type: 3}
@@ -1205,6 +1265,21 @@ PrefabInstance:
         type: 3}
       propertyPath: SubQuestNumber
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Level
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8178330484162559635, guid: b79807285e5aff3428f0d34217ac0db8,
         type: 3}
@@ -1792,7 +1867,7 @@ PrefabInstance:
     - target: {fileID: 4476720535849828510, guid: 13e49a87bd9897d46916f597a9ed8e2c,
         type: 3}
       propertyPath: Count
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4476720535849828510, guid: 13e49a87bd9897d46916f597a9ed8e2c,
         type: 3}
@@ -3240,6 +3315,21 @@ PrefabInstance:
     - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
         type: 3}
       propertyPath: SubQuestNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387406498664853772, guid: b79807285e5aff3428f0d34217ac0db8,
+        type: 3}
+      propertyPath: LootDrops.Array.data[0].Level
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8178330484162559635, guid: b79807285e5aff3428f0d34217ac0db8,

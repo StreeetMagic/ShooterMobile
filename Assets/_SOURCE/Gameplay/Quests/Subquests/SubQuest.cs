@@ -49,7 +49,7 @@ namespace Gameplay.Quests.Subquests
       if (state == QuestState.RewardTaken)
       {
         Completed?.Invoke(Index);
-        _rewardService.OnSubQuestCompleted(Setup.Reward);
+        _rewardService.OnRewardGain(Setup.Reward);
       }
     }
   }

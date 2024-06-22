@@ -1,5 +1,5 @@
-﻿using Gameplay.Characters;
-using Gameplay.Characters.Enemies;
+﻿using Gameplay.Bombs;
+using Gameplay.Characters;
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
 using Gameplay.CurrencyRepositories.BackpackStorages;
@@ -33,24 +33,12 @@ namespace Gameplay.RewardServices
       _backpackStorage.AddLoot(enemyConfig.LootDrops);
     }
 
-    public void OnSubQuestCompleted(Reward reward)
+    public void OnBombDefused(BombDefuser defuser)
     {
-      switch (reward.RewardId)
-      {
-        case RewardId.Unknown:
-          throw new System.NotImplementedException("Unknown quest reward type");
-
-        case RewardId.Expirience:
-          _expierienceStorage.AllPoints.Value += reward.Quantity;
-          break;
-
-        case RewardId.BackpackCapacity:
-          _playerStatsProvider.AddQuestReward(StatId.BackpackCapacity, reward.Quantity);
-          break;
-      }
+      _backpackStorage.AddLoot(defuser.Bomb.LootDrops);
     }
 
-    public void OnQuestCompleted(Reward reward)
+    public void OnRewardGain(Reward reward)
     {
       switch (reward.RewardId)
       {
