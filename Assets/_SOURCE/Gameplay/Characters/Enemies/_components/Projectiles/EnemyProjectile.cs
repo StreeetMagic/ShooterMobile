@@ -22,6 +22,7 @@ namespace Gameplay.Characters.Enemies.Projectiles
     private void Start()
     {
       _forwardMover.BulletSpeed = EnemyConfig.BulletSpeed;
+      Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter(Collider otherCollider)

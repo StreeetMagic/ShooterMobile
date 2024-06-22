@@ -20,6 +20,8 @@ namespace Gameplay.Characters.Players.Projectiles
     private void Awake()
     {
       _forwardMover.BulletSpeed = _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
+
+      Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter(Collider otherCollider)
