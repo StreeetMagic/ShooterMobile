@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Infrastructure.ZenjectFactories.SceneContext;
 using Maps;
@@ -20,15 +21,14 @@ namespace Gameplay.Bombs
       {
         Bomb spawnBomb = SpawnBomb(marker.transform);
         spawnBomb.Defuser.Defused += DestroyBomb;
+        spawnBomb.Defuser.RespawnTime = marker.RespawnTime;
         Bombs.Add(spawnBomb);
       }
     }
 
     private Bomb SpawnBomb(Transform spawnTransform)
     {
-      return
-        _gameLoopZenjectFactory
-          .InstantiateMono<Bomb>(spawnTransform.position);
+      return _gameLoopZenjectFactory.InstantiateMono<Bomb>(spawnTransform.position);
     }
 
     private void DestroyBomb(BombDefuser defuser)
@@ -36,7 +36,22 @@ namespace Gameplay.Bombs
       Bomb defusedBomb = defuser.Bomb;
       defusedBomb.Defuser.Defused -= DestroyBomb;
       Bombs.Remove(defusedBomb);
+      Vector3 respawnPosition = defusedBomb.transform.position;
+      StartCoroutine(RespawnBomb(respawnPosition, defusedBomb.Defuser.RespawnTime));
       Destroy(defusedBomb.gameObject);
+    }
+
+    private IEnumerator RespawnBomb(Vector3 position, float delay)
+    {
+      yield return new WaitForSeconds(delay);
+      Bomb respawnedBomb = SpawnBombAtPosition(position);
+      respawnedBomb.Defuser.Defused += DestroyBomb;
+      Bombs.Add(respawnedBomb);
+    }
+
+    private Bomb SpawnBombAtPosition(Vector3 position)
+    {
+      return _gameLoopZenjectFactory.InstantiateMono<Bomb>(position);
     }
   }
 }
