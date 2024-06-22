@@ -9,11 +9,9 @@ namespace Gameplay.Projectiles.Movers
   {
     private Rigidbody _rigidbody;
 
-    [Inject] private ConfigProvider _configProvider;
+    public float BulletSpeed { get; set; }
 
-    private float BulletSpeed => _configProvider.PlayerConfig.BulletSpeed;
-
-    private void Start()
+    private void Awake()
     {
       _rigidbody = GetComponent<Rigidbody>();
     }

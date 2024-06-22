@@ -60,6 +60,9 @@ namespace Gameplay.Characters.Enemies.Configs
     [Tooltip("Урон пули")] 
     public float BulletDamage = 5;
     
+    [Tooltip("Скорость полета пули метров в сек")] 
+    public float BulletSpeed = 25;
+    
     [Tooltip("Емкость магазина")]
     public int MagazineCapacity = 10;
     

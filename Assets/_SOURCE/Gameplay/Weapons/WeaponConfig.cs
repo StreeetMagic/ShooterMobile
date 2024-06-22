@@ -14,6 +14,9 @@ namespace Gameplay.Weapons
     [Tooltip("Разлет пуль в градусах")]
     public float BulletSpreadAngle;
 
+    [Tooltip("Скорость пули метров в сек")]
+    public float BulletSpeed = 25f;
+
     [Tooltip("Количество пуль на один выстрел")]
     public int BulletsPerShot = 1;
 

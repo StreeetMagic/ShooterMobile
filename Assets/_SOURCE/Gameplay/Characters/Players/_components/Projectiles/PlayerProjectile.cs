@@ -1,5 +1,5 @@
 using System;
-using Gameplay.Projectiles.Raycasters;
+using Gameplay.Projectiles.Movers;
 using Gameplay.Weapons;
 using Infrastructure.ConfigServices;
 using Infrastructure.VisualEffects;
@@ -10,13 +10,17 @@ namespace Gameplay.Characters.Players.Projectiles
 {
   public class PlayerProjectile : MonoBehaviour
   {
-    public CollisionPointRayCaster CollisionPointRayCaster;
-
-    private int _count;
-
+    [SerializeField] private ForwardMover _forwardMover;
     [Inject] private VisualEffectFactory _visualEffectFactory;
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private ConfigProvider _configProvider;
+
+    private int _count;
+
+    private void Awake()
+    {
+      _forwardMover.BulletSpeed = _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
+    }
 
     private void OnTriggerEnter(Collider otherCollider)
     {
@@ -31,23 +35,23 @@ namespace Gameplay.Characters.Players.Projectiles
       {
         case WeaponTypeId.Unknown:
         case WeaponTypeId.Knife:
-          throw new ArgumentOutOfRangeException(); 
+          throw new ArgumentOutOfRangeException();
 
         case WeaponTypeId.DesertEagle:
           bulletImpactId = VisualEffectId.PistolImpactExplosion;
           break;
-        
+
         case WeaponTypeId.Famas:
         case WeaponTypeId.Ak47:
           bulletImpactId = VisualEffectId.RiffleImpactExplosion;
           break;
-        
+
         case WeaponTypeId.Xm1014:
           bulletImpactId = VisualEffectId.ShotgunImpactExplosion;
           break;
 
         default:
-          throw new ArgumentOutOfRangeException(); 
+          throw new ArgumentOutOfRangeException();
       }
 
       _visualEffectFactory.CreateAndDestroy(bulletImpactId, transform.position, Quaternion.identity);

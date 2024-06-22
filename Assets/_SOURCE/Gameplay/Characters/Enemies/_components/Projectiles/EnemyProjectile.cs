@@ -1,6 +1,7 @@
+using System;
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
-using Gameplay.Projectiles.Raycasters;
+using Gameplay.Projectiles.Movers;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.VisualEffects;
 using UnityEngine;
@@ -10,14 +11,18 @@ namespace Gameplay.Characters.Enemies.Projectiles
 {
   public class EnemyProjectile : MonoBehaviour
   {
-    public CollisionPointRayCaster CollisionPointRayCaster;
-
-    private int _count;
-
+    [SerializeField] private ForwardMover _forwardMover;
     [Inject] private VisualEffectFactory _visualEffectFactory;
     [Inject] private ArtConfigProvider _configProvider;
 
+    private int _count;
+
     public EnemyConfig EnemyConfig { get; set; }
+
+    private void Start()
+    {
+      _forwardMover.BulletSpeed = EnemyConfig.BulletSpeed;
+    }
 
     private void OnTriggerEnter(Collider otherCollider)
     {
@@ -39,9 +44,7 @@ namespace Gameplay.Characters.Enemies.Projectiles
         {
           _count++;
 
-          player
-            // .GetComponentInChildren<PlayerTargetTrigger>()
-            .TakeDamage(EnemyConfig.BulletDamage);
+          player.TakeDamage(EnemyConfig.BulletDamage);
         }
       }
 
@@ -50,7 +53,6 @@ namespace Gameplay.Characters.Enemies.Projectiles
 
     private void Destroy()
     {
-      //transform.position = CollisionPointRayCaster.HitPosition;
       ImpactEffect();
       Destroy(gameObject);
     }

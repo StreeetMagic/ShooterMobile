@@ -14,9 +14,6 @@ namespace Gameplay.Characters.Players
     [Tooltip("Коэффициент гравитации")]
     public float GravityScale;
 
-    [Tooltip("Скорость полета пули")]
-    public int BulletSpeed = 10;
-
     [Tooltip("Время на разминирование бомбы")]
     public float BombDefuseDuration = 5;
 
