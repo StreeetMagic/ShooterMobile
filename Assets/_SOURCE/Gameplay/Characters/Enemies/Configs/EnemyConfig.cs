@@ -19,12 +19,12 @@ namespace Gameplay.Characters.Enemies.Configs
 
     [Tooltip("Время простоя в состоянии покоя")]
     public float IdleDuration = .5f;
+
+    [Tooltip("Радиус запроса помощи от противников из других спаунеров. На арене всегда максимальный")]
+    public float AssistCallRadius = 10f;
     
     [Tooltip("Максимальное расстояние преследования игрока от центра спаунера")]
     public float PatrolingRadius = 20;
-
-    [Tooltip("Время после которого включится лечение при отстутствии входящего урона")]
-    public float HealingDelay = 1f;
 
     [Tooltip("Длительность ошеломления после получения урона и перехода в состояние атаки")]
     public float AlertDuration = .2f;

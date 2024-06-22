@@ -1,30 +1,58 @@
+using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Enemies.TargetTriggers;
+using Gameplay.Spawners;
+using Gameplay.Spawners.SpawnerFactories;
+using Infrastructure.Projects;
+using Infrastructure.SceneLoaders;
+using Maps;
+using Scenes._Infrastructure.Scripts;
 using UnityEngine;
 
 namespace Gameplay.Characters.Enemies
 {
   public class EnemyAssistCall
   {
-    public const float CallRadius = 50;
+    private const int OverlapCount = 200;
 
     private readonly Transform _transform;
-    private readonly Collider[] _enemies = new Collider[50];
+    private readonly EnemyConfig _enemyConfig;
+    private readonly SceneLoader _sceneLoader;
+    private readonly ProjectData _projectData;
+    private readonly EnemySpawnerFactory _spawners;
 
-    public EnemyAssistCall(Transform transform)
+    private readonly Collider[] _enemies;
+
+    public EnemyAssistCall(Transform transform, EnemyConfig enemyConfig,
+      SceneLoader sceneLoader, ProjectData projectData, EnemySpawnerFactory spawners)
     {
       _transform = transform;
+      _enemyConfig = enemyConfig;
+      _sceneLoader = sceneLoader;
+      _projectData = projectData;
+      _spawners = spawners;
+
+      _enemies = new Collider[OverlapCount];
     }
 
     public void Call()
     {
-      int count = Physics.OverlapSphereNonAlloc(_transform.position, CallRadius, _enemies);
-
-      for (int i = 0; i < count; i++)
+      if (_projectData.GetGameLoopSceneTypeId(_sceneLoader.CurrentScene) == GameLoopSceneTypeId.Arena)
       {
-        if (_enemies[i].TryGetComponent(out EnemyTargetTrigger enemyTargetTrigger))
+        foreach (EnemySpawner spawner in _spawners.Spawners)
         {
-          enemyTargetTrigger.transform.parent.GetComponent<Enemy>().Health.Hit();
+          foreach (Enemy enemy in spawner.Enemies)
+          {
+            enemy.Health.Hit();
+          }
         }
+      }
+      else
+      {
+        int count = Physics.OverlapSphereNonAlloc(_transform.position, _enemyConfig.AssistCallRadius, _enemies);
+
+        for (int i = 0; i < count; i++)
+          if (_enemies[i].TryGetComponent(out EnemyTargetTrigger enemyTargetTrigger))
+            enemyTargetTrigger.transform.parent.GetComponent<Enemy>().Health.Hit();
       }
     }
   }
