@@ -22,13 +22,13 @@ namespace Gameplay.Characters.Players.Projectiles
 
     private void Awake()
     {
-      Destroy(transform.position, 2f);
+      Destroy(gameObject, 2f);
     }
 
     private void Update()
     {
       _speed = _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
-      
+
       _currentPosition = transform.position;
       Vector3 direction = transform.forward * (_speed * Time.deltaTime);
       _futurePosition = _currentPosition + direction;
@@ -50,7 +50,7 @@ namespace Gameplay.Characters.Players.Projectiles
       }
       else
       {
-        transform.position = _futurePosition; 
+        transform.position = _futurePosition;
       }
     }
 

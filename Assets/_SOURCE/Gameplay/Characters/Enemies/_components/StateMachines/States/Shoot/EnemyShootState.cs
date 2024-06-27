@@ -44,22 +44,22 @@ namespace Gameplay.Characters.Enemies.StateMachines.States.Shoot
     {
       _toPlayerRotator.Rotate();
 
-      Vector3 playerPosition = _playerProvider.Instance.transform.position;
+      Vector3 playerPosition = _playerProvider.Instance.TargetTrigger.transform.position;
       Vector3 enemyPosition = _enemy.transform.position;
-      Vector3 direction = new Vector3(playerPosition.x - enemyPosition.x, 0, playerPosition.z - enemyPosition.z).normalized;
+      Vector3 direction = playerPosition - enemyPosition;
 
       _shootTimeLeft -= Time.deltaTime;
 
       if ((_shootTimeLeft > 0))
         return;
-      
+
       if (_magazine.TryGetBullet() == false)
         return;
 
       _animatorProvider.Instance.PlayRifleShootAnimation();
       Transform parentTransform = _shootingPointProvider.PointTransform;
       _shooter.Shoot(parentTransform, parentTransform.position, direction, _config);
-      
+
       _shootTimeLeft = 1 / (float)_config.FireRate;
     }
 

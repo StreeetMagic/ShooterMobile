@@ -11,51 +11,63 @@ namespace Gameplay.Characters.Enemies.Projectiles
 {
   public class EnemyProjectile : MonoBehaviour
   {
-    [SerializeField] private ForwardMover _forwardMover;
+    [SerializeField] private LayerMask _layerMask;
+
     [Inject] private VisualEffectFactory _visualEffectFactory;
     [Inject] private ArtConfigProvider _configProvider;
 
     private int _count;
+    private float _speed;
+    private Vector3 _currentPosition;
+    private Vector3 _futurePosition;
 
     public EnemyConfig EnemyConfig { get; set; }
 
     private void Start()
     {
-      _forwardMover.BulletSpeed = EnemyConfig.BulletSpeed;
-      Destroy(gameObject, 1f);
+      _speed = EnemyConfig.BulletSpeed;
+      Destroy(gameObject, 2f);
     }
 
-    private void OnTriggerEnter(Collider otherCollider)
+    private void Update()
     {
-      DamageTargetTrigger(otherCollider);
+      _currentPosition = transform.position;
+      Vector3 direction = transform.forward * (_speed * Time.deltaTime);
+      _futurePosition = _currentPosition + direction;
+
+      if (Physics.Linecast(_currentPosition, _futurePosition, out RaycastHit hit, _layerMask.value))
+      {
+        if (hit.collider.TryGetComponent(out PlayerTargetTrigger player))
+        {
+          if (_count == 0)
+          {
+            _count++;
+
+            player.TakeDamage(EnemyConfig.BulletDamage);
+          }
+        }
+
+        Destroy(hit.point);
+      }
+      else
+      {
+        transform.position = _futurePosition;
+      }
     }
 
-    private void ImpactEffect()
+    private void ImpactEffect(Vector3 position)
     {
       VisualEffectId id = _configProvider.GetEnemyImpactEffectId(EnemyConfig.Id);
 
-      _visualEffectFactory.CreateAndDestroy(id, transform.position, transform.rotation);
+      _visualEffectFactory.CreateAndDestroy(id, position, transform.rotation);
     }
 
-    private void DamageTargetTrigger(Collider other)
+    private void Destroy(Vector3 position, float time = default)
     {
-      if (other.TryGetComponent(out PlayerTargetTrigger player))
-      {
-        if (_count == 0)
-        {
-          _count++;
+      transform.position = position;
 
-          player.TakeDamage(EnemyConfig.BulletDamage);
-        }
-      }
-
-      Destroy();
-    }
-
-    private void Destroy()
-    {
-      ImpactEffect();
-      Destroy(gameObject);
+      ImpactEffect(position);
+      Destroy(gameObject, time);
     }
   }
 }
