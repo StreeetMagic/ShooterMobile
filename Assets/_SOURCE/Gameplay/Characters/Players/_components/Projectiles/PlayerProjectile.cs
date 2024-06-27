@@ -16,20 +16,45 @@ namespace Gameplay.Characters.Players.Projectiles
     [Inject] private ConfigProvider _configProvider;
 
     private int _count;
+    private float _speed;
+    private Vector3 _currentPosition;
+    private Vector3 _futurePosition;
 
     private void Awake()
     {
-      _forwardMover.BulletSpeed = _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
-
-      Destroy(gameObject, 1f);
+      Destroy(transform.position, 2f);
     }
 
-    private void OnTriggerEnter(Collider otherCollider)
+    private void Update()
     {
-      DamageTargetTrigger(otherCollider);
+      _speed = _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
+      
+      _currentPosition = transform.position;
+      Vector3 direction = transform.forward * (_speed * Time.deltaTime);
+      _futurePosition = _currentPosition + direction;
+
+      if (Physics.Linecast(_currentPosition, _futurePosition, out RaycastHit hit))
+      {
+        transform.position = hit.point;
+
+        if (hit.collider.gameObject.TryGetComponent(out ITargetTrigger enemyTargetTrigger))
+        {
+          if (_count == 0)
+          {
+            _count++;
+            enemyTargetTrigger.TakeDamage(_configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Damage);
+          }
+        }
+
+        Destroy(hit.point);
+      }
+      else
+      {
+        transform.position = _futurePosition; 
+      }
     }
 
-    private void ImpactEffect()
+    private void ImpactEffect(Vector3 position)
     {
       VisualEffectId bulletImpactId;
 
@@ -56,29 +81,15 @@ namespace Gameplay.Characters.Players.Projectiles
           throw new ArgumentOutOfRangeException();
       }
 
-      _visualEffectFactory.CreateAndDestroy(bulletImpactId, transform.position, Quaternion.identity);
+      _visualEffectFactory.CreateAndDestroy(bulletImpactId, position, Quaternion.identity);
     }
 
-    private void DamageTargetTrigger(Collider other)
+    private void Destroy(Vector3 position, float time = default)
     {
-      if (other.gameObject.TryGetComponent(out ITargetTrigger enemyTargetTrigger))
-      {
-        if (_count == 0)
-        {
-          _count++;
-          enemyTargetTrigger.TakeDamage(_configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Damage);
-        }
-      }
+      transform.position = position;
 
-      Destroy();
-    }
-
-    private void Destroy()
-    {
-      // transform.position = CollisionPointRayCaster.HitPosition;
-
-      ImpactEffect();
-      Destroy(gameObject);
+      ImpactEffect(position);
+      Destroy(gameObject, time);
     }
   }
 }

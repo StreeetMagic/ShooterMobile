@@ -157,6 +157,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1216875472340336332, guid: ff9e879b3b2c1024e83bf24cb25b8cb5,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 1216875472340336332, guid: ff9e879b3b2c1024e83bf24cb25b8cb5,
+        type: 3}
       propertyPath: m_Name
       value: EnemyTargetTrigger
       objectReference: {fileID: 0}

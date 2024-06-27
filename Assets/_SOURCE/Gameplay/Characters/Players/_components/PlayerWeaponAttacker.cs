@@ -124,7 +124,7 @@ namespace Gameplay.Characters.Players
 
       for (int i = 0; i < GetWeaponConfig().BulletsPerShot; i++)
       {
-        Vector3 directionToTarget = _playerTargetHolder.DirectionToTarget;
+        Vector3 directionToTarget = _playerTargetHolder.CurrentTarget.transform.position - _shootingPoint.Transform.position;
 
         directionToTarget = AngleChanger.AddAngle(directionToTarget, GetWeaponConfig().BulletSpreadAngle);
 

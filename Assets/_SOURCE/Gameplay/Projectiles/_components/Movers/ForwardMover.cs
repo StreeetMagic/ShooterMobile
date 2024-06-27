@@ -1,25 +1,14 @@
-﻿using Infrastructure.ConfigServices;
-using UnityEngine;
-using Zenject;
+﻿using UnityEngine;
 
 namespace Gameplay.Projectiles.Movers
 {
-  [RequireComponent(typeof(Rigidbody))]
   public class ForwardMover : MonoBehaviour
   {
-    private Rigidbody _rigidbody;
-
     public float BulletSpeed { get; set; }
 
-    private void Awake()
+    private void Update()
     {
-      _rigidbody = GetComponent<Rigidbody>();
-    }
-
-    private void FixedUpdate()
-    {
-      Vector3 newPosition = transform.position + transform.forward * (BulletSpeed * Time.deltaTime);
-      _rigidbody.MovePosition(newPosition);
+      transform.position += transform.forward * (BulletSpeed * Time.deltaTime); 
     }
   }
 }
