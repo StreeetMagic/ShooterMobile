@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Gameplay.Weapons;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;

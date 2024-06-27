@@ -1,6 +1,7 @@
 using System;
+using Gameplay.Projectiles;
 using Gameplay.Weapons;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.VisualEffects;
 using UnityEngine;
 using Zenject;
@@ -19,7 +20,7 @@ namespace Gameplay.Characters.Players.Projectiles
     private void Awake()
     {
       _projectileMover = new ProjectileMover();
-      Destroy(gameObject, 2f);
+      Destroy(gameObject, _configProvider.CommonGameplayConfig.ProjectileLifeTime);
     }
 
     private void Start()

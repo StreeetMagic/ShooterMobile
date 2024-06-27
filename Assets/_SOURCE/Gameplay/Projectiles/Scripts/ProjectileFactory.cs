@@ -66,7 +66,7 @@ namespace Gameplay.Projectiles.Scripts
     public void CreateEnemyProjectile(Transform parent, Vector3 position, Vector3 rotation, EnemyConfig enemyConfig)
     {
       EnemyProjectile prefab = _assetProvider.Get<EnemyProjectile>();
-      EnemyProjectile enemyProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation), null);
+      EnemyProjectile enemyProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation));
       enemyProjectile.EnemyConfig = enemyConfig;
       enemyProjectile.transform.SetParent(null);
       CreateEnemyBulletEffect(enemyProjectile.transform, enemyConfig);

@@ -1,12 +1,12 @@
 using Infrastructure.ArtConfigServices;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.SceneLoaders;
 using Infrastructure.VisualEffects;
 using Infrastructure.VisualEffects.ParticleImages;
 using UnityEngine;
 using Zenject;
 
-namespace Scenes._Infrastructure.Scripts.LoadConfig
+namespace Scenes._Infrastructure.Scripts.LoadConfigs
 {
   public class LoadConfigsInitializer : MonoBehaviour, IInitializable
   {

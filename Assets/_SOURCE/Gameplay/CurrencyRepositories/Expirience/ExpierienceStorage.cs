@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;

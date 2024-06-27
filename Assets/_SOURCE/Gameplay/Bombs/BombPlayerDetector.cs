@@ -1,5 +1,5 @@
 using Gameplay.Characters.Players;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using UnityEngine;
 using Zenject;
 

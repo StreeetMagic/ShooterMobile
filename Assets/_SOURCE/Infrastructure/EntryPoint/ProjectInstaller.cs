@@ -9,7 +9,7 @@ using Gameplay.Weapons;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.AudioServices;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.LoadingCurtains;
 using Infrastructure.PersistentProgresses;

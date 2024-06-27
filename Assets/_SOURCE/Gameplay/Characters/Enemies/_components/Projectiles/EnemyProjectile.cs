@@ -1,6 +1,8 @@
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
+using Gameplay.Projectiles;
 using Infrastructure.ArtConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.VisualEffects;
 using UnityEngine;
 using Zenject;
@@ -12,7 +14,8 @@ namespace Gameplay.Characters.Enemies.Projectiles
     [SerializeField] private LayerMask _layerMask;
 
     [Inject] private VisualEffectFactory _visualEffectFactory;
-    [Inject] private ArtConfigProvider _configProvider;
+    [Inject] private ArtConfigProvider _artConfigs;
+    [Inject] private ConfigProvider _configProvider;
 
     private ProjectileMover _projectileMover;
     private int _count;
@@ -23,7 +26,7 @@ namespace Gameplay.Characters.Enemies.Projectiles
     {
       _projectileMover = new ProjectileMover();
       _projectileMover.Initialize(EnemyConfig.BulletSpeed);
-      Destroy(gameObject, 2f);
+      Destroy(gameObject, _configProvider.CommonGameplayConfig.ProjectileLifeTime);
     }
 
     private void Update()
@@ -45,7 +48,7 @@ namespace Gameplay.Characters.Enemies.Projectiles
 
     private void ImpactEffect(Vector3 position)
     {
-      VisualEffectId id = _configProvider.GetEnemyImpactEffectId(EnemyConfig.Id);
+      VisualEffectId id = _artConfigs.GetEnemyImpactEffectId(EnemyConfig.Id);
       _visualEffectFactory.CreateAndDestroy(id, position, transform.rotation);
     }
 

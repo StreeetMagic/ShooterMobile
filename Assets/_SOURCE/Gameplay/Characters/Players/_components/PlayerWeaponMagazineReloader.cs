@@ -1,6 +1,6 @@
 using System;
 using Gameplay.Weapons;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using UnityEngine;
 
 namespace Gameplay.Characters.Players

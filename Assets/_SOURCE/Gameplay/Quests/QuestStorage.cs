@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Quests.Subquests;
 using Infrastructure.ArtConfigServices;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.ZenjectFactories.ProjectContext;

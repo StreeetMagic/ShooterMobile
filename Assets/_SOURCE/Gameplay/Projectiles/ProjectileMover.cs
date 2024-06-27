@@ -1,31 +1,34 @@
 using UnityEngine;
 
-public class ProjectileMover
+namespace Gameplay.Projectiles
 {
-  private float _speed;
-  private Vector3 _currentPosition;
-  private Vector3 _futurePosition;
-
-  public void Initialize(float speed)
+  public class ProjectileMover
   {
-    _speed = speed;
-  }
+    private float _speed;
+    private Vector3 _currentPosition;
+    private Vector3 _futurePosition;
 
-  public bool MoveProjectile(Transform transform, LayerMask layerMask, out RaycastHit hit)
-  {
-    _currentPosition = transform.position;
-    Vector3 direction = transform.forward * (_speed * Time.deltaTime);
-    _futurePosition = _currentPosition + direction;
-
-    if (Physics.Linecast(_currentPosition, _futurePosition, out hit, layerMask))
+    public void Initialize(float speed)
     {
-      transform.position = hit.point;
-      return true;
+      _speed = speed;
     }
-    else
+
+    public bool MoveProjectile(Transform transform, LayerMask layerMask, out RaycastHit hit)
     {
-      transform.position = _futurePosition;
-      return false;
+      _currentPosition = transform.position;
+      Vector3 direction = transform.forward * (_speed * Time.deltaTime);
+      _futurePosition = _currentPosition + direction;
+
+      if (Physics.Linecast(_currentPosition, _futurePosition, out hit, layerMask))
+      {
+        transform.position = hit.point;
+        return true;
+      }
+      else
+      {
+        transform.position = _futurePosition;
+        return false;
+      }
     }
   }
 }

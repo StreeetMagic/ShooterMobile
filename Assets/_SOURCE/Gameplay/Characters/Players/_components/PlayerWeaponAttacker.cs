@@ -5,7 +5,7 @@ using Gameplay.Utilities;
 using Gameplay.Weapons;
 using Infrastructure.AudioServices;
 using Infrastructure.AudioServices.Sounds;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.VisualEffects;
 using UnityEngine;
 

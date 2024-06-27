@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Gameplay.Bombs;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using UnityEngine;
 using Zenject;
 

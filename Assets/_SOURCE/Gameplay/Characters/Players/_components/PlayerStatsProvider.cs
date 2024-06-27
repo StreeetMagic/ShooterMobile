@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Stats;
 using Gameplay.Upgrades;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.Utilities;
 
 namespace Gameplay.Characters.Players

@@ -4,7 +4,7 @@ using Gameplay.Characters.Players;
 using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
 using Gameplay.Upgrades;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using UnityEngine;
 
 namespace Infrastructure.PersistentProgresses

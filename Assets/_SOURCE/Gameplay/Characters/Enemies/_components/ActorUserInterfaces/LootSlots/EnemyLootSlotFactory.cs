@@ -4,7 +4,7 @@ using Gameplay.CurrencyRepositories;
 using Gameplay.Loots;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 

@@ -1,5 +1,5 @@
 using Gameplay.Stats;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using UnityEngine;
