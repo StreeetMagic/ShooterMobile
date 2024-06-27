@@ -13,28 +13,25 @@ namespace Gameplay.Characters.Players.Projectiles
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private ConfigProvider _configProvider;
 
+    private ProjectileMover _projectileMover;
     private int _count;
-    private float _speed;
-    private Vector3 _currentPosition;
-    private Vector3 _futurePosition;
 
     private void Awake()
     {
+      _projectileMover = new ProjectileMover();
       Destroy(gameObject, 2f);
+    }
+
+    private void Start()
+    {
+      float speed = _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
+      _projectileMover.Initialize(speed);
     }
 
     private void Update()
     {
-      _speed = _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
-
-      _currentPosition = transform.position;
-      Vector3 direction = transform.forward * (_speed * Time.deltaTime);
-      _futurePosition = _currentPosition + direction;
-
-      if (Physics.Linecast(_currentPosition, _futurePosition, out RaycastHit hit))
+      if (_projectileMover.MoveProjectile(transform, Physics.DefaultRaycastLayers, out RaycastHit hit))
       {
-        transform.position = hit.point;
-
         if (hit.collider.gameObject.TryGetComponent(out ITargetTrigger enemyTargetTrigger))
         {
           if (_count == 0)
@@ -44,11 +41,7 @@ namespace Gameplay.Characters.Players.Projectiles
           }
         }
 
-        Destroy(hit.point);
-      }
-      else
-      {
-        transform.position = _futurePosition;
+        DestroyProjectile(hit.point);
       }
     }
 
@@ -82,10 +75,9 @@ namespace Gameplay.Characters.Players.Projectiles
       _visualEffectFactory.CreateAndDestroy(bulletImpactId, position, Quaternion.identity);
     }
 
-    private void Destroy(Vector3 position, float time = default)
+    private void DestroyProjectile(Vector3 position, float time = default)
     {
       transform.position = position;
-
       ImpactEffect(position);
       Destroy(gameObject, time);
     }
