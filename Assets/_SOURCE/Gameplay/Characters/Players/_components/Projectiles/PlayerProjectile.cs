@@ -1,5 +1,4 @@
 using System;
-using Gameplay.Projectiles.Movers;
 using Gameplay.Weapons;
 using Infrastructure.ConfigServices;
 using Infrastructure.VisualEffects;
@@ -10,7 +9,6 @@ namespace Gameplay.Characters.Players.Projectiles
 {
   public class PlayerProjectile : MonoBehaviour
   {
-    [SerializeField] private ForwardMover _forwardMover;
     [Inject] private VisualEffectFactory _visualEffectFactory;
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private ConfigProvider _configProvider;

@@ -1,7 +1,5 @@
-using System;
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
-using Gameplay.Projectiles.Movers;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.VisualEffects;
 using UnityEngine;
