@@ -1,5 +1,3 @@
-using System;
-
 namespace Gameplay.Weapons
 {
   public enum WeaponAttackTypeId

@@ -119,7 +119,7 @@ namespace Gameplay.Characters.Players
 
     private float Cooldown()
     {
-      return (float)1 / WeaponConfig().FireRate;
+      return 1 / WeaponConfig().FireRate;
     }
 
     private void PlayAttackAnimation()

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Scenes._Infrastructure.Scripts;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure.SceneLoaders

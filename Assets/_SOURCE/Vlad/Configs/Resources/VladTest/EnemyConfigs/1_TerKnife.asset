@@ -13,19 +13,22 @@ MonoBehaviour:
   m_Name: 1_TerKnife
   m_EditorClassIdentifier: 
   Id: 1
-  MoveSpeed: 3
-  RunSpeed: 5
-  IdleDuration: 0.5
-  AssistCallRadius: 10
-  PatrolingRadius: 8
-  AlertDuration: 0.2
   InitialHealth: 100
   HealMultiplier: 1
+  Expirience: 25
   LootDrops:
   - Id: 1
     Level: 1
-  Expirience: 25
+  MoveSpeed: 3
+  RunSpeed: 5
+  IdleDuration: 0.5
+  PatrolingRadius: 8
+  AssistCallRadius: 10
+  AlertDuration: 0.2
   AggroRadius: 2
+  MeleeRange: 1
+  MeeleAttackDuration: 0.5
+  MeeleAttackDamage: 5
   IsShooter: 0
   ShootRange: 5
   FireRate: 3
@@ -45,6 +48,3 @@ MonoBehaviour:
   TargetStandsOnSamePositionTime: 1
   MaxGrenadesCount: 3
   GrenadeThrowRange: 5
-  MeleeRange: 1
-  MeeleAttackDuration: 0.5
-  MeeleAttackDamage: 5

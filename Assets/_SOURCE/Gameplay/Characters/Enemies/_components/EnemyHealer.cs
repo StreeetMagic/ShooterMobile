@@ -17,22 +17,16 @@ namespace Gameplay.Characters.Enemies
       _config = config;
     }
 
-    private float HealMultiplier => _config.HealMultiplier;
-
     public void Heal()
     {
       if (_enemyHealth.Current.Value >= _enemyHealth.Initial)
         return;
 
-      float healAmount = _config.InitialHealth;
+      float healthPerSecond = _config.HealthRegenerationRate;
 
-      _heal += healAmount * Time.deltaTime * HealMultiplier;
-
-      if (_heal >= 1)
-      {
-        _enemyHealth.Current.Value++;
-        _heal = 0;
-      }
+      _heal += healthPerSecond * Time.deltaTime;
+      _enemyHealth.Current.Value = Mathf.Min(_enemyHealth.Current.Value + _heal, _enemyHealth.Initial);
+      _heal = 0;
     }
   }
 }
