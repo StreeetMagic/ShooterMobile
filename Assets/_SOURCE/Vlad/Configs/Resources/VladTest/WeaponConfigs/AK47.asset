@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: AK47
   m_EditorClassIdentifier: 
   WeaponTypeId: 12
-  WeaponAttackTypeId: 3
-  BulletSpreadAngle: 4
-  BulletSpeed: 20
-  BulletsPerShot: 1
-  ShotsPerBurst: 3
-  TimeBetweenBursts: 0.4
-  FireRate: 100
-  FireRange: 8
+  WeaponAttackTypeId: 2
+  RaiseTime: 0.494
   Damage: 51.08
-  RaiseTime: 0.7
-  MeeleAttackDuration: 0.7
-  MagazineCapacity: 5000
-  ReloadTime: 1.5
+  BulletSpreadAngle: 1.09
+  BulletSpeed: 24.1
+  BulletsPerShot: 1
+  FireRate: 10.5
+  FireRange: 8
+  MagazineCapacity: 69
+  ReloadTime: 1.56
+  ShotsPerBurst: 3
+  TimeBetweenBursts: 0.41
+  MeeleAttackDuration: 0.57
