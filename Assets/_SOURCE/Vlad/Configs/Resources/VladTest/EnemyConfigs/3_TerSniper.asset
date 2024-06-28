@@ -13,19 +13,22 @@ MonoBehaviour:
   m_Name: 3_TerSniper
   m_EditorClassIdentifier: 
   Id: 3
-  MoveSpeed: 5
-  RunSpeed: 3
-  IdleDuration: 0.5
-  AssistCallRadius: 10
-  PatrolingRadius: 5
-  AlertDuration: 0.2
-  InitialHealth: 20000
-  HealMultiplier: 1
+  InitialHealth: 105
+  HealthRegenerationRate: 10
+  Expirience: 30
   LootDrops:
   - Id: 1
     Level: 1
-  Expirience: 30
+  MoveSpeed: 5
+  RunSpeed: 3
+  IdleDuration: 0.5
+  PatrolingRadius: 5
+  AssistCallRadius: 10
+  AlertDuration: 0.2
   AggroRadius: 3
+  MeleeRange: 2
+  MeeleAttackDuration: 0.3
+  MeeleAttackDamage: 100
   IsShooter: 1
   ShootRange: 7
   FireRate: 1
@@ -45,6 +48,3 @@ MonoBehaviour:
   TargetStandsOnSamePositionTime: 1
   MaxGrenadesCount: 3
   GrenadeThrowRange: 5
-  MeleeRange: 2
-  MeeleAttackDuration: 0.3
-  MeeleAttackDamage: 100
