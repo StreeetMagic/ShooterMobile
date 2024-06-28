@@ -3,7 +3,6 @@ using Infrastructure.ConfigProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
-using Loggers;
 
 namespace Gameplay.CurrencyRepositories.Expirience
 {
@@ -23,7 +22,6 @@ namespace Gameplay.CurrencyRepositories.Expirience
 
     private void OnValueChanged(int obj)
     {
-      new DebugLogger().Log($"AllPoints: {obj}");
     }
 
     public void ReadProgress(ProjectProgress projectProgress)

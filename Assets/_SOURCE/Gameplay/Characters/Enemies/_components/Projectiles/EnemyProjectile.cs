@@ -19,6 +19,7 @@ namespace Gameplay.Characters.Enemies.Projectiles
 
     private ProjectileMover _projectileMover;
     private int _count;
+    private float _lifeTime;
 
     public EnemyConfig EnemyConfig { get; set; }
 
@@ -26,37 +27,43 @@ namespace Gameplay.Characters.Enemies.Projectiles
     {
       _projectileMover = new ProjectileMover();
       _projectileMover.Initialize(EnemyConfig.BulletSpeed);
-      Destroy(gameObject, _configProvider.CommonGameplayConfig.ProjectileLifeTime);
     }
 
     private void Update()
     {
-      if (_projectileMover.MoveProjectile(transform, _layerMask, out RaycastHit hit))
-      {
-        if (hit.collider.TryGetComponent(out PlayerTargetTrigger player))
-        {
-          if (_count == 0)
-          {
-            _count++;
-            player.TakeDamage(EnemyConfig.BulletDamage);
-          }
-        }
+      LifeTime();
+      
+      if (!_projectileMover.MoveProjectile(transform, _layerMask, out RaycastHit hit))
+        return;
 
-        DestroyProjectile(hit.point);
+      if (hit.collider.TryGetComponent(out PlayerTargetTrigger player))
+      {
+        if (_count == 0)
+        {
+          _count++;
+          player.TakeDamage(EnemyConfig.BulletDamage);
+        }
       }
+
+      ImpactEffect(hit.point);
+
+      transform.position = hit.point;
+
+      Destroy(gameObject);
+    }
+    
+    private void LifeTime()
+    {
+      if (_lifeTime >= _configProvider.CommonGameplayConfig.ProjectileLifeTime)
+        Destroy(gameObject);
+      else
+        _lifeTime += Time.deltaTime;
     }
 
     private void ImpactEffect(Vector3 position)
     {
       VisualEffectId id = _artConfigs.GetEnemyImpactEffectId(EnemyConfig.Id);
       _visualEffectFactory.CreateAndDestroy(id, position, transform.rotation);
-    }
-
-    private void DestroyProjectile(Vector3 position, float time = default)
-    {
-      transform.position = position;
-      ImpactEffect(position);
-      Destroy(gameObject, time);
     }
   }
 }

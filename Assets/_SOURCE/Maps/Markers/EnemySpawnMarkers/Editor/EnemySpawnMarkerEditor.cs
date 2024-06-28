@@ -6,7 +6,7 @@ namespace Maps.Markers.EnemySpawnMarkers.Editor
   [CustomEditor(typeof(EnemySpawnMarker))]
   public class EnemySpawnMarkerEditor : UnityEditor.Editor
   {
-    [DrawGizmo(GizmoType.Active | GizmoType.Pickable | GizmoType.NonSelected)]
+    [DrawGizmo(GizmoType.Active | GizmoType.Pickable | GizmoType.NonSelected | GizmoType.Selected)]
     public static void RenderCustomGizmo(EnemySpawnMarker marker, GizmoType gizmo)
     {
       CircleGizmo(marker.transform, .4f, Color.red);

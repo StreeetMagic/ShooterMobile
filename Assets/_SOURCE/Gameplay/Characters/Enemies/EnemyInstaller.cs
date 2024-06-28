@@ -26,47 +26,48 @@ namespace Gameplay.Characters.Enemies
 
     public override void InstallBindings()
     {
-      Container.Bind<Enemy>().FromInstance(Enemy).AsSingle().NonLazy();
-      Container.Bind<Transform>().FromInstance(transform).AsSingle().NonLazy();
+      Container.Bind<Enemy>().FromInstance(Enemy).AsSingle();
+      Container.Bind<Transform>().FromInstance(transform).AsSingle();
 
-      Container.Bind<IGameObjectZenjectFactory>().To<EnemyZenjectFactory>().AsSingle().NonLazy();
+      Container.Bind<IGameObjectZenjectFactory>().To<EnemyZenjectFactory>().AsSingle();
 
-      Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle().NonLazy();
-      Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle().NonLazy();
-      Container.Bind<EnemySpawner>().FromInstance(_spawner).AsSingle().NonLazy();
-      Container.Bind<EnemyTypeId>().FromInstance(_enemyConfig.Id).AsSingle().NonLazy();
+      Container.Bind<EnemyConfig>().FromInstance(_enemyConfig).AsSingle();
+      Container.Bind<List<SpawnPoint>>().FromInstance(_spawnPoints).AsSingle();
+      Container.Bind<EnemySpawner>().FromInstance(_spawner).AsSingle();
+      Container.Bind<EnemyTypeId>().FromInstance(_enemyConfig.Id).AsSingle();
       
-      Container.Bind<IStateMachineFactory>().To<EnemyStateMachineFactory>().AsSingle().NonLazy();
+      Container.Bind<IStateMachineFactory>().To<EnemyStateMachineFactory>().AsSingle();
 
-      Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyReturnToSpawnStatus>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<HitStatus>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyMeleeAttacker>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyAnimatorProvider>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyToPlayerRotator>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyShootingPointProvider>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyShooter>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyReturnToSpawnStatus>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyMover>().AsSingle();
+      Container.BindInterfacesAndSelfTo<HitStatus>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyMeleeAttacker>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyAnimatorProvider>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyToPlayerRotator>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyShootingPointProvider>().AsSingle();
       Container.BindInterfacesAndSelfTo<EnemyMeshModelSpawner>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyToSpawnerDistance>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyGrenadeThrower>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyColliderDisabler>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyHealer>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyRoutePointsManager>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyAssistCall>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyMeshMaterialChanger>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<FiniteStateMachine>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyIdleTimer>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyAlertTimer>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyGrenadeStorage>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyGrenadeThrowTimer>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyWeaponRaiser>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyWeaponLowerer>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyWeaponMagazine>().AsSingle().NonLazy();
-      Container.BindInterfacesAndSelfTo<EnemyWeaponMagazineReloaderTimer>().AsSingle().NonLazy();
+      Container.BindInterfacesAndSelfTo<EnemyToSpawnerDistance>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyGrenadeThrower>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyColliderDisabler>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyHealer>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyRoutePointsManager>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyAssistCall>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyMeshMaterialChanger>().AsSingle();
+      Container.BindInterfacesAndSelfTo<FiniteStateMachine>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyIdleTimer>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyAlertTimer>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyGrenadeStorage>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyGrenadeThrowTimer>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyWeaponRaiser>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyWeaponLowerer>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyWeaponMagazine>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyWeaponMagazineReloaderTimer>().AsSingle();
+      Container.BindInterfacesAndSelfTo<EnemyExpirience>().AsSingle();
 
-      Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle().NonLazy();
-      Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle().NonLazy();
-      Container.Bind<NavMeshAgent>().FromInstance(NavMeshAgent).AsSingle().NonLazy();
+      Container.Bind<IHealth>().To<EnemyHealth>().FromInstance(EnemyHealth).AsSingle();
+      Container.Bind<ITargetTrigger>().To<EnemyTargetTrigger>().FromInstance(TargetTrigger).AsSingle();
+      Container.Bind<NavMeshAgent>().FromInstance(NavMeshAgent).AsSingle();
     }
   }
 }

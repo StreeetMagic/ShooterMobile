@@ -16,71 +16,80 @@ namespace Gameplay.Characters.Players.Projectiles
 
     private ProjectileMover _projectileMover;
     private int _count;
-
-    private void Awake()
-    {
-      _projectileMover = new ProjectileMover();
-      Destroy(gameObject, _configProvider.CommonGameplayConfig.ProjectileLifeTime);
-    }
+    private float _lifeTime;
 
     private void Start()
     {
-      float speed = _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
-      _projectileMover.Initialize(speed);
+      _projectileMover = new ProjectileMover();
+      _projectileMover.Initialize(MoveSpeed());
     }
 
     private void Update()
     {
-      if (_projectileMover.MoveProjectile(transform, Physics.DefaultRaycastLayers, out RaycastHit hit))
-      {
-        if (hit.collider.gameObject.TryGetComponent(out ITargetTrigger enemyTargetTrigger))
-        {
-          if (_count == 0)
-          {
-            _count++;
-            enemyTargetTrigger.TakeDamage(_configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Damage);
-          }
-        }
+      LifeTime();
 
-        DestroyProjectile(hit.point);
-      }
+      if (Move(out RaycastHit hit))
+        return;
+
+      TryDamageTarget(hit);
+      transform.position = hit.point;
+      ImpactEffect();
+      
+      Debug.Log(hit.collider.gameObject.name);
+      Destroy(gameObject);
     }
 
-    private void ImpactEffect(Vector3 position)
+    private void LifeTime()
     {
-      VisualEffectId bulletImpactId;
-
-      switch (_playerProvider.Instance.WeaponIdProvider.CurrentId.Value)
-      {
-        case WeaponTypeId.Unknown:
-        case WeaponTypeId.Knife:
-          throw new ArgumentOutOfRangeException();
-
-        case WeaponTypeId.DesertEagle:
-          bulletImpactId = VisualEffectId.PistolImpactExplosion;
-          break;
-
-        case WeaponTypeId.Famas:
-        case WeaponTypeId.Ak47:
-          bulletImpactId = VisualEffectId.RiffleImpactExplosion;
-          break;
-
-        case WeaponTypeId.Xm1014:
-          bulletImpactId = VisualEffectId.ShotgunImpactExplosion;
-          break;
-
-        default:
-          throw new ArgumentOutOfRangeException();
-      }
-
-      _visualEffectFactory.CreateAndDestroy(bulletImpactId, position, Quaternion.identity);
+      if (_lifeTime >= _configProvider.CommonGameplayConfig.ProjectileLifeTime)
+        Destroy(gameObject);
+      else
+        _lifeTime += Time.deltaTime;
     }
 
-    private void DestroyProjectile(Vector3 position, float time = default)
+    private float MoveSpeed()
     {
-      transform.position = position;
-      ImpactEffect(position);
-      Destroy(gameObject, time);
+      return _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
+    }
+
+    private void TryDamageTarget(RaycastHit hit)
+    {
+      if (!hit.collider.gameObject.TryGetComponent(out ITargetTrigger enemyTargetTrigger))
+        return;
+
+      if (_count != 0)
+        return;
+
+      _count++;
+      enemyTargetTrigger.TakeDamage(_configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Damage);
+    }
+
+    private bool Move(out RaycastHit hit)
+    {
+      return !_projectileMover.MoveProjectile(transform, Physics.DefaultRaycastLayers, out hit);
+    }
+
+    private void ImpactEffect()
+    {
+      VisualEffectId bulletImpactId = _playerProvider.Instance.WeaponIdProvider.CurrentId.Value switch
+      {
+        WeaponTypeId.Unknown or WeaponTypeId.Knife
+          => throw new ArgumentOutOfRangeException(),
+
+        WeaponTypeId.DesertEagle
+          => VisualEffectId.PistolImpactExplosion,
+
+        WeaponTypeId.Famas or WeaponTypeId.Ak47
+          => VisualEffectId.RiffleImpactExplosion,
+
+        WeaponTypeId.Xm1014
+          => VisualEffectId.ShotgunImpactExplosion,
+
+        _
+          => throw new ArgumentOutOfRangeException()
+      };
+
+      _visualEffectFactory.CreateAndDestroy(bulletImpactId, transform.position, Quaternion.identity);
     }
   }
 }

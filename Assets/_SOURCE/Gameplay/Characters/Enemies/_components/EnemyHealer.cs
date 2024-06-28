@@ -11,7 +11,7 @@ namespace Gameplay.Characters.Enemies
     private float _heal;
     private float _timer;
 
-    public EnemyHealer(IHealth enemyHealth, HitStatus hitStatus, EnemyConfig config)
+    public EnemyHealer(IHealth enemyHealth, EnemyConfig config)
     {
       _enemyHealth = enemyHealth;
       _config = config;
@@ -23,7 +23,7 @@ namespace Gameplay.Characters.Enemies
     {
       if (_enemyHealth.Current.Value >= _enemyHealth.Initial)
         return;
-      
+
       float healAmount = _config.InitialHealth;
 
       _heal += healAmount * Time.deltaTime * HealMultiplier;
