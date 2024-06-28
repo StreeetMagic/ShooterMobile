@@ -22,12 +22,12 @@ namespace Gameplay.Projectiles
       if (Physics.Linecast(_currentPosition, _futurePosition, out hit, layerMask))
       {
         transform.position = hit.point;
-        return true;
+        return false;
       }
       else
       {
         transform.position = _futurePosition;
-        return false;
+        return true;
       }
     }
   }

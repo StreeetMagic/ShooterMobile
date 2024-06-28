@@ -26,7 +26,8 @@ namespace Gameplay.Characters.Players.Projectiles
 
     private void Update()
     {
-      LifeTime();
+      if (LifeTime() == false)
+        return;
 
       if (Move(out RaycastHit hit))
         return;
@@ -34,17 +35,23 @@ namespace Gameplay.Characters.Players.Projectiles
       TryDamageTarget(hit);
       transform.position = hit.point;
       ImpactEffect();
-      
       Debug.Log(hit.collider.gameObject.name);
       Destroy(gameObject);
     }
 
-    private void LifeTime()
+    private bool LifeTime()
     {
       if (_lifeTime >= _configProvider.CommonGameplayConfig.ProjectileLifeTime)
+      {
         Destroy(gameObject);
+        return false;
+      }
       else
+      {
         _lifeTime += Time.deltaTime;
+
+        return true;
+      }
     }
 
     private float MoveSpeed()
@@ -66,7 +73,7 @@ namespace Gameplay.Characters.Players.Projectiles
 
     private bool Move(out RaycastHit hit)
     {
-      return !_projectileMover.MoveProjectile(transform, Physics.DefaultRaycastLayers, out hit);
+      return _projectileMover.MoveProjectile(transform, Physics.DefaultRaycastLayers, out hit);
     }
 
     private void ImpactEffect()

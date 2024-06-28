@@ -1,9 +1,11 @@
+using System;
+
 namespace Gameplay.Weapons
 {
   public enum WeaponAttackTypeId
   {
     Unknown = 0,
-    СмениНаДругой = 1,
+   // СмениНаДругой = 1,
     Burst = 2,
     Auto = 3,
     Melee = 4,

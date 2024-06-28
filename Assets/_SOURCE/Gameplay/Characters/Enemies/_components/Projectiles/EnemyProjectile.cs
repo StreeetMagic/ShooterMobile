@@ -33,7 +33,7 @@ namespace Gameplay.Characters.Enemies.Projectiles
     {
       LifeTime();
       
-      if (!_projectileMover.MoveProjectile(transform, _layerMask, out RaycastHit hit))
+      if (_projectileMover.MoveProjectile(transform, _layerMask, out RaycastHit hit))
         return;
 
       if (hit.collider.TryGetComponent(out PlayerTargetTrigger player))
