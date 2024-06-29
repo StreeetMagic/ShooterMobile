@@ -19,7 +19,7 @@ namespace Gameplay.Characters.Players.Animators
     private const string RifleShoot = "RifleShoot";
     private const string ShotgunShoot = "ShotgunShoot";
     private const string GrenadeThrow = "GrenadeThrow";
-    private const string Reload = "Reload";
+    private const string IsReload = "IsReload";
     private const string WeaponUp = "WeaponUp";
     private const string StartShooting = "StartShooting";
 
@@ -35,7 +35,7 @@ namespace Gameplay.Characters.Players.Animators
     private static readonly int s_rifleShoot = Animator.StringToHash(RifleShoot);
     private static readonly int s_shotgunShoot = Animator.StringToHash(ShotgunShoot);
     private static readonly int s_granadeThrow = Animator.StringToHash(GrenadeThrow);
-    private static readonly int s_reload = Animator.StringToHash(Reload);
+    private static readonly int s_reload = Animator.StringToHash(IsReload);
 
     private static readonly int s_isShoot = Animator.StringToHash("isShoot");
     private static readonly int s_startShooting = Animator.StringToHash(StartShooting);
@@ -81,7 +81,8 @@ namespace Gameplay.Characters.Players.Animators
     public void PlayRifleShoot() => Animator.SetTrigger(s_rifleShoot);
     public void PlayShotgunShoot() => Animator.SetTrigger(s_shotgunShoot);
     public void PlayGrenadeThrow() => Animator.SetTrigger(s_granadeThrow);
-    public void PlayReload() => Animator.SetTrigger(s_reload);
+    public void PlayReload() => Animator.SetBool(s_reload, true);
+    public void StopReload() => Animator.SetBool(s_reload, false);
 
     public void PlayDeathAnimation()
     {
