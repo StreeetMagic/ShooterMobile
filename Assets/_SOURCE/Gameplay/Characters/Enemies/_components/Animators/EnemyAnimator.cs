@@ -151,12 +151,12 @@ namespace Gameplay.Characters.Enemies.Animators
 
     private void ReloadFinished()
     {
-      new DebugLogger().Log("ReloadFinished");
+      //new DebugLogger().Log("ReloadFinished");
     }
 
     private void PlayPanicEffect()
     {
-      new DebugLogger().Log("PlayPanicEffect");
+      //new DebugLogger().Log("PlayPanicEffect");
     }
 
     private void GrenadeThrew()
@@ -166,13 +166,13 @@ namespace Gameplay.Characters.Enemies.Animators
 
     private void SetWeaponUp()
     {
-      new DebugLogger().Log("SetWeaponUp");
+      //new DebugLogger().Log("SetWeaponUp");
       Animator.SetBool(s_weaponUp, true);
     }
 
     private void SetWeaponDown()
     {
-      new DebugLogger().Log("SetWeaponDown");
+      //new DebugLogger().Log("SetWeaponDown");
       Animator.SetBool(s_weaponUp, false);
     }
   }

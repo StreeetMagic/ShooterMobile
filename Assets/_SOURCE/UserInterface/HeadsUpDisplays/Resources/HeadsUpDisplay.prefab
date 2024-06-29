@@ -2640,15 +2640,100 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackpackBar
       objectReference: {fileID: 0}
+    - target: {fileID: 2130953801310604817, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _duration
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130953801310604817, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 6410c1bb877394bd4acd17e82436d2a7, type: 3}
+    - target: {fileID: 2130953801310604817, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _lifetime.m_ConstantMax
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130953801310604817, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _bursts.Array.data[0].used
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _duration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _lifetime.m_ConstantMax
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _startSize.xCurve.m_ConstantMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _startSize.yCurve.m_ConstantMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _sizeOverLifetime.mainCurve.m_CurveMax.m_Curve.Array.data[0].time
+      value: 0.02420044
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _sizeOverLifetime.mainCurve.m_CurveMax.m_Curve.Array.data[0].value
+      value: 0.8016052
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _sizeOverLifetime.mainCurve.m_CurveMax.m_Curve.Array.data[0].inSlope
+      value: 0.2033151
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _sizeOverLifetime.mainCurve.m_CurveMax.m_Curve.Array.data[1].inSlope
+      value: 0.2033151
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _sizeOverLifetime.mainCurve.m_CurveMax.m_Curve.Array.data[0].outSlope
+      value: 0.2033151
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _sizeOverLifetime.mainCurve.m_CurveMax.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _sizeOverLifetime.mainCurve.m_CurveMax.m_Curve.Array.data[1].outSlope
+      value: 0.2033151
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: _sizeOverLifetime.mainCurve.m_CurveMax.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
     - target: {fileID: 3070983853029536889, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
       propertyPath: m_Interactable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358924445488935613, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4489358021238375329, guid: 5444373b61766374f8200458c14a9338,
         type: 3}

@@ -47,6 +47,8 @@ namespace UserInterface.HeadsUpDisplays.MoneyAttractions
       // ReSharper disable once UnusedVariable
       ParticleImage particleImage = PlayerMoneyParticle(position);
 
+      particleImage.onParticleFinish.AddListener(()=> print("Есть контакт"));
+      
       int count = 1;
       float cooldown = .1f;
       float duration = 1.7f;

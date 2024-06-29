@@ -35,7 +35,12 @@ namespace Gameplay.Characters.Players.Projectiles
       TryDamageTarget(hit);
       transform.position = hit.point;
       ImpactEffect();
+<<<<<<< Updated upstream
       Debug.Log(hit.collider.gameObject.name);
+=======
+      
+      //Debug.Log(hit.collider.gameObject.name);
+>>>>>>> Stashed changes
       Destroy(gameObject);
     }
 
