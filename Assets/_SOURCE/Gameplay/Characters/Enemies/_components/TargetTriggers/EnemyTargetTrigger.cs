@@ -15,6 +15,7 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
 
     [Inject] public IHealth Health { get; private set; }
     [Inject] public HitStatus HitStatus { get; private set; }
+    
     public bool IsTargeted { get; set; }
     public float AggroRadius => _config.AggroRadius;
 
