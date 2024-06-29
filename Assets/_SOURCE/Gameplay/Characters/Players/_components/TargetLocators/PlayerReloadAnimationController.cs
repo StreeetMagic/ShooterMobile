@@ -26,6 +26,7 @@ namespace Gameplay.Characters.Players.TargetLocators
       }
       else if (_reloader.IsActive == false && _isReloading)
       {
+        _playerAnimator.StopReload();
         _isReloading = false;
       }
     }
