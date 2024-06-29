@@ -8,6 +8,7 @@ namespace Gameplay.Projectiles
     private Vector3 _currentPosition;
     private Vector3 _futurePosition;
 
+    //TODO ебанько, сделай конструктор
     public void Initialize(float speed)
     {
       _speed = speed;
