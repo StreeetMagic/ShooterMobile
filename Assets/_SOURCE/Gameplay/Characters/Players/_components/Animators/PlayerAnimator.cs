@@ -47,6 +47,7 @@ namespace Gameplay.Characters.Players.Animators
 
     public void PlayRunAnimation()
     {
+      Animator.speed = 1;
       Animator.SetBool(s_isRun, true);
     }
 
