@@ -2658,7 +2658,7 @@ PrefabInstance:
     - target: {fileID: 2130953801310604817, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
@@ -2673,7 +2673,7 @@ PrefabInstance:
     - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2335938672413243204, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
@@ -2955,15 +2955,30 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8882795805056227985, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882795805056227985, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882795805056227985, guid: 5444373b61766374f8200458c14a9338,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8882795805056227990, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8882795805974270032, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
       propertyPath: _bursts.Array.data[0].used
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9158638255441000025, guid: 5444373b61766374f8200458c14a9338,
         type: 3}
