@@ -1,7 +1,7 @@
 using System;
 using Gameplay.Quests;
 using Gameplay.Quests.Subquests;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using UnityEngine;
 using Zenject;
 

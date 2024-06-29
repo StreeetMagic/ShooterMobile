@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using UnityEngine;
 using Zenject;
 
@@ -24,7 +24,7 @@ namespace Gameplay.Characters.Players
     public bool HasTarget { get; private set; }
     public ITargetTrigger CurrentTarget { get; private set; }
 
-    public Vector3 DirectionToTarget => CurrentTarget.transform.position - _transform.position;
+   // public Vector3 DirectionToTarget => CurrentTarget.transform.position - _transform.position;
     public Vector3 LookDirectionToTarget => new Vector3(CurrentTarget.transform.position.x, _transform.position.y, CurrentTarget.transform.position.z) - _transform.position;
 
     public void Tick()

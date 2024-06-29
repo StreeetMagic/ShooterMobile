@@ -7,7 +7,7 @@ using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Quests;
 using Gameplay.Spawners.SpawnPoints;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.Utilities;
 using UnityEngine;

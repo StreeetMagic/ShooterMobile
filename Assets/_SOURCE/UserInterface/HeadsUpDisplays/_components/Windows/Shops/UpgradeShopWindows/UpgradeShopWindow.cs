@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Gameplay.Stats;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.UserIntefaces;
 using UnityEngine;
 using Zenject;

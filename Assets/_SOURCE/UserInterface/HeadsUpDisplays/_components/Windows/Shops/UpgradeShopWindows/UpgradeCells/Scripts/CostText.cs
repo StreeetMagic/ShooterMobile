@@ -1,5 +1,5 @@
 using Gameplay.Upgrades;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using TMPro;
 using UnityEngine;
 using Zenject;

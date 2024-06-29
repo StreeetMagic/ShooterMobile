@@ -3,6 +3,7 @@ using System.Linq;
 using Gameplay.Characters.Enemies;
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
+using Gameplay.Common;
 using Gameplay.CurrencyRepositories;
 using Gameplay.CurrencyRepositories.Expirience;
 using Gameplay.Grenades;
@@ -16,7 +17,7 @@ using Infrastructure.AssetProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.Projects;
 
-namespace Infrastructure.ConfigServices
+namespace Infrastructure.ConfigProviders
 {
   public class ConfigProvider
   {
@@ -33,10 +34,11 @@ namespace Infrastructure.ConfigServices
       _projectData = projectData;
       _assetProvider = assetProvider;
     }
-    
+
     public PlayerConfig PlayerConfig { get; private set; }
     public ExpirienceConfig ExpirienceConfig { get; private set; }
     public DefaultProjectProgressConfig DefaultProjectProgressConfig { get; private set; }
+    public CommonGameplayConfig CommonGameplayConfig { get; private set; }
 
     public Dictionary<StatId, UpgradeConfig> UpgradeConfigs { get; private set; }
     public Dictionary<QuestId, QuestConfig> QuestConfigs { get; private set; }
@@ -57,11 +59,12 @@ namespace Infrastructure.ConfigServices
       _lootConfigs = _assetProvider.GetAllScriptable<LootConfig>(startPath + "LootConfigs").ToDictionary(x => x.Id, x => x);
       _weaponConfigs = _assetProvider.GetAllScriptable<WeaponConfig>(startPath + "WeaponConfigs").ToDictionary(x => x.WeaponTypeId, x => x);
       _grenadeConfigs = _assetProvider.GetAllScriptable<GrenadeConfig>(startPath + "GrenadeConfigs").ToDictionary(x => x.TypeId, x => x);
-     
+
       PlayerConfig = _assetProvider.GetScriptable<PlayerConfig>(startPath + "PlayerConfig");
       ExpirienceConfig = _assetProvider.GetScriptable<ExpirienceConfig>(startPath + "ExpirienceConfig");
       DefaultProjectProgressConfig = _assetProvider.GetScriptable<DefaultProjectProgressConfig>(startPath + "DefaultProjectProgressConfig");
-      
+      CommonGameplayConfig = _assetProvider.GetScriptable<CommonGameplayConfig>(startPath + "CommonGameplayConfig");
+
       UpgradeConfigs = _assetProvider.GetAllScriptable<UpgradeConfig>(startPath + "UpgradeConfigs").ToDictionary(x => x.Id, x => x);
       QuestConfigs = _assetProvider.GetAllScriptable<QuestConfig>(startPath + "QuestConfigs").ToDictionary(x => x.Id, x => x);
       RewardConfigs = _assetProvider.GetAllScriptable<RewardConfig>(startPath + "RewardConfigs").ToDictionary(x => x.Id, x => x);

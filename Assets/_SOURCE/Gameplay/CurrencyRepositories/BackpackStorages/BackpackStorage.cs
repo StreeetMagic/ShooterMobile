@@ -3,7 +3,7 @@ using System.Linq;
 using Gameplay.Characters.Players;
 using Gameplay.Loots;
 using Gameplay.Stats;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.Utilities;
 
 namespace Gameplay.CurrencyRepositories.BackpackStorages

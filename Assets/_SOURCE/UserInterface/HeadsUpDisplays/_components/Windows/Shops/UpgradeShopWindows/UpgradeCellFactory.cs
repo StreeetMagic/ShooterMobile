@@ -1,6 +1,6 @@
 using Gameplay.Stats;
 using Infrastructure.ArtConfigServices;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows.UpgradeCells;

@@ -62,13 +62,15 @@ namespace Gameplay.Portals
 
     private void OnTriggerEnter(Collider other)
     {
+      Debug.Log("Portal: " + other.name);
+
       if (_isActive == false)
         return;
 
       if (_playerInTrigger)
         return;
 
-      if (other.TryGetComponent(out PlayerTargetTrigger _))
+      if (other.TryGetComponent(out Player _))
       {
         _playerInTrigger = true;
       }
@@ -82,7 +84,7 @@ namespace Gameplay.Portals
       if (!_playerInTrigger)
         return;
 
-      if (other.TryGetComponent(out PlayerTargetTrigger _))
+      if (other.TryGetComponent(out Player _))
       {
         _playerInTrigger = false;
       }
@@ -97,7 +99,7 @@ namespace Gameplay.Portals
     public void Deactivate()
     {
       _isActive = false;
-      _particleSystem.gameObject.SetActive(false); 
+      _particleSystem.gameObject.SetActive(false);
       _timeLeftForActivation = ActivationDelay;
     }
 

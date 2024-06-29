@@ -18,6 +18,8 @@ namespace Gameplay.Characters.Players
     [SerializeField] private PlayerAnimator PlayerAnimator;
     [SerializeField] private PlayerPetSpawnPointsContainer _petSpawnPointsContainer;
     [SerializeField] private PlayerWeaponContainer WeaponContainer;
+    
+    [field: SerializeField] public PlayerTargetTrigger TargetTrigger { get; private set; }
 
     [Inject] private SaveLoadService _saveLoadServices;
 
@@ -46,6 +48,7 @@ namespace Gameplay.Characters.Players
 
       Container.Bind<Transform>().FromInstance(transform).AsSingle();
       Container.Bind<PlayerWeaponContainer>().FromInstance(WeaponContainer).AsSingle();
+      Container.Bind<PlayerTargetTrigger>().FromInstance(TargetTrigger).AsSingle();
 
       Container.BindInterfacesAndSelfTo<PlayerMover>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerRotator>().AsSingle().NonLazy();
@@ -68,7 +71,7 @@ namespace Gameplay.Characters.Players
       Container.BindInterfacesAndSelfTo<PlayerWeaponAmmo>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerReloadAnimationController>().AsSingle().NonLazy();
       Container.BindInterfacesAndSelfTo<PlayerWeaponMagazineReloader>().AsSingle().NonLazy();
-     
+
       Container.Bind<IGameObjectZenjectFactory>().To<PlayerZenjectFactory>().AsSingle().NonLazy();
       Container.Bind<IStateMachineFactory>().To<PlayerStateMachineFactory>().AsSingle().NonLazy();
 

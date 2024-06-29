@@ -4,7 +4,6 @@ using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnerFactories;
 using Infrastructure.Projects;
 using Infrastructure.SceneLoaders;
-using Maps;
 using Scenes._Infrastructure.Scripts;
 using UnityEngine;
 

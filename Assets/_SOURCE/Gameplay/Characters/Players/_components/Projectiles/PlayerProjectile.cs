@@ -1,7 +1,7 @@
 using System;
-using Gameplay.Projectiles.Movers;
+using Gameplay.Projectiles;
 using Gameplay.Weapons;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.VisualEffects;
 using UnityEngine;
 using Zenject;
@@ -10,75 +10,86 @@ namespace Gameplay.Characters.Players.Projectiles
 {
   public class PlayerProjectile : MonoBehaviour
   {
-    [SerializeField] private ForwardMover _forwardMover;
     [Inject] private VisualEffectFactory _visualEffectFactory;
     [Inject] private PlayerProvider _playerProvider;
     [Inject] private ConfigProvider _configProvider;
 
+    private ProjectileMover _projectileMover;
     private int _count;
+    private float _lifeTime;
 
-    private void Awake()
+    private void Start()
     {
-      _forwardMover.BulletSpeed = _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
-
-      Destroy(gameObject, 1f);
+      _projectileMover = new ProjectileMover();
+      _projectileMover.Initialize(MoveSpeed());
     }
 
-    private void OnTriggerEnter(Collider otherCollider)
+    private void Update()
     {
-      DamageTargetTrigger(otherCollider);
+      LifeTime();
+
+      if (Move(out RaycastHit hit))
+        return;
+
+      TryDamageTarget(hit);
+      transform.position = hit.point;
+      ImpactEffect();
+      
+      Debug.Log(hit.collider.gameObject.name);
+      Destroy(gameObject);
+    }
+
+    private void LifeTime()
+    {
+      if (_lifeTime >= _configProvider.CommonGameplayConfig.ProjectileLifeTime)
+        Destroy(gameObject);
+      else
+        _lifeTime += Time.deltaTime;
+    }
+
+    private float MoveSpeed()
+    {
+      return _configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).BulletSpeed;
+    }
+
+    private void TryDamageTarget(RaycastHit hit)
+    {
+      if (!hit.collider.gameObject.TryGetComponent(out ITargetTrigger enemyTargetTrigger))
+        return;
+
+      if (_count != 0)
+        return;
+
+      _count++;
+      enemyTargetTrigger.TakeDamage(_configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Damage);
+    }
+
+    private bool Move(out RaycastHit hit)
+    {
+      return !_projectileMover.MoveProjectile(transform, Physics.DefaultRaycastLayers, out hit);
     }
 
     private void ImpactEffect()
     {
-      VisualEffectId bulletImpactId;
-
-      switch (_playerProvider.Instance.WeaponIdProvider.CurrentId.Value)
+      VisualEffectId bulletImpactId = _playerProvider.Instance.WeaponIdProvider.CurrentId.Value switch
       {
-        case WeaponTypeId.Unknown:
-        case WeaponTypeId.Knife:
-          throw new ArgumentOutOfRangeException();
+        WeaponTypeId.Unknown or WeaponTypeId.Knife
+          => throw new ArgumentOutOfRangeException(),
 
-        case WeaponTypeId.DesertEagle:
-          bulletImpactId = VisualEffectId.PistolImpactExplosion;
-          break;
+        WeaponTypeId.DesertEagle
+          => VisualEffectId.PistolImpactExplosion,
 
-        case WeaponTypeId.Famas:
-        case WeaponTypeId.Ak47:
-          bulletImpactId = VisualEffectId.RiffleImpactExplosion;
-          break;
+        WeaponTypeId.Famas or WeaponTypeId.Ak47
+          => VisualEffectId.RiffleImpactExplosion,
 
-        case WeaponTypeId.Xm1014:
-          bulletImpactId = VisualEffectId.ShotgunImpactExplosion;
-          break;
+        WeaponTypeId.Xm1014
+          => VisualEffectId.ShotgunImpactExplosion,
 
-        default:
-          throw new ArgumentOutOfRangeException();
-      }
+        _
+          => throw new ArgumentOutOfRangeException()
+      };
 
       _visualEffectFactory.CreateAndDestroy(bulletImpactId, transform.position, Quaternion.identity);
-    }
-
-    private void DamageTargetTrigger(Collider other)
-    {
-      if (other.gameObject.TryGetComponent(out ITargetTrigger enemyTargetTrigger))
-      {
-        if (_count == 0)
-        {
-          _count++;
-          enemyTargetTrigger.TakeDamage(_configProvider.GetWeaponConfig(_playerProvider.Instance.WeaponIdProvider.CurrentId.Value).Damage);
-        }
-      }
-
-      Destroy();
-    }
-
-    private void Destroy()
-    {
-      // transform.position = CollisionPointRayCaster.HitPosition;
-
-      ImpactEffect();
-      Destroy(gameObject);
     }
   }
 }

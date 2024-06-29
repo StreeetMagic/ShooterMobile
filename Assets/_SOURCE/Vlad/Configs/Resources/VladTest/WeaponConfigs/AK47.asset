@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponTypeId: 12
   WeaponAttackTypeId: 3
-  BulletSpreadAngle: 2
-  BulletSpeed: 25
+  BulletSpreadAngle: 4
+  BulletSpeed: 20
   BulletsPerShot: 1
   ShotsPerBurst: 3
   TimeBetweenBursts: 0.4
-  FireRate: 10
+  FireRate: 100
   FireRange: 8
-  Damage: 50
+  Damage: 51.08
   RaiseTime: 0.7
   MeeleAttackDuration: 0.7
-  MagazineCapacity: 10
+  MagazineCapacity: 5000
   ReloadTime: 1.5

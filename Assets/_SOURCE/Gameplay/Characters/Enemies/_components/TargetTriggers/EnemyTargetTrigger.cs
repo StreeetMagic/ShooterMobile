@@ -35,11 +35,6 @@ namespace Gameplay.Characters.Enemies.TargetTriggers
       TargetDied?.Invoke(this);
     }
 
-    private void FixedUpdate()
-    {
-      transform.localPosition = Vector3.zero;
-    }
-
     public void TakeDamage(float damage)
     {
       Health.TakeDamage(damage);

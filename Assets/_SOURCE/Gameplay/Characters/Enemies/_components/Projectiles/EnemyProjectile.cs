@@ -1,8 +1,8 @@
-using System;
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
-using Gameplay.Projectiles.Movers;
+using Gameplay.Projectiles;
 using Infrastructure.ArtConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.VisualEffects;
 using UnityEngine;
 using Zenject;
@@ -11,51 +11,59 @@ namespace Gameplay.Characters.Enemies.Projectiles
 {
   public class EnemyProjectile : MonoBehaviour
   {
-    [SerializeField] private ForwardMover _forwardMover;
-    [Inject] private VisualEffectFactory _visualEffectFactory;
-    [Inject] private ArtConfigProvider _configProvider;
+    [SerializeField] private LayerMask _layerMask;
 
+    [Inject] private VisualEffectFactory _visualEffectFactory;
+    [Inject] private ArtConfigProvider _artConfigs;
+    [Inject] private ConfigProvider _configProvider;
+
+    private ProjectileMover _projectileMover;
     private int _count;
+    private float _lifeTime;
 
     public EnemyConfig EnemyConfig { get; set; }
 
     private void Start()
     {
-      _forwardMover.BulletSpeed = EnemyConfig.BulletSpeed;
-      Destroy(gameObject, 1f);
+      _projectileMover = new ProjectileMover();
+      _projectileMover.Initialize(EnemyConfig.BulletSpeed);
     }
 
-    private void OnTriggerEnter(Collider otherCollider)
+    private void Update()
     {
-      DamageTargetTrigger(otherCollider);
-    }
+      LifeTime();
+      
+      if (!_projectileMover.MoveProjectile(transform, _layerMask, out RaycastHit hit))
+        return;
 
-    private void ImpactEffect()
-    {
-      VisualEffectId id = _configProvider.GetEnemyImpactEffectId(EnemyConfig.Id);
-
-      _visualEffectFactory.CreateAndDestroy(id, transform.position, transform.rotation);
-    }
-
-    private void DamageTargetTrigger(Collider other)
-    {
-      if (other.TryGetComponent(out PlayerTargetTrigger player))
+      if (hit.collider.TryGetComponent(out PlayerTargetTrigger player))
       {
         if (_count == 0)
         {
           _count++;
-
           player.TakeDamage(EnemyConfig.BulletDamage);
         }
       }
 
-      Destroy();
+      ImpactEffect(hit.point);
+
+      transform.position = hit.point;
+
+      Destroy(gameObject);
+    }
+    
+    private void LifeTime()
+    {
+      if (_lifeTime >= _configProvider.CommonGameplayConfig.ProjectileLifeTime)
+        Destroy(gameObject);
+      else
+        _lifeTime += Time.deltaTime;
     }
 
-    private void Destroy()
+    private void ImpactEffect(Vector3 position)
     {
-      ImpactEffect();
-      Destroy(gameObject);
+      VisualEffectId id = _artConfigs.GetEnemyImpactEffectId(EnemyConfig.Id);
+      _visualEffectFactory.CreateAndDestroy(id, position, transform.rotation);
     }
   }
 }

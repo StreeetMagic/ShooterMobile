@@ -1,7 +1,7 @@
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
 using Gameplay.Grenades;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 using Zenject;

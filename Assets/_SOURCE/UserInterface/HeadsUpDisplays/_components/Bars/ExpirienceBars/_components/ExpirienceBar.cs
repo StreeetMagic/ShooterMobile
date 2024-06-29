@@ -1,5 +1,5 @@
 using Gameplay.CurrencyRepositories.Expirience;
-using Infrastructure.ConfigServices;
+using Infrastructure.ConfigProviders;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

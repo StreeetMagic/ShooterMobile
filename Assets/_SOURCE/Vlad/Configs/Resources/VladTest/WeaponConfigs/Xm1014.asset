@@ -15,10 +15,11 @@ MonoBehaviour:
   WeaponTypeId: 16
   WeaponAttackTypeId: 3
   BulletSpreadAngle: 10
-  BulletsPerShot: 10
+  BulletSpeed: 25
+  BulletsPerShot: 100
   ShotsPerBurst: 3
   TimeBetweenBursts: 0.3
-  FireRate: 2
+  FireRate: 1
   FireRange: 10
   Damage: 50
   RaiseTime: 0.2
