@@ -8,7 +8,7 @@ namespace UserInterface.HeadsUpDisplays._components.Bars.ExpirienceBars._compone
 {
   public class ExpirienceBar : MonoBehaviour
   {
-    public Image Image;
+    public Slider Slider;
 
     [Inject] private ExpierienceStorage _expierienceStorage;
     [Inject] private ConfigProvider _configProvider;
@@ -17,24 +17,24 @@ namespace UserInterface.HeadsUpDisplays._components.Bars.ExpirienceBars._compone
 
     private void Update()
     {
-      SetColor();
+     //SetColor();
 
       float expierienceToNextLevel = (float)_expierienceStorage.CurrentExpierience() / _expierienceStorage.ExpierienceToNextLevel();
 
-      Image.fillAmount =
-        Image.fillAmount > expierienceToNextLevel
+      Slider.value =
+        Slider.value > expierienceToNextLevel
           ? expierienceToNextLevel
-          : Mathf.MoveTowards(Image.fillAmount, expierienceToNextLevel, Time.deltaTime);
+          : Mathf.MoveTowards(Slider.value, expierienceToNextLevel, Time.deltaTime);
     }
 
     private void SetColor()
     {
-      int currentLevel = _expierienceStorage.CurrentLevel();
-      Color newColor = Config.Levels[currentLevel - 1].Color;
-      newColor.a = 255;
-
-      if (Image.color != newColor)
-        Image.color = newColor;
+      // int currentLevel = _expierienceStorage.CurrentLevel();
+      // Color newColor = Config.Levels[currentLevel - 1].Color;
+      // newColor.a = 255;
+      //
+      // if (Image.color != newColor)
+      //   Image.color = newColor;
     }
   }
 }
