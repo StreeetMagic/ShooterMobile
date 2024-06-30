@@ -12,6 +12,7 @@ using Gameplay.Upgrades;
 using Gameplay.Weapons;
 using Infrastructure.AssetProviders;
 using Infrastructure.VisualEffects;
+using UnityEngine;
 
 namespace Infrastructure.ArtConfigServices
 {
@@ -32,6 +33,8 @@ namespace Infrastructure.ArtConfigServices
     private Dictionary<RewardId, RewardContentSetup> _rewards;
     private Dictionary<EnemyTypeId, EnemyVisualEffectsSetupId> _enemyTypeVisualEffectsSetups;
     private Dictionary<EnemyVisualEffectsSetupId, EnemyVisualEffectsSetup> _enemyVisualEffectsSetups;
+    private Dictionary<EnemyTypeId, EnemyTypeVisualEffectsSetup> _enemyTypeVisualEffects; 
+    private Dictionary<PrefabId, GameObject> _prefabs;
 
     public EnemyCommonVisualsConfig EnemyCommonVisualsConfig { get; private set; }
 
@@ -41,11 +44,14 @@ namespace Infrastructure.ArtConfigServices
     public SubQuestContentSetup GetSubQuestContentSetup(SubQuestId id) => _subQuests[id];
     public WeaponContentSetup GetWeaponContentSetup(WeaponTypeId id) => _weapons[id];
     public RewardContentSetup GetRewardContentSetup(RewardId id) => _rewards[id];
-    
+    public GameObject GetPrefab(PrefabId id) => _prefabs[id];
+
     public VisualEffectId GetEnemyMuzzleFlashEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).MuzzleFlashId;
     public VisualEffectId GetEnemyBulletEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Bullet;
     public VisualEffectId GetEnemyImpactEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Impact;
     public VisualEffectId GetEnemyPanicEffectId(EnemyTypeId id) => GetEnemyVisualEffectsSetup(GetEnemyVisualEffectsSetupId(id)).Panic;
+
+    public EnemyTypeVisualEffectsSetup GetEnemyTypeVisualEffectsSetup(EnemyTypeId id) => _enemyTypeVisualEffects[id];
     
     private EnemyVisualEffectsSetupId GetEnemyVisualEffectsSetupId(EnemyTypeId id) => _enemyTypeVisualEffectsSetups[id];
     private EnemyVisualEffectsSetup GetEnemyVisualEffectsSetup(EnemyVisualEffectsSetupId id) => _enemyVisualEffectsSetups[id];
@@ -103,6 +109,18 @@ namespace Infrastructure.ArtConfigServices
           .GetScriptable<EnemyVisualEffctsSetupsConfig>()
           .VisualEffectsSetups
           .ToDictionary(enemyVisualEffectsSetup => enemyVisualEffectsSetup.SetupId, enemyVisualEffectsSetup => enemyVisualEffectsSetup);
+      
+      _enemyTypeVisualEffects =
+        _assetProvider
+          .GetScriptable<EnemyTypeVisualEffectsConfig>()
+          .VisualEffectsSetups
+          .ToDictionary(enemyTypeVisualEffectsSetup => enemyTypeVisualEffectsSetup.EnemyId, enemyTypeVisualEffectsSetup => enemyTypeVisualEffectsSetup);
+      
+      _prefabs =
+        _assetProvider
+          .GetScriptable<PrefabPathConfig>()
+          .Prefabs
+          .ToDictionary(prefabPathSetup => prefabPathSetup.Id, prefabPathSetup => prefabPathSetup.Prefab);
     }
   }
 }

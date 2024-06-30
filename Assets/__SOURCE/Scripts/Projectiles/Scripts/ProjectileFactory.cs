@@ -29,8 +29,8 @@ namespace Gameplay.Projectiles.Scripts
 
     public void CreatePlayerProjectile(Transform parent, Vector3 rotation, WeaponTypeId weaponTypeId)
     {
-      PlayerProjectile prefab = _assetProvider.Get<PlayerProjectile>();
-      PlayerProjectile playerProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation), parent);
+      //PlayerProjectile playerProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation), parent);
+      PlayerProjectile playerProjectile = _zenjectFactory.InstantiateGameObject(PrefabId.PlayerProjectile, parent.position, Quaternion.LookRotation(rotation), parent).GetComponent<PlayerProjectile>();
 
       VisualEffectId bulletEffectId;
 
@@ -65,8 +65,8 @@ namespace Gameplay.Projectiles.Scripts
 
     public void CreateEnemyProjectile(Transform parent, Vector3 position, Vector3 rotation, EnemyConfig enemyConfig)
     {
-      EnemyProjectile prefab = _assetProvider.Get<EnemyProjectile>();
-      EnemyProjectile enemyProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation));
+//    EnemyProjectile enemyProjectile = _zenjectFactory.InstantiateMono(prefab, parent.position, Quaternion.LookRotation(rotation));
+      EnemyProjectile enemyProjectile = _zenjectFactory.InstantiateGameObject(PrefabId.EnemyProjectile, parent.position, Quaternion.LookRotation(rotation), parent).GetComponent<EnemyProjectile>(); 
       enemyProjectile.EnemyConfig = enemyConfig;
       enemyProjectile.transform.SetParent(null);
       CreateEnemyBulletEffect(enemyProjectile.transform, enemyConfig);

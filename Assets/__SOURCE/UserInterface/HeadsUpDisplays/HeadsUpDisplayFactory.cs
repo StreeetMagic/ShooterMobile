@@ -1,4 +1,5 @@
-﻿using Infrastructure.AssetProviders;
+﻿using Infrastructure.ArtConfigServices;
+using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.BackpackBars;
@@ -18,19 +19,21 @@ namespace UserInterface.HeadsUpDisplays
     private readonly GameLoopZenjectFactory _factory;
     private readonly AssetProvider _assetProvider;
     private readonly HeadsUpDisplayProvider _provider;
+    private readonly ArtConfigProvider _artConfigProvider;
 
     public HeadsUpDisplayFactory(GameLoopZenjectFactory factory,
       AssetProvider assetProvider,
-      HeadsUpDisplayProvider provider)
+      HeadsUpDisplayProvider provider, ArtConfigProvider artConfigProvider)
     {
       _factory = factory;
       _assetProvider = assetProvider;
       _provider = provider;
+      _artConfigProvider = artConfigProvider;
     }
 
     public void Create(Transform parent)
     {
-      HeadsUpDisplay prefab = _assetProvider.Get<HeadsUpDisplay>();
+      HeadsUpDisplay prefab = _artConfigProvider.GetPrefab(PrefabId.HeadsUpDisplay).GetComponent<HeadsUpDisplay>();
       _instance = _factory.InstantiateMono(prefab, parent);
 
       _provider.HeadsUpDisplay = _instance;

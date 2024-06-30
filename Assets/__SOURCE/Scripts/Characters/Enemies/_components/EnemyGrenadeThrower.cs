@@ -1,6 +1,7 @@
 using Gameplay.Characters.Enemies.Configs;
 using Gameplay.Characters.Players;
 using Gameplay.Grenades;
+using Infrastructure.AssetProviders;
 using Infrastructure.ConfigProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
@@ -39,7 +40,8 @@ namespace Gameplay.Characters.Enemies
 
       GrenadeTypeId grenadeTypeId = _config.GrenadeTypeId;
 
-      var grenade = _gameLoopZenjectFactory.InstantiateMono<Grenade>();
+      //  var grenade = _gameLoopZenjectFactory.InstantiateMono<Grenade>();
+      var grenade = _gameLoopZenjectFactory.InstantiateGameObject(PrefabId.Grenade, _transform).GetComponent<Grenade>();
       grenade.transform.position = _transform.position;
 
       Vector3 targetPosition = _playerProvider.Instance.transform.position;

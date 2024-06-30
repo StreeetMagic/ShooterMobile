@@ -27,7 +27,7 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
 
     public void Create(Transform parent, EnemyTypeId id)
     {
-      var prefab = _assetProvider.Get<EnemyLootSlot>();
+      //var prefab = _assetProvider.Get<EnemyLootSlot>();
       EnemyConfig enemyConfig = _configProvider.GetEnemyConfig(id);
 
       Dictionary<CurrencyId, int> lootData = new();
@@ -45,7 +45,8 @@ namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
 
       foreach (KeyValuePair<CurrencyId, int> item in lootData)
       {
-        EnemyLootSlot slot = _factory.InstantiateMono(prefab, parent);
+        // EnemyLootSlot slot = _factory.InstantiateMono(prefab, parent);
+        EnemyLootSlot slot = _factory.InstantiateGameObject(PrefabId.EnemyLootSlot, parent).GetComponent<EnemyLootSlot>();
         Sprite sprite = _artConfigProvider.GetLootContentSetup(item.Key).Sprite;
 
         slot.Init(sprite, item.Value);

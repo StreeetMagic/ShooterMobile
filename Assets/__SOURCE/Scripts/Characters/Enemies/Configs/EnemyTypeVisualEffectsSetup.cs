@@ -9,6 +9,6 @@ namespace Gameplay.Characters.Enemies.Configs
   {
     public EnemyTypeId EnemyId;
     public EnemyVisualEffectsSetupId VisualEffectsSetupId; 
-    public GameObject EnemyMeshPrefab;
+    public EnemyMeshModel EnemyMeshModelPrefab;
   }
 }

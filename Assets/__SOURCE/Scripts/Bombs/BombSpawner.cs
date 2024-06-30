@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Gameplay.Loots;
 using Gameplay.RewardServices;
+using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using Maps;
 using Maps.Markers.SubQuestMarkers.BombDefuse;
@@ -60,7 +61,10 @@ namespace Gameplay.Bombs
 
     private Bomb CreateBomb(Vector3 position)
     {
-      return _gameLoopZenjectFactory.InstantiateMono<Bomb>(position);
+      //return _gameLoopZenjectFactory.InstantiateMono<Bomb>(position);
+      var component = _gameLoopZenjectFactory.InstantiateGameObject(PrefabId.Bomb).GetComponent<Bomb>();
+      component.transform.position = position;
+      return component;
     }
 
     private void DestroyBomb(BombDefuser defuser)

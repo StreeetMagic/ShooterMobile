@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Gameplay.CurrencyRepositories;
 using Gameplay.CurrencyRepositories.BackpackStorages;
 using Gameplay.Loots;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays.LootSlotsUpdaters.LootSlots;
@@ -16,9 +17,11 @@ namespace UserInterface.HeadsUpDisplays.LootSlotsUpdaters
     [Inject] private LootSlotFactory _lootSlotFactory;
     [Inject] private BackpackStorage _backpackStorage;
     [Inject] private AssetProvider _assetProvider;
+    [Inject] private ArtConfigProvider _artConfigProvider;
 
-    private LootSlot Prefab => _assetProvider.Get<LootSlot>();
-
+    private LootSlot Prefab =>
+      _artConfigProvider.GetPrefab(PrefabId.LootSlot).GetComponent<LootSlot>();
+    
     private void OnEnable()
     {
       _backpackStorage.LootDrops.Changed += OnLootDropsChanged;

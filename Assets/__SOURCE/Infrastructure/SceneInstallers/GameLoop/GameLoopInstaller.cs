@@ -14,6 +14,7 @@ using Gameplay.Quests.Subquests;
 using Gameplay.Spawners;
 using Gameplay.Spawners.SpawnerFactories;
 using Gameplay.Spawners.SpawnPoints;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.DebugServices;
 using Infrastructure.UserIntefaces;
@@ -35,7 +36,7 @@ namespace Infrastructure.SceneInstallers.GameLoop
   {
     public Map Map;
 
-    [Inject] private AssetProvider _assetProvider;
+    [Inject] private ArtConfigProvider _artConfigProvider;
 
     public override void InstallBindings()
     {
@@ -51,7 +52,6 @@ namespace Infrastructure.SceneInstallers.GameLoop
       Container.BindInterfacesAndSelfTo<CameraFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<EnemySpawnerFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<HeadsUpDisplayFactory>().AsSingle();
-      Container.BindInterfacesAndSelfTo<BaseTriggerFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<UpgradeCellFactory>().AsSingle();
       Container.BindInterfacesAndSelfTo<ProjectileStorage>().AsSingle();
       Container.BindInterfacesAndSelfTo<LootSlotFactory>().AsSingle();
@@ -76,22 +76,26 @@ namespace Infrastructure.SceneInstallers.GameLoop
 
       Container.BindFactory<Quest, QuestId, QuestWindow, QuestWindow.Factory>()
         .FromSubContainerResolve()
-        .ByNewContextPrefab<QuestWindowInstaller>(_assetProvider.Get<QuestWindow>().GetComponent<QuestWindowInstaller>())
+       // .ByNewContextPrefab<QuestWindowInstaller>(_assetProvider.Get<QuestWindow>().GetComponent<QuestWindowInstaller>())
+        .ByNewContextPrefab<QuestWindowInstaller>(_artConfigProvider.GetPrefab(PrefabId.QuestWindow).GetComponent<QuestWindowInstaller>())
         .AsSingle();
 
       Container.BindFactory<SubQuest, SubQuestSlot, SubQuestSlot.Factory>()
         .FromSubContainerResolve()
-        .ByNewContextPrefab<SubQuestSlotInstaller>(_assetProvider.Get<SubQuestSlot>().GetComponent<SubQuestSlotInstaller>())
+       // .ByNewContextPrefab<SubQuestSlotInstaller>(_assetProvider.Get<SubQuestSlot>().GetComponent<SubQuestSlotInstaller>())
+        .ByNewContextPrefab<SubQuestSlotInstaller>(_artConfigProvider.GetPrefab(PrefabId.SubQuestSlot).GetComponent<SubQuestSlotInstaller>()) 
         .AsSingle();
 
       Container.BindFactory<EnemyConfig, List<SpawnPoint>, EnemySpawner, Enemy, Enemy.Factory>()
         .FromSubContainerResolve()
-        .ByNewContextPrefab<EnemyInstaller>(_assetProvider.Get<Enemy>().GetComponent<EnemyInstaller>())
+        //.ByNewContextPrefab<EnemyInstaller>(_assetProvider.Get<Enemy>().GetComponent<EnemyInstaller>())
+        .ByNewContextPrefab<EnemyInstaller>(_artConfigProvider.GetPrefab(PrefabId.Enemy).GetComponent<EnemyInstaller>()) 
         .AsSingle();
 
       Container.BindFactory<Quest, QuestConfig, QuestPointer, QuestPointer.Factory>()
         .FromSubContainerResolve()
-        .ByNewContextPrefab<QuestPointerInstaller>(_assetProvider.Get<QuestPointer>().GetComponent<QuestPointerInstaller>())
+        .ByNewContextPrefab<QuestPointerInstaller>(_artConfigProvider.GetPrefab(PrefabId.QuestPointer).GetComponent<QuestPointerInstaller>()) 
+        //.ByNewContextPrefab<QuestPointerInstaller>(_assetProvider.Get<QuestPointer>().GetComponent<QuestPointerInstaller>())
         .AsSingle();
     }
   }

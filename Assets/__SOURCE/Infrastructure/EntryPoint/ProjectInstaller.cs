@@ -28,6 +28,8 @@ namespace Infrastructure.EntryPoint
 {
   public class ProjectInstaller : MonoInstaller
   {
+    public AudioSourceContainer AudioSourceContainer;
+
     public override void InstallBindings()
     {
       Container.BindInterfacesAndSelfTo<ProjectInitializer>().FromInstance(GetComponent<ProjectInitializer>()).AsSingle().NonLazy();
@@ -65,6 +67,8 @@ namespace Infrastructure.EntryPoint
       Container.BindInterfacesAndSelfTo<WeaponShop>().AsSingle();
 
       Container.BindInterfacesAndSelfTo<PlayerStatsProvider>().AsSingle().NonLazy();
+
+      Container.Bind<AudioSourceContainer>().FromInstance(AudioSourceContainer).AsSingle();
     }
   }
 }

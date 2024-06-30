@@ -1,5 +1,6 @@
 ﻿using System;
 using Gameplay.Quests;
+using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using Loggers;
 using UnityEngine;
@@ -48,15 +49,15 @@ namespace Infrastructure.UserIntefaces
           throw new ArgumentOutOfRangeException(nameof(windowId), windowId, null);
 
         case WindowId.UpgradeShop:
-          window = _factory.InstantiateMono<UpgradeShopWindow>(HudTransform);
+          window = _factory.InstantiateGameObject(PrefabId.UpgradeShopWindow, HudTransform).GetComponent<Window>();
           break;
 
         case WindowId.Debug:
-          window = _factory.InstantiateMono<DebugWindow>(HudTransform);
+          window = _factory.InstantiateGameObject(PrefabId.DebugWindow, HudTransform).GetComponent<Window>();
           break;
 
         case WindowId.Settings:
-          window = _factory.InstantiateMono<SettingsWindow>(HudTransform);
+          window = _factory.InstantiateGameObject(PrefabId.SettingsWindow, HudTransform).GetComponent<Window>();
           break;
 
         case WindowId.Quest:
@@ -73,7 +74,8 @@ namespace Infrastructure.UserIntefaces
           break;
 
         case WindowId.HenShop:
-          window = _factory.InstantiateMono<HenShopWindow>(HudTransform);
+          // window = _factory.InstantiateMono<HenShopWindow>(HudTransform);
+          window = _factory.InstantiateGameObject(PrefabId.HenShopWindow, HudTransform).GetComponent<Window>();
           break;
 
         default:

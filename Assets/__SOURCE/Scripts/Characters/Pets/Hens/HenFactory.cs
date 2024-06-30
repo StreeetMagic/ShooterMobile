@@ -1,4 +1,5 @@
 using Gameplay.Characters.Players;
+using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 
@@ -19,10 +20,10 @@ namespace Gameplay.Characters.Pets.Hens
     {
       Vector3 position = _playerProvider.Instance.PetSpawnPointsContainer.GetRandomSpawnPoint().position;
 
-      var hen = _factory.InstantiateMono<Hen>(position);
-
+      //  var hen = _factory.InstantiateMono<Hen>(position);
+      var hen = _factory.InstantiateGameObject(PrefabId.Hen).GetComponent<Hen>();
+      hen.transform.position = position;
       hen.transform.SetParent(null);
-
       return hen;
     }
   }

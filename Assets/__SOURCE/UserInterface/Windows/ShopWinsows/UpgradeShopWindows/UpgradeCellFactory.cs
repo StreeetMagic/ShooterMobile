@@ -1,5 +1,6 @@
 using Gameplay.Stats;
 using Infrastructure.ArtConfigServices;
+using Infrastructure.AssetProviders;
 using Infrastructure.ConfigProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
@@ -24,7 +25,8 @@ namespace UserInterface.HeadsUpDisplays.Windows.Shops.UpgradeShopWindows
 
     public void Create(StatId id, Transform parent)
     {
-      var cell = _factory.InstantiateMono<UpgradeCell>(parent);
+      // var cell = _factory.InstantiateMono<UpgradeCell>(parent);
+      var cell = _factory.InstantiateGameObject(PrefabId.UpgradeCell).GetComponent<UpgradeCell>();
       cell.UpgradeConfig = _configProvider.GetUpgradeConfig(id);
       cell.UpgradeContentSetup = _artConfigProvider.GetUpgradeContentSetup(id);
 

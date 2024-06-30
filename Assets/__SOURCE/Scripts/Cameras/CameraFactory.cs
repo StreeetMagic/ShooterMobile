@@ -1,5 +1,6 @@
 ﻿using Cinemachine;
 using Gameplay.Characters.Players;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
@@ -15,13 +16,15 @@ namespace Cameras
     private readonly GameLoopZenjectFactory _factory;
     private readonly PlayerProvider _playerFactory;
     private readonly CameraProvider _cameraProvider;
+    private readonly ArtConfigProvider _artConfigProvider;
 
-    public CameraFactory(GameLoopZenjectFactory factory, AssetProvider assetProvider, PlayerProvider playerFactory, CameraProvider cameraProvider)
+    public CameraFactory(GameLoopZenjectFactory factory, AssetProvider assetProvider, PlayerProvider playerFactory, CameraProvider cameraProvider, ArtConfigProvider artConfigProvider)
     {
       _factory = factory;
       _assetProvider = assetProvider;
       _playerFactory = playerFactory;
       _cameraProvider = cameraProvider;
+      _artConfigProvider = artConfigProvider;
     }
 
     public void Create(Transform parent)
@@ -36,8 +39,13 @@ namespace Cameras
 
     private void CreateCamera(Transform parent, Transform player, string cameraType, int priority)
     {
-      var prefab = _assetProvider.Get<TopDownCamera>(cameraType);
-      TopDownCamera camera = _factory.InstantiateMono(prefab, parent);
+      PrefabId prefabId = cameraType == BotCamera
+        ? PrefabId.BotCamera
+        : PrefabId.TopCamera;
+
+      GameObject prefab = _artConfigProvider.GetPrefab(prefabId);
+
+      var camera = _factory.InstantiateGameObject(prefab, parent).GetComponent<TopDownCamera>();
 
       if (cameraType == BotCamera)
         _cameraProvider.BotCamera = camera;
@@ -48,10 +56,8 @@ namespace Cameras
 
       var cmCam = camera.GetComponent<CinemachineVirtualCamera>();
       cmCam.Priority = priority;
-
-      Transform transform = player.transform;
-      cmCam.Follow = transform;
-      cmCam.LookAt = transform;
+      cmCam.Follow = player;
+      cmCam.LookAt = player;
     }
   }
 }

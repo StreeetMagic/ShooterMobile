@@ -1,3 +1,4 @@
+using Infrastructure.AssetProviders;
 using Infrastructure.AudioServices.Sounds;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
@@ -10,28 +11,28 @@ namespace Infrastructure.AudioServices
   public class AudioService : IInitializable, IProgressWriter
   {
     private readonly ProjectZenjectFactory _factory;
-
-    private AudioSourceContainer _container;
-   // private MusicPlayer _musicPlayer;
+    private readonly AudioSourceContainer _container;
+    // private MusicPlayer _musicPlayer;
 
     // ReSharper disable once NotAccessedField.Local
     private SoundPlayer _soundPlayer;
 
-    public AudioService(ProjectZenjectFactory factory)
+    public AudioService(ProjectZenjectFactory factory, AudioSourceContainer container)
     {
       _factory = factory;
+      _container = container;
     }
 
-   // public bool IsWorking { get; private set; } = true;
+    // public bool IsWorking { get; private set; } = true;
     public bool IsMusicMuted { get; private set; }
 
     public void Initialize()
     {
-      _container = _factory.InstantiateMono<AudioSourceContainer>();
-      _container.transform.SetParent(null);
+      //_container = _factory.InstantiateMono<AudioSourceContainer>();
+      // _container.transform.SetParent(null);
 
-    //  _musicPlayer = _factory.InstantiateNative<MusicPlayer>();
-      _soundPlayer = new SoundPlayer();
+      //  _musicPlayer = _factory.InstantiateNative<MusicPlayer>();
+      // _soundPlayer = new SoundPlayer();
     }
 
     // public void PlayMusic(MusicId id)
@@ -73,12 +74,12 @@ namespace Infrastructure.AudioServices
 
     public void ReadProgress(ProjectProgress projectProgress)
     {
-      bool mute = projectProgress.MusicMute;
-
-      if (mute)
-        MuteMusic();
-      else
-        UnMuteMusic();
+      // bool mute = projectProgress.MusicMute;
+      //
+      // if (mute)
+      //   MuteMusic();
+      // else
+      //   UnMuteMusic();
     }
 
     public void WriteProgress(ProjectProgress projectProgress)

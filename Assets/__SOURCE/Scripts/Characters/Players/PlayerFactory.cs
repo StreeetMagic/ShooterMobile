@@ -27,9 +27,10 @@ namespace Gameplay.Characters.Players
 
     public void Create(Transform parent)
     {
-      var prefab = _assetProvider.Get<Player>();
+      // Player player = _factory.InstantiateMono(prefab, SpawnPosition(), parent);
+      Player player = _factory.InstantiateGameObject(PrefabId.Player, parent).GetComponent<Player>();
 
-      Player player = _factory.InstantiateMono(prefab, SpawnPosition(), parent);
+      player.transform.position = SpawnPosition();
 
       player.transform.SetParent(null);
       _playerProvider.Instance = player.GetComponent<PlayerInstaller>();

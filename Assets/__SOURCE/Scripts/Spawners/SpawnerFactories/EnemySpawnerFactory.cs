@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Spawners.SpawnPoints;
+using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using Maps;
@@ -16,15 +17,19 @@ namespace Gameplay.Spawners.SpawnerFactories
     private readonly EnemySpawner _spawnerPrefab;
     private readonly MapProvider _mapProvider;
     private readonly IInstantiator _instantiator;
+    private readonly ArtConfigProvider _artConfigProvider;
 
     public EnemySpawnerFactory(AssetProvider assetProvider,
-      GameLoopZenjectFactory zenjectFactory, MapProvider mapProvider, IInstantiator instantiator)
+      GameLoopZenjectFactory zenjectFactory, MapProvider mapProvider, IInstantiator instantiator,
+      ArtConfigProvider artConfigProvider)
     {
       _zenjectFactory = zenjectFactory;
       _mapProvider = mapProvider;
       _instantiator = instantiator;
-      
-      _spawnerPrefab = assetProvider.Get<EnemySpawner>();
+      _artConfigProvider = artConfigProvider;
+
+      // _spawnerPrefab = assetProvider.Get<EnemySpawner>();
+      _spawnerPrefab = _artConfigProvider.GetPrefab(PrefabId.EnemySpawner).GetComponent<EnemySpawner>();
     }
 
     public List<EnemySpawner> Spawners { get; } = new();
@@ -64,7 +69,9 @@ namespace Gameplay.Spawners.SpawnerFactories
 
       foreach (EnemySpawnPointMarker enemySpawnPointMarker in markers)
       {
-        SpawnPoint spawnPoint = _zenjectFactory.InstantiateMono<SpawnPoint>();
+       // SpawnPoint spawnPoint = _zenjectFactory.InstantiateMono<SpawnPoint>();
+       
+        SpawnPoint spawnPoint = _zenjectFactory.InstantiateGameObject(PrefabId.SpawnPoint, marker.transform).GetComponent<SpawnPoint>();
         spawnPoint.transform.SetParent(enemySpawnPointMarker.transform);
         spawnPoint.transform.localPosition = Vector3.zero;
         spawnPoints.Add(spawnPoint);
@@ -78,8 +85,8 @@ namespace Gameplay.Spawners.SpawnerFactories
       foreach (EnemySpawner spawner in Spawners)
       {
         spawner.DeSpawnAll();
-      } 
-      
+      }
+
       Spawners.Clear();
     }
   }
