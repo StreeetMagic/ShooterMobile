@@ -16,8 +16,8 @@ namespace Infrastructure.VisualEffects
    // EnemyMuzzleFlash = 5, //надо удалить
 
     //Партиклы грейдов персонажа
-    PlayerSmallGradeReward = 10,
-    PlayerBigGradeReward = 11,
+    SmallYellowGradeReward = 10,
+    BigYellowGradeReward = 11,
 
     //Партикл взрыва гранат
     GrenadeExplosion = 100,
