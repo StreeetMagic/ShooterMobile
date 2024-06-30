@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Grenades
+namespace Grenades
 {
   [CreateAssetMenu(fileName = nameof(GrenadeConfig), menuName = "Configs/GrenadeConfig")]
   public class GrenadeConfig : ScriptableObject

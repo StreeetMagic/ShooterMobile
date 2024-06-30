@@ -1,6 +1,6 @@
 using System;
 
-namespace Gameplay.Stats
+namespace Stats
 {
   [Serializable]
   public class StatSetup

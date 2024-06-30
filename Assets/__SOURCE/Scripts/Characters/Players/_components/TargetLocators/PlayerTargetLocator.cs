@@ -3,7 +3,7 @@ using Infrastructure.ConfigProviders;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.TargetLocators
+namespace Characters.Players._components.TargetLocators
 {
   public class PlayerTargetLocator : ITickable
   {

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies.Configs;
+using Characters.FiniteStateMachines;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.MeleeAttack
+namespace Characters.Enemies._components.StateMachines.States.MeleeAttack
 {
   public class EnemyMeleeAttackState : State
   {

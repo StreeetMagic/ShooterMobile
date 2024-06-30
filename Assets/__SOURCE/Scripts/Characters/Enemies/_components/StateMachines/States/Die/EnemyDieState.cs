@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Die
+namespace Characters.Enemies._components.StateMachines.States.Die
 {
   public class EnemyDieState : State
   {

@@ -1,20 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Gameplay.Characters;
-using Gameplay.Characters.Enemies;
-using Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Quests;
-using Gameplay.Spawners.SpawnPoints;
+using Characters;
+using Characters.Enemies;
+using Characters.Enemies._components.ActorUserInterfaces.LootSlots;
+using Characters.Enemies.Configs;
 using Infrastructure.ConfigProviders;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.Utilities;
+using Quests;
+using Spawners.SpawnPoints;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Spawners
+namespace Spawners
 {
   public class EnemySpawner : MonoBehaviour
   {

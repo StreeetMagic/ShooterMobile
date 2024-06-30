@@ -1,8 +1,7 @@
 using System;
-using UnityEngine;
-using UnityEngine.Serialization;
+using Characters.Enemies._components;
 
-namespace Gameplay.Characters.Enemies.Configs
+namespace Characters.Enemies.Configs
 {
   [Serializable]
   public class EnemyTypeVisualEffectsSetup

@@ -1,4 +1,4 @@
-namespace Gameplay.Rewards
+namespace Rewards
 {
   public enum RewardId
   {

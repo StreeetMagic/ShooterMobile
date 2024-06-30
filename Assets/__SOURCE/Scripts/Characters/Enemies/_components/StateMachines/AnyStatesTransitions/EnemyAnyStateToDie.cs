@@ -1,7 +1,7 @@
-using Gameplay.Characters.Enemies.StateMachines.States.Die;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies._components.StateMachines.States.Die;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Enemies.StateMachines.AnyStatesTransitions
+namespace Characters.Enemies._components.StateMachines.AnyStatesTransitions
 {
   public class EnemyAnyStateToDie : Transition
   {

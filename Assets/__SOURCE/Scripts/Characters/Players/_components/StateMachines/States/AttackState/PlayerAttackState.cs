@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Players.StateMachines.States.AttackState
+namespace Characters.Players._components.StateMachines.States.AttackState
 {
   public class PlayerAttackState : State
   {

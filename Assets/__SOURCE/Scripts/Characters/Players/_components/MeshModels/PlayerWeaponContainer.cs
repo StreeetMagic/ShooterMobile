@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Weapons;
 using UnityEngine;
+using Weapons;
 
-namespace Gameplay.Characters.Players.MeshModels
+namespace Characters.Players._components.MeshModels
 {
   public class PlayerWeaponContainer : MonoBehaviour
   {

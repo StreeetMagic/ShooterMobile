@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Gameplay.Characters.Players;
-using Gameplay.CurrencyRepositories.BackpackStorages;
-using Gameplay.CurrencyRepositories.Expirience;
-using Gameplay.Loots;
-using Gameplay.Rewards;
-using Gameplay.Stats;
+using Characters.Players._components;
+using CurrencyRepositories.BackpackStorages;
+using CurrencyRepositories.Expirience;
+using Loots;
+using Rewards;
+using Stats;
 
-namespace Gameplay.RewardServices
+namespace RewardServices
 {
   public class RewardService
   {

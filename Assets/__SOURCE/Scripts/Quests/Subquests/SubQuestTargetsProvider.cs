@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Gameplay.Bombs;
-using Gameplay.Characters.Enemies;
-using Gameplay.Characters.Players;
-using Gameplay.Characters.Questers;
-using Gameplay.Spawners;
-using Gameplay.Spawners.SpawnerFactories;
-using Maps;
+using Bombs;
+using Characters.Enemies;
+using Characters.Players;
+using Characters.Questers;
+using Spawners;
+using Spawners.SpawnerFactories;
 using UnityEngine;
 
-namespace Gameplay.Quests.Subquests
+namespace Quests.Subquests
 {
   public class SubQuestTargetsProvider
   {

@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Loots;
-using Gameplay.RewardServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
-using Maps;
-using Maps.Markers.SubQuestMarkers.BombDefuse;
+using LevelDesign.SubQuestMarkers.BombDefuse;
+using Loots;
+using RewardServices;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Bombs
+namespace Bombs
 {
   public class BombSpawner : MonoBehaviour
   {

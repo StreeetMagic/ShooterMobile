@@ -1,4 +1,4 @@
-namespace Gameplay.Characters
+namespace Characters
 {
   public class HitStatus
   {

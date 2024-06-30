@@ -1,4 +1,4 @@
-namespace Gameplay.Portals
+namespace Portals
 {
   public enum PortalTypeId
   {

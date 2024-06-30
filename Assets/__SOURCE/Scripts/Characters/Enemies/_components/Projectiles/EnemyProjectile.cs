@@ -1,13 +1,13 @@
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.Players;
-using Gameplay.Projectiles;
+using Characters.Enemies.Configs;
+using Characters.Players._components;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.ConfigProviders;
 using Infrastructure.VisualEffects;
+using Projectiles;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.Projectiles
+namespace Characters.Enemies._components.Projectiles
 {
   public class EnemyProjectile : MonoBehaviour
   {

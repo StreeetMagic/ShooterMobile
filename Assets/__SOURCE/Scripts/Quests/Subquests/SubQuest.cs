@@ -1,9 +1,9 @@
 using System;
-using Gameplay.RewardServices;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
+using RewardServices;
 
-namespace Gameplay.Quests.Subquests
+namespace Quests.Subquests
 {
   public class SubQuest
   {

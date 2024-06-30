@@ -1,11 +1,11 @@
-using Gameplay.Projectiles.Scripts;
-using Gameplay.Utilities;
-using Gameplay.Weapons;
 using Infrastructure.AudioServices;
 using Infrastructure.AudioServices.Sounds;
+using Projectiles.Scripts;
 using UnityEngine;
+using Utilities;
+using Weapons;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerWeaponShooter
   {

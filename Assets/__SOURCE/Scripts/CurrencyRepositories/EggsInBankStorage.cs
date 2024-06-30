@@ -2,7 +2,7 @@ using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
 
-namespace Gameplay.CurrencyRepositories
+namespace CurrencyRepositories
 {
   public class EggsInBankStorage : IProgressWriter
   {

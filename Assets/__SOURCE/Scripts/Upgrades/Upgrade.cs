@@ -1,6 +1,6 @@
 using Infrastructure.Utilities;
 
-namespace Gameplay.Upgrades
+namespace Upgrades
 {
   public class Upgrade
   {

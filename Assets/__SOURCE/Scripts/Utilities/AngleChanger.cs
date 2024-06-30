@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Utilities
+namespace Utilities
 {
   public static class AngleChanger
   {

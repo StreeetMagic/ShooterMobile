@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Players.Projectiles;
+using Characters.Players._components.Projectiles;
 using UnityEngine;
 
-namespace Gameplay.Projectiles.Scripts
+namespace Projectiles.Scripts
 {
   public class ProjectileStorage
   {

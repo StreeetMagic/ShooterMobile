@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
+namespace Characters.Enemies._components.ActorUserInterfaces.LootSlots
 {
   public class EnemyLootSlotsContainer : MonoBehaviour
   {

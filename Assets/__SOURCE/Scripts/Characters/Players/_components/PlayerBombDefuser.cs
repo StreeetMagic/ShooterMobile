@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Bombs;
+using Bombs;
 using Infrastructure.ConfigProviders;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerBombDefuser : ITickable, IInitializable, IDisposable
   {

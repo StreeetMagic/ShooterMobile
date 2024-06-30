@@ -1,8 +1,9 @@
-using Gameplay.Characters.Pets.Hens.MeshModels;
+using Characters.Pets.Hens._components;
+using Characters.Pets.Hens.MeshModels;
 using UnityEngine;
 using Zenject.Source.Install;
 
-namespace Gameplay.Characters.Pets.Hens
+namespace Characters.Pets.Hens
 {
   public class HenInstaller : MonoInstaller
   {

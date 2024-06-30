@@ -1,8 +1,8 @@
 using System;
-using Gameplay.Quests.Subquests;
-using Gameplay.Rewards;
+using Quests.Subquests;
+using Rewards;
 
-namespace Gameplay.Quests
+namespace Quests
 {
   [Serializable]
   public class SubQuestSetup

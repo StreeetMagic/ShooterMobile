@@ -1,7 +1,7 @@
-using Gameplay.Characters.Enemies.StateMachines.States.Alert;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies._components.StateMachines.States.Alert;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Idle
+namespace Characters.Enemies._components.StateMachines.States.Idle
 {
   public class EnemyIdleToAlertTransition : Transition
   {

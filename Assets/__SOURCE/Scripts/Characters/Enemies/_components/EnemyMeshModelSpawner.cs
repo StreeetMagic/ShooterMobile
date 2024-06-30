@@ -1,10 +1,10 @@
-using Gameplay.Characters.Enemies.Animators;
+using Characters.Enemies._components.Animators;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyMeshModelSpawner
   {

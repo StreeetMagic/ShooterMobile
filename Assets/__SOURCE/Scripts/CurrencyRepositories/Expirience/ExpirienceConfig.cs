@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gameplay.CurrencyRepositories.Expirience
+namespace CurrencyRepositories.Expirience
 {
   [CreateAssetMenu(menuName = "Configs/ExpirienceConfig", fileName = "ExpirienceConfig")]
   public class ExpirienceConfig : ScriptableObject

@@ -1,8 +1,8 @@
-using Gameplay.Characters.Players;
+using Characters.Players;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Dummies
+namespace Characters.Dummies
 {
   public class DummyToPlayerRotator : MonoBehaviour
   {

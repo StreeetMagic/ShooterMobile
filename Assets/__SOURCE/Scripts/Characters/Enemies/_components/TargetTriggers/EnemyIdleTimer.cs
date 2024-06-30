@@ -1,7 +1,7 @@
-using Gameplay.Characters.Enemies.Configs;
+using Characters.Enemies.Configs;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.TargetTriggers
+namespace Characters.Enemies._components.TargetTriggers
 {
   public class EnemyIdleTimer
   {

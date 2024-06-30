@@ -1,13 +1,13 @@
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Spawners;
-using Gameplay.Spawners.SpawnerFactories;
+using Characters.Enemies._components.TargetTriggers;
+using Characters.Enemies.Configs;
 using Infrastructure.Projects;
 using Infrastructure.SceneLoaders;
-using Scenes._Infrastructure.Scripts;
+using Scripts;
+using Spawners;
+using Spawners.SpawnerFactories;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyAssistCall
   {

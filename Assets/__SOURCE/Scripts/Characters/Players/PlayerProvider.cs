@@ -1,4 +1,4 @@
-﻿namespace Gameplay.Characters.Players
+﻿namespace Characters.Players
 {
   public class PlayerProvider
   {

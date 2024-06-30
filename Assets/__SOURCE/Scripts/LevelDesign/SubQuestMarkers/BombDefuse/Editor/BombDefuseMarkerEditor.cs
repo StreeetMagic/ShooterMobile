@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Maps.Markers.SubQuestMarkers.BombDefuse.Editor
+namespace LevelDesign.SubQuestMarkers.BombDefuse.Editor
 {
   [CustomEditor(typeof(BombDefuseMarker))]
   public class BombDefuseMarkerEditor : UnityEditor.Editor

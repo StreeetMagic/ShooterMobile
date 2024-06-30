@@ -1,4 +1,4 @@
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyReturnToSpawnStatus
   {

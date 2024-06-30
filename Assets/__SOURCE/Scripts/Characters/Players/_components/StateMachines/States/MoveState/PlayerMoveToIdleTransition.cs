@@ -1,8 +1,8 @@
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.StateMachines.States.IdleState;
+using Characters.FiniteStateMachines;
+using Characters.Players._components.StateMachines.States.IdleState;
 using Inputs;
 
-namespace Gameplay.Characters.Players.StateMachines.States.MoveState
+namespace Characters.Players._components.StateMachines.States.MoveState
 {
   public class PlayerMoveToIdleTransition : Transition
   {

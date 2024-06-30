@@ -1,6 +1,6 @@
-using Gameplay.Characters.Enemies.Animators;
+using Characters.Enemies._components.Animators;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyAnimatorProvider
   {

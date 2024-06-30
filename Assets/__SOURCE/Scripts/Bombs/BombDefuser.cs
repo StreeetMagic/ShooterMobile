@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Gameplay.Bombs
+namespace Bombs
 {
   public class BombDefuser : MonoBehaviour
   {

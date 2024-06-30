@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.CurrencyRepositories;
+using CurrencyRepositories;
 using UnityEngine;
 
-namespace Gameplay.Loots
+namespace Loots
 {
   [CreateAssetMenu(fileName = "LootConfig", menuName = "Configs/LootConfig")]
   public class LootConfig : ScriptableObject

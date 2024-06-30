@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gameplay.Bombs
+namespace Bombs
 {
   public class BombDefuseBar : MonoBehaviour
   {

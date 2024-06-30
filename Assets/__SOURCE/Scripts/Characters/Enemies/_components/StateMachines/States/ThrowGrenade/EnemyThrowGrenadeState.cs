@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies.Configs;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.ThrowGrenade
+namespace Characters.Enemies._components.StateMachines.States.ThrowGrenade
 {
   public class EnemyThrowGrenadeState : State
   {

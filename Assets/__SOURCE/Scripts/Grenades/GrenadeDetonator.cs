@@ -1,10 +1,11 @@
 using System.Collections;
-using Gameplay.Characters.Players;
+using Characters.Players;
+using Characters.Players._components;
 using Infrastructure.VisualEffects;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Grenades
+namespace Grenades
 {
   public class GrenadeDetonator : MonoBehaviour
   {

@@ -1,6 +1,6 @@
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Players.StateMachines.AnyStateTransitions
+namespace Characters.Players._components.StateMachines.AnyStateTransitions
 {
   public class PlayerAnyStateToDieTransition : Transition
   {

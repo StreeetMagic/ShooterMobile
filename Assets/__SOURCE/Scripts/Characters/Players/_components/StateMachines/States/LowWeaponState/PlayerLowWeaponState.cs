@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.Animators;
+using Characters.FiniteStateMachines;
+using Characters.Players._components.Animators;
 
-namespace Gameplay.Characters.Players.StateMachines.States.LowWeaponState
+namespace Characters.Players._components.StateMachines.States.LowWeaponState
 {
   public class PlayerLowWeaponState : State
   {

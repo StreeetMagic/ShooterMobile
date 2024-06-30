@@ -1,8 +1,8 @@
-using Gameplay.Characters.Pets.Hens.MeshModels;
+using Characters.Pets.Hens.MeshModels;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Pets.Hens
+namespace Characters.Pets.Hens._components
 {
   public class HenIdle : MonoBehaviour
   {

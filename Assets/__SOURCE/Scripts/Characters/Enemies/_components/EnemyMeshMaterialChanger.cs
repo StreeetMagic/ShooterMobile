@@ -5,7 +5,7 @@ using Infrastructure.ArtConfigServices;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyMeshMaterialChanger : IInitializable, IDisposable
   {

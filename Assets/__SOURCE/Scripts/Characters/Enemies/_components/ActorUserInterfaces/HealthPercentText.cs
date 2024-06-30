@@ -1,9 +1,9 @@
-using Gameplay.Characters.Enemies.Configs;
+using Characters.Enemies.Configs;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.ActorUserInterfaces
+namespace Characters.Enemies._components.ActorUserInterfaces
 {
   public class HealthPercentText : MonoBehaviour
   {

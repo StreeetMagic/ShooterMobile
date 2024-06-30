@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Rewards;
+using Rewards;
 using UnityEngine;
 
-namespace Gameplay.Quests
+namespace Quests
 {
   [CreateAssetMenu(menuName = "Configs/QuestConfig", fileName = "QuestConfig")]
   public class QuestConfig : ScriptableObject

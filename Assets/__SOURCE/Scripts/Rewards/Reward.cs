@@ -1,6 +1,6 @@
 using System;
 
-namespace Gameplay.Rewards
+namespace Rewards
 {
   [Serializable]
   public class Reward

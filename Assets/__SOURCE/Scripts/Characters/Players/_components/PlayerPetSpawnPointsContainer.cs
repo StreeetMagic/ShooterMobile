@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerPetSpawnPointsContainer : MonoBehaviour
   {

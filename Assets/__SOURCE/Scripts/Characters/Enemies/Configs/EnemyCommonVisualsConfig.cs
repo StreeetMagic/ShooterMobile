@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.Configs
+namespace Characters.Enemies.Configs
 {
   [CreateAssetMenu(menuName = "ArtConfigs/EnemyVisualsConfig", fileName = "EnemyVisualsConfig")]
   public class EnemyCommonVisualsConfig : ScriptableObject

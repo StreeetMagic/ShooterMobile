@@ -1,12 +1,12 @@
 using Cameras;
-using Gameplay.Characters.Players;
+using Characters.Players;
 using Infrastructure.UserIntefaces;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
-using UserInterface.HeadsUpDisplays.Buttons.OpenShopButtons;
+using UserInterface.HeadsUpDisplays._components.Buttons.OpenShopButtons;
 using Zenject;
 
-namespace Gameplay.Characters.Shopers
+namespace Characters.Shopers
 {
   public class OpenShopButtonEnabler : MonoBehaviour
   {

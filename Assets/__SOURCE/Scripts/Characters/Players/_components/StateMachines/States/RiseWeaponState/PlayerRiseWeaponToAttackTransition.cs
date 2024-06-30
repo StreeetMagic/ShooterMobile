@@ -1,7 +1,7 @@
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.StateMachines.States.AttackState;
+using Characters.FiniteStateMachines;
+using Characters.Players._components.StateMachines.States.AttackState;
 
-namespace Gameplay.Characters.Players.StateMachines.States.RiseWeaponState
+namespace Characters.Players._components.StateMachines.States.RiseWeaponState
 {
   public class PlayerRiseWeaponToAttackTransition : Transition
   {

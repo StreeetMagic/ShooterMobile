@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gameplay.Characters.Pets.Hens
+namespace Characters.Pets.Hens
 {
   public class HenSpawner
   {

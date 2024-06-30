@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Loggers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Characters.Enemies.Animators
+namespace Characters.Enemies._components.Animators
 {
   public class EnemyAnimator : MonoBehaviour
   {

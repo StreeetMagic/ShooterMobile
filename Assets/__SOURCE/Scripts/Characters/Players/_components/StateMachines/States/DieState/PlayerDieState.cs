@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Players.StateMachines.States.DieState
+namespace Characters.Players._components.StateMachines.States.DieState
 {
   public class PlayerDieState : State
   {

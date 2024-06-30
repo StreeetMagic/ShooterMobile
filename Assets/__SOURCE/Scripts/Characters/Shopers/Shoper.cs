@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Shopers
+namespace Characters.Shopers
 {
   public class Shoper : MonoBehaviour
   {

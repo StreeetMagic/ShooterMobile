@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Players.StateMachines.States.InterractState
+namespace Characters.Players._components.StateMachines.States.InterractState
 {
   public class PlayerInterractState : State
   {

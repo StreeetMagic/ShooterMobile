@@ -1,8 +1,8 @@
-using Gameplay.CurrencyRepositories.BackpackStorages;
+using CurrencyRepositories.BackpackStorages;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Dummies
+namespace Characters.Dummies
 {
   public class DummyTargetOutline : MonoBehaviour
   {

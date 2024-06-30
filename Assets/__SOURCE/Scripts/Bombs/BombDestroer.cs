@@ -1,11 +1,12 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Players;
-using Gameplay.Quests;
-using Gameplay.Quests.Subquests;
+using Characters.Players;
+using Characters.Players._components;
+using Quests;
+using Quests.Subquests;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Bombs
+namespace Bombs
 {
   public class BombDestroer : MonoBehaviour
   {

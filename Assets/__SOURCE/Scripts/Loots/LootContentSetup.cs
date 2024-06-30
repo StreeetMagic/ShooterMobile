@@ -1,8 +1,8 @@
 using System;
-using Gameplay.CurrencyRepositories;
+using CurrencyRepositories;
 using UnityEngine;
 
-namespace Gameplay.Loots
+namespace Loots
 {
   [Serializable]
   public class LootContentSetup

@@ -1,17 +1,18 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.Enemies.StateMachines;
-using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Spawners;
-using Gameplay.Spawners.SpawnPoints;
+using Characters.Enemies._components;
+using Characters.Enemies._components.StateMachines;
+using Characters.Enemies._components.TargetTriggers;
+using Characters.Enemies.Configs;
+using Characters.FiniteStateMachines;
 using Infrastructure.ZenjectFactories.GameobjectContext;
+using Spawners;
+using Spawners.SpawnPoints;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
 using Zenject.Source.Install;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies
 {
   public class EnemyInstaller : MonoInstaller
   {

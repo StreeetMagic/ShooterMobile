@@ -1,4 +1,4 @@
-using Gameplay.Characters.Players;
+using Characters.Players;
 using Infrastructure.ArtConfigServices;
 using TMPro;
 using UnityEngine;

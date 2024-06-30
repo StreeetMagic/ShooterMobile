@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Characters.Players.Animators
+namespace Characters.Players._components.Animators
 {
   public class PlayerAnimator : MonoBehaviour
   {

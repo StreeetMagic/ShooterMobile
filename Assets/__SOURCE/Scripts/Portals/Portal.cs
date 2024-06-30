@@ -1,12 +1,12 @@
 using System;
-using Gameplay.Characters.Players;
+using Characters.Players;
 using Infrastructure.Projects;
 using Infrastructure.SceneLoaders;
-using Scenes._Infrastructure.Scripts;
+using Scripts;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Portals
+namespace Portals
 {
   public class Portal : MonoBehaviour
   {

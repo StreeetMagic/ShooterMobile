@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Players.StateMachines.States.IdleState
+namespace Characters.Players._components.StateMachines.States.IdleState
 {
   public class PlayerIdleState : State
   {

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using Gameplay.Weapons;
 using Infrastructure.ConfigProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
+using Weapons;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerWeaponIdProvider : IProgressWriter
   {

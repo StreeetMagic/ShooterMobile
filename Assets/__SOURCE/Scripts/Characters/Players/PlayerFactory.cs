@@ -1,10 +1,9 @@
 using Infrastructure.AssetProviders;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.ZenjectFactories.SceneContext;
-using Maps;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players
 {
   public class PlayerFactory
   {

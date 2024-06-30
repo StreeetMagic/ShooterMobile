@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gameplay.Quests
+namespace Quests
 {
   [CreateAssetMenu(menuName = "ArtConfigs/QuestConfig", fileName = "QuestContentConfig")]
   public class QuestContentConfig : ScriptableObject

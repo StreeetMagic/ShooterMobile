@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Gameplay.Stats;
 using Infrastructure.ConfigProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
+using Stats;
 
-namespace Gameplay.Upgrades
+namespace Upgrades
 {
   public class UpgradeService : IProgressWriter
   {

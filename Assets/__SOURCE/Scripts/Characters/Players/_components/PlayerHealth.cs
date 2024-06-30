@@ -1,9 +1,9 @@
 using System;
-using Gameplay.Stats;
 using Infrastructure.SceneInstallers.GameLoop;
 using Infrastructure.Utilities;
+using Stats;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerHealth
   {

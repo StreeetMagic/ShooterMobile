@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Maps.Markers.EnemySpawnMarkers.Editor
+namespace LevelDesign.EnemySpawnMarkers._components.Editor
 {
   public class EnemySpawnPointMarkerEditor : UnityEditor.Editor
   {

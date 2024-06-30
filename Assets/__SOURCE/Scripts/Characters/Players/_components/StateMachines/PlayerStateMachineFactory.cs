@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.StateMachines.AnyStateTransitions;
-using Gameplay.Characters.Players.StateMachines.States.AttackState;
-using Gameplay.Characters.Players.StateMachines.States.BoostrapState;
-using Gameplay.Characters.Players.StateMachines.States.DieState;
-using Gameplay.Characters.Players.StateMachines.States.IdleState;
-using Gameplay.Characters.Players.StateMachines.States.InterractState;
-using Gameplay.Characters.Players.StateMachines.States.LowWeaponState;
-using Gameplay.Characters.Players.StateMachines.States.MoveState;
-using Gameplay.Characters.Players.StateMachines.States.RiseWeaponState;
+using Characters.FiniteStateMachines;
+using Characters.Players._components.StateMachines.AnyStateTransitions;
+using Characters.Players._components.StateMachines.States.AttackState;
+using Characters.Players._components.StateMachines.States.BoostrapState;
+using Characters.Players._components.StateMachines.States.DieState;
+using Characters.Players._components.StateMachines.States.IdleState;
+using Characters.Players._components.StateMachines.States.InterractState;
+using Characters.Players._components.StateMachines.States.LowWeaponState;
+using Characters.Players._components.StateMachines.States.MoveState;
+using Characters.Players._components.StateMachines.States.RiseWeaponState;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 
-namespace Gameplay.Characters.Players.StateMachines
+namespace Characters.Players._components.StateMachines
 {
   public class PlayerStateMachineFactory : IStateMachineFactory
   {

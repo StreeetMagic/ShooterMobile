@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Gameplay.Stats;
-using Gameplay.Upgrades;
 using Infrastructure.ConfigProviders;
 using Infrastructure.Utilities;
+using Stats;
+using Upgrades;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerStatsProvider
   {

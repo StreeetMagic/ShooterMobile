@@ -1,8 +1,8 @@
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Spawners;
+using Characters.Enemies.Configs;
+using Spawners;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyToSpawnerDistance
   {

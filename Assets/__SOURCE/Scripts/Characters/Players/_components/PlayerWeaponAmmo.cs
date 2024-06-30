@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Weapons;
 using Infrastructure.ConfigProviders;
 using Infrastructure.Utilities;
+using Weapons;
 using Zenject;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerWeaponAmmo : IInitializable, IDisposable
   {

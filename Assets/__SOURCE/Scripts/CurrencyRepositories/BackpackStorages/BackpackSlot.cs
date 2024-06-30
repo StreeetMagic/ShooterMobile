@@ -1,7 +1,7 @@
 using System;
-using Gameplay.Loots;
+using Loots;
 
-namespace Gameplay.CurrencyRepositories.BackpackStorages
+namespace CurrencyRepositories.BackpackStorages
 {
   [Serializable]
   public class BackpackSlot

@@ -1,15 +1,15 @@
 using System;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.Enemies.Projectiles;
-using Gameplay.Characters.Players.Projectiles;
-using Gameplay.Weapons;
+using Characters.Enemies._components.Projectiles;
+using Characters.Enemies.Configs;
+using Characters.Players._components.Projectiles;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.VisualEffects;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
+using Weapons;
 
-namespace Gameplay.Projectiles.Scripts
+namespace Projectiles.Scripts
 {
   public class ProjectileFactory
   {

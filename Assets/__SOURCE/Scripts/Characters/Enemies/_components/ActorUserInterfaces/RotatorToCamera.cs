@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.ActorUserInterfaces
+namespace Characters.Enemies._components.ActorUserInterfaces
 {
   public class RotatorToCamera : MonoBehaviour
   {

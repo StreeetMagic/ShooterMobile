@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Gameplay.Rewards
+namespace Rewards
 {
   [Serializable]
   public class RewardContentSetup

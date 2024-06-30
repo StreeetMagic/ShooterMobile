@@ -1,4 +1,4 @@
-namespace Gameplay.Weapons
+namespace Weapons
 {
   public enum WeaponTypeId
   {

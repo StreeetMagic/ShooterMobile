@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.TargetTriggers;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies._components.TargetTriggers;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Idle
+namespace Characters.Enemies._components.StateMachines.States.Idle
 {
   public class EnemyIdleState : State
   {

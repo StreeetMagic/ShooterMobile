@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Projectiles
+namespace Projectiles
 {
   public class ProjectileMover
   {

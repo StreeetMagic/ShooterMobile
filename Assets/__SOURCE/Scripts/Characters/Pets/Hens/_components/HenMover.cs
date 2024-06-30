@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Pets.Hens
+namespace Characters.Pets.Hens._components
 {
   public class HenMover : MonoBehaviour
   {

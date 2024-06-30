@@ -1,7 +1,7 @@
 ﻿using Infrastructure.ConfigProviders;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerRotator
   {

@@ -1,7 +1,7 @@
-using Gameplay.BaseTriggers;
+using BaseTriggers;
 using UnityEngine;
 
-namespace Gameplay.Characters.Sellers
+namespace Characters.Sellers
 {
     public class SellerAnimator : MonoBehaviour
     {

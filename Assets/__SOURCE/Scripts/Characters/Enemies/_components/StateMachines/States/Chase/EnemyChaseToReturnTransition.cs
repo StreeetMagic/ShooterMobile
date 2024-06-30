@@ -1,10 +1,10 @@
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.Enemies.StateMachines.States.Return;
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Spawners;
+using Characters.Enemies._components.StateMachines.States.Return;
+using Characters.Enemies.Configs;
+using Characters.FiniteStateMachines;
+using Spawners;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
+namespace Characters.Enemies._components.StateMachines.States.Chase
 {
   public class EnemyChaseToReturnTransition : Transition
   {

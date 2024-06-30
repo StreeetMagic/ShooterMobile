@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
+namespace Characters.Enemies._components.ActorUserInterfaces.LootSlots
 {
   public class EnemyLootSlot : MonoBehaviour
   {

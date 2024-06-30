@@ -1,4 +1,4 @@
-namespace Gameplay.Characters.Enemies.Configs
+namespace Characters.Enemies.Configs
 {
   public enum EnemyVisualEffectsSetupId
   {

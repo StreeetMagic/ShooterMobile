@@ -3,7 +3,7 @@ using Infrastructure.Utilities;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerMoveSpeed : ITickable
   {

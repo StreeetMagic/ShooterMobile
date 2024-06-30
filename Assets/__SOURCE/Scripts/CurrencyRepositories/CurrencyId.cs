@@ -1,4 +1,4 @@
-namespace Gameplay.CurrencyRepositories
+namespace CurrencyRepositories
 {
   public enum CurrencyId
   {

@@ -1,8 +1,8 @@
 using System;
-using Gameplay.Characters.Players.Animators;
-using Gameplay.Weapons;
+using Characters.Players._components.Animators;
+using Weapons;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerWeaponAttackAnimationController
   {

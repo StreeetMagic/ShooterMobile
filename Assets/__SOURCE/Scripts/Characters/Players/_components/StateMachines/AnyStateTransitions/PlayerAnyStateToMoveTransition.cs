@@ -1,9 +1,9 @@
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.StateMachines.States.MoveState;
+using Characters.FiniteStateMachines;
+using Characters.Players._components.Animators;
+using Characters.Players._components.StateMachines.States.MoveState;
 using Inputs;
 
-namespace Gameplay.Characters.Players.StateMachines.AnyStateTransitions
+namespace Characters.Players._components.StateMachines.AnyStateTransitions
 {
   public class PlayerAnyStateToMoveTransition : Transition
   {

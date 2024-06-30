@@ -1,7 +1,7 @@
 using System;
-using Gameplay.CurrencyRepositories;
+using CurrencyRepositories;
 
-namespace Gameplay.Loots
+namespace Loots
 {
   [Serializable]
   public class LootDrop

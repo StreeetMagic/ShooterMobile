@@ -1,9 +1,10 @@
-using Gameplay.Characters.Players;
+using Characters.Players;
+using Characters.Players._components;
 using Infrastructure.ConfigProviders;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Bombs
+namespace Bombs
 {
   public class BombPlayerDetector : MonoBehaviour
   {

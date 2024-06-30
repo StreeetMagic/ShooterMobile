@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Gameplay.Grenades;
-using Gameplay.Loots;
+using Grenades;
+using Loots;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.Configs
+namespace Characters.Enemies.Configs
 {
   [CreateAssetMenu(fileName = nameof(EnemyConfig), menuName = "Configs/EnemyConfig")]
   public class EnemyConfig : ScriptableObject

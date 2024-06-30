@@ -2,7 +2,7 @@ using Infrastructure.ConfigProviders;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Bombs
+namespace Bombs
 {
   [RequireComponent(typeof(RectTransform))]
   public class BombDefuseRadius : MonoBehaviour

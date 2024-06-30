@@ -1,11 +1,12 @@
 using System;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.Players;
-using Gameplay.Upgrades;
+using Characters.Enemies.Configs;
+using Characters.Players;
+using Characters.Players._components;
 using UnityEngine;
+using Upgrades;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.TargetLocators
+namespace Characters.Enemies._components.TargetLocators
 {
   public class EnemyTargetLocator : MonoBehaviour
   {

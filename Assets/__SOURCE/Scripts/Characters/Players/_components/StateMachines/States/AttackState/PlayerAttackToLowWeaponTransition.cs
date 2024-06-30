@@ -1,8 +1,8 @@
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.StateMachines.States.LowWeaponState;
-using Gameplay.Weapons;
+using Characters.FiniteStateMachines;
+using Characters.Players._components.StateMachines.States.LowWeaponState;
+using Weapons;
 
-namespace Gameplay.Characters.Players.StateMachines.States.AttackState
+namespace Characters.Players._components.StateMachines.States.AttackState
 {
   public class PlayerAttackToLowWeaponTransition : Transition
   {

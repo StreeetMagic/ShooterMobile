@@ -1,13 +1,12 @@
-
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Spawners;
-using Gameplay.Spawners.SpawnPoints;
+using Characters.Enemies.Configs;
+using Spawners;
+using Spawners.SpawnPoints;
 using UnityEngine;
 using Zenject;
 using Zenject.Source.Factories;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies
 {
   public class Enemy : MonoBehaviour
   {

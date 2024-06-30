@@ -1,8 +1,8 @@
-using Gameplay.Characters.Players.MeshModels;
-using Gameplay.Weapons;
+using Characters.Players._components.MeshModels;
 using UnityEngine;
+using Weapons;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerWeaponMeshSwitcher
   {

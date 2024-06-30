@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Quests.Subquests;
+using Quests.Subquests;
 using UnityEngine;
 
-namespace Gameplay.Quests
+namespace Quests
 {
   public class QuestTargetsProvider
   {

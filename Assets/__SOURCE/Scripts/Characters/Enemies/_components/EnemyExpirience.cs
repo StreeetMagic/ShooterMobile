@@ -1,9 +1,9 @@
 using System;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.CurrencyRepositories.Expirience;
+using Characters.Enemies.Configs;
+using CurrencyRepositories.Expirience;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyExpirience : IInitializable, IDisposable
   {

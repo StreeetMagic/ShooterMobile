@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Dummies
+namespace Characters.Dummies
 {
   public class Dummy : MonoBehaviour
   {

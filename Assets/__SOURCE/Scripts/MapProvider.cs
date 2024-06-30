@@ -1,7 +1,4 @@
-namespace Maps
+public class MapProvider
 {
-  public class MapProvider
-  {
-    public Map Map { get; set; }
-  }
+  public Map Map { get; set; }
 }

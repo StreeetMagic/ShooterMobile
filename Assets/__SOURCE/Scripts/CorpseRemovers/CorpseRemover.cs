@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Gameplay.Characters;
-using Gameplay.Characters.Enemies.Configs;
+using Characters;
+using Characters.Enemies.Configs;
 using Infrastructure.CoroutineRunners;
 using Infrastructure.Utilities;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Gameplay.CorpseRemovers
+namespace CorpseRemovers
 {
   public class CorpseRemover
   {

@@ -1,7 +1,7 @@
-using Gameplay.Characters.Enemies.StateMachines.States.Chase;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies._components.StateMachines.States.Chase;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Alert
+namespace Characters.Enemies._components.StateMachines.States.Alert
 {
   public class EnemyAlertToChaseTransition : Transition
   {

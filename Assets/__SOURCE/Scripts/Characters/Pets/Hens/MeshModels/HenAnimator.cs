@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters.Pets.Hens.MeshModels
+namespace Characters.Pets.Hens.MeshModels
 {
   public class HenAnimator : MonoBehaviour
   {

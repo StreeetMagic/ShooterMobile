@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Maps.Markers
+namespace LevelDesign
 {
   public class DisableMeshRendererOnAwake : MonoBehaviour
   {

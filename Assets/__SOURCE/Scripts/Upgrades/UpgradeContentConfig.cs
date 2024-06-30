@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gameplay.Upgrades
+namespace Upgrades
 {
   [CreateAssetMenu(fileName = "UpgradeContentConfig", menuName = "ArtConfigs/UpgradeContentConfig")]
   public class UpgradeContentConfig : ScriptableObject

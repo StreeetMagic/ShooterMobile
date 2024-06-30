@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Loots;
+using Loots;
 using UnityEngine;
 
-namespace Gameplay.Bombs
+namespace Bombs
 {
   public class Bomb : MonoBehaviour
   {

@@ -1,7 +1,7 @@
-using Gameplay.Characters.Players.Animators;
+using Characters.Players._components.Animators;
 using Zenject;
 
-namespace Gameplay.Characters.Players.TargetLocators
+namespace Characters.Players._components.TargetLocators
 {
   public class PlayerReloadAnimationController : ITickable
   {

@@ -1,8 +1,8 @@
-using Gameplay.Characters.Pets.Hens;
+using Characters.Pets.Hens;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerHenSpawner : ITickable
   {

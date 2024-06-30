@@ -1,8 +1,8 @@
-using Gameplay.Quests;
+using Quests;
 using Zenject;
 using Zenject.Source.Install;
 
-namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.QuestPointers
+namespace Characters.Players._components.ActorUserIntefaces.QuestPointerSpawners._components.QuestPointers
 {
   public class QuestPointerInstaller : MonoInstaller
   {

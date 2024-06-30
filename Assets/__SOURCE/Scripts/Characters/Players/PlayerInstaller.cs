@@ -1,17 +1,18 @@
 using System;
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.Animators;
-using Gameplay.Characters.Players.MeshModels;
-using Gameplay.Characters.Players.StateMachines;
-using Gameplay.Characters.Players.TargetLocators;
-using Gameplay.Weapons;
+using Characters.FiniteStateMachines;
+using Characters.Players._components;
+using Characters.Players._components.Animators;
+using Characters.Players._components.MeshModels;
+using Characters.Players._components.StateMachines;
+using Characters.Players._components.TargetLocators;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 using UnityEngine;
+using Weapons;
 using Zenject;
 using Zenject.Source.Install;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players
 {
   public class PlayerInstaller : MonoInstaller, IInitializable, IDisposable
   {

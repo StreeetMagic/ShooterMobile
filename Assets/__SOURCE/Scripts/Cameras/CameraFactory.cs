@@ -1,5 +1,5 @@
-﻿using Cinemachine;
-using Gameplay.Characters.Players;
+﻿using Characters.Players;
+using Cinemachine;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.SceneContext;

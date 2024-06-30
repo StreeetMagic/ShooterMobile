@@ -1,12 +1,12 @@
 using System;
-using Gameplay.Projectiles;
-using Gameplay.Weapons;
 using Infrastructure.ConfigProviders;
 using Infrastructure.VisualEffects;
+using Projectiles;
 using UnityEngine;
+using Weapons;
 using Zenject;
 
-namespace Gameplay.Characters.Players.Projectiles
+namespace Characters.Players._components.Projectiles
 {
   public class PlayerProjectile : MonoBehaviour
   {

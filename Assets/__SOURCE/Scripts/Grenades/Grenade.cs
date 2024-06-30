@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Grenades
+namespace Grenades
 {
   public class Grenade : MonoBehaviour
   {

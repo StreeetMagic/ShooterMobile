@@ -1,9 +1,9 @@
 using System;
-using Gameplay.Weapons;
 using Infrastructure.ConfigProviders;
 using UnityEngine;
+using Weapons;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerWeaponAttacker
   {

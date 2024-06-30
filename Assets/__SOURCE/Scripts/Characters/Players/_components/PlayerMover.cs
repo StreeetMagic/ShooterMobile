@@ -1,10 +1,10 @@
-using Gameplay.Stats;
 using Infrastructure.ConfigProviders;
 using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
+using Stats;
 using UnityEngine;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players._components
 {
   public class PlayerMover : IProgressWriter
   {

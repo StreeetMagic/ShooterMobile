@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Gameplay.Quests
+namespace Quests
 {
   [Serializable]
   public class QuestContentSetup

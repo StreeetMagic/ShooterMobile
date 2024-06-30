@@ -1,9 +1,9 @@
 using System;
-using Gameplay.Characters.Enemies.Configs;
+using Characters.Enemies.Configs;
 using Infrastructure.Utilities;
 using UnityEngine;
 
-namespace Gameplay.Characters.Dummies
+namespace Characters.Dummies
 {
   public class DummyHealth : MonoBehaviour, IHealth
   {

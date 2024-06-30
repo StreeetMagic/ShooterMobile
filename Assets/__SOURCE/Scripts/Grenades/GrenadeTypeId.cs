@@ -1,4 +1,4 @@
-namespace Gameplay.Grenades
+namespace Grenades
 {
   public enum GrenadeTypeId
   {

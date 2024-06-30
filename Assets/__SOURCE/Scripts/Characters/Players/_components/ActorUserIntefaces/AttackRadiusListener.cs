@@ -1,9 +1,9 @@
-using Gameplay.Weapons;
 using Infrastructure.ConfigProviders;
 using UnityEngine;
+using Weapons;
 using Zenject;
 
-namespace Gameplay.Characters.Players.ActorUserIntefaces
+namespace Characters.Players._components.ActorUserIntefaces
 {
   public class AttackRadiusListener : MonoBehaviour
   {

@@ -1,7 +1,7 @@
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.Players;
+using Characters.Enemies.Configs;
+using Characters.Players;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyMeleeAttacker
   {

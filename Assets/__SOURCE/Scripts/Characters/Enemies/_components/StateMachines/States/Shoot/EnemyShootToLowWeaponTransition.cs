@@ -1,10 +1,10 @@
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.Enemies.StateMachines.States.LowWeapon;
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players;
+using Characters.Enemies._components.StateMachines.States.LowWeapon;
+using Characters.Enemies.Configs;
+using Characters.FiniteStateMachines;
+using Characters.Players;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Shoot
+namespace Characters.Enemies._components.StateMachines.States.Shoot
 {
   public class EnemyShootToLowWeaponTransition : Transition
   {

@@ -1,14 +1,14 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.CurrencyRepositories;
-using Gameplay.Loots;
+using Characters.Enemies.Configs;
+using CurrencyRepositories;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.ConfigProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
+using Loots;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.ActorUserInterfaces.LootSlots
+namespace Characters.Enemies._components.ActorUserInterfaces.LootSlots
 {
   public class EnemyLootSlotFactory
   {

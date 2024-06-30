@@ -1,6 +1,6 @@
 using System;
 
-namespace Gameplay.Upgrades
+namespace Upgrades
 {
   [Serializable]
   public class UpgradeValue

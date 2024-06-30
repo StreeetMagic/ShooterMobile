@@ -4,7 +4,7 @@ using System.Linq;
 using Infrastructure.Utilities;
 using Zenject;
 
-namespace Gameplay.Weapons
+namespace Weapons
 {
   public class WeaponShop : IInitializable, IDisposable
   {

@@ -1,8 +1,8 @@
-using Gameplay.Quests;
+using Quests;
 using UnityEngine;
 using Zenject.Source.Factories;
 
-namespace Gameplay.Characters.Players.ActorUserIntefaces.QuestPointerSpawners.QuestPointers
+namespace Characters.Players._components.ActorUserIntefaces.QuestPointerSpawners._components.QuestPointers
 {
   public class QuestPointer : MonoBehaviour
   {

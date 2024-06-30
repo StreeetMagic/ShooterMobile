@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Gameplay.Spawners.SpawnPoints;
+using Spawners.SpawnPoints;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyRoutePointsManager
   {

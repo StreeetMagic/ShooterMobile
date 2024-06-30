@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Gameplay.Quests.Subquests;
-using Gameplay.RewardServices;
 using Infrastructure.Utilities;
+using Quests.Subquests;
+using RewardServices;
 
-namespace Gameplay.Quests
+namespace Quests
 {
   public class Quest
   {

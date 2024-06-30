@@ -1,8 +1,8 @@
-using Gameplay.CurrencyRepositories.BackpackStorages;
+using CurrencyRepositories.BackpackStorages;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.TargetTriggers
+namespace Characters.Enemies._components.TargetTriggers
 {
   public class EnemyTargetOutline : MonoBehaviour
   {

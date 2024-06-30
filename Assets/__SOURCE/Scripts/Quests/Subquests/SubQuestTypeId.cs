@@ -1,4 +1,4 @@
-namespace Gameplay.Quests.Subquests
+namespace Quests.Subquests
 {
   public enum SubQuestId
   {

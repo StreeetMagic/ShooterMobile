@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Zenject;
 
-namespace Gameplay.Characters.FiniteStateMachines
+namespace Characters.FiniteStateMachines
 {
   public abstract class State : ITickable
   {

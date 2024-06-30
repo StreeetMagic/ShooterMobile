@@ -1,9 +1,9 @@
-using Gameplay.Quests.Subquests;
+using Quests.Subquests;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
 
-namespace Gameplay.Quests
+namespace Quests
 {
   public class QuestOutline : MonoBehaviour
   {

@@ -1,13 +1,13 @@
 using System;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.CorpseRemovers;
-using Gameplay.RewardServices;
-using Gameplay.Spawners;
+using Characters.Enemies.Configs;
+using CorpseRemovers;
 using Infrastructure.Utilities;
+using RewardServices;
+using Spawners;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyHealth : MonoBehaviour, IHealth
   {

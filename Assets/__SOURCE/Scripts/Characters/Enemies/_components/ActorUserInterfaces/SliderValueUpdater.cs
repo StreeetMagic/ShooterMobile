@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Gameplay.Characters.Enemies.ActorUserInterfaces
+namespace Characters.Enemies._components.ActorUserInterfaces
 {
   public class SliderValueUpdater : MonoBehaviour
   {

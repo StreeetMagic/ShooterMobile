@@ -1,10 +1,10 @@
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.Enemies.StateMachines.States.RaiseWeapon;
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players;
+using Characters.Enemies._components.StateMachines.States.RaiseWeapon;
+using Characters.Enemies.Configs;
+using Characters.FiniteStateMachines;
+using Characters.Players;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Chase
+namespace Characters.Enemies._components.StateMachines.States.Chase
 {
   public class EnemyChaseToRaiseWeaponTransition : Transition
   {

@@ -5,7 +5,7 @@ using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
 using Zenject;
 
-namespace Gameplay.Weapons
+namespace Weapons
 {
   public class WeaponStorage : IProgressWriter, IInitializable, IDisposable
   {

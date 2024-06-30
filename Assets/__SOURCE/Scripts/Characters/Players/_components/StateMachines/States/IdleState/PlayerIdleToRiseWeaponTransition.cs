@@ -1,7 +1,7 @@
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.StateMachines.States.RiseWeaponState;
+using Characters.FiniteStateMachines;
+using Characters.Players._components.StateMachines.States.RiseWeaponState;
 
-namespace Gameplay.Characters.Players.StateMachines.States.IdleState
+namespace Characters.Players._components.StateMachines.States.IdleState
 {
   public class PlayerIdleToRiseWeaponTransition : Transition
   {

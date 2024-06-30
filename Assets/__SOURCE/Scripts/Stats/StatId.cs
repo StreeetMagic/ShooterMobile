@@ -1,4 +1,4 @@
-namespace Gameplay.Stats
+namespace Stats
 {
   public enum StatId 
   { 

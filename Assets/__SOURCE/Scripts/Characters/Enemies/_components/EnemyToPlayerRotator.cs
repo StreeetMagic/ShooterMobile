@@ -1,7 +1,7 @@
-using Gameplay.Characters.Players;
+using Characters.Players;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyToPlayerRotator
   {

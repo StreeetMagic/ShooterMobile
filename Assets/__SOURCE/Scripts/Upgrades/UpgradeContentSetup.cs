@@ -1,8 +1,8 @@
 using System;
-using Gameplay.Stats;
+using Stats;
 using UnityEngine;
 
-namespace Gameplay.Upgrades
+namespace Upgrades
 {
   [Serializable]
   public class UpgradeContentSetup

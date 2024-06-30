@@ -1,8 +1,8 @@
-using Gameplay.Characters.Enemies.StateMachines.States.Idle;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies._components.StateMachines.States.Idle;
+using Characters.FiniteStateMachines;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Patrol
+namespace Characters.Enemies._components.StateMachines.States.Patrol
 {
   public class EnemyPatrolToIdleTransition : Transition
   {

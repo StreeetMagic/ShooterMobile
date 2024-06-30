@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies.Configs;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Alert
+namespace Characters.Enemies._components.StateMachines.States.Alert
 {
   public class EnemyAlertState : State
   {

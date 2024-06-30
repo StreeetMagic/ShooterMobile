@@ -1,7 +1,7 @@
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.StateMachines.States.IdleState;
+using Characters.FiniteStateMachines;
+using Characters.Players._components.StateMachines.States.IdleState;
 
-namespace Gameplay.Characters.Players.StateMachines.States.BoostrapState
+namespace Characters.Players._components.StateMachines.States.BoostrapState
 {
   public class PlayerBootstrapToIdleTransition : Transition
   {

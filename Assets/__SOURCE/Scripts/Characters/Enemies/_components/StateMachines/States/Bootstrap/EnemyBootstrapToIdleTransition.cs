@@ -1,7 +1,7 @@
-using Gameplay.Characters.Enemies.StateMachines.States.Idle;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies._components.StateMachines.States.Idle;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Bootstrap
+namespace Characters.Enemies._components.StateMachines.States.Bootstrap
 {
   public class EnemyBootstrapToIdleTransition : Transition
   {

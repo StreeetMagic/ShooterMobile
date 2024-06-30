@@ -4,7 +4,7 @@ using Infrastructure.PersistentProgresses;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.Utilities;
 
-namespace Gameplay.CurrencyRepositories.Expirience
+namespace CurrencyRepositories.Expirience
 {
   public class ExpierienceStorage : IProgressWriter
   {

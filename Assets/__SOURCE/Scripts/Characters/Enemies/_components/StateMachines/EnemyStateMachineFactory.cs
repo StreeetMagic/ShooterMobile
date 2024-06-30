@@ -1,23 +1,23 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Characters.Enemies.StateMachines.AnyStatesTransitions;
-using Gameplay.Characters.Enemies.StateMachines.States.Alert;
-using Gameplay.Characters.Enemies.StateMachines.States.Bootstrap;
-using Gameplay.Characters.Enemies.StateMachines.States.Chase;
-using Gameplay.Characters.Enemies.StateMachines.States.Die;
-using Gameplay.Characters.Enemies.StateMachines.States.Idle;
-using Gameplay.Characters.Enemies.StateMachines.States.LowWeapon;
-using Gameplay.Characters.Enemies.StateMachines.States.MeleeAttack;
-using Gameplay.Characters.Enemies.StateMachines.States.Patrol;
-using Gameplay.Characters.Enemies.StateMachines.States.RaiseWeapon;
-using Gameplay.Characters.Enemies.StateMachines.States.Reload;
-using Gameplay.Characters.Enemies.StateMachines.States.Return;
-using Gameplay.Characters.Enemies.StateMachines.States.Shoot;
-using Gameplay.Characters.Enemies.StateMachines.States.ThrowGrenade;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies._components.StateMachines.AnyStatesTransitions;
+using Characters.Enemies._components.StateMachines.States.Alert;
+using Characters.Enemies._components.StateMachines.States.Bootstrap;
+using Characters.Enemies._components.StateMachines.States.Chase;
+using Characters.Enemies._components.StateMachines.States.Die;
+using Characters.Enemies._components.StateMachines.States.Idle;
+using Characters.Enemies._components.StateMachines.States.LowWeapon;
+using Characters.Enemies._components.StateMachines.States.MeleeAttack;
+using Characters.Enemies._components.StateMachines.States.Patrol;
+using Characters.Enemies._components.StateMachines.States.RaiseWeapon;
+using Characters.Enemies._components.StateMachines.States.Reload;
+using Characters.Enemies._components.StateMachines.States.Return;
+using Characters.Enemies._components.StateMachines.States.Shoot;
+using Characters.Enemies._components.StateMachines.States.ThrowGrenade;
+using Characters.FiniteStateMachines;
 using Infrastructure.ZenjectFactories.GameobjectContext;
 
-namespace Gameplay.Characters.Enemies.StateMachines
+namespace Characters.Enemies._components.StateMachines
 {
   public class EnemyStateMachineFactory : IStateMachineFactory
   {

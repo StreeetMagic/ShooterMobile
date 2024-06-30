@@ -1,9 +1,9 @@
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Characters.Enemies.StateMachines.States.Chase;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies._components.StateMachines.States.Chase;
+using Characters.Enemies.Configs;
+using Characters.FiniteStateMachines;
 using UnityEngine;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.ThrowGrenade
+namespace Characters.Enemies._components.StateMachines.States.ThrowGrenade
 {
   public class EnemyThrowGrenadeToChaseTransition : Transition
   {

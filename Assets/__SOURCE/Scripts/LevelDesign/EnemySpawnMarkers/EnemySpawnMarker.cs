@@ -1,7 +1,7 @@
-using Gameplay.Characters.Enemies;
+using Characters.Enemies;
 using UnityEngine;
 
-namespace Maps.Markers.EnemySpawnMarkers
+namespace LevelDesign.EnemySpawnMarkers
 {
   public class EnemySpawnMarker : MonoBehaviour
   {

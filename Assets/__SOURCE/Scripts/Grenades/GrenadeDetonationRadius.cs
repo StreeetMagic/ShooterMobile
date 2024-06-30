@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Gameplay.Grenades
+namespace Grenades
 {
     public class GrenadeDetonationRadius : MonoBehaviour
     {

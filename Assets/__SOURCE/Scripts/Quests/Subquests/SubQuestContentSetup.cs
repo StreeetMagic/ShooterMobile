@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Gameplay.Quests.Subquests
+namespace Quests.Subquests
 {
   [Serializable]
   public class SubQuestContentSetup

@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using Cameras;
-using Gameplay.Characters.Players;
-using Gameplay.CurrencyRepositories;
-using Gameplay.CurrencyRepositories.BackpackStorages;
+using Characters.Players;
+using Characters.Players._components;
+using CurrencyRepositories;
+using CurrencyRepositories.BackpackStorages;
 using Infrastructure.SaveLoadServices;
 using Infrastructure.VisualEffects.ParticleImages;
 using UnityEngine;
 using UserInterface.HeadsUpDisplays;
 using Zenject;
 
-namespace Gameplay.BaseTriggers
+namespace BaseTriggers
 {
   public class BaseTrigger : MonoBehaviour
   {

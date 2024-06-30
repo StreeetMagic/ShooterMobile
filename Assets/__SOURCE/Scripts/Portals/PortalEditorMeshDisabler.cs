@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Portals
+namespace Portals
 {
   public class PortalEditorMeshDisabler : MonoBehaviour
   {

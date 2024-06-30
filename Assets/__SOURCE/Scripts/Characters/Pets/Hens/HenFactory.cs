@@ -1,9 +1,9 @@
-using Gameplay.Characters.Players;
+using Characters.Players;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
 using UnityEngine;
 
-namespace Gameplay.Characters.Pets.Hens
+namespace Characters.Pets.Hens
 {
   public class HenFactory
   {

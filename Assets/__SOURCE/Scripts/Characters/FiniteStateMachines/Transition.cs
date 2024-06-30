@@ -1,8 +1,8 @@
 using System;
-using Loggers;
+using Infrastructure.Loggers;
 using Zenject;
 
-namespace Gameplay.Characters.FiniteStateMachines
+namespace Characters.FiniteStateMachines
 {
   public abstract class Transition : ITickable
   {

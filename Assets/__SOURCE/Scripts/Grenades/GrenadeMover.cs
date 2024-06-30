@@ -1,7 +1,7 @@
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
-namespace Gameplay.Grenades
+namespace Grenades
 {
   [RequireComponent(typeof(GrenadeDetonator))]
   public class GrenadeMover : MonoBehaviour

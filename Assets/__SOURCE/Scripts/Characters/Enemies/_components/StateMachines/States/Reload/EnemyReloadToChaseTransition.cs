@@ -1,7 +1,7 @@
-using Gameplay.Characters.Enemies.StateMachines.States.Chase;
-using Gameplay.Characters.FiniteStateMachines;
+using Characters.Enemies._components.StateMachines.States.Chase;
+using Characters.FiniteStateMachines;
 
-namespace Gameplay.Characters.Enemies.StateMachines.States.Reload
+namespace Characters.Enemies._components.StateMachines.States.Reload
 {
   public class EnemyReloadToChaseTransition : Transition
   {

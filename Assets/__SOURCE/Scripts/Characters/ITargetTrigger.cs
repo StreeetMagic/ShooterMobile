@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Characters
+namespace Characters
 {
   public interface ITargetTrigger
   {

@@ -1,13 +1,13 @@
-using Gameplay.Characters.Enemies.Configs;
-using Gameplay.Projectiles.Scripts;
-using Gameplay.Utilities;
+using Characters.Enemies.Configs;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AudioServices;
 using Infrastructure.AudioServices.Sounds;
 using Infrastructure.VisualEffects;
+using Projectiles.Scripts;
 using UnityEngine;
+using Utilities;
 
-namespace Gameplay.Characters.Enemies
+namespace Characters.Enemies._components
 {
   public class EnemyShooter
   {

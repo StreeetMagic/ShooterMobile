@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Gameplay.Characters.FiniteStateMachines
+namespace Characters.FiniteStateMachines
 {
   public interface IStateMachineFactory
   {

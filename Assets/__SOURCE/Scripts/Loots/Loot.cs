@@ -1,6 +1,6 @@
 using System;
 
-namespace Gameplay.Loots
+namespace Loots
 {
   [Serializable]
   public class Loot

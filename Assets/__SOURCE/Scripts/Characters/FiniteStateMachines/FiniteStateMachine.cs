@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Loggers;
+using Infrastructure.Loggers;
 using Zenject;
 
-namespace Gameplay.Characters.FiniteStateMachines
+namespace Characters.FiniteStateMachines
 {
   public class FiniteStateMachine : ITickable
   {

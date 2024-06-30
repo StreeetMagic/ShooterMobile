@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Characters.FiniteStateMachines;
-using Gameplay.Characters.Players.Animators;
+using Characters.FiniteStateMachines;
+using Characters.Players._components.Animators;
 
-namespace Gameplay.Characters.Players.StateMachines.States.MoveState
+namespace Characters.Players._components.StateMachines.States.MoveState
 {
   public class PlayerMoveState : State
   {

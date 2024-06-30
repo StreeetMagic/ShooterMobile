@@ -1,10 +1,9 @@
-using Gameplay.BaseTriggers;
-using Gameplay.CurrencyRepositories.BackpackStorages;
-using Maps;
+using BaseTriggers;
+using CurrencyRepositories.BackpackStorages;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Characters.Players.ActorUserIntefaces.BasePointers
+namespace Characters.Players._components.ActorUserIntefaces.BasePointers
 {
   public class BasePointer : MonoBehaviour
   {

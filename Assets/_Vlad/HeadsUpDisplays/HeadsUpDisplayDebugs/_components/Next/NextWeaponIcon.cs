@@ -1,8 +1,8 @@
-using Gameplay.Characters.Players;
-using Gameplay.Weapons;
+using Characters.Players;
 using Infrastructure.ArtConfigServices;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapons;
 using Zenject;
 
 namespace Vlad.HeadsUpDisplays.HeadsUpDisplayDebugs.Next

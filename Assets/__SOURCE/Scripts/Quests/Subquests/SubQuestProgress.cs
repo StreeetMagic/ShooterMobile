@@ -1,7 +1,7 @@
 using System;
 using UnityEngine.Serialization;
 
-namespace Gameplay.Quests.Subquests
+namespace Quests.Subquests
 {
   [Serializable]
   public class SubQuestProgress

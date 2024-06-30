@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using Gameplay.CurrencyRepositories;
-using Gameplay.Stats;
+using CurrencyRepositories;
 using Sirenix.OdinInspector;
+using Stats;
 using UnityEngine;
 
-namespace Gameplay.Upgrades
+namespace Upgrades
 {
   [CreateAssetMenu(fileName = "UpgradeConfig", menuName = "Configs/UpgradeConfig")]
   public class UpgradeConfig : ScriptableObject

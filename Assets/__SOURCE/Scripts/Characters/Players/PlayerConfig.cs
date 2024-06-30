@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Gameplay.Stats;
-using Gameplay.Weapons;
+using Stats;
 using UnityEngine;
+using Weapons;
 
-namespace Gameplay.Characters.Players
+namespace Characters.Players
 {
   [CreateAssetMenu(fileName = nameof(PlayerConfig), menuName = "Configs/PlayerConfig")]
   public class PlayerConfig : ScriptableObject

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Gameplay.Loots;
+using Loots;
 using UnityEngine;
 
-namespace Maps.Markers.SubQuestMarkers.BombDefuse
+namespace LevelDesign.SubQuestMarkers.BombDefuse
 {
   public class BombDefuseMarker : MonoBehaviour
   {

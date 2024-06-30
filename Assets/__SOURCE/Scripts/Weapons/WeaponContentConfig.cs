@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gameplay.Weapons
+namespace Weapons
 {
   [CreateAssetMenu(fileName = nameof(WeaponContentConfig), menuName = "ArtConfigs/WeaponContentConfig")]
   public class WeaponContentConfig : ScriptableObject

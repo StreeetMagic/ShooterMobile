@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Gameplay.Spawners.SpawnPoints;
 using Infrastructure.ArtConfigServices;
 using Infrastructure.AssetProviders;
 using Infrastructure.ZenjectFactories.SceneContext;
-using Maps;
-using Maps.Markers.EnemySpawnMarkers;
+using LevelDesign.EnemySpawnMarkers;
+using LevelDesign.EnemySpawnMarkers._components;
+using Spawners.SpawnPoints;
 using UnityEngine;
 using Zenject.Source.Main;
 
-namespace Gameplay.Spawners.SpawnerFactories
+namespace Spawners.SpawnerFactories
 {
   public class EnemySpawnerFactory
   {

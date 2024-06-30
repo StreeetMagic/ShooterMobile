@@ -1,8 +1,8 @@
 using System;
-using Gameplay.Characters.Enemies;
-using Gameplay.Quests.Subquests;
+using Characters.Enemies;
+using Quests.Subquests;
 
-namespace Gameplay.Quests
+namespace Quests
 {
   public class QuestCompleter
   {

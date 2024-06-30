@@ -1,7 +1,7 @@
 using System;
 using Infrastructure.VisualEffects;
 
-namespace Gameplay.Characters.Enemies.Configs
+namespace Characters.Enemies.Configs
 {
   [Serializable]
   public class EnemyVisualEffectsSetup
