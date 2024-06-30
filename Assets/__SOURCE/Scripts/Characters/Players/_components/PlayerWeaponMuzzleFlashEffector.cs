@@ -24,16 +24,16 @@ namespace Gameplay.Characters.Players
           throw new ArgumentOutOfRangeException(nameof(weaponTypeId), weaponTypeId, null);
 
         case WeaponTypeId.DesertEagle:
-          id = VisualEffectId.PistolMuzzleFlash;
+          id = VisualEffectId.MuzzleStandardYellow;
           break;
 
         case WeaponTypeId.Famas:
         case WeaponTypeId.Ak47:
-          id = VisualEffectId.RiffleMuzzleFlash;
+          id = VisualEffectId.MuzzleSmallYellow;
           break;
 
         case WeaponTypeId.Xm1014:
-          id = VisualEffectId.ShotgunMuzzleFlash;
+          id = VisualEffectId.MuzzleSmallYellow;
           break;
 
         default:

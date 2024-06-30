@@ -86,13 +86,13 @@ namespace Gameplay.Characters.Players.Projectiles
           => throw new ArgumentOutOfRangeException(),
 
         WeaponTypeId.DesertEagle
-          => VisualEffectId.PistolImpactExplosion,
+          => VisualEffectId.ExplosionSphereSmallYellow,
 
         WeaponTypeId.Famas or WeaponTypeId.Ak47
-          => VisualEffectId.RiffleImpactExplosion,
+          => VisualEffectId.ExplosionStandardYellow,
 
         WeaponTypeId.Xm1014
-          => VisualEffectId.ShotgunImpactExplosion,
+          => VisualEffectId.ExplosionSphereSmallYellow,
 
         _
           => throw new ArgumentOutOfRangeException()

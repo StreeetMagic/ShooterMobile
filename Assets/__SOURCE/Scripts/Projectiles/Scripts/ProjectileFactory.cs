@@ -41,16 +41,16 @@ namespace Gameplay.Projectiles.Scripts
           throw new ArgumentOutOfRangeException();
 
         case WeaponTypeId.DesertEagle:
-          bulletEffectId = VisualEffectId.PistolBullet;
+          bulletEffectId = VisualEffectId.BulletYellow;
           break;
 
         case WeaponTypeId.Famas:
         case WeaponTypeId.Ak47:
-          bulletEffectId = VisualEffectId.RiffleBullet;
+          bulletEffectId = VisualEffectId.BulletYellow;
           break;
 
         case WeaponTypeId.Xm1014:
-          bulletEffectId = VisualEffectId.ShotgunBullet;
+          bulletEffectId = VisualEffectId.BulletYellow;
           break;
 
         default:

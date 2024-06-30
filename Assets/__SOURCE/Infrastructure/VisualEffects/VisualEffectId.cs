@@ -21,48 +21,26 @@ namespace Infrastructure.VisualEffects
 
     //Партикл взрыва гранат
     GrenadeExplosion = 100,
+    
+    //Bullets 101 - 120
+    BulletLongRed = 101,
+    BulletLongYellow = 102,
+    BulletRed = 103,
+    BulletYellow = 104,
+    
+    //Muzzles 121 - 140
+    MuzzleStandardRed = 121,
+    MuzzleSmallYellow = 122,
+    MuzzleStandardYellow = 123,
+    MuzzleShotgunStandardYellow = 124,
 
-    //Партиклы пистолетной стрельбы
-    PistolMuzzleFlash = 101,
-    PistolBullet = 102,
-    PistolImpactExplosion = 103,
-
-    //Партиклы винтовочной стрельбы
-    RiffleMuzzleFlash = 104,
-    RiffleBullet = 105,
-    RiffleImpactExplosion = 106,
-
-    //Партиклы дробовикочной стрельбы
-    ShotgunMuzzleFlash = 107,
-    ShotgunBullet = 108,
-    ShotgunImpactExplosion = 109,
-
-    //Партиклы снайперской стрельбы
-    SniperMuzzleFlash = 110,
-    SniperBullet = 111,
-    SniperImpactExplosion = 112,
-
+    //Explosion 141 - 160
+    ExplosionSphereSmallRed = 141,
+    ExplosionSphereSmallYellow = 142,
+    ExplosionStandardRed = 143,
+    ExplosionStandardYellow = 144,
+    
     //Партиклы на враге
     PanicEffect = 200,
-
-    //Партиклы пистолетной стрельбы для врагов
-    EnemyPistolMuzzleFlash = 201,
-    EnemyPistolBullet = 202,
-    EnemyPistolImpactExplosion = 203,
-
-    //Партиклы винтовочной стрельбы
-    EnemyRiffleMuzzleFlash = 204,
-    EnemyRiffleBullet = 205,
-    EnemyRiffleImpactExplosion = 206,
-
-    //Партиклы дробовикочной стрельбы
-    EnemyShotgunMuzzleFlash = 207,
-    EnemyShotgunBullet = 208,
-    EnemyShotgunImpactExplosion = 209,
-
-    //Партиклы снайперской стрельбы
-    EnemySniperMuzzleFlash = 210,
-    EnemySniperBullet = 211,
-    EnemySniperImpactExplosion = 212,
   }
 }
